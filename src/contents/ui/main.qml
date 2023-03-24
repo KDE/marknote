@@ -16,6 +16,7 @@ Kirigami.ApplicationWindow {
     pageStack.globalToolBar.style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
     pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
     pageStack.initialPage: "qrc:/NotesPage.qml"
+    pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
 
     globalDrawer: Kirigami.GlobalDrawer {
             Kirigami.Theme.colorSet: Kirigami.Theme.Window

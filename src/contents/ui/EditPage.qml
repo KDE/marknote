@@ -10,8 +10,29 @@ Kirigami.ScrollablePage {
     id: root
     property string path
     property string name
+    property bool saved : true
     Kirigami.Theme.colorSet: Kirigami.Theme.View
-    title: name
+    titleDelegate: RowLayout {
+        Layout.fillWidth: true
+        Kirigami.Heading {
+            Layout.leftMargin:  Kirigami.Units.largeSpacing * 2
+            text: name
+        }
+        Item { Layout.fillWidth: true }
+        Rectangle {
+            height:5
+            width: 5
+            radius: 2.5
+            color: saved? "#27ae60":"#da4453"
+        }
+        Label {
+            text: saved? "saved" : "not saved"
+            color: Kirigami.Theme.disabledTextColor
+            Layout.rightMargin:  Kirigami.Units.largeSpacing
+        }
+    }
+
+
 
     RowLayout {
         z: 600000
@@ -23,13 +44,10 @@ Kirigami.ScrollablePage {
 
             Layout.margins: 10
             Layout.alignment:Qt.AlignHCenter
-//            Layout.maximumWidth: 400
-//            Layout.fillWidth: true
             background: Kirigami.ShadowedRectangle {
                 Kirigami.Theme.inherit: false
                 Kirigami.Theme.colorSet: Kirigami.Theme.Window
                 shadow.size: 15
-//                shadow.xOffset: 3
                 shadow.yOffset: 3
                 shadow.color: Qt.rgba(0, 0, 0, 0.2)
                 color: Kirigami.Theme.backgroundColor
@@ -108,7 +126,7 @@ Kirigami.ScrollablePage {
 
             id: flickable
             Layout.alignment: Qt.AlignHCenter
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 45
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 40
             Layout.margins: 0
             Layout.fillHeight: true
             Layout.fillWidth: true
@@ -119,7 +137,10 @@ Kirigami.ScrollablePage {
                 background: Item {
 
                 }
-                onTextChanged: saveTimer.restart()
+                onTextChanged: {
+                    saved = false
+                    saveTimer.restart()
+                }
                 persistentSelection: true
                 textMargin: Kirigami.Units.gridUnit
                 height: parent.height
@@ -147,10 +168,11 @@ Kirigami.ScrollablePage {
             Timer{
                 id: saveTimer
                 repeat: false
-                interval: 3000
+                interval: 300
                 onTriggered: {
                     document.saveAs(path)
                     print("document saved")
+                    saved = true
                 }
             }
         }

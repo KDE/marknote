@@ -7,15 +7,57 @@ import org.kde.marknote 1.0
 import "components"
 
 Kirigami.ScrollablePage {
+    id: root
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
-    title: i18n("Your Notes")
 
-    actions.main: Kirigami.Action {
-        icon.name: "list-add"
-        text: "Add"
-        onTriggered: addSheet.open()
+
+    titleDelegate: RowLayout {
+        Layout.fillWidth: true
+        ToolButton {
+            id: addButton
+            icon.name: "list-add"
+            text: "Add"
+            onClicked: addSheet.open()
+            display: AbstractButton.IconOnly
+
+        }
+        Kirigami.Heading {
+            id: heading
+            text: i18n("Your Notes")
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
+        }
+        Kirigami.SearchField {
+            id: search
+            visible: false
+            Layout.fillWidth: true
+            onTextChanged: notesModel.setFilterFixedString(search.text )
+        }
+        ToolButton {
+            id: searchButton
+            icon.name: "search"
+            text: "Search"
+            display: AbstractButton.IconOnly
+
+            onClicked:{
+                if (!search.visible){
+                    search.visible = true
+                    heading.visible = false
+                    addButton.visible = false
+                    searchButton.icon.name = "draw-arrow-back"
+                } else {
+                    search.visible = false
+                    heading.visible = true
+                    addButton.visible = true
+                    search.clear()
+                    searchButton.icon.name = "search"
+                }
+
+            }
+        }
     }
+
     Menu {
         property string path
         id: optionPopup
@@ -121,8 +163,13 @@ Kirigami.ScrollablePage {
     ListView {
         id: notesList
 
-        model: NotesModel{
+        model: SortFilterModel {
             id: notesModel
+            filterCaseSensitivity: Qt.CaseInsensitive
+            filterRole: NotesModel.Name
+            sourceModel: NotesModel {
+                id: notesSourceModel
+            }
         }
 
         delegate: Kirigami.BasicListItem {

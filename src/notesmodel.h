@@ -12,6 +12,7 @@ public:
         Date,
         Name
     };
+    Q_ENUM(Role)
 
     explicit NotesModel(QObject *parent = nullptr);
 

@@ -24,6 +24,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     qmlRegisterType<DocumentHandler>("org.kde.marknote", 1, 0, "DocumentHandler");
     qmlRegisterType<NotesModel>("org.kde.marknote", 1, 0, "NotesModel");
+    qmlRegisterAnonymousType<QAbstractItemModel>("org.kde.marknote", 1);
+    qmlRegisterType<QSortFilterProxyModel>("org.kde.marknote", 1, 0, "SortFilterModel");
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
