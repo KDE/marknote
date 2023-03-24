@@ -28,19 +28,11 @@ Kirigami.ApplicationWindow {
             header: Kirigami.AbstractApplicationHeader {
             }
             ColumnLayout {
-
                 Kirigami.NavigationTabButton {
                     Layout.fillWidth: true
                     implicitHeight: 50
                     display: Controls.AbstractButton.IconOnly
-                    icon.name: "file-library-symbolic"
-                    Layout.margins: 0
-                }
-                Kirigami.NavigationTabButton {
-                    Layout.fillWidth: true
-                    implicitHeight: 50
-                    display: Controls.AbstractButton.IconOnly
-                    icon.name: "file-library-symbolic"
+                    icon.name: "akonadi-phone-home"
                     Layout.margins: 0
 
                 }
@@ -48,10 +40,18 @@ Kirigami.ApplicationWindow {
                     Layout.fillWidth: true
                     implicitHeight: 50
                     display: Controls.AbstractButton.IconOnly
-                    icon.name: "file-library-symbolic"
+                    icon.name: "view-pim-notes"
+                    Layout.margins: 0
+                }
+                Kirigami.NavigationTabButton {
+                    Layout.fillWidth: true
+                    implicitHeight: 50
+                    display: Controls.AbstractButton.IconOnly
+                    icon.name: "accessories-dictionary-symbolic"
                     Layout.margins: 0
 
                 }
+
                 Item { Layout.fillHeight: true }
             }
         }

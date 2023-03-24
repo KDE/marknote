@@ -32,7 +32,7 @@ Kirigami.ScrollablePage {
             id: search
             visible: false
             Layout.fillWidth: true
-            onTextChanged: notesModel.setFilterFixedString(search.text )
+            onTextChanged: filterModel.setFilterFixedString(search.text )
         }
         ToolButton {
             id: searchButton
@@ -164,11 +164,11 @@ Kirigami.ScrollablePage {
         id: notesList
 
         model: SortFilterModel {
-            id: notesModel
+            id: filterModel
             filterCaseSensitivity: Qt.CaseInsensitive
             filterRole: NotesModel.Name
             sourceModel: NotesModel {
-                id: notesSourceModel
+                id: notesModel
             }
         }
 
@@ -179,7 +179,8 @@ Kirigami.ScrollablePage {
             separatorVisible: false
             label: name
             subtitle: Qt.formatDateTime(date, Qt.SystemLocaleDate)
-            onClicked: pageStack.push("qrc:/EditPage.qml", {"path": path, "name": name})
+            onClicked: pageStack.push("qrc:/EditPage.qml", {"path": path, "name": name, "objectName": name})
+            highlighted: pageStack.currentItem && pageStack.currentItem.objectName === name
             textSpacing: Kirigami.Units.mediumSpacing
             topPadding: Kirigami.Units.mediumSpacing
             bottomPadding: Kirigami.Units.mediumSpacing
