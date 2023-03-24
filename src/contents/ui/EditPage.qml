@@ -11,7 +11,7 @@ Kirigami.ScrollablePage {
     property string path
     property string name
     Kirigami.Theme.colorSet: Kirigami.Theme.View
-    title: i18n(name)
+    title: name
 
     RowLayout {
         z: 600000
@@ -101,50 +101,59 @@ Kirigami.ScrollablePage {
             }
         }
     }
-    Flickable {
-        id: flickable
-        width: parent.width - (Kirigami.Units.gridUnit * 2)
-        height: parent.height
-        contentWidth: parent.width - (Kirigami.Units.gridUnit * 2)
+    RowLayout{
+        width: root.width
+        height: flickable.contentHeight
+        Flickable {
 
-        TextArea.flickable: TextArea {
-            id: textArea
-            background: Item {
+            id: flickable
+            Layout.alignment: Qt.AlignHCenter
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 45
+            Layout.margins: 0
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            contentWidth: parent.width - (Kirigami.Units.gridUnit * 2)
 
-            }
-            onTextChanged: saveTimer.restart()
-            persistentSelection: true
-            textMargin: Kirigami.Units.gridUnit
-            height: parent.height
-            textFormat: TextEdit.MarkdownText
-            wrapMode: TextEdit.WordWrap
+            TextArea.flickable: TextArea {
+                id: textArea
+                background: Item {
 
-            DocumentHandler {
-                id: document
-                document: textArea.textDocument
-                cursorPosition: textArea.cursorPosition
-                selectionStart: textArea.selectionStart
-                selectionEnd: textArea.selectionEnd
-                // textColor: TODO
-                Component.onCompleted: document.load(path)
-                Component.onDestruction: document.saveAs(path)
-                onLoaded: {
-                    textArea.text = text
                 }
-                onError: (message) => {
-                    print(message)
+                onTextChanged: saveTimer.restart()
+                persistentSelection: true
+                textMargin: Kirigami.Units.gridUnit
+                height: parent.height
+                textFormat: TextEdit.MarkdownText
+                wrapMode: TextEdit.WordWrap
+
+                DocumentHandler {
+                    id: document
+                    document: textArea.textDocument
+                    cursorPosition: textArea.cursorPosition
+                    selectionStart: textArea.selectionStart
+                    selectionEnd: textArea.selectionEnd
+                    // textColor: TODO
+                    Component.onCompleted: document.load(path)
+                    Component.onDestruction: document.saveAs(path)
+                    onLoaded: {
+                        textArea.text = text
+                    }
+                    onError: (message) => {
+                        print(message)
+                    }
+                }
+            }
+
+            Timer{
+                id: saveTimer
+                repeat: false
+                interval: 3000
+                onTriggered: {
+                    document.saveAs(path)
+                    print("document saved")
                 }
             }
         }
 
-        Timer{
-            id: saveTimer
-            repeat: false
-            interval: 3000
-            onTriggered: {
-                document.saveAs(path)
-                print("document saved")
-            }
-        }
     }
 }

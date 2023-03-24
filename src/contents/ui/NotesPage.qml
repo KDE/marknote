@@ -1,23 +1,27 @@
 import QtQuick 2.1
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.12
 import org.kde.marknote 1.0
 
+import "components"
+
 Kirigami.ScrollablePage {
-    Kirigami.Theme.colorSet: Kirigami.Theme.Window
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
+    background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
     title: i18n("Your Notes")
 
     actions.main: Kirigami.Action {
-                    icon.name: "list-add"
-                    text: "Add"
-                    onTriggered: addSheet.open()
-        }
+        icon.name: "list-add"
+        text: "Add"
+        onTriggered: addSheet.open()
+    }
     Menu {
         property string path
         id: optionPopup
         MenuItem {
             text: "delete"
+            icon.name: "delete"
             onClicked:{
                 notesModel.deleteNote(optionPopup.path)
                 optionPopup.dismiss()
@@ -25,111 +29,94 @@ Kirigami.ScrollablePage {
             }
         MenuItem {
             text: "rename"
+            icon.name: "edit-rename"
             onClicked: {
                 renameSheet.open()
                 renameSheet.path = optionPopup.path
                 }
             }
         }
-
-    Kirigami.OverlayDrawer {
-        property string path
+    BottomDrawer {
         id: optionDrawer
-        width: appwindow.width
-        edge: Qt.BottomEdge
-        parent: applicationWindow().overlay
+        property string path
 
-        ColumnLayout{
+        drawerContentItem: ColumnLayout{
             id: contents
-            anchors.fill: parent
             spacing: 0
-
-            Kirigami.Icon {
-                Layout.margins: Kirigami.Units.smallSpacing
-                source: "arrow-down"
-                implicitWidth: Kirigami.Units.gridUnit
-                implicitHeight: Kirigami.Units.gridUnit
-                Layout.alignment: Qt.AlignHCenter
-            }
-            ToolButton{
-                Layout.fillWidth: true
-                icon.name: "delete"
-                text: "Delete"
+            Kirigami.BasicListItem{
+                label: i18n("Delete")
+                icon: "delete"
                 onClicked: {
                     notesModel.deleteNote(optionDrawer.path)
                     optionDrawer.close()
-                }
 
+                }
             }
-            ToolButton{
-                Layout.fillWidth: true
-                icon.name: "document-edit"
-                text: "Rename"
+            Kirigami.BasicListItem{
+                label: i18n("Rename")
+                icon: "document-edit"
                 onClicked: {
                     renameSheet.open()
                     renameSheet.path = optionDrawer.path
+                    optionDrawer.close()
+
                 }
             }
-
+            Item{
+                Layout.fillHeight: true
+            }
         }
     }
 
-    Kirigami.OverlaySheet{
+
+    Kirigami.Dialog{
         id: addSheet
-        parent: applicationWindow().overlay
-        header: Kirigami.Heading{
-            text: "New Note"
-            
-        }
+        title: "New Note"
+        padding: Kirigami.Units.largeSpacing
         contentItem: Kirigami.FormLayout{
             TextField{
                 id: fileNameInput
                 Kirigami.FormData.label: "Note Name:"
             }
         }
-        footer: RowLayout {
-            ToolButton{
-                text: "Cancel"
-                Layout.fillWidth: true
-                onClicked:{
-                    addSheet.close()
-                }
-            }
-            Kirigami.Separator{
-                Layout.fillHeight: true
-                width: 1
-            }
-            ToolButton{
-                text: "Add"
-                Layout.fillWidth: true
-                onClicked:{
+        standardButtons: Kirigami.Dialog.Cancel
+
+        customFooterActions: [
+            Kirigami.Action {
+                text: i18n("Add")
+                iconName: "list-add"
+                onTriggered: {
                     addSheet.close()
                     notesModel.addNote(fileNameInput.text)
                 }
             }
-        }
+        ]
     }
-
-    Kirigami.OverlaySheet{
-        property string path
+    Kirigami.Dialog{
         id: renameSheet
-        header: Kirigami.Heading{
-            text: "Rename Note"
-        }
+        property string path
+        title: "Rename Note"
+        padding: Kirigami.Units.largeSpacing
         contentItem: Kirigami.FormLayout{
             TextField{
                 id: renameInput
                 Kirigami.FormData.label: "New Name:"
             }
         }
-        footer: Button{
-            text: "Rename"
-            onClicked:{
-                renameSheet.close()
-                notesModel.renameNote(renameSheet.path, renameInput.text)
+        standardButtons: Kirigami.Dialog.Cancel
+
+        customFooterActions: [
+            Kirigami.Action {
+                text: i18n("Rename")
+                iconName: "edit-rename"
+                onTriggered: {
+                    renameSheet.close()
+                    notesModel.renameNote(renameSheet.path, renameInput.text)
+                }
             }
-        }
+        ]
     }
+
 
     ListView {
         id: notesList
@@ -142,11 +129,14 @@ Kirigami.ScrollablePage {
             required property string name;
             required property string path;
             required property date date;
-
+            separatorVisible: false
             label: name
             subtitle: Qt.formatDateTime(date, Qt.SystemLocaleDate)
             onClicked: pageStack.push("qrc:/EditPage.qml", {"path": path, "name": name})
-            ToolButton{
+            textSpacing: Kirigami.Units.mediumSpacing
+            topPadding: Kirigami.Units.mediumSpacing
+            bottomPadding: Kirigami.Units.mediumSpacing
+            trailing: ToolButton{
                 icon.name: "overflow-menu"
 
 

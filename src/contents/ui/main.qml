@@ -13,12 +13,13 @@ Kirigami.ApplicationWindow {
 
     title: i18n("marknote")
 
-
+    pageStack.globalToolBar.style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
+    pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
     pageStack.initialPage: "qrc:/NotesPage.qml"
-    globalDrawer: Kirigami.GlobalDrawer {
-            Kirigami.Theme.colorSet: Kirigami.Theme.Header
 
-            title: i18n("dfad")
+    globalDrawer: Kirigami.GlobalDrawer {
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+
             modal: !wideScreen
             width: 60
             margins: 0
@@ -31,7 +32,6 @@ Kirigami.ApplicationWindow {
                     Layout.fillWidth: true
                     implicitHeight: 50
                     display: Controls.AbstractButton.IconOnly
-                    text: collapsed? "" : i18n("Library")
                     icon.name: "file-library-symbolic"
                     Layout.margins: 0
                 }
@@ -39,7 +39,6 @@ Kirigami.ApplicationWindow {
                     Layout.fillWidth: true
                     implicitHeight: 50
                     display: Controls.AbstractButton.IconOnly
-                    text: collapsed? "" : i18n("Library")
                     icon.name: "file-library-symbolic"
                     Layout.margins: 0
 
@@ -48,7 +47,6 @@ Kirigami.ApplicationWindow {
                     Layout.fillWidth: true
                     implicitHeight: 50
                     display: Controls.AbstractButton.IconOnly
-                    text: collapsed? "" : i18n("Library")
                     icon.name: "file-library-symbolic"
                     Layout.margins: 0
 

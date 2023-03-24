@@ -3,5 +3,8 @@
         <file>NotesPage.qml</file>
         <file>main.qml</file>
         <file>EditPage.qml</file>
+        <file alias="components/DoubleActionButton.qml">components/DoubleActionButton.qml</file>
+        <file alias="components/BottomDrawer.qml">components/BottomDrawer.qml</file>
+        <file alias="components/ActionButton.qml">components/ActionButton.qml</file>
     </qresource>
 </RCC>
