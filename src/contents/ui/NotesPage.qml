@@ -11,10 +11,22 @@ Kirigami.ScrollablePage {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
 
+    ActionButton {
+        visible: Kirigami.Settings.isMobile
+        parent: root.overlay
+        x: root.width - width - margin
+        y: root.height - height - pageStack.globalToolBar.preferredHeight - margin
+        singleAction: Kirigami.Action {
+            text: i18n("add Note")
+            icon.name: "list-add"
+            onTriggered: addSheet.open()
+        }
+    }
 
     titleDelegate: RowLayout {
         Layout.fillWidth: true
         ToolButton {
+            visible: !Kirigami.Settings.isMobile
             id: addButton
             icon.name: "list-add"
             text: "Add"
@@ -26,7 +38,8 @@ Kirigami.ScrollablePage {
             id: heading
             text: i18n("Your Notes")
             Layout.fillWidth: true
-            horizontalAlignment: Text.AlignHCenter
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            horizontalAlignment: Kirigami.Settings.isMobile? Text.AlignLeft: Text.AlignHCenter
         }
         Kirigami.SearchField {
             id: search
@@ -49,7 +62,7 @@ Kirigami.ScrollablePage {
                 } else {
                     search.visible = false
                     heading.visible = true
-                    addButton.visible = true
+                    if (!Kirigami.Settings.isMobile) {addButton.visible = true}
                     search.clear()
                     searchButton.icon.name = "search"
                 }
