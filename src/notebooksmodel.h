@@ -3,9 +3,11 @@
 
 #include <QAbstractListModel>
 #include <QDir>
+
 class NoteBooksModel : public QAbstractListModel
 {
     Q_OBJECT
+
 public:
     enum Role {
         Path = Qt::UserRole + 1,
@@ -27,9 +29,6 @@ public:
     Q_INVOKABLE void deleteNoteBook(const QUrl &path);
 
     Q_INVOKABLE void renameNoteBook(const QUrl &path, const QString &name);
-
-
-signals:
 
 private:
     QDir directory;

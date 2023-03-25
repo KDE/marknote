@@ -20,68 +20,72 @@ Kirigami.ApplicationWindow {
     pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
 
     globalDrawer: Kirigami.GlobalDrawer {
-            Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            modal: !wideScreen
-            width: 60
-            margins: 0
-            padding: 0
-            header: Kirigami.AbstractApplicationHeader {
-                RowLayout {
-                    anchors.fill: parent
-                    Controls.ToolButton {
-                        Layout.alignment: Qt.AlignHCenter
-                        icon.name: "application-menu"
-                        onClicked: optionPopup.popup()
-                        AddNotebookDialog { id: addNotebookDialog }
-                        Controls.Menu {
-                            id: optionPopup
-                            Controls.MenuItem {
-                                text: "Add new Notebook"
-                                icon.name: "list-add"
-                                onTriggered: { addNotebookDialog.open() }
+        NoteBooksModel {
+            id: noteBooksModel
+        }
 
-                            }
-                            Controls.MenuItem {
-                                text: "Edit Notebook"
-                                icon.name: "edit-entry"
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        modal: !wideScreen
+        width: 60
+        margins: 0
+        padding: 0
+        header: Kirigami.AbstractApplicationHeader {
+            RowLayout {
+                anchors.fill: parent
+                Controls.ToolButton {
+                    Layout.alignment: Qt.AlignHCenter
+                    icon.name: "application-menu"
+                    onClicked: optionPopup.popup()
+                    AddNotebookDialog {
+                        id: addNotebookDialog
+                        model: noteBooksModel
+                    }
+                    Controls.Menu {
+                        id: optionPopup
+                        Controls.MenuItem {
+                            text: "Add new Notebook"
+                            icon.name: "list-add"
+                            onTriggered: { addNotebookDialog.open() }
 
-                            }
-                            Controls.MenuItem {
-                                text: "Delete Notebook"
-                                icon.name: "delete"
+                        }
+                        Controls.MenuItem {
+                            text: "Edit Notebook"
+                            icon.name: "edit-entry"
 
-                            }
+                        }
+                        Controls.MenuItem {
+                            text: "Delete Notebook"
+                            icon.name: "delete"
+
                         }
                     }
                 }
             }
-            ColumnLayout {
-                Repeater {
-                    model: NoteBooksModel {
+        }
+        ColumnLayout {
+            Repeater {
+                model: noteBooksModel
+                delegate: Kirigami.NavigationTabButton {
+                    id: delegateItem
+                    required property string name;
+                    required property string path;
 
-                    }
-
-
-                    delegate: Kirigami.NavigationTabButton {
-                        required property string name;
-                        required property string path;
-
-                        Layout.fillWidth: true
-                        implicitHeight: 50
-                        icon.name: "addressbook-details"
-                        text: name
-                        Layout.margins: 0
-                        onClicked: {console.log(path)}
-
+                    Layout.fillWidth: true
+                    implicitHeight: 50
+                    icon.name: "addressbook-details"
+                    text: name
+                    Layout.margins: 0
+                    onClicked: {
+                        pageStack.clear()
+                        pageStack.push("qrc:/NotesPage.qml", {
+                            path: delegateItem.path
+                        })
                     }
 
                 }
-                Item { Layout.fillHeight: true }
+
             }
+            Item { Layout.fillHeight: true }
         }
-
-
-
-
-
+    }
 }

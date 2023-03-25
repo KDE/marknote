@@ -7,10 +7,7 @@
 
 NotesModel::NotesModel(QObject *parent)
     : QAbstractListModel(parent)
-    , directory(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator() + "Notes")
 {
-    directory.mkpath(".");
-    qDebug() << directory.path();
 }
 
 int NotesModel::rowCount(const QModelIndex &index) const
@@ -23,10 +20,8 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Role::Path:
         return QUrl::fromLocalFile(directory.entryInfoList(QDir::Files).at(index.row()).filePath());
-
     case Role::Date:
         return directory.entryInfoList(QDir::Files).at(index.row()).birthTime();
-
     case Role::Name:
         return directory.entryInfoList(QDir::Files).at(index.row()).fileName().replace(".md", "");
     }
@@ -48,9 +43,11 @@ QHash<int, QByteArray> NotesModel::roleNames() const
 void NotesModel::addNote(const QString &name)
 {
     beginResetModel();
-    QFile file(directory.path() + QDir::separator() + name + ".md");
+    QFile file(m_path + QDir::separator() + name + ".md");
     if(file.open(QFile::WriteOnly)){
         file.write("");
+    } else {
+        qDebug() << "Failed to create file at" << m_path;
     }
     endResetModel();
 }
@@ -69,5 +66,21 @@ void NotesModel::renameNote(const QUrl &path, const QString &name)
     beginResetModel();
     QFile::rename(path.toLocalFile(), newPath);
     endResetModel();
+}
 
+QString NotesModel::path() const
+{
+    return m_path;
+}
+
+void NotesModel::setPath(const QString &newPath)
+{
+    if (m_path == newPath)
+        return;
+
+    beginResetModel();
+    m_path = newPath;
+    directory = QDir(m_path);
+    endResetModel();
+    emit pathChanged();
 }

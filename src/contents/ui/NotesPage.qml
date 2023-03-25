@@ -8,6 +8,9 @@ import "components"
 
 Kirigami.ScrollablePage {
     id: root
+
+    property string path
+
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
 
@@ -104,6 +107,7 @@ Kirigami.ScrollablePage {
             filterRole: NotesModel.Name
             sourceModel: NotesModel {
                 id: notesModel
+                path: root.path
             }
         }
 
@@ -112,6 +116,7 @@ Kirigami.ScrollablePage {
             required property string name;
             required property string path;
             required property date date;
+            required property int index;
             separatorVisible: false
 
 

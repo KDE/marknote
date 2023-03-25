@@ -9,7 +9,8 @@ import org.kde.kquickcontrolsaddons 2.0 as KQuickAddons
 Kirigami.Dialog{
     id: root
     title: "New Notebook"
-    NoteBooksModel{id:noteBooksModel}
+    property NoteBooksModel model
+
     padding: Kirigami.Units.largeSpacing
     contentItem: ColumnLayout {
         spacing: 20
@@ -48,7 +49,7 @@ Kirigami.Dialog{
             text: i18n("Add")
             iconName: "list-add"
             onTriggered: {
-                noteBooksModel.addNoteBook(nameInput.text)
+                root.model.addNoteBook(nameInput.text)
                 close()
             }
         }

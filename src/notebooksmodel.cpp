@@ -15,14 +15,15 @@ NoteBooksModel::NoteBooksModel(QObject *parent)
 
 int NoteBooksModel::rowCount(const QModelIndex &index) const
 {
-    return directory.entryList(QDir::AllDirs | QDir::NoDotAndDotDot).count();
+    return index.isValid() ? 0 : directory.entryList(QDir::AllDirs | QDir::NoDotAndDotDot).count();
 }
 
 QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
 {
+    qDebug() << "Data";
     switch (role) {
     case Role::Path:
-        return QUrl::fromLocalFile(directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath());
+        return directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath();
 
     case Role::Date:
         return "";
@@ -47,10 +48,10 @@ QHash<int, QByteArray> NoteBooksModel::roleNames() const
 
 void NoteBooksModel::addNoteBook(const QString &name)
 {
+    qDebug() << Q_FUNC_INFO;
+
     beginResetModel();
-
     directory.mkdir(name);
-
     endResetModel();
 }
 

@@ -6,6 +6,9 @@
 class NotesModel : public QAbstractListModel
 {
     Q_OBJECT
+
+    Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged REQUIRED)
+
 public:
     enum Role {
         Path = Qt::UserRole + 1,
@@ -28,13 +31,14 @@ public:
 
     Q_INVOKABLE void renameNote(const QUrl &path, const QString &name);
 
+    Q_SIGNAL void pathChanged();
 
-signals:
+    QString path() const;
+    void setPath(const QString &newPath);
 
 private:
     QDir directory;
-
-
+    QString m_path;
 };
 
 #endif // NOTESMODEL_H
