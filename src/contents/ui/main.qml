@@ -16,7 +16,8 @@ Kirigami.ApplicationWindow {
 
     pageStack.globalToolBar.style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
     pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
-    pageStack.initialPage: "qrc:/NotesPage.qml"
+    pageStack.initialPage: ["qrc:/NotesPage.qml","qrc:/EditPage.qml"]
+
     pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
 
     globalDrawer: Kirigami.GlobalDrawer {
@@ -77,9 +78,11 @@ Kirigami.ApplicationWindow {
                     Layout.margins: 0
                     onClicked: {
                         pageStack.clear()
-                        pageStack.push("qrc:/NotesPage.qml", {
+                        pageStack.push(["qrc:/NotesPage.qml","qrc:/EditPage.qml"], {
                             path: delegateItem.path
-                        })
+                        }
+
+                        )
                     }
 
                 }
