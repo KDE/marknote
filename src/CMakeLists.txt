@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 
-add_executable(marknote main.cpp documenthandler.cpp notesmodel.cpp contents/ui/resources.qrc)
+add_executable(marknote main.cpp documenthandler.cpp notesmodel.cpp notebooksmodel.cpp contents/ui/resources.qrc)
 target_link_libraries(marknote
     Qt5::Core
     Qt5::Gui

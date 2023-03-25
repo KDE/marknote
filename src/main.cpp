@@ -11,6 +11,8 @@
 
 #include "documenthandler.h"
 #include "notesmodel.h"
+#include "notebooksmodel.h"
+
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
@@ -24,6 +26,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     qmlRegisterType<DocumentHandler>("org.kde.marknote", 1, 0, "DocumentHandler");
     qmlRegisterType<NotesModel>("org.kde.marknote", 1, 0, "NotesModel");
+    qmlRegisterType<NoteBooksModel>("org.kde.marknote", 1, 0, "NoteBooksModel");
+
     qmlRegisterAnonymousType<QAbstractItemModel>("org.kde.marknote", 1);
     qmlRegisterType<QSortFilterProxyModel>("org.kde.marknote", 1, 0, "SortFilterModel");
 

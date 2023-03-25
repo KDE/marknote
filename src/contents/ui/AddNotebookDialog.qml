@@ -9,11 +9,13 @@ import org.kde.kquickcontrolsaddons 2.0 as KQuickAddons
 Kirigami.Dialog{
     id: root
     title: "New Notebook"
+    NoteBooksModel{id:noteBooksModel}
     padding: Kirigami.Units.largeSpacing
     contentItem: ColumnLayout {
+        spacing: 20
         KQuickAddons.IconDialog {
             id: iconDialog
-            onIconNameChanged: iconButton.icon.name = iconName
+            onIconNameChanged: buttonIcon.source = iconName
         }
         Button {
             implicitHeight: Kirigami.Units.gridUnit *4
@@ -21,11 +23,19 @@ Kirigami.Dialog{
             id: iconButton
             Layout.alignment: Qt.AlignHCenter
             onClicked: iconDialog.open()
+            contentItem: Item{
+                Kirigami.Icon{
+                    id: buttonIcon
+                    anchors.centerIn: parent
+                    height: Kirigami.Units.gridUnit*2
+                    width:height
+                }
+            }
         }
         RowLayout {
-            Label { text: "Name:"}
             TextField{
-                id: fileNameInput
+                id: nameInput
+                placeholderText: "Notebook Name"
             }
             Button { icon.name: "color-management"}
         }
@@ -37,7 +47,10 @@ Kirigami.Dialog{
         Kirigami.Action {
             text: i18n("Add")
             iconName: "list-add"
-
+            onTriggered: {
+                noteBooksModel.addNoteBook(nameInput.text)
+                close()
+            }
         }
     ]
 }

@@ -7,6 +7,7 @@ import QtQuick 2.1
 import org.kde.kirigami 2.19 as Kirigami
 import QtQuick.Controls 2.0 as Controls
 import QtQuick.Layouts 1.12
+import org.kde.marknote 1.0
 
 Kirigami.ApplicationWindow {
     id: root
@@ -55,30 +56,26 @@ Kirigami.ApplicationWindow {
                 }
             }
             ColumnLayout {
-                Kirigami.NavigationTabButton {
-                    Layout.fillWidth: true
-                    implicitHeight: 50
-                    display: Controls.AbstractButton.IconOnly
-                    icon.name: "akonadi-phone-home"
-                    Layout.margins: 0
+                Repeater {
+                    model: NoteBooksModel {
+
+                    }
+
+
+                    delegate: Kirigami.NavigationTabButton {
+                        required property string name;
+                        required property string path;
+
+                        Layout.fillWidth: true
+                        implicitHeight: 50
+                        icon.name: "addressbook-details"
+                        text: name
+                        Layout.margins: 0
+                        onClicked: {console.log(path)}
+
+                    }
 
                 }
-                Kirigami.NavigationTabButton {
-                    Layout.fillWidth: true
-                    implicitHeight: 50
-                    display: Controls.AbstractButton.IconOnly
-                    icon.name: "view-pim-notes"
-                    Layout.margins: 0
-                }
-                Kirigami.NavigationTabButton {
-                    Layout.fillWidth: true
-                    implicitHeight: 50
-                    display: Controls.AbstractButton.IconOnly
-                    icon.name: "accessories-dictionary-symbolic"
-                    Layout.margins: 0
-
-                }
-
                 Item { Layout.fillHeight: true }
             }
         }
