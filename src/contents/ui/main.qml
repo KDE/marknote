@@ -20,7 +20,6 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: Kirigami.GlobalDrawer {
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
-
             modal: !wideScreen
             width: 60
             margins: 0
