@@ -70,60 +70,6 @@ Kirigami.ScrollablePage {
             }
         }
     }
-
-    Menu {
-        property string path
-        id: optionPopup
-        MenuItem {
-            text: "delete"
-            icon.name: "delete"
-            onClicked:{
-                notesModel.deleteNote(optionPopup.path)
-                optionPopup.dismiss()
-                }
-            }
-        MenuItem {
-            text: "rename"
-            icon.name: "edit-rename"
-            onClicked: {
-                renameSheet.open()
-                renameSheet.path = optionPopup.path
-                }
-            }
-        }
-    BottomDrawer {
-        id: optionDrawer
-        property string path
-
-        drawerContentItem: ColumnLayout{
-            id: contents
-            spacing: 0
-            Kirigami.BasicListItem{
-                label: i18n("Delete")
-                icon: "delete"
-                onClicked: {
-                    notesModel.deleteNote(optionDrawer.path)
-                    optionDrawer.close()
-
-                }
-            }
-            Kirigami.BasicListItem{
-                label: i18n("Rename")
-                icon: "document-edit"
-                onClicked: {
-                    renameSheet.open()
-                    renameSheet.path = optionDrawer.path
-                    optionDrawer.close()
-
-                }
-            }
-            Item{
-                Layout.fillHeight: true
-            }
-        }
-    }
-
-
     Kirigami.Dialog{
         id: addSheet
         title: "New Note"
@@ -185,35 +131,143 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.BasicListItem {
+        delegate: Kirigami.AbstractListItem {
+            id: delegateItem
             required property string name;
             required property string path;
             required property date date;
             separatorVisible: false
-            label: name
-            subtitle: Qt.formatDateTime(date, Qt.SystemLocaleDate)
-            onClicked: pageStack.push("qrc:/EditPage.qml", {"path": path, "name": name, "objectName": name})
-            highlighted: pageStack.currentItem && pageStack.currentItem.objectName === name
-            textSpacing: Kirigami.Units.mediumSpacing
-            topPadding: Kirigami.Units.mediumSpacing
-            bottomPadding: Kirigami.Units.mediumSpacing
-            trailing: ToolButton{
-                icon.name: "overflow-menu"
 
 
-                onClicked: {
-                    if(Kirigami.Settings.isMobile){
-                        optionDrawer.path = path
-                        optionDrawer.open()
 
-                    }else{
+            contentItem: RowLayout{
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    RowLayout {
+                        Layout.fillWidth: true
+                        id: renameLayout
+                        visible: false
+                        TextField {
+                            Layout.fillWidth: true
+                            id: renameField
+                            text: name
+                            onAccepted: notesModel.renameNote(path, text)
+                        }
+                        Button {
+                            icon.name: "answer-correct"
+                            onClicked: notesModel.renameNote(path, renameField.text)
+                        }
+                    }
+                    Label {
+                        id:nameLabel
+                        Layout.topMargin: 7
+                        Layout.bottomMargin: 7
+                        text: name
+                        Layout.fillWidth: true
+                        elide: Qt.ElideRight
 
-                        optionPopup.path = path
-                        optionPopup.popup()
+                    }
+                    Label {
+                        text: Qt.formatDateTime(date, Qt.SystemLocaleDate)
+                        color: Kirigami.Theme.disabledTextColor
+                        Layout.fillWidth: true
+                        elide: Qt.ElideRight
 
+                    }
+                }
+                ToolButton{
+                    icon.name: "overflow-menu"
+
+
+                    onClicked: {
+                        if(Kirigami.Settings.isMobile){
+                            optionDrawer.open()
+
+                        }else{
+
+                            optionPopup.popup()
+
+                    }
+                }
+
+                BottomDrawer {
+                        id: optionDrawer
+
+
+                        drawerContentItem: ColumnLayout{
+                            id: contents
+                            spacing: 0
+                            Kirigami.BasicListItem {
+                                label: i18n("Delete")
+                                icon: "delete"
+                                onClicked: {
+                                    notesModel.deleteNote(delegateItem.path)
+                                    optionDrawer.close()
+
+                                }
+                            }
+                            Kirigami.BasicListItem {
+                                label: i18n("Rename")
+                                icon: "document-edit"
+                                onClicked: {
+                                    if (!renameLayout.visible) {
+                                        renameLayout.visible = true
+                                        nameLabel.visible = false
+                                        optionDrawer.close()
+
+                                    } else {
+                                        renameLayout.visible = false
+                                        nameLabel.visible = true
+                                        optionDrawer.close()
+
+                                    }
+                                }
+                            }
+                            Item{
+                                Layout.fillHeight: true
+                            }
+                        }
+                    }
+
+
+                Menu {
+                    id: optionPopup
+                    MenuItem {
+                        text: "delete"
+                        icon.name: "delete"
+                        onClicked:{
+                            notesModel.deleteNote(delegateItem.path)
+                            optionPopup.dismiss()
+                            }
+                        }
+                    MenuItem {
+                        text: "rename"
+                        icon.name: "edit-rename"
+                        onClicked: {
+                            if (!renameLayout.visible) {
+                                renameLayout.visible = true
+                                nameLabel.visible = false
+                            } else {
+                                renameLayout.visible = false
+                                nameLabel.visible = true
+                            }
+                        }
+                    }
                 }
             }
         }
+
+
+
+
+        onClicked: pageStack.push("qrc:/EditPage.qml", {"path": path, "name": name, "objectName": name})
+        highlighted: pageStack.currentItem && pageStack.currentItem.objectName === name
+        topPadding: Kirigami.Units.mediumSpacing
+        bottomPadding: Kirigami.Units.mediumSpacing
+
+
+
     }
 
     Kirigami.PlaceholderMessage {
