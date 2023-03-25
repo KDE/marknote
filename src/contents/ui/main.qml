@@ -25,6 +25,34 @@ Kirigami.ApplicationWindow {
             margins: 0
             padding: 0
             header: Kirigami.AbstractApplicationHeader {
+                RowLayout {
+                    anchors.fill: parent
+                    Controls.ToolButton {
+                        Layout.alignment: Qt.AlignHCenter
+                        icon.name: "application-menu"
+                        onClicked: optionPopup.popup()
+                        AddNotebookDialog { id: addNotebookDialog }
+                        Controls.Menu {
+                            id: optionPopup
+                            Controls.MenuItem {
+                                text: "Add new Notebook"
+                                icon.name: "list-add"
+                                onTriggered: { addNotebookDialog.open() }
+
+                            }
+                            Controls.MenuItem {
+                                text: "Edit Notebook"
+                                icon.name: "edit-entry"
+
+                            }
+                            Controls.MenuItem {
+                                text: "Delete Notebook"
+                                icon.name: "delete"
+
+                            }
+                        }
+                    }
+                }
             }
             ColumnLayout {
                 Kirigami.NavigationTabButton {
