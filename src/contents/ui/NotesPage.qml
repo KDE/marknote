@@ -93,30 +93,6 @@ Kirigami.ScrollablePage {
             }
         ]
     }
-    Kirigami.Dialog{
-        id: renameSheet
-        property string path
-        title: "Rename Note"
-        padding: Kirigami.Units.largeSpacing
-        contentItem: Kirigami.FormLayout{
-            TextField{
-                id: renameInput
-                Kirigami.FormData.label: "New Name:"
-            }
-        }
-        standardButtons: Kirigami.Dialog.Cancel
-
-        customFooterActions: [
-            Kirigami.Action {
-                text: i18n("Rename")
-                iconName: "edit-rename"
-                onTriggered: {
-                    renameSheet.close()
-                    notesModel.renameNote(renameSheet.path, renameInput.text)
-                }
-            }
-        ]
-    }
 
 
     ListView {
