@@ -16,7 +16,14 @@ Kirigami.ApplicationWindow {
 
     pageStack.globalToolBar.style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
     pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
-    pageStack.initialPage: ["qrc:/NotesPage.qml","qrc:/EditPage.qml"]
+    Component.onCompleted: noteBooksModel.rowCount() !== 0 ? pageStack.push(
+        ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
+        {
+            path: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Path),
+            notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Name)
+            }
+        ): pageStack.push("qrc:/WelcomePage.qml", {model : noteBooksModel})
+
 
     pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
 
@@ -79,14 +86,13 @@ Kirigami.ApplicationWindow {
                     onClicked: {
                         pageStack.clear()
                         pageStack.push(["qrc:/NotesPage.qml","qrc:/EditPage.qml"], {
-                            path: delegateItem.path
-                        }
+                            path: delegateItem.path,
+                            notebookName: delegateItem.name
 
+                            }
                         )
                     }
-
                 }
-
             }
             Item { Layout.fillHeight: true }
         }

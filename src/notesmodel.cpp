@@ -12,7 +12,7 @@ NotesModel::NotesModel(QObject *parent)
 
 int NotesModel::rowCount(const QModelIndex &index) const
 {
-    return directory.entryList(QDir::Files).count();
+    return m_path.isEmpty()? 0 : directory.entryList(QDir::Files).count();
 }
 
 QVariant NotesModel::data(const QModelIndex &index, int role) const

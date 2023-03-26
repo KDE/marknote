@@ -7,5 +7,6 @@
         <file alias="components/BottomDrawer.qml">components/BottomDrawer.qml</file>
         <file alias="components/ActionButton.qml">components/ActionButton.qml</file>
         <file>AddNotebookDialog.qml</file>
+        <file>WelcomePage.qml</file>
     </qresource>
 </RCC>

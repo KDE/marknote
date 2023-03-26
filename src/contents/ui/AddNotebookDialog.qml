@@ -19,6 +19,7 @@ Kirigami.Dialog{
             onIconNameChanged: buttonIcon.source = iconName
         }
         Button {
+
             implicitHeight: Kirigami.Units.gridUnit *4
             implicitWidth: Kirigami.Units.gridUnit *4
             id: iconButton
@@ -27,6 +28,7 @@ Kirigami.Dialog{
             contentItem: Item{
                 Kirigami.Icon{
                     id: buttonIcon
+                    source:"addressbook-details"
                     anchors.centerIn: parent
                     height: Kirigami.Units.gridUnit*2
                     width:height
@@ -51,6 +53,16 @@ Kirigami.Dialog{
             onTriggered: {
                 root.model.addNoteBook(nameInput.text)
                 close()
+                if (model.rowCount() === 1) {pageStack.replace(
+                        ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
+                    {
+                    path: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Path),
+                    notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Name)
+
+                    }
+                    )
+                }
+
             }
         }
     ]

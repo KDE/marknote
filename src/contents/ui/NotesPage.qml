@@ -10,6 +10,7 @@ Kirigami.ScrollablePage {
     id: root
 
     property string path
+    property string notebookName
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
@@ -39,7 +40,7 @@ Kirigami.ScrollablePage {
         }
         Kirigami.Heading {
             id: heading
-            text: i18n("Your Notes")
+            text: root.notebookName
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.largeSpacing
             horizontalAlignment: Kirigami.Settings.isMobile? Text.AlignLeft: Text.AlignHCenter
@@ -254,9 +255,9 @@ Kirigami.ScrollablePage {
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
-
+        icon.name: "note"
         visible: notesList.count === 0
-        text: "Add something to me!"
+        text: "Add a Note!"
         helpfulAction: Kirigami.Action {
             icon.name: "list-add"
             text: "Add"

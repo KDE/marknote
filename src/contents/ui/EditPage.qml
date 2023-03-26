@@ -13,6 +13,7 @@ Kirigami.ScrollablePage {
     property bool saved : true
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     titleDelegate: RowLayout {
+        visible: name
         Layout.fillWidth: true
         Kirigami.Heading {
             Layout.leftMargin:  Kirigami.Units.largeSpacing * 2
@@ -35,6 +36,7 @@ Kirigami.ScrollablePage {
 
 
     RowLayout {
+        visible: name
         z: 600000
         y: root.height - 100
         width: root.width
@@ -120,6 +122,7 @@ Kirigami.ScrollablePage {
         }
     }
     RowLayout{
+        visible: name
         width: root.width
         height: flickable.contentHeight
         Flickable {
@@ -170,12 +173,12 @@ Kirigami.ScrollablePage {
                 repeat: false
                 interval: 300
                 onTriggered: {
-                    document.saveAs(path)
-                    print("document saved")
-                    saved = true
+                    if (root.name) {
+                        document.saveAs(path)
+                        saved = true
+                    }
                 }
             }
         }
-
     }
 }
