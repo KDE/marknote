@@ -26,7 +26,7 @@ public:
 
     Q_INVOKABLE void addNoteBook(const QString &name);
 
-    Q_INVOKABLE void deleteNoteBook(const QUrl &path);
+    Q_INVOKABLE void deleteNoteBook(const QString &name);
 
     Q_INVOKABLE void renameNoteBook(const QUrl &path, const QString &name);
 

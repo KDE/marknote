@@ -11,6 +11,7 @@ import org.kde.marknote 1.0
 
 Kirigami.ApplicationWindow {
     id: root
+    property string currentNotebook: noteBooksModel.rowCount() !== 0 ? noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Name) : ""
 
     title: i18n("marknote")
 
@@ -64,7 +65,22 @@ Kirigami.ApplicationWindow {
                         Controls.MenuItem {
                             text: "Delete Notebook"
                             icon.name: "delete"
-
+                            onTriggered: {
+                                noteBooksModel.deleteNoteBook(currentNotebook)
+                                if(noteBooksModel.rowCount() !== 0) {
+                                    pageStack.clear()
+                                    pageStack.replace(
+                                        ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
+                                        {
+                                        path: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Path),
+                                        notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Name)
+                                        }
+                                    )
+                                } else {
+                                    pageStack.clear()
+                                    pageStack.replace("qrc:/WelcomePage.qml", {model : noteBooksModel})
+                                }
+                            }
                         }
                     }
                 }
@@ -84,6 +100,7 @@ Kirigami.ApplicationWindow {
                     text: name
                     Layout.margins: 0
                     onClicked: {
+                        currentNotebook = delegateItem.name
                         pageStack.clear()
                         pageStack.push(["qrc:/NotesPage.qml","qrc:/EditPage.qml"], {
                             path: delegateItem.path,

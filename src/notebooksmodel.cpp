@@ -55,10 +55,10 @@ void NoteBooksModel::addNoteBook(const QString &name)
     endResetModel();
 }
 
-void NoteBooksModel::deleteNoteBook(const QUrl &path)
+void NoteBooksModel::deleteNoteBook(const QString &name)
 {
     beginResetModel();
-    QFile::remove(path.toLocalFile());
+    QDir(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator() + "Notes" + QDir::separator() + name).removeRecursively();
     endResetModel();
 
 }
