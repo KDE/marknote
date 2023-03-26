@@ -79,12 +79,14 @@ Kirigami.ScrollablePage {
                     }
                 }
                 ToolButton {
+                    enabled: false
                     icon.name: "format-text-strikethrough"
                     text: "Strikethrough"
                     display: AbstractButton.IconOnly
                     checkable: true
                 }
                 ToolButton {
+                    enabled: false
                     icon.name: "draw-highlight"
                     text: "highlight"
                     display: AbstractButton.IconOnly
@@ -96,6 +98,7 @@ Kirigami.ScrollablePage {
                     Layout.margins: 0
                 }
                 ToolButton {
+                    enabled: false
                     icon.name: "format-list-unordered"
                     text: "list"
                     display: AbstractButton.IconOnly
@@ -103,6 +106,7 @@ Kirigami.ScrollablePage {
 
                 }
                 ToolButton {
+                    enabled: false
                     icon.name: "format-list-ordered"
                     text: "numbered list"
                     display: AbstractButton.IconOnly
@@ -113,7 +117,7 @@ Kirigami.ScrollablePage {
                     Layout.margins: 0
                 }
                 ComboBox {
-
+                    enabled: false
                     model:[ "Heading 1","Heading 2","Heading 3","Heading 4","Heading 5","Heading 6" ]
 
                 }
