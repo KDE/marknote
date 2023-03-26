@@ -51,6 +51,7 @@ Kirigami.ScrollablePage {
             text: root.notebookName
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing
             horizontalAlignment: Kirigami.Settings.isMobile? Text.AlignLeft: Text.AlignHCenter
         }
         Kirigami.SearchField {
