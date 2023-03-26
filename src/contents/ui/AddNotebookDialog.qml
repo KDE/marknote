@@ -58,7 +58,6 @@ Kirigami.Dialog{
                     {
                     path: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Path),
                     notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Name)
-
                     }
                     )
                 }

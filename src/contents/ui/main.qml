@@ -18,7 +18,7 @@ Kirigami.ApplicationWindow {
     pageStack.globalToolBar.style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
     pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
     Component.onCompleted: noteBooksModel.rowCount() !== 0 ? pageStack.push(
-        ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
+        "qrc:/NotesPage.qml",
         {
             path: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Path),
             notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Name)
@@ -57,11 +57,11 @@ Kirigami.ApplicationWindow {
                             onTriggered: { addNotebookDialog.open() }
 
                         }
-                        Controls.MenuItem {
-                            text: "Edit Notebook"
-                            icon.name: "edit-entry"
+//                        Controls.MenuItem {
+//                            text: "Edit Notebook"
+//                            icon.name: "edit-entry"
 
-                        }
+//                        }
                         Controls.MenuItem {
                             text: "Delete Notebook"
                             icon.name: "delete"
@@ -102,7 +102,7 @@ Kirigami.ApplicationWindow {
                     onClicked: {
                         currentNotebook = delegateItem.name
                         pageStack.clear()
-                        pageStack.push(["qrc:/NotesPage.qml","qrc:/EditPage.qml"], {
+                        pageStack.push("qrc:/NotesPage.qml", {
                             path: delegateItem.path,
                             notebookName: delegateItem.name
 
