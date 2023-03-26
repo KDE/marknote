@@ -137,7 +137,7 @@ Kirigami.ScrollablePage {
             Layout.margins: 0
             Layout.fillHeight: true
             Layout.fillWidth: true
-            contentWidth: parent.width - (Kirigami.Units.gridUnit * 2)
+            contentWidth: width
 
             TextArea.flickable: TextArea {
                 id: textArea
