@@ -12,7 +12,8 @@ public:
     enum Role {
         Path = Qt::UserRole + 1,
         Name,
-        Icon
+        Icon,
+        Color
     };
     Q_ENUM(Role)
 
@@ -24,7 +25,7 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void addNoteBook(const QString &name, const QString &icon);
+    Q_INVOKABLE void addNoteBook(const QString &name, const QString &icon, const QString &color);
 
     Q_INVOKABLE void deleteNoteBook(const QString &name);
 

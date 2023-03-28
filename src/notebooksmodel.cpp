@@ -36,6 +36,14 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
             return QStringLiteral("addressbook-details");
         }
     }
+    case Role::Color: {
+        const QString dotDirectory = directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % ".directory";
+        if (QFile::exists(dotDirectory)) {
+            return KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-Color");
+        } else {
+            return QStringLiteral("addressbook-details");
+        }
+    }
     case Role::Name:
         return directory.entryList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row());
     }
@@ -50,11 +58,12 @@ QHash<int, QByteArray> NoteBooksModel::roleNames() const
     return {
         {Role::Icon, "iconName"},
         {Role::Path, "path"},
-        {Role::Name, "name"}
+        {Role::Name, "name"},
+        {Role::Color, "color"}
     };
 }
 
-void NoteBooksModel::addNoteBook(const QString &name, const QString &icon)
+void NoteBooksModel::addNoteBook(const QString &name, const QString &icon, const QString &color)
 {
     qDebug() << Q_FUNC_INFO;
 
@@ -64,6 +73,7 @@ void NoteBooksModel::addNoteBook(const QString &name, const QString &icon)
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
     auto desktopEntry = desktopFile.group("Desktop Entry");
     desktopEntry.writeEntry("Icon", icon);
+    desktopEntry.writeEntry("X-MarkNote-Color", color);
     desktopFile.sync();
     endResetModel();
 }

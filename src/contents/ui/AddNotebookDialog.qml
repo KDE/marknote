@@ -5,18 +5,26 @@ import QtQuick.Layouts 1.12
 
 import org.kde.marknote 1.0
 import org.kde.kquickcontrolsaddons 2.0 as KQuickAddons
+import QtQuick.Dialogs 1.0 as QtDialogs
 
 Kirigami.Dialog{
     id: root
     title: "New Notebook"
     property NoteBooksModel model
-
+    property string notebookColor
     padding: Kirigami.Units.largeSpacing
     contentItem: ColumnLayout {
         spacing: 20
         KQuickAddons.IconDialog {
             id: iconDialog
             onIconNameChanged: buttonIcon.source = iconName
+        }
+        QtDialogs.ColorDialog {
+            id: colorDialog
+            onAccepted: {
+                root.notebookColor=colorDialog.color
+                colorButton.palette.button = colorDialog.color
+            }
         }
         Button {
 
@@ -40,7 +48,11 @@ Kirigami.Dialog{
                 id: nameInput
                 placeholderText: "Notebook Name"
             }
-            Button { icon.name: "color-management"}
+            Button {
+                id: colorButton
+                icon.name: "color-picker"
+                onClicked: colorDialog.open()
+            }
         }
 
     }
@@ -51,7 +63,7 @@ Kirigami.Dialog{
             text: i18n("Add")
             iconName: "list-add"
             onTriggered: {
-                root.model.addNoteBook(nameInput.text, iconDialog.iconName)
+                root.model.addNoteBook(nameInput.text, iconDialog.iconName !== "" ? iconDialog.iconName : "addressbook-details" , root.notebookColor)
                 close()
                 if (model.rowCount() === 1) {pageStack.replace(
                         ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],

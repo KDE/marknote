@@ -94,13 +94,16 @@ Kirigami.ApplicationWindow {
                     required property string name;
                     required property string path;
                     required property string iconName;
-
+                    required property string color;
+                    Kirigami.Theme.highlightColor: delegateItem.color
                     Layout.fillWidth: true
                     implicitHeight: 50
                     icon.name: iconName
                     text: name
                     Layout.margins: 0
                     onClicked: {
+                        Kirigami.Theme.highlightColor = delegateItem.color
+                        console.log(delegateItem.color)
                         currentNotebook = delegateItem.name
                         pageStack.clear()
                         pageStack.push("qrc:/NotesPage.qml", {
