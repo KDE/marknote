@@ -57,13 +57,19 @@ Kirigami.Dialog{
 
     }
     standardButtons: Kirigami.Dialog.Cancel
+    onRejected: {
+        notebookColor = ""
+        nameInput.clear()
+        buttonIcon.source = "addressbook-details"
 
+    }
     customFooterActions: [
         Kirigami.Action {
             text: i18n("Add")
             iconName: "list-add"
             onTriggered: {
-                root.model.addNoteBook(nameInput.text, iconDialog.iconName !== "" ? iconDialog.iconName : "addressbook-details" , root.notebookColor)
+
+                root.model.addNoteBook(nameInput.text, buttonIcon.source !== "" ? buttonIcon.source : "addressbook-details" , root.notebookColor)
                 close()
                 if (model.rowCount() === 1) {pageStack.replace(
                         ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
@@ -73,7 +79,9 @@ Kirigami.Dialog{
                     }
                     )
                 }
-
+                notebookColor = ""
+                nameInput.clear()
+                buttonIcon.source = "addressbook-details"
             }
         }
     ]

@@ -11,7 +11,7 @@ import org.kde.marknote 1.0
 
 Kirigami.ApplicationWindow {
     id: root
-    property string currentNotebook: noteBooksModel.rowCount() !== 0 ? noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Name) : ""
+    property string currentNotebook: noteBooksModel.rowCount() !== 0 ? noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name) : ""
 
     title: i18n("marknote")
 
@@ -20,8 +20,8 @@ Kirigami.ApplicationWindow {
     Component.onCompleted: noteBooksModel.rowCount() !== 0 ? pageStack.push(
         "qrc:/NotesPage.qml",
         {
-            path: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Path),
-            notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Name)
+            path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
+            notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
             }
         ): pageStack.push("qrc:/WelcomePage.qml", {model : noteBooksModel})
 
@@ -72,8 +72,8 @@ Kirigami.ApplicationWindow {
                                     pageStack.replace(
                                         ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
                                         {
-                                        path: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Path),
-                                        notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Name)
+                                        path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
+                                        notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
                                         }
                                     )
                                 } else {
