@@ -24,14 +24,12 @@ int NoteBooksModel::rowCount(const QModelIndex &index) const
 
 QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
 {
-    qDebug() << "Data";
     switch (role) {
     case Role::Path:
         return directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath();
 
     case Role::Icon: {
         const QString dotDirectory = directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % ".directory";
-        qDebug() << dotDirectory;
         if (QFile::exists(dotDirectory)) {
             return KDesktopFile(dotDirectory).readIcon();
         } else {

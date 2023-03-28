@@ -1,7 +1,7 @@
 {
     "id": "org.kde.marknote",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15",
+    "runtime-version": "5.15-22.08",
     "sdk": "org.kde.Sdk",
     "command": "marknote",
     "tags": ["nightly"],
@@ -12,7 +12,7 @@
         "--socket=x11",
         "--socket=wayland",
         "--device=dri",
-        "--filesystem=home"
+        "--filesystem=xdg-documents"
     ],
     "separate-locales": false,
 
