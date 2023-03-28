@@ -51,7 +51,7 @@ Kirigami.Dialog{
             text: i18n("Add")
             iconName: "list-add"
             onTriggered: {
-                root.model.addNoteBook(nameInput.text)
+                root.model.addNoteBook(nameInput.text, iconDialog.iconName)
                 close()
                 if (model.rowCount() === 1) {pageStack.replace(
                         ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],

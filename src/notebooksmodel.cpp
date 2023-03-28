@@ -4,6 +4,10 @@
 #include <QFile>
 #include <QDebug>
 #include <QUrl>
+#include <QStringBuilder>
+
+#include <KDesktopFile>
+#include <KConfigGroup>
 
 NoteBooksModel::NoteBooksModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -25,9 +29,15 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
     case Role::Path:
         return directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath();
 
-    case Role::Date:
-        return "";
-
+    case Role::Icon: {
+        const QString dotDirectory = directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % ".directory";
+        qDebug() << dotDirectory;
+        if (QFile::exists(dotDirectory)) {
+            return KDesktopFile(dotDirectory).readIcon();
+        } else {
+            return QStringLiteral("addressbook-details");
+        }
+    }
     case Role::Name:
         return directory.entryList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row());
     }
@@ -40,18 +50,23 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> NoteBooksModel::roleNames() const
 {
     return {
-        {Role::Date, "date"},
+        {Role::Icon, "iconName"},
         {Role::Path, "path"},
         {Role::Name, "name"}
     };
 }
 
-void NoteBooksModel::addNoteBook(const QString &name)
+void NoteBooksModel::addNoteBook(const QString &name, const QString &icon)
 {
     qDebug() << Q_FUNC_INFO;
 
     beginResetModel();
     directory.mkdir(name);
+    const QString dotDirectory = directory.path() % QDir::separator() % name % QDir::separator() % ".directory";
+    KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
+    auto desktopEntry = desktopFile.group("Desktop Entry");
+    desktopEntry.writeEntry("Icon", icon);
+    desktopFile.sync();
     endResetModel();
 }
 

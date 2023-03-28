@@ -93,10 +93,11 @@ Kirigami.ApplicationWindow {
                     id: delegateItem
                     required property string name;
                     required property string path;
+                    required property string iconName;
 
                     Layout.fillWidth: true
                     implicitHeight: 50
-                    icon.name: "addressbook-details"
+                    icon.name: iconName
                     text: name
                     Layout.margins: 0
                     onClicked: {

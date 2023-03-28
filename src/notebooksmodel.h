@@ -11,8 +11,8 @@ class NoteBooksModel : public QAbstractListModel
 public:
     enum Role {
         Path = Qt::UserRole + 1,
-        Date,
-        Name
+        Name,
+        Icon
     };
     Q_ENUM(Role)
 
@@ -24,7 +24,7 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void addNoteBook(const QString &name);
+    Q_INVOKABLE void addNoteBook(const QString &name, const QString &icon);
 
     Q_INVOKABLE void deleteNoteBook(const QString &name);
 
