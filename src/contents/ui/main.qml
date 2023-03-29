@@ -52,7 +52,7 @@ Kirigami.ApplicationWindow {
                     Controls.Menu {
                         id: optionPopup
                         Controls.MenuItem {
-                            text: "Add new Notebook"
+                            text: "New Notebook"
                             icon.name: "list-add"
                             onTriggered: { addNotebookDialog.open() }
 

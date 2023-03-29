@@ -15,22 +15,20 @@ Kirigami.ScrollablePage {
     titleDelegate: RowLayout {
         visible: name
         Layout.fillWidth: true
-        Kirigami.Heading {
-            Layout.leftMargin:  Kirigami.Units.largeSpacing * 2
-            text: name
-        }
         Item { Layout.fillWidth: true }
         Rectangle {
             height:5
             width: 5
             radius: 2.5
-            color: saved? "#27ae60":"#da4453"
+            color: Kirigami.Theme.textColor
+            visible: !saved
         }
-        Label {
-            text: saved? "saved" : "not saved"
-            color: Kirigami.Theme.disabledTextColor
-            Layout.rightMargin:  Kirigami.Units.largeSpacing
+        Kirigami.Heading {
+            text: name
+            type: saved? Kirigami.Heading.Type.Normal:Kirigami.Heading.Type.Primary
+
         }
+        Item { Layout.fillWidth: true }
     }
 
 
@@ -175,7 +173,7 @@ Kirigami.ScrollablePage {
             Timer{
                 id: saveTimer
                 repeat: false
-                interval: 300
+                interval: 1000
                 onTriggered: {
                     if (root.name) {
                         document.saveAs(path)
