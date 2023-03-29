@@ -78,12 +78,12 @@ Kirigami.ScrollablePage {
             display: AbstractButton.IconOnly
             Shortcut {
                 sequence: "Ctrl+Shift+F"
-                onActivated: searchButton.clicked()
+                onActivated: if (!search.visible) {searchButton.clicked()}
             }
             ToolTip.delay: 1000
             ToolTip.timeout: 5000
             ToolTip.visible: hovered
-            ToolTip.text: i18n("Search Notes (Ctrl+)")
+            ToolTip.text: search.visible? i18n("Exit Search (Esc)") : i18n("Search Notes (Ctrl+Shift+F)")
             onClicked:{
                 if (!search.visible){
                     search.visible = true
