@@ -29,12 +29,13 @@ Kirigami.ApplicationWindow {
     pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
 
     globalDrawer: Kirigami.GlobalDrawer {
+
         NoteBooksModel {
             id: noteBooksModel
         }
 
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        modal: !wideScreen
+        modal: !wideScreen || Kirigami.Settings.isMobile
         width: 60
         margins: 0
         padding: 0

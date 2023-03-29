@@ -13,12 +13,14 @@ Kirigami.ScrollablePage {
 
     property string path
     property string notebookName
-    Component.onCompleted: notesModel.rowCount() !== 0 ? pageStack.push("qrc:/EditPage.qml",{
+    Component.onCompleted: if (!Kirigami.Settings.isMobile) {
+        notesModel.rowCount() !== 0 ? pageStack.push("qrc:/EditPage.qml",{
         path: notesModel.data(notesModel.index(0, 0), NotesModel.Path),
         name: notesModel.data(notesModel.index(0, 0), NotesModel.Name),
         objectNameW: notesModel.data(notesModel.index(0, 0), NotesModel.Name)})
         :
         pageStack.push("qrc:/EditPage.qml",{name: ""})
+        }
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
