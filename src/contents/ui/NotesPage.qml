@@ -1,4 +1,4 @@
-import QtQuick 2.1
+import QtQuick 2.15
 import org.kde.kirigami 2.19 as Kirigami
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.12
@@ -44,7 +44,14 @@ Kirigami.ScrollablePage {
             text: "Add"
             onClicked: addSheet.open()
             display: AbstractButton.IconOnly
-
+            Shortcut {
+                sequence: "Ctrl+N"
+                onActivated: addButton.clicked()
+            }
+            ToolTip.delay: 1000
+            ToolTip.timeout: 5000
+            ToolTip.visible: hovered
+            ToolTip.text: i18n("New Note (Ctrl+N)")
         }
         Kirigami.Heading {
             id: heading
@@ -58,6 +65,10 @@ Kirigami.ScrollablePage {
             id: search
             visible: false
             Layout.fillWidth: true
+            Shortcut {
+                sequence: "Escape"
+                onActivated: if (search.visible) {searchButton.clicked()}
+            }
             onTextChanged: filterModel.setFilterFixedString(search.text )
         }
         ToolButton {
@@ -65,13 +76,21 @@ Kirigami.ScrollablePage {
             icon.name: "search"
             text: "Search"
             display: AbstractButton.IconOnly
-
+            Shortcut {
+                sequence: "Ctrl+Shift+F"
+                onActivated: searchButton.clicked()
+            }
+            ToolTip.delay: 1000
+            ToolTip.timeout: 5000
+            ToolTip.visible: hovered
+            ToolTip.text: i18n("Search Notes (Ctrl+)")
             onClicked:{
                 if (!search.visible){
                     search.visible = true
                     heading.visible = false
                     addButton.visible = false
                     searchButton.icon.name = "draw-arrow-back"
+                    search.forceActiveFocus()
                 } else {
                     search.visible = false
                     heading.visible = true
@@ -91,12 +110,15 @@ Kirigami.ScrollablePage {
             TextField{
                 id: fileNameInput
                 Kirigami.FormData.label: "Note Name:"
+                onAccepted: {addAction.triggered()}
+
             }
         }
         standardButtons: Kirigami.Dialog.Cancel
-
+        onOpened: fileNameInput.forceActiveFocus()
         customFooterActions: [
             Kirigami.Action {
+                id: addAction
                 text: i18n("Add")
                 iconName: "list-add"
                 onTriggered: {
