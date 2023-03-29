@@ -212,7 +212,7 @@ Kirigami.ScrollablePage {
                             id: contents
                             spacing: 0
                             Kirigami.BasicListItem {
-                                label: i18n("Delete")
+                                label: i18n("Delete Note")
                                 icon: "delete"
                                 onClicked: {
                                     notesModel.deleteNote(delegateItem.path)
@@ -221,7 +221,7 @@ Kirigami.ScrollablePage {
                                 }
                             }
                             Kirigami.BasicListItem {
-                                label: i18n("Rename")
+                                label: i18n("Rename Note")
                                 icon: "document-edit"
                                 onClicked: {
                                     if (!renameLayout.visible) {
@@ -247,7 +247,7 @@ Kirigami.ScrollablePage {
                 Menu {
                     id: optionPopup
                     MenuItem {
-                        text: "delete"
+                        text: "Delete Note"
                         icon.name: "delete"
                         onClicked:{
                             notesModel.deleteNote(delegateItem.path)
@@ -255,7 +255,7 @@ Kirigami.ScrollablePage {
                             }
                         }
                     MenuItem {
-                        text: "rename"
+                        text: "Rename Note"
                         icon.name: "edit-rename"
                         onClicked: {
                             if (!renameLayout.visible) {
