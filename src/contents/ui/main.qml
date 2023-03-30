@@ -3,7 +3,7 @@
     SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 */
 
-import QtQuick 2.1
+import QtQuick 2.15
 import org.kde.kirigami 2.19 as Kirigami
 import QtQuick.Controls 2.0 as Controls
 import QtQuick.Layouts 1.12
@@ -29,7 +29,10 @@ Kirigami.ApplicationWindow {
     pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
 
     globalDrawer: Kirigami.GlobalDrawer {
-
+        Shortcut {
+            sequence: "Ctrl+Shift+N"
+            onActivated: addNotebookDialog.open()
+        }
         NoteBooksModel {
             id: noteBooksModel
         }
@@ -46,6 +49,7 @@ Kirigami.ApplicationWindow {
                     Layout.alignment: Qt.AlignHCenter
                     icon.name: "application-menu"
                     onClicked: optionPopup.popup()
+
                     AddNotebookDialog {
                         id: addNotebookDialog
                         model: noteBooksModel

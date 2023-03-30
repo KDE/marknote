@@ -1,5 +1,5 @@
 
-import QtQuick 2.1
+import QtQuick 2.15
 import org.kde.kirigami 2.19 as Kirigami
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.12
@@ -57,6 +57,11 @@ Kirigami.ScrollablePage {
             }
             RowLayout {
                 ToolButton {
+                    id: boldButton
+                    Shortcut {
+                        sequence: "Ctrl+B"
+                        onActivated: boldButton.clicked()
+                    }
                     icon.name: "format-text-bold"
                     text: "Bold"
                     display: AbstractButton.IconOnly
@@ -67,6 +72,11 @@ Kirigami.ScrollablePage {
                     }
                 }
                 ToolButton {
+                    id: italicButton
+                    Shortcut {
+                        sequence: "Ctrl+I"
+                        onActivated: italicButton.clicked()
+                    }
                     icon.name: "format-text-italic"
                     text: "Italic"
                     display: AbstractButton.IconOnly
@@ -177,6 +187,7 @@ Kirigami.ScrollablePage {
                 onTriggered: {
                     if (root.name) {
                         document.saveAs(path)
+                        console.log("timer ")
                         saved = true
                     }
                 }
