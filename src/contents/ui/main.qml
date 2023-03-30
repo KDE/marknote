@@ -29,6 +29,7 @@ Kirigami.ApplicationWindow {
     pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
 
     globalDrawer: Kirigami.GlobalDrawer {
+        id: drawer
         Shortcut {
             sequence: "Ctrl+Shift+N"
             onActivated: addNotebookDialog.open()
@@ -107,6 +108,7 @@ Kirigami.ApplicationWindow {
                     text: name
                     Layout.margins: 0
                     onClicked: {
+                        if (Kirigami.Settings.isMobile) {drawer.close()}
                         Kirigami.Theme.highlightColor = delegateItem.color
                         console.log(delegateItem.color)
                         currentNotebook = delegateItem.name
