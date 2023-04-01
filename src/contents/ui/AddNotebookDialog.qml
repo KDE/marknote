@@ -72,11 +72,13 @@ Kirigami.Dialog{
 
                 root.model.addNoteBook(nameInput.text, buttonIcon.source !== "" ? buttonIcon.source : "addressbook-details" , root.notebookColor)
                 close()
-                if (model.rowCount() === 1) {pageStack.replace(
+                if (model.rowCount() === 1) {
+                    pageStack.clear()
+                    pageStack.replace(
                         ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
                     {
-                    path: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Path),
-                    notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NotesModel.Name)
+                    path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
+                    notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
                     }
                     )
                 }
