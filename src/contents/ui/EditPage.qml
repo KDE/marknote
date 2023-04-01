@@ -146,7 +146,6 @@ Kirigami.ScrollablePage {
             Layout.fillHeight: true
             Layout.fillWidth: true
             contentWidth: width
-
             TextArea.flickable: TextArea {
                 id: textArea
                 background: Item {

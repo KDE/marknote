@@ -130,7 +130,35 @@ Kirigami.ScrollablePage {
             }
         ]
     }
+    Kirigami.Dialog {
+        id: removeDialog
+        property string notePath
+        property string noteName
+        standardButtons: Kirigami.Dialog.Yes | Kirigami.Dialog.Cancel
+        title: i18n("Delete Note")
+        RowLayout {
+            Kirigami.Icon {
+                source: "dialog-warning"
+                Layout.margins: Kirigami.Units.largeSpacing
 
+            }
+
+            Label {
+                Layout.fillWidth: true
+                Layout.margins: Kirigami.Units.largeSpacing
+                text: i18n("Are you sure you want to delete the note <b> %1 </b>", removeDialog.noteName)
+                wrapMode: Text.WordWrap
+            }
+        }
+        onRejected: {
+            close()
+        }
+        onAccepted: {
+                notesModel.deleteNote(notePath)
+
+        }
+
+    }
 
     ListView {
         id: notesList
@@ -213,15 +241,7 @@ Kirigami.ScrollablePage {
                         drawerContentItem: ColumnLayout{
                             id: contents
                             spacing: 0
-                            Kirigami.BasicListItem {
-                                label: i18n("Delete Note")
-                                icon: "delete"
-                                onClicked: {
-                                    notesModel.deleteNote(delegateItem.path)
-                                    optionDrawer.close()
 
-                                }
-                            }
                             Kirigami.BasicListItem {
                                 label: i18n("Rename Note")
                                 icon: "document-edit"
@@ -239,6 +259,17 @@ Kirigami.ScrollablePage {
                                     }
                                 }
                             }
+                            Kirigami.BasicListItem {
+                                label: i18n("Delete Note")
+                                icon: "delete"
+                                onClicked: {
+                                    removeDialog.noteName = delegateItem.name
+                                    removeDialog.notePath = delegateItem.path
+                                    removeDialog.open()
+                                    optionDrawer.close()
+
+                                }
+                            }
                             Item{
                                 Layout.fillHeight: true
                             }
@@ -248,14 +279,7 @@ Kirigami.ScrollablePage {
 
                 Menu {
                     id: optionPopup
-                    MenuItem {
-                        text: "Delete Note"
-                        icon.name: "delete"
-                        onClicked:{
-                            notesModel.deleteNote(delegateItem.path)
-                            optionPopup.dismiss()
-                            }
-                        }
+
                     MenuItem {
                         text: "Rename Note"
                         icon.name: "edit-rename"
@@ -267,6 +291,16 @@ Kirigami.ScrollablePage {
                                 renameLayout.visible = false
                                 nameLabel.visible = true
                             }
+                        }
+                    }
+                    MenuItem {
+                        text: "Delete Note"
+                        icon.name: "delete"
+                        onClicked:{
+                            removeDialog.noteName = delegateItem.name
+                            removeDialog.notePath = delegateItem.path
+                            removeDialog.open()
+                            optionPopup.dismiss()
                         }
                     }
                 }

@@ -13,6 +13,7 @@ Kirigami.Dialog{
     property NoteBooksModel model
     property string notebookColor
     padding: Kirigami.Units.largeSpacing
+    onOpened: nameInput.forceActiveFocus()
     contentItem: ColumnLayout {
         spacing: 20
         KQuickAddons.IconDialog {
