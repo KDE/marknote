@@ -1,5 +1,4 @@
-# Marknote
-![](https://invent.kde.org/mbruchert/marknote/-/raw/master/logo.png)
+#  <img src="https://invent.kde.org/mbruchert/marknote/-/raw/master/logo.png">  Marknote
 
 A simple markdown note management app
 
