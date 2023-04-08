@@ -71,6 +71,10 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             onClicked: applicationWindow().openBottomDrawer()
             contentItem: RowLayout{
+                Item {
+                    visible: !Kirigami.Settings.isMobile
+                    Layout.fillWidth: true
+                }
 
                 Kirigami.Heading {
                     type: Kirigami.Heading.Type.Primary
@@ -80,7 +84,7 @@ Kirigami.ScrollablePage {
 
                 Kirigami.Icon {
                     source: "go-down-symbolic"
-                    implicitHeight:Kirigami.Units.gridUnit
+                    implicitHeight: Kirigami.Units.gridUnit
                 }
 
                 Item { Layout.fillWidth: true }
