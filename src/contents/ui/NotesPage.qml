@@ -8,8 +8,7 @@ import "components"
 
 Kirigami.ScrollablePage {
     id: root
-
-
+    property bool wideScreen: applicationWindow().width >= 600
 
     property string path
     property string notebookName
@@ -57,11 +56,36 @@ Kirigami.ScrollablePage {
         }
         Kirigami.Heading {
             id: heading
+
+            visible: wideScreen
             text: root.notebookName
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.largeSpacing
             Layout.rightMargin: Kirigami.Units.largeSpacing
-            horizontalAlignment: Kirigami.Settings.isMobile? Text.AlignLeft: Text.AlignHCenter
+            horizontalAlignment: Text.AlignHCenter
+        }
+        ToolButton {
+            id: headingButton
+
+            visible: !wideScreen
+            Layout.fillWidth: true
+            onClicked: applicationWindow().openBottomDrawer()
+            contentItem: RowLayout{
+
+                Kirigami.Heading {
+                    type: Kirigami.Heading.Type.Primary
+                    text: root.notebookName
+                    Layout.leftMargin: Kirigami.Units.largeSpacing
+                }
+
+                Kirigami.Icon {
+                    source: "go-down-symbolic"
+                    implicitHeight:Kirigami.Units.gridUnit
+                }
+
+                Item { Layout.fillWidth: true }
+
+            }
         }
         Kirigami.SearchField {
             id: search
@@ -89,13 +113,13 @@ Kirigami.ScrollablePage {
             onClicked:{
                 if (!search.visible){
                     search.visible = true
-                    heading.visible = false
+                    wideScreen? heading.visible = false : headingButton.visible = false
                     addButton.visible = false
                     searchButton.icon.name = "draw-arrow-back"
                     search.forceActiveFocus()
                 } else {
                     search.visible = false
-                    heading.visible = true
+                    wideScreen? heading.visible = true : headingButton.visible = true
                     if (!Kirigami.Settings.isMobile) {addButton.visible = true}
                     search.clear()
                     searchButton.icon.name = "search"
@@ -270,9 +294,8 @@ Kirigami.ScrollablePage {
 
                                 }
                             }
-                            Item{
-                                Layout.fillHeight: true
-                            }
+                            Item { height: Kirigami.Units.largeSpacing * 3}
+
                         }
                     }
 

@@ -4,19 +4,28 @@
 */
 
 import QtQuick 2.15
-import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigami 2.20 as Kirigami
 import QtQuick.Controls 2.0 as Controls
 import QtQuick.Layouts 1.12
 import org.kde.marknote 1.0
 
+import "components"
+
 Kirigami.ApplicationWindow {
     id: root
+    controlsVisible: false
+    property bool wideScreen: applicationWindow().width >= 600
+
     property string currentNotebook: noteBooksModel.rowCount() !== 0 ? noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name) : ""
+    pageStack.globalToolBar.canContainHandles: wideScreen
 
     title: i18n("marknote")
-
+    function openBottomDrawer() {
+        bottomDrawer.open()
+    }
     pageStack.globalToolBar.style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
     pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
+    pageStack.popHiddenPages:true
     Component.onCompleted: noteBooksModel.rowCount() !== 0 ? pageStack.push(
         "qrc:/NotesPage.qml",
         {
@@ -30,6 +39,7 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
+        isMenu: !wideScreen
         Shortcut {
             sequence: "Ctrl+Shift+N"
             onActivated: addNotebookDialog.open()
@@ -39,7 +49,7 @@ Kirigami.ApplicationWindow {
         }
 
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        modal: !wideScreen || Kirigami.Settings.isMobile
+        modal: !wideScreen
         width: 60
         margins: 0
         padding: 0
@@ -108,7 +118,6 @@ Kirigami.ApplicationWindow {
                     text: name
                     Layout.margins: 0
                     onClicked: {
-                        if (Kirigami.Settings.isMobile) {drawer.close()}
                         Kirigami.Theme.highlightColor = delegateItem.color
                         console.log(delegateItem.color)
                         currentNotebook = delegateItem.name
@@ -124,5 +133,82 @@ Kirigami.ApplicationWindow {
             }
             Item { Layout.fillHeight: true }
         }
+    }
+    BottomDrawer {
+        id: bottomDrawer
+
+        headerContentItem: RowLayout {
+            Kirigami.Heading {
+                text: i18n("Your Notebooks")
+            }
+            Item { Layout.fillWidth: true }
+            Controls.ToolButton {
+                icon.name: "list-add"
+                onClicked: {
+                    addNotebookDialog.open()
+                    bottomDrawer.close()
+                }
+            }
+        }
+        drawerContentItem: ColumnLayout {
+            Repeater {
+                model: noteBooksModel
+                delegate: Kirigami.SwipeListItem {
+                    id: drawerDelegateItem
+                    required property string name;
+                    required property string path;
+                    required property string iconName;
+                    required property string color;
+                    Layout.fillWidth: true
+                    alwaysVisibleActions:true
+                    RowLayout {
+                        Kirigami.Icon {
+                            source: iconName
+                            implicitHeight:Kirigami.Units.gridUnit * 1.2
+                        }
+                        Controls.Label { text: name}
+                        Item { Layout.fillWidth: true}
+                    }
+                    Layout.margins: 0
+                    actions: [
+                        Kirigami.Action {
+                            icon.name: "delete"
+                            text: i18n("Delete Notebook")
+                            onTriggered: {
+                                noteBooksModel.deleteNoteBook(drawerDelegateItem.name)
+                                if(noteBooksModel.rowCount() !== 0) {
+                                    pageStack.clear()
+                                    pageStack.replace(
+                                        ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
+                                        {
+                                        path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
+                                        notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
+                                        }
+                                    )
+                                } else {
+                                    pageStack.clear()
+                                    pageStack.replace("qrc:/WelcomePage.qml", {model : noteBooksModel})
+                                }
+                            }
+                        }
+                    ]
+                    onClicked: {
+                        bottomDrawer.close()
+                        Kirigami.Theme.highlightColor = drawerDelegateItem.color
+                        console.log(drawerDelegateItem.color)
+                        currentNotebook = drawerDelegateItem.name
+                        pageStack.clear()
+                        pageStack.push("qrc:/NotesPage.qml", {
+                            path: drawerDelegateItem.path,
+                            notebookName: drawerDelegateItem.name
+
+                            }
+                        )
+                    }
+                }
+            }
+            Item { height: Kirigami.Units.largeSpacing * 3}
+        }
+
     }
 }
