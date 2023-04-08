@@ -163,6 +163,7 @@ Kirigami.ApplicationWindow {
                     alwaysVisibleActions:true
                     RowLayout {
                         Kirigami.Icon {
+                            isMask: true
                             source: iconName
                             implicitHeight:Kirigami.Units.gridUnit * 1.2
                         }
