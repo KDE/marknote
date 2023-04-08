@@ -69,6 +69,7 @@ Kirigami.ScrollablePage {
 
             visible: !wideScreen
             Layout.fillWidth: true
+            Layout.fillHeight: true
             onClicked: applicationWindow().openBottomDrawer()
             contentItem: RowLayout{
                 Item {
