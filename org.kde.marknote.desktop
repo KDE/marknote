@@ -2,10 +2,10 @@
 # SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 [Desktop Entry]
 Name=marknote
-Comment=marknote Kirigami Application
+Comment=Markdown Note Management Tool
 Version=1.0
 Exec=marknote
-Icon=applications-development
+Icon=org.kde.marknote
 Type=Application
 Terminal=false
 # Add an actual main category here (and possibly applicable additional ones)
