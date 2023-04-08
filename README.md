@@ -9,6 +9,11 @@ most formating features not supported yet
 
 ## build instructions
 
+### flatpak builder (with kde sdk)
+```
+flatpak-builder tmp --force-clean --ccache --install --user org.kde.marknote.json
+```
+### cmake
 ```
 mkdir build
 cd build
