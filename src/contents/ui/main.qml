@@ -15,7 +15,7 @@ Kirigami.ApplicationWindow {
     id: root
     controlsVisible: false
     property bool wideScreen: applicationWindow().width >= 600
-
+    onWideScreenChanged: !wideScreen? drawer.close() : drawer.open()
     property string currentNotebook: noteBooksModel.rowCount() !== 0 ? noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name) : ""
     pageStack.globalToolBar.canContainHandles: wideScreen
 
@@ -39,7 +39,7 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
-        isMenu: !wideScreen
+
         Shortcut {
             sequence: "Ctrl+Shift+N"
             onActivated: addNotebookDialog.open()
