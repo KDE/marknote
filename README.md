@@ -5,7 +5,7 @@ A simple markdown note management app
 
 most formating features not supported yet
 
-![](https://i.imgur.com/tJba9pK.png)
+<img src="https://i.imgur.com/tJba9pK.png.png"  height="350" > <img src="https://i.imgur.com/9DsuKFP.png"  height="350" >
 
 ## build instructions
 
