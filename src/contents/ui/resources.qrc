@@ -8,5 +8,6 @@
         <file alias="components/ActionButton.qml">components/ActionButton.qml</file>
         <file>AddNotebookDialog.qml</file>
         <file>WelcomePage.qml</file>
+        <file>NavigationBar.qml</file>
     </qresource>
 </RCC>

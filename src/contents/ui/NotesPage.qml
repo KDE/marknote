@@ -360,4 +360,6 @@ Kirigami.ScrollablePage {
             }
         }
     }
+    footer: NavigationBar {}
+
 }
