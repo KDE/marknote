@@ -2,7 +2,17 @@
 # SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 [Desktop Entry]
 Name=marknote
+Name[ca]=marknote
+Name[es]=marknote
+Name[nl]=marknote
+Name[uk]=marknote
+Name[x-test]=xxmarknotexx
 Comment=Markdown Note Management Tool
+Comment[ca]=Eina de gestió de notes del Markdown
+Comment[es]=Herramienta de gestión de notas en markdown
+Comment[nl]=Beheerhulpmiddel voor Markdown Note
+Comment[uk]=Інструмент керування нотатками на основі Markdown
+Comment[x-test]=xxMarkdown Note Management Toolxx
 Version=1.0
 Exec=marknote
 Icon=org.kde.marknote
