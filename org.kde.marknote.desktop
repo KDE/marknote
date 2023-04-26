@@ -3,14 +3,22 @@
 [Desktop Entry]
 Name=marknote
 Name[ca]=marknote
+Name[ca@valencia]=marknote
 Name[es]=marknote
+Name[ka]=marknote
 Name[nl]=marknote
+Name[pt]=Marknote
+Name[tr]=marknote
 Name[uk]=marknote
 Name[x-test]=xxmarknotexx
 Comment=Markdown Note Management Tool
 Comment[ca]=Eina de gestió de notes del Markdown
+Comment[ca@valencia]=Eina de gestió de notes de Markdown
 Comment[es]=Herramienta de gestión de notas en markdown
+Comment[ka]=Markdown-ის შენიშვნების მართვის პროგრამა
 Comment[nl]=Beheerhulpmiddel voor Markdown Note
+Comment[pt]=Ferramenta de Gestão de Notas em Markdown
+Comment[tr]=Markdown Not Yönetimi Aracı
 Comment[uk]=Інструмент керування нотатками на основі Markdown
 Comment[x-test]=xxMarkdown Note Management Toolxx
 Version=1.0
