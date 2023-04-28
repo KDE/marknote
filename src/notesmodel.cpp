@@ -82,5 +82,5 @@ void NotesModel::setPath(const QString &newPath)
     m_path = newPath;
     directory = QDir(m_path);
     endResetModel();
-    emit pathChanged();
+    Q_EMIT pathChanged();
 }

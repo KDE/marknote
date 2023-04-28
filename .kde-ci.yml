@@ -8,3 +8,4 @@ Dependencies:
     'frameworks/kconfig': '@stable'
     'frameworks/ki18n': '@stable'
     'frameworks/kirigami': '@stable'
+    'frameworks/kcoreaddons': '@stable'

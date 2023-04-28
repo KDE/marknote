@@ -86,7 +86,7 @@ void DocumentHandler::setDocument(QQuickTextDocument *document)
     m_document = document;
     if (m_document)
         connect(m_document->textDocument(), &QTextDocument::modificationChanged, this, &DocumentHandler::modifiedChanged);
-    emit documentChanged();
+    Q_EMIT documentChanged();
 }
 
 int DocumentHandler::cursorPosition() const
@@ -101,7 +101,7 @@ void DocumentHandler::setCursorPosition(int position)
 
     m_cursorPosition = position;
     reset();
-    emit cursorPositionChanged();
+    Q_EMIT cursorPositionChanged();
 }
 
 int DocumentHandler::selectionStart() const
@@ -115,7 +115,7 @@ void DocumentHandler::setSelectionStart(int position)
         return;
 
     m_selectionStart = position;
-    emit selectionStartChanged();
+    Q_EMIT selectionStartChanged();
 }
 
 int DocumentHandler::selectionEnd() const
@@ -129,7 +129,7 @@ void DocumentHandler::setSelectionEnd(int position)
         return;
 
     m_selectionEnd = position;
-    emit selectionEndChanged();
+    Q_EMIT selectionEndChanged();
 }
 
 QString DocumentHandler::fontFamily() const
@@ -146,7 +146,7 @@ void DocumentHandler::setFontFamily(const QString &family)
     QTextCharFormat format;
     format.setFontFamily(family);
     mergeFormatOnWordOrSelection(format);
-    emit fontFamilyChanged();
+    Q_EMIT fontFamilyChanged();
 }
 
 QColor DocumentHandler::textColor() const
@@ -163,7 +163,7 @@ void DocumentHandler::setTextColor(const QColor &color)
     QTextCharFormat format;
     format.setForeground(QBrush(color));
     mergeFormatOnWordOrSelection(format);
-    emit textColorChanged();
+    Q_EMIT textColorChanged();
 }
 
 Qt::Alignment DocumentHandler::alignment() const
@@ -180,7 +180,7 @@ void DocumentHandler::setAlignment(Qt::Alignment alignment)
     format.setAlignment(alignment);
     QTextCursor cursor = textCursor();
     cursor.mergeBlockFormat(format);
-    emit alignmentChanged();
+    Q_EMIT alignmentChanged();
 }
 
 bool DocumentHandler::bold() const
@@ -196,7 +196,7 @@ void DocumentHandler::setBold(bool bold)
     QTextCharFormat format;
     format.setFontWeight(bold ? QFont::Bold : QFont::Normal);
     mergeFormatOnWordOrSelection(format);
-    emit boldChanged();
+    Q_EMIT boldChanged();
 }
 
 bool DocumentHandler::italic() const
@@ -212,7 +212,7 @@ void DocumentHandler::setItalic(bool italic)
     QTextCharFormat format;
     format.setFontItalic(italic);
     mergeFormatOnWordOrSelection(format);
-    emit italicChanged();
+    Q_EMIT italicChanged();
 }
 
 bool DocumentHandler::underline() const
@@ -228,7 +228,7 @@ void DocumentHandler::setUnderline(bool underline)
     QTextCharFormat format;
     format.setFontUnderline(underline);
     mergeFormatOnWordOrSelection(format);
-    emit underlineChanged();
+    Q_EMIT underlineChanged();
 }
 
 int DocumentHandler::fontSize() const
@@ -258,7 +258,7 @@ void DocumentHandler::setFontSize(int size)
     QTextCharFormat format;
     format.setFontPointSize(size);
     mergeFormatOnWordOrSelection(format);
-    emit fontSizeChanged();
+    Q_EMIT fontSizeChanged();
 }
 
 QString DocumentHandler::fileName() const
@@ -299,7 +299,7 @@ void DocumentHandler::load(const QUrl &fileUrl)
             QByteArray data = file.readAll();
             if (QTextDocument *doc = textDocument()) {
                 doc->setBaseUrl(path.adjusted(QUrl::RemoveFilename));
-                emit loaded(QString::fromUtf8(data), Qt::MarkdownText);
+                Q_EMIT loaded(QString::fromUtf8(data), Qt::MarkdownText);
                 doc->setModified(false);
             }
 
@@ -308,7 +308,7 @@ void DocumentHandler::load(const QUrl &fileUrl)
     }
 
     m_fileUrl = fileUrl;
-    emit fileUrlChanged();
+    Q_EMIT fileUrlChanged();
 }
 
 void DocumentHandler::saveAs(const QUrl &fileUrl)
@@ -320,7 +320,7 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
     const QString filePath = fileUrl.toLocalFile();
     QFile file(filePath);
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
-        emit error(tr("Cannot save: ") + file.errorString());
+        Q_EMIT error(tr("Cannot save: ") + file.errorString());
         return;
     }
     file.write(doc->toMarkdown().toUtf8());
@@ -330,18 +330,18 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
         return;
 
     m_fileUrl = fileUrl;
-    emit fileUrlChanged();
+    Q_EMIT fileUrlChanged();
 }
 
 void DocumentHandler::reset()
 {
-    emit fontFamilyChanged();
-    emit alignmentChanged();
-    emit boldChanged();
-    emit italicChanged();
-    emit underlineChanged();
-    emit fontSizeChanged();
-    emit textColorChanged();
+    Q_EMIT fontFamilyChanged();
+    Q_EMIT alignmentChanged();
+    Q_EMIT boldChanged();
+    Q_EMIT italicChanged();
+    Q_EMIT underlineChanged();
+    Q_EMIT fontSizeChanged();
+    Q_EMIT textColorChanged();
 }
 
 QTextCursor DocumentHandler::textCursor() const

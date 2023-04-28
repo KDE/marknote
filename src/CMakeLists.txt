@@ -10,5 +10,7 @@ target_link_libraries(marknote
     Qt5::QuickControls2
     Qt5::Svg
     KF5::I18n
-    KF5::ConfigCore)
+    KF5::ConfigCore
+    KF5::CoreAddons
+)
 install(TARGETS marknote ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
