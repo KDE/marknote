@@ -9,6 +9,7 @@
   <name xml:lang="ca">Aplicació de Kirigami Marknote</name>
   <name xml:lang="ca-valencia">Aplicació de Kirigami Marknote</name>
   <name xml:lang="de">marknote - Kirigami-Anwendung</name>
+  <name xml:lang="en-GB">marknote Kirigami Application</name>
   <name xml:lang="es">Aplicación de Kirigami marknote</name>
   <name xml:lang="fr">Application sous Kirigami pour les notes « Markdown »</name>
   <name xml:lang="ka">marknote Kirigami აპლიკაცია</name>
@@ -21,6 +22,7 @@
   <summary>A short summary describing what this software is about</summary>
   <summary xml:lang="ca">Un resum curt que descriu què és aquest programari</summary>
   <summary xml:lang="ca-valencia">Un resum curt que descriu què és este programari</summary>
+  <summary xml:lang="en-GB">A short summary describing what this software is about</summary>
   <summary xml:lang="es">Un breve resumen que describe lo que hace este software</summary>
   <summary xml:lang="fr">Un bref résumé décrivant le fonctionnement de ce logiciel</summary>
   <summary xml:lang="ka">მოკლე შინაარსი, რომელშიც აღწერილია, რას აკეთებს ეს პროგრამა</summary>
@@ -35,6 +37,7 @@
   <developer_name>The software vendor name, e.g. "ACME Corporation"</developer_name>
   <developer_name xml:lang="ca">El nom del venedor de programari, p. ex. «ACME Corporation»</developer_name>
   <developer_name xml:lang="ca-valencia">El nom del venedor de programari, p. ex. «ACME Corporation»</developer_name>
+  <developer_name xml:lang="en-GB">The software vendor name, e.g. "ACME Corporation"</developer_name>
   <developer_name xml:lang="es">El nombre del vendedor del software, como «ACME Corporation»</developer_name>
   <developer_name xml:lang="fr">Le nom du fournisseur de logiciels, par exemple, « Martin et fils »</developer_name>
   <developer_name xml:lang="ka">პროგრამის მომწოდებლის სახელი. მაგ: "კორპორაცია ACME"</developer_name>
@@ -48,6 +51,7 @@
     <p>Multiple paragraphs of long description, describing this software component.</p>
     <p xml:lang="ca">Diversos paràgrafs de descripció llarga, descrivint aquest component de programari.</p>
     <p xml:lang="ca-valencia">Diversos paràgrafs de descripció llarga, descrivint este component de programari.</p>
+    <p xml:lang="en-GB">Multiple paragraphs of long description, describing this software component.</p>
     <p xml:lang="es">Múltiples párrafos de una detallada descripción de este componente de software.</p>
     <p xml:lang="fr">Plusieurs paragraphes de description détaillée, décrivant ce composant logiciel.</p>
     <p xml:lang="ka">გრძელი აღწერის მრავალი პარაგრაფი, რომელიც ამ პროგრამულ კომპონენტს აღწერს.</p>
@@ -60,6 +64,7 @@
     <p>You can also use ordered and unordered lists:</p>
     <p xml:lang="ca">També podeu utilitzar llistes ordenades i no ordenades:</p>
     <p xml:lang="ca-valencia">També podeu utilitzar llistes ordenades i no ordenades:</p>
+    <p xml:lang="en-GB">You can also use ordered and unordered lists:</p>
     <p xml:lang="es">También puede usar listas ordenadas y sin ordenar:</p>
     <p xml:lang="fr">Vous pouvez aussi utiliser des listes ordonnées ou non ordonnées :</p>
     <p xml:lang="ka">შეგიძლიათ გამოიყენოთ როგორც დალაგებული, ისე დაულაგებელი:</p>
@@ -73,6 +78,7 @@
       <li>Feature 1</li>
       <li xml:lang="ca">Característica 1</li>
       <li xml:lang="ca-valencia">Característica 1</li>
+      <li xml:lang="en-GB">Feature 1</li>
       <li xml:lang="es">Funcionalidad 1</li>
       <li xml:lang="fr">Fonctionnalité 1</li>
       <li xml:lang="ka">ფუნქცია 1</li>
@@ -85,6 +91,7 @@
       <li>Feature 2</li>
       <li xml:lang="ca">Característica 2</li>
       <li xml:lang="ca-valencia">Característica 2</li>
+      <li xml:lang="en-GB">Feature 2</li>
       <li xml:lang="es">Funcionalidad 2</li>
       <li xml:lang="fr">Fonctionnalité 2</li>
       <li xml:lang="ka">ფუნქცია 2</li>
@@ -98,6 +105,7 @@
     <p>Keep in mind to XML-escape characters, and that this is not HTML markup.</p>
     <p xml:lang="ca">Tingueu en compte els caràcters d'escapament XML, i que això no és marcatge HTML.</p>
     <p xml:lang="ca-valencia">Cal tindre en compte els caràcters d'escapament XML, i que açò no és marcatge HTML.</p>
+    <p xml:lang="en-GB">Keep in mind to XML-escape characters, and that this is not HTML markup.</p>
     <p xml:lang="es">Recuerde usar secuencias de escape con los caracteres XML y que esto no es lenguaje de marcado HTML.</p>
     <p xml:lang="fr">Veuillez garder à l’esprit les caractères « XML-escape » et que ce n’est pas un marquage « HTML ».</p>
     <p xml:lang="ka">დაიმახსოვრეთ, რომ გამოიყენება XML-ის სპეციალური სიმბოლოები და არა HTML მარქაფი.</p>
