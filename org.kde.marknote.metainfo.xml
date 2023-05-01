@@ -12,6 +12,8 @@
   <name xml:lang="en-GB">marknote Kirigami Application</name>
   <name xml:lang="es">Aplicación de Kirigami marknote</name>
   <name xml:lang="fr">Application sous Kirigami pour les notes « Markdown »</name>
+  <name xml:lang="gl">Aplicación de Kirigami marknote</name>
+  <name xml:lang="it">Applicazione Kirigami Marknote</name>
   <name xml:lang="ka">marknote Kirigami აპლიკაცია</name>
   <name xml:lang="nl">marknote Kirigami-toepassing</name>
   <name xml:lang="pt">Aplicação Marknote em Kirigami</name>
@@ -25,6 +27,8 @@
   <summary xml:lang="en-GB">A short summary describing what this software is about</summary>
   <summary xml:lang="es">Un breve resumen que describe lo que hace este software</summary>
   <summary xml:lang="fr">Un bref résumé décrivant le fonctionnement de ce logiciel</summary>
+  <summary xml:lang="gl">Un breve resumo que describe en que consiste este software</summary>
+  <summary xml:lang="it">Un breve riassunto che descrive di cosa tratta questo software</summary>
   <summary xml:lang="ka">მოკლე შინაარსი, რომელშიც აღწერილია, რას აკეთებს ეს პროგრამა</summary>
   <summary xml:lang="nl">Een korte samenvatting die beschrijft waar deze software over gaat</summary>
   <summary xml:lang="pt">Um breve resumo que descreve para que serve esta aplicação</summary>
@@ -40,6 +44,8 @@
   <developer_name xml:lang="en-GB">The software vendor name, e.g. "ACME Corporation"</developer_name>
   <developer_name xml:lang="es">El nombre del vendedor del software, como «ACME Corporation»</developer_name>
   <developer_name xml:lang="fr">Le nom du fournisseur de logiciels, par exemple, « Martin et fils »</developer_name>
+  <developer_name xml:lang="gl">O fabricante do software, p. ex. «ACME»</developer_name>
+  <developer_name xml:lang="it">Il nome del fornitore del software, ad es. "Azienda ACME"</developer_name>
   <developer_name xml:lang="ka">პროგრამის მომწოდებლის სახელი. მაგ: "კორპორაცია ACME"</developer_name>
   <developer_name xml:lang="nl">De naam van de softwareverkoper, bijv. "ACME Corporation"</developer_name>
   <developer_name xml:lang="pt">O nome do fabricante da aplicação, p.ex. "Empresa XPTO"</developer_name>
@@ -54,6 +60,8 @@
     <p xml:lang="en-GB">Multiple paragraphs of long description, describing this software component.</p>
     <p xml:lang="es">Múltiples párrafos de una detallada descripción de este componente de software.</p>
     <p xml:lang="fr">Plusieurs paragraphes de description détaillée, décrivant ce composant logiciel.</p>
+    <p xml:lang="gl">Varios parágrafos de descrición longa, que describa este compoñente de software.</p>
+    <p xml:lang="it">Più paragrafi di lunga descrizione, che descrivono questo componente software.</p>
     <p xml:lang="ka">გრძელი აღწერის მრავალი პარაგრაფი, რომელიც ამ პროგრამულ კომპონენტს აღწერს.</p>
     <p xml:lang="nl">Meerdere paragrafen met lange beschrijvingen, die deze softwarecomponent beschrijven.</p>
     <p xml:lang="pt">Vários parágrafos de descrições longas, descrevendo este componente da aplicação.</p>
@@ -67,6 +75,8 @@
     <p xml:lang="en-GB">You can also use ordered and unordered lists:</p>
     <p xml:lang="es">También puede usar listas ordenadas y sin ordenar:</p>
     <p xml:lang="fr">Vous pouvez aussi utiliser des listes ordonnées ou non ordonnées :</p>
+    <p xml:lang="gl">Tamén pode usar listas, numeradas ou non:</p>
+    <p xml:lang="it">Puoi anche utilizzare elenchi ordinati e non ordinati:</p>
     <p xml:lang="ka">შეგიძლიათ გამოიყენოთ როგორც დალაგებული, ისე დაულაგებელი:</p>
     <p xml:lang="nl">U kunt ook geordende en ongeordende lijsten gebruiken:</p>
     <p xml:lang="pt">Poderá também usar listas ordenadas e não ordenadas:</p>
@@ -81,6 +91,8 @@
       <li xml:lang="en-GB">Feature 1</li>
       <li xml:lang="es">Funcionalidad 1</li>
       <li xml:lang="fr">Fonctionnalité 1</li>
+      <li xml:lang="gl">Funcionalidade 1</li>
+      <li xml:lang="it">Funzionalità 1</li>
       <li xml:lang="ka">ფუნქცია 1</li>
       <li xml:lang="nl">Functie 1</li>
       <li xml:lang="pt">Funcionalidade 1</li>
@@ -94,6 +106,8 @@
       <li xml:lang="en-GB">Feature 2</li>
       <li xml:lang="es">Funcionalidad 2</li>
       <li xml:lang="fr">Fonctionnalité 2</li>
+      <li xml:lang="gl">Funcionalidade 2</li>
+      <li xml:lang="it">Funzionalità 2</li>
       <li xml:lang="ka">ფუნქცია 2</li>
       <li xml:lang="nl">Functie 2</li>
       <li xml:lang="pt">Funcionalidade 2</li>
@@ -108,6 +122,8 @@
     <p xml:lang="en-GB">Keep in mind to XML-escape characters, and that this is not HTML markup.</p>
     <p xml:lang="es">Recuerde usar secuencias de escape con los caracteres XML y que esto no es lenguaje de marcado HTML.</p>
     <p xml:lang="fr">Veuillez garder à l’esprit les caractères « XML-escape » et que ce n’est pas un marquage « HTML ».</p>
+    <p xml:lang="gl">Non esqueza escapar caracteres para XML, e que isto non é HTML.</p>
+    <p xml:lang="it">Tieni presente i caratteri di escape XML e che questo non è contrassegno HTML.</p>
     <p xml:lang="ka">დაიმახსოვრეთ, რომ გამოიყენება XML-ის სპეციალური სიმბოლოები და არა HTML მარქაფი.</p>
     <p xml:lang="nl">Houd XML-escape tekens in gedachte en dat dit geen HTML opmaak is.</p>
     <p xml:lang="pt">Lembre-se de escapar em XML os caracteres, e que isto não é uma formatação em HTML.</p>
