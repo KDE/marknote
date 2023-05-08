@@ -6,11 +6,51 @@
 <component type="desktop-application">
   <id>org.kde.marknote</id>
   <name>MarkNote</name>
+  <name xml:lang="ca">MarkNote</name>
+  <name xml:lang="es">MarkNote</name>
+  <name xml:lang="gl">MarkNote</name>
+  <name xml:lang="it">MarkNote</name>
+  <name xml:lang="nl">MarkNote</name>
+  <name xml:lang="pt">MarkNote</name>
+  <name xml:lang="sl">MarkNote</name>
+  <name xml:lang="tr">MarkNot</name>
+  <name xml:lang="uk">MarkNote</name>
+  <name xml:lang="x-test">xxMarkNotexx</name>
   <summary>Note taking application</summary>
+  <summary xml:lang="ca">Aplicació de de presa de notes</summary>
+  <summary xml:lang="es">Aplicación para tomar notas</summary>
+  <summary xml:lang="gl">Aplicación para tomar notas</summary>
+  <summary xml:lang="it">Applicazione per prendere appunti</summary>
+  <summary xml:lang="nl">Toepassing voor maken van notities</summary>
+  <summary xml:lang="pt">Aplicação para tirar notas</summary>
+  <summary xml:lang="sl">Aplikacija za zbiranje zapiskov</summary>
+  <summary xml:lang="tr">Not alma uygulaması</summary>
+  <summary xml:lang="uk">Програма для роботи з нотатками</summary>
+  <summary xml:lang="x-test">xxNote taking applicationxx</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <developer_name>KDE Community</developer_name>
+  <developer_name xml:lang="ca">La comunitat KDE</developer_name>
+  <developer_name xml:lang="es">La comunidad de KDE</developer_name>
+  <developer_name xml:lang="gl">Comunidade KDE</developer_name>
+  <developer_name xml:lang="it">Comunità KDE</developer_name>
+  <developer_name xml:lang="nl">KDE-gemeenschap</developer_name>
+  <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
+  <developer_name xml:lang="sl">Skupnost KDE</developer_name>
+  <developer_name xml:lang="tr">KDE Topluluğu</developer_name>
+  <developer_name xml:lang="uk">Спільнота KDE</developer_name>
+  <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
   <description>
     <p>A WYSIWYG note taking app that lets you organize your notes in notebooks.</p>
+    <p xml:lang="ca">Una aplicació de presa de notes WYSIWYG que us permet organitzar les notes en llibretes de notes.</p>
+    <p xml:lang="es">Una aplicación WYSIWYG para tomar notas que le permite organizarlas en libros de notas.</p>
+    <p xml:lang="gl">Unha aplicación para tomar notas visualmente que permite organizar as notas en cadernos.</p>
+    <p xml:lang="it">Un'applicazione WYSIWYG (quello che vedi è quello che ottieni) per prendere appunti che ti consente di organizzare i tuoi appunti in taccuini.</p>
+    <p xml:lang="nl">Een WYSIWYG toepassing voor het maken van notities die u uw notities laat organiseren in notitieboekjes.</p>
+    <p xml:lang="pt">Uma aplicação WYSIWYG para tirar notas, que lhe permite organizar as notas em blocos de notas.</p>
+    <p xml:lang="sl">Neposredna vizualna aplikacija, ki vam omogoča organiziranje zapiskov v zvezke.</p>
+    <p xml:lang="tr">Notlarınızı defterlerle organize etmenize izin veren bir görsel not alma uygulaması.</p>
+    <p xml:lang="uk">Програма для створення нотаток у режимі повної відповідності, за допомогою якої ви можете упорядковувати ваші нотатки за нотатниками.</p>
+    <p xml:lang="x-test">xxA WYSIWYG note taking app that lets you organize your notes in notebooks.xx</p>
   </description>
 </component>
