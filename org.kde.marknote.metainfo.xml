@@ -7,8 +7,10 @@
   <id>org.kde.marknote</id>
   <name>MarkNote</name>
   <name xml:lang="ca">MarkNote</name>
+  <name xml:lang="ca-valencia">MarkNote</name>
   <name xml:lang="de">MarkNote</name>
   <name xml:lang="es">MarkNote</name>
+  <name xml:lang="fr">MarkNote</name>
   <name xml:lang="gl">MarkNote</name>
   <name xml:lang="it">MarkNote</name>
   <name xml:lang="ka">MarkNote</name>
@@ -19,9 +21,11 @@
   <name xml:lang="uk">MarkNote</name>
   <name xml:lang="x-test">xxMarkNotexx</name>
   <summary>Note taking application</summary>
-  <summary xml:lang="ca">Aplicació de de presa de notes</summary>
+  <summary xml:lang="ca">Aplicació de presa de notes</summary>
+  <summary xml:lang="ca-valencia">Aplicació de presa de notes</summary>
   <summary xml:lang="de">Notiz-Anwendung</summary>
   <summary xml:lang="es">Aplicación para tomar notas</summary>
+  <summary xml:lang="fr">Application de prise de note</summary>
   <summary xml:lang="gl">Aplicación para tomar notas</summary>
   <summary xml:lang="it">Applicazione per prendere appunti</summary>
   <summary xml:lang="ka">შენიშვნების აპლიკაცია</summary>
@@ -35,8 +39,10 @@
   <project_license>GPL-2.0-or-later</project_license>
   <developer_name>KDE Community</developer_name>
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
+  <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
   <developer_name xml:lang="de">KDE-Gemeinschaft</developer_name>
   <developer_name xml:lang="es">La comunidad de KDE</developer_name>
+  <developer_name xml:lang="fr">Communauté KDE</developer_name>
   <developer_name xml:lang="gl">Comunidade KDE</developer_name>
   <developer_name xml:lang="it">Comunità KDE</developer_name>
   <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
@@ -49,7 +55,9 @@
   <description>
     <p>A WYSIWYG note taking app that lets you organize your notes in notebooks.</p>
     <p xml:lang="ca">Una aplicació de presa de notes WYSIWYG que us permet organitzar les notes en llibretes de notes.</p>
+    <p xml:lang="ca-valencia">Una aplicació de presa de notes WYSIWYG que us permet organitzar les notes en llibretes de notes.</p>
     <p xml:lang="es">Una aplicación WYSIWYG para tomar notas que le permite organizarlas en libros de notas.</p>
+    <p xml:lang="fr">Une application de prise de note « WYSIWYG » vous permettant d'organiser vos notes en carnets.</p>
     <p xml:lang="gl">Unha aplicación para tomar notas visualmente que permite organizar as notas en cadernos.</p>
     <p xml:lang="it">Un'applicazione WYSIWYG (quello che vedi è quello che ottieni) per prendere appunti che ti consente di organizzare i tuoi appunti in taccuini.</p>
     <p xml:lang="ka">WYSIWYG შენიშვნების ბლოკნოტი, რომელიც ბლოკნოტებში ჩანაწერების დალაგებაში დაგეხმარებათ.</p>
