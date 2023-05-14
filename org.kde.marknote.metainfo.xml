@@ -15,6 +15,7 @@
   <name xml:lang="it">MarkNote</name>
   <name xml:lang="ka">MarkNote</name>
   <name xml:lang="nl">MarkNote</name>
+  <name xml:lang="pl">MarkNote</name>
   <name xml:lang="pt">MarkNote</name>
   <name xml:lang="sl">MarkNote</name>
   <name xml:lang="tr">MarkNot</name>
@@ -30,6 +31,7 @@
   <summary xml:lang="it">Applicazione per prendere appunti</summary>
   <summary xml:lang="ka">შენიშვნების აპლიკაცია</summary>
   <summary xml:lang="nl">Toepassing voor maken van notities</summary>
+  <summary xml:lang="pl">Aplikacja do notatek</summary>
   <summary xml:lang="pt">Aplicação para tirar notas</summary>
   <summary xml:lang="sl">Aplikacija za zbiranje zapiskov</summary>
   <summary xml:lang="tr">Not alma uygulaması</summary>
@@ -47,6 +49,7 @@
   <developer_name xml:lang="it">Comunità KDE</developer_name>
   <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
   <developer_name xml:lang="nl">KDE-gemeenschap</developer_name>
+  <developer_name xml:lang="pl">Społeczność KDE</developer_name>
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
   <developer_name xml:lang="sl">Skupnost KDE</developer_name>
   <developer_name xml:lang="tr">KDE Topluluğu</developer_name>
@@ -62,6 +65,7 @@
     <p xml:lang="it">Un'applicazione WYSIWYG (quello che vedi è quello che ottieni) per prendere appunti che ti consente di organizzare i tuoi appunti in taccuini.</p>
     <p xml:lang="ka">WYSIWYG შენიშვნების ბლოკნოტი, რომელიც ბლოკნოტებში ჩანაწერების დალაგებაში დაგეხმარებათ.</p>
     <p xml:lang="nl">Een WYSIWYG toepassing voor het maken van notities die u uw notities laat organiseren in notitieboekjes.</p>
+    <p xml:lang="pl">Aplikacja do notatek WYSIWYG, która umożliwia zarządzanie notatkami w zeszytach.</p>
     <p xml:lang="pt">Uma aplicação WYSIWYG para tirar notas, que lhe permite organizar as notas em blocos de notas.</p>
     <p xml:lang="sl">Neposredna vizualna aplikacija, ki vam omogoča organiziranje zapiskov v zvezke.</p>
     <p xml:lang="tr">Notlarınızı defterlerle organize etmenize izin veren bir görsel not alma uygulaması.</p>
