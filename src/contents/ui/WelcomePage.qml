@@ -14,19 +14,17 @@ Kirigami.Page {
     AddNotebookDialog {
         id: addNotebookDialog
         model: root.model
-
     }
+
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         icon.name: "addressbook-details"
-        text: "Start by Creating your first Notebook!"
+        text: i18n("Start by Creating your first Notebook!")
         helpfulAction: Kirigami.Action {
             icon.name: "list-add"
-            text: "Add Notebook"
+            text: i18n("Add Notebook")
             onTriggered: addNotebookDialog.open()
         }
     }
 }
-
-

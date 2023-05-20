@@ -27,32 +27,32 @@ Kirigami.ScrollablePage {
     ActionButton {
         visible: Kirigami.Settings.isMobile
         parent: root.overlay
-        x: root.width - width - margin
-        y: root.height - height - pageStack.globalToolBar.preferredHeight - margin
-        singleAction: Kirigami.Action {
-            text: i18n("add Note")
-            icon.name: "list-add"
-            onTriggered: addSheet.open()
-        }
+        x: root.width - width - Kirigami.Units.gridUnit
+        y: root.height - height - pageStack.globalToolBar.preferredHeight - Kirigami.Units.gridUnit
+        text: i18n("Add note")
+        icon.name: "list-add"
+        onClicked: addSheet.open()
     }
 
     titleDelegate: RowLayout {
         Layout.fillWidth: true
         ToolButton {
-            visible: !Kirigami.Settings.isMobile
             id: addButton
+            visible: !Kirigami.Settings.isMobile
             icon.name: "list-add"
-            text: "Add"
+            text: i18n("New Note (%1)", addShortcut.nativeText)
             onClicked: addSheet.open()
             display: AbstractButton.IconOnly
+
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+            ToolTip.visible: hovered
+            ToolTip.text: text
+
             Shortcut {
+                id: addShortcut
                 sequence: "Ctrl+N"
                 onActivated: addButton.clicked()
             }
-            ToolTip.delay: 1000
-            ToolTip.timeout: 5000
-            ToolTip.visible: hovered
-            ToolTip.text: i18n("New Note (Ctrl+N)")
         }
         Kirigami.Heading {
             id: heading
@@ -97,7 +97,8 @@ Kirigami.ScrollablePage {
             visible: false
             Layout.fillWidth: true
             Shortcut {
-                sequence: "Escape"
+                id: cancelShortcut
+                sequence: StandardKey.Cancel
                 onActivated: if (search.visible) {searchButton.clicked()}
             }
             onTextChanged: filterModel.setFilterFixedString(search.text )
@@ -105,16 +106,13 @@ Kirigami.ScrollablePage {
         ToolButton {
             id: searchButton
             icon.name: "search"
-            text: "Search"
+            text: search.visible ? i18n("Exit Search (%1)", cancelShortcut.nativeText) : i18n("Search Notes (%1)", searchShortcut.nativeText)
             display: AbstractButton.IconOnly
-            Shortcut {
-                sequence: "Ctrl+Shift+F"
-                onActivated: if (!search.visible) {searchButton.clicked()}
-            }
-            ToolTip.delay: 1000
-            ToolTip.timeout: 5000
+
+            ToolTip.delay: Kirigami.Units.toolTipDelay
             ToolTip.visible: hovered
-            ToolTip.text: search.visible? i18n("Exit Search (Esc)") : i18n("Search Notes (Ctrl+Shift+F)")
+            ToolTip.text: text
+
             onClicked:{
                 if (!search.visible){
                     search.visible = true
@@ -129,20 +127,26 @@ Kirigami.ScrollablePage {
                     search.clear()
                     searchButton.icon.name = "search"
                 }
+            }
 
+            Shortcut {
+                id: searchShortcut
+                sequence: StandardKey.Find
+                onActivated: if (!search.visible) {
+                    searchButton.clicked()
+                }
             }
         }
     }
     Kirigami.Dialog{
         id: addSheet
-        title: "New Note"
+        title: i18n("New Note")
         padding: Kirigami.Units.largeSpacing
         contentItem: Kirigami.FormLayout{
             TextField{
                 id: fileNameInput
-                Kirigami.FormData.label: "Note Name:"
-                onAccepted: {addAction.triggered()}
-
+                Kirigami.FormData.label: i18n("Note Name:")
+                onAccepted: addAction.triggered()
             }
         }
         standardButtons: Kirigami.Dialog.Cancel
@@ -161,15 +165,20 @@ Kirigami.ScrollablePage {
     }
     Kirigami.Dialog {
         id: removeDialog
+
         property string notePath
         property string noteName
+
         standardButtons: Kirigami.Dialog.Yes | Kirigami.Dialog.Cancel
         title: i18n("Delete Note")
+
+        onRejected: close()
+        onAccepted: notesModel.deleteNote(notePath)
+
         RowLayout {
             Kirigami.Icon {
                 source: "dialog-warning"
                 Layout.margins: Kirigami.Units.largeSpacing
-
             }
 
             Label {
@@ -179,14 +188,6 @@ Kirigami.ScrollablePage {
                 wrapMode: Text.WordWrap
             }
         }
-        onRejected: {
-            close()
-        }
-        onAccepted: {
-                notesModel.deleteNote(notePath)
-
-        }
-
     }
 
     ListView {
@@ -204,13 +205,13 @@ Kirigami.ScrollablePage {
 
         delegate: Kirigami.AbstractListItem {
             id: delegateItem
+
             required property string name;
             required property string path;
             required property date date;
             required property int index;
+
             separatorVisible: false
-
-
 
             contentItem: RowLayout{
                 ColumnLayout {
@@ -238,7 +239,6 @@ Kirigami.ScrollablePage {
                         text: name
                         Layout.fillWidth: true
                         elide: Qt.ElideRight
-
                     }
                     Label {
                         text: Qt.formatDateTime(date, Qt.SystemLocaleDate)
@@ -248,24 +248,18 @@ Kirigami.ScrollablePage {
 
                     }
                 }
+
                 ToolButton{
                     icon.name: "overflow-menu"
 
-
-                    onClicked: {
-                        if(Kirigami.Settings.isMobile){
-                            optionDrawer.open()
-
-                        }else{
-
-                            optionPopup.popup()
-
+                    onClicked: if (Kirigami.Settings.isMobile) {
+                        optionDrawer.open()
+                    } else {
+                        optionPopup.popup()
                     }
-                }
 
-                BottomDrawer {
+                    BottomDrawer {
                         id: optionDrawer
-
 
                         drawerContentItem: ColumnLayout{
                             id: contents
@@ -279,12 +273,10 @@ Kirigami.ScrollablePage {
                                         renameLayout.visible = true
                                         nameLabel.visible = false
                                         optionDrawer.close()
-
                                     } else {
                                         renameLayout.visible = false
                                         nameLabel.visible = true
                                         optionDrawer.close()
-
                                     }
                                 }
                             }
@@ -296,23 +288,19 @@ Kirigami.ScrollablePage {
                                     removeDialog.notePath = delegateItem.path
                                     removeDialog.open()
                                     optionDrawer.close()
-
                                 }
                             }
                             Item { height: Kirigami.Units.largeSpacing * 3}
-
                         }
                     }
 
+                    Menu {
+                        id: optionPopup
 
-                Menu {
-                    id: optionPopup
-
-                    MenuItem {
-                        text: "Rename Note"
-                        icon.name: "edit-rename"
-                        onClicked: {
-                            if (!renameLayout.visible) {
+                        MenuItem {
+                            text: i18n("Rename Note")
+                            icon.name: "edit-rename"
+                            onClicked: if (!renameLayout.visible) {
                                 renameLayout.visible = true
                                 nameLabel.visible = false
                             } else {
@@ -320,43 +308,40 @@ Kirigami.ScrollablePage {
                                 nameLabel.visible = true
                             }
                         }
-                    }
-                    MenuItem {
-                        text: "Delete Note"
-                        icon.name: "delete"
-                        onClicked:{
-                            removeDialog.noteName = delegateItem.name
-                            removeDialog.notePath = delegateItem.path
-                            removeDialog.open()
-                            optionPopup.dismiss()
+                        MenuItem {
+                            text: i18n("Delete Note")
+                            icon.name: "delete"
+                            onClicked:{
+                                removeDialog.noteName = delegateItem.name
+                                removeDialog.notePath = delegateItem.path
+                                removeDialog.open()
+                                optionPopup.dismiss()
+                            }
                         }
                     }
                 }
             }
+
+            onClicked: pageStack.push("qrc:/EditPage.qml", {
+                path: path,
+                name: name,
+                objectName: name
+            })
+            highlighted: pageStack.currentItem && pageStack.currentItem.objectName === name
+            topPadding: Kirigami.Units.mediumSpacing
+            bottomPadding: Kirigami.Units.mediumSpacing
         }
 
-
-
-
-        onClicked: pageStack.push("qrc:/EditPage.qml", {"path": path, "name": name, "objectName": name})
-        highlighted: pageStack.currentItem && pageStack.currentItem.objectName === name
-        topPadding: Kirigami.Units.mediumSpacing
-        bottomPadding: Kirigami.Units.mediumSpacing
-
-
-
-    }
-
-    Kirigami.PlaceholderMessage {
-        anchors.centerIn: parent
-        width: parent.width - (Kirigami.Units.largeSpacing * 4)
-        icon.name: "note"
-        visible: notesList.count === 0
-        text: "Add a Note!"
-        helpfulAction: Kirigami.Action {
-            icon.name: "list-add"
-            text: "Add"
-            onTriggered: addSheet.open()
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            width: parent.width - (Kirigami.Units.largeSpacing * 4)
+            icon.name: "note"
+            visible: notesList.count === 0
+            text: i18n("Add a Note!")
+            helpfulAction: Kirigami.Action {
+                icon.name: "list-add"
+                text: i18n("Add")
+                onTriggered: addSheet.open()
             }
         }
     }

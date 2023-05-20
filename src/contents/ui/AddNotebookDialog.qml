@@ -47,7 +47,7 @@ Kirigami.Dialog{
         RowLayout {
             TextField{
                 id: nameInput
-                placeholderText: "Notebook Name"
+                placeholderText: i18n("Notebook Name")
             }
             Button {
                 id: colorButton
@@ -68,19 +68,16 @@ Kirigami.Dialog{
         Kirigami.Action {
             text: i18n("Add")
             iconName: "list-add"
-            onTriggered: {
 
+            onTriggered: {
                 root.model.addNoteBook(nameInput.text, buttonIcon.source !== "" ? buttonIcon.source : "addressbook-details" , root.notebookColor)
                 close()
                 if (model.rowCount() === 1) {
                     pageStack.clear()
-                    pageStack.replace(
-                        ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
-                    {
-                    path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
-                    notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
-                    }
-                    )
+                    pageStack.replace(["qrc:/NotesPage.qml","qrc:/EditPage.qml"], {
+                        path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
+                        notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
+                    })
                 }
                 notebookColor = ""
                 nameInput.clear()

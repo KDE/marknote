@@ -68,30 +68,27 @@ Kirigami.ApplicationWindow {
                     Controls.Menu {
                         id: optionPopup
                         Controls.MenuItem {
-                            text: "New Notebook"
+                            text: i18n("New Notebook")
                             icon.name: "list-add"
                             onTriggered: { addNotebookDialog.open() }
 
                         }
 //                        Controls.MenuItem {
-//                            text: "Edit Notebook"
+//                            text: i18n("Edit Notebook")
 //                            icon.name: "edit-entry"
 
 //                        }
                         Controls.MenuItem {
-                            text: "Delete Notebook"
+                            text: i18n("Delete Notebook")
                             icon.name: "delete"
                             onTriggered: {
                                 noteBooksModel.deleteNoteBook(currentNotebook)
                                 if(noteBooksModel.rowCount() !== 0) {
                                     pageStack.clear()
-                                    pageStack.replace(
-                                        ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
-                                        {
+                                    pageStack.replace(["qrc:/NotesPage.qml","qrc:/EditPage.qml"], {
                                         path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
                                         notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
-                                        }
-                                    )
+                                    })
                                 } else {
                                     pageStack.clear()
                                     pageStack.replace("qrc:/WelcomePage.qml", {model : noteBooksModel})

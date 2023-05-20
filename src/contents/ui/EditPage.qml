@@ -63,7 +63,7 @@ Kirigami.ScrollablePage {
                         onActivated: boldButton.clicked()
                     }
                     icon.name: "format-text-bold"
-                    text: "Bold"
+                    text: i18nc("@action:button", "Bold")
                     display: AbstractButton.IconOnly
                     checkable: true
                     checked: document.bold
@@ -78,7 +78,7 @@ Kirigami.ScrollablePage {
                         onActivated: italicButton.clicked()
                     }
                     icon.name: "format-text-italic"
-                    text: "Italic"
+                    text: i18nc("@action:button", "Italic")
                     display: AbstractButton.IconOnly
                     checkable: true
                     checked: document.italic
@@ -89,17 +89,16 @@ Kirigami.ScrollablePage {
                 ToolButton {
                     enabled: false
                     icon.name: "format-text-strikethrough"
-                    text: "Strikethrough"
+                    text: i18nc("@action:button", "Strikethrough")
                     display: AbstractButton.IconOnly
                     checkable: true
                 }
                 ToolButton {
                     enabled: false
                     icon.name: "draw-highlight"
-                    text: "highlight"
+                    text: i18nc("@action:button", "highlight")
                     display: AbstractButton.IconOnly
                     checkable: true
-
                 }
                 Kirigami.Separator {
                     Layout.fillHeight: true
@@ -108,7 +107,7 @@ Kirigami.ScrollablePage {
                 ToolButton {
                     enabled: false
                     icon.name: "format-list-unordered"
-                    text: "list"
+                    text: i18n("Add list")
                     display: AbstractButton.IconOnly
                     checkable: true
 
@@ -116,7 +115,7 @@ Kirigami.ScrollablePage {
                 ToolButton {
                     enabled: false
                     icon.name: "format-list-ordered"
-                    text: "numbered list"
+                    text: i18n("Add numbered list")
                     display: AbstractButton.IconOnly
                     checkable: true
                 }
@@ -126,10 +125,9 @@ Kirigami.ScrollablePage {
                 }
                 ComboBox {
                     enabled: false
-                    model:[ "Heading 1","Heading 2","Heading 3","Heading 4","Heading 5","Heading 6" ]
-
+                    displayText: i18n("Heading %1", parseInt(currentText) + 1)
+                    model: 6
                 }
-
             }
         }
     }
