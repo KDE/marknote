@@ -47,8 +47,6 @@ int main(int argc, char *argv[])
 #endif
     KLocalizedString::setApplicationDomain("marknote");
 
-    QGuiApplication::setOrganizationName("KDE");
-    QGuiApplication::setApplicationName("marknote");
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.marknote")));
 
     KAboutData about(QStringLiteral("marknote"),
@@ -59,8 +57,8 @@ int main(int argc, char *argv[])
                      i18n("© 2023 Mathis Brüchert"));
     about.addAuthor(i18n("Mathis Brüchert"), i18n("Maintainer"), QStringLiteral("mbb-mail@gmx.de"));
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
-    about.setOrganizationDomain("kde.org");
-    about.setBugAddress("https://bugs.kde.org/describecomponents.cgi?product=marknote");
+
+    KAboutData::setApplicationData(about);
 
     QQmlApplicationEngine engine;
 
