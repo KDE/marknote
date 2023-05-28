@@ -19,7 +19,6 @@ Kirigami.ApplicationWindow {
     property string currentNotebook: noteBooksModel.rowCount() !== 0 ? noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name) : ""
     pageStack.globalToolBar.canContainHandles: wideScreen
 
-    title: i18n("marknote")
     function openBottomDrawer() {
         bottomDrawer.open()
     }
