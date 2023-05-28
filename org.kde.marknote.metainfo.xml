@@ -16,6 +16,7 @@
   <name xml:lang="it">MarkNote</name>
   <name xml:lang="ka">MarkNote</name>
   <name xml:lang="nl">MarkNote</name>
+  <name xml:lang="nn">MarkNote</name>
   <name xml:lang="pl">MarkNote</name>
   <name xml:lang="pt">MarkNote</name>
   <name xml:lang="sl">MarkNote</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="it">Applicazione per prendere appunti</summary>
   <summary xml:lang="ka">შენიშვნების აპლიკაცია</summary>
   <summary xml:lang="nl">Toepassing voor maken van notities</summary>
+  <summary xml:lang="nn">Notatverktøy</summary>
   <summary xml:lang="pl">Aplikacja do notatek</summary>
   <summary xml:lang="pt">Aplicação para tirar notas</summary>
   <summary xml:lang="sl">Aplikacija za zbiranje zapiskov</summary>
@@ -52,6 +54,7 @@
   <developer_name xml:lang="it">Comunità KDE</developer_name>
   <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
   <developer_name xml:lang="nl">KDE-gemeenschap</developer_name>
+  <developer_name xml:lang="nn">KDE-fellesskapet</developer_name>
   <developer_name xml:lang="pl">Społeczność KDE</developer_name>
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
   <developer_name xml:lang="sl">Skupnost KDE</developer_name>
