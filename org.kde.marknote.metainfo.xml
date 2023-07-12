@@ -11,6 +11,7 @@
   <name xml:lang="cs">MarkNote</name>
   <name xml:lang="de">MarkNote</name>
   <name xml:lang="en-GB">MarkNote</name>
+  <name xml:lang="eo">MarkNote</name>
   <name xml:lang="es">MarkNote</name>
   <name xml:lang="fi">MarkNote</name>
   <name xml:lang="fr">MarkNote</name>
@@ -30,6 +31,7 @@
   <summary xml:lang="ca-valencia">Aplicació de presa de notes</summary>
   <summary xml:lang="de">Notiz-Anwendung</summary>
   <summary xml:lang="en-GB">Note taking application</summary>
+  <summary xml:lang="eo">Notprena aplikaĵo</summary>
   <summary xml:lang="es">Aplicación para tomar notas</summary>
   <summary xml:lang="fi">Sovellus</summary>
   <summary xml:lang="fr">Application de prise de note</summary>
@@ -52,6 +54,7 @@
   <developer_name xml:lang="cs">Komunita KDE</developer_name>
   <developer_name xml:lang="de">KDE-Gemeinschaft</developer_name>
   <developer_name xml:lang="en-GB">KDE Community</developer_name>
+  <developer_name xml:lang="eo">Komunumo de KDE</developer_name>
   <developer_name xml:lang="es">La comunidad de KDE</developer_name>
   <developer_name xml:lang="fi">KDE-yhteisö</developer_name>
   <developer_name xml:lang="fr">Communauté KDE</developer_name>
@@ -71,6 +74,7 @@
     <p xml:lang="ca">Una aplicació de presa de notes WYSIWYG que us permet organitzar les notes en llibretes de notes.</p>
     <p xml:lang="ca-valencia">Una aplicació de presa de notes WYSIWYG que us permet organitzar les notes en llibretes de notes.</p>
     <p xml:lang="en-GB">A WYSIWYG note taking app that lets you organise your notes in notebooks.</p>
+    <p xml:lang="eo">WYSIWYG-notprena app kiu ebligas vin organizi viajn notojn en notlibroj.</p>
     <p xml:lang="es">Una aplicación WYSIWYG para tomar notas que le permite organizarlas en libros de notas.</p>
     <p xml:lang="fi">WYSIWYG-muistiinpanosovellus, jossa muistiinpanot voi järjestää muistikirjoiksi.</p>
     <p xml:lang="fr">Une application de prise de note « WYSIWYG » vous permettant d'organiser vos notes en carnets.</p>
