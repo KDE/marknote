@@ -6,11 +6,11 @@
 
 #include <QFont>
 #include <QObject>
+#include <QQuickTextDocument>
 #include <QTextCursor>
 #include <QUrl>
 
 class QTextDocument;
-class QQuickTextDocument;
 
 class DocumentHandler : public QObject
 {

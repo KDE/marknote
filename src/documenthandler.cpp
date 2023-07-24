@@ -96,7 +96,7 @@ QString DocumentHandler::fontFamily() const
 void DocumentHandler::setFontFamily(const QString &family)
 {
     QTextCharFormat format;
-    format.setFontFamily(family);
+    format.setFontFamilies({family});
     mergeFormatOnWordOrSelection(format);
     Q_EMIT fontFamilyChanged();
 }
