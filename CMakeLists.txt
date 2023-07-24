@@ -35,6 +35,9 @@ ecm_setup_version(${PROJECT_VERSION}
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg)
 find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS Kirigami2 I18n Config CoreAddons)
+if (NOT ANDROID)
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
+endif()
 
 add_definitions(-DQT_NO_FOREACH -DQT_NO_KEYWORDS)
 
