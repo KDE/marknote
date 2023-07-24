@@ -3,9 +3,9 @@
 
 #include "notesmodel.h"
 #include <QDateTime>
-#include <QStandardPaths>
-#include <QFile>
 #include <QDebug>
+#include <QFile>
+#include <QStandardPaths>
 #include <QUrl>
 
 NotesModel::NotesModel(QObject *parent)
@@ -15,7 +15,7 @@ NotesModel::NotesModel(QObject *parent)
 
 int NotesModel::rowCount(const QModelIndex &index) const
 {
-    return m_path.isEmpty()? 0 : directory.entryList(QDir::Files).count();
+    return m_path.isEmpty() ? 0 : directory.entryList(QDir::Files).count();
 }
 
 QVariant NotesModel::data(const QModelIndex &index, int role) const
@@ -36,18 +36,14 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> NotesModel::roleNames() const
 {
-    return {
-        {Role::Date, "date"},
-        {Role::Path, "path"},
-        {Role::Name, "name"}
-    };
+    return {{Role::Date, "date"}, {Role::Path, "path"}, {Role::Name, "name"}};
 }
 
 void NotesModel::addNote(const QString &name)
 {
     beginResetModel();
     QFile file(m_path + QDir::separator() + name + ".md");
-    if(file.open(QFile::WriteOnly)){
+    if (file.open(QFile::WriteOnly)) {
         file.write("");
     } else {
         qDebug() << "Failed to create file at" << m_path;
@@ -60,7 +56,6 @@ void NotesModel::deleteNote(const QUrl &path)
     beginResetModel();
     QFile::remove(path.toLocalFile());
     endResetModel();
-
 }
 
 void NotesModel::renameNote(const QUrl &path, const QString &name)

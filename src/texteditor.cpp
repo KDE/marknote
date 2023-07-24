@@ -5,9 +5,9 @@
 
 #include <QQuickTextDocument>
 
-TextEditor::TextEditor(QObject *parent) : QObject(parent)
+TextEditor::TextEditor(QObject *parent)
+    : QObject(parent)
 {
-
 }
 
 QQuickTextDocument *TextEditor::document() const
@@ -26,7 +26,6 @@ void TextEditor::setDocument(QQuickTextDocument *document)
 
 void TextEditor::makeSelectionItalic()
 {
-
 }
 
 void TextEditor::onCursorPositionChanged(int position)
@@ -39,6 +38,6 @@ void TextEditor::onCursorPositionChanged(int position)
     auto charFormat = QTextCharFormat();
     charFormat.setFontWeight(30);
 
-    //m_cursor.insertBlock(format);
+    // m_cursor.insertBlock(format);
     m_cursor.insertText("moin");
 }

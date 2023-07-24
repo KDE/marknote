@@ -29,7 +29,7 @@ class DocumentHandler : public QObject
     Q_PROPERTY(bool italic READ italic WRITE setItalic NOTIFY italicChanged)
     Q_PROPERTY(bool underline READ underline WRITE setUnderline NOTIFY underlineChanged)
 
-    //Q_PROPERTY(bool list READ list WRITE setList NOTIFY listChanged)
+    // Q_PROPERTY(bool list READ list WRITE setList NOTIFY listChanged)
 
     Q_PROPERTY(int fontSize READ fontSize WRITE setFontSize NOTIFY fontSizeChanged)
 
@@ -72,8 +72,8 @@ public:
     bool underline() const;
     void setUnderline(bool underline);
 
-    //bool list() const;
-    //void setList(bool list);
+    // bool list() const;
+    // void setList(bool list);
 
     int fontSize() const;
     void setFontSize(int size);
@@ -103,7 +103,7 @@ Q_SIGNALS:
     void italicChanged();
     void underlineChanged();
 
-    //void listChanged();
+    // void listChanged();
 
     void fontSizeChanged();
 

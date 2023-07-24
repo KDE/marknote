@@ -3,14 +3,14 @@
 
 #include "notebooksmodel.h"
 #include <QDateTime>
-#include <QStandardPaths>
-#include <QFile>
 #include <QDebug>
-#include <QUrl>
+#include <QFile>
+#include <QStandardPaths>
 #include <QStringBuilder>
+#include <QUrl>
 
-#include <KDesktopFile>
 #include <KConfigGroup>
+#include <KDesktopFile>
 
 NoteBooksModel::NoteBooksModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -32,7 +32,8 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
         return directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath();
 
     case Role::Icon: {
-        const QString dotDirectory = directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % ".directory";
+        const QString dotDirectory =
+            directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % ".directory";
         if (QFile::exists(dotDirectory)) {
             return KDesktopFile(dotDirectory).readIcon();
         } else {
@@ -40,7 +41,8 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
         }
     }
     case Role::Color: {
-        const QString dotDirectory = directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % ".directory";
+        const QString dotDirectory =
+            directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % ".directory";
         if (QFile::exists(dotDirectory)) {
             return KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-Color");
         } else {
@@ -58,12 +60,7 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> NoteBooksModel::roleNames() const
 {
-    return {
-        {Role::Icon, "iconName"},
-        {Role::Path, "path"},
-        {Role::Name, "name"},
-        {Role::Color, "color"}
-    };
+    return {{Role::Icon, "iconName"}, {Role::Path, "path"}, {Role::Name, "name"}, {Role::Color, "color"}};
 }
 
 void NoteBooksModel::addNoteBook(const QString &name, const QString &icon, const QString &color)
@@ -86,7 +83,6 @@ void NoteBooksModel::deleteNoteBook(const QString &name)
     beginResetModel();
     QDir(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator() + "Notes" + QDir::separator() + name).removeRecursively();
     endResetModel();
-
 }
 
 void NoteBooksModel::renameNoteBook(const QUrl &path, const QString &name)
@@ -95,5 +91,4 @@ void NoteBooksModel::renameNoteBook(const QUrl &path, const QString &name)
     beginResetModel();
     QFile::rename(path.toLocalFile(), newPath);
     endResetModel();
-
 }

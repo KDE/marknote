@@ -12,19 +12,14 @@ class NoteBooksModel : public QAbstractListModel
     Q_OBJECT
 
 public:
-    enum Role {
-        Path = Qt::UserRole + 1,
-        Name,
-        Icon,
-        Color
-    };
+    enum Role { Path = Qt::UserRole + 1, Name, Icon, Color };
     Q_ENUM(Role)
 
     explicit NoteBooksModel(QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &index) const override;
 
-    QVariant data(const  QModelIndex &index, int role) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -36,8 +31,6 @@ public:
 
 private:
     QDir directory;
-
-
 };
 
 #endif // NoteBooksModel_H
