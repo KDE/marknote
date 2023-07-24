@@ -3,14 +3,14 @@
 
 add_executable(marknote main.cpp documenthandler.cpp notesmodel.cpp notebooksmodel.cpp contents/ui/resources.qrc)
 target_link_libraries(marknote
-    Qt5::Core
-    Qt5::Gui
-    Qt5::Qml
-    Qt5::Quick
-    Qt5::QuickControls2
-    Qt5::Svg
-    KF5::I18n
-    KF5::ConfigCore
-    KF5::CoreAddons
+    Qt::Core
+    Qt::Gui
+    Qt::Qml
+    Qt::Quick
+    Qt::QuickControls2
+    Qt::Svg
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::ConfigCore
+    KF${QT_MAJOR_VERSION}::CoreAddons
 )
 install(TARGETS marknote ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
