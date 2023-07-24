@@ -3,6 +3,7 @@
 
 #include "documenthandler.h"
 
+#include <QDebug>
 #include <QFile>
 #include <QFileInfo>
 #include <QFileSelector>
@@ -11,9 +12,7 @@
 #include <QQmlFileSelector>
 #include <QQuickTextDocument>
 #include <QTextCharFormat>
-#include <QTextCodec>
 #include <QTextDocument>
-#include <QDebug>
 
 DocumentHandler::DocumentHandler(QObject *parent)
     : QObject(parent)
