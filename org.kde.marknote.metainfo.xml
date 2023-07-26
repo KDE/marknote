@@ -19,6 +19,7 @@
   <name xml:lang="gl">MarkNote</name>
   <name xml:lang="it">MarkNote</name>
   <name xml:lang="ka">MarkNote</name>
+  <name xml:lang="ko">MarkNote</name>
   <name xml:lang="nl">MarkNote</name>
   <name xml:lang="nn">MarkNote</name>
   <name xml:lang="pl">MarkNote</name>
@@ -40,6 +41,7 @@
   <summary xml:lang="gl">Aplicación para tomar notas</summary>
   <summary xml:lang="it">Applicazione per prendere appunti</summary>
   <summary xml:lang="ka">შენიშვნების აპლიკაცია</summary>
+  <summary xml:lang="ko">메모 작성 프로그램</summary>
   <summary xml:lang="nl">Toepassing voor maken van notities</summary>
   <summary xml:lang="nn">Notatverktøy</summary>
   <summary xml:lang="pl">Aplikacja do notatek</summary>
@@ -64,6 +66,7 @@
   <developer_name xml:lang="gl">Comunidade KDE</developer_name>
   <developer_name xml:lang="it">Comunità KDE</developer_name>
   <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
+  <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">KDE-gemeenschap</developer_name>
   <developer_name xml:lang="nn">KDE-fellesskapet</developer_name>
   <developer_name xml:lang="pl">Społeczność KDE</developer_name>
@@ -85,6 +88,7 @@
     <p xml:lang="gl">Unha aplicación para tomar notas visualmente que permite organizar as notas en cadernos.</p>
     <p xml:lang="it">Un'applicazione WYSIWYG (quello che vedi è quello che ottieni) per prendere appunti che ti consente di organizzare i tuoi appunti in taccuini.</p>
     <p xml:lang="ka">WYSIWYG შენიშვნების ბლოკნოტი, რომელიც ბლოკნოტებში ჩანაწერების დალაგებაში დაგეხმარებათ.</p>
+    <p xml:lang="ko">노트를 공책으로 관리할 수 있는 WYSIWYG 메모 앱입니다.</p>
     <p xml:lang="nl">Een WYSIWYG toepassing voor het maken van notities die u uw notities laat organiseren in notitieboekjes.</p>
     <p xml:lang="pl">Aplikacja do notatek WYSIWYG, która umożliwia zarządzanie notatkami w zeszytach.</p>
     <p xml:lang="pt">Uma aplicação WYSIWYG para tirar notas, que lhe permite organizar as notas em blocos de notas.</p>
