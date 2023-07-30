@@ -1,162 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the marknote package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Slovenian translation of Marknote
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2023.
+# Martin Srebotnjak <miles@filmsi.net>, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 00:47+0000\n"
-"PO-Revision-Date: 2023-07-29 13:19+0200\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
-"Language: nl\n"
+"PO-Revision-Date: 2023-07-29 11:16+0200\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 
 #: contents/ui/AddNotebookDialog.qml:53
 #, kde-format
 msgid "Notebook Name"
-msgstr "Notitieboeknaam"
+msgstr "Ime beležnice"
 
 #: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
 #: contents/ui/NotesPage.qml:346
 #, kde-format
 msgid "Add"
-msgstr "Toevoegen"
+msgstr "Dodaj"
 
 #: contents/ui/EditPage.qml:68
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
-msgstr "Vet"
+msgstr "Krepko"
 
 #: contents/ui/EditPage.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
-msgstr "Cursief"
+msgstr "Ležeče"
 
 #: contents/ui/EditPage.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
-msgstr "Doorstrepen"
+msgstr "Prečrtano"
 
 #: contents/ui/EditPage.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
-msgstr "accentuering"
+msgstr "poudari"
 
 #: contents/ui/EditPage.qml:112
 #, kde-format
 msgid "Add list"
-msgstr "Lijst toevoegen"
+msgstr "Dodaj seznam"
 
 #: contents/ui/EditPage.qml:120
 #, kde-format
 msgid "Add numbered list"
-msgstr "Genummerde lijst toevoegen"
+msgstr "Dodaj oštevilčen seznam"
 
 #: contents/ui/EditPage.qml:130
 #, kde-format
 msgid "Heading %1"
-msgstr "Kop %1"
+msgstr "Naslov %1"
 
 #: contents/ui/main.qml:70
 #, kde-format
 msgid "New Notebook"
-msgstr "Nieuw notitieboek"
+msgstr "Nova beležnica"
 
 #: contents/ui/main.qml:81 contents/ui/main.qml:173
 #, kde-format
 msgid "Delete Notebook"
-msgstr "Notitieboek verwijderen"
+msgstr "Izbriši beležnico"
 
 #: contents/ui/main.qml:138
 #, kde-format
 msgid "Your Notebooks"
-msgstr "Uw notitieboeken"
+msgstr "Vaše beležnice"
 
 #: contents/ui/NotesPage.qml:35
 #, kde-format
 msgid "Add note"
-msgstr "Noot toevoegen"
+msgstr "Dodaj zabeležko"
 
 #: contents/ui/NotesPage.qml:46
 #, kde-format
 msgid "New Note (%1)"
-msgstr "Nieuwe notitie (%1)"
+msgstr "Nova zabeležka (%1)"
 
 #: contents/ui/NotesPage.qml:112
 #, kde-format
 msgid "Exit Search (%1)"
-msgstr "Zoeken beëindigen (%1)"
+msgstr "Izhod iz iskanja (%1)"
 
 #: contents/ui/NotesPage.qml:112
 #, kde-format
 msgid "Search Notes (%1)"
-msgstr "Notities zoeken (%1)"
+msgstr "Išči po zabeležkah (%1)"
 
 #: contents/ui/NotesPage.qml:146
 #, kde-format
 msgid "New Note"
-msgstr "Nieuwe notitie"
+msgstr "Nova zabeležka"
 
 #: contents/ui/NotesPage.qml:151
 #, kde-format
 msgid "Note Name:"
-msgstr "Notitienaam:"
+msgstr "Ime zabeležke:"
 
 #: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
 #: contents/ui/NotesPage.qml:315
 #, kde-format
 msgid "Delete Note"
-msgstr "Notitie verwijderen"
+msgstr "Izbriši zabeležko"
 
 #: contents/ui/NotesPage.qml:190
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
-msgstr "Wilt u werkelijk de notitie <b> %1 </b> wissen?"
+msgstr "Ali ste prepričani, da želite izbrisati zabeležko <b>»%1«</b>?"
 
 #: contents/ui/NotesPage.qml:272 contents/ui/NotesPage.qml:304
 #, kde-format
 msgid "Rename Note"
-msgstr "Notitie hernoemen"
+msgstr "Preimenuj zabeležko"
 
 #: contents/ui/NotesPage.qml:343
 #, kde-format
 msgid "Add a Note!"
-msgstr "Een notitie toevoegen!"
+msgstr "Dodajte zabeležko!"
 
 #: contents/ui/WelcomePage.qml:26
 #, kde-format
 msgid "Start by Creating your first Notebook!"
-msgstr "Begin met het maken van uw eerste notitieboek!"
+msgstr "Začnite z izdelavo svoje prve beležnice!"
 
 #: contents/ui/WelcomePage.qml:29
 #, kde-format
 msgid "Add Notebook"
-msgstr "Notitieboek toevoegen"
+msgstr "Dodaj beležnico"
 
 #: main.cpp:53
 #, kde-format
 msgid "Marknote"
-msgstr "Marknote"
+msgstr "Beležke"
 
 #: main.cpp:55
 #, kde-format
 msgid "Note taking application"
-msgstr "Toepassing voor maken van notities"
+msgstr "Program za beleženje"
 
 #: main.cpp:57
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
-msgstr "© 2023 Mathis Brüchert"
+msgstr "© 2023 avtor Mathis Brüchert"
 
 #: main.cpp:58
 #, kde-format
@@ -166,16 +171,16 @@ msgstr "Mathis Brüchert"
 #: main.cpp:58
 #, kde-format
 msgid "Maintainer"
-msgstr "Onderhouder"
+msgstr "Vzdrževalec"
 
 #: main.cpp:59
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - 2023"
+msgstr "Martin Srebotnjak"
 
 #: main.cpp:59
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "freekdekruijf@kde.nl"
+msgstr "miles@filmsi.net"
