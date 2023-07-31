@@ -1,167 +1,164 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
-# This file is distributed under the same license as the marknote package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Slovenian translation of Marknote
+# Translation of marknote.po to Catalan (Valencian)
+# Copyright (C) 2023 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
 #
-# Martin Srebotnjak <miles@filmsi.net>, 2023.
-#
+# Josep M. Ferrer <txemaq@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 00:47+0000\n"
-"PO-Revision-Date: 2023-07-29 11:16+0200\n"
-"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
-"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
-"Language: sl\n"
+"PO-Revision-Date: 2023-07-28 13:22+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: contents/ui/AddNotebookDialog.qml:53
 #, kde-format
 msgid "Notebook Name"
-msgstr "Ime beležnice"
+msgstr "Nom del bloc de notes"
 
 #: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
 #: contents/ui/NotesPage.qml:346
 #, kde-format
 msgid "Add"
-msgstr "Dodaj"
+msgstr "Afig"
 
 #: contents/ui/EditPage.qml:68
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
-msgstr "Krepko"
+msgstr "Negreta"
 
 #: contents/ui/EditPage.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
-msgstr "Ležeče"
+msgstr "Cursiva"
 
 #: contents/ui/EditPage.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
-msgstr "Prečrtano"
+msgstr "Barrat"
 
 #: contents/ui/EditPage.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
-msgstr "poudari"
+msgstr "ressaltat"
 
 #: contents/ui/EditPage.qml:112
 #, kde-format
 msgid "Add list"
-msgstr "Dodaj seznam"
+msgstr "Afig una llista"
 
 #: contents/ui/EditPage.qml:120
 #, kde-format
 msgid "Add numbered list"
-msgstr "Dodaj oštevilčen seznam"
+msgstr "Afig una llista numerada"
 
 #: contents/ui/EditPage.qml:130
 #, kde-format
 msgid "Heading %1"
-msgstr "Naslov %1"
+msgstr "Capçalera %1"
 
 #: contents/ui/main.qml:70
 #, kde-format
 msgid "New Notebook"
-msgstr "Nova beležnica"
+msgstr "Bloc de notes nou"
 
 #: contents/ui/main.qml:81 contents/ui/main.qml:173
 #, kde-format
 msgid "Delete Notebook"
-msgstr "Izbriši beležnico"
+msgstr "Suprimix el bloc de notes"
 
 #: contents/ui/main.qml:138
 #, kde-format
 msgid "Your Notebooks"
-msgstr "Vaše beležnice"
+msgstr "El vostres blocs de notes"
 
 #: contents/ui/NotesPage.qml:35
 #, kde-format
 msgid "Add note"
-msgstr "Dodaj zabeležko"
+msgstr "Afig una nota"
 
 #: contents/ui/NotesPage.qml:46
 #, kde-format
 msgid "New Note (%1)"
-msgstr "Nova zabeležka (%1)"
+msgstr "Nota nova (%1)"
 
 #: contents/ui/NotesPage.qml:112
 #, kde-format
 msgid "Exit Search (%1)"
-msgstr "Izhod iz iskanja (%1)"
+msgstr "Ix de la busca (%1)"
 
 #: contents/ui/NotesPage.qml:112
 #, kde-format
 msgid "Search Notes (%1)"
-msgstr "Išči po zabeležkah (%1)"
+msgstr "Busca notes (%1)"
 
 #: contents/ui/NotesPage.qml:146
 #, kde-format
 msgid "New Note"
-msgstr "Nova zabeležka"
+msgstr "Nota nova"
 
 #: contents/ui/NotesPage.qml:151
 #, kde-format
 msgid "Note Name:"
-msgstr "Ime zabeležke:"
+msgstr "Nom de la nota:"
 
 #: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
 #: contents/ui/NotesPage.qml:315
 #, kde-format
 msgid "Delete Note"
-msgstr "Izbriši zabeležko"
+msgstr "Suprimix la nota"
 
 #: contents/ui/NotesPage.qml:190
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
-msgstr "Ali ste prepričani, da želite izbrisati zabeležko <b>»%1«</b>?"
+msgstr "Segur que voleu suprimir la nota <b> %1 </b>?"
 
 #: contents/ui/NotesPage.qml:272 contents/ui/NotesPage.qml:304
 #, kde-format
 msgid "Rename Note"
-msgstr "Preimenuj zabeležko"
+msgstr "Canvia el nom de la nota"
 
 #: contents/ui/NotesPage.qml:343
 #, kde-format
 msgid "Add a Note!"
-msgstr "Dodajte zabeležko!"
+msgstr "Afig una nota!"
 
 #: contents/ui/WelcomePage.qml:26
 #, kde-format
 msgid "Start by Creating your first Notebook!"
-msgstr "Začnite z izdelavo svoje prve beležnice!"
+msgstr "Comenceu creant el primer bloc de notes!"
 
 #: contents/ui/WelcomePage.qml:29
 #, kde-format
 msgid "Add Notebook"
-msgstr "Dodaj beležnico"
+msgstr "Afig un bloc de notes"
 
 #: main.cpp:53
 #, kde-format
 msgid "Marknote"
-msgstr "Beležke"
+msgstr "Marknote"
 
 #: main.cpp:55
 #, kde-format
 msgid "Note taking application"
-msgstr "Program za beleženje"
+msgstr "Aplicació de presa de notes"
 
 #: main.cpp:57
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
-msgstr "© 2023 avtor Mathis Brüchert"
+msgstr "© 2023 Mathis Brüchert"
 
 #: main.cpp:58
 #, kde-format
@@ -171,16 +168,16 @@ msgstr "Mathis Brüchert"
 #: main.cpp:58
 #, kde-format
 msgid "Maintainer"
-msgstr "Vzdrževalec"
+msgstr "Mantenidor"
 
 #: main.cpp:59
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Martin Srebotnjak"
+msgstr "Josep M. Ferrer"
 
 #: main.cpp:59
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "miles@filmsi.net"
+msgstr "txemaq@gmail.com"
