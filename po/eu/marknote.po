@@ -1,0 +1,184 @@
+# Translation for marknote.po to Euskara/Basque (eu).
+# Copyright (C) 2023 This file is copyright:
+# This file is distributed under the same license as the marknote package.
+# KDE euskaratzeko proiektuko arduraduna <xaba@ni.eus>.
+#
+# Translators:
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: marknote\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-07-28 00:47+0000\n"
+"PO-Revision-Date: 2023-08-01 12:35+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.04.0\n"
+
+#: contents/ui/AddNotebookDialog.qml:53
+#, kde-format
+msgid "Notebook Name"
+msgstr "Koadernoaren izena"
+
+#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
+#: contents/ui/NotesPage.qml:346
+#, kde-format
+msgid "Add"
+msgstr "Gehitu"
+
+#: contents/ui/EditPage.qml:68
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "Lodia"
+
+#: contents/ui/EditPage.qml:83
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "Etzana"
+
+#: contents/ui/EditPage.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "Marratua"
+
+#: contents/ui/EditPage.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "highlight"
+msgstr "nabarmendu"
+
+#: contents/ui/EditPage.qml:112
+#, kde-format
+msgid "Add list"
+msgstr "Gehitu zerrenda"
+
+#: contents/ui/EditPage.qml:120
+#, kde-format
+msgid "Add numbered list"
+msgstr "Gehitu zerrenda zenbakitua"
+
+#: contents/ui/EditPage.qml:130
+#, kde-format
+msgid "Heading %1"
+msgstr "%1. izenburua"
+
+#: contents/ui/main.qml:70
+#, kde-format
+msgid "New Notebook"
+msgstr "Koaderno berria"
+
+#: contents/ui/main.qml:81 contents/ui/main.qml:173
+#, kde-format
+msgid "Delete Notebook"
+msgstr "Ezabatu koadernoa"
+
+#: contents/ui/main.qml:138
+#, kde-format
+msgid "Your Notebooks"
+msgstr "Zure koadernoak"
+
+#: contents/ui/NotesPage.qml:35
+#, kde-format
+msgid "Add note"
+msgstr "Gehitu oharra"
+
+#: contents/ui/NotesPage.qml:46
+#, kde-format
+msgid "New Note (%1)"
+msgstr "Ohar berria (%1)"
+
+#: contents/ui/NotesPage.qml:112
+#, kde-format
+msgid "Exit Search (%1)"
+msgstr "Irten bilaketatik (%1)"
+
+#: contents/ui/NotesPage.qml:112
+#, kde-format
+msgid "Search Notes (%1)"
+msgstr "Bilatu oharrak (%1)"
+
+#: contents/ui/NotesPage.qml:146
+#, kde-format
+msgid "New Note"
+msgstr "Ohar berria"
+
+#: contents/ui/NotesPage.qml:151
+#, kde-format
+msgid "Note Name:"
+msgstr "Oharraren izena:"
+
+#: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
+#: contents/ui/NotesPage.qml:315
+#, kde-format
+msgid "Delete Note"
+msgstr "Ezabatu oharra"
+
+#: contents/ui/NotesPage.qml:190
+#, kde-format
+msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgstr "Ziur zaude <b>%1</b> oharra ezabatu nahi duzula?"
+
+#: contents/ui/NotesPage.qml:272 contents/ui/NotesPage.qml:304
+#, kde-format
+msgid "Rename Note"
+msgstr "Berrizendatu oharra"
+
+#: contents/ui/NotesPage.qml:343
+#, kde-format
+msgid "Add a Note!"
+msgstr "Gehitu ohar bat!"
+
+#: contents/ui/WelcomePage.qml:26
+#, kde-format
+msgid "Start by Creating your first Notebook!"
+msgstr "Has zaitez zure lehenengo koadernoa sortuz!"
+
+#: contents/ui/WelcomePage.qml:29
+#, kde-format
+msgid "Add Notebook"
+msgstr "Gehitu koadernoa"
+
+#: main.cpp:53
+#, kde-format
+msgid "Marknote"
+msgstr "Marknote"
+
+#: main.cpp:55
+#, kde-format
+msgid "Note taking application"
+msgstr "Oharrak hartzen aplikazioa"
+
+#: main.cpp:57
+#, kde-format
+msgid "© 2023 Mathis Brüchert"
+msgstr "© 2023 Mathis Brüchert"
+
+#: main.cpp:58
+#, kde-format
+msgid "Mathis Brüchert"
+msgstr "Mathis Brüchert"
+
+#: main.cpp:58
+#, kde-format
+msgid "Maintainer"
+msgstr "Arduraduna"
+
+#: main.cpp:59
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Iñigo Salvador Azurmendi"
+
+#: main.cpp:59
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xalba@ni.eus"
