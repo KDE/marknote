@@ -25,6 +25,7 @@
   <name xml:lang="pl">MarkNote</name>
   <name xml:lang="pt">MarkNote</name>
   <name xml:lang="sl">MarkNote</name>
+  <name xml:lang="sv">MarkNote</name>
   <name xml:lang="tr">MarkNot</name>
   <name xml:lang="uk">MarkNote</name>
   <name xml:lang="x-test">xxMarkNotexx</name>
@@ -47,6 +48,7 @@
   <summary xml:lang="pl">Aplikacja do notatek</summary>
   <summary xml:lang="pt">Aplicação para tirar notas</summary>
   <summary xml:lang="sl">Aplikacija za zbiranje zapiskov</summary>
+  <summary xml:lang="sv">Anteckningsprogram</summary>
   <summary xml:lang="tr">Not alma uygulaması</summary>
   <summary xml:lang="uk">Програма для роботи з нотатками</summary>
   <summary xml:lang="x-test">xxNote taking applicationxx</summary>
@@ -72,6 +74,7 @@
   <developer_name xml:lang="pl">Społeczność KDE</developer_name>
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
   <developer_name xml:lang="sl">Skupnost KDE</developer_name>
+  <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
   <developer_name xml:lang="tr">KDE Topluluğu</developer_name>
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
   <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
@@ -94,6 +97,7 @@
     <p xml:lang="pl">Aplikacja do notatek WYSIWYG, która umożliwia zarządzanie notatkami w zeszytach.</p>
     <p xml:lang="pt">Uma aplicação WYSIWYG para tirar notas, que lhe permite organizar as notas em blocos de notas.</p>
     <p xml:lang="sl">Neposredna vizualna aplikacija, ki vam omogoča organiziranje zapiskov v zvezke.</p>
+    <p xml:lang="sv">Ett "vad man ser är vad man får" anteckningsprogram som låter dig organisera dina anteckningar i anteckningsböcker.</p>
     <p xml:lang="tr">Notlarınızı defterlerle organize etmenize izin veren bir görsel not alma uygulaması.</p>
     <p xml:lang="uk">Програма для створення нотаток у режимі повної відповідності, за допомогою якої ви можете упорядковувати ваші нотатки за нотатниками.</p>
     <p xml:lang="x-test">xxA WYSIWYG note taking app that lets you organize your notes in notebooks.xx</p>
