@@ -1,0 +1,181 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the marknote package.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: marknote\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-07-28 00:47+0000\n"
+"PO-Revision-Date: 2023-07-31 11:19+0200\n"
+"Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
+"Language-Team: Italian <kde-i18n-it@kde.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.04.3\n"
+
+#: contents/ui/AddNotebookDialog.qml:53
+#, kde-format
+msgid "Notebook Name"
+msgstr "Nome del taccuino"
+
+#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
+#: contents/ui/NotesPage.qml:346
+#, kde-format
+msgid "Add"
+msgstr "Aggiungi"
+
+#: contents/ui/EditPage.qml:68
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "Grassetto"
+
+#: contents/ui/EditPage.qml:83
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "Corsivo"
+
+#: contents/ui/EditPage.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "Barrato"
+
+#: contents/ui/EditPage.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "highlight"
+msgstr "evidenzia"
+
+#: contents/ui/EditPage.qml:112
+#, kde-format
+msgid "Add list"
+msgstr "Aggiungi elenco"
+
+#: contents/ui/EditPage.qml:120
+#, kde-format
+msgid "Add numbered list"
+msgstr "Aggiungi elenco numerato"
+
+#: contents/ui/EditPage.qml:130
+#, kde-format
+msgid "Heading %1"
+msgstr "Intestazione %1"
+
+#: contents/ui/main.qml:70
+#, kde-format
+msgid "New Notebook"
+msgstr "Nuovo taccuino"
+
+#: contents/ui/main.qml:81 contents/ui/main.qml:173
+#, kde-format
+msgid "Delete Notebook"
+msgstr "Elimina taccuino"
+
+#: contents/ui/main.qml:138
+#, kde-format
+msgid "Your Notebooks"
+msgstr "I tuoi taccuini"
+
+#: contents/ui/NotesPage.qml:35
+#, kde-format
+msgid "Add note"
+msgstr "Aggiungi nota"
+
+#: contents/ui/NotesPage.qml:46
+#, kde-format
+msgid "New Note (%1)"
+msgstr "Nuova nota (%1)"
+
+#: contents/ui/NotesPage.qml:112
+#, kde-format
+msgid "Exit Search (%1)"
+msgstr "Esci dalla ricerca (%1)"
+
+#: contents/ui/NotesPage.qml:112
+#, kde-format
+msgid "Search Notes (%1)"
+msgstr "Cerca note (%1)"
+
+#: contents/ui/NotesPage.qml:146
+#, kde-format
+msgid "New Note"
+msgstr "Nuova nota"
+
+#: contents/ui/NotesPage.qml:151
+#, kde-format
+msgid "Note Name:"
+msgstr "Nome nota:"
+
+#: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
+#: contents/ui/NotesPage.qml:315
+#, kde-format
+msgid "Delete Note"
+msgstr "Elimina nota"
+
+#: contents/ui/NotesPage.qml:190
+#, kde-format
+msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgstr "Sei sicuro di voler eliminare la nota <b> %1 </b>?"
+
+#: contents/ui/NotesPage.qml:272 contents/ui/NotesPage.qml:304
+#, kde-format
+msgid "Rename Note"
+msgstr "Rinomina nota"
+
+#: contents/ui/NotesPage.qml:343
+#, kde-format
+msgid "Add a Note!"
+msgstr "Aggiungi una nota!"
+
+#: contents/ui/WelcomePage.qml:26
+#, kde-format
+msgid "Start by Creating your first Notebook!"
+msgstr "Inizia creando il tuo primo taccuino!"
+
+#: contents/ui/WelcomePage.qml:29
+#, kde-format
+msgid "Add Notebook"
+msgstr "Aggiungi taccuino"
+
+#: main.cpp:53
+#, kde-format
+msgid "Marknote"
+msgstr "Marknote"
+
+#: main.cpp:55
+#, kde-format
+msgid "Note taking application"
+msgstr "Applicazione per prendere appunti"
+
+#: main.cpp:57
+#, kde-format
+msgid "© 2023 Mathis Brüchert"
+msgstr "© 2023 Mathis Brüchert"
+
+#: main.cpp:58
+#, kde-format
+msgid "Mathis Brüchert"
+msgstr "Mathis Brüchert"
+
+#: main.cpp:58
+#, kde-format
+msgid "Maintainer"
+msgstr "Responsabile"
+
+#: main.cpp:59
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Vincenzo Reale"
+
+#: main.cpp:59
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "smart2128vr@gmail.com"
