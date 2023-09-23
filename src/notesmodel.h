@@ -6,9 +6,12 @@
 
 #include <QAbstractListModel>
 #include <QDir>
+#include <QQmlEngine>
+
 class NotesModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged REQUIRED)
 

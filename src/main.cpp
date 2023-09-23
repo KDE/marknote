@@ -14,9 +14,6 @@
 #include <QtQml>
 
 #include "../marknote-version.h"
-#include "documenthandler.h"
-#include "notebooksmodel.h"
-#include "notesmodel.h"
 
 #ifdef Q_OS_WINDOWS
 #include <Windows.h>
@@ -61,18 +58,6 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(about);
 
     QQmlApplicationEngine engine;
-
-    qmlRegisterType<DocumentHandler>("org.kde.marknote", 1, 0, "DocumentHandler");
-    qmlRegisterType<NotesModel>("org.kde.marknote", 1, 0, "NotesModel");
-    qmlRegisterType<NoteBooksModel>("org.kde.marknote", 1, 0, "NoteBooksModel");
-
-    qmlRegisterAnonymousType<QAbstractItemModel>("org.kde.marknote", 1);
-    qmlRegisterType<QSortFilterProxyModel>("org.kde.marknote", 1, 0, "SortFilterModel");
-
-    qmlRegisterSingletonType("org.kde.marknote", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
-        return engine->toScriptValue(KAboutData::applicationData());
-    });
-
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.load(QUrl(QStringLiteral("qrc:/contents/ui/main.qml")));
 

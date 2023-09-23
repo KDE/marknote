@@ -6,6 +6,7 @@
 
 #include <QFont>
 #include <QObject>
+#include <QQmlEngine>
 #include <QQuickTextDocument>
 #include <QTextCursor>
 #include <QUrl>
@@ -15,6 +16,7 @@ class QTextDocument;
 class DocumentHandler : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
     Q_PROPERTY(int cursorPosition READ cursorPosition WRITE setCursorPosition NOTIFY cursorPositionChanged)

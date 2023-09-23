@@ -6,7 +6,7 @@ import QtQuick 2.1
 import QtQuick.Controls 2.12 as Controls
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.marknote 1.0
+import org.kde.marknote
 
 import ".."
 

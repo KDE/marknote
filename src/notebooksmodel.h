@@ -6,10 +6,12 @@
 
 #include <QAbstractListModel>
 #include <QDir>
+#include <QQmlEngine>
 
 class NoteBooksModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     enum Role { Path = Qt::UserRole + 1, Name, Icon, Color };
