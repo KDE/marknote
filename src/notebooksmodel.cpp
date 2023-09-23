@@ -14,9 +14,9 @@
 
 NoteBooksModel::NoteBooksModel(QObject *parent)
     : QAbstractListModel(parent)
-    , directory(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator() + "Notes")
+    , directory(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator() + QStringLiteral("Notes"))
 {
-    directory.mkpath(".");
+    directory.mkpath(QStringLiteral("."));
     qDebug() << directory.path();
 }
 
@@ -33,7 +33,7 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
 
     case Role::Icon: {
         const QString dotDirectory =
-            directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % ".directory";
+            directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % QStringLiteral(".directory");
         if (QFile::exists(dotDirectory)) {
             return KDesktopFile(dotDirectory).readIcon();
         } else {
@@ -42,7 +42,7 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
     }
     case Role::Color: {
         const QString dotDirectory =
-            directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % ".directory";
+            directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row()).filePath() % QDir::separator() % QStringLiteral(".directory");
         if (QFile::exists(dotDirectory)) {
             return KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-Color");
         } else {
@@ -69,7 +69,7 @@ void NoteBooksModel::addNoteBook(const QString &name, const QString &icon, const
 
     beginResetModel();
     directory.mkdir(name);
-    const QString dotDirectory = directory.path() % QDir::separator() % name % QDir::separator() % ".directory";
+    const QString dotDirectory = directory.path() % QDir::separator() % name % QDir::separator() % QStringLiteral(".directory");
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
     auto desktopEntry = desktopFile.group("Desktop Entry");
     desktopEntry.writeEntry("Icon", icon);
@@ -81,13 +81,14 @@ void NoteBooksModel::addNoteBook(const QString &name, const QString &icon, const
 void NoteBooksModel::deleteNoteBook(const QString &name)
 {
     beginResetModel();
-    QDir(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator() + "Notes" + QDir::separator() + name).removeRecursively();
+    QDir(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator() + QStringLiteral("Notes") + QDir::separator() + name)
+        .removeRecursively();
     endResetModel();
 }
 
 void NoteBooksModel::renameNoteBook(const QUrl &path, const QString &name)
 {
-    QString newPath = directory.path() + QDir::separator() + name + ".md";
+    QString newPath = directory.path() + QDir::separator() + name + QStringLiteral(".md");
     beginResetModel();
     QFile::rename(path.toLocalFile(), newPath);
     endResetModel();

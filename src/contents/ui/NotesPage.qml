@@ -16,12 +16,12 @@ Kirigami.ScrollablePage {
     property string path
     property string notebookName
     Component.onCompleted: if (!Kirigami.Settings.isMobile) {
-        notesModel.rowCount() !== 0 ? pageStack.push("qrc:/EditPage.qml",{
+        notesModel.rowCount() !== 0 ? pageStack.push("qrc:/contents/ui/EditPage.qml",{
         path: notesModel.data(notesModel.index(0, 0), NotesModel.Path),
         name: notesModel.data(notesModel.index(0, 0), NotesModel.Name),
         objectNameW: notesModel.data(notesModel.index(0, 0), NotesModel.Name)})
         :
-        pageStack.push("qrc:/EditPage.qml",{name: ""})
+        pageStack.push("qrc:/contents/ui/EditPage.qml",{name: ""})
         }
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -158,7 +158,7 @@ Kirigami.ScrollablePage {
             Kirigami.Action {
                 id: addAction
                 text: i18n("Add")
-                iconName: "list-add"
+                icon.name: "list-add"
                 onTriggered: {
                     addSheet.close()
                     notesModel.addNote(fileNameInput.text)
@@ -270,7 +270,7 @@ Kirigami.ScrollablePage {
 
                             Kirigami.BasicListItem {
                                 label: i18n("Rename Note")
-                                icon: "document-edit"
+                                icon.name: "document-edit"
                                 onClicked: {
                                     if (!renameLayout.visible) {
                                         renameLayout.visible = true
@@ -285,7 +285,7 @@ Kirigami.ScrollablePage {
                             }
                             Kirigami.BasicListItem {
                                 label: i18n("Delete Note")
-                                icon: "delete"
+                                icon.name: "delete"
                                 onClicked: {
                                     removeDialog.noteName = delegateItem.name
                                     removeDialog.notePath = delegateItem.path
@@ -325,7 +325,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            onClicked: pageStack.push("qrc:/EditPage.qml", {
+            onClicked: pageStack.push("qrc:/contents/ui/EditPage.qml", {
                 path: path,
                 name: name,
                 objectName: name

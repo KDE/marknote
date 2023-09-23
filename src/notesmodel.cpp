@@ -26,7 +26,7 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
     case Role::Date:
         return directory.entryInfoList(QDir::Files).at(index.row()).birthTime();
     case Role::Name:
-        return directory.entryInfoList(QDir::Files).at(index.row()).fileName().replace(".md", "");
+        return directory.entryInfoList(QDir::Files).at(index.row()).fileName().replace(QStringLiteral(".md"), QString());
     }
 
     Q_UNREACHABLE();
@@ -42,7 +42,7 @@ QHash<int, QByteArray> NotesModel::roleNames() const
 void NotesModel::addNote(const QString &name)
 {
     beginResetModel();
-    QFile file(m_path + QDir::separator() + name + ".md");
+    QFile file(m_path + QDir::separator() + name + QStringLiteral(".md"));
     if (file.open(QFile::WriteOnly)) {
         file.write("");
     } else {
@@ -60,7 +60,7 @@ void NotesModel::deleteNote(const QUrl &path)
 
 void NotesModel::renameNote(const QUrl &path, const QString &name)
 {
-    QString newPath = directory.path() + QDir::separator() + name + ".md";
+    QString newPath = directory.path() + QDir::separator() + name + QStringLiteral(".md");
     beginResetModel();
     QFile::rename(path.toLocalFile(), newPath);
     endResetModel();

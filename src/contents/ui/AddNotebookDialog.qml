@@ -7,8 +7,8 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.12
 
 import org.kde.marknote 1.0
-import org.kde.kquickcontrolsaddons 2.0 as KQuickAddons
-import QtQuick.Dialogs 1.0 as QtDialogs
+import org.kde.iconthemes as KIconThemes
+import QtQuick.Dialogs as QtDialogs
 
 Kirigami.Dialog{
     id: root
@@ -19,7 +19,7 @@ Kirigami.Dialog{
     onOpened: nameInput.forceActiveFocus()
     contentItem: ColumnLayout {
         spacing: 20
-        KQuickAddons.IconDialog {
+        KIconThemes.IconDialog {
             id: iconDialog
             onIconNameChanged: buttonIcon.source = iconName
         }
@@ -70,14 +70,14 @@ Kirigami.Dialog{
     customFooterActions: [
         Kirigami.Action {
             text: i18n("Add")
-            iconName: "list-add"
+            icon.name: "list-add"
 
             onTriggered: {
                 root.model.addNoteBook(nameInput.text, buttonIcon.source !== "" ? buttonIcon.source : "addressbook-details" , root.notebookColor)
                 close()
                 if (model.rowCount() === 1) {
                     pageStack.clear()
-                    pageStack.replace(["qrc:/NotesPage.qml","qrc:/EditPage.qml"], {
+                    pageStack.replace(["qrc:/contents/ui/NotesPage.qml","qrc:/contents/ui/EditPage.qml"], {
                         path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
                         notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
                     })

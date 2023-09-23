@@ -26,12 +26,12 @@ Kirigami.ApplicationWindow {
     pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
     pageStack.popHiddenPages:true
     Component.onCompleted: noteBooksModel.rowCount() !== 0 ? pageStack.push(
-        "qrc:/NotesPage.qml",
+        "qrc:/contents/ui/NotesPage.qml",
         {
             path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
             notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
             }
-        ): pageStack.push("qrc:/WelcomePage.qml", {model : noteBooksModel})
+        ): pageStack.push("qrc:/contents/ui/WelcomePage.qml", {model : noteBooksModel})
 
 
     pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
@@ -84,13 +84,13 @@ Kirigami.ApplicationWindow {
                                 noteBooksModel.deleteNoteBook(currentNotebook)
                                 if(noteBooksModel.rowCount() !== 0) {
                                     pageStack.clear()
-                                    pageStack.replace(["qrc:/NotesPage.qml","qrc:/EditPage.qml"], {
+                                    pageStack.replace(["qrc:/contents/ui/NotesPage.qml","qrc:/contents/ui/EditPage.qml"], {
                                         path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
                                         notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
                                     })
                                 } else {
                                     pageStack.clear()
-                                    pageStack.replace("qrc:/WelcomePage.qml", {model : noteBooksModel})
+                                    pageStack.replace("qrc:/contents/ui/WelcomePage.qml", {model : noteBooksModel})
                                 }
                             }
                         }
@@ -118,7 +118,7 @@ Kirigami.ApplicationWindow {
                         console.log(delegateItem.color)
                         currentNotebook = delegateItem.name
                         pageStack.clear()
-                        pageStack.push("qrc:/NotesPage.qml", {
+                        pageStack.push("qrc:/contents/ui/NotesPage.qml", {
                             path: delegateItem.path,
                             notebookName: delegateItem.name
 
@@ -177,7 +177,7 @@ Kirigami.ApplicationWindow {
                                 if(noteBooksModel.rowCount() !== 0) {
                                     pageStack.clear()
                                     pageStack.replace(
-                                        ["qrc:/NotesPage.qml","qrc:/EditPage.qml"],
+                                        ["qrc:/contents/ui/NotesPage.qml","qrc:/contents/ui/EditPage.qml"],
                                         {
                                         path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
                                         notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
@@ -185,7 +185,7 @@ Kirigami.ApplicationWindow {
                                     )
                                 } else {
                                     pageStack.clear()
-                                    pageStack.replace("qrc:/WelcomePage.qml", {model : noteBooksModel})
+                                    pageStack.replace("qrc:/contents/ui/WelcomePage.qml", {model : noteBooksModel})
                                 }
                             }
                         }
@@ -196,7 +196,7 @@ Kirigami.ApplicationWindow {
                         console.log(drawerDelegateItem.color)
                         currentNotebook = drawerDelegateItem.name
                         pageStack.clear()
-                        pageStack.push("qrc:/NotesPage.qml", {
+                        pageStack.push("qrc:/contents/ui/NotesPage.qml", {
                             path: drawerDelegateItem.path,
                             notebookName: drawerDelegateItem.name
 
