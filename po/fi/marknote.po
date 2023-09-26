@@ -1,0 +1,181 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the marknote package.
+# Tommi Nieminen <translator@legisign.org>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: marknote\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-07-28 00:47+0000\n"
+"PO-Revision-Date: 2023-08-28 18:05+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+#: contents/ui/AddNotebookDialog.qml:53
+#, kde-format
+msgid "Notebook Name"
+msgstr "Muistikirjan nimi"
+
+#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
+#: contents/ui/NotesPage.qml:346
+#, kde-format
+msgid "Add"
+msgstr "Lisää"
+
+#: contents/ui/EditPage.qml:68
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "Lihavointi"
+
+#: contents/ui/EditPage.qml:83
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "Kursiivi"
+
+#: contents/ui/EditPage.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "Yliviivaus"
+
+#: contents/ui/EditPage.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "highlight"
+msgstr "korostus"
+
+#: contents/ui/EditPage.qml:112
+#, kde-format
+msgid "Add list"
+msgstr "Lisää luetelma"
+
+#: contents/ui/EditPage.qml:120
+#, kde-format
+msgid "Add numbered list"
+msgstr "Lisää numeroitu luettelo"
+
+#: contents/ui/EditPage.qml:130
+#, kde-format
+msgid "Heading %1"
+msgstr "Otsikko %1"
+
+#: contents/ui/main.qml:70
+#, kde-format
+msgid "New Notebook"
+msgstr "Uusi muistikirja"
+
+#: contents/ui/main.qml:81 contents/ui/main.qml:173
+#, kde-format
+msgid "Delete Notebook"
+msgstr "Poista muistikirja"
+
+#: contents/ui/main.qml:138
+#, kde-format
+msgid "Your Notebooks"
+msgstr "Muistikirjat"
+
+#: contents/ui/NotesPage.qml:35
+#, kde-format
+msgid "Add note"
+msgstr "Lisää muistiinpano"
+
+#: contents/ui/NotesPage.qml:46
+#, kde-format
+msgid "New Note (%1)"
+msgstr "Uusi muistiinpano (%1)"
+
+#: contents/ui/NotesPage.qml:112
+#, kde-format
+msgid "Exit Search (%1)"
+msgstr "Poistu hausta (%1)"
+
+#: contents/ui/NotesPage.qml:112
+#, kde-format
+msgid "Search Notes (%1)"
+msgstr "Etsi muistiinpanoista (%1)"
+
+#: contents/ui/NotesPage.qml:146
+#, kde-format
+msgid "New Note"
+msgstr "Uusi muistiinpano"
+
+#: contents/ui/NotesPage.qml:151
+#, kde-format
+msgid "Note Name:"
+msgstr "Muistiinpanon nimi:"
+
+#: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
+#: contents/ui/NotesPage.qml:315
+#, kde-format
+msgid "Delete Note"
+msgstr "Poista muistiinpano"
+
+#: contents/ui/NotesPage.qml:190
+#, kde-format
+msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgstr "Haluatko varmasti poistaa muistiinpanon <b>%1</b>?"
+
+#: contents/ui/NotesPage.qml:272 contents/ui/NotesPage.qml:304
+#, kde-format
+msgid "Rename Note"
+msgstr "Muuta muistiinpanon nimeä"
+
+#: contents/ui/NotesPage.qml:343
+#, kde-format
+msgid "Add a Note!"
+msgstr "Lisää muistiinpano!"
+
+#: contents/ui/WelcomePage.qml:26
+#, kde-format
+msgid "Start by Creating your first Notebook!"
+msgstr "Aloita lisäämällä ensimmäinen muistikirja!"
+
+#: contents/ui/WelcomePage.qml:29
+#, kde-format
+msgid "Add Notebook"
+msgstr "Lisää muistikirja"
+
+#: main.cpp:53
+#, kde-format
+msgid "Marknote"
+msgstr "Marknote"
+
+#: main.cpp:55
+#, kde-format
+msgid "Note taking application"
+msgstr "Muistiinpanosovellus"
+
+#: main.cpp:57
+#, kde-format
+msgid "© 2023 Mathis Brüchert"
+msgstr "© 2023 Mathis Brüchert"
+
+#: main.cpp:58
+#, kde-format
+msgid "Mathis Brüchert"
+msgstr "Mathis Brüchert"
+
+#: main.cpp:58
+#, kde-format
+msgid "Maintainer"
+msgstr "Ylläpitäjä"
+
+#: main.cpp:59
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tommi Nieminen"
+
+#: main.cpp:59
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translator@legisign.org"
