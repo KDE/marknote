@@ -12,7 +12,7 @@ import QtQuick.Dialogs 1.0 as QtDialogs
 
 Kirigami.Dialog{
     id: root
-    title: "New Notebook"
+    title: i18n("New Notebook")
     property NoteBooksModel model
     property string notebookColor
     padding: Kirigami.Units.largeSpacing
