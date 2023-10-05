@@ -33,7 +33,13 @@ Kirigami.ScrollablePage {
         Item { Layout.fillWidth: true }
     }
 
-
+    MouseArea{
+        anchors.fill: parent
+        onClicked: {
+            textArea.cursorPosition = textArea.length
+            textArea.forceActiveFocus()
+        }
+    }
 
     RowLayout {
         visible: name
