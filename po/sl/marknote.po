@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-28 00:47+0000\n"
+"POT-Creation-Date: 2023-10-06 00:43+0000\n"
 "PO-Revision-Date: 2023-07-29 11:16+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -21,6 +21,11 @@ msgstr ""
 "X-Generator: Poedit 2.2.1\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
+
+#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
+#, kde-format
+msgid "New Notebook"
+msgstr "Nova beležnica"
 
 #: contents/ui/AddNotebookDialog.qml:53
 #, kde-format
@@ -71,11 +76,6 @@ msgstr "Dodaj oštevilčen seznam"
 #, kde-format
 msgid "Heading %1"
 msgstr "Naslov %1"
-
-#: contents/ui/main.qml:70
-#, kde-format
-msgid "New Notebook"
-msgstr "Nova beležnica"
 
 #: contents/ui/main.qml:81 contents/ui/main.qml:173
 #, kde-format

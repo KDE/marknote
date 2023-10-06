@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-28 00:47+0000\n"
+"POT-Creation-Date: 2023-10-06 00:43+0000\n"
 "PO-Revision-Date: 2023-08-06 22:38+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -16,6 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 22.12.3\n"
+
+#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
+#, kde-format
+msgid "New Notebook"
+msgstr "새 공책"
 
 #: contents/ui/AddNotebookDialog.qml:53
 #, kde-format
@@ -66,11 +71,6 @@ msgstr "번호 매긴 목록 추가"
 #, kde-format
 msgid "Heading %1"
 msgstr "머리글 %1"
-
-#: contents/ui/main.qml:70
-#, kde-format
-msgid "New Notebook"
-msgstr "새 공책"
 
 #: contents/ui/main.qml:81 contents/ui/main.qml:173
 #, kde-format

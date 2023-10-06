@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-28 00:47+0000\n"
+"POT-Creation-Date: 2023-10-06 00:43+0000\n"
 "PO-Revision-Date: 2023-07-29 13:19+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -16,6 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.04.3\n"
+
+#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
+#, kde-format
+msgid "New Notebook"
+msgstr "Nieuw notitieboek"
 
 #: contents/ui/AddNotebookDialog.qml:53
 #, kde-format
@@ -66,11 +71,6 @@ msgstr "Genummerde lijst toevoegen"
 #, kde-format
 msgid "Heading %1"
 msgstr "Kop %1"
-
-#: contents/ui/main.qml:70
-#, kde-format
-msgid "New Notebook"
-msgstr "Nieuw notitieboek"
 
 #: contents/ui/main.qml:81 contents/ui/main.qml:173
 #, kde-format
