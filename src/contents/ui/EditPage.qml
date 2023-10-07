@@ -35,6 +35,7 @@ Kirigami.ScrollablePage {
 
     MouseArea{
         anchors.fill: parent
+        cursorShape: Qt.IBeamCursor
         onClicked: {
             textArea.cursorPosition = textArea.length
             textArea.forceActiveFocus()
