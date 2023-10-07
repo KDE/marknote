@@ -148,7 +148,7 @@ msgstr "Afig un bloc de notes"
 #: main.cpp:53
 #, kde-format
 msgid "Marknote"
-msgstr "Marknote"
+msgstr "MarkNote"
 
 #: main.cpp:55
 #, kde-format
