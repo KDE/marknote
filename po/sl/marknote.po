@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 00:43+0000\n"
+"POT-Creation-Date: 2023-10-08 00:43+0000\n"
 "PO-Revision-Date: 2023-07-29 11:16+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -38,41 +38,41 @@ msgstr "Ime beležnice"
 msgid "Add"
 msgstr "Dodaj"
 
-#: contents/ui/EditPage.qml:68
+#: contents/ui/EditPage.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Krepko"
 
-#: contents/ui/EditPage.qml:83
+#: contents/ui/EditPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Ležeče"
 
-#: contents/ui/EditPage.qml:94
+#: contents/ui/EditPage.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Prečrtano"
 
-#: contents/ui/EditPage.qml:101
+#: contents/ui/EditPage.qml:108
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
 msgstr "poudari"
 
-#: contents/ui/EditPage.qml:112
+#: contents/ui/EditPage.qml:119
 #, kde-format
 msgid "Add list"
 msgstr "Dodaj seznam"
 
-#: contents/ui/EditPage.qml:120
+#: contents/ui/EditPage.qml:127
 #, kde-format
 msgid "Add numbered list"
 msgstr "Dodaj oštevilčen seznam"
 
-#: contents/ui/EditPage.qml:130
+#: contents/ui/EditPage.qml:137
 #, kde-format
 msgid "Heading %1"
 msgstr "Naslov %1"

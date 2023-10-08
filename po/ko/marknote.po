@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 00:43+0000\n"
+"POT-Creation-Date: 2023-10-08 00:43+0000\n"
 "PO-Revision-Date: 2023-08-06 22:38+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -33,41 +33,41 @@ msgstr "공책 이름"
 msgid "Add"
 msgstr "추가"
 
-#: contents/ui/EditPage.qml:68
+#: contents/ui/EditPage.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "굵게"
 
-#: contents/ui/EditPage.qml:83
+#: contents/ui/EditPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "이탤릭"
 
-#: contents/ui/EditPage.qml:94
+#: contents/ui/EditPage.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "취소선"
 
-#: contents/ui/EditPage.qml:101
+#: contents/ui/EditPage.qml:108
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
 msgstr "강조"
 
-#: contents/ui/EditPage.qml:112
+#: contents/ui/EditPage.qml:119
 #, kde-format
 msgid "Add list"
 msgstr "목록 추가"
 
-#: contents/ui/EditPage.qml:120
+#: contents/ui/EditPage.qml:127
 #, kde-format
 msgid "Add numbered list"
 msgstr "번호 매긴 목록 추가"
 
-#: contents/ui/EditPage.qml:130
+#: contents/ui/EditPage.qml:137
 #, kde-format
 msgid "Heading %1"
 msgstr "머리글 %1"
