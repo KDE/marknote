@@ -96,6 +96,21 @@ Kirigami.ScrollablePage {
                     }
                 }
                 ToolButton {
+                    id: underlineButton
+                    Shortcut {
+                        sequence: "Ctrl+U"
+                        onActivated: underlineButton.clicked()
+                    }
+                    icon.name: "format-text-underline"
+                    text: i18nc("@action:button", "Underline")
+                    display: AbstractButton.IconOnly
+                    checkable: true
+                    checked: document.underline
+                    onClicked: {
+                        document.underline = !document.underline
+                    }
+                }
+                ToolButton {
                     enabled: false
                     icon.name: "format-text-strikethrough"
                     text: i18nc("@action:button", "Strikethrough")
