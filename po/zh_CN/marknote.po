@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 00:43+0000\n"
+"POT-Creation-Date: 2023-10-25 00:43+0000\n"
 "PO-Revision-Date: 2023-10-21 13:55\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -45,29 +45,35 @@ msgctxt "@action:button"
 msgid "Italic"
 msgstr ""
 
-#: contents/ui/EditPage.qml:101
+#: contents/ui/EditPage.qml:105
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr ""
+
+#: contents/ui/EditPage.qml:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr ""
 
-#: contents/ui/EditPage.qml:108
+#: contents/ui/EditPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
 msgstr ""
 
-#: contents/ui/EditPage.qml:119
+#: contents/ui/EditPage.qml:134
 #, kde-format
 msgid "Add list"
 msgstr ""
 
-#: contents/ui/EditPage.qml:127
+#: contents/ui/EditPage.qml:142
 #, kde-format
 msgid "Add numbered list"
 msgstr ""
 
-#: contents/ui/EditPage.qml:137
+#: contents/ui/EditPage.qml:152
 #, kde-format
 msgid "Heading %1"
 msgstr ""

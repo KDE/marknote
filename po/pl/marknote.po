@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 00:43+0000\n"
+"POT-Creation-Date: 2023-10-25 00:43+0000\n"
 "PO-Revision-Date: 2023-10-22 10:33+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -46,29 +46,35 @@ msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kursywa"
 
-#: contents/ui/EditPage.qml:101
+#: contents/ui/EditPage.qml:105
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr ""
+
+#: contents/ui/EditPage.qml:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Przekreślenie"
 
-#: contents/ui/EditPage.qml:108
+#: contents/ui/EditPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
 msgstr "podświetlenie"
 
-#: contents/ui/EditPage.qml:119
+#: contents/ui/EditPage.qml:134
 #, kde-format
 msgid "Add list"
 msgstr "Dodaj listę"
 
-#: contents/ui/EditPage.qml:127
+#: contents/ui/EditPage.qml:142
 #, kde-format
 msgid "Add numbered list"
 msgstr "Dodaj listę numerowaną"
 
-#: contents/ui/EditPage.qml:137
+#: contents/ui/EditPage.qml:152
 #, kde-format
 msgid "Heading %1"
 msgstr "Nagłówek %1"
