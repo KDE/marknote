@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-25 00:43+0000\n"
-"PO-Revision-Date: 2023-07-29 00:50+0300\n"
+"PO-Revision-Date: 2023-10-25 12:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -49,7 +49,7 @@ msgstr "Yatık"
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr ""
+msgstr "Altı Çizili"
 
 #: contents/ui/EditPage.qml:116
 #, kde-format
