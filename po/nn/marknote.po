@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 00:43+0000\n"
+"POT-Creation-Date: 2023-10-25 00:43+0000\n"
 "PO-Revision-Date: 2023-07-29 12:06+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -47,29 +47,35 @@ msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kursiv"
 
-#: contents/ui/EditPage.qml:101
+#: contents/ui/EditPage.qml:105
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr ""
+
+#: contents/ui/EditPage.qml:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Gjennomstreking"
 
-#: contents/ui/EditPage.qml:108
+#: contents/ui/EditPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
 msgstr "Utheving"
 
-#: contents/ui/EditPage.qml:119
+#: contents/ui/EditPage.qml:134
 #, kde-format
 msgid "Add list"
 msgstr "Legg til liste"
 
-#: contents/ui/EditPage.qml:127
+#: contents/ui/EditPage.qml:142
 #, kde-format
 msgid "Add numbered list"
 msgstr "Legg til nummerert liste"
 
-#: contents/ui/EditPage.qml:137
+#: contents/ui/EditPage.qml:152
 #, kde-format
 msgid "Heading %1"
 msgstr "Overskrift %1"
