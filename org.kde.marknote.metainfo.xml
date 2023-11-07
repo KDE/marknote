@@ -28,6 +28,7 @@
   <name xml:lang="sv">MarkNote</name>
   <name xml:lang="tr">MarkNot</name>
   <name xml:lang="uk">MarkNote</name>
+  <name xml:lang="x-test">xxMarkNotexx</name>
   <summary>Note taking application</summary>
   <summary xml:lang="ca">Aplicació de presa de notes</summary>
   <summary xml:lang="ca-valencia">Aplicació de presa de notes</summary>
@@ -50,6 +51,7 @@
   <summary xml:lang="sv">Anteckningsprogram</summary>
   <summary xml:lang="tr">Not alma uygulaması</summary>
   <summary xml:lang="uk">Програма для роботи з нотатками</summary>
+  <summary xml:lang="x-test">xxNote taking applicationxx</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <developer_name>KDE Community</developer_name>
@@ -75,6 +77,7 @@
   <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
   <developer_name xml:lang="tr">KDE Topluluğu</developer_name>
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
+  <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
   <description>
     <p>A WYSIWYG note taking app that lets you organize your notes in notebooks.</p>
     <p xml:lang="ca">Una aplicació de presa de notes WYSIWYG que us permet organitzar les notes en blocs de notes.</p>
@@ -97,5 +100,6 @@
     <p xml:lang="sv">Ett "vad man ser är vad man får" anteckningsprogram som låter dig organisera dina anteckningar i anteckningsböcker.</p>
     <p xml:lang="tr">Notlarınızı defterlerle organize etmenize izin veren bir görsel not alma uygulaması.</p>
     <p xml:lang="uk">Програма для створення нотаток у режимі повної відповідності, за допомогою якої ви можете упорядковувати ваші нотатки за нотатниками.</p>
+    <p xml:lang="x-test">xxA WYSIWYG note taking app that lets you organize your notes in notebooks.xx</p>
   </description>
 </component>
