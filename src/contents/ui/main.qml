@@ -157,7 +157,8 @@ Kirigami.ApplicationWindow {
                     required property string color;
                     Layout.fillWidth: true
                     alwaysVisibleActions:true
-                    RowLayout {
+
+                    contentItem: RowLayout {
                         Kirigami.Icon {
                             isMask: true
                             source: iconName
@@ -166,7 +167,7 @@ Kirigami.ApplicationWindow {
                         Controls.Label { text: name}
                         Item { Layout.fillWidth: true}
                     }
-                    Layout.margins: 0
+
                     actions: [
                         Kirigami.Action {
                             icon.name: "delete"
