@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:34+0000\n"
+"POT-Creation-Date: 2023-11-11 00:43+0000\n"
 "PO-Revision-Date: 2023-10-28 10:37+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -78,7 +78,7 @@ msgstr "Engadir unha lista numerada"
 msgid "Heading %1"
 msgstr "Cabeceira %1"
 
-#: contents/ui/main.qml:81 contents/ui/main.qml:173
+#: contents/ui/main.qml:81 contents/ui/main.qml:174
 #, kde-format
 msgid "Delete Notebook"
 msgstr "Eliminar o caderno"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:34+0000\n"
+"POT-Creation-Date: 2023-11-11 00:43+0000\n"
 "PO-Revision-Date: 2023-10-25 19:06+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -81,7 +81,7 @@ msgstr "Gehitu zerrenda zenbakitua"
 msgid "Heading %1"
 msgstr "%1. izenburua"
 
-#: contents/ui/main.qml:81 contents/ui/main.qml:173
+#: contents/ui/main.qml:81 contents/ui/main.qml:174
 #, kde-format
 msgid "Delete Notebook"
 msgstr "Ezabatu koadernoa"

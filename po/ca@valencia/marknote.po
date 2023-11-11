@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:34+0000\n"
+"POT-Creation-Date: 2023-11-11 00:43+0000\n"
 "PO-Revision-Date: 2023-10-25 09:41+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -80,7 +80,7 @@ msgstr "Afig una llista numerada"
 msgid "Heading %1"
 msgstr "Capçalera %1"
 
-#: contents/ui/main.qml:81 contents/ui/main.qml:173
+#: contents/ui/main.qml:81 contents/ui/main.qml:174
 #, kde-format
 msgid "Delete Notebook"
 msgstr "Suprimix el bloc de notes"
