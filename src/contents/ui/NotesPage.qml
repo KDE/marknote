@@ -109,7 +109,7 @@ Kirigami.ScrollablePage {
         ToolButton {
             id: searchButton
             icon.name: "search"
-            text: search.visible ? i18n("Exit Search (%1)", cancelShortcut.nativeText) : i18n("Search Notes (%1)", searchShortcut.nativeText)
+            text: search.visible ? i18n("Exit Search (%1)", cancelShortcut.nativeText) : i18n("Search notes (%1)", searchShortcut.nativeText)
             display: AbstractButton.IconOnly
 
             ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -148,7 +148,7 @@ Kirigami.ScrollablePage {
         contentItem: Kirigami.FormLayout{
             TextField{
                 id: fileNameInput
-                Kirigami.FormData.label: i18n("Note Name:")
+                Kirigami.FormData.label: i18n("Note name:")
                 onAccepted: addAction.triggered()
             }
         }
@@ -340,7 +340,7 @@ Kirigami.ScrollablePage {
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
             icon.name: "note"
             visible: notesList.count === 0
-            text: i18n("Add a Note!")
+            text: i18n("Add a note!")
             helpfulAction: Kirigami.Action {
                 icon.name: "list-add"
                 text: i18n("Add")

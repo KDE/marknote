@@ -50,7 +50,7 @@ Kirigami.Dialog{
         RowLayout {
             TextField{
                 id: nameInput
-                placeholderText: i18n("Notebook Name")
+                placeholderText: i18n("Notebook name")
             }
             Button {
                 id: colorButton

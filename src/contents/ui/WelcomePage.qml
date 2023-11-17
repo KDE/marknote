@@ -23,7 +23,7 @@ Kirigami.Page {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         icon.name: "addressbook-details"
-        text: i18n("Start by Creating your first Notebook!")
+        text: i18n("Start by creating your first notebook!")
         helpfulAction: Kirigami.Action {
             icon.name: "list-add"
             text: i18n("Add Notebook")
