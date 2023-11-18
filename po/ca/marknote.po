@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 00:43+0000\n"
+"POT-Creation-Date: 2023-11-18 00:42+0000\n"
 "PO-Revision-Date: 2023-10-25 09:41+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -25,8 +25,9 @@ msgid "New Notebook"
 msgstr "Bloc de notes nou"
 
 #: contents/ui/AddNotebookDialog.qml:53
-#, kde-format
-msgid "Notebook Name"
+#, fuzzy, kde-format
+#| msgid "Notebook Name"
+msgid "Notebook name"
 msgstr "Nom del bloc de notes"
 
 #: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
@@ -106,8 +107,9 @@ msgid "Exit Search (%1)"
 msgstr "Surt de la cerca (%1)"
 
 #: contents/ui/NotesPage.qml:112
-#, kde-format
-msgid "Search Notes (%1)"
+#, fuzzy, kde-format
+#| msgid "Search Notes (%1)"
+msgid "Search notes (%1)"
 msgstr "Cerca notes (%1)"
 
 #: contents/ui/NotesPage.qml:146
@@ -116,8 +118,9 @@ msgid "New Note"
 msgstr "Nota nova"
 
 #: contents/ui/NotesPage.qml:151
-#, kde-format
-msgid "Note Name:"
+#, fuzzy, kde-format
+#| msgid "Note Name:"
+msgid "Note name:"
 msgstr "Nom de la nota:"
 
 #: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
@@ -137,13 +140,15 @@ msgid "Rename Note"
 msgstr "Reanomena la nota"
 
 #: contents/ui/NotesPage.qml:343
-#, kde-format
-msgid "Add a Note!"
+#, fuzzy, kde-format
+#| msgid "Add a Note!"
+msgid "Add a note!"
 msgstr "Afegeix una nota!"
 
 #: contents/ui/WelcomePage.qml:26
-#, kde-format
-msgid "Start by Creating your first Notebook!"
+#, fuzzy, kde-format
+#| msgid "Start by Creating your first Notebook!"
+msgid "Start by creating your first notebook!"
 msgstr "Comenceu creant el primer bloc de notes!"
 
 #: contents/ui/WelcomePage.qml:29

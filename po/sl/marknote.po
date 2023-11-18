@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 00:43+0000\n"
+"POT-Creation-Date: 2023-11-18 00:42+0000\n"
 "PO-Revision-Date: 2023-10-25 09:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -28,8 +28,9 @@ msgid "New Notebook"
 msgstr "Nova beležnica"
 
 #: contents/ui/AddNotebookDialog.qml:53
-#, kde-format
-msgid "Notebook Name"
+#, fuzzy, kde-format
+#| msgid "Notebook Name"
+msgid "Notebook name"
 msgstr "Ime beležnice"
 
 #: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
@@ -109,8 +110,9 @@ msgid "Exit Search (%1)"
 msgstr "Izhod iz iskanja (%1)"
 
 #: contents/ui/NotesPage.qml:112
-#, kde-format
-msgid "Search Notes (%1)"
+#, fuzzy, kde-format
+#| msgid "Search Notes (%1)"
+msgid "Search notes (%1)"
 msgstr "Išči po zabeležkah (%1)"
 
 #: contents/ui/NotesPage.qml:146
@@ -119,8 +121,9 @@ msgid "New Note"
 msgstr "Nova zabeležka"
 
 #: contents/ui/NotesPage.qml:151
-#, kde-format
-msgid "Note Name:"
+#, fuzzy, kde-format
+#| msgid "Note Name:"
+msgid "Note name:"
 msgstr "Ime zabeležke:"
 
 #: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
@@ -140,13 +143,15 @@ msgid "Rename Note"
 msgstr "Preimenuj zabeležko"
 
 #: contents/ui/NotesPage.qml:343
-#, kde-format
-msgid "Add a Note!"
+#, fuzzy, kde-format
+#| msgid "Add a Note!"
+msgid "Add a note!"
 msgstr "Dodajte zabeležko!"
 
 #: contents/ui/WelcomePage.qml:26
-#, kde-format
-msgid "Start by Creating your first Notebook!"
+#, fuzzy, kde-format
+#| msgid "Start by Creating your first Notebook!"
+msgid "Start by creating your first notebook!"
 msgstr "Začnite z izdelavo svoje prve beležnice!"
 
 #: contents/ui/WelcomePage.qml:29

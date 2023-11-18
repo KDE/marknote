@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 00:43+0000\n"
+"POT-Creation-Date: 2023-11-18 00:42+0000\n"
 "PO-Revision-Date: 2023-08-06 22:38+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -23,8 +23,9 @@ msgid "New Notebook"
 msgstr "새 공책"
 
 #: contents/ui/AddNotebookDialog.qml:53
-#, kde-format
-msgid "Notebook Name"
+#, fuzzy, kde-format
+#| msgid "Notebook Name"
+msgid "Notebook name"
 msgstr "공책 이름"
 
 #: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
@@ -104,8 +105,9 @@ msgid "Exit Search (%1)"
 msgstr "검색 종료(%1)"
 
 #: contents/ui/NotesPage.qml:112
-#, kde-format
-msgid "Search Notes (%1)"
+#, fuzzy, kde-format
+#| msgid "Search Notes (%1)"
+msgid "Search notes (%1)"
 msgstr "메모 검색(%1)"
 
 #: contents/ui/NotesPage.qml:146
@@ -114,8 +116,9 @@ msgid "New Note"
 msgstr "새 메모"
 
 #: contents/ui/NotesPage.qml:151
-#, kde-format
-msgid "Note Name:"
+#, fuzzy, kde-format
+#| msgid "Note Name:"
+msgid "Note name:"
 msgstr "메모 이름:"
 
 #: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
@@ -135,13 +138,15 @@ msgid "Rename Note"
 msgstr "메모 이름 바꾸기"
 
 #: contents/ui/NotesPage.qml:343
-#, kde-format
-msgid "Add a Note!"
+#, fuzzy, kde-format
+#| msgid "Add a Note!"
+msgid "Add a note!"
 msgstr "새 메모 추가!"
 
 #: contents/ui/WelcomePage.qml:26
-#, kde-format
-msgid "Start by Creating your first Notebook!"
+#, fuzzy, kde-format
+#| msgid "Start by Creating your first Notebook!"
+msgid "Start by creating your first notebook!"
 msgstr "첫 공책을 만들어서 시작하십시오!"
 
 #: contents/ui/WelcomePage.qml:29
