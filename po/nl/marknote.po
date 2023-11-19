@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-18 00:42+0000\n"
-"PO-Revision-Date: 2023-10-25 13:15+0200\n"
+"PO-Revision-Date: 2023-11-18 12:29+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
 #, kde-format
@@ -23,8 +23,7 @@ msgid "New Notebook"
 msgstr "Nieuw notitieboek"
 
 #: contents/ui/AddNotebookDialog.qml:53
-#, fuzzy, kde-format
-#| msgid "Notebook Name"
+#, kde-format
 msgid "Notebook name"
 msgstr "Notitieboeknaam"
 
@@ -105,8 +104,7 @@ msgid "Exit Search (%1)"
 msgstr "Zoeken beëindigen (%1)"
 
 #: contents/ui/NotesPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Search Notes (%1)"
+#, kde-format
 msgid "Search notes (%1)"
 msgstr "Notities zoeken (%1)"
 
@@ -116,8 +114,7 @@ msgid "New Note"
 msgstr "Nieuwe notitie"
 
 #: contents/ui/NotesPage.qml:151
-#, fuzzy, kde-format
-#| msgid "Note Name:"
+#, kde-format
 msgid "Note name:"
 msgstr "Notitienaam:"
 
@@ -138,14 +135,12 @@ msgid "Rename Note"
 msgstr "Notitie hernoemen"
 
 #: contents/ui/NotesPage.qml:343
-#, fuzzy, kde-format
-#| msgid "Add a Note!"
+#, kde-format
 msgid "Add a note!"
 msgstr "Een notitie toevoegen!"
 
 #: contents/ui/WelcomePage.qml:26
-#, fuzzy, kde-format
-#| msgid "Start by Creating your first Notebook!"
+#, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Begin met het maken van uw eerste notitieboek!"
 

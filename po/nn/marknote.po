@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 00:43+0000\n"
+"POT-Creation-Date: 2023-11-18 00:42+0000\n"
 "PO-Revision-Date: 2023-07-29 12:06+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -26,8 +26,8 @@ msgstr "Ny notatbok"
 
 #: contents/ui/AddNotebookDialog.qml:53
 #, kde-format
-msgid "Notebook Name"
-msgstr "Namn på notatbok"
+msgid "Notebook name"
+msgstr ""
 
 #: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
 #: contents/ui/NotesPage.qml:346
@@ -80,7 +80,7 @@ msgstr "Legg til nummerert liste"
 msgid "Heading %1"
 msgstr "Overskrift %1"
 
-#: contents/ui/main.qml:81 contents/ui/main.qml:173
+#: contents/ui/main.qml:81 contents/ui/main.qml:174
 #, kde-format
 msgid "Delete Notebook"
 msgstr "Slett notatbok"
@@ -107,8 +107,8 @@ msgstr "Avslutt søk (%1)"
 
 #: contents/ui/NotesPage.qml:112
 #, kde-format
-msgid "Search Notes (%1)"
-msgstr "Søk i nøtat (%1)"
+msgid "Search notes (%1)"
+msgstr ""
 
 #: contents/ui/NotesPage.qml:146
 #, kde-format
@@ -117,8 +117,8 @@ msgstr "Nytt notat"
 
 #: contents/ui/NotesPage.qml:151
 #, kde-format
-msgid "Note Name:"
-msgstr "Notatnamn:"
+msgid "Note name:"
+msgstr ""
 
 #: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
 #: contents/ui/NotesPage.qml:315
@@ -138,13 +138,13 @@ msgstr "Endra namn på notat"
 
 #: contents/ui/NotesPage.qml:343
 #, kde-format
-msgid "Add a Note!"
-msgstr "Legg til notat!"
+msgid "Add a note!"
+msgstr ""
 
 #: contents/ui/WelcomePage.qml:26
 #, kde-format
-msgid "Start by Creating your first Notebook!"
-msgstr "Kom i gang ved å oppretta ei notatbok!"
+msgid "Start by creating your first notebook!"
+msgstr ""
 
 #: contents/ui/WelcomePage.qml:29
 #, kde-format
