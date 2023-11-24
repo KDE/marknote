@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-18 00:42+0000\n"
-"PO-Revision-Date: 2023-10-28 10:37+0200\n"
+"PO-Revision-Date: 2023-11-23 17:21+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -23,8 +23,7 @@ msgid "New Notebook"
 msgstr "Novo caderno"
 
 #: contents/ui/AddNotebookDialog.qml:53
-#, fuzzy, kde-format
-#| msgid "Notebook Name"
+#, kde-format
 msgid "Notebook name"
 msgstr "Nome do caderno"
 
@@ -105,8 +104,7 @@ msgid "Exit Search (%1)"
 msgstr "Saír da busca (%1)"
 
 #: contents/ui/NotesPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Search Notes (%1)"
+#, kde-format
 msgid "Search notes (%1)"
 msgstr "Buscar nas notas (%1)"
 
@@ -116,8 +114,7 @@ msgid "New Note"
 msgstr "Nova nota"
 
 #: contents/ui/NotesPage.qml:151
-#, fuzzy, kde-format
-#| msgid "Note Name:"
+#, kde-format
 msgid "Note name:"
 msgstr "Nome da nota:"
 
@@ -138,14 +135,12 @@ msgid "Rename Note"
 msgstr "Renomear a nota"
 
 #: contents/ui/NotesPage.qml:343
-#, fuzzy, kde-format
-#| msgid "Add a Note!"
+#, kde-format
 msgid "Add a note!"
 msgstr "Engada unha nota!"
 
 #: contents/ui/WelcomePage.qml:26
-#, fuzzy, kde-format
-#| msgid "Start by Creating your first Notebook!"
+#, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Comece por crear o seu primeiro caderno!"
 
