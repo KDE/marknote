@@ -181,7 +181,7 @@ Kirigami.ScrollablePage {
                 textMargin: Kirigami.Units.gridUnit
                 height: parent.height
                 textFormat: TextEdit.MarkdownText
-                wrapMode: TextEdit.WordWrap
+                wrapMode: TextEdit.Wrap
 
                 DocumentHandler {
                     id: document
