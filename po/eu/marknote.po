@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-18 00:42+0000\n"
-"PO-Revision-Date: 2023-10-25 19:06+0200\n"
+"PO-Revision-Date: 2023-12-06 12:32+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
 #, kde-format
@@ -26,8 +26,7 @@ msgid "New Notebook"
 msgstr "Koaderno berria"
 
 #: contents/ui/AddNotebookDialog.qml:53
-#, fuzzy, kde-format
-#| msgid "Notebook Name"
+#, kde-format
 msgid "Notebook name"
 msgstr "Koadernoaren izena"
 
@@ -108,8 +107,7 @@ msgid "Exit Search (%1)"
 msgstr "Irten bilaketatik (%1)"
 
 #: contents/ui/NotesPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Search Notes (%1)"
+#, kde-format
 msgid "Search notes (%1)"
 msgstr "Bilatu oharrak (%1)"
 
@@ -119,8 +117,7 @@ msgid "New Note"
 msgstr "Ohar berria"
 
 #: contents/ui/NotesPage.qml:151
-#, fuzzy, kde-format
-#| msgid "Note Name:"
+#, kde-format
 msgid "Note name:"
 msgstr "Oharraren izena:"
 
@@ -141,16 +138,14 @@ msgid "Rename Note"
 msgstr "Berrizendatu oharra"
 
 #: contents/ui/NotesPage.qml:343
-#, fuzzy, kde-format
-#| msgid "Add a Note!"
+#, kde-format
 msgid "Add a note!"
 msgstr "Gehitu ohar bat!"
 
 #: contents/ui/WelcomePage.qml:26
-#, fuzzy, kde-format
-#| msgid "Start by Creating your first Notebook!"
+#, kde-format
 msgid "Start by creating your first notebook!"
-msgstr "Has zaitez zure lehenengo koadernoa sortuz!"
+msgstr "Has zaitez zure lehenengo koadernoa sortzen!"
 
 #: contents/ui/WelcomePage.qml:29
 #, kde-format
