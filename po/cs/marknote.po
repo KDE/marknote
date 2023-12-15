@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-18 00:42+0000\n"
-"PO-Revision-Date: 2023-10-31 16:14+0100\n"
+"PO-Revision-Date: 2023-11-21 15:40+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
 #, kde-format
@@ -23,10 +23,9 @@ msgid "New Notebook"
 msgstr "Nový poznámkový blok"
 
 #: contents/ui/AddNotebookDialog.qml:53
-#, fuzzy, kde-format
-#| msgid "Notebook Name"
+#, kde-format
 msgid "Notebook name"
-msgstr "Název posnámkového bloku"
+msgstr "Název poznámkového bloku"
 
 #: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
 #: contents/ui/NotesPage.qml:346
@@ -105,8 +104,7 @@ msgid "Exit Search (%1)"
 msgstr "Ukončit hledání (%1)"
 
 #: contents/ui/NotesPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Search Notes (%1)"
+#, kde-format
 msgid "Search notes (%1)"
 msgstr "Hledat poznámky (%1)"
 
@@ -116,8 +114,7 @@ msgid "New Note"
 msgstr "Nová poznámka"
 
 #: contents/ui/NotesPage.qml:151
-#, fuzzy, kde-format
-#| msgid "Note Name:"
+#, kde-format
 msgid "Note name:"
 msgstr "Název poznámky:"
 
@@ -138,16 +135,14 @@ msgid "Rename Note"
 msgstr "Přejmenovat poznámku"
 
 #: contents/ui/NotesPage.qml:343
-#, fuzzy, kde-format
-#| msgid "Add a Note!"
+#, kde-format
 msgid "Add a note!"
 msgstr "Přidat poznámku."
 
 #: contents/ui/WelcomePage.qml:26
-#, fuzzy, kde-format
-#| msgid "Start by Creating your first Notebook!"
+#, kde-format
 msgid "Start by creating your first notebook!"
-msgstr "Začněte vytvořením první poznámky."
+msgstr "Začněte vytvořením vašeho prvního poznámkového bloku."
 
 #: contents/ui/WelcomePage.qml:29
 #, kde-format
