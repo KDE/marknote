@@ -1,187 +1,187 @@
+# Copyright (C) 2023 This file is copyright:
+# This file is distributed under the same license as the marknote package.
+#
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-18 00:42+0000\n"
-"PO-Revision-Date: 2023-12-20 11:26\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2023-12-20 17:32+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/marknote/marknote.pot\n"
-"X-Crowdin-File-ID: 44547\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
 #, kde-format
 msgid "New Notebook"
-msgstr ""
+msgstr "新筆記本"
 
 #: contents/ui/AddNotebookDialog.qml:53
 #, kde-format
 msgid "Notebook name"
-msgstr ""
+msgstr "筆記本名稱"
 
 #: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
 #: contents/ui/NotesPage.qml:346
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: contents/ui/EditPage.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
-msgstr ""
+msgstr "粗體"
 
 #: contents/ui/EditPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
-msgstr ""
+msgstr "斜體"
 
 #: contents/ui/EditPage.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr ""
+msgstr "底線"
 
 #: contents/ui/EditPage.qml:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
-msgstr ""
+msgstr "刪除線"
 
 #: contents/ui/EditPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
-msgstr ""
+msgstr "突顯"
 
 #: contents/ui/EditPage.qml:134
 #, kde-format
 msgid "Add list"
-msgstr ""
+msgstr "新增列表"
 
 #: contents/ui/EditPage.qml:142
 #, kde-format
 msgid "Add numbered list"
-msgstr ""
+msgstr "新增有序列表"
 
 #: contents/ui/EditPage.qml:152
 #, kde-format
 msgid "Heading %1"
-msgstr ""
+msgstr "標題 %1"
 
 #: contents/ui/main.qml:81 contents/ui/main.qml:174
 #, kde-format
 msgid "Delete Notebook"
-msgstr ""
+msgstr "刪除筆記本"
 
 #: contents/ui/main.qml:138
 #, kde-format
 msgid "Your Notebooks"
-msgstr ""
+msgstr "您的筆記本"
 
 #: contents/ui/NotesPage.qml:35
 #, kde-format
 msgid "Add note"
-msgstr ""
+msgstr "新增筆記"
 
 #: contents/ui/NotesPage.qml:46
 #, kde-format
 msgid "New Note (%1)"
-msgstr ""
+msgstr "新增筆記 (%1)"
 
 #: contents/ui/NotesPage.qml:112
 #, kde-format
 msgid "Exit Search (%1)"
-msgstr ""
+msgstr "離開搜尋 (%1)"
 
 #: contents/ui/NotesPage.qml:112
 #, kde-format
 msgid "Search notes (%1)"
-msgstr ""
+msgstr "搜尋筆記 (%1)"
 
 #: contents/ui/NotesPage.qml:146
 #, kde-format
 msgid "New Note"
-msgstr ""
+msgstr "新增筆記"
 
 #: contents/ui/NotesPage.qml:151
 #, kde-format
 msgid "Note name:"
-msgstr ""
+msgstr "筆記名稱："
 
 #: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
 #: contents/ui/NotesPage.qml:315
 #, kde-format
 msgid "Delete Note"
-msgstr ""
+msgstr "刪除筆記"
 
 #: contents/ui/NotesPage.qml:190
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
-msgstr ""
+msgstr "您確定要刪除筆記 <b>%1</b> 嗎？"
 
 #: contents/ui/NotesPage.qml:272 contents/ui/NotesPage.qml:304
 #, kde-format
 msgid "Rename Note"
-msgstr ""
+msgstr "重新命名筆記"
 
 #: contents/ui/NotesPage.qml:343
 #, kde-format
 msgid "Add a note!"
-msgstr ""
+msgstr "新增筆記！"
 
 #: contents/ui/WelcomePage.qml:26
 #, kde-format
 msgid "Start by creating your first notebook!"
-msgstr ""
+msgstr "從建立您的第一本筆記本開始吧！"
 
 #: contents/ui/WelcomePage.qml:29
 #, kde-format
 msgid "Add Notebook"
-msgstr ""
+msgstr "新增筆記本"
 
 #: main.cpp:53
 #, kde-format
 msgid "Marknote"
-msgstr ""
+msgstr "Marknote"
 
 #: main.cpp:55
 #, kde-format
 msgid "Note taking application"
-msgstr ""
+msgstr "筆記本應用程式"
 
 #: main.cpp:57
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
-msgstr ""
+msgstr "© 2023 Mathis Brüchert"
 
 #: main.cpp:58
 #, kde-format
 msgid "Mathis Brüchert"
-msgstr ""
+msgstr "Mathis Brüchert"
 
 #: main.cpp:58
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "維護者"
 
 #: main.cpp:59
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Kisaragi Hiu"
 
 #: main.cpp:59
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "mail@kisaragi-hiu.com"
