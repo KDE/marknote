@@ -1,7 +1,7 @@
 {
     "id": "org.kde.marknote",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-22.08",
+    "runtime-version": "6.6-kf6preview",
     "sdk": "org.kde.Sdk",
     "command": "marknote",
     "tags": ["nightly"],
@@ -9,7 +9,7 @@
     "finish-args": [
         "--share=ipc",
         "--share=network",
-        "--socket=x11",
+        "--socket=fallback-x11",
         "--socket=wayland",
         "--device=dri",
         "--filesystem=xdg-documents"
