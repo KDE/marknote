@@ -71,7 +71,7 @@ void NoteBooksModel::addNoteBook(const QString &name, const QString &icon, const
     directory.mkdir(name);
     const QString dotDirectory = directory.path() % QDir::separator() % name % QDir::separator() % QStringLiteral(".directory");
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
-    auto desktopEntry = desktopFile.group("Desktop Entry");
+    auto desktopEntry = desktopFile.group(QStringLiteral("Desktop Entry"));
     desktopEntry.writeEntry("Icon", icon);
     desktopEntry.writeEntry("X-MarkNote-Color", color);
     desktopFile.sync();
