@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-18 00:42+0000\n"
-"PO-Revision-Date: 2023-08-28 18:05+0300\n"
+"PO-Revision-Date: 2023-12-11 18:12+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -23,8 +23,7 @@ msgid "New Notebook"
 msgstr "Uusi muistikirja"
 
 #: contents/ui/AddNotebookDialog.qml:53
-#, fuzzy, kde-format
-#| msgid "Notebook Name"
+#, kde-format
 msgid "Notebook name"
 msgstr "Muistikirjan nimi"
 
@@ -50,7 +49,7 @@ msgstr "Kursiivi"
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr ""
+msgstr "Alleviivaus"
 
 #: contents/ui/EditPage.qml:116
 #, kde-format
@@ -105,8 +104,7 @@ msgid "Exit Search (%1)"
 msgstr "Poistu hausta (%1)"
 
 #: contents/ui/NotesPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Search Notes (%1)"
+#, kde-format
 msgid "Search notes (%1)"
 msgstr "Etsi muistiinpanoista (%1)"
 
@@ -116,8 +114,7 @@ msgid "New Note"
 msgstr "Uusi muistiinpano"
 
 #: contents/ui/NotesPage.qml:151
-#, fuzzy, kde-format
-#| msgid "Note Name:"
+#, kde-format
 msgid "Note name:"
 msgstr "Muistiinpanon nimi:"
 
@@ -138,16 +135,14 @@ msgid "Rename Note"
 msgstr "Muuta muistiinpanon nimeä"
 
 #: contents/ui/NotesPage.qml:343
-#, fuzzy, kde-format
-#| msgid "Add a Note!"
+#, kde-format
 msgid "Add a note!"
 msgstr "Lisää muistiinpano!"
 
 #: contents/ui/WelcomePage.qml:26
-#, fuzzy, kde-format
-#| msgid "Start by Creating your first Notebook!"
+#, kde-format
 msgid "Start by creating your first notebook!"
-msgstr "Aloita lisäämällä ensimmäinen muistikirja!"
+msgstr "Aloita luomalla ensimmäinen muistikirja!"
 
 #: contents/ui/WelcomePage.qml:29
 #, kde-format
