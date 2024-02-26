@@ -1,0 +1,188 @@
+# translation of marknote.pot to Esperanto
+# Copyright (C) 2024 Free Software Foundation, Inc.
+# This file is distributed under the same license as the marknote package.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: marknote\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-18 00:42+0000\n"
+"PO-Revision-Date: 2024-02-25 07:30+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
+#, kde-format
+msgid "New Notebook"
+msgstr "Nova Notlibro"
+
+#: contents/ui/AddNotebookDialog.qml:53
+#, kde-format
+msgid "Notebook name"
+msgstr "Nomo de notlibro"
+
+#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
+#: contents/ui/NotesPage.qml:346
+#, kde-format
+msgid "Add"
+msgstr "Aldoni"
+
+#: contents/ui/EditPage.qml:75
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "Grasa"
+
+#: contents/ui/EditPage.qml:90
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "Kursiva"
+
+#: contents/ui/EditPage.qml:105
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr "Substrekita"
+
+#: contents/ui/EditPage.qml:116
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "Trastreko"
+
+#: contents/ui/EditPage.qml:123
+#, kde-format
+msgctxt "@action:button"
+msgid "highlight"
+msgstr "emfazi"
+
+#: contents/ui/EditPage.qml:134
+#, kde-format
+msgid "Add list"
+msgstr "Aldoni liston"
+
+#: contents/ui/EditPage.qml:142
+#, kde-format
+msgid "Add numbered list"
+msgstr "Aldoni numeran liston"
+
+#: contents/ui/EditPage.qml:152
+#, kde-format
+msgid "Heading %1"
+msgstr "Titolo %1"
+
+#: contents/ui/main.qml:81 contents/ui/main.qml:174
+#, kde-format
+msgid "Delete Notebook"
+msgstr "Forigi Notlibron"
+
+#: contents/ui/main.qml:138
+#, kde-format
+msgid "Your Notebooks"
+msgstr "Viaj Notlibroj"
+
+#: contents/ui/NotesPage.qml:35
+#, kde-format
+msgid "Add note"
+msgstr "Aldoni noton"
+
+#: contents/ui/NotesPage.qml:46
+#, kde-format
+msgid "New Note (%1)"
+msgstr "Nova Noto (%1)"
+
+#: contents/ui/NotesPage.qml:112
+#, kde-format
+msgid "Exit Search (%1)"
+msgstr "Eliri Serĉon (%1)"
+
+#: contents/ui/NotesPage.qml:112
+#, kde-format
+msgid "Search notes (%1)"
+msgstr "Serĉi notojn (%1)"
+
+#: contents/ui/NotesPage.qml:146
+#, kde-format
+msgid "New Note"
+msgstr "Nova noto"
+
+#: contents/ui/NotesPage.qml:151
+#, kde-format
+msgid "Note name:"
+msgstr "Nota nomo:"
+
+#: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
+#: contents/ui/NotesPage.qml:315
+#, kde-format
+msgid "Delete Note"
+msgstr "Forigi Noton"
+
+#: contents/ui/NotesPage.qml:190
+#, kde-format
+msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgstr "Ĉu vi certas, ke vi volas forigi la noton <b> %1 </b>?"
+
+#: contents/ui/NotesPage.qml:272 contents/ui/NotesPage.qml:304
+#, kde-format
+msgid "Rename Note"
+msgstr "Alinomi Noton"
+
+#: contents/ui/NotesPage.qml:343
+#, kde-format
+msgid "Add a note!"
+msgstr "Aldonu noton!"
+
+#: contents/ui/WelcomePage.qml:26
+#, kde-format
+msgid "Start by creating your first notebook!"
+msgstr "Komencu per kreo de via unua notlibro!"
+
+#: contents/ui/WelcomePage.qml:29
+#, kde-format
+msgid "Add Notebook"
+msgstr "Aldoni Notlibron"
+
+#: main.cpp:53
+#, kde-format
+msgid "Marknote"
+msgstr "Marknote"
+
+#: main.cpp:55
+#, kde-format
+msgid "Note taking application"
+msgstr "Notprena aplikaĵo"
+
+#: main.cpp:57
+#, kde-format
+msgid "© 2023 Mathis Brüchert"
+msgstr "© 2023 Mathis Brüchert"
+
+#: main.cpp:58
+#, kde-format
+msgid "Mathis Brüchert"
+msgstr "Mathis Brüchert"
+
+#: main.cpp:58
+#, kde-format
+msgid "Maintainer"
+msgstr "Prizorganto"
+
+#: main.cpp:59
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Oliver Kellogg"
+
+#: main.cpp:59
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "okellogg@users.sourceforge.net"
