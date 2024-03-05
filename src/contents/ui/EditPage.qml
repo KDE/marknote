@@ -1,10 +1,10 @@
 // SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-import QtQuick 2.15
-import org.kde.kirigami 2.19 as Kirigami
-import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.12
+import QtQuick
+import org.kde.kirigami as Kirigami
+import QtQuick.Controls
+import QtQuick.Layouts
 
 import org.kde.marknote
 

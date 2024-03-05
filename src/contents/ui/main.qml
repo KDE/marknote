@@ -3,11 +3,12 @@
     SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 */
 
-import QtQuick 2.15
-import org.kde.kirigami 2.20 as Kirigami
-import QtQuick.Controls 2.0 as Controls
-import QtQuick.Layouts 1.12
+import QtQuick
+import org.kde.kirigami as Kirigami
+import QtQuick.Controls as Controls
+import QtQuick.Layouts
 import org.kde.marknote
+import org.kde.kirigamiaddons.delegates as Delegates
 
 import "components"
 
@@ -36,7 +37,7 @@ Kirigami.ApplicationWindow {
 
     pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
 
-    globalDrawer: Kirigami.GlobalDrawer {
+    globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
 
         Shortcut {
@@ -50,69 +51,79 @@ Kirigami.ApplicationWindow {
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
         modal: !wideScreen
         width: 60
-        margins: 0
-        padding: 0
-        header: Kirigami.AbstractApplicationHeader {
-            RowLayout {
-                anchors.fill: parent
-                Controls.ToolButton {
-                    Layout.alignment: Qt.AlignHCenter
-                    icon.name: "application-menu"
-                    onClicked: optionPopup.popup()
+        leftPadding: 0
+        rightPadding: 0
+        topPadding: 0
+        bottomPadding: 0
+        contentItem: ColumnLayout {
+            spacing: 0
 
-                    AddNotebookDialog {
-                        id: addNotebookDialog
-                        model: noteBooksModel
-                    }
-                    Controls.Menu {
-                        id: optionPopup
-                        Controls.MenuItem {
-                            text: i18n("New Notebook")
-                            icon.name: "list-add"
-                            onTriggered: { addNotebookDialog.open() }
+            Controls.ToolBar {
+                Layout.fillWidth: true
+                Layout.preferredHeight: root.pageStack.globalToolBar.preferredHeight
+                Layout.bottomMargin: Kirigami.Units.smallSpacing / 2
 
+                contentItem: RowLayout {
+                    Controls.ToolButton {
+                        Layout.alignment: Qt.AlignHCenter
+                        icon.name: "application-menu"
+                        onClicked: optionPopup.popup()
+
+                        AddNotebookDialog {
+                            id: addNotebookDialog
+                            model: noteBooksModel
                         }
-//                        Controls.MenuItem {
-//                            text: i18n("Edit Notebook")
-//                            icon.name: "edit-entry"
+                        Controls.Menu {
+                            id: optionPopup
+                            Controls.MenuItem {
+                                text: i18n("New Notebook")
+                                icon.name: "list-add"
+                                onTriggered: { addNotebookDialog.open() }
 
-//                        }
-                        Controls.MenuItem {
-                            text: i18n("Delete Notebook")
-                            icon.name: "delete"
-                            onTriggered: {
-                                noteBooksModel.deleteNoteBook(currentNotebook)
-                                if(noteBooksModel.rowCount() !== 0) {
-                                    pageStack.clear()
-                                    pageStack.replace(["qrc:/contents/ui/NotesPage.qml","qrc:/contents/ui/EditPage.qml"], {
-                                        path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
-                                        notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
-                                    })
-                                } else {
-                                    pageStack.clear()
-                                    pageStack.replace("qrc:/contents/ui/WelcomePage.qml", {model : noteBooksModel})
+                            }
+    //                        Controls.MenuItem {
+    //                            text: i18n("Edit Notebook")
+    //                            icon.name: "edit-entry"
+
+    //                        }
+                            Controls.MenuItem {
+                                text: i18n("Delete Notebook")
+                                icon.name: "delete"
+                                onTriggered: {
+                                    noteBooksModel.deleteNoteBook(currentNotebook)
+                                    if(noteBooksModel.rowCount() !== 0) {
+                                        pageStack.clear()
+                                        pageStack.replace(["qrc:/contents/ui/NotesPage.qml","qrc:/contents/ui/EditPage.qml"], {
+                                            path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
+                                            notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
+                                        })
+                                    } else {
+                                        pageStack.clear()
+                                        pageStack.replace("qrc:/contents/ui/WelcomePage.qml", {model : noteBooksModel})
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        }
-        ColumnLayout {
+
             Repeater {
                 model: noteBooksModel
-                delegate: Kirigami.NavigationTabButton {
+                delegate: Delegates.RoundedItemDelegate {
                     id: delegateItem
+
                     required property string name;
                     required property string path;
                     required property string iconName;
                     required property string color;
-                    Kirigami.Theme.highlightColor: delegateItem.color
-                    Layout.fillWidth: true
+
                     implicitHeight: 50
                     icon.name: iconName
                     text: name
-                    Layout.margins: 0
+                    contentItem: Kirigami.Icon {
+                        source: delegateItem.icon.name
+                    }
                     onClicked: {
                         Kirigami.Theme.highlightColor = delegateItem.color
                         console.log(delegateItem.color)
@@ -125,8 +136,15 @@ Kirigami.ApplicationWindow {
                             }
                         )
                     }
+
+                    Layout.fillWidth: true
+
+                    Controls.ToolTip.text: text
+                    Controls.ToolTip.visible: hovered
+                    Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
             }
+
             Item { Layout.fillHeight: true }
         }
     }

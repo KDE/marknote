@@ -1,12 +1,13 @@
 // SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-import QtQuick 2.15
-import org.kde.kirigami 2.19 as Kirigami
-import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.12
+import QtQuick
+import org.kde.kirigami as Kirigami
+import QtQuick.Controls
+import QtQuick.Layouts
 import org.kde.kitemmodels
 import org.kde.marknote
+import org.kde.kirigamiaddons.delegates as Delegates
 
 import "components"
 
@@ -197,6 +198,8 @@ Kirigami.ScrollablePage {
     ListView {
         id: notesList
 
+        currentIndex: -1
+
         model: KSortFilterProxyModel {
             id: filterModel
             filterCaseSensitivity: Qt.CaseInsensitive
@@ -207,15 +210,13 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.AbstractListItem {
+        delegate: Delegates.RoundedItemDelegate {
             id: delegateItem
 
             required property string name;
             required property string path;
             required property date date;
             required property int index;
-
-            separatorVisible: false
 
             contentItem: RowLayout{
                 ColumnLayout {
@@ -269,8 +270,8 @@ Kirigami.ScrollablePage {
                             id: contents
                             spacing: 0
 
-                            Kirigami.BasicListItem {
-                                label: i18n("Rename Note")
+                            Delegates.RoundedItemDelegate {
+                                text: i18n("Rename Note")
                                 icon.name: "document-edit"
                                 onClicked: {
                                     if (!renameLayout.visible) {
@@ -284,8 +285,8 @@ Kirigami.ScrollablePage {
                                     }
                                 }
                             }
-                            Kirigami.BasicListItem {
-                                label: i18n("Delete Note")
+                            Delegates.RoundedItemDelegate {
+                                text: i18n("Delete Note")
                                 icon.name: "delete"
                                 onClicked: {
                                     removeDialog.noteName = delegateItem.name
