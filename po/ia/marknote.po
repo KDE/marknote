@@ -1,0 +1,187 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the marknote package.
+#
+# giovanni <g.sora@tiscali.it>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: marknote\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-18 00:42+0000\n"
+"PO-Revision-Date: 2024-03-04 11:47+0100\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language: ia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
+#, kde-format
+msgid "New Notebook"
+msgstr "Nove quaderno"
+
+#: contents/ui/AddNotebookDialog.qml:53
+#, kde-format
+msgid "Notebook name"
+msgstr "Nomine de quaderno"
+
+#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
+#: contents/ui/NotesPage.qml:346
+#, kde-format
+msgid "Add"
+msgstr "Adde"
+
+#: contents/ui/EditPage.qml:75
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "Grasse"
+
+#: contents/ui/EditPage.qml:90
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "Italic"
+
+#: contents/ui/EditPage.qml:105
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr "Sublinea"
+
+#: contents/ui/EditPage.qml:116
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "Barrate"
+
+#: contents/ui/EditPage.qml:123
+#, kde-format
+msgctxt "@action:button"
+msgid "highlight"
+msgstr "Evidentia"
+
+#: contents/ui/EditPage.qml:134
+#, kde-format
+msgid "Add list"
+msgstr "Adde lista"
+
+#: contents/ui/EditPage.qml:142
+#, kde-format
+msgid "Add numbered list"
+msgstr "Adde lista numerate"
+
+#: contents/ui/EditPage.qml:152
+#, kde-format
+msgid "Heading %1"
+msgstr "Capite %1"
+
+#: contents/ui/main.qml:81 contents/ui/main.qml:174
+#, kde-format
+msgid "Delete Notebook"
+msgstr "Dele quaderno"
+
+#: contents/ui/main.qml:138
+#, kde-format
+msgid "Your Notebooks"
+msgstr "Tu quadernos"
+
+#: contents/ui/NotesPage.qml:35
+#, kde-format
+msgid "Add note"
+msgstr "Adde nota..."
+
+#: contents/ui/NotesPage.qml:46
+#, kde-format
+msgid "New Note (%1)"
+msgstr "Nove Nota (%1)"
+
+#: contents/ui/NotesPage.qml:112
+#, kde-format
+msgid "Exit Search (%1)"
+msgstr "Exita cerca (%1)"
+
+#: contents/ui/NotesPage.qml:112
+#, kde-format
+msgid "Search notes (%1)"
+msgstr "Cerca notas (%1)"
+
+#: contents/ui/NotesPage.qml:146
+#, kde-format
+msgid "New Note"
+msgstr "Nove Nota"
+
+#: contents/ui/NotesPage.qml:151
+#, kde-format
+msgid "Note name:"
+msgstr "Nomine de Nota"
+
+#: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
+#: contents/ui/NotesPage.qml:315
+#, kde-format
+msgid "Delete Note"
+msgstr "Deler Nota"
+
+#: contents/ui/NotesPage.qml:190
+#, kde-format
+msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgstr " Tu es secur que tu vole deler le nota <b> %1 </b>?"
+
+#: contents/ui/NotesPage.qml:272 contents/ui/NotesPage.qml:304
+#, kde-format
+msgid "Rename Note"
+msgstr "Renomina nota "
+
+#: contents/ui/NotesPage.qml:343
+#, kde-format
+msgid "Add a note!"
+msgstr "Adde un nota!"
+
+#: contents/ui/WelcomePage.qml:26
+#, kde-format
+msgid "Start by creating your first notebook!"
+msgstr "Initia a crear tu prime quaderno!"
+
+#: contents/ui/WelcomePage.qml:29
+#, kde-format
+msgid "Add Notebook"
+msgstr "Adde quaderno"
+
+#: main.cpp:53
+#, kde-format
+msgid "Marknote"
+msgstr "Marknote"
+
+#: main.cpp:55
+#, kde-format
+msgid "Note taking application"
+msgstr "Application per prender notas"
+
+#: main.cpp:57
+#, kde-format
+msgid "© 2023 Mathis Brüchert"
+msgstr "© 2023 Mathis Brüchert"
+
+#: main.cpp:58
+#, kde-format
+msgid "Mathis Brüchert"
+msgstr "Mathis Brüchert"
+
+#: main.cpp:58
+#, kde-format
+msgid "Maintainer"
+msgstr "Mantenitor"
+
+#: main.cpp:59
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Giovanni Sora"
+
+#: main.cpp:59
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "g.sora@tiscali.it"
