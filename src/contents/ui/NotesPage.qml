@@ -18,13 +18,18 @@ Kirigami.ScrollablePage {
     property string path
     property string notebookName
     Component.onCompleted: if (!Kirigami.Settings.isMobile) {
-        notesModel.rowCount() !== 0 ? pageStack.push("qrc:/contents/ui/EditPage.qml",{
-        path: notesModel.data(notesModel.index(0, 0), NotesModel.Path),
-        name: notesModel.data(notesModel.index(0, 0), NotesModel.Name),
-        objectNameW: notesModel.data(notesModel.index(0, 0), NotesModel.Name)})
-        :
-        pageStack.push("qrc:/contents/ui/EditPage.qml",{name: ""})
+        if (notesModel.rowCount() !== 0) {
+            pageStack.push("qrc:/contents/ui/EditPage.qml", {
+                path: notesModel.data(notesModel.index(0, 0), NotesModel.Path),
+                name: notesModel.data(notesModel.index(0, 0), NotesModel.Name),
+                objectNameW: notesModel.data(notesModel.index(0, 0), NotesModel.Name)
+            });
+        } else {
+            pageStack.push("qrc:/contents/ui/EditPage.qml", {
+                name: "",
+            });
         }
+    }
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
