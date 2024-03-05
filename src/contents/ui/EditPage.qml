@@ -8,12 +8,18 @@ import QtQuick.Layouts
 
 import org.kde.marknote
 
-Kirigami.ScrollablePage {
+Kirigami.Page {
     id: root
+
     property string path
     property string name
     property bool saved : true
-    Kirigami.Theme.colorSet: Kirigami.Theme.View
+
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
+
     titleDelegate: RowLayout {
         visible: name
         Layout.fillWidth: true
@@ -31,15 +37,6 @@ Kirigami.ScrollablePage {
 
         }
         Item { Layout.fillWidth: true }
-    }
-
-    MouseArea{
-        anchors.fill: parent
-        cursorShape: Qt.IBeamCursor
-        onClicked: {
-            textArea.cursorPosition = textArea.length
-            textArea.forceActiveFocus()
-        }
     }
 
     RowLayout {
@@ -134,7 +131,6 @@ Kirigami.ScrollablePage {
                     text: i18n("Add list")
                     display: AbstractButton.IconOnly
                     checkable: true
-
                 }
                 ToolButton {
                     enabled: false
@@ -155,62 +151,58 @@ Kirigami.ScrollablePage {
             }
         }
     }
-    RowLayout{
-        visible: name
-        width: root.width
-        height: flickable.contentHeight
-        Flickable {
 
-            id: flickable
-            Layout.alignment: Qt.AlignHCenter
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 40
-            Layout.margins: 0
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            contentWidth: width
-            TextArea.flickable: TextArea {
-                id: textArea
-                background: Item {
+    Kirigami.Theme.inherit: false
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
 
-                }
-                onTextChanged: {
-                    saved = false
-                    saveTimer.restart()
-                }
-                persistentSelection: true
-                textMargin: Kirigami.Units.gridUnit
-                height: parent.height
-                textFormat: TextEdit.MarkdownText
-                wrapMode: TextEdit.Wrap
+    contentItem: ScrollView {
+        TextArea {
+            id: textArea
 
-                DocumentHandler {
-                    id: document
-                    document: textArea.textDocument
-                    cursorPosition: textArea.cursorPosition
-                    selectionStart: textArea.selectionStart
-                    selectionEnd: textArea.selectionEnd
-                    // textColor: TODO
-                    Component.onCompleted: document.load(path)
-                    Component.onDestruction: document.saveAs(path)
-                    onLoaded: {
-                        textArea.text = text
-                    }
-                    onError: (message) => {
-                        print(message)
-                    }
+            leftPadding: Kirigami.Units.gridUnit * 2
+            rightPadding: Kirigami.Units.gridUnit * 2
+            topPadding: Kirigami.Units.gridUnit * 2
+            bottomPadding: Kirigami.Units.gridUnit * 2
+
+            background: null
+
+            onTextChanged: {
+                saved = false
+                saveTimer.restart()
+            }
+            persistentSelection: true
+            textMargin: Kirigami.Units.gridUnit
+            height: parent.height
+            textFormat: TextEdit.MarkdownText
+            wrapMode: TextEdit.Wrap
+
+            DocumentHandler {
+                id: document
+
+                document: textArea.textDocument
+                cursorPosition: textArea.cursorPosition
+                selectionStart: textArea.selectionStart
+                selectionEnd: textArea.selectionEnd
+                // textColor: TODO
+                onLoaded: {
+                    textArea.text = text
                 }
+                onError: (message) => {
+                    print(message)
+                }
+
+                Component.onCompleted: document.load(path)
+                Component.onDestruction: document.saveAs(path)
             }
 
-            Timer{
+            Timer {
                 id: saveTimer
+
                 repeat: false
                 interval: 1000
-                onTriggered: {
-                    if (root.name) {
-                        document.saveAs(path)
-                        console.log("timer ")
-                        saved = true
-                    }
+                onTriggered: if (root.name) {
+                    document.saveAs(path);
+                    saved = true;
                 }
             }
         }
