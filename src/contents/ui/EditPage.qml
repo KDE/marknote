@@ -184,7 +184,7 @@ Kirigami.Page {
                 selectionStart: textArea.selectionStart
                 selectionEnd: textArea.selectionEnd
                 // textColor: TODO
-                onLoaded: {
+                onLoaded: (text) => {
                     textArea.text = text
                 }
                 onError: (message) => {

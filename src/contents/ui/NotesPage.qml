@@ -22,7 +22,7 @@ Kirigami.ScrollablePage {
             pageStack.push("qrc:/contents/ui/EditPage.qml", {
                 path: notesModel.data(notesModel.index(0, 0), NotesModel.Path),
                 name: notesModel.data(notesModel.index(0, 0), NotesModel.Name),
-                objectNameW: notesModel.data(notesModel.index(0, 0), NotesModel.Name)
+                objectName: notesModel.data(notesModel.index(0, 0), NotesModel.Name)
             });
         } else {
             pageStack.push("qrc:/contents/ui/EditPage.qml", {
