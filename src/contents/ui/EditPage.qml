@@ -40,6 +40,7 @@ Kirigami.Page {
     }
 
     RowLayout {
+        id: toolBarContainer
         visible: name
         z: 600000
         parent: root.overlay
@@ -172,10 +173,11 @@ Kirigami.Page {
         TextArea {
             id: textArea
 
-            leftPadding: Kirigami.Units.gridUnit * 2
-            rightPadding: Kirigami.Units.gridUnit * 2
-            topPadding: Kirigami.Units.gridUnit * 2
-            bottomPadding: Kirigami.Units.gridUnit * 2
+            textMargin: Math.max(Kirigami.Units.gridUnit * 2, toolBarContainer.height)
+            leftPadding: 0
+            rightPadding: 0
+            topPadding: 0
+            bottomPadding: 0
 
             background: null
 
@@ -184,7 +186,6 @@ Kirigami.Page {
                 saveTimer.restart()
             }
             persistentSelection: true
-            textMargin: Kirigami.Units.gridUnit
             height: parent.height
             textFormat: TextEdit.MarkdownText
             wrapMode: TextEdit.Wrap
