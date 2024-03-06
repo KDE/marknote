@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-18 00:42+0000\n"
+"POT-Creation-Date: 2024-03-06 00:38+0000\n"
 "PO-Revision-Date: 2023-11-21 15:40+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.08.3\n"
 
-#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
+#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:79
 #, kde-format
 msgid "New Notebook"
 msgstr "Nový poznámkový blok"
@@ -27,114 +27,114 @@ msgstr "Nový poznámkový blok"
 msgid "Notebook name"
 msgstr "Název poznámkového bloku"
 
-#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
-#: contents/ui/NotesPage.qml:346
+#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:167
+#: contents/ui/NotesPage.qml:353
 #, kde-format
 msgid "Add"
 msgstr "Přidat"
 
-#: contents/ui/EditPage.qml:75
+#: contents/ui/EditPage.qml:72
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Tučné"
 
-#: contents/ui/EditPage.qml:90
+#: contents/ui/EditPage.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kurzíva"
 
-#: contents/ui/EditPage.qml:105
+#: contents/ui/EditPage.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Podtržené"
 
-#: contents/ui/EditPage.qml:116
+#: contents/ui/EditPage.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Přeškrtnutí"
 
-#: contents/ui/EditPage.qml:123
+#: contents/ui/EditPage.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
 msgstr "zvýraznit"
 
-#: contents/ui/EditPage.qml:134
+#: contents/ui/EditPage.qml:131
 #, kde-format
 msgid "Add list"
 msgstr "Přidat seznam"
 
-#: contents/ui/EditPage.qml:142
+#: contents/ui/EditPage.qml:138
 #, kde-format
 msgid "Add numbered list"
 msgstr "Přidat číslovaný seznam"
 
-#: contents/ui/EditPage.qml:152
+#: contents/ui/EditPage.qml:148
 #, kde-format
 msgid "Heading %1"
 msgstr "Záhlaví %1"
 
-#: contents/ui/main.qml:81 contents/ui/main.qml:174
+#: contents/ui/main.qml:90 contents/ui/main.qml:192
 #, kde-format
 msgid "Delete Notebook"
 msgstr "Smazat poznámkové bloky"
 
-#: contents/ui/main.qml:138
+#: contents/ui/main.qml:156
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vaše poznámkové bloky"
 
-#: contents/ui/NotesPage.qml:35
+#: contents/ui/NotesPage.qml:42
 #, kde-format
 msgid "Add note"
 msgstr "Přidat poznámku"
 
-#: contents/ui/NotesPage.qml:46
+#: contents/ui/NotesPage.qml:53
 #, kde-format
 msgid "New Note (%1)"
 msgstr "Nová poznámka (%1)"
 
-#: contents/ui/NotesPage.qml:112
+#: contents/ui/NotesPage.qml:119
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Ukončit hledání (%1)"
 
-#: contents/ui/NotesPage.qml:112
+#: contents/ui/NotesPage.qml:119
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Hledat poznámky (%1)"
 
-#: contents/ui/NotesPage.qml:146
+#: contents/ui/NotesPage.qml:153
 #, kde-format
 msgid "New Note"
 msgstr "Nová poznámka"
 
-#: contents/ui/NotesPage.qml:151
+#: contents/ui/NotesPage.qml:158
 #, kde-format
 msgid "Note name:"
 msgstr "Název poznámky:"
 
-#: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
-#: contents/ui/NotesPage.qml:315
+#: contents/ui/NotesPage.qml:183 contents/ui/NotesPage.qml:294
+#: contents/ui/NotesPage.qml:322
 #, kde-format
 msgid "Delete Note"
 msgstr "Smazat poznámku"
 
-#: contents/ui/NotesPage.qml:190
+#: contents/ui/NotesPage.qml:197
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Opravdu si přejete smazat poznámku <b> %1 </b>?"
 
-#: contents/ui/NotesPage.qml:272 contents/ui/NotesPage.qml:304
+#: contents/ui/NotesPage.qml:279 contents/ui/NotesPage.qml:311
 #, kde-format
 msgid "Rename Note"
 msgstr "Přejmenovat poznámku"
 
-#: contents/ui/NotesPage.qml:343
+#: contents/ui/NotesPage.qml:350
 #, kde-format
 msgid "Add a note!"
 msgstr "Přidat poznámku."
@@ -149,38 +149,38 @@ msgstr "Začněte vytvořením vašeho prvního poznámkového bloku."
 msgid "Add Notebook"
 msgstr "Přidat poznámkový blok"
 
-#: main.cpp:53
+#: main.cpp:50
 #, kde-format
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:55
+#: main.cpp:52
 #, kde-format
 msgid "Note taking application"
 msgstr "Aplikace poznámek"
 
-#: main.cpp:57
+#: main.cpp:54
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:58
+#: main.cpp:55
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:58
+#: main.cpp:55
 #, kde-format
 msgid "Maintainer"
 msgstr "Správce"
 
-#: main.cpp:59
+#: main.cpp:56
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Vít Pelčák"
 
-#: main.cpp:59
+#: main.cpp:56
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-18 00:42+0000\n"
+"POT-Creation-Date: 2024-03-06 00:38+0000\n"
 "PO-Revision-Date: 2023-12-20 09:42+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:70
+#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:79
 #, kde-format
 msgid "New Notebook"
 msgstr "Nouveau carnet de notes"
@@ -25,114 +25,114 @@ msgstr "Nouveau carnet de notes"
 msgid "Notebook name"
 msgstr "Nom du carnet de notes"
 
-#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:160
-#: contents/ui/NotesPage.qml:346
+#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:167
+#: contents/ui/NotesPage.qml:353
 #, kde-format
 msgid "Add"
 msgstr "Ajouter"
 
-#: contents/ui/EditPage.qml:75
+#: contents/ui/EditPage.qml:72
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Gras"
 
-#: contents/ui/EditPage.qml:90
+#: contents/ui/EditPage.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Italique"
 
-#: contents/ui/EditPage.qml:105
+#: contents/ui/EditPage.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Souligner"
 
-#: contents/ui/EditPage.qml:116
+#: contents/ui/EditPage.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Barré"
 
-#: contents/ui/EditPage.qml:123
+#: contents/ui/EditPage.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
 msgstr "mettre en valeur"
 
-#: contents/ui/EditPage.qml:134
+#: contents/ui/EditPage.qml:131
 #, kde-format
 msgid "Add list"
 msgstr "Ajouter à la liste"
 
-#: contents/ui/EditPage.qml:142
+#: contents/ui/EditPage.qml:138
 #, kde-format
 msgid "Add numbered list"
 msgstr "Ajouter une liste numérotée"
 
-#: contents/ui/EditPage.qml:152
+#: contents/ui/EditPage.qml:148
 #, kde-format
 msgid "Heading %1"
 msgstr "En-tête %1"
 
-#: contents/ui/main.qml:81 contents/ui/main.qml:174
+#: contents/ui/main.qml:90 contents/ui/main.qml:192
 #, kde-format
 msgid "Delete Notebook"
 msgstr "Supprimer un cahier de notes"
 
-#: contents/ui/main.qml:138
+#: contents/ui/main.qml:156
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vos carnets de notes"
 
-#: contents/ui/NotesPage.qml:35
+#: contents/ui/NotesPage.qml:42
 #, kde-format
 msgid "Add note"
 msgstr "Ajouter une remarque"
 
-#: contents/ui/NotesPage.qml:46
+#: contents/ui/NotesPage.qml:53
 #, kde-format
 msgid "New Note (%1)"
 msgstr "Nouvelle note (%1)"
 
-#: contents/ui/NotesPage.qml:112
+#: contents/ui/NotesPage.qml:119
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Sortir de la recherche (%1)"
 
-#: contents/ui/NotesPage.qml:112
+#: contents/ui/NotesPage.qml:119
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Rechercher des notes (%1)"
 
-#: contents/ui/NotesPage.qml:146
+#: contents/ui/NotesPage.qml:153
 #, kde-format
 msgid "New Note"
 msgstr "Nouvelle note"
 
-#: contents/ui/NotesPage.qml:151
+#: contents/ui/NotesPage.qml:158
 #, kde-format
 msgid "Note name:"
 msgstr "Nom de note :"
 
-#: contents/ui/NotesPage.qml:176 contents/ui/NotesPage.qml:287
-#: contents/ui/NotesPage.qml:315
+#: contents/ui/NotesPage.qml:183 contents/ui/NotesPage.qml:294
+#: contents/ui/NotesPage.qml:322
 #, kde-format
 msgid "Delete Note"
 msgstr "Supprimer une note"
 
-#: contents/ui/NotesPage.qml:190
+#: contents/ui/NotesPage.qml:197
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Voulez-vous vraiment supprimer la note <b> %1 </b> ?"
 
-#: contents/ui/NotesPage.qml:272 contents/ui/NotesPage.qml:304
+#: contents/ui/NotesPage.qml:279 contents/ui/NotesPage.qml:311
 #, kde-format
 msgid "Rename Note"
 msgstr "Renommer une note"
 
-#: contents/ui/NotesPage.qml:343
+#: contents/ui/NotesPage.qml:350
 #, kde-format
 msgid "Add a note!"
 msgstr "Ajoutez une note !"
@@ -147,38 +147,38 @@ msgstr "Commencez par créer votre premier carnet de notes !"
 msgid "Add Notebook"
 msgstr "Ajouter un carnet de notes"
 
-#: main.cpp:53
+#: main.cpp:50
 #, kde-format
 msgid "Marknote"
 msgstr "MarkNote"
 
-#: main.cpp:55
+#: main.cpp:52
 #, kde-format
 msgid "Note taking application"
 msgstr "Application de prise de notes"
 
-#: main.cpp:57
+#: main.cpp:54
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:58
+#: main.cpp:55
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:58
+#: main.cpp:55
 #, kde-format
 msgid "Maintainer"
 msgstr "Mainteneur"
 
-#: main.cpp:59
+#: main.cpp:56
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Xavier Besnard"
 
-#: main.cpp:59
+#: main.cpp:56
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
