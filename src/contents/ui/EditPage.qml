@@ -42,24 +42,37 @@ Kirigami.Page {
     RowLayout {
         visible: name
         z: 600000
-        y: root.height - 100
-        width: root.width
         parent: root.overlay
+
+        anchors {
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+        }
+
         ToolBar {
             id: toolbar
 
-            Layout.margins: 10
+            Layout.margins: Kirigami.Units.largeSpacing
             Layout.alignment:Qt.AlignHCenter
+
             background: Kirigami.ShadowedRectangle {
+                color: Kirigami.Theme.backgroundColor
+                radius: 5
+
+                shadow {
+                    size: 15
+                    yOffset: 3
+                    color: Qt.rgba(0, 0, 0, 0.2)
+                }
+
+                border {
+                    color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
+                    width: 1
+                }
+
                 Kirigami.Theme.inherit: false
                 Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                shadow.size: 15
-                shadow.yOffset: 3
-                shadow.color: Qt.rgba(0, 0, 0, 0.2)
-                color: Kirigami.Theme.backgroundColor
-                border.color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
-                border.width: 1
-                radius: 5
             }
             RowLayout {
                 ToolButton {
