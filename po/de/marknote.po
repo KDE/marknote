@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-06 00:38+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2023-08-13 16:09+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -36,47 +36,47 @@ msgstr "Name des Notizbuchs"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: contents/ui/EditPage.qml:72
+#: contents/ui/EditPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Fett"
 
-#: contents/ui/EditPage.qml:87
+#: contents/ui/EditPage.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kursiv"
 
-#: contents/ui/EditPage.qml:102
+#: contents/ui/EditPage.qml:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr ""
 
-#: contents/ui/EditPage.qml:113
+#: contents/ui/EditPage.qml:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Durchgestrichen"
 
-#: contents/ui/EditPage.qml:120
+#: contents/ui/EditPage.qml:134
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
 msgstr "Hervorheben"
 
-#: contents/ui/EditPage.qml:131
+#: contents/ui/EditPage.qml:145
 #, kde-format
 msgid "Add list"
 msgstr "Liste hinzufügen"
 
-#: contents/ui/EditPage.qml:138
+#: contents/ui/EditPage.qml:152
 #, kde-format
 msgid "Add numbered list"
 msgstr "Aufzählung hinzufügen"
 
-#: contents/ui/EditPage.qml:148
+#: contents/ui/EditPage.qml:162
 #, kde-format
 msgid "Heading %1"
 msgstr "Überschrift %1"

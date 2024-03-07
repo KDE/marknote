@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-06 00:38+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2023-11-25 06:04+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -34,47 +34,47 @@ msgstr "წიგნაკის სახელი"
 msgid "Add"
 msgstr "დამატება"
 
-#: contents/ui/EditPage.qml:72
+#: contents/ui/EditPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "გასქელება"
 
-#: contents/ui/EditPage.qml:87
+#: contents/ui/EditPage.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "დახრა"
 
-#: contents/ui/EditPage.qml:102
+#: contents/ui/EditPage.qml:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "ხაზგასმული"
 
-#: contents/ui/EditPage.qml:113
+#: contents/ui/EditPage.qml:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "ხაზგადასმული"
 
-#: contents/ui/EditPage.qml:120
+#: contents/ui/EditPage.qml:134
 #, kde-format
 msgctxt "@action:button"
 msgid "highlight"
 msgstr "გამოკვეთა"
 
-#: contents/ui/EditPage.qml:131
+#: contents/ui/EditPage.qml:145
 #, kde-format
 msgid "Add list"
 msgstr "სიის დამატება"
 
-#: contents/ui/EditPage.qml:138
+#: contents/ui/EditPage.qml:152
 #, kde-format
 msgid "Add numbered list"
 msgstr "დანომრილი სიის დამატება"
 
-#: contents/ui/EditPage.qml:148
+#: contents/ui/EditPage.qml:162
 #, kde-format
 msgid "Heading %1"
 msgstr "სათაური %1"
