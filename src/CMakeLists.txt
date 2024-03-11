@@ -1,21 +1,24 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 
-add_executable(marknote main.cpp documenthandler.cpp notesmodel.cpp notebooksmodel.cpp)
-
-qt_add_qml_module(marknote URI org.kde.marknote NO_RESOURCE_TARGET_PATH
+qt_add_qml_module(marknote_static STATIC
+    URI org.kde.marknote
     QML_FILES
-        contents/ui/main.qml
-        contents/ui/NotesPage.qml
-        contents/ui/EditPage.qml
-        contents/ui/AddNotebookDialog.qml
-        contents/ui/WelcomePage.qml
-        contents/ui/components/ActionButton.qml
-        contents/ui/components/BottomDrawer.qml
-        contents/ui/components/DoubleActionButton.qml
+        qml/Main.qml
+        qml/NotesPage.qml
+        qml/EditPage.qml
+        qml/AddNotebookDialog.qml
+        qml/WelcomePage.qml
+        qml/components/ActionButton.qml
+        qml/components/BottomDrawer.qml
+        qml/components/DoubleActionButton.qml
+    SOURCES
+        documenthandler.cpp
+        notesmodel.cpp
+        notebooksmodel.cpp
 )
 
-target_link_libraries(marknote PRIVATE
+target_link_libraries(marknote_static PUBLIC
     Qt::Core
     Qt::Gui
     Qt::Qml
@@ -27,7 +30,11 @@ target_link_libraries(marknote PRIVATE
     KF6::CoreAddons
 )
 
+
+add_executable(marknote main.cpp)
+target_link_libraries(marknote PRIVATE marknote_static marknote_staticplugin)
 if (NOT ANDROID)
     target_link_libraries(marknote PRIVATE Qt::Widgets)
 endif()
+
 install(TARGETS marknote ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

@@ -19,6 +19,8 @@
 #include <Windows.h>
 #endif
 
+using namespace Qt::Literals::StringLiterals;
+
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -59,7 +61,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    engine.load(QUrl(QStringLiteral("qrc:/contents/ui/main.qml")));
+    engine.loadFromModule(u"org.kde.marknote"_s, u"Main"_s);
 
     if (engine.rootObjects().isEmpty()) {
         return -1;

@@ -26,14 +26,16 @@ Kirigami.ApplicationWindow {
     pageStack.globalToolBar.style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
     pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
     pageStack.popHiddenPages:true
-    Component.onCompleted: noteBooksModel.rowCount() !== 0 ? pageStack.push(
-        "qrc:/contents/ui/NotesPage.qml",
-        {
+    Component.onCompleted: if (noteBooksModel.rowCount() !== 0) {
+        pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"), {
             path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
-            notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
-            }
-        ): pageStack.push("qrc:/contents/ui/WelcomePage.qml", {model : noteBooksModel})
-
+            notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name),
+        });
+    } else {
+        pageStack.push(Qt.createComponent("org.kde.marknote", "WelcomePage"), {
+            model : noteBooksModel,
+        });
+    }
 
     pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
 
@@ -93,13 +95,18 @@ Kirigami.ApplicationWindow {
                                     noteBooksModel.deleteNoteBook(currentNotebook)
                                     if(noteBooksModel.rowCount() !== 0) {
                                         pageStack.clear()
-                                        pageStack.replace(["qrc:/contents/ui/NotesPage.qml","qrc:/contents/ui/EditPage.qml"], {
+                                        pageStack.replace([
+                                            Qt.createComponent("org.kde.marknote", "NotesPage"),
+                                            Qt.createComponent("org.kde.marknote", "EditPage")
+                                        ], {
                                             path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
                                             notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
                                         })
                                     } else {
                                         pageStack.clear()
-                                        pageStack.replace("qrc:/contents/ui/WelcomePage.qml", {model : noteBooksModel})
+                                        pageStack.replace(Qt.createComponent("org.kde.marknote", "WelcomePage"), {
+                                            model : noteBooksModel
+                                        });
                                     }
                                 }
                             }
@@ -129,7 +136,7 @@ Kirigami.ApplicationWindow {
                         console.log(delegateItem.color)
                         currentNotebook = delegateItem.name
                         pageStack.clear()
-                        pageStack.push("qrc:/contents/ui/NotesPage.qml", {
+                        pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"), {
                             path: delegateItem.path,
                             notebookName: delegateItem.name
 
@@ -195,15 +202,18 @@ Kirigami.ApplicationWindow {
                                 if(noteBooksModel.rowCount() !== 0) {
                                     pageStack.clear()
                                     pageStack.replace(
-                                        ["qrc:/contents/ui/NotesPage.qml","qrc:/contents/ui/EditPage.qml"],
-                                        {
-                                        path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
-                                        notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
-                                        }
+                                        [
+                                            Qt.createComponent("org.kde.marknote", "NotesPage"),
+                                            Qt.createComponent("org.kde.marknote", "EditPage")
+                                        ],
+                                        [{
+                                            path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
+                                            notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
+                                        }]
                                     )
                                 } else {
                                     pageStack.clear()
-                                    pageStack.replace("qrc:/contents/ui/WelcomePage.qml", {model : noteBooksModel})
+                                    pageStack.replace(Qt.createComponent("org.kde.marknote", "WelcomePage"), {model : noteBooksModel})
                                 }
                             }
                         }
@@ -214,7 +224,7 @@ Kirigami.ApplicationWindow {
                         console.log(drawerDelegateItem.color)
                         currentNotebook = drawerDelegateItem.name
                         pageStack.clear()
-                        pageStack.push("qrc:/contents/ui/NotesPage.qml", {
+                        pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"), {
                             path: drawerDelegateItem.path,
                             notebookName: drawerDelegateItem.name
 

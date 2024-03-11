@@ -19,13 +19,13 @@ Kirigami.ScrollablePage {
     property string notebookName
     Component.onCompleted: if (!Kirigami.Settings.isMobile) {
         if (notesModel.rowCount() !== 0) {
-            pageStack.push("qrc:/contents/ui/EditPage.qml", {
+            pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"), {
                 path: notesModel.data(notesModel.index(0, 0), NotesModel.Path),
                 name: notesModel.data(notesModel.index(0, 0), NotesModel.Name),
                 objectName: notesModel.data(notesModel.index(0, 0), NotesModel.Name)
             });
         } else {
-            pageStack.push("qrc:/contents/ui/EditPage.qml", {
+            pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"), {
                 name: "",
             });
         }
@@ -332,7 +332,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            onClicked: pageStack.push("qrc:/contents/ui/EditPage.qml", {
+            onClicked: pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"), {
                 path: path,
                 name: name,
                 objectName: name

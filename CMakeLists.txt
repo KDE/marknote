@@ -39,6 +39,8 @@ if (NOT ANDROID)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
 endif()
 
+qt_policy(SET QTP0001 NEW)
+
 add_definitions(-DQT_NO_FOREACH -DQT_NO_KEYWORDS)
 
 add_subdirectory(src)

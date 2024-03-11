@@ -77,10 +77,13 @@ Kirigami.Dialog{
                 close()
                 if (model.rowCount() === 1) {
                     pageStack.clear()
-                    pageStack.replace(["qrc:/contents/ui/NotesPage.qml","qrc:/contents/ui/EditPage.qml"], {
+                    pageStack.replace([
+                        Qt.createComponent("org.kde.marknote", "NotesPage"),
+                        Qt.createComponent("org.kde.marknote", "EditPage")
+                    ], {
                         path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
                         notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
-                    })
+                    });
                 }
                 notebookColor = ""
                 nameInput.clear()

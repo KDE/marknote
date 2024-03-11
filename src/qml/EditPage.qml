@@ -205,8 +205,8 @@ Kirigami.Page {
                     print(message)
                 }
 
-                Component.onCompleted: document.load(path)
-                Component.onDestruction: document.saveAs(path)
+                Component.onCompleted: document.load(root.path)
+                Component.onDestruction: document.saveAs(root.path)
             }
 
             Timer {
@@ -215,7 +215,7 @@ Kirigami.Page {
                 repeat: false
                 interval: 1000
                 onTriggered: if (root.name) {
-                    document.saveAs(path);
+                    document.saveAs(root.path);
                     saved = true;
                 }
             }
