@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2024-03-12 00:38+0000\n"
 "PO-Revision-Date: 2023-11-18 12:29+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -17,171 +17,169 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.3\n"
 
-#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:79
-#, kde-format
-msgid "New Notebook"
-msgstr "Nieuw notitieboek"
-
-#: contents/ui/AddNotebookDialog.qml:53
-#, kde-format
-msgid "Notebook name"
-msgstr "Notitieboeknaam"
-
-#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:167
-#: contents/ui/NotesPage.qml:353
-#, kde-format
-msgid "Add"
-msgstr "Toevoegen"
-
-#: contents/ui/EditPage.qml:86
-#, kde-format
-msgctxt "@action:button"
-msgid "Bold"
-msgstr "Vet"
-
-#: contents/ui/EditPage.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Italic"
-msgstr "Cursief"
-
-#: contents/ui/EditPage.qml:116
-#, kde-format
-msgctxt "@action:button"
-msgid "Underline"
-msgstr "Onderstrepen"
-
-#: contents/ui/EditPage.qml:127
-#, kde-format
-msgctxt "@action:button"
-msgid "Strikethrough"
-msgstr "Doorstrepen"
-
-#: contents/ui/EditPage.qml:134
-#, kde-format
-msgctxt "@action:button"
-msgid "highlight"
-msgstr "accentuering"
-
-#: contents/ui/EditPage.qml:145
-#, kde-format
-msgid "Add list"
-msgstr "Lijst toevoegen"
-
-#: contents/ui/EditPage.qml:152
-#, kde-format
-msgid "Add numbered list"
-msgstr "Genummerde lijst toevoegen"
-
-#: contents/ui/EditPage.qml:162
-#, kde-format
-msgid "Heading %1"
-msgstr "Kop %1"
-
-#: contents/ui/main.qml:90 contents/ui/main.qml:192
-#, kde-format
-msgid "Delete Notebook"
-msgstr "Notitieboek verwijderen"
-
-#: contents/ui/main.qml:156
-#, kde-format
-msgid "Your Notebooks"
-msgstr "Uw notitieboeken"
-
-#: contents/ui/NotesPage.qml:42
-#, kde-format
-msgid "Add note"
-msgstr "Noot toevoegen"
-
-#: contents/ui/NotesPage.qml:53
-#, kde-format
-msgid "New Note (%1)"
-msgstr "Nieuwe notitie (%1)"
-
-#: contents/ui/NotesPage.qml:119
-#, kde-format
-msgid "Exit Search (%1)"
-msgstr "Zoeken beëindigen (%1)"
-
-#: contents/ui/NotesPage.qml:119
-#, kde-format
-msgid "Search notes (%1)"
-msgstr "Notities zoeken (%1)"
-
-#: contents/ui/NotesPage.qml:153
-#, kde-format
-msgid "New Note"
-msgstr "Nieuwe notitie"
-
-#: contents/ui/NotesPage.qml:158
-#, kde-format
-msgid "Note name:"
-msgstr "Notitienaam:"
-
-#: contents/ui/NotesPage.qml:183 contents/ui/NotesPage.qml:294
-#: contents/ui/NotesPage.qml:322
-#, kde-format
-msgid "Delete Note"
-msgstr "Notitie verwijderen"
-
-#: contents/ui/NotesPage.qml:197
-#, kde-format
-msgid "Are you sure you want to delete the note <b> %1 </b>?"
-msgstr "Wilt u werkelijk de notitie <b> %1 </b> wissen?"
-
-#: contents/ui/NotesPage.qml:279 contents/ui/NotesPage.qml:311
-#, kde-format
-msgid "Rename Note"
-msgstr "Notitie hernoemen"
-
-#: contents/ui/NotesPage.qml:350
-#, kde-format
-msgid "Add a note!"
-msgstr "Een notitie toevoegen!"
-
-#: contents/ui/WelcomePage.qml:26
-#, kde-format
-msgid "Start by creating your first notebook!"
-msgstr "Begin met het maken van uw eerste notitieboek!"
-
-#: contents/ui/WelcomePage.qml:29
-#, kde-format
-msgid "Add Notebook"
-msgstr "Notitieboek toevoegen"
-
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Note taking application"
 msgstr "Toepassing voor maken van notities"
 
-#: main.cpp:54
+#: main.cpp:56
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:55
+#: main.cpp:57
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:55
+#: main.cpp:57
 #, kde-format
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: main.cpp:56
+#: main.cpp:58
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Freek de Kruijf - 2023"
 
-#: main.cpp:56
+#: main.cpp:58
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
+
+#: qml/AddNotebookDialog.qml:15 qml/Main.qml:81
+#, kde-format
+msgid "New Notebook"
+msgstr "Nieuw notitieboek"
+
+#: qml/AddNotebookDialog.qml:53
+#, kde-format
+msgid "Notebook name"
+msgstr "Notitieboeknaam"
+
+#: qml/AddNotebookDialog.qml:72 qml/NotesPage.qml:167 qml/NotesPage.qml:353
+#, kde-format
+msgid "Add"
+msgstr "Toevoegen"
+
+#: qml/EditPage.qml:86
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "Vet"
+
+#: qml/EditPage.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "Cursief"
+
+#: qml/EditPage.qml:116
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr "Onderstrepen"
+
+#: qml/EditPage.qml:127
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "Doorstrepen"
+
+#: qml/EditPage.qml:134
+#, kde-format
+msgctxt "@action:button"
+msgid "highlight"
+msgstr "accentuering"
+
+#: qml/EditPage.qml:145
+#, kde-format
+msgid "Add list"
+msgstr "Lijst toevoegen"
+
+#: qml/EditPage.qml:152
+#, kde-format
+msgid "Add numbered list"
+msgstr "Genummerde lijst toevoegen"
+
+#: qml/EditPage.qml:162
+#, kde-format
+msgid "Heading %1"
+msgstr "Kop %1"
+
+#: qml/Main.qml:92 qml/Main.qml:199
+#, kde-format
+msgid "Delete Notebook"
+msgstr "Notitieboek verwijderen"
+
+#: qml/Main.qml:163
+#, kde-format
+msgid "Your Notebooks"
+msgstr "Uw notitieboeken"
+
+#: qml/NotesPage.qml:42
+#, kde-format
+msgid "Add note"
+msgstr "Noot toevoegen"
+
+#: qml/NotesPage.qml:53
+#, kde-format
+msgid "New Note (%1)"
+msgstr "Nieuwe notitie (%1)"
+
+#: qml/NotesPage.qml:119
+#, kde-format
+msgid "Exit Search (%1)"
+msgstr "Zoeken beëindigen (%1)"
+
+#: qml/NotesPage.qml:119
+#, kde-format
+msgid "Search notes (%1)"
+msgstr "Notities zoeken (%1)"
+
+#: qml/NotesPage.qml:153
+#, kde-format
+msgid "New Note"
+msgstr "Nieuwe notitie"
+
+#: qml/NotesPage.qml:158
+#, kde-format
+msgid "Note name:"
+msgstr "Notitienaam:"
+
+#: qml/NotesPage.qml:183 qml/NotesPage.qml:294 qml/NotesPage.qml:322
+#, kde-format
+msgid "Delete Note"
+msgstr "Notitie verwijderen"
+
+#: qml/NotesPage.qml:197
+#, kde-format
+msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgstr "Wilt u werkelijk de notitie <b> %1 </b> wissen?"
+
+#: qml/NotesPage.qml:279 qml/NotesPage.qml:311
+#, kde-format
+msgid "Rename Note"
+msgstr "Notitie hernoemen"
+
+#: qml/NotesPage.qml:350
+#, kde-format
+msgid "Add a note!"
+msgstr "Een notitie toevoegen!"
+
+#: qml/WelcomePage.qml:26
+#, kde-format
+msgid "Start by creating your first notebook!"
+msgstr "Begin met het maken van uw eerste notitieboek!"
+
+#: qml/WelcomePage.qml:29
+#, kde-format
+msgid "Add Notebook"
+msgstr "Notitieboek toevoegen"

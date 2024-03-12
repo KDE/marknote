@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2024-03-12 00:38+0000\n"
 "PO-Revision-Date: 2023-11-18 09:30+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -22,171 +22,169 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.4.1\n"
 
-#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:79
-#, kde-format
-msgid "New Notebook"
-msgstr "Nova beležnica"
-
-#: contents/ui/AddNotebookDialog.qml:53
-#, kde-format
-msgid "Notebook name"
-msgstr "Ime beležnice"
-
-#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:167
-#: contents/ui/NotesPage.qml:353
-#, kde-format
-msgid "Add"
-msgstr "Dodaj"
-
-#: contents/ui/EditPage.qml:86
-#, kde-format
-msgctxt "@action:button"
-msgid "Bold"
-msgstr "Krepko"
-
-#: contents/ui/EditPage.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Italic"
-msgstr "Ležeče"
-
-#: contents/ui/EditPage.qml:116
-#, kde-format
-msgctxt "@action:button"
-msgid "Underline"
-msgstr "Podčrtaj"
-
-#: contents/ui/EditPage.qml:127
-#, kde-format
-msgctxt "@action:button"
-msgid "Strikethrough"
-msgstr "Prečrtano"
-
-#: contents/ui/EditPage.qml:134
-#, kde-format
-msgctxt "@action:button"
-msgid "highlight"
-msgstr "poudari"
-
-#: contents/ui/EditPage.qml:145
-#, kde-format
-msgid "Add list"
-msgstr "Dodaj seznam"
-
-#: contents/ui/EditPage.qml:152
-#, kde-format
-msgid "Add numbered list"
-msgstr "Dodaj oštevilčen seznam"
-
-#: contents/ui/EditPage.qml:162
-#, kde-format
-msgid "Heading %1"
-msgstr "Naslov %1"
-
-#: contents/ui/main.qml:90 contents/ui/main.qml:192
-#, kde-format
-msgid "Delete Notebook"
-msgstr "Izbriši beležnico"
-
-#: contents/ui/main.qml:156
-#, kde-format
-msgid "Your Notebooks"
-msgstr "Vaše beležnice"
-
-#: contents/ui/NotesPage.qml:42
-#, kde-format
-msgid "Add note"
-msgstr "Dodaj zabeležko"
-
-#: contents/ui/NotesPage.qml:53
-#, kde-format
-msgid "New Note (%1)"
-msgstr "Nova zabeležka (%1)"
-
-#: contents/ui/NotesPage.qml:119
-#, kde-format
-msgid "Exit Search (%1)"
-msgstr "Izhod iz iskanja (%1)"
-
-#: contents/ui/NotesPage.qml:119
-#, kde-format
-msgid "Search notes (%1)"
-msgstr "Išči po zabeležkah (%1)"
-
-#: contents/ui/NotesPage.qml:153
-#, kde-format
-msgid "New Note"
-msgstr "Nova zabeležka"
-
-#: contents/ui/NotesPage.qml:158
-#, kde-format
-msgid "Note name:"
-msgstr "Ime zabeležke:"
-
-#: contents/ui/NotesPage.qml:183 contents/ui/NotesPage.qml:294
-#: contents/ui/NotesPage.qml:322
-#, kde-format
-msgid "Delete Note"
-msgstr "Izbriši zabeležko"
-
-#: contents/ui/NotesPage.qml:197
-#, kde-format
-msgid "Are you sure you want to delete the note <b> %1 </b>?"
-msgstr "Ali ste prepričani, da želite izbrisati zabeležko <b>»%1«</b>?"
-
-#: contents/ui/NotesPage.qml:279 contents/ui/NotesPage.qml:311
-#, kde-format
-msgid "Rename Note"
-msgstr "Preimenuj zabeležko"
-
-#: contents/ui/NotesPage.qml:350
-#, kde-format
-msgid "Add a note!"
-msgstr "Dodaj zabeležko!"
-
-#: contents/ui/WelcomePage.qml:26
-#, kde-format
-msgid "Start by creating your first notebook!"
-msgstr "Začnite izdelavo svoje prve beležnice!"
-
-#: contents/ui/WelcomePage.qml:29
-#, kde-format
-msgid "Add Notebook"
-msgstr "Dodaj beležnico"
-
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Marknote"
 msgstr "Beležke"
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Note taking application"
 msgstr "Program za beleženje"
 
-#: main.cpp:54
+#: main.cpp:56
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 avtor Mathis Brüchert"
 
-#: main.cpp:55
+#: main.cpp:57
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:55
+#: main.cpp:57
 #, kde-format
 msgid "Maintainer"
 msgstr "Vzdrževalec"
 
-#: main.cpp:56
+#: main.cpp:58
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Martin Srebotnjak"
 
-#: main.cpp:56
+#: main.cpp:58
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "miles@filmsi.net"
+
+#: qml/AddNotebookDialog.qml:15 qml/Main.qml:81
+#, kde-format
+msgid "New Notebook"
+msgstr "Nova beležnica"
+
+#: qml/AddNotebookDialog.qml:53
+#, kde-format
+msgid "Notebook name"
+msgstr "Ime beležnice"
+
+#: qml/AddNotebookDialog.qml:72 qml/NotesPage.qml:167 qml/NotesPage.qml:353
+#, kde-format
+msgid "Add"
+msgstr "Dodaj"
+
+#: qml/EditPage.qml:86
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "Krepko"
+
+#: qml/EditPage.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "Ležeče"
+
+#: qml/EditPage.qml:116
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr "Podčrtaj"
+
+#: qml/EditPage.qml:127
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "Prečrtano"
+
+#: qml/EditPage.qml:134
+#, kde-format
+msgctxt "@action:button"
+msgid "highlight"
+msgstr "poudari"
+
+#: qml/EditPage.qml:145
+#, kde-format
+msgid "Add list"
+msgstr "Dodaj seznam"
+
+#: qml/EditPage.qml:152
+#, kde-format
+msgid "Add numbered list"
+msgstr "Dodaj oštevilčen seznam"
+
+#: qml/EditPage.qml:162
+#, kde-format
+msgid "Heading %1"
+msgstr "Naslov %1"
+
+#: qml/Main.qml:92 qml/Main.qml:199
+#, kde-format
+msgid "Delete Notebook"
+msgstr "Izbriši beležnico"
+
+#: qml/Main.qml:163
+#, kde-format
+msgid "Your Notebooks"
+msgstr "Vaše beležnice"
+
+#: qml/NotesPage.qml:42
+#, kde-format
+msgid "Add note"
+msgstr "Dodaj zabeležko"
+
+#: qml/NotesPage.qml:53
+#, kde-format
+msgid "New Note (%1)"
+msgstr "Nova zabeležka (%1)"
+
+#: qml/NotesPage.qml:119
+#, kde-format
+msgid "Exit Search (%1)"
+msgstr "Izhod iz iskanja (%1)"
+
+#: qml/NotesPage.qml:119
+#, kde-format
+msgid "Search notes (%1)"
+msgstr "Išči po zabeležkah (%1)"
+
+#: qml/NotesPage.qml:153
+#, kde-format
+msgid "New Note"
+msgstr "Nova zabeležka"
+
+#: qml/NotesPage.qml:158
+#, kde-format
+msgid "Note name:"
+msgstr "Ime zabeležke:"
+
+#: qml/NotesPage.qml:183 qml/NotesPage.qml:294 qml/NotesPage.qml:322
+#, kde-format
+msgid "Delete Note"
+msgstr "Izbriši zabeležko"
+
+#: qml/NotesPage.qml:197
+#, kde-format
+msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgstr "Ali ste prepričani, da želite izbrisati zabeležko <b>»%1«</b>?"
+
+#: qml/NotesPage.qml:279 qml/NotesPage.qml:311
+#, kde-format
+msgid "Rename Note"
+msgstr "Preimenuj zabeležko"
+
+#: qml/NotesPage.qml:350
+#, kde-format
+msgid "Add a note!"
+msgstr "Dodaj zabeležko!"
+
+#: qml/WelcomePage.qml:26
+#, kde-format
+msgid "Start by creating your first notebook!"
+msgstr "Začnite izdelavo svoje prve beležnice!"
+
+#: qml/WelcomePage.qml:29
+#, kde-format
+msgid "Add Notebook"
+msgstr "Dodaj beležnico"

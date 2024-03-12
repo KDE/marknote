@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2024-03-12 00:38+0000\n"
 "PO-Revision-Date: 2023-11-18 14:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -17,171 +17,169 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 23.11.70\n"
 
-#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:79
-#, kde-format
-msgid "New Notebook"
-msgstr "Yeni Defter"
-
-#: contents/ui/AddNotebookDialog.qml:53
-#, kde-format
-msgid "Notebook name"
-msgstr "Defter adı"
-
-#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:167
-#: contents/ui/NotesPage.qml:353
-#, kde-format
-msgid "Add"
-msgstr "Ekle"
-
-#: contents/ui/EditPage.qml:86
-#, kde-format
-msgctxt "@action:button"
-msgid "Bold"
-msgstr "Kalın"
-
-#: contents/ui/EditPage.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Italic"
-msgstr "Yatık"
-
-#: contents/ui/EditPage.qml:116
-#, kde-format
-msgctxt "@action:button"
-msgid "Underline"
-msgstr "Altı Çizili"
-
-#: contents/ui/EditPage.qml:127
-#, kde-format
-msgctxt "@action:button"
-msgid "Strikethrough"
-msgstr "Üzeri Çizili"
-
-#: contents/ui/EditPage.qml:134
-#, kde-format
-msgctxt "@action:button"
-msgid "highlight"
-msgstr "Vurgulu"
-
-#: contents/ui/EditPage.qml:145
-#, kde-format
-msgid "Add list"
-msgstr "Liste ekle"
-
-#: contents/ui/EditPage.qml:152
-#, kde-format
-msgid "Add numbered list"
-msgstr "Numaralandırılmış liste ekle"
-
-#: contents/ui/EditPage.qml:162
-#, kde-format
-msgid "Heading %1"
-msgstr "Başlık %1"
-
-#: contents/ui/main.qml:90 contents/ui/main.qml:192
-#, kde-format
-msgid "Delete Notebook"
-msgstr "Defteri Sil"
-
-#: contents/ui/main.qml:156
-#, kde-format
-msgid "Your Notebooks"
-msgstr "Defterleriniz"
-
-#: contents/ui/NotesPage.qml:42
-#, kde-format
-msgid "Add note"
-msgstr "Not ekle"
-
-#: contents/ui/NotesPage.qml:53
-#, kde-format
-msgid "New Note (%1)"
-msgstr "Yeni Not (%1)"
-
-#: contents/ui/NotesPage.qml:119
-#, kde-format
-msgid "Exit Search (%1)"
-msgstr "Aramadan Çık (%1)"
-
-#: contents/ui/NotesPage.qml:119
-#, kde-format
-msgid "Search notes (%1)"
-msgstr "Notları ara (%1)"
-
-#: contents/ui/NotesPage.qml:153
-#, kde-format
-msgid "New Note"
-msgstr "Yeni Not"
-
-#: contents/ui/NotesPage.qml:158
-#, kde-format
-msgid "Note name:"
-msgstr "Not adı:"
-
-#: contents/ui/NotesPage.qml:183 contents/ui/NotesPage.qml:294
-#: contents/ui/NotesPage.qml:322
-#, kde-format
-msgid "Delete Note"
-msgstr "Notu Sil"
-
-#: contents/ui/NotesPage.qml:197
-#, kde-format
-msgid "Are you sure you want to delete the note <b> %1 </b>?"
-msgstr "<b> %1 </b> notunu silmek istediğinizden emin misiniz?"
-
-#: contents/ui/NotesPage.qml:279 contents/ui/NotesPage.qml:311
-#, kde-format
-msgid "Rename Note"
-msgstr "Notu Yeniden Adlandır"
-
-#: contents/ui/NotesPage.qml:350
-#, kde-format
-msgid "Add a note!"
-msgstr "Bir not ekle!"
-
-#: contents/ui/WelcomePage.qml:26
-#, kde-format
-msgid "Start by creating your first notebook!"
-msgstr "İlk defterini oluşturarak başla!"
-
-#: contents/ui/WelcomePage.qml:29
-#, kde-format
-msgid "Add Notebook"
-msgstr "Defter Ekle"
-
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Marknote"
 msgstr "MarkNot"
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Note taking application"
 msgstr "Not alma uygulaması"
 
-#: main.cpp:54
+#: main.cpp:56
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:55
+#: main.cpp:57
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:55
+#: main.cpp:57
 #, kde-format
 msgid "Maintainer"
 msgstr "Bakımcı"
 
-#: main.cpp:56
+#: main.cpp:58
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Emir SARI"
 
-#: main.cpp:56
+#: main.cpp:58
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "emir_sari@icloud.com"
+
+#: qml/AddNotebookDialog.qml:15 qml/Main.qml:81
+#, kde-format
+msgid "New Notebook"
+msgstr "Yeni Defter"
+
+#: qml/AddNotebookDialog.qml:53
+#, kde-format
+msgid "Notebook name"
+msgstr "Defter adı"
+
+#: qml/AddNotebookDialog.qml:72 qml/NotesPage.qml:167 qml/NotesPage.qml:353
+#, kde-format
+msgid "Add"
+msgstr "Ekle"
+
+#: qml/EditPage.qml:86
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "Kalın"
+
+#: qml/EditPage.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "Yatık"
+
+#: qml/EditPage.qml:116
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr "Altı Çizili"
+
+#: qml/EditPage.qml:127
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "Üzeri Çizili"
+
+#: qml/EditPage.qml:134
+#, kde-format
+msgctxt "@action:button"
+msgid "highlight"
+msgstr "Vurgulu"
+
+#: qml/EditPage.qml:145
+#, kde-format
+msgid "Add list"
+msgstr "Liste ekle"
+
+#: qml/EditPage.qml:152
+#, kde-format
+msgid "Add numbered list"
+msgstr "Numaralandırılmış liste ekle"
+
+#: qml/EditPage.qml:162
+#, kde-format
+msgid "Heading %1"
+msgstr "Başlık %1"
+
+#: qml/Main.qml:92 qml/Main.qml:199
+#, kde-format
+msgid "Delete Notebook"
+msgstr "Defteri Sil"
+
+#: qml/Main.qml:163
+#, kde-format
+msgid "Your Notebooks"
+msgstr "Defterleriniz"
+
+#: qml/NotesPage.qml:42
+#, kde-format
+msgid "Add note"
+msgstr "Not ekle"
+
+#: qml/NotesPage.qml:53
+#, kde-format
+msgid "New Note (%1)"
+msgstr "Yeni Not (%1)"
+
+#: qml/NotesPage.qml:119
+#, kde-format
+msgid "Exit Search (%1)"
+msgstr "Aramadan Çık (%1)"
+
+#: qml/NotesPage.qml:119
+#, kde-format
+msgid "Search notes (%1)"
+msgstr "Notları ara (%1)"
+
+#: qml/NotesPage.qml:153
+#, kde-format
+msgid "New Note"
+msgstr "Yeni Not"
+
+#: qml/NotesPage.qml:158
+#, kde-format
+msgid "Note name:"
+msgstr "Not adı:"
+
+#: qml/NotesPage.qml:183 qml/NotesPage.qml:294 qml/NotesPage.qml:322
+#, kde-format
+msgid "Delete Note"
+msgstr "Notu Sil"
+
+#: qml/NotesPage.qml:197
+#, kde-format
+msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgstr "<b> %1 </b> notunu silmek istediğinizden emin misiniz?"
+
+#: qml/NotesPage.qml:279 qml/NotesPage.qml:311
+#, kde-format
+msgid "Rename Note"
+msgstr "Notu Yeniden Adlandır"
+
+#: qml/NotesPage.qml:350
+#, kde-format
+msgid "Add a note!"
+msgstr "Bir not ekle!"
+
+#: qml/WelcomePage.qml:26
+#, kde-format
+msgid "Start by creating your first notebook!"
+msgstr "İlk defterini oluşturarak başla!"
+
+#: qml/WelcomePage.qml:29
+#, kde-format
+msgid "Add Notebook"
+msgstr "Defter Ekle"

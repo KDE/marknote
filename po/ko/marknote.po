@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2024-03-12 00:38+0000\n"
 "PO-Revision-Date: 2024-02-10 00:18+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,171 +17,169 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.1\n"
 
-#: contents/ui/AddNotebookDialog.qml:15 contents/ui/main.qml:79
-#, kde-format
-msgid "New Notebook"
-msgstr "새 공책"
-
-#: contents/ui/AddNotebookDialog.qml:53
-#, kde-format
-msgid "Notebook name"
-msgstr "공책 이름"
-
-#: contents/ui/AddNotebookDialog.qml:72 contents/ui/NotesPage.qml:167
-#: contents/ui/NotesPage.qml:353
-#, kde-format
-msgid "Add"
-msgstr "추가"
-
-#: contents/ui/EditPage.qml:86
-#, kde-format
-msgctxt "@action:button"
-msgid "Bold"
-msgstr "굵게"
-
-#: contents/ui/EditPage.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Italic"
-msgstr "이탤릭"
-
-#: contents/ui/EditPage.qml:116
-#, kde-format
-msgctxt "@action:button"
-msgid "Underline"
-msgstr "밑줄"
-
-#: contents/ui/EditPage.qml:127
-#, kde-format
-msgctxt "@action:button"
-msgid "Strikethrough"
-msgstr "취소선"
-
-#: contents/ui/EditPage.qml:134
-#, kde-format
-msgctxt "@action:button"
-msgid "highlight"
-msgstr "강조"
-
-#: contents/ui/EditPage.qml:145
-#, kde-format
-msgid "Add list"
-msgstr "목록 추가"
-
-#: contents/ui/EditPage.qml:152
-#, kde-format
-msgid "Add numbered list"
-msgstr "번호 매긴 목록 추가"
-
-#: contents/ui/EditPage.qml:162
-#, kde-format
-msgid "Heading %1"
-msgstr "머리글 %1"
-
-#: contents/ui/main.qml:90 contents/ui/main.qml:192
-#, kde-format
-msgid "Delete Notebook"
-msgstr "공책 삭제"
-
-#: contents/ui/main.qml:156
-#, kde-format
-msgid "Your Notebooks"
-msgstr "내 공책"
-
-#: contents/ui/NotesPage.qml:42
-#, kde-format
-msgid "Add note"
-msgstr "메모 추가"
-
-#: contents/ui/NotesPage.qml:53
-#, kde-format
-msgid "New Note (%1)"
-msgstr "새 메모(%1)"
-
-#: contents/ui/NotesPage.qml:119
-#, kde-format
-msgid "Exit Search (%1)"
-msgstr "검색 종료(%1)"
-
-#: contents/ui/NotesPage.qml:119
-#, kde-format
-msgid "Search notes (%1)"
-msgstr "공책 검색(%1)"
-
-#: contents/ui/NotesPage.qml:153
-#, kde-format
-msgid "New Note"
-msgstr "새 메모"
-
-#: contents/ui/NotesPage.qml:158
-#, kde-format
-msgid "Note name:"
-msgstr "메모 이름:"
-
-#: contents/ui/NotesPage.qml:183 contents/ui/NotesPage.qml:294
-#: contents/ui/NotesPage.qml:322
-#, kde-format
-msgid "Delete Note"
-msgstr "메모 삭제"
-
-#: contents/ui/NotesPage.qml:197
-#, kde-format
-msgid "Are you sure you want to delete the note <b> %1 </b>?"
-msgstr "<b>%1</b> 메모를 삭제하시겠습니까?"
-
-#: contents/ui/NotesPage.qml:279 contents/ui/NotesPage.qml:311
-#, kde-format
-msgid "Rename Note"
-msgstr "메모 이름 바꾸기"
-
-#: contents/ui/NotesPage.qml:350
-#, kde-format
-msgid "Add a note!"
-msgstr "새 메모 추가!"
-
-#: contents/ui/WelcomePage.qml:26
-#, kde-format
-msgid "Start by creating your first notebook!"
-msgstr "첫 공책을 만들어서 시작하십시오!"
-
-#: contents/ui/WelcomePage.qml:29
-#, kde-format
-msgid "Add Notebook"
-msgstr "공책 추가"
-
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Note taking application"
 msgstr "메모 작성 프로그램"
 
-#: main.cpp:54
+#: main.cpp:56
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:55
+#: main.cpp:57
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:55
+#: main.cpp:57
 #, kde-format
 msgid "Maintainer"
 msgstr "관리자"
 
-#: main.cpp:56
+#: main.cpp:58
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "박신조"
 
-#: main.cpp:56
+#: main.cpp:58
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
+
+#: qml/AddNotebookDialog.qml:15 qml/Main.qml:81
+#, kde-format
+msgid "New Notebook"
+msgstr "새 공책"
+
+#: qml/AddNotebookDialog.qml:53
+#, kde-format
+msgid "Notebook name"
+msgstr "공책 이름"
+
+#: qml/AddNotebookDialog.qml:72 qml/NotesPage.qml:167 qml/NotesPage.qml:353
+#, kde-format
+msgid "Add"
+msgstr "추가"
+
+#: qml/EditPage.qml:86
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "굵게"
+
+#: qml/EditPage.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "이탤릭"
+
+#: qml/EditPage.qml:116
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr "밑줄"
+
+#: qml/EditPage.qml:127
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "취소선"
+
+#: qml/EditPage.qml:134
+#, kde-format
+msgctxt "@action:button"
+msgid "highlight"
+msgstr "강조"
+
+#: qml/EditPage.qml:145
+#, kde-format
+msgid "Add list"
+msgstr "목록 추가"
+
+#: qml/EditPage.qml:152
+#, kde-format
+msgid "Add numbered list"
+msgstr "번호 매긴 목록 추가"
+
+#: qml/EditPage.qml:162
+#, kde-format
+msgid "Heading %1"
+msgstr "머리글 %1"
+
+#: qml/Main.qml:92 qml/Main.qml:199
+#, kde-format
+msgid "Delete Notebook"
+msgstr "공책 삭제"
+
+#: qml/Main.qml:163
+#, kde-format
+msgid "Your Notebooks"
+msgstr "내 공책"
+
+#: qml/NotesPage.qml:42
+#, kde-format
+msgid "Add note"
+msgstr "메모 추가"
+
+#: qml/NotesPage.qml:53
+#, kde-format
+msgid "New Note (%1)"
+msgstr "새 메모(%1)"
+
+#: qml/NotesPage.qml:119
+#, kde-format
+msgid "Exit Search (%1)"
+msgstr "검색 종료(%1)"
+
+#: qml/NotesPage.qml:119
+#, kde-format
+msgid "Search notes (%1)"
+msgstr "공책 검색(%1)"
+
+#: qml/NotesPage.qml:153
+#, kde-format
+msgid "New Note"
+msgstr "새 메모"
+
+#: qml/NotesPage.qml:158
+#, kde-format
+msgid "Note name:"
+msgstr "메모 이름:"
+
+#: qml/NotesPage.qml:183 qml/NotesPage.qml:294 qml/NotesPage.qml:322
+#, kde-format
+msgid "Delete Note"
+msgstr "메모 삭제"
+
+#: qml/NotesPage.qml:197
+#, kde-format
+msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgstr "<b>%1</b> 메모를 삭제하시겠습니까?"
+
+#: qml/NotesPage.qml:279 qml/NotesPage.qml:311
+#, kde-format
+msgid "Rename Note"
+msgstr "메모 이름 바꾸기"
+
+#: qml/NotesPage.qml:350
+#, kde-format
+msgid "Add a note!"
+msgstr "새 메모 추가!"
+
+#: qml/WelcomePage.qml:26
+#, kde-format
+msgid "Start by creating your first notebook!"
+msgstr "첫 공책을 만들어서 시작하십시오!"
+
+#: qml/WelcomePage.qml:29
+#, kde-format
+msgid "Add Notebook"
+msgstr "공책 추가"
