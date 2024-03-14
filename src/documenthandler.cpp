@@ -183,6 +183,22 @@ void DocumentHandler::setUnderline(bool underline)
     Q_EMIT underlineChanged();
 }
 
+bool DocumentHandler::strikethrough() const
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull())
+        return false;
+    return textCursor().charFormat().fontStrikeOut();
+}
+
+void DocumentHandler::setStrikethrough(bool strikethrough)
+{
+    QTextCharFormat format;
+    format.setFontStrikeOut(strikethrough);
+    mergeFormatOnWordOrSelection(format);
+    Q_EMIT underlineChanged();
+}
+
 int DocumentHandler::fontSize() const
 {
     QTextCursor cursor = textCursor();

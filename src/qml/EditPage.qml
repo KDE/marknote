@@ -104,7 +104,7 @@ Kirigami.Page {
                     checkable: true
                     checked: document.italic
                     onClicked: {
-                        document.italic = !document.italic
+                        document.italic = checked;
                     }
                 }
                 ToolButton {
@@ -119,15 +119,18 @@ Kirigami.Page {
                     checkable: true
                     checked: document.underline
                     onClicked: {
-                        document.underline = !document.underline
+                        document.underline = checked;
                     }
                 }
                 ToolButton {
-                    enabled: false
                     icon.name: "format-text-strikethrough"
                     text: i18nc("@action:button", "Strikethrough")
                     display: AbstractButton.IconOnly
                     checkable: true
+                    checked: document.strikethrough
+                    onClicked: {
+                        document.strikethrough = checked;
+                    }
                 }
                 ToolButton {
                     enabled: false

@@ -30,6 +30,7 @@ class DocumentHandler : public QObject
     Q_PROPERTY(bool bold READ bold WRITE setBold NOTIFY boldChanged)
     Q_PROPERTY(bool italic READ italic WRITE setItalic NOTIFY italicChanged)
     Q_PROPERTY(bool underline READ underline WRITE setUnderline NOTIFY underlineChanged)
+    Q_PROPERTY(bool strikethrough READ strikethrough WRITE setStrikethrough NOTIFY strikethroughChanged)
 
     // Q_PROPERTY(bool list READ list WRITE setList NOTIFY listChanged)
 
@@ -74,6 +75,9 @@ public:
     bool underline() const;
     void setUnderline(bool underline);
 
+    bool strikethrough() const;
+    void setStrikethrough(bool strikethrough);
+
     // bool list() const;
     // void setList(bool list);
 
@@ -104,6 +108,7 @@ Q_SIGNALS:
     void boldChanged();
     void italicChanged();
     void underlineChanged();
+    void strikethroughChanged();
 
     // void listChanged();
 
