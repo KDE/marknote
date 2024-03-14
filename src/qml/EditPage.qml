@@ -203,7 +203,6 @@ Kirigami.Page {
                     forceActiveFocus();
                     cursorPosition = positionAt(event.x, event.y);
                     selectWord();
-                    mobileTextActionsToolBar.item.open()
                 }
             }
 
