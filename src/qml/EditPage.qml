@@ -165,7 +165,9 @@ Kirigami.Page {
 
                 ComboBox {
                     id: listStyleComboBox
-                    onCurrentIndexChanged: document.setListStyle(currentIndex);
+                    onActivated: (index) => {
+                        document.setListStyle(index);
+                    }
                     model: [
                         i18nc("@item:inmenu no list style", "No list"),
                         i18nc("@item:inmenu disc list style", "Disc"),
@@ -197,7 +199,9 @@ Kirigami.Page {
                         i18nc("@item:inmenu heading level 6 (smallest)", "Subparagraph")
                     ]
 
-                    onCurrentIndexChanged: document.setHeadingLevel(currentIndex)
+                    onActivated: (index) => {
+                        document.setHeadingLevel(index);
+                    }
                 }
             }
         }
