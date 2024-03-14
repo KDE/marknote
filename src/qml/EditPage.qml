@@ -4,6 +4,7 @@
 import QtQuick
 import org.kde.kirigami as Kirigami
 import QtQuick.Controls
+import QtQuick.Templates as T
 import QtQuick.Layouts
 
 import org.kde.marknote
@@ -169,8 +170,10 @@ Kirigami.Page {
     Kirigami.Theme.inherit: false
     Kirigami.Theme.colorSet: Kirigami.Theme.View
 
-    contentItem: ScrollView {
-        TextArea {
+    ScrollView {
+        anchors.fill: parent
+
+        T.TextArea {
             id: textArea
 
             textMargin: Math.max(Kirigami.Units.gridUnit * 2, toolBarContainer.height)
@@ -179,7 +182,30 @@ Kirigami.Page {
             topPadding: 0
             bottomPadding: 0
 
+            implicitWidth: Math.max(contentWidth + leftPadding + rightPadding,
+                                    implicitBackgroundWidth + leftInset + rightInset)
+            implicitHeight: Math.max(contentHeight + topPadding + bottomPadding,
+                                     implicitBackgroundHeight + topInset + bottomInset)
+
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
+            Kirigami.Theme.inherit: background == null
+
+            color: Kirigami.Theme.textColor
+            selectionColor: Kirigami.Theme.highlightColor
+            selectedTextColor: Kirigami.Theme.highlightedTextColor
+            placeholderTextColor: Kirigami.Theme.disabledTextColor
+
+            selectByMouse: true
             background: null
+
+            onPressAndHold: {
+                if (Kirigami.Settings.tabletMode && selectByMouse) {
+                    forceActiveFocus();
+                    cursorPosition = positionAt(event.x, event.y);
+                    selectWord();
+                    mobileTextActionsToolBar.item.open()
+                }
+            }
 
             onTextChanged: {
                 saved = false
