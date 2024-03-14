@@ -144,23 +144,46 @@ Kirigami.Page {
                     Layout.margins: 0
                 }
                 ToolButton {
-                    enabled: false
-                    icon.name: "format-list-unordered"
-                    text: i18n("Add list")
+                    id: indentAction
+                    icon.name: "format-indent-more"
+                    text: i18nc("@action:button", "Increase List Level")
                     display: AbstractButton.IconOnly
-                    checkable: true
+                    onClicked: {
+                        document.indentListMore();
+                    }
                 }
+
                 ToolButton {
-                    enabled: false
-                    icon.name: "format-list-ordered"
-                    text: i18n("Add numbered list")
+                    id: dedentAction
+                    icon.name: "format-indent-less"
+                    text: i18nc("@action:button", "Decrease List Level")
                     display: AbstractButton.IconOnly
-                    checkable: true
+                    onClicked: {
+                        document.indentListLess();
+                    }
                 }
+
+                ComboBox {
+                    id: listStyleComboBox
+                    onCurrentIndexChanged: document.setListStyle(currentIndex);
+                    model: [
+                        i18nc("@item:inmenu no list style", "No list"),
+                        i18nc("@item:inmenu disc list style", "Disc"),
+                        i18nc("@item:inmenu circle list style", "Circle"),
+                        i18nc("@item:inmenu square list style", "Square"),
+                        i18nc("@item:inmenu numbered lists", "123"),
+                        i18nc("@item:inmenu lowercase abc lists", "abc"),
+                        i18nc("@item:inmenu uppercase abc lists", "ABC"),
+                        i18nc("@item:inmenu lower case roman numerals", "i ii iii"),
+                        i18nc("@item:inmenu upper case roman numerals", "I II III")
+                    ]
+                }
+
                 Kirigami.Separator {
                     Layout.fillHeight: true
                     Layout.margins: 0
                 }
+
                 ComboBox {
                     enabled: false
                     displayText: i18n("Heading %1", parseInt(currentText) + 1)
@@ -235,6 +258,12 @@ Kirigami.Page {
 
                 Component.onCompleted: document.load(root.path)
                 Component.onDestruction: document.saveAs(root.path)
+
+                onCursorPositionChanged: {
+                    indentAction.enabled = document.canIndentList;
+                    dedentAction.enabled = document.canDedentList;
+                    listStyleComboBox.currentIndex = document.currentListStyle;
+                }
             }
 
             Timer {

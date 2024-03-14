@@ -16,6 +16,8 @@ qt_add_qml_module(marknote_static STATIC
         documenthandler.cpp
         notesmodel.cpp
         notebooksmodel.cpp
+        nestedlisthelper.cpp
+        nestedlisthelper_p.h
 )
 
 target_link_libraries(marknote_static PUBLIC

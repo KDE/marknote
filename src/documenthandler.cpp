@@ -13,6 +13,7 @@
 #include <QQuickTextDocument>
 #include <QTextCharFormat>
 #include <QTextDocument>
+#include <QTextList>
 
 DocumentHandler::DocumentHandler(QObject *parent)
     : QObject(parent)
@@ -353,4 +354,38 @@ void DocumentHandler::setModified(bool m)
 {
     if (m_document)
         m_document->textDocument()->setModified(m);
+}
+
+bool DocumentHandler::canIndentList() const
+{
+    return m_nestedListHelper.canIndent(textCursor());
+}
+
+bool DocumentHandler::canDedentList() const
+{
+    return m_nestedListHelper.canDedent(textCursor());
+}
+
+int DocumentHandler::currentListStyle() const
+{
+    if (!textCursor().currentList()) {
+        return 0;
+    }
+
+    return -textCursor().currentList()->format().style();
+}
+
+void DocumentHandler::indentListMore()
+{
+    m_nestedListHelper.handleOnIndentMore(textCursor());
+}
+
+void DocumentHandler::indentListLess()
+{
+    m_nestedListHelper.handleOnIndentLess(textCursor());
+}
+
+void DocumentHandler::setListStyle(int styleIndex)
+{
+    m_nestedListHelper.handleOnBulletType(-styleIndex, textCursor());
 }

@@ -4,6 +4,7 @@
 #ifndef DOCUMENTHANDLER_H
 #define DOCUMENTHANDLER_H
 
+#include "nestedlisthelper_p.h"
 #include <QFont>
 #include <QObject>
 #include <QQmlEngine>
@@ -31,6 +32,10 @@ class DocumentHandler : public QObject
     Q_PROPERTY(bool italic READ italic WRITE setItalic NOTIFY italicChanged)
     Q_PROPERTY(bool underline READ underline WRITE setUnderline NOTIFY underlineChanged)
     Q_PROPERTY(bool strikethrough READ strikethrough WRITE setStrikethrough NOTIFY strikethroughChanged)
+
+    Q_PROPERTY(bool canIndentList READ canIndentList NOTIFY cursorPositionChanged)
+    Q_PROPERTY(bool canDedentList READ canDedentList NOTIFY cursorPositionChanged)
+    Q_PROPERTY(bool currentListStyle READ currentListStyle NOTIFY cursorPositionChanged)
 
     // Q_PROPERTY(bool list READ list WRITE setList NOTIFY listChanged)
 
@@ -78,6 +83,10 @@ public:
     bool strikethrough() const;
     void setStrikethrough(bool strikethrough);
 
+    bool canIndentList() const;
+    bool canDedentList() const;
+    int currentListStyle() const;
+
     // bool list() const;
     // void setList(bool list);
 
@@ -94,6 +103,11 @@ public:
 public Q_SLOTS:
     void load(const QUrl &fileUrl);
     void saveAs(const QUrl &fileUrl);
+
+    void indentListLess();
+    void indentListMore();
+
+    void setListStyle(int styleIndex);
 
 Q_SIGNALS:
     void documentChanged();
@@ -136,6 +150,7 @@ private:
 
     QFont m_font;
     QUrl m_fileUrl;
+    NestedListHelper m_nestedListHelper;
 };
 
 #endif // DOCUMENTHANDLER_H
