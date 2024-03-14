@@ -185,9 +185,19 @@ Kirigami.Page {
                 }
 
                 ComboBox {
-                    enabled: false
-                    displayText: i18n("Heading %1", parseInt(currentText) + 1)
-                    model: 6
+                    id: headingLevelComboBox
+
+                    model: [
+                        i18nc("@item:inmenu no heading", "Basic text"),
+                        i18nc("@item:inmenu heading level 1 (largest)", "Title"),
+                        i18nc("@item:inmenu heading level 2", "Subtitle"),
+                        i18nc("@item:inmenu heading level 3", "Section"),
+                        i18nc("@item:inmenu heading level 4", "Subsection"),
+                        i18nc("@item:inmenu heading level 5", "Paragraph"),
+                        i18nc("@item:inmenu heading level 6 (smallest)", "Subparagraph")
+                    ]
+
+                    onCurrentIndexChanged: document.setHeadingLevel(currentIndex)
                 }
             }
         }
@@ -263,6 +273,7 @@ Kirigami.Page {
                     indentAction.enabled = document.canIndentList;
                     dedentAction.enabled = document.canDedentList;
                     listStyleComboBox.currentIndex = document.currentListStyle;
+                    headingLevelComboBox.currentIndex = document.currentHeadingLevel
                 }
             }
 

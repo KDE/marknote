@@ -36,6 +36,7 @@ class DocumentHandler : public QObject
     Q_PROPERTY(bool canIndentList READ canIndentList NOTIFY cursorPositionChanged)
     Q_PROPERTY(bool canDedentList READ canDedentList NOTIFY cursorPositionChanged)
     Q_PROPERTY(bool currentListStyle READ currentListStyle NOTIFY cursorPositionChanged)
+    Q_PROPERTY(bool currentHeadingLevel READ currentHeadingLevel NOTIFY cursorPositionChanged)
 
     // Q_PROPERTY(bool list READ list WRITE setList NOTIFY listChanged)
 
@@ -87,6 +88,8 @@ public:
     bool canDedentList() const;
     int currentListStyle() const;
 
+    int currentHeadingLevel() const;
+
     // bool list() const;
     // void setList(bool list);
 
@@ -108,6 +111,7 @@ public Q_SLOTS:
     void indentListMore();
 
     void setListStyle(int styleIndex);
+    void setHeadingLevel(int level);
 
 Q_SIGNALS:
     void documentChanged();

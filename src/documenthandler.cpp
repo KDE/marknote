@@ -375,6 +375,11 @@ int DocumentHandler::currentListStyle() const
     return -textCursor().currentList()->format().style();
 }
 
+int DocumentHandler::currentHeadingLevel() const
+{
+    return textCursor().blockFormat().headingLevel();
+}
+
 void DocumentHandler::indentListMore()
 {
     m_nestedListHelper.handleOnIndentMore(textCursor());
@@ -388,4 +393,46 @@ void DocumentHandler::indentListLess()
 void DocumentHandler::setListStyle(int styleIndex)
 {
     m_nestedListHelper.handleOnBulletType(-styleIndex, textCursor());
+}
+
+void DocumentHandler::setHeadingLevel(int level)
+{
+    const int boundedLevel = qBound(0, 6, level);
+    // Apparently, 5 is maximum for FontSizeAdjustment; otherwise level=1 and
+    // level=2 look the same
+    const int sizeAdjustment = boundedLevel > 0 ? 5 - boundedLevel : 0;
+
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+
+    QTextBlockFormat blkfmt;
+    blkfmt.setHeadingLevel(boundedLevel);
+    cursor.mergeBlockFormat(blkfmt);
+
+    QTextCharFormat chrfmt;
+    chrfmt.setFontWeight(boundedLevel > 0 ? QFont::Bold : QFont::Normal);
+    chrfmt.setProperty(QTextFormat::FontSizeAdjustment, sizeAdjustment);
+    // Applying style to the current line or selection
+    QTextCursor selectCursor = cursor;
+    if (selectCursor.hasSelection()) {
+        QTextCursor top = selectCursor;
+        top.setPosition(qMin(top.anchor(), top.position()));
+        top.movePosition(QTextCursor::StartOfBlock);
+
+        QTextCursor bottom = selectCursor;
+        bottom.setPosition(qMax(bottom.anchor(), bottom.position()));
+        bottom.movePosition(QTextCursor::EndOfBlock);
+
+        selectCursor.setPosition(top.position(), QTextCursor::MoveAnchor);
+        selectCursor.setPosition(bottom.position(), QTextCursor::KeepAnchor);
+    } else {
+        selectCursor.select(QTextCursor::BlockUnderCursor);
+    }
+    selectCursor.mergeCharFormat(chrfmt);
+
+    cursor.mergeBlockCharFormat(chrfmt);
+    cursor.endEditBlock();
+    // richTextComposer()->setTextCursor(cursor);
+    // richTextComposer()->setFocus();
+    // richTextComposer()->activateRichText();
 }
