@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 00:38+0000\n"
-"PO-Revision-Date: 2024-03-04 11:47+0100\n"
+"PO-Revision-Date: 2024-03-15 18:42+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 21.12.1\n"
 
 #: main.cpp:52
 #, kde-format
@@ -103,110 +103,109 @@ msgstr "Evidentia"
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "Augmenta nivello de lista"
 
 #: qml/EditPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "Decrementa nivello de lista"
 
 #: qml/EditPage.qml:172
-#, fuzzy, kde-format
-#| msgid "Add list"
+#, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
-msgstr "Adde lista"
+msgstr "Nulle lista"
 
 #: qml/EditPage.qml:173
 #, kde-format
 msgctxt "@item:inmenu disc list style"
 msgid "Disc"
-msgstr ""
+msgstr "Disco"
 
 #: qml/EditPage.qml:174
 #, kde-format
 msgctxt "@item:inmenu circle list style"
 msgid "Circle"
-msgstr ""
+msgstr "Circulo"
 
 #: qml/EditPage.qml:175
 #, kde-format
 msgctxt "@item:inmenu square list style"
 msgid "Square"
-msgstr ""
+msgstr "Quadrato"
 
 #: qml/EditPage.qml:176
 #, kde-format
 msgctxt "@item:inmenu numbered lists"
 msgid "123"
-msgstr ""
+msgstr "123"
 
 #: qml/EditPage.qml:177
 #, kde-format
 msgctxt "@item:inmenu lowercase abc lists"
 msgid "abc"
-msgstr ""
+msgstr "abc"
 
 #: qml/EditPage.qml:178
 #, kde-format
 msgctxt "@item:inmenu uppercase abc lists"
 msgid "ABC"
-msgstr ""
+msgstr "ABC"
 
 #: qml/EditPage.qml:179
 #, kde-format
 msgctxt "@item:inmenu lower case roman numerals"
 msgid "i ii iii"
-msgstr ""
+msgstr "i ii iii"
 
 #: qml/EditPage.qml:180
 #, kde-format
 msgctxt "@item:inmenu upper case roman numerals"
 msgid "I II III"
-msgstr ""
+msgstr "I II III"
 
 #: qml/EditPage.qml:193
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
-msgstr ""
+msgstr "Texto Basic"
 
 #: qml/EditPage.qml:194
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
-msgstr ""
+msgstr "Titulo"
 
 #: qml/EditPage.qml:195
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
-msgstr ""
+msgstr "Sub-Titulo"
 
 #: qml/EditPage.qml:196
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
-msgstr ""
+msgstr "Section"
 
 #: qml/EditPage.qml:197
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
-msgstr ""
+msgstr "Sub-section"
 
 #: qml/EditPage.qml:198
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
-msgstr ""
+msgstr "Paragrapho"
 
 #: qml/EditPage.qml:199
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
-msgstr ""
+msgstr "Sub-paragrapho"
 
 #: qml/Main.qml:92 qml/Main.qml:199
 #, kde-format

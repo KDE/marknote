@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the marknote package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 00:38+0000\n"
-"PO-Revision-Date: 2023-11-18 14:03+0300\n"
+"PO-Revision-Date: 2024-03-15 13:40+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: main.cpp:52
 #, kde-format
@@ -103,110 +103,109 @@ msgstr "Vurgulu"
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "Liste Düzeyini Artır"
 
 #: qml/EditPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "Liste Düzeyini Azalt"
 
 #: qml/EditPage.qml:172
-#, fuzzy, kde-format
-#| msgid "Add list"
+#, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
-msgstr "Liste ekle"
+msgstr "Liste yok"
 
 #: qml/EditPage.qml:173
 #, kde-format
 msgctxt "@item:inmenu disc list style"
 msgid "Disc"
-msgstr ""
+msgstr "Disk"
 
 #: qml/EditPage.qml:174
 #, kde-format
 msgctxt "@item:inmenu circle list style"
 msgid "Circle"
-msgstr ""
+msgstr "Daire"
 
 #: qml/EditPage.qml:175
 #, kde-format
 msgctxt "@item:inmenu square list style"
 msgid "Square"
-msgstr ""
+msgstr "Kare"
 
 #: qml/EditPage.qml:176
 #, kde-format
 msgctxt "@item:inmenu numbered lists"
 msgid "123"
-msgstr ""
+msgstr "123"
 
 #: qml/EditPage.qml:177
 #, kde-format
 msgctxt "@item:inmenu lowercase abc lists"
 msgid "abc"
-msgstr ""
+msgstr "abc"
 
 #: qml/EditPage.qml:178
 #, kde-format
 msgctxt "@item:inmenu uppercase abc lists"
 msgid "ABC"
-msgstr ""
+msgstr "ABC"
 
 #: qml/EditPage.qml:179
 #, kde-format
 msgctxt "@item:inmenu lower case roman numerals"
 msgid "i ii iii"
-msgstr ""
+msgstr "i ii iii"
 
 #: qml/EditPage.qml:180
 #, kde-format
 msgctxt "@item:inmenu upper case roman numerals"
 msgid "I II III"
-msgstr ""
+msgstr "I II III"
 
 #: qml/EditPage.qml:193
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
-msgstr ""
+msgstr "Basit metin"
 
 #: qml/EditPage.qml:194
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
-msgstr ""
+msgstr "Başlık"
 
 #: qml/EditPage.qml:195
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
-msgstr ""
+msgstr "Alt başlık"
 
 #: qml/EditPage.qml:196
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
-msgstr ""
+msgstr "Bölüm"
 
 #: qml/EditPage.qml:197
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
-msgstr ""
+msgstr "Alt bölüm"
 
 #: qml/EditPage.qml:198
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
-msgstr ""
+msgstr "Paragraf"
 
 #: qml/EditPage.qml:199
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
-msgstr ""
+msgstr "Alt paragraf"
 
 #: qml/Main.qml:92 qml/Main.qml:199
 #, kde-format
