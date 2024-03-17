@@ -279,9 +279,3 @@ msgstr ""
 #, kde-format
 msgid "Add Notebook"
 msgstr "Legg til notatbok"
-
-#~ msgid "Add numbered list"
-#~ msgstr "Legg til nummerert liste"
-
-#~ msgid "Heading %1"
-#~ msgstr "Overskrift %1"
