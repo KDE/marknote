@@ -112,11 +112,10 @@ msgid "Decrease List Level"
 msgstr ""
 
 #: qml/EditPage.qml:172
-#, fuzzy, kde-format
-#| msgid "Add list"
+#, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
-msgstr "Přidat seznam"
+msgstr ""
 
 #: qml/EditPage.qml:173
 #, kde-format
@@ -277,9 +276,3 @@ msgstr "Začněte vytvořením vašeho prvního poznámkového bloku."
 #, kde-format
 msgid "Add Notebook"
 msgstr "Přidat poznámkový blok"
-
-#~ msgid "Add numbered list"
-#~ msgstr "Přidat číslovaný seznam"
-
-#~ msgid "Heading %1"
-#~ msgstr "Záhlaví %1"
