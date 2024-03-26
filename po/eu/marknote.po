@@ -1,16 +1,16 @@
 # Translation for marknote.po to Euskara/Basque (eu).
-# Copyright (C) 2023 This file is copyright:
+# Copyright (C) 2023-2024 This file is copyright:
 # This file is distributed under the same license as the marknote package.
 # KDE euskaratzeko proiektuko arduraduna <xaba@ni.eus>.
 #
 # Translators:
-# SPDX-FileCopyrightText: 2023 Iñigo Salvador Azurmendi <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024 Iñigo Salvador Azurmendi <xalba@ni.eus>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 00:38+0000\n"
-"PO-Revision-Date: 2023-12-06 12:32+0100\n"
+"PO-Revision-Date: 2024-03-25 12:04+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: main.cpp:52
 #, kde-format
@@ -106,110 +106,109 @@ msgstr "nabarmendu"
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "Handiagotu zerrenda-maila"
 
 #: qml/EditPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "Txikiagotu zerrenda-maila"
 
 #: qml/EditPage.qml:172
-#, fuzzy, kde-format
-#| msgid "Add list"
+#, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
-msgstr "Gehitu zerrenda"
+msgstr "Zerrenda ez"
 
 #: qml/EditPage.qml:173
 #, kde-format
 msgctxt "@item:inmenu disc list style"
 msgid "Disc"
-msgstr ""
+msgstr "Diskoa"
 
 #: qml/EditPage.qml:174
 #, kde-format
 msgctxt "@item:inmenu circle list style"
 msgid "Circle"
-msgstr ""
+msgstr "Zirkulua"
 
 #: qml/EditPage.qml:175
 #, kde-format
 msgctxt "@item:inmenu square list style"
 msgid "Square"
-msgstr ""
+msgstr "Karratua"
 
 #: qml/EditPage.qml:176
 #, kde-format
 msgctxt "@item:inmenu numbered lists"
 msgid "123"
-msgstr ""
+msgstr "123"
 
 #: qml/EditPage.qml:177
 #, kde-format
 msgctxt "@item:inmenu lowercase abc lists"
 msgid "abc"
-msgstr ""
+msgstr "abc"
 
 #: qml/EditPage.qml:178
 #, kde-format
 msgctxt "@item:inmenu uppercase abc lists"
 msgid "ABC"
-msgstr ""
+msgstr "ABC"
 
 #: qml/EditPage.qml:179
 #, kde-format
 msgctxt "@item:inmenu lower case roman numerals"
 msgid "i ii iii"
-msgstr ""
+msgstr "i ii iii"
 
 #: qml/EditPage.qml:180
 #, kde-format
 msgctxt "@item:inmenu upper case roman numerals"
 msgid "I II III"
-msgstr ""
+msgstr "I II III"
 
 #: qml/EditPage.qml:193
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
-msgstr ""
+msgstr "Oinarrizko testua"
 
 #: qml/EditPage.qml:194
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
-msgstr ""
+msgstr "Titulua"
 
 #: qml/EditPage.qml:195
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
-msgstr ""
+msgstr "Azpititulua"
 
 #: qml/EditPage.qml:196
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
-msgstr ""
+msgstr "Atala"
 
 #: qml/EditPage.qml:197
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
-msgstr ""
+msgstr "Azpiatala"
 
 #: qml/EditPage.qml:198
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
-msgstr ""
+msgstr "Paragrafoa"
 
 #: qml/EditPage.qml:199
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
-msgstr ""
+msgstr "Azpiparagrafoa"
 
 #: qml/Main.qml:92 qml/Main.qml:199
 #, kde-format
