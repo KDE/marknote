@@ -6,6 +6,7 @@
 <component type="desktop-application">
   <id>org.kde.marknote</id>
   <name>MarkNote</name>
+  <name xml:lang="ast">MarkNote</name>
   <name xml:lang="ca">MarkNote</name>
   <name xml:lang="ca-valencia">MarkNote</name>
   <name xml:lang="cs">MarkNote</name>
