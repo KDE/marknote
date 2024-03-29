@@ -65,7 +65,7 @@
     <p>Marknote lets you create rich text notes and easily organise them into notebooks. You can personalise your notebooks by choosing an icon and accent color for each one, making it easy to distinguish between them and keep your notes at your fingertips. Your notes are saved as Markdown files in your Documents folder, making it easy to use your notes outside of Marknote as well as inside the app.</p>
   </description>
 
-  <url type="homepage">https://apps.kde.org/makrnote</url>
+  <url type="homepage">https://apps.kde.org/marknote</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=Marknote</url>
   <url type="vcs-browser">https://invent.kde.org/office/marknote</url>
   <url type="donation">https://kde.org/community/donations/?app=marknote</url>
@@ -73,6 +73,7 @@
 
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
+  <content_rating type="oars-1.1" />
 
   <categories>
     <category>Office</category>
