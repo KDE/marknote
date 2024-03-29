@@ -9,6 +9,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/EditPage.qml
         qml/AddNotebookDialog.qml
         qml/WelcomePage.qml
+        qml/LinkDialog.qml
         qml/components/ActionButton.qml
         qml/components/BottomDrawer.qml
         qml/components/DoubleActionButton.qml
@@ -30,6 +31,7 @@ target_link_libraries(marknote_static PUBLIC
     KF6::I18n
     KF6::ConfigCore
     KF6::CoreAddons
+    KF6::ColorScheme
 )
 
 

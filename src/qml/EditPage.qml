@@ -40,6 +40,15 @@ Kirigami.Page {
         Item { Layout.fillWidth: true }
     }
 
+    LinkDialog {
+        id: linkDialog
+
+        parent: applicationWindow().overlay
+        visible: false
+
+        onAccepted: document.updateLink(linkUrl, linkText)
+    }
+
     RowLayout {
         id: toolBarContainer
         visible: name
@@ -193,6 +202,27 @@ Kirigami.Page {
                         { text: i18nc("@item:inmenu unordered style", "Unordered list"), value: 1 },
                         { text: i18nc("@item:inmenu ordered style", "Ordered list"), value: 4 },
                     ]
+                }
+
+                Kirigami.Separator {
+                    Layout.fillHeight: true
+                    Layout.margins: 0
+                }
+
+                ToolButton {
+                    id: linkAction
+                    icon.name: "insert-link-symbolic"
+                    text: i18nc("@action:button", "Link")
+                    display: AbstractButton.IconOnly
+                    onClicked: {
+                        linkDialog.linkText = document.currentLinkText();
+                        linkDialog.linkUrl = document.currentLinkUrl();
+                        linkDialog.open();
+                    }
+
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
 
                 Kirigami.Separator {

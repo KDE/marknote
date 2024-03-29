@@ -3,11 +3,13 @@
 
 #include "documenthandler.h"
 
+#include <KColorScheme>
 #include <QDebug>
 #include <QFile>
 #include <QFileInfo>
 #include <QFileSelector>
 #include <QMimeDatabase>
+#include <QPalette>
 #include <QQmlFile>
 #include <QQmlFileSelector>
 #include <QQuickTextDocument>
@@ -435,4 +437,124 @@ void DocumentHandler::setHeadingLevel(int level)
     // richTextComposer()->setTextCursor(cursor);
     // richTextComposer()->setFocus();
     // richTextComposer()->activateRichText();
+}
+
+QString DocumentHandler::currentLinkUrl() const
+{
+    return textCursor().charFormat().anchorHref();
+}
+
+QString DocumentHandler::currentLinkText() const
+{
+    QTextCursor cursor = textCursor();
+    selectLinkText(&cursor);
+    return cursor.selectedText();
+}
+
+void DocumentHandler::selectLinkText(QTextCursor *cursor) const
+{
+    // If the cursor is on a link, select the text of the link.
+    if (cursor->charFormat().isAnchor()) {
+        const QString aHref = cursor->charFormat().anchorHref();
+
+        // Move cursor to start of link
+        while (cursor->charFormat().anchorHref() == aHref) {
+            if (cursor->atStart()) {
+                break;
+            }
+            cursor->setPosition(cursor->position() - 1);
+        }
+        if (cursor->charFormat().anchorHref() != aHref) {
+            cursor->setPosition(cursor->position() + 1, QTextCursor::KeepAnchor);
+        }
+
+        // Move selection to the end of the link
+        while (cursor->charFormat().anchorHref() == aHref) {
+            if (cursor->atEnd()) {
+                break;
+            }
+            const int oldPosition = cursor->position();
+            cursor->movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+            // Wordaround Qt Bug. when we have a table.
+            // FIXME selection url
+            if (oldPosition == cursor->position()) {
+                break;
+            }
+        }
+        if (cursor->charFormat().anchorHref() != aHref) {
+            cursor->setPosition(cursor->position() - 1, QTextCursor::KeepAnchor);
+        }
+    } else if (cursor->hasSelection()) {
+        // Nothing to do. Using the currently selected text as the link text.
+    } else {
+        // Select current word
+        cursor->movePosition(QTextCursor::StartOfWord);
+        cursor->movePosition(QTextCursor::EndOfWord, QTextCursor::KeepAnchor);
+    }
+}
+
+void DocumentHandler::updateLink(const QString &linkUrl, const QString &linkText)
+{
+    auto cursor = textCursor();
+    selectLinkText(&cursor);
+
+    cursor.beginEditBlock();
+
+    if (!cursor.hasSelection()) {
+        cursor.select(QTextCursor::WordUnderCursor);
+    }
+
+    QTextCharFormat format = cursor.charFormat();
+    // Save original format to create an extra space with the existing char
+    // format for the block
+    if (!linkUrl.isEmpty()) {
+        // Add link details
+        format.setAnchor(true);
+        format.setAnchorHref(linkUrl);
+        // Workaround for QTBUG-1814:
+        // Link formatting does not get applied immediately when setAnchor(true)
+        // is called.  So the formatting needs to be applied manually.
+        format.setUnderlineStyle(QTextCharFormat::SingleUnderline);
+        format.setUnderlineColor(linkColor());
+        format.setForeground(linkColor());
+    } else {
+        // Remove link details
+        format.setAnchor(false);
+        format.setAnchorHref(QString());
+        // Workaround for QTBUG-1814:
+        // Link formatting does not get removed immediately when setAnchor(false)
+        // is called. So the formatting needs to be applied manually.
+        QTextDocument defaultTextDocument;
+        QTextCharFormat defaultCharFormat = defaultTextDocument.begin().charFormat();
+
+        format.setUnderlineStyle(defaultCharFormat.underlineStyle());
+        format.setUnderlineColor(defaultCharFormat.underlineColor());
+        format.setForeground(defaultCharFormat.foreground());
+    }
+
+    // Insert link text specified in dialog, otherwise write out url.
+    QString _linkText;
+    if (!linkText.isEmpty()) {
+        _linkText = linkText;
+    } else {
+        _linkText = linkUrl;
+    }
+    cursor.insertText(_linkText, format);
+
+    cursor.endEditBlock();
+}
+
+void DocumentHandler::regenerateColorScheme()
+{
+    mLinkColor = KColorScheme(QPalette::Active, KColorScheme::View).foreground(KColorScheme::LinkText).color();
+    // TODO update existing link
+}
+
+QColor DocumentHandler::linkColor()
+{
+    if (mLinkColor.isValid()) {
+        return mLinkColor;
+    }
+    regenerateColorScheme();
+    return mLinkColor;
 }

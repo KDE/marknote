@@ -103,6 +103,10 @@ public:
     bool modified() const;
     void setModified(bool m);
 
+    Q_INVOKABLE QString currentLinkUrl() const;
+    Q_INVOKABLE QString currentLinkText() const;
+    Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
+
 public Q_SLOTS:
     void load(const QUrl &fileUrl);
     void saveAs(const QUrl &fileUrl);
@@ -143,10 +147,15 @@ Q_SIGNALS:
 private:
     void reset();
     QTextCursor textCursor() const;
+    void selectLinkText(QTextCursor *cursor) const;
     QTextDocument *textDocument() const;
     void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
+    QColor linkColor();
+
+    void regenerateColorScheme();
 
     QQuickTextDocument *m_document;
+    QColor mLinkColor;
 
     int m_cursorPosition;
     int m_selectionStart;
