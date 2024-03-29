@@ -183,18 +183,15 @@ Kirigami.Page {
                 ComboBox {
                     id: listStyleComboBox
                     onActivated: (index) => {
-                        document.setListStyle(index);
+                        document.setListStyle(currentValue);
                     }
+                    enabled: indentAction.enabled || dedentAction.enabled
+                    textRole: "text"
+                    valueRole: "value"
                     model: [
-                        i18nc("@item:inmenu no list style", "No list"),
-                        i18nc("@item:inmenu disc list style", "Disc"),
-                        i18nc("@item:inmenu circle list style", "Circle"),
-                        i18nc("@item:inmenu square list style", "Square"),
-                        i18nc("@item:inmenu numbered lists", "123"),
-                        i18nc("@item:inmenu lowercase abc lists", "abc"),
-                        i18nc("@item:inmenu uppercase abc lists", "ABC"),
-                        i18nc("@item:inmenu lower case roman numerals", "i ii iii"),
-                        i18nc("@item:inmenu upper case roman numerals", "I II III")
+                        { text: i18nc("@item:inmenu no list style", "No list"), value: 0 },
+                        { text: i18nc("@item:inmenu unordered style", "Unordered list"), value: 1 },
+                        { text: i18nc("@item:inmenu ordered style", "Ordered list"), value: 4 },
                     ]
                 }
 
@@ -293,7 +290,14 @@ Kirigami.Page {
                 onCursorPositionChanged: {
                     indentAction.enabled = document.canIndentList;
                     dedentAction.enabled = document.canDedentList;
-                    listStyleComboBox.currentIndex = document.currentListStyle;
+
+                    if (document.currentListStyle === 0) {
+                        listStyleComboBox.currentIndex = 0;
+                    } else if (document.currentListStyle === 1) {
+                        listStyleComboBox.currentIndex = 1;
+                    } else if (document.currentListStyle === 4) {
+                        listStyleComboBox.currentIndex = 2;
+                    }
                     headingLevelComboBox.currentIndex = document.currentHeadingLevel
                 }
             }

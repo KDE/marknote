@@ -35,8 +35,8 @@ class DocumentHandler : public QObject
 
     Q_PROPERTY(bool canIndentList READ canIndentList NOTIFY cursorPositionChanged)
     Q_PROPERTY(bool canDedentList READ canDedentList NOTIFY cursorPositionChanged)
-    Q_PROPERTY(bool currentListStyle READ currentListStyle NOTIFY cursorPositionChanged)
-    Q_PROPERTY(bool currentHeadingLevel READ currentHeadingLevel NOTIFY cursorPositionChanged)
+    Q_PROPERTY(int currentListStyle READ currentListStyle NOTIFY cursorPositionChanged)
+    Q_PROPERTY(int currentHeadingLevel READ currentHeadingLevel NOTIFY cursorPositionChanged)
 
     // Q_PROPERTY(bool list READ list WRITE setList NOTIFY listChanged)
 

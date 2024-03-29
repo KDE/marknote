@@ -358,12 +358,12 @@ void DocumentHandler::setModified(bool m)
 
 bool DocumentHandler::canIndentList() const
 {
-    return m_nestedListHelper.canIndent(textCursor());
+    return m_nestedListHelper.canIndent(textCursor()) && textCursor().blockFormat().headingLevel() == 0;
 }
 
 bool DocumentHandler::canDedentList() const
 {
-    return m_nestedListHelper.canDedent(textCursor());
+    return m_nestedListHelper.canDedent(textCursor()) && textCursor().blockFormat().headingLevel() == 0;
 }
 
 int DocumentHandler::currentListStyle() const
