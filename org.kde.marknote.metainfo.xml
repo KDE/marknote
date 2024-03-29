@@ -34,7 +34,7 @@
   <name xml:lang="uk">MarkNote</name>
   <name xml:lang="x-test">xxMarkNotexx</name>
   <name xml:lang="zh-TW">MarkNote</name>
-  <summary>Note taking application</summary>
+  <summary>Write down your thoughts</summary>
   <summary xml:lang="ca">Aplicació de presa de notes</summary>
   <summary xml:lang="ca-valencia">Aplicació de presa de notes</summary>
   <summary xml:lang="de">Notiz-Anwendung</summary>
@@ -60,61 +60,59 @@
   <summary xml:lang="uk">Програма для роботи з нотатками</summary>
   <summary xml:lang="x-test">xxNote taking applicationxx</summary>
   <summary xml:lang="zh-TW">筆記本應用程式</summary>
+
+  <description>
+    <p>Marknote lets you create rich text notes and easily organise them into notebooks. You can personalise your notebooks by choosing an icon and accent color for each one, making it easy to distinguish between them and keep your notes at your fingertips. Your notes are saved as Markdown files in your Documents folder, making it easy to use your notes outside of Marknote as well as inside the app.</p>
+  </description>
+
+  <url type="homepage">https://apps.kde.org/makrnote</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=Marknote</url>
+  <url type="vcs-browser">https://invent.kde.org/office/marknote</url>
+  <url type="donation">https://kde.org/community/donations/?app=marknote</url>
+  <url type="contribute">https://community.kde.org/Get_Involved/</url>
+
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
-  <developer_name>KDE Community</developer_name>
-  <developer_name xml:lang="ca">La comunitat KDE</developer_name>
-  <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
-  <developer_name xml:lang="cs">Komunita KDE</developer_name>
-  <developer_name xml:lang="de">KDE-Gemeinschaft</developer_name>
-  <developer_name xml:lang="en-GB">KDE Community</developer_name>
-  <developer_name xml:lang="eo">Komunumo de KDE</developer_name>
-  <developer_name xml:lang="es">La comunidad de KDE</developer_name>
-  <developer_name xml:lang="eu">KDE komunitatea</developer_name>
-  <developer_name xml:lang="fi">KDE-yhteisö</developer_name>
-  <developer_name xml:lang="fr">Communauté KDE</developer_name>
-  <developer_name xml:lang="gl">Comunidade KDE</developer_name>
-  <developer_name xml:lang="ia">Communitate de KDE</developer_name>
-  <developer_name xml:lang="it">Comunità KDE</developer_name>
-  <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
-  <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
-  <developer_name xml:lang="lv">KDE kopiena</developer_name>
-  <developer_name xml:lang="nl">KDE-gemeenschap</developer_name>
-  <developer_name xml:lang="nn">KDE-fellesskapet</developer_name>
-  <developer_name xml:lang="pl">Społeczność KDE</developer_name>
-  <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
-  <developer_name xml:lang="sk">KDE komunita</developer_name>
-  <developer_name xml:lang="sl">Skupnost KDE</developer_name>
-  <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
-  <developer_name xml:lang="tr">KDE Topluluğu</developer_name>
-  <developer_name xml:lang="uk">Спільнота KDE</developer_name>
-  <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
-  <developer_name xml:lang="zh-TW">KDE 社群</developer_name>
-  <description>
-    <p>A WYSIWYG note taking app that lets you organize your notes in notebooks.</p>
-    <p xml:lang="ca">Una aplicació de presa de notes WYSIWYG que us permet organitzar les notes en blocs de notes.</p>
-    <p xml:lang="ca-valencia">Una aplicació de presa de notes WYSIWYG que us permet organitzar les notes en blocs de notes.</p>
-    <p xml:lang="en-GB">A WYSIWYG note taking app that lets you organise your notes in notebooks.</p>
-    <p xml:lang="eo">WYSIWYG-notprena app kiu ebligas vin organizi viajn notojn en notlibroj.</p>
-    <p xml:lang="es">Una aplicación WYSIWYG para tomar notas que le permite organizarlas en libros de notas.</p>
-    <p xml:lang="eu">Zure oharrak koadernotan antolatzen uzten dizun oharrak hartzeko WYSIWYG aplikazio bat.</p>
-    <p xml:lang="fi">WYSIWYG-muistiinpanosovellus, jossa muistiinpanot voi järjestää muistikirjoiksi.</p>
-    <p xml:lang="fr">Une application de prise de note « WYSIWYG » vous permettant d'organiser vos notes en carnets.</p>
-    <p xml:lang="gl">Unha aplicación para tomar notas visualmente que permite organizar as notas en cadernos.</p>
-    <p xml:lang="ia">Un app WYSIWYG (lo que tu vede es lo que tu obtene) per prender nota que te permitte organizar tu notas in quadernos.</p>
-    <p xml:lang="it">Un'applicazione WYSIWYG (quello che vedi è quello che ottieni) per prendere appunti che ti consente di organizzare i tuoi appunti in taccuini.</p>
-    <p xml:lang="ka">WYSIWYG შენიშვნების ბლოკნოტი, რომელიც ბლოკნოტებში ჩანაწერების დალაგებაში დაგეხმარებათ.</p>
-    <p xml:lang="ko">노트를 공책으로 관리할 수 있는 WYSIWYG 메모 앱입니다.</p>
-    <p xml:lang="lv">WYSIWYG piezīmju programma, kas ļauj organizēt piezīmes piezīmju grāmatiņās.</p>
-    <p xml:lang="nl">Een WYSIWYG toepassing voor het maken van notities die u uw notities laat organiseren in notitieboekjes.</p>
-    <p xml:lang="nn">Ein WYSIWYG-notatapp der du kan organisera notata dine i ulike notatbøker.</p>
-    <p xml:lang="pl">Aplikacja do notatek WYSIWYG, która umożliwia zarządzanie notatkami w zeszytach.</p>
-    <p xml:lang="pt">Uma aplicação WYSIWYG para tirar notas, que lhe permite organizar as notas em blocos de notas.</p>
-    <p xml:lang="sl">Neposredna vizualna aplikacija, ki vam omogoča organiziranje zapiskov v zvezke.</p>
-    <p xml:lang="sv">Ett "vad man ser är vad man får" anteckningsprogram som låter dig organisera dina anteckningar i anteckningsböcker.</p>
-    <p xml:lang="tr">Notlarınızı defterlerle organize etmenize izin veren bir görsel not alma uygulaması.</p>
-    <p xml:lang="uk">Програма для створення нотаток у режимі повної відповідності, за допомогою якої ви можете упорядковувати ваші нотатки за нотатниками.</p>
-    <p xml:lang="x-test">xxA WYSIWYG note taking app that lets you organize your notes in notebooks.xx</p>
-    <p xml:lang="zh-TW">一個所見即所得的筆記應用程式，讓您依筆記本管理您的筆記。</p>
-  </description>
+
+  <categories>
+    <category>Office</category>
+  </categories>
+
+  <keywords>
+    <keyword>Markdown</keyword>
+    <keyword>Kirigami</keyword>
+    <keyword>Qt</keyword>
+  </keywords>
+
+  <provides>
+    <binary>marknote</binary>
+  </provides>
+
+  <releases>
+    <release version="1.0.0" date="2024-03-29">
+      <description>
+        <p>Marknote, KDE's WYSIWYG note-taking application, is finally ready for it's first release. Marknote lets you create rich text notes and easily organise them into notebooks. You can personalise your notebooks by choosing an icon and accent color for each one, making it easy to distinguish between them and keep your notes at your fingertips. Your notes are saved as Markdown files in your Documents folder, making it easy to use your notes outside of Marknote as well as inside the app.</p>
+        <p>Thanks to Carl, Marknote now not only supports bold and italic fonts, but also lets you underline important parts, strike out wrong parts, organise your thoughts in various list types and organise your notes with titles, sections and more.</p>
+      </description>
+    </release>
+  </releases>
+
+  <launchable type="desktop-id">org.kde.marknote.desktop</launchable>
+
+  <developer id="org.kde">
+    <name translate="no">KDE</name>
+    <url>https://kde.org</url>
+  </developer>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://cdn.kde.org/screenshots/marknote/marknote.png</image>
+      <caption></caption>
+    </screenshot>
+  </screenshots>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#c7f4e7</color>
+    <color type="primary" scheme_preference="dark">#08342b</color>
+  </branding>
 </component>
