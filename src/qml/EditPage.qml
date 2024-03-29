@@ -91,6 +91,10 @@ Kirigami.Page {
                     onClicked: {
                         document.bold = !document.bold
                     }
+
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
                 ToolButton {
                     id: italicButton
@@ -106,6 +110,10 @@ Kirigami.Page {
                     onClicked: {
                         document.italic = checked;
                     }
+
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
                 ToolButton {
                     id: underlineButton
@@ -121,6 +129,10 @@ Kirigami.Page {
                     onClicked: {
                         document.underline = checked;
                     }
+
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
                 ToolButton {
                     icon.name: "format-text-strikethrough"
@@ -131,13 +143,10 @@ Kirigami.Page {
                     onClicked: {
                         document.strikethrough = checked;
                     }
-                }
-                ToolButton {
-                    enabled: false
-                    icon.name: "draw-highlight"
-                    text: i18nc("@action:button", "highlight")
-                    display: AbstractButton.IconOnly
-                    checkable: true
+
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
                 Kirigami.Separator {
                     Layout.fillHeight: true
@@ -151,6 +160,10 @@ Kirigami.Page {
                     onClicked: {
                         document.indentListMore();
                     }
+
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
 
                 ToolButton {
@@ -161,6 +174,10 @@ Kirigami.Page {
                     onClicked: {
                         document.indentListLess();
                     }
+
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
 
                 ComboBox {
