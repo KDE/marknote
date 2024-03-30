@@ -27,7 +27,8 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void addNote(const QString &name);
+    /// \return the path of the newly added not
+    Q_INVOKABLE QString addNote(const QString &name);
 
     Q_INVOKABLE void deleteNote(const QUrl &path);
 

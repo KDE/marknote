@@ -14,7 +14,7 @@ Kirigami.Page {
 
     property string path
     property string name
-    property bool saved : true
+    property bool saved: true
 
     leftPadding: 0
     rightPadding: 0

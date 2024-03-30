@@ -41,7 +41,7 @@ Kirigami.ScrollablePage {
         y: root.height - height - pageStack.globalToolBar.preferredHeight - Kirigami.Units.gridUnit
         text: i18n("Add note")
         icon.name: "list-add"
-        onClicked: addSheet.open()
+        onClicked: noteMetadataDialog.open()
     }
 
     titleDelegate: RowLayout {
@@ -51,7 +51,7 @@ Kirigami.ScrollablePage {
             visible: !Kirigami.Settings.isMobile
             icon.name: "list-add"
             text: i18n("New Note (%1)", addShortcut.nativeText)
-            onClicked: addSheet.open()
+            onClicked: noteMetadataDialog.open()
             display: AbstractButton.IconOnly
 
             ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -148,31 +148,13 @@ Kirigami.ScrollablePage {
             }
         }
     }
-    Kirigami.Dialog{
-        id: addSheet
-        title: i18n("New Note")
-        padding: Kirigami.Units.largeSpacing
-        contentItem: Kirigami.FormLayout{
-            TextField{
-                id: fileNameInput
-                Kirigami.FormData.label: i18n("Note name:")
-                onAccepted: addAction.triggered()
-            }
-        }
-        standardButtons: Kirigami.Dialog.Cancel
-        onOpened: fileNameInput.forceActiveFocus()
-        customFooterActions: [
-            Kirigami.Action {
-                id: addAction
-                text: i18n("Add")
-                icon.name: "list-add"
-                onTriggered: {
-                    addSheet.close()
-                    notesModel.addNote(fileNameInput.text)
-                }
-            }
-        ]
+
+    NoteMetadataDialog {
+        id: noteMetadataDialog
+
+        model: notesModel
     }
+
     Kirigami.Dialog {
         id: removeDialog
 
@@ -351,7 +333,7 @@ Kirigami.ScrollablePage {
             helpfulAction: Kirigami.Action {
                 icon.name: "list-add"
                 text: i18n("Add")
-                onTriggered: addSheet.open()
+                onTriggered: noteMetadataDialog.open()
             }
         }
     }

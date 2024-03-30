@@ -62,7 +62,7 @@ Controls.Dialog {
         FormCard.FormTextFieldDelegate {
             id: nameInput
 
-            label: i18nc("@label:textbox Notebook name", "Name")
+            label: i18nc("@label:textbox Notebook name", "Name:")
             leftPadding: Kirigami.Units.largeSpacing * 2
             rightPadding: Kirigami.Units.largeSpacing * 2
         }

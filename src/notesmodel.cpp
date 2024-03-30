@@ -22,7 +22,7 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
     case Role::Path:
-        return QUrl::fromLocalFile(directory.entryInfoList(QDir::Files).at(index.row()).filePath());
+        return directory.entryInfoList(QDir::Files).at(index.row()).filePath();
     case Role::Date:
         return directory.entryInfoList(QDir::Files).at(index.row()).lastModified(QTimeZone::LocalTime);
     case Role::Name:
@@ -39,16 +39,18 @@ QHash<int, QByteArray> NotesModel::roleNames() const
     return {{Role::Date, "date"}, {Role::Path, "path"}, {Role::Name, "name"}};
 }
 
-void NotesModel::addNote(const QString &name)
+QString NotesModel::addNote(const QString &name)
 {
     beginResetModel();
-    QFile file(m_path + QDir::separator() + name + QStringLiteral(".md"));
+    const QString path = m_path + QDir::separator() + name + QStringLiteral(".md");
+    QFile file(path);
     if (file.open(QFile::WriteOnly)) {
-        file.write("");
+        file.write("# " + name.toUtf8());
     } else {
         qDebug() << "Failed to create file at" << m_path;
     }
     endResetModel();
+    return path;
 }
 
 void NotesModel::deleteNote(const QUrl &path)

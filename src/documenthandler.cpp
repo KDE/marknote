@@ -29,6 +29,7 @@ using namespace Qt::StringLiterals;
 DocumentHandler::DocumentHandler(QObject *parent)
     : QObject(parent)
     , m_document(nullptr)
+    , m_textArea(nullptr)
     , m_cursorPosition(-1)
     , m_selectionStart(0)
     , m_selectionEnd(0)
@@ -44,9 +45,6 @@ void DocumentHandler::setTextArea(QQuickItem *textArea)
 {
     if (textArea == m_textArea)
         return;
-
-    if (m_textArea)
-        m_textArea->removeEventFilter(this);
 
     m_textArea = textArea;
 
@@ -287,80 +285,77 @@ QString DocumentHandler::fileType() const
     return QFileInfo(fileName()).suffix();
 }
 
-QUrl DocumentHandler::fileUrl() const
+QString DocumentHandler::fileUrl() const
 {
     return m_fileUrl;
 }
 
-void DocumentHandler::load(const QUrl &fileUrl)
+void DocumentHandler::load(const QString &fileUrl)
 {
-    if (fileUrl == m_fileUrl)
+    if (fileUrl == m_fileUrl) {
         return;
-
-    QQmlEngine *engine = qmlEngine(this);
-    if (!engine) {
-        qWarning() << "load() called before DocumentHandler has QQmlEngine";
-        return;
-    }
-
-    const QUrl path = QQmlFileSelector::get(engine)->selector()->select(fileUrl);
-    const QString fileName = QQmlFile::urlToLocalFileOrQrc(path);
-    if (QFile::exists(fileName)) {
-        QFile file(fileName);
-        if (file.open(QFile::ReadOnly)) {
-            QByteArray data = file.readAll();
-            if (QTextDocument *doc = textDocument()) {
-                doc->setBaseUrl(path.adjusted(QUrl::RemoveFilename));
-                Q_EMIT loaded(QString::fromUtf8(data), Qt::MarkdownText);
-                doc->setModified(false);
-            }
-
-            QSet<int> cursorPositionsToSkip;
-            QTextBlock currentBlock = textDocument()->begin();
-            QTextBlock::iterator it;
-            while (currentBlock.isValid()) {
-                for (it = currentBlock.begin(); !it.atEnd(); ++it) {
-                    QTextFragment fragment = it.fragment();
-                    if (fragment.isValid()) {
-                        QTextImageFormat imageFormat = fragment.charFormat().toImageFormat();
-                        if (imageFormat.isValid()) {
-                            int pos = fragment.position();
-                            if (!cursorPositionsToSkip.contains(pos)) {
-                                QTextCursor cursor(textDocument());
-                                cursor.setPosition(pos);
-                                cursor.setPosition(pos + 1, QTextCursor::KeepAnchor);
-                                cursor.removeSelectedText();
-
-                                cursor.insertHtml(u"<img width=\"500\" src=\""_s + imageFormat.name() + u"\"\\>"_s);
-                                // The textfragment iterator is now invalid, restart from the beginning
-                                // Take care not to replace the same fragment again, or we would be in
-                                // an infinite loop.
-                                cursorPositionsToSkip.insert(pos);
-                                // it = currentBlock.begin();
-                            }
-                        }
-                    }
-                }
-
-                currentBlock = currentBlock.next();
-            }
-
-            reset();
-        }
     }
 
     m_fileUrl = fileUrl;
     Q_EMIT fileUrlChanged();
+
+    if (!QFile::exists(fileUrl)) {
+        return;
+    }
+
+    QFile file(fileUrl);
+    if (!file.open(QFile::ReadOnly)) {
+        return;
+    }
+
+    QByteArray data = file.readAll();
+    if (QTextDocument *doc = textDocument()) {
+        doc->setBaseUrl(QUrl(fileUrl).adjusted(QUrl::RemoveFilename));
+        Q_EMIT loaded(QString::fromUtf8(data), Qt::MarkdownText);
+        doc->setModified(false);
+    }
+
+    QSet<int> cursorPositionsToSkip;
+    QTextBlock currentBlock = textDocument()->begin();
+    QTextBlock::iterator it;
+    while (currentBlock.isValid()) {
+        for (it = currentBlock.begin(); !it.atEnd(); ++it) {
+            QTextFragment fragment = it.fragment();
+            if (fragment.isValid()) {
+                QTextImageFormat imageFormat = fragment.charFormat().toImageFormat();
+                if (imageFormat.isValid()) {
+                    int pos = fragment.position();
+                    if (!cursorPositionsToSkip.contains(pos)) {
+                        QTextCursor cursor(textDocument());
+                        cursor.setPosition(pos);
+                        cursor.setPosition(pos + 1, QTextCursor::KeepAnchor);
+                        cursor.removeSelectedText();
+
+                        cursor.insertHtml(u"<img width=\"500\" src=\""_s + imageFormat.name() + u"\"\\>"_s);
+                        // The textfragment iterator is now invalid, restart from the beginning
+                        // Take care not to replace the same fragment again, or we would be in
+                        // an infinite loop.
+                        cursorPositionsToSkip.insert(pos);
+                        // it = currentBlock.begin();
+                    }
+                }
+            }
+        }
+
+        currentBlock = currentBlock.next();
+    }
+
+    reset();
 }
 
-void DocumentHandler::saveAs(const QUrl &fileUrl)
+void DocumentHandler::saveAs(const QString &fileUrl)
 {
     QTextDocument *doc = textDocument();
     if (!doc)
         return;
 
-    const QString filePath = fileUrl.toLocalFile();
-    QFile file(filePath);
+    QFile file(fileUrl);
+
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
         Q_EMIT error(tr("Cannot save: ") + file.errorString());
         return;
