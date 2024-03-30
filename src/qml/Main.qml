@@ -40,12 +40,21 @@ Kirigami.ApplicationWindow {
 
     pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
 
+    NotebookMetadataDialog {
+        id: notebookMetadataDialog
+
+        model: noteBooksModel
+    }
+
     globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
 
         Shortcut {
             sequence: "Ctrl+Shift+N"
-            onActivated: addNotebookDialog.open()
+            onActivated: {
+                notebookMetadataDialog.mode = NotebookMetadataDialog.Mode.Add;
+                notebookMetadataDialog.open();
+            }
         }
 
         NoteBooksModel {
@@ -85,12 +94,6 @@ Kirigami.ApplicationWindow {
                         Layout.alignment: Qt.AlignHCenter
                         icon.name: "application-menu"
                         onClicked: optionPopup.popup()
-
-                        NotebookMetadataDialog {
-                            id: notebookMetadataDialog
-
-                            model: noteBooksModel
-                        }
 
                         Controls.Menu {
                             id: optionPopup

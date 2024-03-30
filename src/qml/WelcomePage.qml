@@ -14,11 +14,11 @@ Kirigami.Page {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
 
-    AddNotebookDialog {
-        id: addNotebookDialog
-        model: root.model
-    }
+    NotebookMetadataDialog {
+        id: notebookMetadataDialog
 
+        model: noteBooksModel
+    }
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
@@ -27,7 +27,10 @@ Kirigami.Page {
         helpfulAction: Kirigami.Action {
             icon.name: "list-add"
             text: i18n("Add Notebook")
-            onTriggered: addNotebookDialog.open()
+            onTriggered: {
+                notebookMetadataDialog.mode = NotebookMetadataDialog.Mode.Add;
+                notebookMetadataDialog.open();
+            }
         }
     }
 }
