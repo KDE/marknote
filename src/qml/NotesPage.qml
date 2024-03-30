@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import org.kde.kitemmodels
 import org.kde.marknote
 import org.kde.kirigamiaddons.delegates as Delegates
+import org.kde.kirigamiaddons.components as Components
 
 import "components"
 
@@ -155,30 +156,34 @@ Kirigami.ScrollablePage {
         model: notesModel
     }
 
-    Kirigami.Dialog {
+    Components.MessageDialog {
         id: removeDialog
 
         property string notePath
         property string noteName
 
-        standardButtons: Kirigami.Dialog.Yes | Kirigami.Dialog.Cancel
-        title: i18n("Delete Note")
-
+        dialogType: Components.MessageDialog.Warning
+        width: Math.min(parent.width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 20)
+        height: implicitHeight
+        title: i18nc("@title:window", "Delete Note")
         onRejected: close()
         onAccepted: notesModel.deleteNote(notePath)
+        standardButtons: Dialog.Yes | Dialog.Cancel
 
-        RowLayout {
-            Kirigami.Icon {
-                source: "dialog-warning"
-                Layout.margins: Kirigami.Units.largeSpacing
-            }
+        contentItem: Label {
+            Layout.fillWidth: true
+            Layout.margins: Kirigami.Units.largeSpacing
+            text: i18n("Are you sure you want to delete the note <b> %1 </b>?", removeDialog.noteName)
+            wrapMode: Text.WordWrap
+        }
 
-            Label {
-                Layout.fillWidth: true
-                Layout.margins: Kirigami.Units.largeSpacing
-                text: i18n("Are you sure you want to delete the note <b> %1 </b>?", removeDialog.noteName)
-                wrapMode: Text.WordWrap
-            }
+        footer: DialogButtonBox {
+            leftPadding: Kirigami.Units.largeSpacing * 2
+            rightPadding: Kirigami.Units.largeSpacing * 2
+            bottomPadding: Kirigami.Units.largeSpacing * 2
+            topPadding: Kirigami.Units.largeSpacing * 2
+
+            standardButtons: removeDialog.standardButtons
         }
     }
 
