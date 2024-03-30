@@ -35,60 +35,28 @@
   <name xml:lang="x-test">xxMarkNotexx</name>
   <name xml:lang="zh-TW">MarkNote</name>
   <summary>Write down your thoughts</summary>
-  <summary xml:lang="ca">Aplicació de presa de notes</summary>
-  <summary xml:lang="ca-valencia">Aplicació de presa de notes</summary>
-  <summary xml:lang="de">Notiz-Anwendung</summary>
-  <summary xml:lang="en-GB">Note taking application</summary>
-  <summary xml:lang="eo">Notprena aplikaĵo</summary>
-  <summary xml:lang="es">Aplicación para tomar notas</summary>
-  <summary xml:lang="eu">Oharrak hartzeko aplikazioa</summary>
-  <summary xml:lang="fi">Sovellus</summary>
-  <summary xml:lang="fr">Application de prise de note</summary>
-  <summary xml:lang="gl">Aplicación para tomar notas.</summary>
-  <summary xml:lang="ia">Application per prender notas</summary>
-  <summary xml:lang="it">Applicazione per prendere appunti</summary>
-  <summary xml:lang="ka">შენიშვნების აპლიკაცია</summary>
-  <summary xml:lang="ko">메모 작성 프로그램</summary>
-  <summary xml:lang="lv">Piezīmju programma</summary>
-  <summary xml:lang="nl">Toepassing voor maken van notities</summary>
-  <summary xml:lang="nn">Notatverktøy</summary>
-  <summary xml:lang="pl">Aplikacja do notatek</summary>
-  <summary xml:lang="pt">Aplicação para tirar notas</summary>
-  <summary xml:lang="sl">Aplikacija za zbiranje zapiskov</summary>
-  <summary xml:lang="sv">Anteckningsprogram</summary>
-  <summary xml:lang="tr">Not alma uygulaması</summary>
-  <summary xml:lang="uk">Програма для роботи з нотатками</summary>
-  <summary xml:lang="x-test">xxNote taking applicationxx</summary>
-  <summary xml:lang="zh-TW">筆記本應用程式</summary>
-
   <description>
     <p>Marknote lets you create rich text notes and easily organise them into notebooks. You can personalise your notebooks by choosing an icon and accent color for each one, making it easy to distinguish between them and keep your notes at your fingertips. Your notes are saved as Markdown files in your Documents folder, making it easy to use your notes outside of Marknote as well as inside the app.</p>
   </description>
-
   <url type="homepage">https://apps.kde.org/marknote</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=Marknote</url>
   <url type="vcs-browser">https://invent.kde.org/office/marknote</url>
   <url type="donation">https://kde.org/community/donations/?app=marknote</url>
   <url type="contribute">https://community.kde.org/Get_Involved/</url>
-
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
-  <content_rating type="oars-1.1" />
-
+  <content_rating type="oars-1.1"/>
   <categories>
     <category>Office</category>
   </categories>
-
   <keywords>
     <keyword>Markdown</keyword>
     <keyword>Kirigami</keyword>
     <keyword>Qt</keyword>
   </keywords>
-
   <provides>
     <binary>marknote</binary>
   </provides>
-
   <releases>
     <release version="1.0.0" date="2024-03-29">
       <url>https://blogs.kde.org/2024/03/29/marknote-finally-released/</url>
@@ -98,21 +66,17 @@
       </description>
     </release>
   </releases>
-
   <launchable type="desktop-id">org.kde.marknote.desktop</launchable>
-
   <developer id="org.kde">
     <name translate="no">KDE</name>
     <url>https://kde.org</url>
   </developer>
-
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/marknote/marknote.png</image>
-      <caption></caption>
+      <caption/>
     </screenshot>
   </screenshots>
-
   <branding>
     <color type="primary" scheme_preference="light">#c7f4e7</color>
     <color type="primary" scheme_preference="dark">#08342b</color>
