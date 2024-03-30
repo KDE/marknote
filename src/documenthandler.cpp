@@ -615,3 +615,31 @@ void DocumentHandler::insertImage(const QUrl &url)
 
     textCursor().insertHtml(u"<img width=\"500\" src=\""_s + url.path() + u"\"\\>"_s);
 }
+
+void DocumentHandler::setCheckable(bool add)
+{
+    QTextBlockFormat fmt;
+    fmt.setMarker(add ? QTextBlockFormat::MarkerType::Unchecked : QTextBlockFormat::MarkerType::NoMarker);
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+    if (add && !cursor.currentList()) {
+        // Checkbox only works with lists, so if we are not at list, add a new one
+        setListStyle(1);
+    } else if (!add && cursor.currentList() && cursor.currentList()->count() == 1) {
+        // If this is a single-element list with a checkbox, and user disables
+        // a checkbox, assume user don't want a list too
+        // (so when cursor is not on a list, and enables checkbox and disables
+        // it right after, he returns to the same state with no list)
+        setListStyle(0);
+    }
+    cursor.mergeBlockFormat(fmt);
+    cursor.endEditBlock();
+
+    Q_EMIT checkableChanged();
+}
+
+bool DocumentHandler::checkable() const
+{
+    return textCursor().blockFormat().marker() == QTextBlockFormat::MarkerType::Unchecked
+        || textCursor().blockFormat().marker() == QTextBlockFormat::MarkerType::Checked;
+}

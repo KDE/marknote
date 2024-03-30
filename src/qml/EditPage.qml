@@ -215,6 +215,21 @@ Kirigami.Page {
                 }
 
                 ToolButton {
+                    id: checkboxAction
+                    icon.name: "checkbox-symbolic"
+                    text: i18nc("@action:button", "Insert checkbox")
+                    display: AbstractButton.IconOnly
+                    checkable: true
+                    onClicked: {
+                        document.checkable = !document.checkable;
+                    }
+
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+
+                ToolButton {
                     id: linkAction
                     icon.name: "insert-link-symbolic"
                     text: i18nc("@action:button", "Insert link")
@@ -336,9 +351,14 @@ Kirigami.Page {
                 Component.onCompleted: document.load(root.path)
                 Component.onDestruction: document.saveAs(root.path)
 
+                onCheckableChanged: {
+                    checkboxAction.checked = document.checkable;
+                }
+
                 onCursorPositionChanged: {
                     indentAction.enabled = document.canIndentList;
                     dedentAction.enabled = document.canDedentList;
+                    checkboxAction.checked = document.checkable;
 
                     if (document.currentListStyle === 0) {
                         listStyleComboBox.currentIndex = 0;

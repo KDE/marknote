@@ -32,6 +32,7 @@ class DocumentHandler : public QObject
     Q_PROPERTY(bool italic READ italic WRITE setItalic NOTIFY italicChanged)
     Q_PROPERTY(bool underline READ underline WRITE setUnderline NOTIFY underlineChanged)
     Q_PROPERTY(bool strikethrough READ strikethrough WRITE setStrikethrough NOTIFY strikethroughChanged)
+    Q_PROPERTY(bool checkable READ checkable WRITE setCheckable NOTIFY checkableChanged)
 
     Q_PROPERTY(bool canIndentList READ canIndentList NOTIFY cursorPositionChanged)
     Q_PROPERTY(bool canDedentList READ canDedentList NOTIFY cursorPositionChanged)
@@ -84,6 +85,9 @@ public:
     bool strikethrough() const;
     void setStrikethrough(bool strikethrough);
 
+    bool checkable() const;
+    void setCheckable(bool checkable);
+
     bool canIndentList() const;
     bool canDedentList() const;
     int currentListStyle() const;
@@ -131,6 +135,7 @@ Q_SIGNALS:
     void boldChanged();
     void italicChanged();
     void underlineChanged();
+    void checkableChanged();
     void strikethroughChanged();
 
     // void listChanged();
