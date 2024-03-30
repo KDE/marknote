@@ -76,7 +76,7 @@ Kirigami.ApplicationWindow {
 
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
         modal: !wideScreen
-        width: 60
+        width: 80
         leftPadding: 0
         rightPadding: 0
         topPadding: 0
@@ -157,11 +157,22 @@ Kirigami.ApplicationWindow {
                     required property string iconName
                     required property string color
 
-                    implicitHeight: 50
+                    width: parent.width
                     icon.name: iconName
                     text: name
-                    contentItem: Kirigami.Icon {
-                        source: delegateItem.icon.name
+                    contentItem: ColumnLayout {
+                        Kirigami.Icon {
+                            source: delegateItem.icon.name
+                            Layout.alignment: Qt.AlignHCenter
+                        }
+
+                        Controls.Label {
+                            text: delegateItem.name
+                            horizontalAlignment: Qt.AlignHCenter
+                            elide: Text.ElideRight
+
+                            Layout.fillWidth: true
+                        }
                     }
                     onClicked: {
                         Kirigami.Theme.highlightColor = delegateItem.color
