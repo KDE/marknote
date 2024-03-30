@@ -215,8 +215,9 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     RowLayout {
-                        Layout.fillWidth: true
                         id: renameLayout
+                        Layout.leftMargin: 0
+                        Layout.fillWidth: true
                         visible: false
                         TextField {
                             Layout.fillWidth: true
@@ -231,6 +232,7 @@ Kirigami.ScrollablePage {
                     }
                     Label {
                         id:nameLabel
+                        Layout.leftMargin: Kirigami.Units.mediumSpacing
                         Layout.topMargin: 7
                         Layout.bottomMargin: 7
                         text: name
@@ -238,9 +240,11 @@ Kirigami.ScrollablePage {
                         elide: Qt.ElideRight
                     }
                     Label {
+                        Layout.leftMargin: Kirigami.Units.mediumSpacing
                         text: Qt.formatDateTime(date, Qt.SystemLocaleDate)
                         color: Kirigami.Theme.disabledTextColor
                         Layout.fillWidth: true
+                        Layout.bottomMargin: Kirigami.Units.smallSpacing
                         elide: Qt.ElideRight
 
                     }
