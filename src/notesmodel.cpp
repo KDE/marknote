@@ -24,7 +24,7 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
     case Role::Path:
         return QUrl::fromLocalFile(directory.entryInfoList(QDir::Files).at(index.row()).filePath());
     case Role::Date:
-        return directory.entryInfoList(QDir::Files).at(index.row()).birthTime();
+        return directory.entryInfoList(QDir::Files).at(index.row()).lastModified(QTimeZone::LocalTime);
     case Role::Name:
         return directory.entryInfoList(QDir::Files).at(index.row()).fileName().replace(QStringLiteral(".md"), QString());
     }
