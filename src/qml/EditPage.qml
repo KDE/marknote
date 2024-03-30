@@ -337,6 +337,7 @@ Kirigami.Page {
                 id: document
 
                 document: textArea.textDocument
+                textArea: textArea
                 cursorPosition: textArea.cursorPosition
                 selectionStart: textArea.selectionStart
                 selectionEnd: textArea.selectionEnd
@@ -347,6 +348,12 @@ Kirigami.Page {
                 onError: (message) => {
                     print(message)
                 }
+
+                onCopy: textArea.copy();
+                onPaste: textArea.paste();
+                onCut: textArea.cut();
+                onUndo: textArea.undo();
+                onRedo: textArea.redo();
 
                 Component.onCompleted: document.load(root.path)
                 Component.onDestruction: document.saveAs(root.path)

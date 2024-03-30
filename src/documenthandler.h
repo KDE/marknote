@@ -4,6 +4,10 @@
 #ifndef DOCUMENTHANDLER_H
 #define DOCUMENTHANDLER_H
 
+#define protected public
+#include <QQuickItem>
+#undef protected
+
 #include "nestedlisthelper_p.h"
 #include <QFont>
 #include <QObject>
@@ -20,6 +24,7 @@ class DocumentHandler : public QObject
     QML_ELEMENT
 
     Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
+    Q_PROPERTY(QQuickItem *textArea READ textArea WRITE setTextArea NOTIFY textAreaChanged)
     Q_PROPERTY(int cursorPosition READ cursorPosition WRITE setCursorPosition NOTIFY cursorPositionChanged)
     Q_PROPERTY(int selectionStart READ selectionStart WRITE setSelectionStart NOTIFY selectionStartChanged)
     Q_PROPERTY(int selectionEnd READ selectionEnd WRITE setSelectionEnd NOTIFY selectionEndChanged)
@@ -54,6 +59,9 @@ public:
 
     QQuickTextDocument *document() const;
     void setDocument(QQuickTextDocument *document);
+
+    QQuickItem *textArea() const;
+    void setTextArea(QQuickItem *textArea);
 
     int cursorPosition() const;
     void setCursorPosition(int position);
@@ -124,6 +132,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void documentChanged();
+    void textAreaChanged();
     void cursorPositionChanged();
     void selectionStartChanged();
     void selectionEndChanged();
@@ -150,6 +159,17 @@ Q_SIGNALS:
 
     void modifiedChanged();
 
+    void focusUp();
+    void focusDown();
+    void copy();
+    void paste();
+    void cut();
+    void undo();
+    void redo();
+
+protected:
+    bool eventFilter(QObject *object, QEvent *event) override;
+
 private:
     void reset();
     QTextCursor textCursor() const;
@@ -157,10 +177,20 @@ private:
     QTextDocument *textDocument() const;
     void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
     QColor linkColor();
+    void evaluateReturnKeySupport(QKeyEvent *event);
+    void evaluateListSupport(QKeyEvent *event);
+    bool handleShortcut(QKeyEvent *event);
+    bool processKeyEvent(QKeyEvent *event);
+    void moveLineUpDown(bool moveUp);
+    void moveCursorBeginUpDown(bool moveUp);
+
+    void deleteWordBack();
+    void deleteWordForward();
 
     void regenerateColorScheme();
 
     QQuickTextDocument *m_document;
+    QQuickItem *m_textArea;
     QColor mLinkColor;
 
     int m_cursorPosition;

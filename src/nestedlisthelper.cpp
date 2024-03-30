@@ -92,6 +92,7 @@ bool NestedListHelper::handleAfterKeyPressEvent(QKeyEvent *event, const QTextCur
             if (currentBlock.next().textList()) {
                 reformatList(cursor.block());
             }
+            reformatList(cursor.block());
 
             // No need to reformatList in this case. reformatList is slow.
             if ((event->key() == Qt::Key_Return) || (event->key() == Qt::Key_Backspace)) {

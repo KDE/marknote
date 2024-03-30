@@ -1,15 +1,20 @@
 // SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
-// SPDX-License-Identifier: BSD-3-Clause
+// SPDX-FileCopyrightText: 2015-2024 Laurent Montel <montel@kde.org>
+// SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
+// SPDX-License-Identifier: BSD-3-Clause AND LGPL-2.0-or-later
 
 #include "documenthandler.h"
 
 #include <KColorScheme>
 #include <KLocalizedString>
+#include <KStandardShortcut>
 
+#include <QClipboard>
 #include <QDebug>
 #include <QFile>
 #include <QFileInfo>
 #include <QFileSelector>
+#include <QGuiApplication>
 #include <QMimeDatabase>
 #include <QPalette>
 #include <QQmlFile>
@@ -28,6 +33,37 @@ DocumentHandler::DocumentHandler(QObject *parent)
     , m_selectionStart(0)
     , m_selectionEnd(0)
 {
+}
+
+QQuickItem *DocumentHandler::textArea() const
+{
+    return m_textArea;
+}
+
+void DocumentHandler::setTextArea(QQuickItem *textArea)
+{
+    if (textArea == m_textArea)
+        return;
+
+    if (m_textArea)
+        m_textArea->removeEventFilter(this);
+
+    m_textArea = textArea;
+
+    if (m_textArea)
+        m_textArea->installEventFilter(this);
+
+    Q_EMIT textAreaChanged();
+}
+
+bool DocumentHandler::eventFilter(QObject *object, QEvent *event)
+{
+    if (object == m_textArea && event->type() == QEvent::KeyPress) {
+        processKeyEvent(static_cast<QKeyEvent *>(event));
+        event->ignore();
+        return true;
+    }
+    return false;
 }
 
 QQuickTextDocument *DocumentHandler::document() const
@@ -642,4 +678,305 @@ bool DocumentHandler::checkable() const
 {
     return textCursor().blockFormat().marker() == QTextBlockFormat::MarkerType::Unchecked
         || textCursor().blockFormat().marker() == QTextBlockFormat::MarkerType::Checked;
+}
+
+void DocumentHandler::evaluateReturnKeySupport(QKeyEvent *event)
+{
+    if (event->key() != Qt::Key_Return) {
+        evaluateListSupport(event);
+        return;
+    }
+
+    QTextCursor cursor = textCursor();
+    const int oldPos = cursor.position();
+    const int blockPos = cursor.block().position();
+
+    // selection all the line.
+    cursor.movePosition(QTextCursor::StartOfBlock);
+    cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
+    QString lineText = cursor.selectedText();
+    if (((oldPos - blockPos) > 0) && ((oldPos - blockPos) < int(lineText.length()))) {
+        bool isQuotedLine = false;
+        int bot = 0; // bot = begin of text after quote indicators
+        while (bot < lineText.length()) {
+            if ((lineText[bot] == QChar::fromLatin1('>')) || (lineText[bot] == QChar::fromLatin1('|'))) {
+                isQuotedLine = true;
+                ++bot;
+            } else if (lineText[bot].isSpace()) {
+                ++bot;
+            } else {
+                break;
+            }
+        }
+        evaluateListSupport(event);
+        // duplicate quote indicators of the previous line before the new
+        // line if the line actually contained text (apart from the quote
+        // indicators) and the cursor is behind the quote indicators
+        if (isQuotedLine && (bot != lineText.length()) && ((oldPos - blockPos) >= int(bot))) {
+            // The cursor position might have changed unpredictably if there was selected
+            // text which got replaced by a new line, so we query it again:
+            cursor.movePosition(QTextCursor::StartOfBlock);
+            cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
+            QString newLine = cursor.selectedText();
+
+            // remove leading white space from the new line and instead
+            // add the quote indicators of the previous line
+            int leadingWhiteSpaceCount = 0;
+            while ((leadingWhiteSpaceCount < newLine.length()) && newLine[leadingWhiteSpaceCount].isSpace()) {
+                ++leadingWhiteSpaceCount;
+            }
+            newLine.replace(0, leadingWhiteSpaceCount, lineText.left(bot));
+            cursor.insertText(newLine);
+            // cursor.setPosition( cursor.position() + 2 );
+            cursor.movePosition(QTextCursor::StartOfBlock);
+            setCursorPosition(cursor.position());
+        }
+    } else {
+        evaluateListSupport(event);
+    }
+}
+
+void DocumentHandler::evaluateListSupport(QKeyEvent *event)
+{
+    bool handled = false;
+    if (textCursor().currentList()) {
+        // handled is False if the key press event was not handled or not completely
+        // handled by the Helper class.
+        handled = m_nestedListHelper.handleBeforeKeyPressEvent(event, textCursor());
+    }
+
+    // If a line was merged with previous (next) one, with different heading level,
+    // the style should also be adjusted accordingly (i.e. merged)
+    if ((event->key() == Qt::Key_Backspace && textCursor().atBlockStart()
+         && (textCursor().blockFormat().headingLevel() != textCursor().block().previous().blockFormat().headingLevel()))
+        || (event->key() == Qt::Key_Delete && textCursor().atBlockEnd()
+            && (textCursor().blockFormat().headingLevel() != textCursor().block().next().blockFormat().headingLevel()))) {
+        QTextCursor cursor = textCursor();
+        cursor.beginEditBlock();
+        if (event->key() == Qt::Key_Delete) {
+            cursor.deleteChar();
+        } else {
+            cursor.deletePreviousChar();
+        }
+        setHeadingLevel(cursor.blockFormat().headingLevel());
+        cursor.endEditBlock();
+        handled = true;
+    }
+
+    if (!handled) {
+        const bool isControlClicked = event->modifiers() & Qt::ControlModifier;
+        const bool isShiftClicked = event->modifiers() & Qt::ShiftModifier;
+        if (handleShortcut(event)) {
+            event->accept();
+        } else if (event->key() == Qt::Key_Up && isControlClicked && isShiftClicked) {
+            moveLineUpDown(true);
+            event->accept();
+        } else if (event->key() == Qt::Key_Down && isControlClicked && isShiftClicked) {
+            moveLineUpDown(false);
+            event->accept();
+        } else if (event->key() == Qt::Key_Up && isControlClicked) {
+            moveCursorBeginUpDown(true);
+            event->accept();
+        } else if (event->key() == Qt::Key_Down && isControlClicked) {
+            moveCursorBeginUpDown(false);
+            event->accept();
+        } else {
+            m_textArea->keyPressEvent(event);
+        }
+    }
+
+    // Match the behavior of office suites: newline after header switches to normal text
+    if ((event->key() == Qt::Key_Return) && (textCursor().blockFormat().headingLevel() > 0) && (textCursor().atBlockEnd())) {
+        // it should be undoable together with actual "return" keypress
+        textCursor().joinPreviousEditBlock();
+        setHeadingLevel(0);
+        textCursor().endEditBlock();
+    }
+
+    if (textCursor().currentList()) {
+        m_nestedListHelper.handleAfterKeyPressEvent(event, textCursor());
+    }
+    Q_EMIT cursorPositionChanged();
+}
+
+bool DocumentHandler::processKeyEvent(QKeyEvent *e)
+{
+    if (e->key() == Qt::Key_Up && e->modifiers() != Qt::ShiftModifier && textCursor().block().position() == 0
+        && textCursor().block().layout()->lineForTextPosition(textCursor().position()).lineNumber() == 0) {
+        textCursor().clearSelection();
+        Q_EMIT focusUp();
+    } else if (e->key() == Qt::Key_Backtab && e->modifiers() == Qt::ShiftModifier) {
+        textCursor().clearSelection();
+        Q_EMIT focusUp();
+    } else {
+        evaluateReturnKeySupport(e);
+    }
+    return true;
+}
+
+bool DocumentHandler::handleShortcut(QKeyEvent *event)
+{
+    const int key = event->key() | event->modifiers();
+
+    if (KStandardShortcut::copy().contains(key)) {
+        copy();
+        return true;
+    } else if (KStandardShortcut::paste().contains(key)) {
+        paste();
+        return true;
+    } else if (KStandardShortcut::cut().contains(key)) {
+        cut();
+        return true;
+    } else if (KStandardShortcut::undo().contains(key)) {
+        undo();
+        return true;
+    } else if (KStandardShortcut::redo().contains(key)) {
+        redo();
+        return true;
+    } else if (KStandardShortcut::deleteWordBack().contains(key)) {
+        deleteWordBack();
+        return true;
+    } else if (KStandardShortcut::deleteWordForward().contains(key)) {
+        deleteWordForward();
+        return true;
+    } else if (KStandardShortcut::backwardWord().contains(key)) {
+        QTextCursor cursor = textCursor();
+        cursor.movePosition(QTextCursor::PreviousWord);
+        setCursorPosition(cursor.position());
+        return true;
+    } else if (KStandardShortcut::forwardWord().contains(key)) {
+        QTextCursor cursor = textCursor();
+        cursor.movePosition(QTextCursor::NextWord);
+        setCursorPosition(cursor.position());
+        return true;
+    } else if (KStandardShortcut::begin().contains(key)) {
+        QTextCursor cursor = textCursor();
+        cursor.movePosition(QTextCursor::Start);
+        setCursorPosition(cursor.position());
+        return true;
+    } else if (KStandardShortcut::end().contains(key)) {
+        QTextCursor cursor = textCursor();
+        cursor.movePosition(QTextCursor::End);
+        setCursorPosition(cursor.position());
+        return true;
+    } else if (KStandardShortcut::beginningOfLine().contains(key)) {
+        QTextCursor cursor = textCursor();
+        cursor.movePosition(QTextCursor::StartOfLine);
+        setCursorPosition(cursor.position());
+        return true;
+    } else if (KStandardShortcut::endOfLine().contains(key)) {
+        QTextCursor cursor = textCursor();
+        cursor.movePosition(QTextCursor::EndOfLine);
+        setCursorPosition(cursor.position());
+        return true;
+        //} else if (searchSupport() && KStandardShortcut::find().contains(key)) {
+        //    Q_EMIT findText();
+        //    return true;
+        //} else if (searchSupport() && KStandardShortcut::replace().contains(key)) {
+        //    if (!isReadOnly()) {
+        //        Q_EMIT replaceText();
+        //    }
+        //    return true;
+    } else if (KStandardShortcut::pasteSelection().contains(key)) {
+        QString text = QGuiApplication::clipboard()->text(QClipboard::Selection);
+        if (!text.isEmpty()) {
+            textCursor().insertText(text); // TODO: check if this is html? (MiB)
+        }
+        return true;
+    } else if (event == QKeySequence::DeleteEndOfLine) {
+        QTextCursor cursor = textCursor();
+        QTextBlock block = cursor.block();
+        if (cursor.position() == block.position() + block.length() - 2) {
+            cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor);
+        } else {
+            cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
+        }
+        cursor.removeSelectedText();
+        setCursorPosition(cursor.position());
+        return true;
+    }
+
+    return false;
+}
+
+void DocumentHandler::moveCursorBeginUpDown(bool moveUp)
+{
+    QTextCursor cursor = textCursor();
+    QTextCursor move = cursor;
+    move.beginEditBlock();
+    cursor.clearSelection();
+    move.movePosition(QTextCursor::StartOfBlock);
+    move.movePosition(moveUp ? QTextCursor::PreviousBlock : QTextCursor::NextBlock);
+    move.endEditBlock();
+    setCursorPosition(move.position());
+}
+
+void DocumentHandler::moveLineUpDown(bool moveUp)
+{
+    QTextCursor cursor = textCursor();
+    QTextCursor move = cursor;
+    move.beginEditBlock();
+
+    const bool hasSelection = cursor.hasSelection();
+
+    if (hasSelection) {
+        move.setPosition(cursor.selectionStart());
+        move.movePosition(QTextCursor::StartOfBlock);
+        move.setPosition(cursor.selectionEnd(), QTextCursor::KeepAnchor);
+        move.movePosition(move.atBlockStart() ? QTextCursor::Left : QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
+    } else {
+        move.movePosition(QTextCursor::StartOfBlock);
+        move.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
+    }
+    const QString text = move.selectedText();
+
+    move.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor);
+    move.removeSelectedText();
+
+    if (moveUp) {
+        move.movePosition(QTextCursor::PreviousBlock);
+        move.insertBlock();
+        move.movePosition(QTextCursor::Left);
+    } else {
+        move.movePosition(QTextCursor::EndOfBlock);
+        if (move.atBlockStart()) { // empty block
+            move.movePosition(QTextCursor::NextBlock);
+            move.insertBlock();
+            move.movePosition(QTextCursor::Left);
+        } else {
+            move.insertBlock();
+        }
+    }
+
+    int start = move.position();
+    move.clearSelection();
+    move.insertText(text);
+    int end = move.position();
+
+    if (hasSelection) {
+        move.setPosition(end);
+        move.setPosition(start, QTextCursor::KeepAnchor);
+    } else {
+        move.setPosition(start);
+    }
+    move.endEditBlock();
+
+    setCursorPosition(move.position());
+}
+
+static void deleteWord(QTextCursor cursor, QTextCursor::MoveOperation op)
+{
+    cursor.clearSelection();
+    cursor.movePosition(op, QTextCursor::KeepAnchor);
+    cursor.removeSelectedText();
+}
+
+void DocumentHandler::deleteWordBack()
+{
+    deleteWord(textCursor(), QTextCursor::PreviousWord);
+}
+
+void DocumentHandler::deleteWordForward()
+{
+    deleteWord(textCursor(), QTextCursor::WordRight);
 }
