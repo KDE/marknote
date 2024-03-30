@@ -323,12 +323,17 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            onClicked: pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"), {
-                path: path,
-                name: name,
-                objectName: name
-            })
-            highlighted: pageStack.currentItem && pageStack.currentItem.objectName === name
+            onClicked: {
+                if (highlighted) {
+                    return;
+                }
+                let item = pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"), {
+                    path: path,
+                    name: name,
+                    objectName: name,
+                });
+            }
+            highlighted: pageStack.lastItem && pageStack.lastItem.objectName === name
             topPadding: Kirigami.Units.mediumSpacing
             bottomPadding: Kirigami.Units.mediumSpacing
         }

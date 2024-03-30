@@ -175,8 +175,13 @@ Kirigami.ApplicationWindow {
                         }
                     }
                     onClicked: {
-                        Kirigami.Theme.highlightColor = delegateItem.color
-                        console.log(delegateItem.color)
+                        if (currentNotebook === delegateItem.name) {
+                            return;
+                        }
+                        if (delegateItem.color !== '#000000') {
+                            Kirigami.Theme.highlightColor = delegateItem.color
+                            console.log(delegateItem.color)
+                        }
                         currentNotebook = delegateItem.name;
                         currentNotebookIndex = delegateItem.index;
                         pageStack.clear()
