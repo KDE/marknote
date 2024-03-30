@@ -26,10 +26,11 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void addNoteBook(const QString &name, const QString &icon, const QString &color);
-
+    Q_INVOKABLE void editNoteBook(int index, const QString &name, const QString &icon, const QString &color);
     Q_INVOKABLE void deleteNoteBook(const QString &name);
 
-    Q_INVOKABLE void renameNoteBook(const QUrl &path, const QString &name);
+Q_SIGNALS:
+    void noteBookRenamed(const QString &oldName, const QString &newName, int index);
 
 private:
     QDir directory;

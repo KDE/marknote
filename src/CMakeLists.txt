@@ -7,7 +7,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/Main.qml
         qml/NotesPage.qml
         qml/EditPage.qml
-        qml/AddNotebookDialog.qml
+        qml/NotebookMetadataDialog.qml
         qml/WelcomePage.qml
         qml/LinkDialog.qml
         qml/ImageDialog.qml

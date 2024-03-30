@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
+// SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick
@@ -15,8 +16,18 @@ import org.kde.kirigami as Kirigami
 Controls.Dialog {
     id: root
 
+    enum Mode {
+        Edit,
+        Add
+    }
+
+    property int index: -1
+    property int mode: NotebookMetadataDialog.Mode.Add
+    property alias name: nameInput.text
+    property alias iconName: buttonIcon.source
+    property alias color: colorRect.color
+
     property NoteBooksModel model
-    property string notebookColor
 
     parent: applicationWindow().overlay
 
@@ -25,7 +36,7 @@ Controls.Dialog {
 
     width: Math.min(parent.width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 15)
 
-    title: i18nc("@title:window", "New Notebook")
+    title: mode === NotebookMetadataDialog.Mode.Add ? i18nc("@title:window", "New Notebook") : i18nc("@title:window", "Edit Notebook")
 
     background: Components.DialogRoundedBackground {}
 
@@ -144,8 +155,9 @@ Controls.Dialog {
                 }
 
                 Rectangle {
+                    id: colorRect
                     radius: height
-                    color: root.notebookColor
+                    color: "transparent"
                     Layout.preferredWidth: Kirigami.Units.iconSizes.small
                     Layout.preferredHeight: Kirigami.Units.iconSizes.small
                     Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
@@ -163,7 +175,7 @@ Controls.Dialog {
             ColorDialog {
                 id: colorDialog
                 onAccepted: {
-                    root.notebookColor = colorDialog.color;
+                    root.colorRect.color = colorDialog.color;
                 }
             }
         }
@@ -178,16 +190,21 @@ Controls.Dialog {
         standardButtons: Controls.Dialog.Save | Controls.Dialog.Cancel
     }
 
-    onRejected: {
-        notebookColor = ""
-        nameInput.clear()
-        buttonIcon.source = "addressbook-details"
-
+    onClosed: {
+        color = "";
+        name = "";
+        iconName = "addressbook-details"
     }
 
     onAccepted: {
-        root.model.addNoteBook(nameInput.text, buttonIcon.source !== "" ? buttonIcon.source : "addressbook-details" , root.notebookColor)
-        close()
+        if (mode == NotebookMetadataDialog.Mode.Add) {
+            root.model.addNoteBook(root.name, root.iconName, root.color);
+        } else {
+            root.model.editNoteBook(root.index, root.name, root.iconName, root.color);
+        }
+
+        close();
+
         if (model.rowCount() === 1) {
             pageStack.clear()
             pageStack.replace([
@@ -198,8 +215,6 @@ Controls.Dialog {
                 notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
             });
         }
-        notebookColor = ""
-        nameInput.clear()
-        buttonIcon.source = "addressbook-details"
     }
+
 }

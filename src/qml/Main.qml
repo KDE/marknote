@@ -18,6 +18,7 @@ Kirigami.ApplicationWindow {
     property bool wideScreen: applicationWindow().width >= 600
     onWideScreenChanged: !wideScreen? drawer.close() : drawer.open()
     property string currentNotebook: noteBooksModel.rowCount() !== 0 ? noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name) : ""
+    property int currentNotebookIndex: noteBooksModel.rowCount() !== 0 ? 0 : -1
     pageStack.globalToolBar.canContainHandles: wideScreen
 
     function openBottomDrawer() {
@@ -46,8 +47,22 @@ Kirigami.ApplicationWindow {
             sequence: "Ctrl+Shift+N"
             onActivated: addNotebookDialog.open()
         }
+
         NoteBooksModel {
             id: noteBooksModel
+
+            onNoteBookRenamed: (oldName, newName, index) => {
+                if (currentNotebook === oldName) {
+                    pageStack.clear()
+                    pageStack.replace([
+                        Qt.createComponent("org.kde.marknote", "NotesPage"),
+                        Qt.createComponent("org.kde.marknote", "EditPage")
+                    ], {
+                        path: noteBooksModel.data(noteBooksModel.index(index, 0), NoteBooksModel.Path),
+                        notebookName: noteBooksModel.data(noteBooksModel.index(index, 0), NoteBooksModel.Name)
+                    });
+                }
+            }
         }
 
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -71,23 +86,36 @@ Kirigami.ApplicationWindow {
                         icon.name: "application-menu"
                         onClicked: optionPopup.popup()
 
-                        AddNotebookDialog {
-                            id: addNotebookDialog
+                        NotebookMetadataDialog {
+                            id: notebookMetadataDialog
+
                             model: noteBooksModel
                         }
+
                         Controls.Menu {
                             id: optionPopup
                             Controls.MenuItem {
-                                text: i18n("New Notebook")
-                                icon.name: "list-add"
-                                onTriggered: { addNotebookDialog.open() }
-
+                                text: i18nc("@action:inmenu", "New Notebook")
+                                icon.name: "list-add-symbolic"
+                                onTriggered: {
+                                    notebookMetadataDialog.mode = NotebookMetadataDialog.Mode.Add;
+                                    notebookMetadataDialog.open();
+                                }
                             }
-    //                        Controls.MenuItem {
-    //                            text: i18n("Edit Notebook")
-    //                            icon.name: "edit-entry"
 
-    //                        }
+                            Controls.MenuItem {
+                                text: i18nc("@action:inmenu", "Edit Notebook")
+                                icon.name: "edit-entry-symbolic"
+                                onTriggered: {
+                                    notebookMetadataDialog.mode = NotebookMetadataDialog.Mode.Edit;
+                                    notebookMetadataDialog.index = currentNotebookIndex;
+                                    notebookMetadataDialog.name = noteBooksModel.data(noteBooksModel.index(currentNotebookIndex, 0), NoteBooksModel.Name);
+                                    notebookMetadataDialog.iconName = noteBooksModel.data(noteBooksModel.index(currentNotebookIndex, 0), NoteBooksModel.Icon);
+                                    notebookMetadataDialog.color = noteBooksModel.data(noteBooksModel.index(currentNotebookIndex, 0), NoteBooksModel.Color);
+                                    notebookMetadataDialog.open();
+                                }
+                            }
+
                             Controls.MenuItem {
                                 text: i18n("Delete Notebook")
                                 icon.name: "delete"
@@ -120,10 +148,11 @@ Kirigami.ApplicationWindow {
                 delegate: Delegates.RoundedItemDelegate {
                     id: delegateItem
 
-                    required property string name;
-                    required property string path;
-                    required property string iconName;
-                    required property string color;
+                    required property int index
+                    required property string name
+                    required property string path
+                    required property string iconName
+                    required property string color
 
                     implicitHeight: 50
                     icon.name: iconName
@@ -134,14 +163,13 @@ Kirigami.ApplicationWindow {
                     onClicked: {
                         Kirigami.Theme.highlightColor = delegateItem.color
                         console.log(delegateItem.color)
-                        currentNotebook = delegateItem.name
+                        currentNotebook = delegateItem.name;
+                        currentNotebookIndex = delegateItem.index;
                         pageStack.clear()
                         pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"), {
                             path: delegateItem.path,
                             notebookName: delegateItem.name
-
-                            }
-                        )
+                        })
                     }
 
                     Layout.fillWidth: true
@@ -176,10 +204,13 @@ Kirigami.ApplicationWindow {
                 model: noteBooksModel
                 delegate: Kirigami.SwipeListItem {
                     id: drawerDelegateItem
+
+                    required property int index
                     required property string name;
                     required property string path;
                     required property string iconName;
                     required property string color;
+
                     Layout.fillWidth: true
                     alwaysVisibleActions:true
 
@@ -223,6 +254,7 @@ Kirigami.ApplicationWindow {
                         Kirigami.Theme.highlightColor = drawerDelegateItem.color
                         console.log(drawerDelegateItem.color)
                         currentNotebook = drawerDelegateItem.name
+                        currentNotebookIndex = drawerDelegateItem.index;
                         pageStack.clear()
                         pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"), {
                             path: drawerDelegateItem.path,
