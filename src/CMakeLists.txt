@@ -10,6 +10,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/AddNotebookDialog.qml
         qml/WelcomePage.qml
         qml/LinkDialog.qml
+        qml/ImageDialog.qml
         qml/components/ActionButton.qml
         qml/components/BottomDrawer.qml
         qml/components/DoubleActionButton.qml

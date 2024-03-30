@@ -106,6 +106,7 @@ public:
     Q_INVOKABLE QString currentLinkUrl() const;
     Q_INVOKABLE QString currentLinkText() const;
     Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
+    Q_INVOKABLE void insertImage(const QUrl &imagePath);
 
 public Q_SLOTS:
     void load(const QUrl &fileUrl);
@@ -160,6 +161,13 @@ private:
     int m_cursorPosition;
     int m_selectionStart;
     int m_selectionEnd;
+
+    /**
+     * The names of embedded images.
+     * Used to easily obtain the names of the images.
+     * New images are compared to the list and not added as resource if already present.
+     */
+    QStringList m_imageNames;
 
     QFont m_font;
     QUrl m_fileUrl;

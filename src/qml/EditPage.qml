@@ -44,9 +44,14 @@ Kirigami.Page {
         id: linkDialog
 
         parent: applicationWindow().overlay
-        visible: false
-
         onAccepted: document.updateLink(linkUrl, linkText)
+    }
+
+    ImageDialog {
+        id: imageDialog
+
+        parent: applicationWindow().overlay
+        onAccepted: document.insertImage(imagePath)
     }
 
     RowLayout {
@@ -212,12 +217,26 @@ Kirigami.Page {
                 ToolButton {
                     id: linkAction
                     icon.name: "insert-link-symbolic"
-                    text: i18nc("@action:button", "Link")
+                    text: i18nc("@action:button", "Insert link")
                     display: AbstractButton.IconOnly
                     onClicked: {
                         linkDialog.linkText = document.currentLinkText();
                         linkDialog.linkUrl = document.currentLinkUrl();
                         linkDialog.open();
+                    }
+
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+
+                ToolButton {
+                    id: imageAction
+                    icon.name: "insert-image-symbolic"
+                    text: i18nc("@action:button", "Insert image")
+                    display: AbstractButton.IconOnly
+                    onClicked: {
+                        imageDialog.open();
                     }
 
                     ToolTip.text: text

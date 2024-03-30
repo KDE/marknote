@@ -4,6 +4,8 @@
 #include "documenthandler.h"
 
 #include <KColorScheme>
+#include <KLocalizedString>
+
 #include <QDebug>
 #include <QFile>
 #include <QFileInfo>
@@ -16,6 +18,8 @@
 #include <QTextCharFormat>
 #include <QTextDocument>
 #include <QTextList>
+
+using namespace Qt::StringLiterals;
 
 DocumentHandler::DocumentHandler(QObject *parent)
     : QObject(parent)
@@ -41,6 +45,7 @@ void DocumentHandler::setDocument(QQuickTextDocument *document)
     m_document = document;
     if (m_document)
         connect(m_document->textDocument(), &QTextDocument::modificationChanged, this, &DocumentHandler::modifiedChanged);
+
     Q_EMIT documentChanged();
 }
 
@@ -272,6 +277,36 @@ void DocumentHandler::load(const QUrl &fileUrl)
                 doc->setBaseUrl(path.adjusted(QUrl::RemoveFilename));
                 Q_EMIT loaded(QString::fromUtf8(data), Qt::MarkdownText);
                 doc->setModified(false);
+            }
+
+            QSet<int> cursorPositionsToSkip;
+            QTextBlock currentBlock = textDocument()->begin();
+            QTextBlock::iterator it;
+            while (currentBlock.isValid()) {
+                for (it = currentBlock.begin(); !it.atEnd(); ++it) {
+                    QTextFragment fragment = it.fragment();
+                    if (fragment.isValid()) {
+                        QTextImageFormat imageFormat = fragment.charFormat().toImageFormat();
+                        if (imageFormat.isValid()) {
+                            int pos = fragment.position();
+                            if (!cursorPositionsToSkip.contains(pos)) {
+                                QTextCursor cursor(textDocument());
+                                cursor.setPosition(pos);
+                                cursor.setPosition(pos + 1, QTextCursor::KeepAnchor);
+                                cursor.removeSelectedText();
+
+                                cursor.insertHtml(u"<img width=\"500\" src=\""_s + imageFormat.name() + u"\"\\>"_s);
+                                // The textfragment iterator is now invalid, restart from the beginning
+                                // Take care not to replace the same fragment again, or we would be in
+                                // an infinite loop.
+                                cursorPositionsToSkip.insert(pos);
+                                // it = currentBlock.begin();
+                            }
+                        }
+                    }
+                }
+
+                currentBlock = currentBlock.next();
             }
 
             reset();
@@ -557,4 +592,26 @@ QColor DocumentHandler::linkColor()
     }
     regenerateColorScheme();
     return mLinkColor;
+}
+
+void DocumentHandler::insertImage(const QUrl &url)
+{
+    if (!url.isLocalFile()) {
+        return;
+    }
+
+    QImage image;
+    if (!image.load(url.path())) {
+        return;
+    }
+
+    // Ensure we are putting the image in a new line and not in a list has it
+    // breaks the Qt rendering
+    textCursor().insertHtml(u"<br />"_s);
+
+    while (canDedentList()) {
+        m_nestedListHelper.handleOnIndentLess(textCursor());
+    }
+
+    textCursor().insertHtml(u"<img width=\"500\" src=\""_s + url.path() + u"\"\\>"_s);
 }
