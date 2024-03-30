@@ -817,7 +817,7 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
         copy();
         return true;
     } else if (KStandardShortcut::paste().contains(key)) {
-        paste();
+        textCursor().insertText(QGuiApplication::clipboard()->text(QClipboard::Clipboard));
         return true;
     } else if (KStandardShortcut::cut().contains(key)) {
         cut();

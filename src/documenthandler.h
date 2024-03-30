@@ -162,7 +162,6 @@ Q_SIGNALS:
     void focusUp();
     void focusDown();
     void copy();
-    void paste();
     void cut();
     void undo();
     void redo();

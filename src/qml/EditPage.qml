@@ -350,7 +350,6 @@ Kirigami.Page {
                 }
 
                 onCopy: textArea.copy();
-                onPaste: textArea.paste();
                 onCut: textArea.cut();
                 onUndo: textArea.undo();
                 onRedo: textArea.redo();
