@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-15 00:38+0000\n"
+"POT-Creation-Date: 2024-03-30 00:37+0000\n"
 "PO-Revision-Date: 2024-03-16 08:01+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -73,133 +73,93 @@ msgctxt "@action:button"
 msgid "Bold"
 msgstr "Gras"
 
-#: qml/EditPage.qml:102
+#: qml/EditPage.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Italique"
 
-#: qml/EditPage.qml:117
+#: qml/EditPage.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Souligner"
 
-#: qml/EditPage.qml:127
+#: qml/EditPage.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Barré"
 
-#: qml/EditPage.qml:138
-#, kde-format
-msgctxt "@action:button"
-msgid "highlight"
-msgstr "mettre en valeur"
-
-#: qml/EditPage.qml:149
+#: qml/EditPage.qml:158
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Accroître le niveau de la liste"
 
-#: qml/EditPage.qml:159
+#: qml/EditPage.qml:172
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Réduire le niveau de la liste"
 
-#: qml/EditPage.qml:172
+#: qml/EditPage.qml:192
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Aucune liste"
 
-#: qml/EditPage.qml:173
-#, kde-format
-msgctxt "@item:inmenu disc list style"
-msgid "Disc"
-msgstr "Disque"
-
-#: qml/EditPage.qml:174
-#, kde-format
-msgctxt "@item:inmenu circle list style"
-msgid "Circle"
-msgstr "Cercle"
-
-#: qml/EditPage.qml:175
-#, kde-format
-msgctxt "@item:inmenu square list style"
-msgid "Square"
-msgstr "Carré"
-
-#: qml/EditPage.qml:176
-#, kde-format
-msgctxt "@item:inmenu numbered lists"
-msgid "123"
-msgstr "123"
-
-#: qml/EditPage.qml:177
-#, kde-format
-msgctxt "@item:inmenu lowercase abc lists"
-msgid "abc"
-msgstr "abc"
-
-#: qml/EditPage.qml:178
-#, kde-format
-msgctxt "@item:inmenu uppercase abc lists"
-msgid "ABC"
-msgstr "ABC"
-
-#: qml/EditPage.qml:179
-#, kde-format
-msgctxt "@item:inmenu lower case roman numerals"
-msgid "i ii iii"
-msgstr "i ii iii"
-
-#: qml/EditPage.qml:180
-#, kde-format
-msgctxt "@item:inmenu upper case roman numerals"
-msgid "I II III"
-msgstr "I II III"
-
 #: qml/EditPage.qml:193
+#, fuzzy, kde-format
+#| msgid "Add numbered list"
+msgctxt "@item:inmenu unordered style"
+msgid "Unordered list"
+msgstr "Ajouter une liste numérotée"
+
+#: qml/EditPage.qml:194
+#, fuzzy, kde-format
+#| msgid "Add numbered list"
+msgctxt "@item:inmenu ordered style"
+msgid "Ordered list"
+msgstr "Ajouter une liste numérotée"
+
+#: qml/EditPage.qml:207
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Texte standard"
 
-#: qml/EditPage.qml:194
+#: qml/EditPage.qml:208
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Titre"
 
-#: qml/EditPage.qml:195
+#: qml/EditPage.qml:209
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Sous-titre"
 
-#: qml/EditPage.qml:196
+#: qml/EditPage.qml:210
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Section"
 
-#: qml/EditPage.qml:197
+#: qml/EditPage.qml:211
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Sous-section"
 
-#: qml/EditPage.qml:198
+#: qml/EditPage.qml:212
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragraphe"
 
-#: qml/EditPage.qml:199
+#: qml/EditPage.qml:213
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
@@ -275,8 +235,41 @@ msgstr "Commencez par créer votre premier carnet de notes !"
 msgid "Add Notebook"
 msgstr "Ajouter un carnet de notes"
 
-#~ msgid "Add numbered list"
-#~ msgstr "Ajouter une liste numérotée"
+#~ msgctxt "@action:button"
+#~ msgid "highlight"
+#~ msgstr "mettre en valeur"
+
+#~ msgctxt "@item:inmenu disc list style"
+#~ msgid "Disc"
+#~ msgstr "Disque"
+
+#~ msgctxt "@item:inmenu circle list style"
+#~ msgid "Circle"
+#~ msgstr "Cercle"
+
+#~ msgctxt "@item:inmenu square list style"
+#~ msgid "Square"
+#~ msgstr "Carré"
+
+#~ msgctxt "@item:inmenu numbered lists"
+#~ msgid "123"
+#~ msgstr "123"
+
+#~ msgctxt "@item:inmenu lowercase abc lists"
+#~ msgid "abc"
+#~ msgstr "abc"
+
+#~ msgctxt "@item:inmenu uppercase abc lists"
+#~ msgid "ABC"
+#~ msgstr "ABC"
+
+#~ msgctxt "@item:inmenu lower case roman numerals"
+#~ msgid "i ii iii"
+#~ msgstr "i ii iii"
+
+#~ msgctxt "@item:inmenu upper case roman numerals"
+#~ msgid "I II III"
+#~ msgstr "I II III"
 
 #~ msgid "Heading %1"
 #~ msgstr "En-tête %1"

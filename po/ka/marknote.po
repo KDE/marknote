@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-15 00:38+0000\n"
+"POT-Creation-Date: 2024-03-30 00:37+0000\n"
 "PO-Revision-Date: 2024-03-15 04:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -76,133 +76,93 @@ msgctxt "@action:button"
 msgid "Bold"
 msgstr "გასქელება"
 
-#: qml/EditPage.qml:102
+#: qml/EditPage.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "დახრა"
 
-#: qml/EditPage.qml:117
+#: qml/EditPage.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "ხაზგასმული"
 
-#: qml/EditPage.qml:127
+#: qml/EditPage.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "ხაზგადასმული"
 
-#: qml/EditPage.qml:138
-#, kde-format
-msgctxt "@action:button"
-msgid "highlight"
-msgstr "გამოკვეთა"
-
-#: qml/EditPage.qml:149
+#: qml/EditPage.qml:158
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "დონის გაზრდა"
 
-#: qml/EditPage.qml:159
+#: qml/EditPage.qml:172
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "დონის შემცირება"
 
-#: qml/EditPage.qml:172
+#: qml/EditPage.qml:192
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "სიის გარეშე"
 
-#: qml/EditPage.qml:173
-#, kde-format
-msgctxt "@item:inmenu disc list style"
-msgid "Disc"
-msgstr "დისკი"
-
-#: qml/EditPage.qml:174
-#, kde-format
-msgctxt "@item:inmenu circle list style"
-msgid "Circle"
-msgstr "წრე"
-
-#: qml/EditPage.qml:175
-#, kde-format
-msgctxt "@item:inmenu square list style"
-msgid "Square"
-msgstr "კვადრატი"
-
-#: qml/EditPage.qml:176
-#, kde-format
-msgctxt "@item:inmenu numbered lists"
-msgid "123"
-msgstr "123"
-
-#: qml/EditPage.qml:177
-#, kde-format
-msgctxt "@item:inmenu lowercase abc lists"
-msgid "abc"
-msgstr "abc"
-
-#: qml/EditPage.qml:178
-#, kde-format
-msgctxt "@item:inmenu uppercase abc lists"
-msgid "ABC"
-msgstr "ABC"
-
-#: qml/EditPage.qml:179
-#, kde-format
-msgctxt "@item:inmenu lower case roman numerals"
-msgid "i ii iii"
-msgstr "i ii iii"
-
-#: qml/EditPage.qml:180
-#, kde-format
-msgctxt "@item:inmenu upper case roman numerals"
-msgid "I II III"
-msgstr "I II III"
-
 #: qml/EditPage.qml:193
+#, fuzzy, kde-format
+#| msgid "Add numbered list"
+msgctxt "@item:inmenu unordered style"
+msgid "Unordered list"
+msgstr "დანომრილი სიის დამატება"
+
+#: qml/EditPage.qml:194
+#, fuzzy, kde-format
+#| msgid "Add numbered list"
+msgctxt "@item:inmenu ordered style"
+msgid "Ordered list"
+msgstr "დანომრილი სიის დამატება"
+
+#: qml/EditPage.qml:207
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "უბრალო ტექსტი"
 
-#: qml/EditPage.qml:194
+#: qml/EditPage.qml:208
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "სათაური"
 
-#: qml/EditPage.qml:195
+#: qml/EditPage.qml:209
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "სუბტიტრები"
 
-#: qml/EditPage.qml:196
+#: qml/EditPage.qml:210
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "ჭრილი"
 
-#: qml/EditPage.qml:197
+#: qml/EditPage.qml:211
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "ქვესექცია"
 
-#: qml/EditPage.qml:198
+#: qml/EditPage.qml:212
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "პარაგრაფი"
 
-#: qml/EditPage.qml:199
+#: qml/EditPage.qml:213
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
@@ -278,8 +238,41 @@ msgstr "დაიწყეთ თქვენი პირველი წიგ
 msgid "Add Notebook"
 msgstr "წიგნაკის დამატება"
 
-#~ msgid "Add numbered list"
-#~ msgstr "დანომრილი სიის დამატება"
+#~ msgctxt "@action:button"
+#~ msgid "highlight"
+#~ msgstr "გამოკვეთა"
+
+#~ msgctxt "@item:inmenu disc list style"
+#~ msgid "Disc"
+#~ msgstr "დისკი"
+
+#~ msgctxt "@item:inmenu circle list style"
+#~ msgid "Circle"
+#~ msgstr "წრე"
+
+#~ msgctxt "@item:inmenu square list style"
+#~ msgid "Square"
+#~ msgstr "კვადრატი"
+
+#~ msgctxt "@item:inmenu numbered lists"
+#~ msgid "123"
+#~ msgstr "123"
+
+#~ msgctxt "@item:inmenu lowercase abc lists"
+#~ msgid "abc"
+#~ msgstr "abc"
+
+#~ msgctxt "@item:inmenu uppercase abc lists"
+#~ msgid "ABC"
+#~ msgstr "ABC"
+
+#~ msgctxt "@item:inmenu lower case roman numerals"
+#~ msgid "i ii iii"
+#~ msgstr "i ii iii"
+
+#~ msgctxt "@item:inmenu upper case roman numerals"
+#~ msgid "I II III"
+#~ msgstr "I II III"
 
 #~ msgid "Heading %1"
 #~ msgstr "სათაური %1"
