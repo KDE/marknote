@@ -39,6 +39,12 @@ if (NOT ANDROID)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
 endif()
 
+find_package(KF6KirigamiAddons 1.1.0 REQUIRED)
+set_package_properties(KF6KirigamiAddons PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Required application components and runtime dependency"
+)
+
 qt_policy(SET QTP0001 NEW)
 
 add_definitions(-DQT_NO_FOREACH -DQT_NO_KEYWORDS)
