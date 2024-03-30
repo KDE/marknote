@@ -26,19 +26,18 @@ QQC2.Dialog {
     modal: true
     focus: true
 
-    leftPadding: Kirigami.Units.largeSpacing * 2
-    rightPadding: Kirigami.Units.largeSpacing * 2
+    leftPadding: 0
+    rightPadding: 0
     topPadding: 0
     bottomPadding: 0
 
     header: Kirigami.Heading {
         text: root.title
-        level: 2
         elide: QQC2.Label.ElideRight
         leftPadding: Kirigami.Units.largeSpacing * 2
         rightPadding: Kirigami.Units.largeSpacing * 2
         topPadding: Kirigami.Units.largeSpacing * 2
-        bottomPadding: 0
+        bottomPadding: Kirigami.Units.largeSpacing
     }
 
     contentItem: ColumnLayout {
@@ -48,20 +47,22 @@ QQC2.Dialog {
             id: linkTextField
 
             label: i18nc("@label:textbox", "Link Text:")
-            leftPadding: 0
-            rightPadding: 0
+            leftPadding: Kirigami.Units.largeSpacing * 2
+            rightPadding: Kirigami.Units.largeSpacing * 2
         }
 
-        Kirigami.Separator {
+        FormCard.FormDelegateSeparator {
             Layout.fillWidth: true
+            Layout.leftMargin: Kirigami.Units.largeSpacing * 2
+            Layout.rightMargin: Kirigami.Units.largeSpacing * 2
         }
 
         FormCard.FormTextFieldDelegate {
             id: linkUrlField
 
             label: i18nc("@label:textbox", "Link URL:")
-            leftPadding: 0
-            rightPadding: 0
+            leftPadding: Kirigami.Units.largeSpacing * 2
+            rightPadding: Kirigami.Units.largeSpacing * 2
         }
     }
 
