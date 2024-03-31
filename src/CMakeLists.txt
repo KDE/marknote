@@ -45,8 +45,11 @@ target_link_libraries(marknote_static PUBLIC
     KF6::ConfigGui
     KF6::CoreAddons
     KF6::ColorScheme
-    md4c::md4c-html
 )
+
+if (TARGET md4c::md4c-html)
+    target_link_libraries(marknote_static PUBLIC md4c::md4c-html)
+endif()
 
 
 add_executable(marknote main.cpp)

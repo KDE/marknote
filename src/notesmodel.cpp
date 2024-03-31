@@ -8,7 +8,10 @@
 #include <QStandardPaths>
 #include <QTextDocument>
 #include <QUrl>
+
+#if __has_include(<md4c-html.h>)
 #include <md4c-html.h>
+#endif
 
 NotesModel::NotesModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -100,6 +103,8 @@ void NotesModel::exportToHtml(const QUrl &path, const QUrl &destination)
 
     QByteArray data = file.readAll();
     QByteArray output;
+
+#if __has_include(<md4c-html.h>)
     md_html(
         data.constData(),
         data.size(),
@@ -110,6 +115,11 @@ void NotesModel::exportToHtml(const QUrl &path, const QUrl &destination)
         &output,
         MD_FLAG_TASKLISTS | MD_FLAG_STRIKETHROUGH | MD_FLAG_LATEXMATHSPANS | MD_FLAG_TABLES | MD_FLAG_COLLAPSEWHITESPACE,
         0);
+#else
+    QTextDocument doc;
+    doc.setMarkdown(QString::fromUtf8(data));
+    output = doc.toHtml().toUtf8();
+#endif
 
     QFile exportFile(destination.toLocalFile());
     if (!exportFile.open(QFile::WriteOnly)) {
