@@ -6,14 +6,20 @@ qt_add_qml_module(marknote_static STATIC
     QML_FILES
         qml/Main.qml
         qml/NotesPage.qml
-        qml/EditPage.qml
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml
+
+        # Notebook
+        qml/NotebookContextMenu.qml
+        qml/NotebookDelegate.qml
+        qml/NotebookDeleteAction.qml
+        qml/NotebookMetadataDialog.qml
+
+        # Editor
+        qml/EditPage.qml
         qml/LinkDialog.qml
         qml/ImageDialog.qml
-        qml/NotebookMetadataDialog.qml
-        qml/NotebookDelegate.qml
-        qml/NotebookContextMenu.qml
+
         qml/components/ActionButton.qml
         qml/components/BottomDrawer.qml
         qml/components/DoubleActionButton.qml

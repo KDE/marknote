@@ -142,7 +142,7 @@ Kirigami.ApplicationWindow {
             Controls.ToolButton {
                 icon.name: "list-add"
                 onClicked: {
-                    addNotebookDialog.open()
+                    newNotebookAction.trigger();
                     bottomDrawer.close()
                 }
             }
@@ -172,49 +172,22 @@ Kirigami.ApplicationWindow {
                         Item { Layout.fillWidth: true}
                     }
 
-                    actions: [
-                        Kirigami.Action {
-                            icon.name: "delete"
-                            text: i18n("Delete Notebook")
-                            onTriggered: {
-                                noteBooksModel.deleteNoteBook(drawerDelegateItem.name)
-                                if(noteBooksModel.rowCount() !== 0) {
-                                    pageStack.clear()
-                                    pageStack.replace(
-                                        [
-                                            Qt.createComponent("org.kde.marknote", "NotesPage"),
-                                            Qt.createComponent("org.kde.marknote", "EditPage")
-                                        ],
-                                        [{
-                                            path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
-                                            notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
-                                        }]
-                                    )
-                                } else {
-                                    pageStack.clear()
-                                    pageStack.replace(Qt.createComponent("org.kde.marknote", "WelcomePage"), {model : noteBooksModel})
-                                }
-                            }
-                        }
-                    ]
+                    actions: NotebookDeleteAction {
+                        path: drawerDelegateItem.path
+                        name: drawerDelegateItem.name
+                        model: noteBooksModel
+                    }
+
                     onClicked: {
                         bottomDrawer.close()
                         Kirigami.Theme.highlightColor = drawerDelegateItem.color
-                        console.log(drawerDelegateItem.color)
-                        currentNotebook = drawerDelegateItem.name
-                        currentNotebookIndex = drawerDelegateItem.index;
+                        NavigationController.notebookPath = drawerDelegateItem.path
                         pageStack.clear()
-                        pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"), {
-                            path: drawerDelegateItem.path,
-                            notebookName: drawerDelegateItem.name
-
-                            }
-                        )
+                        pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
                     }
                 }
             }
             Item { height: Kirigami.Units.largeSpacing * 3}
         }
-
     }
 }
