@@ -55,6 +55,11 @@ int main(int argc, char *argv[])
                      KAboutLicense::GPL_V2,
                      i18n("© 2023 Mathis Brüchert"));
     about.addAuthor(i18n("Mathis Brüchert"), i18n("Maintainer"), QStringLiteral("mbb-mail@gmx.de"));
+    about.addAuthor(i18n("Carl Schwan"),
+                    i18n("Maintainer"),
+                    QStringLiteral("carl@carlschwan.eu"),
+                    QStringLiteral("https://carlschwan.eu"),
+                    QStringLiteral("https://carlschwan.eu/avatar.png"));
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(about);
