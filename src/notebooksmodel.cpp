@@ -12,12 +12,17 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 
-NoteBooksModel::NoteBooksModel(QObject *parent)
+NoteBooksModel::NoteBooksModel(const QString &_directory, QObject *parent)
     : QAbstractListModel(parent)
-    , directory(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator() + QStringLiteral("Notes"))
+    , directory(_directory)
 {
     directory.mkpath(QStringLiteral("."));
     qDebug() << directory.path();
+}
+
+NoteBooksModel::NoteBooksModel(QObject *parent)
+    : NoteBooksModel(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator() + QStringLiteral("Notes"), parent)
+{
 }
 
 int NoteBooksModel::rowCount(const QModelIndex &index) const
@@ -50,10 +55,9 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
         }
     }
     case Role::Name:
+    case Qt::DisplayRole:
         return directory.entryList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row());
     }
-
-    Q_UNREACHABLE();
 
     return {};
 }

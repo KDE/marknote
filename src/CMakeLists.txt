@@ -53,4 +53,8 @@ if (NOT ANDROID)
     target_link_libraries(marknote PRIVATE Qt::Widgets)
 endif()
 
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
+
 install(TARGETS marknote ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

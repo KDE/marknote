@@ -27,6 +27,7 @@ include(KDEClangFormat)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMQtDeclareLoggingCategory)
 include(KDEGitCommitHooks)
+include(ECMAddTests)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX MARKNOTE
@@ -37,6 +38,9 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControl
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Kirigami2 I18n Config CoreAddons ColorScheme)
 if (NOT ANDROID)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
+endif()
+if (BUILD_TESTING)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 endif()
 
 find_package(KF6KirigamiAddons 1.1.0 REQUIRED)

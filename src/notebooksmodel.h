@@ -18,6 +18,7 @@ public:
     Q_ENUM(Role)
 
     explicit NoteBooksModel(QObject *parent = nullptr);
+    NoteBooksModel(const QString &directory, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &index) const override;
 
