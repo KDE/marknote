@@ -2,11 +2,12 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick
-import org.kde.kirigami as Kirigami
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Dialogs
 import org.kde.kitemmodels
 import org.kde.marknote
+import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as Components
 
@@ -203,6 +204,18 @@ Kirigami.ScrollablePage {
             }
         }
 
+        FileDialog {
+            id: fileDialog
+
+            property string name
+            property string path
+
+            title: i18nc("@title:window", "Export to HTML")
+            fileMode: FileDialog.SaveFile
+            nameFilters: [i18n("HTML file (*.html)")]
+            onAccepted: notesModel.exportToHtml(path, selectedFile);
+        }
+
         ContextMenu {
             id: menu
 
@@ -228,9 +241,20 @@ Kirigami.ScrollablePage {
                 text: i18nc("@action:inmenu", "Delete Note")
                 icon.name: "delete"
                 onTriggered: {
-                    removeDialog.noteName = menu.delegateItem.name
-                    removeDialog.notePath = menu.delegateItem.path
+                    removeDialog.noteName = menu.delegateItem.name;
+                    removeDialog.notePath = menu.delegateItem.path;
                     removeDialog.open()
+                }
+            }
+
+            Action {
+                text: i18nc("@action:inmenu", "Export to Html")
+                icon.name: "text-html"
+                onTriggered: {
+                    fileDialog.name = menu.delegateItem.name;
+                    fileDialog.path = menu.delegateItem.path;
+                    fileDialog.selectedFile = menu.delegateItem.name + '.html'
+                    fileDialog.open();
                 }
             }
         }

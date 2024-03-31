@@ -45,6 +45,7 @@ target_link_libraries(marknote_static PUBLIC
     KF6::ConfigGui
     KF6::CoreAddons
     KF6::ColorScheme
+    md4c::md4c-html
 )
 
 

@@ -49,6 +49,14 @@ set_package_properties(KF6KirigamiAddons PROPERTIES
     PURPOSE "Required application components and runtime dependency"
 )
 
+find_package(md4c)
+set_package_properties(md4c PROPERTIES
+    TYPE REQUIRED
+    DESCRIPTION "MD4C stands for \"Markdown for C\" and that's exactly what this project is about."
+    URL "https://github.com/mity/md4c"
+    PURPOSE "Convert markdown to html"
+)
+
 qt_policy(SET QTP0001 NEW)
 
 add_definitions(-DQT_NO_FOREACH -DQT_NO_KEYWORDS)

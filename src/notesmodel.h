@@ -34,6 +34,11 @@ public:
 
     Q_INVOKABLE void renameNote(const QUrl &path, const QString &name);
 
+    /// Export a note to HTML.
+    /// \param path The path of the note to export.
+    /// \param destination The destination of the note to export.
+    Q_INVOKABLE void exportToHtml(const QUrl &path, const QUrl &destination);
+
     Q_SIGNAL void pathChanged();
 
     QString path() const;
