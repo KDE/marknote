@@ -9,6 +9,8 @@ qt_add_qml_module(marknote_static STATIC
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml
         qml/ContextMenu.qml
+        qml/KQuickCommandBarPage.qml
+        qml/KActionFromAction.qml
 
         # Notebook
         qml/NotebookContextMenu.qml
@@ -31,6 +33,9 @@ qt_add_qml_module(marknote_static STATIC
         nestedlisthelper.cpp
         nestedlisthelper_p.h
         navigationcontroller.cpp
+        application.cpp
+        actionsmodel.cpp
+        commandbarfiltermodel.cpp
 )
 
 target_link_libraries(marknote_static PUBLIC
@@ -45,6 +50,7 @@ target_link_libraries(marknote_static PUBLIC
     KF6::ConfigGui
     KF6::CoreAddons
     KF6::ColorScheme
+    KF6::XmlGui
 )
 
 if (TARGET md4c::md4c-html)

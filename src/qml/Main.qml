@@ -31,6 +31,53 @@ Kirigami.ApplicationWindow {
         defaultColumnWidth: 15 * Kirigami.Units.gridUnit
     }
 
+    Loader {
+        id: kcommandbarLoader
+        active: false
+        sourceComponent: KQuickCommandBarPage {
+            application: App
+            onClosed: kcommandbarLoader.active = false
+        }
+        onActiveChanged: if (active) {
+            item.open()
+        }
+    }
+
+    Connections {
+        target: App
+
+        function onOpenKCommandBarAction(): void {
+            kcommandbarLoader.active = true;
+        }
+
+        function onNewNotebook(): void {
+            const component = Qt.createComponent("org.kde.marknote", "NotebookMetadataDialog");
+            const dialog = component.createObject(root, {
+                mode: NotebookMetadataDialog.Mode.Add,
+                model: noteBooksModel,
+            });
+            dialog.open();
+        }
+
+        function onOpenAboutPage(): void {
+            const openDialogWindow = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {
+                width: root.width
+            }, {
+                width: Kirigami.Units.gridUnit * 30,
+                height: Kirigami.Units.gridUnit * 30
+            });
+        }
+
+        function onOpenAboutKDEPage(): void {
+            const openDialogWindow = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDE"), {
+                width: root.width
+            }, {
+                width: Kirigami.Units.gridUnit * 30,
+                height: Kirigami.Units.gridUnit * 30
+            });
+        }
+    }
+
     Component.onCompleted: if (noteBooksModel.rowCount() !== 0) {
         NavigationController.notebookPath = noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path);
     } else {
@@ -41,21 +88,6 @@ Kirigami.ApplicationWindow {
 
     function openBottomDrawer() {
         bottomDrawer.open()
-    }
-
-    Kirigami.Action {
-        id: newNotebookAction
-
-        text: i18nc("@action:inmenu", "New Notebook")
-        icon.name: "list-add-symbolic"
-        onTriggered: {
-            const component = Qt.createComponent("org.kde.marknote", "NotebookMetadataDialog");
-            const dialog = component.createObject(root, {
-                mode: NotebookMetadataDialog.Mode.Add,
-                model: noteBooksModel,
-            });
-            dialog.open();
-        }
     }
 
     Connections {
@@ -71,13 +103,6 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
-
-        Shortcut {
-            sequence: "Ctrl+Shift+N"
-            onActivated: {
-                newNotebookAction.trigger();
-            }
-        }
 
         NoteBooksModel {
             id: noteBooksModel
@@ -114,7 +139,22 @@ Kirigami.ApplicationWindow {
                             id: optionPopup
 
                             Controls.MenuItem {
-                                action: newNotebookAction
+                                action: KActionFromAction {
+                                    id: newNotebookAction
+                                    action: App.action('add_notebook')
+                                }
+                            }
+
+                            Controls.MenuItem {
+                                action: KActionFromAction {
+                                    action: App.action('open_kcommand_bar')
+                                }
+                            }
+
+                            Controls.MenuItem {
+                                action: KActionFromAction {
+                                    action: App.action('open_about_page')
+                                }
                             }
                         }
                     }
