@@ -203,6 +203,38 @@ Kirigami.ScrollablePage {
             }
         }
 
+        ContextMenu {
+            id: menu
+
+            property Delegates.RoundedItemDelegate delegateItem
+
+            visualParent: parent
+
+            Action {
+                text: i18nc("@action:inmenu", "Rename Note")
+                icon.name: "document-edit"
+                onTriggered: {
+                    if (!menu.delegateItem.renameLayout.visible) {
+                        menu.delegateItem.renameLayout.visible = true
+                        menu.delegateItem.nameLabel.visible = false
+                    } else {
+                        menu.delegateItem.renameLayout.visible = false
+                        menu.delegateItem.nameLabel.visible = true
+                    }
+                }
+            }
+
+            Action {
+                text: i18nc("@action:inmenu", "Delete Note")
+                icon.name: "delete"
+                onTriggered: {
+                    removeDialog.noteName = menu.delegateItem.name
+                    removeDialog.notePath = menu.delegateItem.path
+                    removeDialog.open()
+                }
+            }
+        }
+
         delegate: Delegates.RoundedItemDelegate {
             id: delegateItem
 
@@ -210,6 +242,8 @@ Kirigami.ScrollablePage {
             required property url path;
             required property date date;
             required property int index;
+            property alias renameLayout: renameLayout;
+            property alias nameLabel: nameLabel;
 
             contentItem: RowLayout{
                 ColumnLayout {
@@ -256,72 +290,9 @@ Kirigami.ScrollablePage {
                 ToolButton{
                     icon.name: "overflow-menu"
 
-                    onClicked: if (Kirigami.Settings.isMobile) {
-                        optionDrawer.open()
-                    } else {
-                        optionPopup.popup()
-                    }
-
-                    BottomDrawer {
-                        id: optionDrawer
-
-                        drawerContentItem: ColumnLayout{
-                            id: contents
-                            spacing: 0
-
-                            Delegates.RoundedItemDelegate {
-                                text: i18n("Rename Note")
-                                icon.name: "document-edit"
-                                onClicked: {
-                                    if (!renameLayout.visible) {
-                                        renameLayout.visible = true
-                                        nameLabel.visible = false
-                                        optionDrawer.close()
-                                    } else {
-                                        renameLayout.visible = false
-                                        nameLabel.visible = true
-                                        optionDrawer.close()
-                                    }
-                                }
-                            }
-                            Delegates.RoundedItemDelegate {
-                                text: i18n("Delete Note")
-                                icon.name: "delete"
-                                onClicked: {
-                                    removeDialog.noteName = delegateItem.name
-                                    removeDialog.notePath = delegateItem.path
-                                    removeDialog.open()
-                                    optionDrawer.close()
-                                }
-                            }
-                            Item { height: Kirigami.Units.largeSpacing * 3}
-                        }
-                    }
-
-                    Menu {
-                        id: optionPopup
-
-                        MenuItem {
-                            text: i18n("Rename Note")
-                            icon.name: "edit-rename"
-                            onClicked: if (!renameLayout.visible) {
-                                renameLayout.visible = true
-                                nameLabel.visible = false
-                            } else {
-                                renameLayout.visible = false
-                                nameLabel.visible = true
-                            }
-                        }
-                        MenuItem {
-                            text: i18n("Delete Note")
-                            icon.name: "delete"
-                            onClicked:{
-                                removeDialog.noteName = delegateItem.name
-                                removeDialog.notePath = delegateItem.path
-                                removeDialog.open()
-                                optionPopup.dismiss()
-                            }
-                        }
+                    onClicked: {
+                        menu.delegateItem = delegateItem;
+                        menu.open()
                     }
                 }
             }

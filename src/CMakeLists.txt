@@ -8,6 +8,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/NotesPage.qml
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml
+        qml/ContextMenu.qml
 
         # Notebook
         qml/NotebookContextMenu.qml
