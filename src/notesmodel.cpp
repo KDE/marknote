@@ -26,8 +26,10 @@ int NotesModel::rowCount(const QModelIndex &index) const
 QVariant NotesModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
-    case Role::Path:
+    case Role::FileUrl:
         return QUrl::fromLocalFile(directory.entryInfoList(QDir::Files).at(index.row()).filePath());
+    case Role::Path:
+        return directory.entryInfoList(QDir::Files).at(index.row()).fileName();
     case Role::Date:
         return directory.entryInfoList(QDir::Files).at(index.row()).lastModified(QTimeZone::LocalTime);
     case Role::Name:
@@ -41,7 +43,7 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> NotesModel::roleNames() const
 {
-    return {{Role::Date, "date"}, {Role::Path, "path"}, {Role::Name, "name"}};
+    return {{Role::Date, "date"}, {Role::Path, "path"}, {Role::FileUrl, "fileUrl"}, {Role::Name, "name"}};
 }
 
 QString NotesModel::addNote(const QString &name)
@@ -55,7 +57,7 @@ QString NotesModel::addNote(const QString &name)
         qDebug() << "Failed to create file at" << m_path;
     }
     endResetModel();
-    return path;
+    return name;
 }
 
 void NotesModel::deleteNote(const QUrl &path)

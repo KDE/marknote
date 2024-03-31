@@ -9,28 +9,17 @@ import org.kde.marknote
 
 Kirigami.Page {
     id: root
-    property NoteBooksModel model
+
     Kirigami.Theme.inherit: false
     Kirigami.Theme.colorSet: Kirigami.Theme.View
+
     background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
 
-    NotebookMetadataDialog {
-        id: notebookMetadataDialog
-
-        model: noteBooksModel
-    }
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         icon.name: "addressbook-details"
         text: i18n("Start by creating your first notebook!")
-        helpfulAction: Kirigami.Action {
-            icon.name: "list-add"
-            text: i18n("Add Notebook")
-            onTriggered: {
-                notebookMetadataDialog.mode = NotebookMetadataDialog.Mode.Add;
-                notebookMetadataDialog.open();
-            }
-        }
+        helpfulAction: newNotebookAction
     }
 }

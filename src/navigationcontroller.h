@@ -21,6 +21,12 @@ class NavigationController : public QObject
     /// This property holds the current note path relative to the notebookPath.
     Q_PROPERTY(QString notePath READ notePath WRITE setNotePath NOTIFY notePathChanged)
 
+    /// This property holds the current note name.
+    Q_PROPERTY(QString noteName READ noteName NOTIFY notePathChanged)
+
+    /// This property holds the current note path.
+    Q_PROPERTY(QUrl noteFullPath READ noteFullPath NOTIFY notePathChanged)
+
 public:
     explicit NavigationController(QObject *parent = nullptr);
 
@@ -31,6 +37,9 @@ public:
 
     QString notePath() const;
     void setNotePath(const QString &notePath);
+
+    QString noteName() const;
+    QUrl noteFullPath() const;
 
 Q_SIGNALS:
     void notebookPathChanged();

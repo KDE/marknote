@@ -16,7 +16,12 @@ class NotesModel : public QAbstractListModel
     Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged REQUIRED)
 
 public:
-    enum Role { Path = Qt::UserRole + 1, Date, Name };
+    enum Role {
+        Path = Qt::UserRole + 1,
+        FileUrl,
+        Date,
+        Name,
+    };
     Q_ENUM(Role)
 
     explicit NotesModel(QObject *parent = nullptr);

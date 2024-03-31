@@ -36,12 +36,7 @@ FormCard.FormCardDialog {
     onAccepted: {
         if (mode == NoteMetadataDialog.Mode.Add) {
             let path = root.model.addNote(root.name);
-
-            pageStack.pop();
-            pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"), {
-                name: root.name,
-                path: path,
-            });
+            NavigationController.notePath = path;
         }
 
         close();

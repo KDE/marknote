@@ -96,7 +96,22 @@ Kirigami.ApplicationWindow {
         function onNotebookPathChanged(): void {
             if (!root.pageStack.items[0] || root.pageStack.items[0].objectName !== "NotesPage") {
                 root.pageStack.clear();
-                root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage", Component.PreferSynchronous, applicationWindow().pageStack));
+                root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
+            }
+        }
+
+        function onNotePathChanged(): void {
+            if (NavigationController.notePath.length > 0) {
+                if (!root.pageStack.items[1] || root.pageStack.items[1].objectName !== "EditPage") {
+                    root.pageStack.clear();
+                    root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
+                    if (!Kirigami.Settings.isMobile) {
+                        root.pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"));
+                    }
+                }
+            } else {
+                root.pageStack.clear();
+                root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
             }
         }
     }

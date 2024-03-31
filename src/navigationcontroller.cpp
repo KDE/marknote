@@ -3,6 +3,16 @@
 
 #include "navigationcontroller.h"
 
+#include <KConfig>
+#include <KConfigGroup>
+#include <KDesktopFile>
+
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+
+using namespace Qt::StringLiterals;
+
 NavigationController::NavigationController(QObject *parent)
     : QObject(parent)
 {
@@ -25,6 +35,17 @@ void NavigationController::setNotebookPath(const QString &notebookPath)
     }
     m_notebookPath = notebookPath;
     Q_EMIT notebookPathChanged();
+
+    const QString dotDirectory = m_notebookPath + u'/' + QStringLiteral(".directory");
+
+    if (QFile::exists(dotDirectory)) {
+        const auto lastEntry = KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-LastEntry");
+        if (lastEntry.length() > 0 && QFileInfo::exists(m_notebookPath + u'/' + lastEntry)) {
+            setNotePath(lastEntry);
+        } else {
+            setNotePath(QString{});
+        }
+    }
 }
 
 QString NavigationController::notePath() const
@@ -34,9 +55,37 @@ QString NavigationController::notePath() const
 
 void NavigationController::setNotePath(const QString &notePath)
 {
-    if (m_notePath == notePath) {
+    QString path = notePath;
+    if (notePath.isEmpty()) {
+        QDir dir(m_notebookPath);
+        const auto entries = dir.entryInfoList(QDir::Files);
+        if (entries.isEmpty()) {
+            path = QString();
+        } else {
+            path = dir.entryInfoList(QDir::Files).at(0).fileName();
+        }
+    }
+
+    if (m_notePath == path) {
         return;
     }
-    m_notePath = notePath;
+    m_notePath = path;
     Q_EMIT notePathChanged();
+
+    const QString dotDirectory = m_notebookPath + u'/' + QStringLiteral(".directory");
+
+    KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
+    auto desktopEntry = desktopFile.group(QStringLiteral("Desktop Entry"));
+    desktopEntry.writeEntry("X-MarkNote-LastEntry", path);
+    desktopFile.sync();
+}
+
+QString NavigationController::noteName() const
+{
+    return m_notePath.split(QLatin1Char('/')).last().replace(u".md"_s, QString{});
+}
+
+QUrl NavigationController::noteFullPath() const
+{
+    return QUrl::fromLocalFile(m_notebookPath + u'/' + m_notePath);
 }

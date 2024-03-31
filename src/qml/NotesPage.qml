@@ -20,20 +20,6 @@ Kirigami.ScrollablePage {
 
     property bool wideScreen: applicationWindow().width >= 600
 
-    Component.onCompleted: if (!Kirigami.Settings.isMobile) {
-        if (notesModel.rowCount() !== 0) {
-            pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"), {
-                path: notesModel.data(notesModel.index(0, 0), NotesModel.Path),
-                name: notesModel.data(notesModel.index(0, 0), NotesModel.Name),
-                objectName: notesModel.data(notesModel.index(0, 0), NotesModel.Name)
-            });
-        } else {
-            pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"), {
-                name: "",
-            });
-        }
-    }
-
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
 
@@ -162,6 +148,7 @@ Kirigami.ScrollablePage {
         id: removeDialog
 
         property string notePath
+        property url fileUrl
         property string noteName
 
         dialogType: Components.MessageDialog.Warning
@@ -169,7 +156,12 @@ Kirigami.ScrollablePage {
         height: implicitHeight
         title: i18nc("@title:window", "Delete Note")
         onRejected: close()
-        onAccepted: notesModel.deleteNote(notePath)
+        onAccepted: {
+            notesModel.deleteNote(fileUrl);
+            if (notePath === NavigationController.notePath) {
+                NavigationController.notePath = '';
+            }
+        }
         standardButtons: Dialog.Yes | Dialog.Cancel
 
         contentItem: Label {
@@ -243,6 +235,7 @@ Kirigami.ScrollablePage {
                 onTriggered: {
                     removeDialog.noteName = menu.delegateItem.name;
                     removeDialog.notePath = menu.delegateItem.path;
+                    removeDialog.fileUrl = menu.delegateItem.fileUrl;
                     removeDialog.open()
                 }
             }
@@ -252,7 +245,7 @@ Kirigami.ScrollablePage {
                 icon.name: "text-html"
                 onTriggered: {
                     fileDialog.name = menu.delegateItem.name;
-                    fileDialog.path = menu.delegateItem.path;
+                    fileDialog.path = menu.delegateItem.fileUrl;
                     fileDialog.selectedFile = menu.delegateItem.name + '.html'
                     fileDialog.open();
                 }
@@ -263,9 +256,10 @@ Kirigami.ScrollablePage {
             id: delegateItem
 
             required property string name;
-            required property url path;
+            required property string path;
             required property date date;
             required property int index;
+            required property url fileUrl
             property alias renameLayout: renameLayout;
             property alias nameLabel: nameLabel;
 
@@ -325,13 +319,9 @@ Kirigami.ScrollablePage {
                 if (highlighted) {
                     return;
                 }
-                let item = pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"), {
-                    path: path,
-                    name: name,
-                    objectName: name,
-                });
+                NavigationController.notePath = path;
             }
-            highlighted: pageStack.lastItem && pageStack.lastItem.objectName === name
+            highlighted: NavigationController.notePath === path
             topPadding: Kirigami.Units.mediumSpacing
             bottomPadding: Kirigami.Units.mediumSpacing
         }

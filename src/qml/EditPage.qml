@@ -12,8 +12,8 @@ import org.kde.marknote
 Kirigami.Page {
     id: root
 
-    property string path
-    property string name
+    objectName: "EditPage"
+
     property bool saved: true
 
     leftPadding: 0
@@ -22,7 +22,7 @@ Kirigami.Page {
     bottomPadding: 0
 
     titleDelegate: RowLayout {
-        visible: name
+        visible: NavigationController.noteName
         Layout.fillWidth: true
         Item { Layout.fillWidth: true }
         Rectangle {
@@ -33,7 +33,7 @@ Kirigami.Page {
             visible: !saved
         }
         Kirigami.Heading {
-            text: name
+            text: NavigationController.noteName
             type: saved? Kirigami.Heading.Type.Normal:Kirigami.Heading.Type.Primary
 
         }
@@ -56,7 +56,7 @@ Kirigami.Page {
 
     RowLayout {
         id: toolBarContainer
-        visible: name
+        visible: NavigationController.noteName
         z: 600000
         parent: root.overlay
 
@@ -333,6 +333,14 @@ Kirigami.Page {
             textFormat: TextEdit.MarkdownText
             wrapMode: TextEdit.Wrap
 
+            Connections {
+                target: NavigationController
+
+                function onNotePathChanged(): void {
+                    document.load(NavigationController.noteFullPath);
+                }
+            }
+
             DocumentHandler {
                 id: document
 
@@ -354,8 +362,13 @@ Kirigami.Page {
                 onUndo: textArea.undo();
                 onRedo: textArea.redo();
 
-                Component.onCompleted: document.load(root.path)
-                Component.onDestruction: document.saveAs(root.path)
+                Component.onCompleted: {
+                    document.load(NavigationController.noteFullPath);
+                }
+
+                Component.onDestruction: {
+                    document.saveAs(NavigationController.noteFullPath);
+                }
 
                 onCheckableChanged: {
                     checkboxAction.checked = document.checkable;
