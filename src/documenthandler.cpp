@@ -357,7 +357,7 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
     QFile file(fileUrl.toLocalFile());
 
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
-        Q_EMIT error(tr("Cannot save: ") + file.errorString());
+        Q_EMIT error(tr("Cannot save: ") + file.errorString() + u' ' + fileUrl.toLocalFile());
         return;
     }
     file.write(doc->toMarkdown().toUtf8());

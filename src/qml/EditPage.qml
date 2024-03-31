@@ -337,7 +337,9 @@ Kirigami.Page {
                 target: NavigationController
 
                 function onNotePathChanged(): void {
-                    document.load(NavigationController.noteFullPath);
+                    if (NavigationController.notePath.length > 0) {
+                        document.load(NavigationController.noteFullPath);
+                    }
                 }
             }
 
@@ -363,11 +365,15 @@ Kirigami.Page {
                 onRedo: textArea.redo();
 
                 Component.onCompleted: {
-                    document.load(NavigationController.noteFullPath);
+                    if (NavigationController.notePath.length > 0) {
+                        document.load(NavigationController.noteFullPath);
+                    }
                 }
 
                 Component.onDestruction: {
-                    document.saveAs(NavigationController.noteFullPath);
+                    if (NavigationController.notePath.length > 0) {
+                        document.saveAs(NavigationController.noteFullPath);
+                    }
                 }
 
                 onCheckableChanged: {
