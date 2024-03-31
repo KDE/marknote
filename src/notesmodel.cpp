@@ -22,7 +22,7 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
     case Role::Path:
-        return directory.entryInfoList(QDir::Files).at(index.row()).filePath();
+        return QUrl::fromLocalFile(directory.entryInfoList(QDir::Files).at(index.row()).filePath());
     case Role::Date:
         return directory.entryInfoList(QDir::Files).at(index.row()).lastModified(QTimeZone::LocalTime);
     case Role::Name:

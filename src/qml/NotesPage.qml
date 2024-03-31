@@ -207,7 +207,7 @@ Kirigami.ScrollablePage {
             id: delegateItem
 
             required property string name;
-            required property string path;
+            required property url path;
             required property date date;
             required property int index;
 

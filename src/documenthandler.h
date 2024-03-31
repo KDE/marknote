@@ -50,7 +50,7 @@ class DocumentHandler : public QObject
 
     Q_PROPERTY(QString fileName READ fileName NOTIFY fileUrlChanged)
     Q_PROPERTY(QString fileType READ fileType NOTIFY fileUrlChanged)
-    Q_PROPERTY(QString fileUrl READ fileUrl NOTIFY fileUrlChanged)
+    Q_PROPERTY(QUrl fileUrl READ fileUrl NOTIFY fileUrlChanged)
 
     Q_PROPERTY(bool modified READ modified WRITE setModified NOTIFY modifiedChanged)
 
@@ -110,7 +110,7 @@ public:
 
     QString fileName() const;
     QString fileType() const;
-    QString fileUrl() const;
+    QUrl fileUrl() const;
 
     bool modified() const;
     void setModified(bool m);
@@ -121,8 +121,8 @@ public:
     Q_INVOKABLE void insertImage(const QUrl &imagePath);
 
 public Q_SLOTS:
-    void load(const QString &fileUrl);
-    void saveAs(const QString &fileUrl);
+    void load(const QUrl &fileUrl);
+    void saveAs(const QUrl &fileUrl);
 
     void indentListLess();
     void indentListMore();
@@ -204,7 +204,7 @@ private:
     QStringList m_imageNames;
 
     QFont m_font;
-    QString m_fileUrl;
+    QUrl m_fileUrl;
     NestedListHelper m_nestedListHelper;
 };
 

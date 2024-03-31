@@ -285,12 +285,12 @@ QString DocumentHandler::fileType() const
     return QFileInfo(fileName()).suffix();
 }
 
-QString DocumentHandler::fileUrl() const
+QUrl DocumentHandler::fileUrl() const
 {
     return m_fileUrl;
 }
 
-void DocumentHandler::load(const QString &fileUrl)
+void DocumentHandler::load(const QUrl &fileUrl)
 {
     if (fileUrl == m_fileUrl) {
         return;
@@ -299,11 +299,11 @@ void DocumentHandler::load(const QString &fileUrl)
     m_fileUrl = fileUrl;
     Q_EMIT fileUrlChanged();
 
-    if (!QFile::exists(fileUrl)) {
+    if (!QFile::exists(fileUrl.toLocalFile())) {
         return;
     }
 
-    QFile file(fileUrl);
+    QFile file(fileUrl.toLocalFile());
     if (!file.open(QFile::ReadOnly)) {
         return;
     }
@@ -348,13 +348,13 @@ void DocumentHandler::load(const QString &fileUrl)
     reset();
 }
 
-void DocumentHandler::saveAs(const QString &fileUrl)
+void DocumentHandler::saveAs(const QUrl &fileUrl)
 {
     QTextDocument *doc = textDocument();
     if (!doc)
         return;
 
-    QFile file(fileUrl);
+    QFile file(fileUrl.toLocalFile());
 
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
         Q_EMIT error(tr("Cannot save: ") + file.errorString());
