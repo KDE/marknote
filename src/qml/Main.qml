@@ -160,6 +160,7 @@ Kirigami.ApplicationWindow {
                     width: parent.width
                     icon.name: iconName
                     text: name
+                    highlighted: currentNotebookIndex === index
                     contentItem: ColumnLayout {
                         Kirigami.Icon {
                             source: delegateItem.icon.name
