@@ -215,6 +215,7 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    spacing: Kirigami.Units.smallSpacing
                     RowLayout {
                         id: renameLayout
                         Layout.leftMargin: 0
@@ -243,6 +244,7 @@ Kirigami.ScrollablePage {
                     Label {
                         Layout.leftMargin: Kirigami.Units.mediumSpacing
                         text: Qt.formatDateTime(date, Qt.SystemLocaleDate)
+                        font: Kirigami.Theme.smallFont
                         color: Kirigami.Theme.disabledTextColor
                         Layout.fillWidth: true
                         Layout.bottomMargin: Kirigami.Units.smallSpacing
