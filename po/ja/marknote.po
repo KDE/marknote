@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:37+0000\n"
+"POT-Creation-Date: 2024-03-31 00:38+0000\n"
 "PO-Revision-Date: 2023-07-28 19:11-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -51,175 +51,285 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: qml/AddNotebookDialog.qml:15 qml/Main.qml:81
-#, kde-format
-msgid "New Notebook"
-msgstr ""
-
-#: qml/AddNotebookDialog.qml:53
-#, kde-format
-msgid "Notebook name"
-msgstr ""
-
-#: qml/AddNotebookDialog.qml:72 qml/NotesPage.qml:167 qml/NotesPage.qml:353
-#, kde-format
-msgid "Add"
-msgstr ""
-
-#: qml/EditPage.qml:87
+#: qml/EditPage.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr ""
 
-#: qml/EditPage.qml:106
+#: qml/EditPage.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr ""
 
-#: qml/EditPage.qml:125
+#: qml/EditPage.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr ""
 
-#: qml/EditPage.qml:139
+#: qml/EditPage.qml:153
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr ""
 
-#: qml/EditPage.qml:158
+#: qml/EditPage.qml:172
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr ""
 
-#: qml/EditPage.qml:172
+#: qml/EditPage.qml:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr ""
 
-#: qml/EditPage.qml:192
+#: qml/EditPage.qml:206
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr ""
 
-#: qml/EditPage.qml:193
+#: qml/EditPage.qml:207
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr ""
 
-#: qml/EditPage.qml:194
+#: qml/EditPage.qml:208
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr ""
 
-#: qml/EditPage.qml:207
+#: qml/EditPage.qml:220
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert checkbox"
+msgstr ""
+
+#: qml/EditPage.qml:235
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert link"
+msgstr ""
+
+#: qml/EditPage.qml:251
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert image"
+msgstr ""
+
+#: qml/EditPage.qml:271
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr ""
 
-#: qml/EditPage.qml:208
+#: qml/EditPage.qml:272
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr ""
 
-#: qml/EditPage.qml:209
+#: qml/EditPage.qml:273
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr ""
 
-#: qml/EditPage.qml:210
+#: qml/EditPage.qml:274
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr ""
 
-#: qml/EditPage.qml:211
+#: qml/EditPage.qml:275
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr ""
 
-#: qml/EditPage.qml:212
+#: qml/EditPage.qml:276
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr ""
 
-#: qml/EditPage.qml:213
+#: qml/EditPage.qml:277
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr ""
 
-#: qml/Main.qml:92 qml/Main.qml:199
+#: qml/ImageDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Insert Image"
+msgstr ""
+
+#: qml/ImageDialog.qml:23
+#, kde-format
+msgctxt "@title:window"
+msgid "Select an image"
+msgstr ""
+
+#: qml/ImageDialog.qml:26
+#, kde-format
+msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr ""
+
+#: qml/ImageDialog.qml:26
+#, kde-format
+msgid "All files (*)"
+msgstr ""
+
+#: qml/ImageDialog.qml:35
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Image Location:"
+msgstr ""
+
+#: qml/LinkDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Insert Link"
+msgstr ""
+
+#: qml/LinkDialog.qml:23
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Link Text:"
+msgstr ""
+
+#: qml/LinkDialog.qml:31
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Link URL:"
+msgstr ""
+
+#: qml/Main.qml:101
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "New Notebook"
+msgstr ""
+
+#: qml/Main.qml:110
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Edit Notebook"
+msgstr ""
+
+#: qml/Main.qml:123 qml/Main.qml:249
 #, kde-format
 msgid "Delete Notebook"
 msgstr ""
 
-#: qml/Main.qml:163
+#: qml/Main.qml:210
 #, kde-format
 msgid "Your Notebooks"
 msgstr ""
 
-#: qml/NotesPage.qml:42
+#: qml/NotebookMetadataDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "New Notebook"
+msgstr ""
+
+#: qml/NotebookMetadataDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Notebook"
+msgstr ""
+
+#: qml/NotebookMetadataDialog.qml:39
+#, kde-format
+msgctxt "@label:textbox Notebook name"
+msgid "Name:"
+msgstr ""
+
+#: qml/NotebookMetadataDialog.qml:49
+#, kde-format
+msgctxt "@action:button"
+msgid "Icon"
+msgstr ""
+
+#: qml/NotebookMetadataDialog.qml:102
+#, kde-format
+msgctxt "@action:button"
+msgid "Color"
+msgstr ""
+
+#: qml/NoteMetadataDialog.qml:27
+#, kde-format
+msgctxt "@title:window"
+msgid "New Note"
+msgstr ""
+
+#: qml/NoteMetadataDialog.qml:27
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Note"
+msgstr ""
+
+#: qml/NoteMetadataDialog.qml:53
+#, kde-format
+msgctxt "@label:textbox Note name"
+msgid "Name:"
+msgstr ""
+
+#: qml/NotesPage.qml:43
 #, kde-format
 msgid "Add note"
 msgstr ""
 
-#: qml/NotesPage.qml:53
+#: qml/NotesPage.qml:54
 #, kde-format
 msgid "New Note (%1)"
 msgstr ""
 
-#: qml/NotesPage.qml:119
+#: qml/NotesPage.qml:120
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr ""
 
-#: qml/NotesPage.qml:119
+#: qml/NotesPage.qml:120
 #, kde-format
 msgid "Search notes (%1)"
 msgstr ""
 
-#: qml/NotesPage.qml:153
+#: qml/NotesPage.qml:168
 #, kde-format
-msgid "New Note"
-msgstr ""
-
-#: qml/NotesPage.qml:158
-#, kde-format
-msgid "Note name:"
-msgstr ""
-
-#: qml/NotesPage.qml:183 qml/NotesPage.qml:294 qml/NotesPage.qml:322
-#, kde-format
+msgctxt "@title:window"
 msgid "Delete Note"
 msgstr ""
 
-#: qml/NotesPage.qml:197
+#: qml/NotesPage.qml:176
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr ""
 
-#: qml/NotesPage.qml:279 qml/NotesPage.qml:311
+#: qml/NotesPage.qml:270 qml/NotesPage.qml:302
 #, kde-format
 msgid "Rename Note"
 msgstr ""
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:285 qml/NotesPage.qml:313
+#, kde-format
+msgid "Delete Note"
+msgstr ""
+
+#: qml/NotesPage.qml:346
 #, kde-format
 msgid "Add a note!"
+msgstr ""
+
+#: qml/NotesPage.qml:349
+#, kde-format
+msgid "Add"
 msgstr ""
 
 #: qml/WelcomePage.qml:26
