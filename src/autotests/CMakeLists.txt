@@ -12,3 +12,9 @@ ecm_add_test(notebooksmodeltest.cpp
     LINK_LIBRARIES marknote_static Qt::Test
     NAME_PREFIX "marknote-"
 )
+
+ecm_add_test(nestedlisthelpertest.cpp
+    TEST_NAME nestedlisthelper
+    LINK_LIBRARIES marknote_static Qt::Test
+    NAME_PREFIX "marknote-"
+)
