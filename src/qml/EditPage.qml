@@ -15,6 +15,7 @@ Kirigami.Page {
     objectName: "EditPage"
 
     property bool saved: true
+    property string oldPath: ''
 
     leftPadding: 0
     rightPadding: 0
@@ -30,11 +31,11 @@ Kirigami.Page {
             width: 5
             radius: 2.5
             color: Kirigami.Theme.textColor
-            visible: !saved
+            visible: !root.saved
         }
         Kirigami.Heading {
             text: NavigationController.noteName
-            type: saved? Kirigami.Heading.Type.Normal:Kirigami.Heading.Type.Primary
+            type: root.saved? Kirigami.Heading.Type.Normal:Kirigami.Heading.Type.Primary
 
         }
         Item { Layout.fillWidth: true }
@@ -325,7 +326,7 @@ Kirigami.Page {
             }
 
             onTextChanged: {
-                saved = false
+                root.saved = false;
                 saveTimer.restart()
             }
             persistentSelection: true
@@ -337,9 +338,14 @@ Kirigami.Page {
                 target: NavigationController
 
                 function onNotePathChanged(): void {
+                    if (oldPath.length > 0 && !saved) {
+                        document.saveAs(oldPath);
+                    }
                     if (NavigationController.notePath.length > 0) {
                         document.load(NavigationController.noteFullPath);
+                        root.saved = true;
                     }
+                    oldPath = NavigationController.noteFullPath;
                 }
             }
 
@@ -367,11 +373,13 @@ Kirigami.Page {
                 Component.onCompleted: {
                     if (NavigationController.notePath.length > 0) {
                         document.load(NavigationController.noteFullPath);
+                        root.saved = true;
+                        oldPath = NavigationController.noteFullPath;
                     }
                 }
 
                 Component.onDestruction: {
-                    if (NavigationController.notePath.length > 0) {
+                    if (!saved && NavigationController.notePath.length > 0) {
                         document.saveAs(NavigationController.noteFullPath);
                     }
                 }
@@ -401,8 +409,8 @@ Kirigami.Page {
 
                 repeat: false
                 interval: 1000
-                onTriggered: if (root.name) {
-                    document.saveAs(root.path);
+                onTriggered: if (NavigationController.notePath.length > 0) {
+                    document.saveAs(NavigationController.noteFullPath);
                     saved = true;
                 }
             }
