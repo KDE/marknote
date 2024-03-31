@@ -7,11 +7,13 @@ qt_add_qml_module(marknote_static STATIC
         qml/Main.qml
         qml/NotesPage.qml
         qml/EditPage.qml
-        qml/NotebookMetadataDialog.qml
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml
         qml/LinkDialog.qml
         qml/ImageDialog.qml
+        qml/NotebookMetadataDialog.qml
+        qml/NotebookDelegate.qml
+        qml/NotebookContextMenu.qml
         qml/components/ActionButton.qml
         qml/components/BottomDrawer.qml
         qml/components/DoubleActionButton.qml
@@ -21,6 +23,7 @@ qt_add_qml_module(marknote_static STATIC
         notebooksmodel.cpp
         nestedlisthelper.cpp
         nestedlisthelper_p.h
+        navigationcontroller.cpp
 )
 
 target_link_libraries(marknote_static PUBLIC

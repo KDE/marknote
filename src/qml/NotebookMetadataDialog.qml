@@ -21,7 +21,7 @@ FormCard.FormCardDialog {
         Add
     }
 
-    property int index: -1
+    property string path: ''
     property int mode: NotebookMetadataDialog.Mode.Add
     property alias name: nameInput.text
     property alias iconName: buttonIcon.source
@@ -160,21 +160,9 @@ FormCard.FormCardDialog {
         if (mode == NotebookMetadataDialog.Mode.Add) {
             root.model.addNoteBook(root.name, root.iconName, root.color);
         } else {
-            root.model.editNoteBook(root.index, root.name, root.iconName, root.color);
+            root.model.editNoteBook(root.path, root.name, root.iconName, root.color);
         }
 
         close();
-
-        if (model.rowCount() === 1) {
-            pageStack.clear()
-            pageStack.replace([
-                Qt.createComponent("org.kde.marknote", "NotesPage"),
-                Qt.createComponent("org.kde.marknote", "EditPage")
-            ], {
-                path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
-                notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
-            });
-        }
     }
-
 }

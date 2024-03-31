@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 */
 
+import QtCore
 import QtQuick
 import org.kde.kirigami as Kirigami
 import QtQuick.Controls as Controls
@@ -14,36 +15,58 @@ import "components"
 
 Kirigami.ApplicationWindow {
     id: root
-    controlsVisible: false
-    property bool wideScreen: applicationWindow().width >= 600
-    onWideScreenChanged: !wideScreen? drawer.close() : drawer.open()
-    property string currentNotebook: noteBooksModel.rowCount() !== 0 ? noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name) : ""
-    property int currentNotebookIndex: noteBooksModel.rowCount() !== 0 ? 0 : -1
-    pageStack.globalToolBar.canContainHandles: wideScreen
 
-    function openBottomDrawer() {
-        bottomDrawer.open()
+    property bool wideScreen: applicationWindow().width >= 600
+
+    controlsVisible: false
+    onWideScreenChanged: !wideScreen? drawer.close() : drawer.open()
+    pageStack {
+        globalToolBar {
+            canContainHandles: wideScreen
+            style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
+            showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
+        }
+
+        popHiddenPages:true
+        defaultColumnWidth: 15 * Kirigami.Units.gridUnit
     }
-    pageStack.globalToolBar.style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
-    pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
-    pageStack.popHiddenPages:true
+
     Component.onCompleted: if (noteBooksModel.rowCount() !== 0) {
-        pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"), {
-            path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
-            notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name),
-        });
+        NavigationController.notebookPath = noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path);
     } else {
         pageStack.push(Qt.createComponent("org.kde.marknote", "WelcomePage"), {
             model : noteBooksModel,
         });
     }
 
-    pageStack.defaultColumnWidth: 15 * Kirigami.Units.gridUnit
+    function openBottomDrawer() {
+        bottomDrawer.open()
+    }
 
-    NotebookMetadataDialog {
-        id: notebookMetadataDialog
+    Kirigami.Action {
+        id: newNotebookAction
 
-        model: noteBooksModel
+        text: i18nc("@action:inmenu", "New Notebook")
+        icon.name: "list-add-symbolic"
+        onTriggered: {
+            const component = Qt.createComponent("org.kde.marknote", "NotebookMetadataDialog");
+            const dialog = component.createObject(root, {
+                mode: NotebookMetadataDialog.Mode.Add,
+                model: noteBooksModel,
+            });
+            dialog.open();
+        }
+    }
+
+    Connections {
+        target: NavigationController
+
+        function onNotebookPathChanged(): void {
+            if (!root.pageStack.items[0] || root.pageStack.items[0].objectName !== "NotesPage") {
+                root.pageStack.clear();
+                root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage", Component.PreferSynchronous, applicationWindow().pageStack));
+            }
+        }
     }
 
     globalDrawer: Kirigami.OverlayDrawer {
@@ -52,24 +75,16 @@ Kirigami.ApplicationWindow {
         Shortcut {
             sequence: "Ctrl+Shift+N"
             onActivated: {
-                notebookMetadataDialog.mode = NotebookMetadataDialog.Mode.Add;
-                notebookMetadataDialog.open();
+                newNotebookAction.trigger();
             }
         }
 
         NoteBooksModel {
             id: noteBooksModel
 
-            onNoteBookRenamed: (oldName, newName, index) => {
-                if (currentNotebook === oldName) {
-                    pageStack.clear()
-                    pageStack.replace([
-                        Qt.createComponent("org.kde.marknote", "NotesPage"),
-                        Qt.createComponent("org.kde.marknote", "EditPage")
-                    ], {
-                        path: noteBooksModel.data(noteBooksModel.index(index, 0), NoteBooksModel.Path),
-                        notebookName: noteBooksModel.data(noteBooksModel.index(index, 0), NoteBooksModel.Name)
-                    });
+            onNoteBookRenamed: (oldName, newName, path) => {
+                if (NavigationController.notebookName === oldName) {
+                    NavigationController.notebookPath = path;
                 }
             }
         }
@@ -97,49 +112,9 @@ Kirigami.ApplicationWindow {
 
                         Controls.Menu {
                             id: optionPopup
-                            Controls.MenuItem {
-                                text: i18nc("@action:inmenu", "New Notebook")
-                                icon.name: "list-add-symbolic"
-                                onTriggered: {
-                                    notebookMetadataDialog.mode = NotebookMetadataDialog.Mode.Add;
-                                    notebookMetadataDialog.open();
-                                }
-                            }
 
                             Controls.MenuItem {
-                                text: i18nc("@action:inmenu", "Edit Notebook")
-                                icon.name: "edit-entry-symbolic"
-                                onTriggered: {
-                                    notebookMetadataDialog.mode = NotebookMetadataDialog.Mode.Edit;
-                                    notebookMetadataDialog.index = currentNotebookIndex;
-                                    notebookMetadataDialog.name = noteBooksModel.data(noteBooksModel.index(currentNotebookIndex, 0), NoteBooksModel.Name);
-                                    notebookMetadataDialog.iconName = noteBooksModel.data(noteBooksModel.index(currentNotebookIndex, 0), NoteBooksModel.Icon);
-                                    notebookMetadataDialog.color = noteBooksModel.data(noteBooksModel.index(currentNotebookIndex, 0), NoteBooksModel.Color);
-                                    notebookMetadataDialog.open();
-                                }
-                            }
-
-                            Controls.MenuItem {
-                                text: i18n("Delete Notebook")
-                                icon.name: "delete"
-                                onTriggered: {
-                                    noteBooksModel.deleteNoteBook(currentNotebook)
-                                    if(noteBooksModel.rowCount() !== 0) {
-                                        pageStack.clear()
-                                        pageStack.replace([
-                                            Qt.createComponent("org.kde.marknote", "NotesPage"),
-                                            Qt.createComponent("org.kde.marknote", "EditPage")
-                                        ], {
-                                            path: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path),
-                                            notebookName: noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Name)
-                                        })
-                                    } else {
-                                        pageStack.clear()
-                                        pageStack.replace(Qt.createComponent("org.kde.marknote", "WelcomePage"), {
-                                            model : noteBooksModel
-                                        });
-                                    }
-                                }
+                                action: newNotebookAction
                             }
                         }
                     }
@@ -148,55 +123,8 @@ Kirigami.ApplicationWindow {
 
             Repeater {
                 model: noteBooksModel
-                delegate: Delegates.RoundedItemDelegate {
-                    id: delegateItem
-
-                    required property int index
-                    required property string name
-                    required property string path
-                    required property string iconName
-                    required property string color
-
-                    width: parent.width
-                    icon.name: iconName
-                    text: name
-                    highlighted: currentNotebookIndex === index
-                    contentItem: ColumnLayout {
-                        Kirigami.Icon {
-                            source: delegateItem.icon.name
-                            Layout.alignment: Qt.AlignHCenter
-                        }
-
-                        Controls.Label {
-                            text: delegateItem.name
-                            horizontalAlignment: Qt.AlignHCenter
-                            elide: Text.ElideRight
-
-                            Layout.fillWidth: true
-                        }
-                    }
-                    onClicked: {
-                        if (currentNotebook === delegateItem.name) {
-                            return;
-                        }
-                        if (delegateItem.color !== '#000000') {
-                            Kirigami.Theme.highlightColor = delegateItem.color
-                            console.log(delegateItem.color)
-                        }
-                        currentNotebook = delegateItem.name;
-                        currentNotebookIndex = delegateItem.index;
-                        pageStack.clear()
-                        pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"), {
-                            path: delegateItem.path,
-                            notebookName: delegateItem.name
-                        })
-                    }
-
-                    Layout.fillWidth: true
-
-                    Controls.ToolTip.text: text
-                    Controls.ToolTip.visible: hovered
-                    Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                delegate: NotebookDelegate {
+                    model: noteBooksModel
                 }
             }
 

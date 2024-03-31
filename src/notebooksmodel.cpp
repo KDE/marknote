@@ -46,7 +46,7 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
         if (QFile::exists(dotDirectory)) {
             return KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-Color");
         } else {
-            return QStringLiteral("addressbook-details");
+            return QStringLiteral("#ffffff");
         }
     }
     case Role::Name:
@@ -81,9 +81,9 @@ void NoteBooksModel::addNoteBook(const QString &name, const QString &icon, const
     endResetModel();
 }
 
-void NoteBooksModel::editNoteBook(int row, const QString &name, const QString &icon, const QString &color)
+void NoteBooksModel::editNoteBook(const QString &path, const QString &name, const QString &icon, const QString &color)
 {
-    const auto oldName = data(index(row, 0), Role::Name).toString();
+    const auto oldName = path.split(QLatin1Char('/')).constLast();
 
     const QString dotDirectory = directory.path() % QDir::separator() % oldName % QDir::separator() % QStringLiteral(".directory");
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
@@ -93,18 +93,63 @@ void NoteBooksModel::editNoteBook(int row, const QString &name, const QString &i
     desktopFile.sync();
 
     if (oldName != name) {
+        beginResetModel();
         QDir dir(directory.path());
         dir.rename(oldName, name);
-        Q_EMIT noteBookRenamed(oldName, name, row);
+        Q_EMIT noteBookRenamed(oldName, name, directory.path() + QDir::separator() + name);
+        endResetModel();
+        return;
     }
 
-    Q_EMIT dataChanged(index(row, 0), index(row, 0));
+    const auto idx = indexForPath(path);
+    if (idx.isValid()) {
+        Q_EMIT dataChanged(idx, idx);
+    }
 }
 
-void NoteBooksModel::deleteNoteBook(const QString &name)
+void NoteBooksModel::deleteNoteBook(const QString &path)
 {
-    beginResetModel();
-    QDir(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QDir::separator() + QStringLiteral("Notes") + QDir::separator() + name)
-        .removeRecursively();
-    endResetModel();
+    const auto idx = indexForPath(path);
+    if (!idx.isValid()) {
+        return;
+    }
+
+    beginRemoveRows({}, idx.row(), idx.row());
+    QDir directory(path);
+    // TODO(carl): Move to trash instead
+    directory.removeRecursively();
+    endRemoveRows();
+}
+
+QString NoteBooksModel::iconNameForPath(const QString &path) const
+{
+    const auto idx = indexForPath(path);
+    if (idx.isValid()) {
+        return data(idx, Role::Icon).toString();
+    }
+    return QStringLiteral("addressbook-details");
+}
+
+QString NoteBooksModel::colorForPath(const QString &path) const
+{
+    const auto idx = indexForPath(path);
+    if (idx.isValid()) {
+        return data(idx, Role::Color).toString();
+    }
+    return QStringLiteral("#ffffff");
+}
+
+QModelIndex NoteBooksModel::indexForPath(const QString &path) const
+{
+    const auto dirName = path.split(QLatin1Char('/')).constLast();
+    const auto entries = directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot);
+    int i = 0;
+    for (const auto &entry : entries) {
+        if (entry.fileName() == dirName) {
+            return index(i, 0);
+        }
+        i++;
+    }
+
+    return {};
 }

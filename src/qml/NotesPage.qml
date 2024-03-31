@@ -14,10 +14,11 @@ import "components"
 
 Kirigami.ScrollablePage {
     id: root
+
+    objectName: "NotesPage"
+
     property bool wideScreen: applicationWindow().width >= 600
 
-    property string path
-    property string notebookName
     Component.onCompleted: if (!Kirigami.Settings.isMobile) {
         if (notesModel.rowCount() !== 0) {
             pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"), {
@@ -69,7 +70,7 @@ Kirigami.ScrollablePage {
             id: heading
 
             visible: wideScreen
-            text: root.notebookName
+            text: NavigationController.notebookName
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.largeSpacing
             Layout.rightMargin: Kirigami.Units.largeSpacing
@@ -90,7 +91,7 @@ Kirigami.ScrollablePage {
 
                 Kirigami.Heading {
                     type: Kirigami.Heading.Type.Primary
-                    text: root.notebookName
+                    text: NavigationController.notebookName
                     Layout.leftMargin: Kirigami.Units.largeSpacing
                 }
 
@@ -198,7 +199,7 @@ Kirigami.ScrollablePage {
             filterRole: NotesModel.Name
             sourceModel: NotesModel {
                 id: notesModel
-                path: root.path
+                path: NavigationController.notebookPath
             }
         }
 
