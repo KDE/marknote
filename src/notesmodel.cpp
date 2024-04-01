@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "notesmodel.h"
+#include <KLocalizedString>
 #include <QDateTime>
 #include <QDebug>
 #include <QFile>
@@ -75,6 +76,10 @@ void NotesModel::deleteNote(const QUrl &path)
 void NotesModel::renameNote(const QUrl &path, const QString &name)
 {
     QString newPath = directory.path() + QDir::separator() + name + QStringLiteral(".md");
+    if (QFile::exists(newPath)) {
+        Q_EMIT errorOccured(i18nc("@info:status", "Unable to rename note. A note already exists with the same name."));
+        return;
+    }
     beginResetModel();
     QFile::rename(path.toLocalFile(), newPath);
     endResetModel();

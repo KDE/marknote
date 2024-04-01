@@ -54,10 +54,12 @@ public:
     /// \param destination The destination of the note to export.
     Q_INVOKABLE void exportToOdt(const QUrl &path, const QUrl &destination);
 
-    Q_SIGNAL void pathChanged();
-
     QString path() const;
     void setPath(const QString &newPath);
+
+Q_SIGNALS:
+    void pathChanged();
+    void errorOccured(const QString &errorMessage);
 
 private:
     QDir directory;
