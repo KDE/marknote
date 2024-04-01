@@ -54,7 +54,11 @@ int main(int argc, char *argv[])
                      i18n("Note taking application"),
                      KAboutLicense::GPL_V2,
                      i18n("© 2023 Mathis Brüchert"));
-    about.addAuthor(i18n("Mathis Brüchert"), i18n("Maintainer"), QStringLiteral("mbb-mail@gmx.de"));
+    about.addAuthor(i18n("Mathis Brüchert"),
+                    i18n("Maintainer"),
+                    QStringLiteral("mbb-mail@gmx.de"),
+                    QStringLiteral("https://invent.kde.org/mbruchert"),
+                    QUrl(QStringLiteral("https://gravatar.com/avatar/f9c35f242fe79337bf8746ca9fccc189?size=256.png")));
     about.addAuthor(i18n("Carl Schwan"),
                     i18n("Maintainer"),
                     QStringLiteral("carl@carlschwan.eu"),
