@@ -129,6 +129,7 @@ void NotesModel::setPath(const QString &newPath)
             m_entries << entry;
         }
     }
+    endResetModel();
     Q_EMIT pathChanged();
 
     updateColor();
