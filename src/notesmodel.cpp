@@ -31,7 +31,6 @@ NotesModel::NotesModel(QObject *parent)
         }
 
         updateColor();
-        Q_EMIT dataChanged(index(0, 0), index(rowCount({}) - 1, 0), {Role::Color});
     });
 }
 
@@ -138,6 +137,8 @@ void NotesModel::updateColor()
     } else {
         m_color = QStringLiteral("#00000000");
     }
+
+    Q_EMIT dataChanged(index(0, 0), index(rowCount({}) - 1, 0), {Role::Color});
 }
 
 static void cleanupImageInDocument(QTextDocument &doc, bool setHeight = false)
