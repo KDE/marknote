@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
                     i18n("Maintainer"),
                     QStringLiteral("carl@carlschwan.eu"),
                     QStringLiteral("https://carlschwan.eu"),
-                    QStringLiteral("https://carlschwan.eu/avatar.png"));
+                    QUrl(QStringLiteral("https://carlschwan.eu/avatar.png")));
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(about);
