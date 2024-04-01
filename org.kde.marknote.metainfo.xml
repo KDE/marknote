@@ -74,6 +74,11 @@
     <binary>marknote</binary>
   </provides>
   <releases>
+    <release version="1.1.1" date="2024-04-01">
+      <description>
+        <p>Fix an imporant bug</p>
+      </description>
+    </release>
     <release version="1.1.0" date="2024-04-01">
       <url>https://carlschwan.eu/2024/04/01/marknote-1.1.0/</url>
       <description>
