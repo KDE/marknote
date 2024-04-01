@@ -72,7 +72,7 @@ QHash<int, QByteArray> NoteBooksModel::roleNames() const
     };
 }
 
-void NoteBooksModel::addNoteBook(const QString &name, const QString &icon, const QString &color)
+QString NoteBooksModel::addNoteBook(const QString &name, const QString &icon, const QString &color)
 {
     beginResetModel();
     directory.mkdir(name);
@@ -83,6 +83,8 @@ void NoteBooksModel::addNoteBook(const QString &name, const QString &icon, const
     desktopEntry.writeEntry("X-MarkNote-Color", color);
     desktopFile.sync();
     endResetModel();
+
+    return directory.path() + u'/' + name;
 }
 
 void NoteBooksModel::editNoteBook(const QString &path, const QString &name, const QString &icon, const QString &color)

@@ -59,6 +59,15 @@ Kirigami.ApplicationWindow {
             dialog.open();
         }
 
+        function onNewNote(): void {
+            if (NavigationController.notebookPath.length === 0) {
+                root.showPassiveNotification(i18nc("@info:status", "Unable to create a new note, you need to create a notebook first."), "long", i18nc("@action:button", "Create Notebook"), () => {
+                    newNotebookAction.trigger();
+                });
+                return;
+            }
+        }
+
         function onOpenAboutPage(): void {
             const openDialogWindow = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {
                 width: root.width
@@ -157,6 +166,13 @@ Kirigami.ApplicationWindow {
                                 action: KActionFromAction {
                                     id: newNotebookAction
                                     action: App.action('add_notebook')
+                                }
+                            }
+
+                            Controls.MenuItem {
+                                action: KActionFromAction {
+                                    id: newNoteAction
+                                    action: App.action('add_note')
                                 }
                             }
 

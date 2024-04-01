@@ -34,6 +34,7 @@ Q_SIGNALS:
     void openAboutKDEPage();
     void openKCommandBarAction();
     void newNotebook();
+    void newNote();
 
 protected:
     virtual void setupActions();

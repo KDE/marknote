@@ -26,7 +26,7 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void addNoteBook(const QString &name, const QString &icon, const QString &color);
+    Q_INVOKABLE QString addNoteBook(const QString &name, const QString &icon, const QString &color);
     Q_INVOKABLE void editNoteBook(const QString &path, const QString &name, const QString &icon, const QString &color);
     Q_INVOKABLE void deleteNoteBook(const QString &path);
 

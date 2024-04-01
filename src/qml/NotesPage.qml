@@ -30,7 +30,19 @@ Kirigami.ScrollablePage {
         y: root.height - height - pageStack.globalToolBar.preferredHeight - Kirigami.Units.gridUnit
         text: i18n("Add note")
         icon.name: "list-add"
-        onClicked: noteMetadataDialog.open()
+        onClicked: newNoteAction.trigger()
+    }
+
+    Connections {
+        target: App
+        function onNewNote(): void {
+            const component = Qt.createComponent("org.kde.marknote", "NoteMetadataDialog");
+            const dialog = component.createObject(root, {
+                mode: NoteMetadataDialog.Mode.Add,
+                model: notesModel,
+            });
+            dialog.open();
+        }
     }
 
     titleDelegate: RowLayout {
@@ -38,21 +50,15 @@ Kirigami.ScrollablePage {
         ToolButton {
             id: addButton
             visible: !Kirigami.Settings.isMobile
-            icon.name: "list-add"
-            text: i18n("New Note (%1)", addShortcut.nativeText)
-            onClicked: noteMetadataDialog.open()
             display: AbstractButton.IconOnly
+
+            action: newNoteAction
 
             ToolTip.delay: Kirigami.Units.toolTipDelay
             ToolTip.visible: hovered
             ToolTip.text: text
-
-            Shortcut {
-                id: addShortcut
-                sequence: "Ctrl+N"
-                onActivated: addButton.clicked()
-            }
         }
+
         Kirigami.Heading {
             id: heading
 
@@ -122,7 +128,9 @@ Kirigami.ScrollablePage {
                 } else {
                     search.visible = false
                     wideScreen? heading.visible = true : headingButton.visible = true
-                    if (!Kirigami.Settings.isMobile) {addButton.visible = true}
+                    if (!Kirigami.Settings.isMobile) {
+                        addButton.visible = true;
+                    }
                     search.clear()
                     searchButton.icon.name = "search"
                 }
@@ -136,12 +144,6 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-    }
-
-    NoteMetadataDialog {
-        id: noteMetadataDialog
-
-        model: notesModel
     }
 
     Components.MessageDialog {
@@ -383,11 +385,7 @@ Kirigami.ScrollablePage {
             icon.name: "note"
             visible: notesList.count === 0
             text: i18n("Add a note!")
-            helpfulAction: Kirigami.Action {
-                icon.name: "list-add"
-                text: i18n("Add")
-                onTriggered: noteMetadataDialog.open()
-            }
+            helpfulAction: newNoteAction
         }
     }
 }

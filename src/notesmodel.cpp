@@ -55,12 +55,12 @@ QHash<int, QByteArray> NotesModel::roleNames() const
 QString NotesModel::addNote(const QString &name)
 {
     beginResetModel();
-    const QString path = m_path + QDir::separator() + name + QStringLiteral(".md");
+    const QString path = directory.path() + QDir::separator() + name + QStringLiteral(".md");
     QFile file(path);
     if (file.open(QFile::WriteOnly)) {
         file.write("# " + name.toUtf8());
     } else {
-        qDebug() << "Failed to create file at" << m_path;
+        qDebug() << "Failed to create file at" << path;
     }
     endResetModel();
     return name;

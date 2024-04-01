@@ -191,6 +191,15 @@ void App::setupActions()
         mCollection->addAction(action->objectName(), action);
         mCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_N));
     }
+
+    actionName = QLatin1String("add_note");
+    if (KAuthorized::authorizeAction(actionName)) {
+        auto action = mCollection->addAction(actionName, this, &App::newNote);
+        action->setText(i18nc("@action:inmenu", "New Note"));
+        action->setIcon(QIcon::fromTheme(QStringLiteral("list-add-symbolic")));
+        mCollection->addAction(action->objectName(), action);
+        mCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_N));
+    }
 }
 
 void App::quit()
