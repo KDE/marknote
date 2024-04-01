@@ -314,8 +314,14 @@ Kirigami.ScrollablePage {
                         Button {
                             id: renameButton
                             icon.name: "answer-correct"
+                            enabled: renameField.text.length > 0
                             onClicked: {
+                                if (renameField.text.length === 0) {
+                                    renameField.text = delegateItem.name;
+                                }
                                 if (renameField.text === delegateItem.name) {
+                                    renameLayout.visible = false;
+                                    nameLabel.visible = true;
                                     return;
                                 }
                                 notesModel.renameNote(delegateItem.fileUrl, renameField.text);
