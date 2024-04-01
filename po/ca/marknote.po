@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-31 00:38+0000\n"
-"PO-Revision-Date: 2024-03-30 08:49+0100\n"
+"POT-Creation-Date: 2024-04-01 00:38+0000\n"
+"PO-Revision-Date: 2024-03-31 13:56+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -17,7 +17,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+#: application.cpp:147
+#, kde-format
+msgid "Open Command Bar"
+msgstr ""
+
+#: application.cpp:169
+#, kde-format
+msgid "About %1"
+msgstr ""
+
+#: application.cpp:176
+#, kde-format
+msgid "About KDE"
+msgstr ""
+
+#: application.cpp:189
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "New Notebook"
+msgstr "Bloc de notes nou"
 
 #: main.cpp:52
 #, kde-format
@@ -39,132 +60,137 @@ msgstr "© 2023 Mathis Brüchert"
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:57
+#: main.cpp:57 main.cpp:59
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantenidor"
 
 #: main.cpp:58
 #, kde-format
+msgid "Carl Schwan"
+msgstr ""
+
+#: main.cpp:63
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Josep M. Ferrer"
 
-#: main.cpp:58
+#: main.cpp:63
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: qml/EditPage.qml:101
+#: qml/EditPage.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Negreta"
 
-#: qml/EditPage.qml:120
+#: qml/EditPage.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Cursiva"
 
-#: qml/EditPage.qml:139
+#: qml/EditPage.qml:140
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Subratllat"
 
-#: qml/EditPage.qml:153
+#: qml/EditPage.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Barrat"
 
-#: qml/EditPage.qml:172
+#: qml/EditPage.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Incrementa el nivell de la llista"
 
-#: qml/EditPage.qml:186
+#: qml/EditPage.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Disminueix el nivell de la llista"
 
-#: qml/EditPage.qml:206
+#: qml/EditPage.qml:207
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Sense llista"
 
-#: qml/EditPage.qml:207
+#: qml/EditPage.qml:208
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Llista sense ordenar"
 
-#: qml/EditPage.qml:208
+#: qml/EditPage.qml:209
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Llista ordenada"
 
-#: qml/EditPage.qml:220
+#: qml/EditPage.qml:221
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
-msgstr ""
+msgstr "Insereix una casella de selecció"
 
-#: qml/EditPage.qml:235
+#: qml/EditPage.qml:236
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
-msgstr ""
+msgstr "Insereix un enllaç"
 
-#: qml/EditPage.qml:251
+#: qml/EditPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
-msgstr ""
+msgstr "Insereix una imatge"
 
-#: qml/EditPage.qml:271
+#: qml/EditPage.qml:272
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Text bàsic"
 
-#: qml/EditPage.qml:272
+#: qml/EditPage.qml:273
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Títol"
 
-#: qml/EditPage.qml:273
+#: qml/EditPage.qml:274
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Subtítol"
 
-#: qml/EditPage.qml:274
+#: qml/EditPage.qml:275
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Secció"
 
-#: qml/EditPage.qml:275
+#: qml/EditPage.qml:276
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Subsecció"
 
-#: qml/EditPage.qml:276
+#: qml/EditPage.qml:277
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paràgraf"
 
-#: qml/EditPage.qml:277
+#: qml/EditPage.qml:278
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
@@ -174,187 +200,216 @@ msgstr "Subparàgraf"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "Inserció d'una imatge"
 
 #: qml/ImageDialog.qml:23
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "Selecció d'una imatge"
 
 #: qml/ImageDialog.qml:26
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr ""
+msgstr "Fitxers d'imatge (*.jpg *.jpeg *.png *.svg *.webp)"
 
 #: qml/ImageDialog.qml:26
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "Tots els fitxers (*)"
 
 #: qml/ImageDialog.qml:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
+msgstr "Ubicació de la imatge:"
+
+#: qml/KQuickCommandBarPage.qml:131
+#, kde-format
+msgid "No results found"
 msgstr ""
 
 #: qml/LinkDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "Inserció d'un enllaç"
 
 #: qml/LinkDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Text de l'enllaç:"
 
 #: qml/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "URL de l'enllaç:"
 
-#: qml/Main.qml:101
-#, fuzzy, kde-format
-#| msgid "New Notebook"
-msgctxt "@action:inmenu"
-msgid "New Notebook"
-msgstr "Bloc de notes nou"
-
-#: qml/Main.qml:110
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
-msgctxt "@action:inmenu"
-msgid "Edit Notebook"
-msgstr "Afegeix un bloc de notes"
-
-#: qml/Main.qml:123 qml/Main.qml:249
-#, kde-format
-msgid "Delete Notebook"
-msgstr "Suprimeix el bloc de notes"
-
-#: qml/Main.qml:210
+#: qml/Main.qml:194
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Els vostres blocs de notes"
 
-#: qml/NotebookMetadataDialog.qml:32
+#: qml/NotebookContextMenu.qml:16
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Edit Notebook"
+msgstr "Edita el bloc de notes"
+
+#: qml/NotebookDeleteAction.qml:15
 #, fuzzy, kde-format
-#| msgid "New Notebook"
+#| msgid "Delete Notebook"
+msgctxt "@action:inmenu"
+msgid "Delete Notebook"
+msgstr "Suprimeix el bloc de notes"
+
+#: qml/NotebookMetadataDialog.qml:32
+#, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
 msgstr "Bloc de notes nou"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Notebook"
-msgstr "Afegeix un bloc de notes"
+msgstr "Edició d'un bloc de notes"
 
 #: qml/NotebookMetadataDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr "Nom de la nota:"
+msgstr "Nom:"
 
 #: qml/NotebookMetadataDialog.qml:49
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
-msgstr ""
+msgstr "Icona"
 
 #: qml/NotebookMetadataDialog.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Color"
-msgstr ""
+msgstr "Color"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Note"
 msgstr "Nota nova"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
-msgstr "Suprimeix la nota"
+msgstr "Edició d'una nota"
 
-#: qml/NoteMetadataDialog.qml:53
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#: qml/NoteMetadataDialog.qml:48
+#, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
-msgstr "Nom de la nota:"
+msgstr "Nom:"
 
-#: qml/NotesPage.qml:43
+#: qml/NotesPage.qml:31
 #, kde-format
 msgid "Add note"
 msgstr "Afegeix una nota"
 
-#: qml/NotesPage.qml:54
+#: qml/NotesPage.qml:42
 #, kde-format
 msgid "New Note (%1)"
 msgstr "Nota nova (%1)"
 
-#: qml/NotesPage.qml:120
+#: qml/NotesPage.qml:108
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Surt de la cerca (%1)"
 
-#: qml/NotesPage.qml:120
+#: qml/NotesPage.qml:108
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Cerca notes (%1)"
 
-#: qml/NotesPage.qml:168
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#: qml/NotesPage.qml:157
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
-msgstr "Suprimeix la nota"
+msgstr "Supressió de nota"
 
-#: qml/NotesPage.qml:176
+#: qml/NotesPage.qml:170
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Segur que voleu suprimir la nota <b> %1 </b>?"
 
-#: qml/NotesPage.qml:270 qml/NotesPage.qml:302
+#: qml/NotesPage.qml:205
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr ""
+
+#: qml/NotesPage.qml:207
+#, kde-format
+msgid "HTML file (*.html)"
+msgstr ""
+
+#: qml/NotesPage.qml:217
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr ""
+
+#: qml/NotesPage.qml:219
+#, fuzzy, kde-format
+#| msgid "All files (*)"
+msgid "PDF file (*.pdf)"
+msgstr "Tots els fitxers (*)"
+
+#: qml/NotesPage.qml:231
+#, fuzzy, kde-format
+#| msgid "Rename Note"
+msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Reanomena la nota"
 
-#: qml/NotesPage.qml:285 qml/NotesPage.qml:313
-#, kde-format
+#: qml/NotesPage.qml:245
+#, fuzzy, kde-format
+#| msgid "Delete Note"
+msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Suprimeix la nota"
 
-#: qml/NotesPage.qml:346
+#: qml/NotesPage.qml:256
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Export to HTML"
+msgstr ""
+
+#: qml/NotesPage.qml:267
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Export to PDF"
+msgstr ""
+
+#: qml/NotesPage.qml:357
 #, kde-format
 msgid "Add a note!"
 msgstr "Afegeix una nota!"
 
-#: qml/NotesPage.qml:349
+#: qml/NotesPage.qml:360
 #, kde-format
 msgid "Add"
 msgstr "Afegeix"
 
-#: qml/WelcomePage.qml:26
+#: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Comenceu creant el primer bloc de notes!"
 
-#: qml/WelcomePage.qml:29
-#, kde-format
-msgid "Add Notebook"
-msgstr "Afegeix un bloc de notes"
+#~ msgid "Add Notebook"
+#~ msgstr "Afegeix un bloc de notes"
 
 #~ msgid "Notebook name"
 #~ msgstr "Nom del bloc de notes"
