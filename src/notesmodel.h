@@ -65,6 +65,7 @@ Q_SIGNALS:
 
 private:
     void updateColor();
+    void updateEntries();
 
     QFileInfoList m_entries;
     QString m_path;

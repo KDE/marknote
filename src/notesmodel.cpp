@@ -34,6 +34,19 @@ NotesModel::NotesModel(QObject *parent)
     });
 }
 
+void NotesModel::updateEntries()
+{
+    beginResetModel();
+    m_entries.clear();
+    const auto entries = QDir(m_path).entryInfoList(QDir::Files);
+    for (const auto &entry : entries) {
+        if (entry.fileName().endsWith(u".md"_s)) {
+            m_entries << entry;
+        }
+    }
+    endResetModel();
+}
+
 int NotesModel::rowCount(const QModelIndex &index) const
 {
     return index.isValid() || m_path.isEmpty() ? 0 : m_entries.count();
@@ -76,7 +89,6 @@ QHash<int, QByteArray> NotesModel::roleNames() const
 
 QString NotesModel::addNote(const QString &name)
 {
-    beginResetModel();
     const QString path = m_path + QDir::separator() + name + QStringLiteral(".md");
     QFile file(path);
     if (file.open(QFile::WriteOnly)) {
@@ -84,15 +96,14 @@ QString NotesModel::addNote(const QString &name)
     } else {
         qDebug() << "Failed to create file at" << path;
     }
-    endResetModel();
+    updateEntries();
     return name;
 }
 
 void NotesModel::deleteNote(const QUrl &path)
 {
-    beginResetModel();
     QFile::remove(path.toLocalFile());
-    endResetModel();
+    updateEntries();
 }
 
 void NotesModel::renameNote(const QUrl &path, const QString &name)
@@ -102,9 +113,8 @@ void NotesModel::renameNote(const QUrl &path, const QString &name)
         Q_EMIT errorOccured(i18nc("@info:status", "Unable to rename note. A note already exists with the same name."));
         return;
     }
-    beginResetModel();
     QFile::rename(path.toLocalFile(), newPath);
-    endResetModel();
+    updateEntries();
 }
 
 QString NotesModel::path() const
@@ -117,19 +127,11 @@ void NotesModel::setPath(const QString &newPath)
     if (m_path == newPath)
         return;
 
-    beginResetModel();
     if (!m_path.isEmpty()) {
         m_watcher.removePath(m_path + QDir::separator() + QStringLiteral(".directory"));
     }
     m_path = newPath;
-    m_entries.clear();
-    const auto entries = QDir(m_path).entryInfoList(QDir::Files);
-    for (const auto &entry : entries) {
-        if (entry.fileName().endsWith(u".md"_s)) {
-            m_entries << entry;
-        }
-    }
-    endResetModel();
+    updateEntries();
     Q_EMIT pathChanged();
 
     updateColor();
