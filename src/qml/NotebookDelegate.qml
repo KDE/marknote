@@ -23,6 +23,17 @@ Delegates.RoundedItemDelegate {
     text: name
     highlighted: NavigationController.notebookPath === path
 
+    function updateColor(): void {
+        if (color !== '#ffffff' && color !== '#00000000') {
+            root.background.Kirigami.Theme.highlightColor = color;
+        } else if (root.background.Kirigami.Theme.highlightColor !== applicationWindow().Kirigami.Theme.highlightColor) {
+            root.background.Kirigami.Theme.highlightColor = applicationWindow().Kirigami.Theme.highlightColor;
+        }
+    }
+
+    onColorChanged: updateColor();
+    Component.onCompleted: updateColor();
+
     contentItem: ColumnLayout {
         Kirigami.Icon {
             source: root.icon.name

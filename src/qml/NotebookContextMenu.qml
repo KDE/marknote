@@ -30,6 +30,10 @@ Controls.Menu {
     }
 
     Controls.MenuItem {
-        action: NotebookDeleteAction {}
+        action: NotebookDeleteAction {
+            name: root.name
+            path: root.path
+            model: root.model
+        }
     }
 }

@@ -143,7 +143,7 @@ FormCard.FormCardDialog {
         ColorDialog {
             id: colorDialog
             onAccepted: {
-                root.colorRect.color = colorDialog.color;
+                colorRect.color = colorDialog.color;
             }
         }
     }

@@ -128,7 +128,6 @@ static void cleanupImageInDocument(QTextDocument &doc, bool setHeight = false)
 
                         if (setHeight) {
                             const int height = double(image.height()) / double(image.width()) * double(width);
-                            qWarning() << height;
                             cursor.insertHtml(u"<img width=\"" + QString::number(width) + u"\" height=\"" + QString::number(height) + u"\" src=\""_s
                                               + imageFormat.name() + u"\"\\>"_s);
                         } else {

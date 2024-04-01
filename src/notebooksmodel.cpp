@@ -51,7 +51,7 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
         if (QFile::exists(dotDirectory)) {
             return KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-Color");
         } else {
-            return QStringLiteral("#ffffff");
+            return QStringLiteral("#00000000");
         }
     }
     case Role::Name:
