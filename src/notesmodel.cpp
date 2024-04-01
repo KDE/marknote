@@ -5,13 +5,17 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QFile>
+#include <QPdfWriter>
 #include <QStandardPaths>
+#include <QTextBlock>
 #include <QTextDocument>
 #include <QUrl>
 
 #if __has_include(<md4c-html.h>)
 #include <md4c-html.h>
 #endif
+
+using namespace Qt::StringLiterals;
 
 NotesModel::NotesModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -90,6 +94,62 @@ void NotesModel::setPath(const QString &newPath)
     directory = QDir(m_path);
     endResetModel();
     Q_EMIT pathChanged();
+}
+
+void NotesModel::exportToPdf(const QUrl &path, const QUrl &destination)
+{
+    if (!QFile::exists(path.toLocalFile())) {
+        return;
+    }
+
+    QFile file(path.toLocalFile());
+    if (!file.open(QFile::ReadOnly)) {
+        return;
+    }
+
+    QByteArray data = file.readAll();
+    QPdfWriter writer(destination.toLocalFile());
+    writer.setTitle(path.toLocalFile().split(QLatin1Char('/')).constLast());
+
+    QTextDocument doc;
+    doc.setMarkdown(QString::fromUtf8(data));
+
+    QSet<int> cursorPositionsToSkip;
+    QTextBlock currentBlock = doc.begin();
+    QTextBlock::iterator it;
+    while (currentBlock.isValid()) {
+        for (it = currentBlock.begin(); !it.atEnd(); ++it) {
+            QTextFragment fragment = it.fragment();
+            if (fragment.isValid()) {
+                QTextImageFormat imageFormat = fragment.charFormat().toImageFormat();
+                if (imageFormat.isValid()) {
+                    int pos = fragment.position();
+                    if (!cursorPositionsToSkip.contains(pos)) {
+                        QTextCursor cursor(&doc);
+                        cursor.setPosition(pos);
+                        cursor.setPosition(pos + 1, QTextCursor::KeepAnchor);
+                        cursor.removeSelectedText();
+
+                        int width = 620;
+                        QImage image(imageFormat.name());
+                        if (image.width() < width) {
+                            width = image.width();
+                        }
+
+                        cursor.insertHtml(u"<img width=\"" + QString::number(width) + u"\" src=\""_s + imageFormat.name() + u"\"\\>"_s);
+                        // The textfragment iterator is now invalid, restart from the beginning
+                        // Take care not to replace the same fragment again, or we would be in
+                        // an infinite loop.
+                        cursorPositionsToSkip.insert(pos);
+                        // it = currentBlock.begin();
+                    }
+                }
+            }
+        }
+
+        currentBlock = currentBlock.next();
+    }
+    doc.print(&writer);
 }
 
 void NotesModel::exportToHtml(const QUrl &path, const QUrl &destination)

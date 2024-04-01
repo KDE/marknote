@@ -197,7 +197,7 @@ Kirigami.ScrollablePage {
         }
 
         FileDialog {
-            id: fileDialog
+            id: htmlFileDialog
 
             property string name
             property string path
@@ -206,6 +206,18 @@ Kirigami.ScrollablePage {
             fileMode: FileDialog.SaveFile
             nameFilters: [i18n("HTML file (*.html)")]
             onAccepted: notesModel.exportToHtml(path, selectedFile);
+        }
+
+        FileDialog {
+            id: pdfFileDialog
+
+            property string name
+            property string path
+
+            title: i18nc("@title:window", "Export to PDF")
+            fileMode: FileDialog.SaveFile
+            nameFilters: [i18n("PDF file (*.pdf)")]
+            onAccepted: notesModel.exportToPdf(path, selectedFile);
         }
 
         ContextMenu {
@@ -241,13 +253,24 @@ Kirigami.ScrollablePage {
             }
 
             Action {
-                text: i18nc("@action:inmenu", "Export to Html")
+                text: i18nc("@action:inmenu", "Export to HTML")
                 icon.name: "text-html"
                 onTriggered: {
-                    fileDialog.name = menu.delegateItem.name;
-                    fileDialog.path = menu.delegateItem.fileUrl;
-                    fileDialog.selectedFile = menu.delegateItem.name + '.html'
-                    fileDialog.open();
+                    htmlFileDialog.name = menu.delegateItem.name;
+                    htmlFileDialog.path = menu.delegateItem.fileUrl;
+                    htmlFileDialog.selectedFile = menu.delegateItem.name + '.html'
+                    htmlFileDialog.open();
+                }
+            }
+
+            Action {
+                text: i18nc("@action:inmenu", "Export to PDF")
+                icon.name: "application-pdf"
+                onTriggered: {
+                    pdfFileDialog.name = menu.delegateItem.name;
+                    pdfFileDialog.path = menu.delegateItem.fileUrl;
+                    pdfFileDialog.selectedFile = menu.delegateItem.name + '.pdf'
+                    pdfFileDialog.open();
                 }
             }
         }

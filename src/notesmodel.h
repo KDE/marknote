@@ -44,6 +44,11 @@ public:
     /// \param destination The destination of the note to export.
     Q_INVOKABLE void exportToHtml(const QUrl &path, const QUrl &destination);
 
+    /// Export a note to PDF.
+    /// \param path The path of the note to export.
+    /// \param destination The destination of the note to export.
+    Q_INVOKABLE void exportToPdf(const QUrl &path, const QUrl &destination);
+
     Q_SIGNAL void pathChanged();
 
     QString path() const;
