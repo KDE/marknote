@@ -159,6 +159,7 @@ FormCard.FormCardDialog {
     onAccepted: {
         if (mode == NotebookMetadataDialog.Mode.Add) {
             root.model.addNoteBook(root.name, root.iconName, root.color);
+            NavigationController.notebookPath = root.name;
         } else {
             root.model.editNoteBook(root.path, root.name, root.iconName, root.color);
         }
