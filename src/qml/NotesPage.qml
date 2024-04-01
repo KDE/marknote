@@ -309,11 +309,20 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true
                             id: renameField
                             text: name
-                            onAccepted: notesModel.renameNote(path, text)
+                            onAccepted: renameButton.clicked();
                         }
                         Button {
+                            id: renameButton
                             icon.name: "answer-correct"
-                            onClicked: notesModel.renameNote(path, renameField.text)
+                            onClicked: {
+                                if (renameField.text === delegateItem.name) {
+                                    return;
+                                }
+                                notesModel.renameNote(delegateItem.fileUrl, renameField.text);
+                                if (NavigationController.notePath === delegateItem.path) {
+                                    NavigationController.notePath = renameField.text + '.md';
+                                }
+                            }
                         }
                     }
                     Label {
