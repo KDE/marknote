@@ -9,6 +9,7 @@
 #include <QStandardPaths>
 #include <QTextBlock>
 #include <QTextDocument>
+#include <QTextDocumentWriter>
 #include <QUrl>
 
 #if __has_include(<md4c-html.h>)
@@ -96,24 +97,8 @@ void NotesModel::setPath(const QString &newPath)
     Q_EMIT pathChanged();
 }
 
-void NotesModel::exportToPdf(const QUrl &path, const QUrl &destination)
+static void cleanupImageInDocument(QTextDocument &doc, bool setHeight = false)
 {
-    if (!QFile::exists(path.toLocalFile())) {
-        return;
-    }
-
-    QFile file(path.toLocalFile());
-    if (!file.open(QFile::ReadOnly)) {
-        return;
-    }
-
-    QByteArray data = file.readAll();
-    QPdfWriter writer(destination.toLocalFile());
-    writer.setTitle(path.toLocalFile().split(QLatin1Char('/')).constLast());
-
-    QTextDocument doc;
-    doc.setMarkdown(QString::fromUtf8(data));
-
     QSet<int> cursorPositionsToSkip;
     QTextBlock currentBlock = doc.begin();
     QTextBlock::iterator it;
@@ -136,7 +121,15 @@ void NotesModel::exportToPdf(const QUrl &path, const QUrl &destination)
                             width = image.width();
                         }
 
-                        cursor.insertHtml(u"<img width=\"" + QString::number(width) + u"\" src=\""_s + imageFormat.name() + u"\"\\>"_s);
+                        if (setHeight) {
+                            const int height = double(image.height()) / double(image.width()) * double(width);
+                            qWarning() << height;
+                            cursor.insertHtml(u"<img width=\"" + QString::number(width) + u"\" height=\"" + QString::number(height) + u"\" src=\""_s
+                                              + imageFormat.name() + u"\"\\>"_s);
+                        } else {
+                            cursor.insertHtml(u"<img width=\"" + QString::number(width) + u"\" src=\""_s + imageFormat.name() + u"\"\\>"_s);
+                        }
+
                         // The textfragment iterator is now invalid, restart from the beginning
                         // Take care not to replace the same fragment again, or we would be in
                         // an infinite loop.
@@ -149,6 +142,27 @@ void NotesModel::exportToPdf(const QUrl &path, const QUrl &destination)
 
         currentBlock = currentBlock.next();
     }
+}
+
+void NotesModel::exportToPdf(const QUrl &path, const QUrl &destination)
+{
+    if (!QFile::exists(path.toLocalFile())) {
+        return;
+    }
+
+    QFile file(path.toLocalFile());
+    if (!file.open(QFile::ReadOnly)) {
+        return;
+    }
+
+    QByteArray data = file.readAll();
+    QPdfWriter writer(destination.toLocalFile());
+    writer.setTitle(path.toLocalFile().split(QLatin1Char('/')).constLast());
+
+    QTextDocument doc;
+    doc.setMarkdown(QString::fromUtf8(data));
+
+    cleanupImageInDocument(doc);
     doc.print(&writer);
 }
 
@@ -233,4 +247,25 @@ img {
 )";
 
     exportFile.write(content);
+}
+
+void NotesModel::exportToOdt(const QUrl &path, const QUrl &destination)
+{
+    if (!QFile::exists(path.toLocalFile())) {
+        return;
+    }
+
+    QFile file(path.toLocalFile());
+    if (!file.open(QFile::ReadOnly)) {
+        return;
+    }
+
+    QByteArray data = file.readAll();
+
+    QTextDocument doc;
+    doc.setMarkdown(QString::fromUtf8(data));
+    cleanupImageInDocument(doc, true);
+
+    QTextDocumentWriter writer(destination.toLocalFile(), "odf");
+    writer.write(&doc);
 }

@@ -197,27 +197,19 @@ Kirigami.ScrollablePage {
         }
 
         FileDialog {
-            id: htmlFileDialog
+            id: fileDialog
 
             property string name
             property string path
 
-            title: i18nc("@title:window", "Export to HTML")
             fileMode: FileDialog.SaveFile
-            nameFilters: [i18n("HTML file (*.html)")]
-            onAccepted: notesModel.exportToHtml(path, selectedFile);
-        }
-
-        FileDialog {
-            id: pdfFileDialog
-
-            property string name
-            property string path
-
-            title: i18nc("@title:window", "Export to PDF")
-            fileMode: FileDialog.SaveFile
-            nameFilters: [i18n("PDF file (*.pdf)")]
-            onAccepted: notesModel.exportToPdf(path, selectedFile);
+            onAccepted: if (selectedFile.toString().endsWith('.html')) {
+                notesModel.exportToHtml(path, selectedFile);
+            } else if (selectedFile.toString().endsWith('.pdf')) {
+                notesModel.exportToPdf(path, selectedFile);
+            } else if (selectedFile.toString().endsWith('.odt')) {
+                notesModel.exportToOdt(path, selectedFile);
+            }
         }
 
         ContextMenu {
@@ -256,10 +248,12 @@ Kirigami.ScrollablePage {
                 text: i18nc("@action:inmenu", "Export to HTML")
                 icon.name: "text-html"
                 onTriggered: {
-                    htmlFileDialog.name = menu.delegateItem.name;
-                    htmlFileDialog.path = menu.delegateItem.fileUrl;
-                    htmlFileDialog.selectedFile = menu.delegateItem.name + '.html'
-                    htmlFileDialog.open();
+                    fileDialog.name = menu.delegateItem.name;
+                    fileDialog.path = menu.delegateItem.fileUrl;
+                    fileDialog.selectedFile = menu.delegateItem.name + '.html';
+                    fileDialog.title = i18nc("@title:window", "Export to HTML");
+                    fileDialog.nameFilters = [i18n("HTML file (*.html)")];
+                    fileDialog.open();
                 }
             }
 
@@ -267,10 +261,25 @@ Kirigami.ScrollablePage {
                 text: i18nc("@action:inmenu", "Export to PDF")
                 icon.name: "application-pdf"
                 onTriggered: {
-                    pdfFileDialog.name = menu.delegateItem.name;
-                    pdfFileDialog.path = menu.delegateItem.fileUrl;
-                    pdfFileDialog.selectedFile = menu.delegateItem.name + '.pdf'
-                    pdfFileDialog.open();
+                    fileDialog.name = menu.delegateItem.name;
+                    fileDialog.path = menu.delegateItem.fileUrl;
+                    fileDialog.selectedFile = menu.delegateItem.name + '.pdf';
+                    fileDialog.title = i18nc("@title:window", "Export to PDF");
+                    fileDialog.nameFilters = [i18n("PDF file (*.pdf)")];
+                    fileDialog.open();
+                }
+            }
+
+            Action {
+                text: i18nc("@action:inmenu", "Export to ODT")
+                icon.name: "application-vnd.oasis.opendocument.text"
+                onTriggered: {
+                    fileDialog.name = menu.delegateItem.name;
+                    fileDialog.path = menu.delegateItem.fileUrl;
+                    fileDialog.selectedFile = menu.delegateItem.name + '.odt';
+                    fileDialog.title = i18nc("@title:window", "Export to ODT");
+                    fileDialog.nameFilters = [i18n("ODF Text Document (*.odt)")];
+                    fileDialog.open();
                 }
             }
         }
