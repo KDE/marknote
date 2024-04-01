@@ -36,7 +36,7 @@ FormCard.FormCardDialog {
     onAccepted: {
         if (mode == NoteMetadataDialog.Mode.Add) {
             let path = root.model.addNote(root.name);
-            NavigationController.notePath = path;
+            NavigationController.notePath = path + '.md';
         }
 
         close();
