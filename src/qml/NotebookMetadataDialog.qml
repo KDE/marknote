@@ -25,7 +25,7 @@ FormCard.FormCardDialog {
     property int mode: NotebookMetadataDialog.Mode.Add
     property alias name: nameInput.text
     property alias iconName: buttonIcon.source
-    property alias color: colorRect.color
+    property alias color: colorButton.color
 
     property NoteBooksModel model
 
@@ -96,56 +96,8 @@ FormCard.FormCardDialog {
         Layout.fillWidth: true
     }
 
-    FormCard.AbstractFormDelegate {
+    FormCard.FormColorDelegate {
         id: colorButton
-
-        text: i18nc("@action:button", "Color")
-        icon.name: "color-picker"
-        onClicked: colorDialog.open()
-
-        contentItem: RowLayout {
-            spacing: 0
-
-            Kirigami.Icon {
-                source: "color-picker"
-                Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-                implicitWidth: Kirigami.Units.iconSizes.small
-                implicitHeight: Kirigami.Units.iconSizes.small
-            }
-
-            Controls.Label {
-                Layout.fillWidth: true
-                text: colorButton.text
-                elide: Text.ElideRight
-                wrapMode: Text.Wrap
-                maximumLineCount: 2
-                Accessible.ignored: true // base class sets this text on root already
-            }
-
-            Rectangle {
-                id: colorRect
-                radius: height
-                color: "transparent"
-                Layout.preferredWidth: Kirigami.Units.iconSizes.small
-                Layout.preferredHeight: Kirigami.Units.iconSizes.small
-                Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-            }
-
-            FormCard.FormArrow {
-                Layout.leftMargin: Kirigami.Units.smallSpacing
-                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                direction: Qt.RightArrow
-                visible: root.background.visible
-            }
-        }
-
-
-        ColorDialog {
-            id: colorDialog
-            onAccepted: {
-                colorRect.color = colorDialog.color;
-            }
-        }
     }
 
     onOpened: nameInput.forceActiveFocus()
