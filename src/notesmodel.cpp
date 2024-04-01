@@ -36,20 +36,24 @@ NotesModel::NotesModel(QObject *parent)
 
 int NotesModel::rowCount(const QModelIndex &index) const
 {
-    return index.isValid() || m_path.isEmpty() ? 0 : directory.entryList(QDir::Files).count();
+    return index.isValid() || m_path.isEmpty() ? 0 : m_entries.count();
 }
 
 QVariant NotesModel::data(const QModelIndex &index, int role) const
 {
+    Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid));
+
+    const auto &entry = m_entries[index.row()];
+
     switch (role) {
     case Role::FileUrl:
-        return QUrl::fromLocalFile(directory.entryInfoList(QDir::Files).at(index.row()).filePath());
+        return QUrl::fromLocalFile(entry.filePath());
     case Role::Path:
-        return directory.entryInfoList(QDir::Files).at(index.row()).fileName();
+        return entry.fileName();
     case Role::Date:
-        return directory.entryInfoList(QDir::Files).at(index.row()).lastModified(QTimeZone::LocalTime);
+        return entry.lastModified(QTimeZone::LocalTime);
     case Role::Name:
-        return directory.entryInfoList(QDir::Files).at(index.row()).fileName().replace(QStringLiteral(".md"), QString());
+        return entry.fileName().replace(QStringLiteral(".md"), QString());
     case Role::Color:
         return m_color;
     }
@@ -73,7 +77,7 @@ QHash<int, QByteArray> NotesModel::roleNames() const
 QString NotesModel::addNote(const QString &name)
 {
     beginResetModel();
-    const QString path = directory.path() + QDir::separator() + name + QStringLiteral(".md");
+    const QString path = m_path + QDir::separator() + name + QStringLiteral(".md");
     QFile file(path);
     if (file.open(QFile::WriteOnly)) {
         file.write("# " + name.toUtf8());
@@ -93,7 +97,7 @@ void NotesModel::deleteNote(const QUrl &path)
 
 void NotesModel::renameNote(const QUrl &path, const QString &name)
 {
-    QString newPath = directory.path() + QDir::separator() + name + QStringLiteral(".md");
+    QString newPath = m_path + QDir::separator() + name + QStringLiteral(".md");
     if (QFile::exists(newPath)) {
         Q_EMIT errorOccured(i18nc("@info:status", "Unable to rename note. A note already exists with the same name."));
         return;
@@ -118,8 +122,13 @@ void NotesModel::setPath(const QString &newPath)
         m_watcher.removePath(m_path + QDir::separator() + QStringLiteral(".directory"));
     }
     m_path = newPath;
-    directory = QDir(m_path);
-    endResetModel();
+    m_entries.clear();
+    const auto entries = QDir(m_path).entryInfoList(QDir::Files);
+    for (const auto &entry : entries) {
+        if (entry.fileName().endsWith(u".md"_s)) {
+            m_entries << entry;
+        }
+    }
     Q_EMIT pathChanged();
 
     updateColor();
@@ -131,7 +140,7 @@ void NotesModel::setPath(const QString &newPath)
 
 void NotesModel::updateColor()
 {
-    const QString dotDirectory = directory.path() + QDir::separator() + QStringLiteral(".directory");
+    const QString dotDirectory = m_path + QDir::separator() + QStringLiteral(".directory");
     if (QFile::exists(dotDirectory)) {
         m_color = KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-Color");
     } else {

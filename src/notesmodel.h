@@ -66,7 +66,7 @@ Q_SIGNALS:
 private:
     void updateColor();
 
-    QDir directory;
+    QFileInfoList m_entries;
     QString m_path;
     QString m_color;
     QFileSystemWatcher m_watcher;
