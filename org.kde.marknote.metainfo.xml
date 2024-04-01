@@ -74,11 +74,56 @@
     <binary>marknote</binary>
   </provides>
   <releases>
+    <release version="1.1.0" date="2024-04-01">
+      <url>https://carlschwan.eu/2024/04/01/marknote-1.1.0/</url>
+      <description>
+        <p>
+          Marknote 1.1.0 is out! Marknote is the new WYSIWYG note-taking
+          application from KDE. Despite the latest release being just a few days
+          ago, we have been hard at work and added a few new features and, more
+          importantly, fixed some bugs.
+        </p>
+        <p>
+          Marknote now boasts broader Markdown support, and can now display
+          images and task lists in the editor. And once you are done editing
+          your notes, you can export them to various formats, including PDF,
+          HTML and ODT.
+        </p>
+        <p>
+          Marknote's interface now seamlessly integrates the colors assigned to
+          your notebooks, enhancing its visual coherence and making it easier to
+          distinguish one notebook from another. Additionally, your notebooks
+          remember the last opened note, automatically reopening it upon selection.
+        </p>
+        <p>
+          We've also introduced a convenient command bar similar to the one in
+          Merkuro. This provides quick access to essential actions within
+          Marknote. Currently it only creates a new notebook and note, but we
+          plan to make more actions available in the future. Finally we have
+          reworked all the dialogs in Markdown to use the newly introduced
+          FormCardDialog from KirigamiAddons.
+        </p>
+      </description>
+    </release>
     <release version="1.0.0" date="2024-03-29">
       <url>https://blogs.kde.org/2024/03/29/marknote-finally-released/</url>
       <description>
-        <p>Marknote, KDE's WYSIWYG note-taking application, is finally ready for it's first release. Marknote lets you create rich text notes and easily organise them into notebooks. You can personalise your notebooks by choosing an icon and accent color for each one, making it easy to distinguish between them and keep your notes at your fingertips. Your notes are saved as Markdown files in your Documents folder, making it easy to use your notes outside of Marknote as well as inside the app.</p>
-        <p>Thanks to Carl, Marknote now not only supports bold and italic fonts, but also lets you underline important parts, strike out wrong parts, organise your thoughts in various list types and organise your notes with titles, sections and more.</p>
+        <p>
+          Marknote, KDE's WYSIWYG note-taking application, is finally ready for
+          it's first release. Marknote lets you create rich text notes and
+          easily organise them into notebooks. You can personalise your
+          notebooks by choosing an icon and accent color for each one, making it
+          easy to distinguish between them and keep your notes at your
+          fingertips. Your notes are saved as Markdown files in your Documents
+          folder, making it easy to use your notes outside of Marknote as well
+          as inside the app.
+        </p>
+        <p>
+          Thanks to Carl, Marknote now not only supports bold and italic fonts,
+          but also lets you underline important parts, strike out wrong parts,
+          organise your thoughts in various list types and organise your notes
+          with titles, sections and more.
+        </p>
       </description>
     </release>
   </releases>
