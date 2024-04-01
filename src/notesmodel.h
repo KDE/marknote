@@ -21,6 +21,7 @@ public:
         FileUrl,
         Date,
         Name,
+        Color,
     };
     Q_ENUM(Role)
 
@@ -62,8 +63,11 @@ Q_SIGNALS:
     void errorOccured(const QString &errorMessage);
 
 private:
+    void updateColor();
+
     QDir directory;
     QString m_path;
+    QString m_color;
 };
 
 #endif // NOTESMODEL_H

@@ -295,11 +295,23 @@ Kirigami.ScrollablePage {
 
             required property string name;
             required property string path;
+            required property string color;
             required property date date;
             required property int index;
             required property url fileUrl
             property alias renameLayout: renameLayout;
             property alias nameLabel: nameLabel;
+
+            function updateColor(): void {
+                if (color !== '#ffffff' && color !== '#00000000') {
+                    delegateItem.background.Kirigami.Theme.highlightColor = color;
+                } else if (delegateItem.background.Kirigami.Theme.highlightColor !== applicationWindow().Kirigami.Theme.highlightColor) {
+                    delegateItem.background.Kirigami.Theme.highlightColor = applicationWindow().Kirigami.Theme.highlightColor;
+                }
+            }
+
+            onColorChanged: updateColor();
+            Component.onCompleted: updateColor();
 
             contentItem: RowLayout{
                 ColumnLayout {

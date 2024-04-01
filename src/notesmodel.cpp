@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "notesmodel.h"
+#include <KConfigGroup>
+#include <KDesktopFile>
 #include <KLocalizedString>
 #include <QDateTime>
 #include <QDebug>
@@ -40,6 +42,8 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
         return directory.entryInfoList(QDir::Files).at(index.row()).lastModified(QTimeZone::LocalTime);
     case Role::Name:
         return directory.entryInfoList(QDir::Files).at(index.row()).fileName().replace(QStringLiteral(".md"), QString());
+    case Role::Color:
+        return m_color;
     }
 
     Q_UNREACHABLE();
@@ -49,7 +53,13 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> NotesModel::roleNames() const
 {
-    return {{Role::Date, "date"}, {Role::Path, "path"}, {Role::FileUrl, "fileUrl"}, {Role::Name, "name"}};
+    return {
+        {Role::Date, "date"},
+        {Role::Path, "path"},
+        {Role::FileUrl, "fileUrl"},
+        {Role::Name, "name"},
+        {Role::Color, "color"},
+    };
 }
 
 QString NotesModel::addNote(const QString &name)
@@ -100,6 +110,18 @@ void NotesModel::setPath(const QString &newPath)
     directory = QDir(m_path);
     endResetModel();
     Q_EMIT pathChanged();
+
+    updateColor();
+}
+
+void NotesModel::updateColor()
+{
+    const QString dotDirectory = directory.path() + QDir::separator() + QStringLiteral(".directory");
+    if (QFile::exists(dotDirectory)) {
+        m_color = KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-Color");
+    } else {
+        m_color = QStringLiteral("#00000000");
+    }
 }
 
 static void cleanupImageInDocument(QTextDocument &doc, bool setHeight = false)
