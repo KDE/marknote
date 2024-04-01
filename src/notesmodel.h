@@ -6,6 +6,7 @@
 
 #include <QAbstractListModel>
 #include <QDir>
+#include <QFileSystemWatcher>
 #include <QQmlEngine>
 
 class NotesModel : public QAbstractListModel
@@ -68,6 +69,7 @@ private:
     QDir directory;
     QString m_path;
     QString m_color;
+    QFileSystemWatcher m_watcher;
 };
 
 #endif // NOTESMODEL_H

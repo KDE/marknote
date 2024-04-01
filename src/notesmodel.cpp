@@ -8,6 +8,7 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QFile>
+#include <QFileSystemWatcher>
 #include <QPdfWriter>
 #include <QStandardPaths>
 #include <QTextBlock>
@@ -24,6 +25,14 @@ using namespace Qt::StringLiterals;
 NotesModel::NotesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    connect(&m_watcher, &QFileSystemWatcher::fileChanged, this, [this](const QString &path) {
+        if (!m_watcher.files().contains(path)) {
+            m_watcher.addPath(path);
+        }
+
+        updateColor();
+        Q_EMIT dataChanged(index(0, 0), index(rowCount({}) - 1, 0), {Role::Color});
+    });
 }
 
 int NotesModel::rowCount(const QModelIndex &index) const
@@ -106,12 +115,19 @@ void NotesModel::setPath(const QString &newPath)
         return;
 
     beginResetModel();
+    if (!m_path.isEmpty()) {
+        m_watcher.removePath(m_path + QDir::separator() + QStringLiteral(".directory"));
+    }
     m_path = newPath;
     directory = QDir(m_path);
     endResetModel();
     Q_EMIT pathChanged();
 
     updateColor();
+
+    if (!m_path.isEmpty()) {
+        m_watcher.addPath(m_path + QDir::separator() + QStringLiteral(".directory"));
+    }
 }
 
 void NotesModel::updateColor()
