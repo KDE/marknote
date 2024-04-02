@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:38+0000\n"
-"PO-Revision-Date: 2024-03-25 12:04+0100\n"
+"POT-Creation-Date: 2024-04-02 00:37+0000\n"
+"PO-Revision-Date: 2024-04-01 19:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,29 +18,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #: application.cpp:147
 #, kde-format
 msgid "Open Command Bar"
-msgstr ""
+msgstr "Ireki komando-barra"
 
 #: application.cpp:169
 #, kde-format
 msgid "About %1"
-msgstr ""
+msgstr "%1(e)ri buruz"
 
 #: application.cpp:176
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "KDEri buruz"
 
 #: application.cpp:189
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "Koaderno berria"
+
+#: application.cpp:198
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "New Note"
+msgctxt "@action:inmenu"
+msgid "New Note"
+msgstr "Ohar berria"
 
 #: main.cpp:52
 #, kde-format
@@ -62,27 +69,33 @@ msgstr "© 2023 Mathis Brüchert"
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:57 main.cpp:59
+#: main.cpp:58 main.cpp:63
 #, kde-format
 msgid "Maintainer"
 msgstr "Arduraduna"
 
-#: main.cpp:58
+#: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
-#: main.cpp:63
+#: main.cpp:67
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Iñigo Salvador Azurmendi"
 
-#: main.cpp:63
+#: main.cpp:67
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
+
+#: notesmodel.cpp:113
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to rename note. A note already exists with the same name."
+msgstr ""
 
 #: qml/EditPage.qml:102
 #, kde-format
@@ -127,36 +140,34 @@ msgid "No list"
 msgstr "Zerrenda ez"
 
 #: qml/EditPage.qml:208
-#, fuzzy, kde-format
-#| msgid "Add numbered list"
+#, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
-msgstr "Gehitu zerrenda zenbakitua"
+msgstr "Zerrenda ez-ordenatua"
 
 #: qml/EditPage.qml:209
-#, fuzzy, kde-format
-#| msgid "Add numbered list"
+#, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
-msgstr "Gehitu zerrenda zenbakitua"
+msgstr "Zerrenda ordenatua"
 
 #: qml/EditPage.qml:221
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
-msgstr ""
+msgstr "Txertatu hautapen-laukia"
 
 #: qml/EditPage.qml:236
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
-msgstr ""
+msgstr "Txertatu esteka"
 
 #: qml/EditPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
-msgstr ""
+msgstr "Txertatu irudia"
 
 #: qml/EditPage.qml:272
 #, kde-format
@@ -204,220 +215,238 @@ msgstr "Azpiparagrafoa"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "Txertatu irudia"
 
 #: qml/ImageDialog.qml:23
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "Hautatu irudi bat"
 
 #: qml/ImageDialog.qml:26
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr ""
+msgstr "Irudi-fitxategiak (*.jpg *.jpeg *.png *.svg *.webp)"
 
 #: qml/ImageDialog.qml:26
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "Fitxategi guztiak (*)"
 
 #: qml/ImageDialog.qml:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
-msgstr ""
+msgstr "Irudiaren kokalekua:"
 
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
 msgid "No results found"
-msgstr ""
+msgstr "Ez da emaitzarik aurkitu"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "Txertatu esteka"
 
 #: qml/LinkDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Estekaren testua:"
 
 #: qml/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
+msgstr "Estekaren URL:"
+
+#: qml/Main.qml:64
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 
-#: qml/Main.qml:194
+#: qml/Main.qml:64
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Notebook"
+msgctxt "@action:button"
+msgid "Create Notebook"
+msgstr "Ezabatu koadernoa"
+
+#: qml/Main.qml:210
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Zure koadernoak"
 
 #: qml/NotebookContextMenu.qml:16
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit Notebook"
-msgstr "Gehitu koadernoa"
+msgstr "Editatu koadernoa"
 
 #: qml/NotebookDeleteAction.qml:15
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Ezabatu koadernoa"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
 msgstr "Koaderno berria"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Notebook"
-msgstr "Gehitu koadernoa"
+msgstr "Editatu koadernoa"
 
 #: qml/NotebookMetadataDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr "Oharraren izena:"
+msgstr "Izena:"
 
 #: qml/NotebookMetadataDialog.qml:49
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
-msgstr ""
-
-#: qml/NotebookMetadataDialog.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Color"
-msgstr ""
+msgstr "Ikonoa"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Note"
 msgstr "Ohar berria"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
-msgstr "Ezabatu oharra"
+msgstr "Editatu Oharra"
 
 #: qml/NoteMetadataDialog.qml:48
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
-msgstr "Oharraren izena:"
+msgstr "Izena:"
 
 #: qml/NotesPage.qml:31
 #, kde-format
 msgid "Add note"
 msgstr "Gehitu oharra"
 
-#: qml/NotesPage.qml:42
-#, kde-format
-msgid "New Note (%1)"
-msgstr "Ohar berria (%1)"
-
-#: qml/NotesPage.qml:108
+#: qml/NotesPage.qml:114
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Irten bilaketatik (%1)"
 
-#: qml/NotesPage.qml:108
+#: qml/NotesPage.qml:114
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Bilatu oharrak (%1)"
 
-#: qml/NotesPage.qml:157
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#: qml/NotesPage.qml:159
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Ezabatu oharra"
 
-#: qml/NotesPage.qml:170
+#: qml/NotesPage.qml:172
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Ziur zaude <b>%1</b> oharra ezabatu nahi duzula?"
 
-#: qml/NotesPage.qml:205
+#: qml/NotesPage.qml:229
 #, kde-format
-msgctxt "@title:window"
-msgid "Export to HTML"
-msgstr ""
-
-#: qml/NotesPage.qml:207
-#, kde-format
-msgid "HTML file (*.html)"
-msgstr ""
-
-#: qml/NotesPage.qml:217
-#, kde-format
-msgctxt "@title:window"
-msgid "Export to PDF"
-msgstr ""
-
-#: qml/NotesPage.qml:219
-#, kde-format
-msgid "PDF file (*.pdf)"
-msgstr ""
-
-#: qml/NotesPage.qml:231
-#, fuzzy, kde-format
-#| msgid "Rename Note"
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Berrizendatu oharra"
 
-#: qml/NotesPage.qml:245
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#: qml/NotesPage.qml:243
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Ezabatu oharra"
 
-#: qml/NotesPage.qml:256
+#: qml/NotesPage.qml:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Esportatu HTML gisa"
+
+#: qml/NotesPage.qml:260
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "Esportatu HTML gisa"
+
+#: qml/NotesPage.qml:261
+#, kde-format
+msgid "HTML file (*.html)"
+msgstr "HTML fitxategia (*.html)"
 
 #: qml/NotesPage.qml:267
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
+msgstr "Esportatu PDF gisa"
+
+#: qml/NotesPage.qml:273
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "Esportatu PDF gisa"
+
+#: qml/NotesPage.qml:274
+#, kde-format
+msgid "PDF file (*.pdf)"
+msgstr "PDF fitxategia (*.pdf)"
+
+#: qml/NotesPage.qml:280
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Export to PDF"
+msgctxt "@action:inmenu"
+msgid "Export to ODT"
+msgstr "Esportatu PDF gisa"
+
+#: qml/NotesPage.qml:286
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Export to PDF"
+msgctxt "@title:window"
+msgid "Export to ODT"
+msgstr "Esportatu PDF gisa"
+
+#: qml/NotesPage.qml:287
+#, kde-format
+msgid "ODF Text Document (*.odt)"
 msgstr ""
 
-#: qml/NotesPage.qml:357
+#: qml/NotesPage.qml:399
 #, kde-format
 msgid "Add a note!"
 msgstr "Gehitu ohar bat!"
-
-#: qml/NotesPage.qml:360
-#, kde-format
-msgid "Add"
-msgstr "Gehitu"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Has zaitez zure lehenengo koadernoa sortzen!"
+
+#~ msgctxt "@action:button"
+#~ msgid "Color"
+#~ msgstr "Kolorea"
+
+#~ msgid "New Note (%1)"
+#~ msgstr "Ohar berria (%1)"
+
+#~ msgid "Add"
+#~ msgstr "Gehitu"
 
 #~ msgid "Add Notebook"
 #~ msgstr "Gehitu koadernoa"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:38+0000\n"
-"PO-Revision-Date: 2024-03-31 06:54+0200\n"
+"POT-Creation-Date: 2024-04-02 00:37+0000\n"
+"PO-Revision-Date: 2024-04-01 07:32+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -25,23 +25,31 @@ msgstr ""
 #: application.cpp:147
 #, kde-format
 msgid "Open Command Bar"
-msgstr ""
+msgstr "Odpri ukazno vrstico"
 
 #: application.cpp:169
 #, kde-format
 msgid "About %1"
-msgstr ""
+msgstr "O programu %1"
 
 #: application.cpp:176
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "O KDE"
 
 #: application.cpp:189
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "Nova beležnica"
+
+#: application.cpp:198
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "New Note"
+msgctxt "@action:inmenu"
+msgid "New Note"
+msgstr "Nova zabeležka"
 
 #: main.cpp:52
 #, kde-format
@@ -63,27 +71,33 @@ msgstr "© 2023 avtor Mathis Brüchert"
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:57 main.cpp:59
+#: main.cpp:58 main.cpp:63
 #, kde-format
 msgid "Maintainer"
 msgstr "Vzdrževalec"
 
-#: main.cpp:58
+#: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
-#: main.cpp:63
+#: main.cpp:67
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Martin Srebotnjak"
 
-#: main.cpp:63
+#: main.cpp:67
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "miles@filmsi.net"
+
+#: notesmodel.cpp:113
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to rename note. A note already exists with the same name."
+msgstr ""
 
 #: qml/EditPage.qml:102
 #, kde-format
@@ -230,7 +244,7 @@ msgstr "Mesto slike:"
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
 msgid "No results found"
-msgstr ""
+msgstr "Ni najdenih zadetkov"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
@@ -250,7 +264,21 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "URL povezave:"
 
-#: qml/Main.qml:194
+#: qml/Main.qml:64
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create a new note, you need to create a notebook first."
+msgstr ""
+
+#: qml/Main.qml:64
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Notebook"
+msgctxt "@action:button"
+msgid "Create Notebook"
+msgstr "Izbriši beležnico"
+
+#: qml/Main.qml:210
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vaše beležnice"
@@ -262,8 +290,7 @@ msgid "Edit Notebook"
 msgstr "Uredi beležnico"
 
 #: qml/NotebookDeleteAction.qml:15
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Izbriši beležnico"
@@ -292,12 +319,6 @@ msgctxt "@action:button"
 msgid "Icon"
 msgstr "Ikona"
 
-#: qml/NotebookMetadataDialog.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Color"
-msgstr "Barva"
-
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
 msgctxt "@title:window"
@@ -321,95 +342,113 @@ msgstr "Ime:"
 msgid "Add note"
 msgstr "Dodaj zabeležko"
 
-#: qml/NotesPage.qml:42
-#, kde-format
-msgid "New Note (%1)"
-msgstr "Nova zabeležka (%1)"
-
-#: qml/NotesPage.qml:108
+#: qml/NotesPage.qml:114
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Izhod iz iskanja (%1)"
 
-#: qml/NotesPage.qml:108
+#: qml/NotesPage.qml:114
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Išči po zabeležkah (%1)"
 
-#: qml/NotesPage.qml:157
+#: qml/NotesPage.qml:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Izbriši zabeležko"
 
-#: qml/NotesPage.qml:170
+#: qml/NotesPage.qml:172
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Ali ste prepričani, da želite izbrisati zabeležko <b>»%1«</b>?"
 
-#: qml/NotesPage.qml:205
+#: qml/NotesPage.qml:229
 #, kde-format
-msgctxt "@title:window"
-msgid "Export to HTML"
-msgstr ""
-
-#: qml/NotesPage.qml:207
-#, kde-format
-msgid "HTML file (*.html)"
-msgstr ""
-
-#: qml/NotesPage.qml:217
-#, kde-format
-msgctxt "@title:window"
-msgid "Export to PDF"
-msgstr ""
-
-#: qml/NotesPage.qml:219
-#, fuzzy, kde-format
-#| msgid "All files (*)"
-msgid "PDF file (*.pdf)"
-msgstr "Vse datoteke (*)"
-
-#: qml/NotesPage.qml:231
-#, fuzzy, kde-format
-#| msgid "Rename Note"
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Preimenuj zabeležko"
 
-#: qml/NotesPage.qml:245
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#: qml/NotesPage.qml:243
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Izbriši zabeležko"
 
-#: qml/NotesPage.qml:256
+#: qml/NotesPage.qml:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Izvozi v HTML"
+
+#: qml/NotesPage.qml:260
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "Izvozi v HTML"
+
+#: qml/NotesPage.qml:261
+#, kde-format
+msgid "HTML file (*.html)"
+msgstr "Datoteka HTML (*.html)"
 
 #: qml/NotesPage.qml:267
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
+msgstr "Izvozi v PDF"
+
+#: qml/NotesPage.qml:273
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "Izvozi v PDF"
+
+#: qml/NotesPage.qml:274
+#, kde-format
+msgid "PDF file (*.pdf)"
+msgstr "Datoteka PDF (*.pdf)"
+
+#: qml/NotesPage.qml:280
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Export to PDF"
+msgctxt "@action:inmenu"
+msgid "Export to ODT"
+msgstr "Izvozi v PDF"
+
+#: qml/NotesPage.qml:286
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Export to PDF"
+msgctxt "@title:window"
+msgid "Export to ODT"
+msgstr "Izvozi v PDF"
+
+#: qml/NotesPage.qml:287
+#, kde-format
+msgid "ODF Text Document (*.odt)"
 msgstr ""
 
-#: qml/NotesPage.qml:357
+#: qml/NotesPage.qml:399
 #, kde-format
 msgid "Add a note!"
 msgstr "Dodaj zabeležko!"
-
-#: qml/NotesPage.qml:360
-#, kde-format
-msgid "Add"
-msgstr "Dodaj"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Začnite izdelavo svoje prve beležnice!"
+
+#~ msgctxt "@action:button"
+#~ msgid "Color"
+#~ msgstr "Barva"
+
+#~ msgid "New Note (%1)"
+#~ msgstr "Nova zabeležka (%1)"
+
+#~ msgid "Add"
+#~ msgstr "Dodaj"
 
 #~ msgid "Add Notebook"
 #~ msgstr "Dodaj beležnico"

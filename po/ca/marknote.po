@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# Josep M. Ferrer <txemaq@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:38+0000\n"
-"PO-Revision-Date: 2024-03-31 13:56+0200\n"
+"POT-Creation-Date: 2024-04-02 00:37+0000\n"
+"PO-Revision-Date: 2024-04-01 09:28+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -22,23 +22,31 @@ msgstr ""
 #: application.cpp:147
 #, kde-format
 msgid "Open Command Bar"
-msgstr ""
+msgstr "Obre la barra d'ordres"
 
 #: application.cpp:169
 #, kde-format
 msgid "About %1"
-msgstr ""
+msgstr "Quant al %1"
 
 #: application.cpp:176
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "Quant a KDE"
 
 #: application.cpp:189
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "Bloc de notes nou"
+
+#: application.cpp:198
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "New Note"
+msgctxt "@action:inmenu"
+msgid "New Note"
+msgstr "Nota nova"
 
 #: main.cpp:52
 #, kde-format
@@ -60,27 +68,33 @@ msgstr "© 2023 Mathis Brüchert"
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:57 main.cpp:59
+#: main.cpp:58 main.cpp:63
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantenidor"
 
-#: main.cpp:58
+#: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
-#: main.cpp:63
+#: main.cpp:67
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Josep M. Ferrer"
 
-#: main.cpp:63
+#: main.cpp:67
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
+
+#: notesmodel.cpp:113
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to rename note. A note already exists with the same name."
+msgstr ""
 
 #: qml/EditPage.qml:102
 #, kde-format
@@ -227,7 +241,7 @@ msgstr "Ubicació de la imatge:"
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
 msgid "No results found"
-msgstr ""
+msgstr "No s'ha trobat cap resultat"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
@@ -247,7 +261,21 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "URL de l'enllaç:"
 
-#: qml/Main.qml:194
+#: qml/Main.qml:64
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create a new note, you need to create a notebook first."
+msgstr ""
+
+#: qml/Main.qml:64
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Notebook"
+msgctxt "@action:button"
+msgid "Create Notebook"
+msgstr "Suprimeix el bloc de notes"
+
+#: qml/Main.qml:210
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Els vostres blocs de notes"
@@ -259,8 +287,7 @@ msgid "Edit Notebook"
 msgstr "Edita el bloc de notes"
 
 #: qml/NotebookDeleteAction.qml:15
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Suprimeix el bloc de notes"
@@ -289,12 +316,6 @@ msgctxt "@action:button"
 msgid "Icon"
 msgstr "Icona"
 
-#: qml/NotebookMetadataDialog.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Color"
-msgstr "Color"
-
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
 msgctxt "@title:window"
@@ -318,137 +339,110 @@ msgstr "Nom:"
 msgid "Add note"
 msgstr "Afegeix una nota"
 
-#: qml/NotesPage.qml:42
-#, kde-format
-msgid "New Note (%1)"
-msgstr "Nota nova (%1)"
-
-#: qml/NotesPage.qml:108
+#: qml/NotesPage.qml:114
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Surt de la cerca (%1)"
 
-#: qml/NotesPage.qml:108
+#: qml/NotesPage.qml:114
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Cerca notes (%1)"
 
-#: qml/NotesPage.qml:157
+#: qml/NotesPage.qml:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Supressió de nota"
 
-#: qml/NotesPage.qml:170
+#: qml/NotesPage.qml:172
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Segur que voleu suprimir la nota <b> %1 </b>?"
 
-#: qml/NotesPage.qml:205
+#: qml/NotesPage.qml:229
 #, kde-format
-msgctxt "@title:window"
-msgid "Export to HTML"
-msgstr ""
-
-#: qml/NotesPage.qml:207
-#, kde-format
-msgid "HTML file (*.html)"
-msgstr ""
-
-#: qml/NotesPage.qml:217
-#, kde-format
-msgctxt "@title:window"
-msgid "Export to PDF"
-msgstr ""
-
-#: qml/NotesPage.qml:219
-#, fuzzy, kde-format
-#| msgid "All files (*)"
-msgid "PDF file (*.pdf)"
-msgstr "Tots els fitxers (*)"
-
-#: qml/NotesPage.qml:231
-#, fuzzy, kde-format
-#| msgid "Rename Note"
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Reanomena la nota"
 
-#: qml/NotesPage.qml:245
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#: qml/NotesPage.qml:243
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Suprimeix la nota"
 
-#: qml/NotesPage.qml:256
+#: qml/NotesPage.qml:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Exporta a HTML"
+
+#: qml/NotesPage.qml:260
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "Exporta a HTML"
+
+#: qml/NotesPage.qml:261
+#, kde-format
+msgid "HTML file (*.html)"
+msgstr "Fitxer HTML (*.html)"
 
 #: qml/NotesPage.qml:267
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
+msgstr "Exporta a PDF"
+
+#: qml/NotesPage.qml:273
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "Exporta a PDF"
+
+#: qml/NotesPage.qml:274
+#, kde-format
+msgid "PDF file (*.pdf)"
+msgstr "Fitxer PDF (*.pdf)"
+
+#: qml/NotesPage.qml:280
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Export to PDF"
+msgctxt "@action:inmenu"
+msgid "Export to ODT"
+msgstr "Exporta a PDF"
+
+#: qml/NotesPage.qml:286
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Export to PDF"
+msgctxt "@title:window"
+msgid "Export to ODT"
+msgstr "Exporta a PDF"
+
+#: qml/NotesPage.qml:287
+#, kde-format
+msgid "ODF Text Document (*.odt)"
 msgstr ""
 
-#: qml/NotesPage.qml:357
+#: qml/NotesPage.qml:399
 #, kde-format
 msgid "Add a note!"
 msgstr "Afegeix una nota!"
-
-#: qml/NotesPage.qml:360
-#, kde-format
-msgid "Add"
-msgstr "Afegeix"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Comenceu creant el primer bloc de notes!"
 
-#~ msgid "Add Notebook"
-#~ msgstr "Afegeix un bloc de notes"
-
-#~ msgid "Notebook name"
-#~ msgstr "Nom del bloc de notes"
-
 #~ msgctxt "@action:button"
-#~ msgid "highlight"
-#~ msgstr "ressaltat"
+#~ msgid "Color"
+#~ msgstr "Color"
 
-#~ msgctxt "@item:inmenu disc list style"
-#~ msgid "Disc"
-#~ msgstr "Disc"
+#~ msgid "New Note (%1)"
+#~ msgstr "Nota nova (%1)"
 
-#~ msgctxt "@item:inmenu circle list style"
-#~ msgid "Circle"
-#~ msgstr "Cercle"
-
-#~ msgctxt "@item:inmenu square list style"
-#~ msgid "Square"
-#~ msgstr "Quadrat"
-
-#~ msgctxt "@item:inmenu numbered lists"
-#~ msgid "123"
-#~ msgstr "123"
-
-#~ msgctxt "@item:inmenu lowercase abc lists"
-#~ msgid "abc"
-#~ msgstr "abc"
-
-#~ msgctxt "@item:inmenu uppercase abc lists"
-#~ msgid "ABC"
-#~ msgstr "ABC"
-
-#~ msgctxt "@item:inmenu lower case roman numerals"
-#~ msgid "i ii iii"
-#~ msgstr "i ii iii"
-
-#~ msgctxt "@item:inmenu upper case roman numerals"
-#~ msgid "I II III"
-#~ msgstr "I II III"
-
-#~ msgid "Heading %1"
-#~ msgstr "Capçalera %1"
+#~ msgid "Add"
+#~ msgstr "Afegeix"
