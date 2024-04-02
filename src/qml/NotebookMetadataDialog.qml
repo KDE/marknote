@@ -37,6 +37,7 @@ FormCard.FormCardDialog {
         id: nameInput
 
         label: i18nc("@label:textbox Notebook name", "Name:")
+        onAccepted: root.accepted()
     }
 
     FormCard.FormDelegateSeparator {
