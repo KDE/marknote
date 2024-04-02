@@ -99,7 +99,7 @@ Kirigami.Page {
                         onActivated: boldButton.clicked()
                     }
                     icon.name: "format-text-bold"
-                    text: i18nc("@action:button", "Bold")
+                    text: i18nc("@action:tooltip", "Bold")
                     display: AbstractButton.IconOnly
                     checkable: true
                     checked: document.bold
@@ -118,7 +118,7 @@ Kirigami.Page {
                         onActivated: italicButton.clicked()
                     }
                     icon.name: "format-text-italic"
-                    text: i18nc("@action:button", "Italic")
+                    text: i18nc("@action:tooltip", "Italic")
                     display: AbstractButton.IconOnly
                     checkable: true
                     checked: document.italic
@@ -137,7 +137,7 @@ Kirigami.Page {
                         onActivated: underlineButton.clicked()
                     }
                     icon.name: "format-text-underline"
-                    text: i18nc("@action:button", "Underline")
+                    text: i18nc("@action:tooltip", "Underline")
                     display: AbstractButton.IconOnly
                     checkable: true
                     checked: document.underline
@@ -151,7 +151,7 @@ Kirigami.Page {
                 }
                 ToolButton {
                     icon.name: "format-text-strikethrough"
-                    text: i18nc("@action:button", "Strikethrough")
+                    text: i18nc("@action:tooltip", "Strikethrough")
                     display: AbstractButton.IconOnly
                     checkable: true
                     checked: document.strikethrough
@@ -170,7 +170,7 @@ Kirigami.Page {
                 ToolButton {
                     id: indentAction
                     icon.name: "format-indent-more"
-                    text: i18nc("@action:button", "Increase List Level")
+                    text: i18nc("@action:tooltip", "Increase list level")
                     display: AbstractButton.IconOnly
                     onClicked: {
                         document.indentListMore();
@@ -184,7 +184,7 @@ Kirigami.Page {
                 ToolButton {
                     id: dedentAction
                     icon.name: "format-indent-less"
-                    text: i18nc("@action:button", "Decrease List Level")
+                    text: i18nc("@action:tooltip", "Decrease list level")
                     display: AbstractButton.IconOnly
                     onClicked: {
                         document.indentListLess();
@@ -218,7 +218,7 @@ Kirigami.Page {
                 ToolButton {
                     id: checkboxAction
                     icon.name: "checkbox-symbolic"
-                    text: i18nc("@action:button", "Insert checkbox")
+                    text: i18nc("@action:tooltip", "Insert checkbox")
                     display: AbstractButton.IconOnly
                     checkable: true
                     onClicked: {
@@ -233,7 +233,7 @@ Kirigami.Page {
                 ToolButton {
                     id: linkAction
                     icon.name: "insert-link-symbolic"
-                    text: i18nc("@action:button", "Insert link")
+                    text: i18nc("@action:tooltip", "Insert link")
                     display: AbstractButton.IconOnly
                     onClicked: {
                         linkDialog.linkText = document.currentLinkText();
@@ -249,7 +249,7 @@ Kirigami.Page {
                 ToolButton {
                     id: imageAction
                     icon.name: "insert-image-symbolic"
-                    text: i18nc("@action:button", "Insert image")
+                    text: i18nc("@action:tooltip", "Insert image")
                     display: AbstractButton.IconOnly
                     onClicked: {
                         imageDialog.open();

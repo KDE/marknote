@@ -207,7 +207,7 @@ Kirigami.ApplicationWindow {
 
         headerContentItem: RowLayout {
             Kirigami.Heading {
-                text: i18n("Your Notebooks")
+                text: i18nc("@title:heading", "Your Notebooks")
             }
             Item { Layout.fillWidth: true }
             Controls.ToolButton {
