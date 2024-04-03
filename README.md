@@ -23,3 +23,7 @@ cd build
 cmake ..
 make
 ```
+### KDEsrc-build
+```
+kdesrc-build marknote
+```
