@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-02 00:37+0000\n"
-"PO-Revision-Date: 2024-04-01 09:28+0200\n"
+"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"PO-Revision-Date: 2024-04-02 16:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -41,9 +41,7 @@ msgid "New Notebook"
 msgstr "Bloc de notes nou"
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nota nova"
@@ -95,6 +93,8 @@ msgstr "txemaq@gmail.com"
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
+"No s'ha pogut canviar el nom de la nota. Ja existeix una nota amb el mateix "
+"nom."
 
 #: qml/EditPage.qml:102
 #, kde-format
@@ -265,15 +265,13 @@ msgstr "URL de l'enllaç:"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
-msgstr ""
+msgstr "No s'ha pogut crear una nota nova, primer cal crear un bloc de notes."
 
 #: qml/Main.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Suprimeix el bloc de notes"
+msgstr "Crea el bloc de notes"
 
 #: qml/Main.qml:210
 #, kde-format
@@ -310,7 +308,7 @@ msgctxt "@label:textbox Notebook name"
 msgid "Name:"
 msgstr "Nom:"
 
-#: qml/NotebookMetadataDialog.qml:49
+#: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
@@ -407,25 +405,21 @@ msgid "PDF file (*.pdf)"
 msgstr "Fitxer PDF (*.pdf)"
 
 #: qml/NotesPage.qml:280
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Export to PDF"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr "Exporta a PDF"
+msgstr "Exporta a ODT"
 
 #: qml/NotesPage.qml:286
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export to PDF"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr "Exporta a PDF"
+msgstr "Exporta a ODT"
 
 #: qml/NotesPage.qml:287
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "Document de text ODF (*.odt)"
 
 #: qml/NotesPage.qml:399
 #, kde-format

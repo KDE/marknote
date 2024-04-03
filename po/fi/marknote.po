@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-02 00:37+0000\n"
+"POT-Creation-Date: 2024-04-03 00:38+0000\n"
 "PO-Revision-Date: 2023-12-11 18:12+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -315,7 +315,7 @@ msgctxt "@label:textbox Notebook name"
 msgid "Name:"
 msgstr "Muistiinpanon nimi:"
 
-#: qml/NotebookMetadataDialog.qml:49
+#: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"

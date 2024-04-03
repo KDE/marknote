@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-02 00:37+0000\n"
-"PO-Revision-Date: 2024-04-01 05:37+0200\n"
+"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"PO-Revision-Date: 2024-04-02 06:29+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -40,12 +40,10 @@ msgid "New Notebook"
 msgstr "ახალი წიგნაკი"
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
-msgstr "ახალი შენიშვნა"
+msgstr "ახალი ჩანაწერი"
 
 #: main.cpp:52
 #, kde-format
@@ -94,6 +92,7 @@ msgstr "Temuri.doghonadze@gmail.com"
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
+"შენიშვნის სახელის გადარქმევა ჩავარდა. შენიშვნა იგივე სახელით უკვე არსებობს."
 
 #: qml/EditPage.qml:102
 #, kde-format
@@ -264,15 +263,13 @@ msgstr "ბმულის URL:"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
-msgstr ""
+msgstr "ახალი შენიშვნის შექმნა შეუძლებელია. ჯერ წიგნაკი უნდა შექმნათ."
 
 #: qml/Main.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "წიგნაკის წაშლა"
+msgstr "წიგნაკის შექმნა"
 
 #: qml/Main.qml:210
 #, kde-format
@@ -309,7 +306,7 @@ msgctxt "@label:textbox Notebook name"
 msgid "Name:"
 msgstr "სახელი:"
 
-#: qml/NotebookMetadataDialog.qml:49
+#: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
@@ -392,13 +389,13 @@ msgstr "HTML ფაილი (*.html)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
-msgstr "PDF-ად გატანა"
+msgstr "გატანა PDF-ში"
 
 #: qml/NotesPage.qml:273
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
-msgstr "PDF-ად გატანა"
+msgstr "გატანა PDF-ში"
 
 #: qml/NotesPage.qml:274
 #, kde-format
@@ -406,25 +403,21 @@ msgid "PDF file (*.pdf)"
 msgstr "ყველა ფაილი (*)"
 
 #: qml/NotesPage.qml:280
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Export to PDF"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr "PDF-ად გატანა"
+msgstr "გატანა ODT-ში"
 
 #: qml/NotesPage.qml:286
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export to PDF"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr "PDF-ად გატანა"
+msgstr "გატანა ODT-ში"
 
 #: qml/NotesPage.qml:287
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "ODF ტექსტური დოკუმენტი (*.odt)"
 
 #: qml/NotesPage.qml:399
 #, kde-format

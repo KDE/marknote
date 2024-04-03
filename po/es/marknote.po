@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-02 00:37+0000\n"
-"PO-Revision-Date: 2024-04-01 00:48+0200\n"
+"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"PO-Revision-Date: 2024-04-03 00:06+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -22,17 +22,17 @@ msgstr ""
 #: application.cpp:147
 #, kde-format
 msgid "Open Command Bar"
-msgstr ""
+msgstr "Abrir barra de órdenes"
 
 #: application.cpp:169
 #, kde-format
 msgid "About %1"
-msgstr ""
+msgstr "Acerca de %1"
 
 #: application.cpp:176
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "Acerca de KDE"
 
 #: application.cpp:189
 #, kde-format
@@ -41,9 +41,7 @@ msgid "New Notebook"
 msgstr "Nuevo bloc de notas"
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nueva nota"
@@ -76,7 +74,7 @@ msgstr "Encargado"
 #: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:67
 #, kde-format
@@ -95,6 +93,8 @@ msgstr "ecuadra@eloihr.net"
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
+"No se puede cambiar el nombre de la nota. Ya existe otra nota con el mismo "
+"nombre."
 
 #: qml/EditPage.qml:102
 #, kde-format
@@ -241,7 +241,7 @@ msgstr "Ubicación de la imagen:"
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
 msgid "No results found"
-msgstr ""
+msgstr "No se han encontrado coincidencias"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
@@ -266,13 +266,13 @@ msgstr "URL del enlace:"
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
+"No se ha podido crear una nueva nota. Primero debe crear un bloc de notas."
 
 #: qml/Main.qml:64
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Borrar bloc de notas"
+msgstr "Crear bloc de notas"
 
 #: qml/Main.qml:210
 #, kde-format
@@ -286,8 +286,7 @@ msgid "Edit Notebook"
 msgstr "Editar bloc de notas"
 
 #: qml/NotebookDeleteAction.qml:15
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Borrar bloc de notas"
@@ -310,7 +309,7 @@ msgctxt "@label:textbox Notebook name"
 msgid "Name:"
 msgstr "Nombre:"
 
-#: qml/NotebookMetadataDialog.qml:49
+#: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
@@ -361,15 +360,13 @@ msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "¿Seguro que quiere borrar la nota <b>%1</b>?"
 
 #: qml/NotesPage.qml:229
-#, fuzzy, kde-format
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Cambiar nombre de nota"
 
 #: qml/NotesPage.qml:243
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Borrar nota"
@@ -378,53 +375,52 @@ msgstr "Borrar nota"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Exportar a HTML"
 
 #: qml/NotesPage.qml:260
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Exportar a HTML"
 
 #: qml/NotesPage.qml:261
 #, kde-format
 msgid "HTML file (*.html)"
-msgstr ""
+msgstr "Archivo HTML (*.html)"
 
 #: qml/NotesPage.qml:267
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Exportar a PDF"
 
 #: qml/NotesPage.qml:273
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Exportar a PDF"
 
 #: qml/NotesPage.qml:274
-#, fuzzy, kde-format
-#| msgid "All files (*)"
+#, kde-format
 msgid "PDF file (*.pdf)"
-msgstr "Todos los archivos (*)"
+msgstr "Archivo PDF (*.pdf)"
 
 #: qml/NotesPage.qml:280
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Exportar a ODT"
 
 #: qml/NotesPage.qml:286
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Exportar a ODT"
 
 #: qml/NotesPage.qml:287
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "Documento de texto ODF (*.odt)"
 
 #: qml/NotesPage.qml:399
 #, kde-format

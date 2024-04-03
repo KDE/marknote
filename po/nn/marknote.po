@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-02 00:37+0000\n"
+"POT-Creation-Date: 2024-04-03 00:38+0000\n"
 "PO-Revision-Date: 2024-03-23 13:08+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -313,7 +313,7 @@ msgctxt "@label:textbox Notebook name"
 msgid "Name:"
 msgstr "Notatnamn:"
 
-#: qml/NotebookMetadataDialog.qml:49
+#: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
@@ -441,47 +441,3 @@ msgstr "Legg til notat!"
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Kom i gang ved å oppretta ei notatbok!"
-
-#~ msgid "New Note (%1)"
-#~ msgstr "Nytt notat (%1)"
-
-#~ msgid "Add"
-#~ msgstr "Legg til"
-
-#~ msgid "Add Notebook"
-#~ msgstr "Legg til notatbok"
-
-#~ msgid "Notebook name"
-#~ msgstr "Namn på notatbok"
-
-#~ msgctxt "@action:button"
-#~ msgid "highlight"
-#~ msgstr "Utheving"
-
-#~ msgctxt "@item:inmenu circle list style"
-#~ msgid "Circle"
-#~ msgstr "Sirkel"
-
-#~ msgctxt "@item:inmenu square list style"
-#~ msgid "Square"
-#~ msgstr "Kvadrat"
-
-#~ msgctxt "@item:inmenu numbered lists"
-#~ msgid "123"
-#~ msgstr "123"
-
-#~ msgctxt "@item:inmenu lowercase abc lists"
-#~ msgid "abc"
-#~ msgstr "abc"
-
-#~ msgctxt "@item:inmenu uppercase abc lists"
-#~ msgid "ABC"
-#~ msgstr "ABC"
-
-#~ msgctxt "@item:inmenu lower case roman numerals"
-#~ msgid "i ii iii"
-#~ msgstr "i ii iii"
-
-#~ msgctxt "@item:inmenu upper case roman numerals"
-#~ msgid "I II III"
-#~ msgstr "I II III"

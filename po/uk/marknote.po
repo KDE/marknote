@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-02 00:37+0000\n"
-"PO-Revision-Date: 2024-04-01 18:25+0300\n"
+"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"PO-Revision-Date: 2024-04-02 09:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -40,12 +40,10 @@ msgid "New Notebook"
 msgstr "Створити записник"
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
-msgstr "Нова нотатка"
+msgstr "Створити нотатку"
 
 #: main.cpp:52
 #, kde-format
@@ -93,7 +91,7 @@ msgstr "yurchor@ukr.net"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
-msgstr ""
+msgstr "Не вдалося перейменувати нотатку. Нотатка з такою назвою вже існує."
 
 #: qml/EditPage.qml:102
 #, kde-format
@@ -264,15 +262,13 @@ msgstr "Адреса URL посилання:"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
-msgstr ""
+msgstr "Не вдалося створити нотатку. Спочатку вам слід створити записник."
 
 #: qml/Main.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Вилучити записник"
+msgstr "Створити записник"
 
 #: qml/Main.qml:210
 #, kde-format
@@ -309,7 +305,7 @@ msgctxt "@label:textbox Notebook name"
 msgid "Name:"
 msgstr "Назва:"
 
-#: qml/NotebookMetadataDialog.qml:49
+#: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
@@ -406,25 +402,21 @@ msgid "PDF file (*.pdf)"
 msgstr "файл PDF (*.pdf)"
 
 #: qml/NotesPage.qml:280
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Export to PDF"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr "Експортувати до PDF"
+msgstr "Експортувати в ODT"
 
 #: qml/NotesPage.qml:286
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export to PDF"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr "Експортування до PDF"
+msgstr "Експортувати в ODT"
 
 #: qml/NotesPage.qml:287
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "текстовий документ ODF (*.odt)"
 
 #: qml/NotesPage.qml:399
 #, kde-format

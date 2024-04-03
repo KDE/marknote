@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-02 00:37+0000\n"
+"POT-Creation-Date: 2024-04-03 00:38+0000\n"
 "PO-Revision-Date: 2023-11-21 15:40+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -20,31 +20,29 @@ msgstr ""
 #: application.cpp:147
 #, kde-format
 msgid "Open Command Bar"
-msgstr ""
+msgstr "Otevřít pruh s příkazy"
 
 #: application.cpp:169
 #, kde-format
 msgid "About %1"
-msgstr ""
+msgstr "O aplikaci %1"
 
 #: application.cpp:176
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "O prostředí KDE"
 
 #: application.cpp:189
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
-msgstr "Nový poznámkový blok"
+msgstr ""
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
-msgstr "Nová poznámka"
+msgstr ""
 
 #: main.cpp:52
 #, kde-format
@@ -74,7 +72,7 @@ msgstr "Správce"
 #: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:67
 #, kde-format
@@ -170,49 +168,49 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
-msgstr ""
+msgstr "Základní text"
 
 #: qml/EditPage.qml:273
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
-msgstr ""
+msgstr "Název"
 
 #: qml/EditPage.qml:274
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
-msgstr ""
+msgstr "Podtitul"
 
 #: qml/EditPage.qml:275
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
-msgstr ""
+msgstr "Oddíl"
 
 #: qml/EditPage.qml:276
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
-msgstr ""
+msgstr "Podsekce"
 
 #: qml/EditPage.qml:277
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
-msgstr ""
+msgstr "Odstavec"
 
 #: qml/EditPage.qml:278
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
-msgstr ""
+msgstr "Pododstavec"
 
 #: qml/ImageDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "Vložit obrázek"
 
 #: qml/ImageDialog.qml:23
 #, kde-format
@@ -228,7 +226,7 @@ msgstr ""
 #: qml/ImageDialog.qml:26
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "Všechny soubory (*)"
 
 #: qml/ImageDialog.qml:35
 #, kde-format
@@ -239,7 +237,7 @@ msgstr ""
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
 msgid "No results found"
-msgstr ""
+msgstr "Nenalezeny žádné výsledky"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
@@ -266,11 +264,10 @@ msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 
 #: qml/Main.qml:64
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Smazat poznámkové bloky"
+msgstr ""
 
 #: qml/Main.qml:210
 #, kde-format
@@ -278,66 +275,58 @@ msgid "Your Notebooks"
 msgstr "Vaše poznámkové bloky"
 
 #: qml/NotebookContextMenu.qml:16
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit Notebook"
-msgstr "Přidat poznámkový blok"
+msgstr ""
 
 #: qml/NotebookDeleteAction.qml:15
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
-msgstr "Smazat poznámkové bloky"
+msgstr ""
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
-msgstr "Nový poznámkový blok"
+msgstr ""
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Notebook"
-msgstr "Přidat poznámkový blok"
+msgstr ""
 
 #: qml/NotebookMetadataDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr "Název poznámky:"
+msgstr ""
 
-#: qml/NotebookMetadataDialog.qml:49
+#: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
 msgstr ""
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Note"
-msgstr "Nová poznámka"
+msgstr ""
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
-msgstr "Smazat poznámku"
+msgstr "Upravit poznámku"
 
 #: qml/NoteMetadataDialog.qml:48
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
-msgstr "Název poznámky:"
+msgstr ""
 
 #: qml/NotesPage.qml:31
 #, kde-format
@@ -355,8 +344,7 @@ msgid "Search notes (%1)"
 msgstr "Hledat poznámky (%1)"
 
 #: qml/NotesPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Smazat poznámku"
@@ -367,18 +355,16 @@ msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Opravdu si přejete smazat poznámku <b> %1 </b>?"
 
 #: qml/NotesPage.qml:229
-#, fuzzy, kde-format
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
-msgstr "Přejmenovat poznámku"
+msgstr ""
 
 #: qml/NotesPage.qml:243
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
-msgstr "Smazat poznámku"
+msgstr ""
 
 #: qml/NotesPage.qml:254
 #, kde-format
@@ -440,19 +426,3 @@ msgstr "Přidat poznámku."
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Začněte vytvořením vašeho prvního poznámkového bloku."
-
-#~ msgid "New Note (%1)"
-#~ msgstr "Nová poznámka (%1)"
-
-#~ msgid "Add"
-#~ msgstr "Přidat"
-
-#~ msgid "Add Notebook"
-#~ msgstr "Přidat poznámkový blok"
-
-#~ msgid "Notebook name"
-#~ msgstr "Název poznámkového bloku"
-
-#~ msgctxt "@action:button"
-#~ msgid "highlight"
-#~ msgstr "zvýraznit"

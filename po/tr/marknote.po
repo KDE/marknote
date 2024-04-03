@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-02 00:37+0000\n"
-"PO-Revision-Date: 2024-04-01 12:51+0300\n"
+"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"PO-Revision-Date: 2024-04-02 12:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -39,9 +39,7 @@ msgid "New Notebook"
 msgstr "Yeni Defter"
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Yeni Not"
@@ -92,7 +90,7 @@ msgstr "emir_sari@icloud.com"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
-msgstr ""
+msgstr "Not yeniden adlandırılamıyor. Aynı adlı bir not halihazırda var."
 
 #: qml/EditPage.qml:102
 #, kde-format
@@ -263,15 +261,13 @@ msgstr "Bağlantı URL’si:"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
-msgstr ""
+msgstr "Yeni bir not oluşturulamıyor. Öncelikle bir defter oluşturmalısınız."
 
 #: qml/Main.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Defteri Sil"
+msgstr "Defter Oluştur"
 
 #: qml/Main.qml:210
 #, kde-format
@@ -308,7 +304,7 @@ msgctxt "@label:textbox Notebook name"
 msgid "Name:"
 msgstr "Ad:"
 
-#: qml/NotebookMetadataDialog.qml:49
+#: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
@@ -340,7 +336,7 @@ msgstr "Not ekle"
 #: qml/NotesPage.qml:114
 #, kde-format
 msgid "Exit Search (%1)"
-msgstr "Aramadan Çık (%1)"
+msgstr "Aramadan çık (%1)"
 
 #: qml/NotesPage.qml:114
 #, kde-format
@@ -356,7 +352,7 @@ msgstr "Notu Sil"
 #: qml/NotesPage.qml:172
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
-msgstr "<b> %1 </b> notunu silmek istediğinizden emin misiniz?"
+msgstr "<b>%1</b> notunu silmek istediğinizden emin misiniz?"
 
 #: qml/NotesPage.qml:229
 #, kde-format
@@ -405,25 +401,21 @@ msgid "PDF file (*.pdf)"
 msgstr "PDF dosyası (*.pdf)"
 
 #: qml/NotesPage.qml:280
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Export to PDF"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr "PDF’ye Dışa Aktar"
+msgstr "ODT’ye Dışa Aktar"
 
 #: qml/NotesPage.qml:286
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export to PDF"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr "PDF’ye Dışa Aktar"
+msgstr "ODT’ye Dışa Aktar"
 
 #: qml/NotesPage.qml:287
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "ODF metin belgesi (*.odt)"
 
 #: qml/NotesPage.qml:399
 #, kde-format
