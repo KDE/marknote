@@ -107,10 +107,10 @@ QVariant KalCommandBarModel::data(const QModelIndex &index, int role) const
             QString actionText = KLocalizedString::removeAcceleratorMarker(entry.action->text());
             return QString(groupName + QStringLiteral(": ") + actionText);
         } else {
-            return entry.action->shortcut().toString();
+            return entry.action->shortcut().toString(QKeySequence::NativeText);
         }
     case ShortcutRole:
-        return entry.action->shortcut().toString();
+        return entry.action->shortcut().toString(QKeySequence::NativeText);
     case Qt::DecorationRole:
         if (col == 0) {
             return entry.action->icon().name();
