@@ -1,5 +1,5 @@
 *.user*
-*build/*
+*build*/*
 .cache
 .clang-format
 compile_commands.json
