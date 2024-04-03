@@ -9,7 +9,6 @@
 #pragma once
 
 class QKeyEvent;
-class QDropEvent;
 class QTextCursor;
 class QTextBlock;
 class QTextList;
