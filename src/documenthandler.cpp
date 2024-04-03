@@ -10,16 +10,13 @@
 #include <KStandardShortcut>
 
 #include <QClipboard>
-#include <QDebug>
 #include <QFile>
 #include <QFileInfo>
-#include <QFileSelector>
 #include <QGuiApplication>
-#include <QMimeDatabase>
 #include <QPalette>
 #include <QQmlFile>
-#include <QQmlFileSelector>
 #include <QQuickTextDocument>
+#include <QTextBlock>
 #include <QTextCharFormat>
 #include <QTextDocument>
 #include <QTextList>

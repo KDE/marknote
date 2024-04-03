@@ -11,7 +11,6 @@
 #include "nestedlisthelper_p.h"
 #include <QFont>
 #include <QObject>
-#include <QQmlEngine>
 #include <QQuickTextDocument>
 #include <QTextCursor>
 #include <QUrl>

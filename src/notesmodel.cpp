@@ -5,8 +5,8 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KLocalizedString>
-#include <QDateTime>
 #include <QDebug>
+#include <QDir>
 #include <QFile>
 #include <QFileSystemWatcher>
 #include <QPdfWriter>

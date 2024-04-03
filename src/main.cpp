@@ -9,9 +9,9 @@
 #include <QApplication>
 #include <QIcon>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include <QQuickStyle>
 #include <QUrl>
-#include <QtQml>
 
 #include "../marknote-version.h"
 

@@ -8,8 +8,6 @@
 
 #pragma once
 
-#include <QObject>
-
 class QKeyEvent;
 class QDropEvent;
 class QTextCursor;
