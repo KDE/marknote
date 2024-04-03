@@ -41,3 +41,5 @@ void TextEditor::onCursorPositionChanged(int position)
     // m_cursor.insertBlock(format);
     m_cursor.insertText("moin");
 }
+
+#include "moc_texteditor.cpp"

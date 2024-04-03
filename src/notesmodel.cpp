@@ -324,3 +324,5 @@ void NotesModel::exportToOdt(const QUrl &path, const QUrl &destination)
     QTextDocumentWriter writer(destination.toLocalFile(), "odf");
     writer.write(&doc);
 }
+
+#include "moc_notesmodel.cpp"

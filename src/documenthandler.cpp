@@ -975,3 +975,5 @@ void DocumentHandler::deleteWordForward()
 {
     deleteWord(textCursor(), QTextCursor::WordRight);
 }
+
+#include "moc_documenthandler.cpp"

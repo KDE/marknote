@@ -159,3 +159,5 @@ QModelIndex NoteBooksModel::indexForPath(const QString &path) const
 
     return {};
 }
+
+#include "moc_notebooksmodel.cpp"

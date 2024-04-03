@@ -89,3 +89,5 @@ QUrl NavigationController::noteFullPath() const
 {
     return QUrl::fromLocalFile(m_notebookPath + u'/' + m_notePath);
 }
+
+#include "moc_navigationcontroller.cpp"
