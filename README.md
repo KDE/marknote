@@ -1,10 +1,14 @@
-#  <img src="https://invent.kde.org/mbruchert/marknote/-/raw/master/logo.png">  Marknote
+#  <img src="https://invent.kde.org/mbruchert/marknote/-/raw/master/logo.png">  MarkNote
 
-A simple markdown note management app
+Write down your thoughts.
 
-most formating features not supported yet
+Marknote supports a wide range of formating options usefully for taking every day notes, like bold, italic, underlined and strike through fonts as well as headings, lists, check boxes, images and more.
 
 <img src="https://i.imgur.com/tJba9pK.png.png"  height="350" > <img src="https://i.imgur.com/9DsuKFP.png"  height="350" >
+
+## instalation 
+
+<a href='https://flathub.org/apps/details/org.kde.marknote'><img width='190px' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
 
 ## build instructions
 
