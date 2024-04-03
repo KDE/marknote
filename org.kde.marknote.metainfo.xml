@@ -36,6 +36,7 @@
   <name xml:lang="zh-TW">MarkNote</name>
   <summary>Write down your thoughts</summary>
   <summary xml:lang="ca">Ecriviu les vostres idees</summary>
+  <summary xml:lang="ca-valencia">Ecriviu les vostres idees</summary>
   <summary xml:lang="es">Escriba sus pensamientos</summary>
   <summary xml:lang="eu">Idatzi zure pentsamenduak</summary>
   <summary xml:lang="fr">Écrivez vos idées ici.</summary>
@@ -48,6 +49,7 @@
   <description>
     <p>Marknote lets you create rich text notes and easily organise them into notebooks. You can personalise your notebooks by choosing an icon and accent color for each one, making it easy to distinguish between them and keep your notes at your fingertips. Your notes are saved as Markdown files in your Documents folder, making it easy to use your notes outside of Marknote as well as inside the app.</p>
     <p xml:lang="ca">El Marknote us permet crear notes de text enriquit i organitzar-les fàcilment en quaderns. Podreu personalitzar els quaderns triant una icona i un color d'accent per a cadascun, fent que sigui fàcil distingir-los i mantenir les notes al vostre abast. Les notes es desen com a fitxers Markdown a la carpeta Documents, fent que sigui fàcil utilitzar les notes fora del Marknote, així com dins de l'aplicació.</p>
+    <p xml:lang="ca-valencia">MarkNote us permet crear notes de text enriquit i organitzar-les amb facilitat en quaderns. Podreu personalitzar els quaderns triant una icona i un color d'accent per a cadascun, fent que siga fàcil distingir-los i mantindre les notes al vostre abast. Les notes es guarden com a fitxers en Markdown a la carpeta Documents, fent que siga fàcil utilitzar les notes fora de MarkNote, així com dins de l'aplicació.</p>
     <p xml:lang="es">Marknote le permite crear notas de texto enriquecido y organizarlas fácilmente en cuadernos. Puede personalizar los cuadernos eligiendo un icono y un color de acento para cada uno, lo que facilita distinguirlos y mantener las notas al alcance de la mano. Las notas se guardan como archivos Markdown en la carpeta Documentos, lo que facilita su uso fuera de Marknote así como dentro de la aplicación.</p>
     <p xml:lang="eu">«Marknote»k testu aberastuko oharrak sortu eta haiek koadernotan erraz antolatzeko aukera ematen dizu. Zure koadernoak, bakoitzarentzat ikono bat eta azentu-kolore bat hautatuz pertsonaliza ditzakezu, haiek bereiztea erraza izan dadin eta zure eskura izan ditzazun. Zure oharrak «Markdown» fitxategi gisa gordetzen dira zure Dokumentuak karpetan, eta horrek, zure oharrak «Marknote»tik kanpo zein aplikazio barnean erabiltzea errazten du.</p>
     <p xml:lang="fr">Marknote vous permet de créer des notes en texte enrichi et de les organiser facilement sous forme de bloc-notes. Vous pouvez personnaliser vos bloc-notes en sélectionnant une icône et une couleur d'accentuation pour chacun d'eux. Cela vous permet ainsi de les distinguer facilement et de conserver vos notes à portée de main. Vos notes sont enregistrées en tant que fichiers « Markdown » dans votre dossier « Documents ». Cela facilite l'utilisation de vos notes en dehors de Marknote ainsi qu'à l'intérieur de l'application.</p>
