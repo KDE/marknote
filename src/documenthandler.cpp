@@ -15,7 +15,6 @@
 #include <QGuiApplication>
 #include <QPalette>
 #include <QQmlFile>
-#include <QQuickTextDocument>
 #include <QTextBlock>
 #include <QTextCharFormat>
 #include <QTextDocument>

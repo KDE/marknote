@@ -6,9 +6,7 @@
 #include <KDesktopFile>
 #include <KLocalizedString>
 #include <QDebug>
-#include <QDir>
 #include <QFile>
-#include <QFileSystemWatcher>
 #include <QPdfWriter>
 #include <QStandardPaths>
 #include <QTextBlock>
