@@ -6,11 +6,11 @@ Marknote supports a wide range of formating options usefully for taking every da
 
 <img src="https://i.imgur.com/tJba9pK.png.png"  height="350" > <img src="https://i.imgur.com/9DsuKFP.png"  height="350" >
 
-## instalation 
+## Installation
 
 <a href='https://flathub.org/apps/details/org.kde.marknote'><img width='190px' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
 
-## build instructions
+## Build Instructions
 
 ### flatpak builder (with kde sdk)
 ```
@@ -23,7 +23,7 @@ cd build
 cmake ..
 make
 ```
-### KDEsrc-build
+### kdesrc-build
 ```
 kdesrc-build marknote
 ```
