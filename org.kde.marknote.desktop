@@ -1,37 +1,7 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 [Desktop Entry]
-Name=marknote
-Name[ca]=marknote
-Name[ca@valencia]=marknote
-Name[cs]=marknote
-Name[de]=marknote
-Name[en_GB]=marknote
-Name[eo]=marknote
-Name[es]=marknote
-Name[eu]=marknote
-Name[fi]=marknote
-Name[fr]=MarkNote
-Name[gl]=marknote
-Name[he]=marknote
-Name[ia]=marknote
-Name[it]=marknote
-Name[ka]=marknote
-Name[ko]=marknote
-Name[lv]=marknote
-Name[nl]=marknote
-Name[nn]=marknote
-Name[pl]=marknote
-Name[pt]=Marknote
-Name[pt_BR]=marknote
-Name[ro]=marknote
-Name[sk]=marknote
-Name[sl]=marknote
-Name[sv]=marknote
-Name[tr]=MarkNot
-Name[uk]=marknote
-Name[x-test]=xxmarknotexx
-Name[zh_TW]=marknote
+Name=MarkNote
 Comment=Markdown Note Management Tool
 Comment[ca]=Eina de gestió de notes feta amb el Markdown
 Comment[ca@valencia]=Eina de gestió de notes en Markdown
