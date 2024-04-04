@@ -1,51 +1,50 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the marknote package.
 #
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-04 00:38+0000\n"
-"PO-Revision-Date: 2024-03-11 11:44+0200\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
-"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
-"Language: lv\n"
+"PO-Revision-Date: 2024-04-02 07:46+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
 #: application.cpp:147
 #, kde-format
 msgid "Open Command Bar"
-msgstr ""
+msgstr "פתיחת סרגל פקודות"
 
 #: application.cpp:169
 #, kde-format
 msgid "About %1"
-msgstr ""
+msgstr "על %1"
 
 #: application.cpp:176
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "על KDE"
 
 #: application.cpp:189
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
-msgstr "Jauna piezīmju grāmatiņa"
+msgstr "מחברת חדשה"
 
 #: application.cpp:198
 #, fuzzy, kde-format
+#| msgctxt "@title:window"
 #| msgid "New Note"
 msgctxt "@action:inmenu"
 msgid "New Note"
-msgstr "Jauna piezīme"
+msgstr "פתקית חדשה"
 
 #: main.cpp:52
 #, kde-format
@@ -55,39 +54,39 @@ msgstr "Marknote"
 #: main.cpp:54
 #, kde-format
 msgid "Note taking application"
-msgstr "Piezīmju programma"
+msgstr "יישום לכתיבת פתקיות"
 
 #: main.cpp:56
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
-msgstr "© 2023 Mathis Brüchert"
+msgstr "© 2023 מתיס בריכרט"
 
 #: main.cpp:57
 #, kde-format
 msgid "Mathis Brüchert"
-msgstr "Mathis Brüchert"
+msgstr "מתיס בריכרט"
 
 #: main.cpp:58 main.cpp:63
 #, kde-format
 msgid "Maintainer"
-msgstr "Uzturētājs"
+msgstr "מתחזק"
 
 #: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "קארל שוואן"
 
 #: main.cpp:67
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Toms Trasūns"
+msgstr "צוות התרגום של KDE ישראל"
 
 #: main.cpp:67
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "toms.trasuns@posteo.net"
+msgstr "kde-l10n-he@kde.org"
 
 #: notesmodel.cpp:111
 #, kde-format
@@ -99,169 +98,166 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
-msgstr "Treknraksts"
+msgstr "מודגש"
 
 #: qml/EditPage.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
-msgstr "Slīpraksts"
+msgstr "נטוי"
 
 #: qml/EditPage.qml:140
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr "Pasvītrots"
+msgstr "קו תחתי"
 
 #: qml/EditPage.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
-msgstr "Pārsvītrots"
+msgstr "קו חוצה"
 
 #: qml/EditPage.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "הגדלת רמת הרשימה"
 
 #: qml/EditPage.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "הקטנת רמת הרשימה"
 
 #: qml/EditPage.qml:207
-#, fuzzy, kde-format
-#| msgid "Add list"
+#, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
-msgstr "Pievienot sarakstu"
+msgstr "ללא רשימה"
 
 #: qml/EditPage.qml:208
-#, fuzzy, kde-format
-#| msgid "Add numbered list"
+#, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
-msgstr "Pievienot numurētu sarakstu"
+msgstr "רשימה לא מסודרת"
 
 #: qml/EditPage.qml:209
-#, fuzzy, kde-format
-#| msgid "Add numbered list"
+#, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
-msgstr "Pievienot numurētu sarakstu"
+msgstr "רשימה מסודרת"
 
 #: qml/EditPage.qml:221
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
-msgstr ""
+msgstr "הוספת תיבות סימון"
 
 #: qml/EditPage.qml:236
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
-msgstr ""
+msgstr "הוספת קישור"
 
 #: qml/EditPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
-msgstr ""
+msgstr "הוספת תמונה"
 
 #: qml/EditPage.qml:272
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
-msgstr ""
+msgstr "טקסט בסיסי"
 
 #: qml/EditPage.qml:273
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
-msgstr ""
+msgstr "כותרת"
 
 #: qml/EditPage.qml:274
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
-msgstr ""
+msgstr "תת־כותרת"
 
 #: qml/EditPage.qml:275
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
-msgstr ""
+msgstr "סעיף"
 
 #: qml/EditPage.qml:276
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
-msgstr ""
+msgstr "תת־סעיף"
 
 #: qml/EditPage.qml:277
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
-msgstr ""
+msgstr "פסקה"
 
 #: qml/EditPage.qml:278
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
-msgstr ""
+msgstr "תת־פסקה"
 
 #: qml/ImageDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "הוספת תמונה"
 
 #: qml/ImageDialog.qml:23
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "בחירת תמונה"
 
 #: qml/ImageDialog.qml:26
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr ""
+msgstr "קובצי תמונה (‎*.jpg‏ ‎*.jpeg ‏‎*.png ‏‎*‎.svg ‏‎*.webp)"
 
 #: qml/ImageDialog.qml:26
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "כל הקבצים (*)"
 
 #: qml/ImageDialog.qml:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
-msgstr ""
+msgstr "מקום התמונה:"
 
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
 msgid "No results found"
-msgstr ""
+msgstr "לא נמצאו תוצאות"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "הוספת קישור"
 
 #: qml/LinkDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "טקסט קישור:"
 
 #: qml/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "כתובת קישור:"
 
 #: qml/Main.qml:64
 #, kde-format
@@ -271,164 +267,158 @@ msgstr ""
 
 #: qml/Main.qml:64
 #, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
 #| msgid "Delete Notebook"
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Dzēst piezīmju grāmatiņu"
+msgstr "מחיקת מחברת"
 
 #: qml/Main.qml:210
 #, kde-format
 msgid "Your Notebooks"
-msgstr "Tavas piezīmju grāmatiņas"
+msgstr "המחברות שלך"
 
 #: qml/NotebookContextMenu.qml:16
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit Notebook"
-msgstr "Pievienot piezīmju grāmatiņu"
+msgstr "עריכת מחברת"
 
 #: qml/NotebookDeleteAction.qml:15
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
-msgstr "Dzēst piezīmju grāmatiņu"
+msgstr "מחיקת מחברת"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
-msgstr "Jauna piezīmju grāmatiņa"
+msgstr "מחברת חדשה"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Notebook"
-msgstr "Pievienot piezīmju grāmatiņu"
+msgstr "עריכת מחברת"
 
 #: qml/NotebookMetadataDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr "Piezīmes nosaukums:"
+msgstr "שם:"
 
 #: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
-msgstr ""
+msgstr "סמל"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Note"
-msgstr "Jauna piezīme"
+msgstr "פתקית חדשה"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
-msgstr "Dzēst piezīmi"
+msgstr "עריכת פתקית"
 
 #: qml/NoteMetadataDialog.qml:48
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
-msgstr "Piezīmes nosaukums:"
+msgstr "שם:"
 
 #: qml/NotesPage.qml:31
 #, kde-format
 msgid "Add note"
-msgstr "Pievienot piezīmi"
+msgstr "הוספת פתקית"
 
 #: qml/NotesPage.qml:114
 #, kde-format
 msgid "Exit Search (%1)"
-msgstr "Iziet no meklēšanas (%1)"
+msgstr "יציאה מהחיפוש (%1)"
 
 #: qml/NotesPage.qml:114
 #, kde-format
 msgid "Search notes (%1)"
-msgstr "Meklēšanas piezīmes (%1)"
+msgstr "חיפוש בפתקיות (%1)"
 
 #: qml/NotesPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
-msgstr "Dzēst piezīmi"
+msgstr "מחיקת פתקית"
 
 #: qml/NotesPage.qml:172
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
-msgstr "Vai tiešām vēlaties dzēst piezīmi <b> %1 </b>?"
+msgstr "למחוק את הפתקית <b> %1 </b>?"
 
 #: qml/NotesPage.qml:229
-#, fuzzy, kde-format
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
-msgstr "Pārsaukt piezīmi"
+msgstr "שינוי שם לפתקית"
 
 #: qml/NotesPage.qml:243
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
-msgstr "Dzēst piezīmi"
+msgstr "מחיקת פתקית"
 
 #: qml/NotesPage.qml:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "ייצוא ל־HTML"
 
 #: qml/NotesPage.qml:260
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
-msgstr ""
+msgstr "ייצוא ל־HTML"
 
 #: qml/NotesPage.qml:261
 #, kde-format
 msgid "HTML file (*.html)"
-msgstr ""
+msgstr "קובצי HTML ‏(‎*.html)"
 
 #: qml/NotesPage.qml:267
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
-msgstr ""
+msgstr "ייצוא ל־PDF"
 
 #: qml/NotesPage.qml:273
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
-msgstr ""
+msgstr "ייצוא ל־PDF"
 
 #: qml/NotesPage.qml:274
 #, kde-format
 msgid "PDF file (*.pdf)"
-msgstr ""
+msgstr "קובץ PDF‏ (‎*.pdf)"
 
 #: qml/NotesPage.qml:280
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Export to PDF"
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr ""
+msgstr "ייצוא ל־PDF"
 
 #: qml/NotesPage.qml:286
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Export to PDF"
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr ""
+msgstr "ייצוא ל־PDF"
 
 #: qml/NotesPage.qml:287
 #, kde-format
@@ -438,28 +428,19 @@ msgstr ""
 #: qml/NotesPage.qml:399
 #, kde-format
 msgid "Add a note!"
-msgstr "Pievienojiet piezīmi!"
+msgstr "אפשר להוסיף פתקית!"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
-msgstr "Sāciet darbu, izveidojot pirmo piezīmju grāmatiņu!"
-
-#~ msgid "New Note (%1)"
-#~ msgstr "Jauna piezīme (%1)"
-
-#~ msgid "Add"
-#~ msgstr "Pievienot"
-
-#~ msgid "Add Notebook"
-#~ msgstr "Pievienot piezīmju grāmatiņu"
-
-#~ msgid "Notebook name"
-#~ msgstr "Piezīmju grāmatiņas nosaukums"
+msgstr "דריסת הרגל הראשונה היא ליצור את המחברת הראשונה שלך!"
 
 #~ msgctxt "@action:button"
-#~ msgid "highlight"
-#~ msgstr "izcelt"
+#~ msgid "Color"
+#~ msgstr "צבע"
 
-#~ msgid "Heading %1"
-#~ msgstr "Galvene „%1“"
+#~ msgid "New Note (%1)"
+#~ msgstr "פתקית חדשה (%1)"
+
+#~ msgid "Add"
+#~ msgstr "הוספה"
