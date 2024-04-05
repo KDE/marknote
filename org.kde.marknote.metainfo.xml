@@ -51,6 +51,7 @@
   <summary xml:lang="tr">Düşüncelerinizin yazın</summary>
   <summary xml:lang="uk">Записуйте ваші думки</summary>
   <summary xml:lang="x-test">xxWrite down your thoughtsxx</summary>
+  <summary xml:lang="zh-TW">寫下您所想</summary>
   <description>
     <p>Marknote lets you create rich text notes and easily organise them into notebooks. You can personalise your notebooks by choosing an icon and accent color for each one, making it easy to distinguish between them and keep your notes at your fingertips. Your notes are saved as Markdown files in your Documents folder, making it easy to use your notes outside of Marknote as well as inside the app.</p>
     <p xml:lang="ca">El Marknote us permet crear notes de text enriquit i organitzar-les fàcilment en quaderns. Podreu personalitzar els quaderns triant una icona i un color d'accent per a cadascun, fent que sigui fàcil distingir-los i mantenir les notes al vostre abast. Les notes es desen com a fitxers Markdown a la carpeta Documents, fent que sigui fàcil utilitzar les notes fora del Marknote, així com dins de l'aplicació.</p>
@@ -67,6 +68,7 @@
     <p xml:lang="tr">Marknot zengin metin notlar oluşturmanıza ve onları defterlerde organize etmenize olanak tanır. Defterleriniz için bir simge ve vurgu rengi seçerek onları kişiselleştirebilir ve her birini kendi içinde öne çıkarabilirsiniz. Notlarınız, Belgeler klasörünüze Markdown dosyalarıı olarak kaydedilir; böylece hem Marknot içinden hem de dosya yöneticinizden onlara kolaylıkla erişebilirsiniz.</p>
     <p xml:lang="uk">Marknote надає змогу створювати форматовані текстові нотатки та без проблем упорядковувати їх за нотатниками. Ви можете персоналізувати ваші нотатники, вибравши піктограму та колір позначення для кожного нотатника, спрощуючи пошук нотатників та роблячи доступ до ваших нотаток якомога простішим. Ваші нотатки буде збережено до файлів Markdown у вашій теці «Документи», щоб спрощує користування нотатками поза Marknote та у самій програмі.</p>
     <p xml:lang="x-test">xxMarknote lets you create rich text notes and easily organise them into notebooks. You can personalise your notebooks by choosing an icon and accent color for each one, making it easy to distinguish between them and keep your notes at your fingertips. Your notes are saved as Markdown files in your Documents folder, making it easy to use your notes outside of Marknote as well as inside the app.xx</p>
+    <p xml:lang="zh-TW">Marknote 讓您建立豐富格式筆記，並放入筆記本內管理。您可以選擇各個筆記本的圖示與強調色，讓筆記本容易分辨，並幫助您利用您的筆記。您的筆記以 Markdown 格式儲存為文件資料夾內的檔案，讓您在 Marknote 外也能輕易地利用您的筆記。</p>
   </description>
   <url type="homepage">https://apps.kde.org/marknote</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=Marknote</url>
