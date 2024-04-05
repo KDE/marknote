@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-04 00:38+0000\n"
-"PO-Revision-Date: 2024-04-02 09:21+0200\n"
+"PO-Revision-Date: 2024-04-03 07:25+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -37,9 +37,7 @@ msgid "New Notebook"
 msgstr "Nouveau carnet de notes"
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nouvelle note"
@@ -91,6 +89,7 @@ msgstr "xavier.besnard@kde.org"
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
+"Impossible de renommer une note. Une note existe déjà avec le même nom."
 
 #: qml/EditPage.qml:102
 #, kde-format
@@ -262,13 +261,14 @@ msgstr "URL du lien :"
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
+"Impossible de créer une nouvelle note. Vous devez d'abord créer un carnet de "
+"notes."
 
 #: qml/Main.qml:64
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Supprimer un cahier de notes"
+msgstr "Créer un cahier de notes"
 
 #: qml/Main.qml:210
 #, kde-format
@@ -405,18 +405,18 @@ msgstr "Fichier « PDF » (*.pdf)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Exporter vers le format « ODT »"
 
 #: qml/NotesPage.qml:286
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Exporter vers le format « ODT »"
 
 #: qml/NotesPage.qml:287
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "Document de texte « ODF » (*.odt)"
 
 #: qml/NotesPage.qml:399
 #, kde-format
