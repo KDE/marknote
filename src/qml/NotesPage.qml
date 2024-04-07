@@ -20,8 +20,23 @@ Kirigami.ScrollablePage {
 
     property bool wideScreen: applicationWindow().width >= 600
 
-    Kirigami.Theme.colorSet: Kirigami.Theme.View
-    background: Rectangle {color: Kirigami.Theme.backgroundColor; opacity: 0.6}
+    Item{
+        id: windowItem
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        property color windowBackground: Kirigami.Theme.backgroundColor
+        Component.onCompleted: print(windowBackground)
+    }
+    Item{
+        id: viewItem
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        property color viewBackground: Kirigami.Theme.backgroundColor
+        Component.onCompleted: print(viewBackground)
+    }
+    property color backgroundColor: Kirigami.ColorUtils.linearInterpolation(windowItem.windowBackground, viewItem.viewBackground, 0.6)
+
+    background: Rectangle {color: root.backgroundColor}
 
     ActionButton {
         visible: Kirigami.Settings.isMobile
@@ -292,6 +307,9 @@ Kirigami.ScrollablePage {
 
         delegate: Delegates.RoundedItemDelegate {
             id: delegateItem
+
+            Kirigami.Theme.inherit: false
+            Kirigami.Theme.backgroundColor: root.backgroundColor
 
             required property string name;
             required property string path;
