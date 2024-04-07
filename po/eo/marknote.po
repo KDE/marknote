@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-04 00:38+0000\n"
-"PO-Revision-Date: 2024-03-22 22:15+0100\n"
+"PO-Revision-Date: 2024-04-06 22:35+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -21,31 +21,29 @@ msgstr ""
 #: application.cpp:147
 #, kde-format
 msgid "Open Command Bar"
-msgstr ""
+msgstr "Malfermi Komandbreton"
 
 #: application.cpp:169
 #, kde-format
 msgid "About %1"
-msgstr ""
+msgstr "Pri %1"
 
 #: application.cpp:176
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "Pri KDE"
 
 #: application.cpp:189
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "Nova Notlibro"
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
-msgstr "Nova noto"
+msgstr "Nova Noto"
 
 #: main.cpp:52
 #, kde-format
@@ -75,7 +73,7 @@ msgstr "Prizorganto"
 #: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:67
 #, kde-format
@@ -213,65 +211,64 @@ msgstr "Subalineo"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "Enmeti Bildon"
 
 #: qml/ImageDialog.qml:23
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "Elekti bildon"
 
 #: qml/ImageDialog.qml:26
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr ""
+msgstr "Bilddosieroj (*.jpg *.jpeg *.png *.svg *.webp)"
 
 #: qml/ImageDialog.qml:26
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "Ĉiuj dosieroj (*)"
 
 #: qml/ImageDialog.qml:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
-msgstr ""
+msgstr "Loko de Bildo:"
 
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
 msgid "No results found"
-msgstr ""
+msgstr "Trovis neniujn rezultojn"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "Enmeti Ligilon"
 
 #: qml/LinkDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Teksto de Ligilo:"
 
 #: qml/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "URL de Ligilo:"
 
 #: qml/Main.qml:64
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
-msgstr ""
+msgstr "Ne eblas krei novan noton; vi devas unue krei notlibron."
 
 #: qml/Main.qml:64
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Forigi Notlibron"
+msgstr "Krei Notlibron"
 
 #: qml/Main.qml:210
 #, kde-format
@@ -279,66 +276,58 @@ msgid "Your Notebooks"
 msgstr "Viaj Notlibroj"
 
 #: qml/NotebookContextMenu.qml:16
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit Notebook"
-msgstr "Aldoni Notlibron"
+msgstr "Redakti Notlibron"
 
 #: qml/NotebookDeleteAction.qml:15
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Forigi Notlibron"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
 msgstr "Nova Notlibro"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Notebook"
-msgstr "Aldoni Notlibron"
+msgstr "Redakti Notlibron"
 
 #: qml/NotebookMetadataDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr "Nota nomo:"
+msgstr "Nomo:"
 
 #: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
-msgstr ""
+msgstr "Pikrogramo"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Note"
-msgstr "Nova noto"
+msgstr "Nova Noto"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
-msgstr "Forigi Noton"
+msgstr "Redakti Noton"
 
 #: qml/NoteMetadataDialog.qml:48
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
-msgstr "Nota nomo:"
+msgstr "Nomo:"
 
 #: qml/NotesPage.qml:31
 #, kde-format
@@ -356,8 +345,7 @@ msgid "Search notes (%1)"
 msgstr "Serĉi notojn (%1)"
 
 #: qml/NotesPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Forigi Noton"
@@ -368,15 +356,13 @@ msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Ĉu vi certas, ke vi volas forigi la noton <b> %1 </b>?"
 
 #: qml/NotesPage.qml:229
-#, fuzzy, kde-format
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Alinomi Noton"
 
 #: qml/NotesPage.qml:243
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Forigi Noton"
@@ -385,52 +371,52 @@ msgstr "Forigi Noton"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Elporti al HTML"
 
 #: qml/NotesPage.qml:260
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Elporti al HTML"
 
 #: qml/NotesPage.qml:261
 #, kde-format
 msgid "HTML file (*.html)"
-msgstr ""
+msgstr "HTML-dosiero (*.html)"
 
 #: qml/NotesPage.qml:267
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Elporti al PDF"
 
 #: qml/NotesPage.qml:273
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Elporti al PDF"
 
 #: qml/NotesPage.qml:274
 #, kde-format
 msgid "PDF file (*.pdf)"
-msgstr ""
+msgstr "PDF-dosiero (*.pdf)"
 
 #: qml/NotesPage.qml:280
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Elporti al ODT"
 
 #: qml/NotesPage.qml:286
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Elporti al ODT"
 
 #: qml/NotesPage.qml:287
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "ODF-Tekstdokumento (*.odt)"
 
 #: qml/NotesPage.qml:399
 #, kde-format
@@ -441,51 +427,3 @@ msgstr "Aldonu noton!"
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Komencu per kreo de via unua notlibro!"
-
-#~ msgid "New Note (%1)"
-#~ msgstr "Nova Noto (%1)"
-
-#~ msgid "Add"
-#~ msgstr "Aldoni"
-
-#~ msgid "Add Notebook"
-#~ msgstr "Aldoni Notlibron"
-
-#~ msgid "Notebook name"
-#~ msgstr "Nomo de notlibro"
-
-#~ msgctxt "@action:button"
-#~ msgid "highlight"
-#~ msgstr "emfazi"
-
-#~ msgctxt "@item:inmenu disc list style"
-#~ msgid "Disc"
-#~ msgstr "Disko"
-
-#~ msgctxt "@item:inmenu circle list style"
-#~ msgid "Circle"
-#~ msgstr "Cirklo"
-
-#~ msgctxt "@item:inmenu square list style"
-#~ msgid "Square"
-#~ msgstr "Kvadrato"
-
-#~ msgctxt "@item:inmenu numbered lists"
-#~ msgid "123"
-#~ msgstr "123"
-
-#~ msgctxt "@item:inmenu lowercase abc lists"
-#~ msgid "abc"
-#~ msgstr "abc"
-
-#~ msgctxt "@item:inmenu uppercase abc lists"
-#~ msgid "ABC"
-#~ msgstr "ABC"
-
-#~ msgctxt "@item:inmenu lower case roman numerals"
-#~ msgid "i ii iii"
-#~ msgstr "i ii iii"
-
-#~ msgctxt "@item:inmenu upper case roman numerals"
-#~ msgid "I II III"
-#~ msgstr "I II III"
