@@ -63,13 +63,13 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
         return entry.fileName();
     case Role::Date:
         return entry.lastModified(QTimeZone::LocalTime);
+    case Role::Month:
+        return entry.lastModified(QTimeZone::LocalTime).toString(u"MMMM yyyy"_s);
     case Role::Name:
         return entry.fileName().replace(QStringLiteral(".md"), QString());
     case Role::Color:
         return m_color;
     }
-
-    Q_UNREACHABLE();
 
     return {};
 }
@@ -82,6 +82,7 @@ QHash<int, QByteArray> NotesModel::roleNames() const
         {Role::FileUrl, "fileUrl"},
         {Role::Name, "name"},
         {Role::Color, "color"},
+        {Role::Month, "month"},
     };
 }
 

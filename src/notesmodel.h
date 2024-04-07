@@ -21,6 +21,7 @@ public:
         Path = Qt::UserRole + 1,
         FileUrl,
         Date,
+        Month,
         Name,
         Color,
     };

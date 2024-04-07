@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.marknote
+import org.kde.marknote.private
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import "components"
@@ -175,6 +176,38 @@ Kirigami.ApplicationWindow {
                                     action: App.action('add_note')
                                 }
                             }
+
+                            Controls.MenuSeparator {}
+
+                            Controls.MenuItem {
+                                id: sortName
+                                checkable: true
+                                text: i18n("sort by Name")
+                                icon.name: "sort-name"
+                                autoExclusive: true
+                                onClicked: {
+                                    Config.sortBehaviour = "sort-name"
+                                    Config.save();
+                                }
+                                checked: Config.sortBehaviour == "sort-name"
+
+                            }
+
+                            Controls.MenuItem {
+                                id: sortDate
+                                checkable: true
+                                text: i18n("sort by Date")
+                                icon.name: "view-sort-descending"
+                                autoExclusive: true
+                                onClicked: {
+                                    Config.sortBehaviour = "sort-date";
+                                    Config.save();
+                                }
+                                checked: Config.sortBehaviour == "sort-date"
+
+                            }
+
+                            Controls.MenuSeparator {}
 
                             Controls.MenuItem {
                                 action: KActionFromAction {

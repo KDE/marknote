@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import QtQuick.Dialogs
 import org.kde.kitemmodels
 import org.kde.marknote
+import org.kde.marknote.private
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as Components
@@ -201,12 +202,68 @@ Kirigami.ScrollablePage {
     ListView {
         id: notesList
 
+        enum SortRole {
+            SortName,
+            SortDate
+        }
         currentIndex: -1
+
+        Component {
+            id: sectionDelegate
+            Kirigami.ListSectionHeader {
+                label: section
+                width: parent.width
+            }
+        }
+
+        Component {
+            id: nullComponent
+
+            Item {}
+        }
+
+        state: Config.sortBehaviour
+        states: [
+            State {
+                name: "sort-name"
+
+                PropertyChanges {
+                    target: filterModel
+                    sortRole: NotesModel.Name
+                    sortOrder: Qt.AscendingOrder
+                }
+                PropertyChanges {
+                    target: notesList.section
+                    delegate: nullComponent
+                }
+                StateChangeScript {
+                    script: filterModel.sort(0, Qt.AscendingOrder)
+                }
+            },
+            State {
+                name: "sort-date"
+
+                PropertyChanges {
+                    target: filterModel
+                    sortRole: NotesModel.Date
+                    sortOrder: Qt.DescendingOrder
+                }
+                PropertyChanges {
+                    target: notesList.section
+                    delegate: sectionDelegate
+                }
+                StateChangeScript {
+                    script: filterModel.sort(0, Qt.DescendingOrder)
+                }
+            }
+        ]
 
         model: KSortFilterProxyModel {
             id: filterModel
+            property int sortOrder: Qt.AscendingOrder
             filterCaseSensitivity: Qt.CaseInsensitive
             filterRole: NotesModel.Name
+            sortRole: NotesModel.Name
             sourceModel: NotesModel {
                 id: notesModel
                 path: NavigationController.notebookPath
@@ -214,6 +271,16 @@ Kirigami.ScrollablePage {
                 onErrorOccured: (errorMessage) => {
                     applicationWindow().showPassiveNotification(errorMessage, "long");
                 }
+
+                onModelReset: filterModel.sort(0, filterModel.sortOrder)
+            }
+            Component.onCompleted: filterModel.sort(0, filterModel.sortOrder)
+        }
+        section {
+            property: "month"
+            delegate: Kirigami.ListSectionHeader {
+                label: section
+                width: parent.width
             }
         }
 
@@ -331,6 +398,9 @@ Kirigami.ScrollablePage {
             onColorChanged: updateColor();
             Component.onCompleted: updateColor();
 
+            Behavior on y {
+                NumberAnimation { duration: 1000 }
+            }
             contentItem: RowLayout{
                 ColumnLayout {
                     Layout.fillWidth: true

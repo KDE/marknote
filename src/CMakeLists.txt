@@ -59,6 +59,9 @@ endif()
 
 
 add_executable(marknote main.cpp)
+
+kconfig_add_kcfg_files(marknote GENERATE_MOC marknotesettings.kcfgc)
+
 target_link_libraries(marknote PRIVATE marknote_static marknote_staticplugin)
 if (NOT ANDROID)
     target_link_libraries(marknote PRIVATE Qt::Widgets)
