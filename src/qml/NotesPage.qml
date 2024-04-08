@@ -389,6 +389,14 @@ Kirigami.ScrollablePage {
             onColorChanged: updateColor();
             Component.onCompleted: updateColor();
 
+            TapHandler {
+                acceptedButtons: Qt.RightButton
+                onTapped: {
+                    menu.delegateItem = delegateItem;
+                    menu.open()
+                }
+            }
+
             contentItem: RowLayout{
 
                 ColumnLayout {
