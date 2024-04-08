@@ -18,7 +18,6 @@
 #include "../marknote-version.h"
 #include "colorschemer.h"
 #include "config.h"
-#include "windowcontroller.h"
 
 #ifdef Q_OS_WINDOWS
 #include <Windows.h>
@@ -120,23 +119,6 @@ int main(int argc, char *argv[])
     QObject::connect(QApplication::instance(), &QCoreApplication::aboutToQuit, QApplication::instance(), [] {
         MarknoteSettings::self()->save();
     });
-
-    QQuickWindow *window = nullptr;
-
-    const auto rootObjects = engine.rootObjects();
-    for (auto obj : rootObjects) {
-        auto view = qobject_cast<QQuickWindow *>(obj);
-        if (view) {
-            window = view;
-            break;
-        }
-    }
-
-    if (window != nullptr) {
-        auto controller = engine.singletonInstance<WindowController *>(QStringLiteral("org.kde.marknote"), QStringLiteral("WindowController"));
-        controller->setWindow(window);
-        controller->restoreGeometry();
-    }
 
     return app.exec();
 }

@@ -4,15 +4,17 @@
 import QtQuick
 import QtQuick.Window
 import Qt.labs.platform as Labs
+import org.kde.kirigamiaddons.statefulapp.labs as StatefulAppLabs
+import org.kde.marknote
 
 Labs.Menu {
     property Window _window: applicationWindow()
-    required property var application
 
     title: i18nc("@action:menu", "Window")
 
-    NativeMenuItemFromAction {
-        action: root.application.action('open_kcommand_bar')
+    StatefulAppLabs.NativeMenuItem {
+        actionName: 'open_kcommand_bar'
+        application: App
     }
 
     Labs.MenuItem {

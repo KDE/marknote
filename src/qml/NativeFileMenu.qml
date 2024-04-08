@@ -3,6 +3,8 @@
 
 import QtQuick
 import Qt.labs.platform as Labs
+import org.kde.kirigamiaddons.statefulapp.labs as StatefulAppLabs
+import org.kde.marknote
 
 Labs.Menu {
     id: fileMenu
@@ -11,11 +13,9 @@ Labs.Menu {
     default property list<QtObject> additionalMenuItems
 
     property list<QtObject> _menuItems: [
-        Labs.MenuItem {
-            text: i18nc("@action:menu", "Quit Marknote")
-            icon.name: "application-exit"
-            shortcut: StandardKey.Quit
-            onTriggered: Qt.quit()
+        StatefulAppLabs.NativeMenuItem {
+            application: App
+            actionName: 'file_quit'
         }
     ]
 

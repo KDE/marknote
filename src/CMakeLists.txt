@@ -10,8 +10,6 @@ qt_add_qml_module(marknote_static STATIC
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml
         qml/ContextMenu.qml
-        qml/KQuickCommandBarPage.qml
-        qml/KActionFromAction.qml
 
         # Notebook
         qml/NotebookContextMenu.qml
@@ -41,7 +39,6 @@ qt_add_qml_module(marknote_static STATIC
         qml/NativeFileMenu.qml
         qml/NativeEditMenu.qml
         qml/GlobalMenuBar.qml
-        qml/NativeMenuItemFromAction.qml
 
     SOURCES
         documenthandler.cpp
@@ -51,14 +48,13 @@ qt_add_qml_module(marknote_static STATIC
         nestedlisthelper_p.h
         navigationcontroller.cpp
         application.cpp
-        actionsmodel.cpp
-        commandbarfiltermodel.cpp
+        application.h
         tableactionhelper.cpp
+        tableactionhelper.h
         config.cpp
-        windowcontroller.cpp
+        config.h
         colorschemer.cpp
         foreigntypes.h
-
         maildirimport.cpp
         maildirimport.h
 )
@@ -82,6 +78,7 @@ target_link_libraries(marknote_static PUBLIC
     KF6::XmlGui
     KF6::Crash
     KPim6::Mime
+    KirigamiAddonsStatefulApp
 )
 
 target_link_libraries(marknote_static PRIVATE settingsplugin)

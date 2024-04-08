@@ -32,6 +32,10 @@ FormCard.FormCardDialog {
         root.standardButton(Controls.Dialog.Save).enabled = nameInput.text.length > 0
     }
 
+    onRejected: {
+        root.close();
+    }
+
     onClosed: {
         name = "";
     }
