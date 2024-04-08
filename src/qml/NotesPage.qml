@@ -310,15 +310,7 @@ Kirigami.ScrollablePage {
             Action {
                 text: i18nc("@action:inmenu", "Rename Note")
                 icon.name: "document-edit"
-                onTriggered: {
-                    if (!menu.delegateItem.renameLayout.visible) {
-                        menu.delegateItem.renameLayout.visible = true
-                        menu.delegateItem.nameLabel.visible = false
-                    } else {
-                        menu.delegateItem.renameLayout.visible = false
-                        menu.delegateItem.nameLabel.visible = true
-                    }
-                }
+                onTriggered: menu.delegateItem.renameField.enabled = !menu.delegateItem.renameField.enabled
             }
 
             Action {
@@ -384,8 +376,7 @@ Kirigami.ScrollablePage {
             required property date date;
             required property int index;
             required property url fileUrl
-            property alias renameLayout: renameLayout;
-            property alias nameLabel: nameLabel;
+            property alias renameField: renameField;
 
             function updateColor(): void {
                 if (color !== '#ffffff' && color !== '#00000000') {
@@ -402,50 +393,54 @@ Kirigami.ScrollablePage {
                 NumberAnimation { duration: 1000 }
             }
             contentItem: RowLayout{
+
                 ColumnLayout {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     spacing: Kirigami.Units.smallSpacing
-                    RowLayout {
-                        id: renameLayout
-                        Layout.leftMargin: 0
+                    Layout.topMargin: Kirigami.Units.smallSpacing
+                    Layout.bottomMargin: Kirigami.Units.smallSpacing
+
+                    Kirigami.ActionTextField {
+                        id: renameField
+
                         Layout.fillWidth: true
-                        visible: false
-                        TextField {
-                            Layout.fillWidth: true
-                            id: renameField
-                            text: name
-                            onAccepted: renameButton.clicked();
+                        text: name
+                        onAccepted: acceptedAction.triggered();
+                        visible: true
+                        enabled: false
+                        background.visible: enabled
+                        leftPadding: Kirigami.Units.mediumSpacing
+
+                        Item{
+                            Kirigami.Theme.inherit: false
+                            property color textcolor: Kirigami.Theme.textColor
                         }
-                        Button {
-                            id: renameButton
-                            icon.name: "answer-correct"
-                            enabled: renameField.text.length > 0
-                            onClicked: {
-                                if (renameField.text.length === 0) {
-                                    renameField.text = delegateItem.name;
-                                }
-                                if (renameField.text === delegateItem.name) {
-                                    renameLayout.visible = false;
-                                    nameLabel.visible = true;
-                                    return;
-                                }
-                                notesModel.renameNote(delegateItem.fileUrl, renameField.text);
-                                if (NavigationController.notePath === delegateItem.path) {
-                                    NavigationController.notePath = renameField.text + '.md';
+
+                        color: textcolor
+
+                        rightActions: [
+                            Kirigami.Action {
+                                id: acceptedAction
+                                icon.name: "answer-correct"
+                                enabled: renameField.text.length > 0
+                                visible: renameField.enabled
+                                onTriggered: {
+                                    if (renameField.text.length === 0) {
+                                        renameField.text = delegateItem.name;
+                                    }
+                                    if (renameField.text === delegateItem.name) {
+                                        renameField.enabled = false
+                                    }
+                                    notesModel.renameNote(delegateItem.fileUrl, renameField.text);
+                                    if (NavigationController.notePath === delegateItem.path) {
+                                        NavigationController.notePath = renameField.text + '.md';
+                                    }
                                 }
                             }
-                        }
+                        ]
                     }
-                    Label {
-                        id:nameLabel
-                        Layout.leftMargin: Kirigami.Units.mediumSpacing
-                        Layout.topMargin: 7
-                        Layout.bottomMargin: 7
-                        text: name
-                        Layout.fillWidth: true
-                        elide: Qt.ElideRight
-                    }
+
                     Label {
                         Layout.leftMargin: Kirigami.Units.mediumSpacing
                         text: Qt.formatDateTime(date, Qt.SystemLocaleDate)
