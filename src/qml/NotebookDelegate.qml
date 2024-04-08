@@ -7,6 +7,7 @@ import org.kde.kirigami as Kirigami
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.marknote
+import org.kde.marknote.private
 import org.kde.kirigamiaddons.delegates as Delegates
 
 Delegates.RoundedItemDelegate {
@@ -23,6 +24,15 @@ Delegates.RoundedItemDelegate {
     text: name
     highlighted: NavigationController.notebookPath === path
 
+    Behavior on implicitHeight {
+        NumberAnimation {
+            id: mainAnim
+            duration: Kirigami.Units.mediumDuration
+            easing.type: Easing.InOutQuart
+        }
+    }
+
+
     function updateColor(): void {
         if (color !== '#ffffff' && color !== '#00000000') {
             root.background.Kirigami.Theme.highlightColor = color;
@@ -34,20 +44,58 @@ Delegates.RoundedItemDelegate {
     onColorChanged: updateColor();
     Component.onCompleted: updateColor();
 
-    contentItem: ColumnLayout {
+    contentItem: Item{
+        implicitHeight: Config.expandedSidebar ? icon.height + 2 * Kirigami.Units.smallSpacing : icon.height + label.height + 3 * Kirigami.Units.smallSpacing
         Kirigami.Icon {
+            id: icon
             source: root.icon.name
-            Layout.alignment: Qt.AlignHCenter
+            y: Kirigami.Units.smallSpacing
+            x: Config.expandedSidebar ? parent.x:  (80 - Kirigami.Units.largeSpacing * 2) / 2 - width / 2
+            Behavior on x {
+                NumberAnimation {
+                    duration: mainAnim.duration
+                    easing.type: mainAnim.easing.type
+                }
+            }
         }
-
         Controls.Label {
+            id: label
             text: root.name
-            horizontalAlignment: Qt.AlignHCenter
+            width: Math.min(parent.width, implicitWidth)
             elide: Text.ElideRight
-
-            Layout.fillWidth: true
+            y: Config.expandedSidebar ? parent.implicitHeight / 2 - height / 2 : icon.height + icon. y + Kirigami.Units.smallSpacing
+            x: Config.expandedSidebar ? icon.width + Kirigami.Units.largeSpacing * 2 : (80 - Kirigami.Units.largeSpacing * 2) / 2 - Math.min((80 - Kirigami.Units.largeSpacing * 2), implicitWidth) / 2
+            Behavior on x {
+                NumberAnimation {
+                    duration: mainAnim.duration
+                    easing.type: mainAnim.easing.type
+                }
+            }
+            Behavior on y {
+                NumberAnimation {
+                    duration: mainAnim.duration
+                    easing.type: mainAnim.easing.type
+                }
+            }
         }
     }
+//    contentItem: GridLayout {
+//        flow: Config.expandedSidebar ? GridLayout.LeftToRight : GridLayout.TopToBottom
+
+//        Kirigami.Icon {
+//            source: root.icon.name
+//            Layout.alignment: Qt.AlignHCenter
+
+//        }
+
+//        Controls.Label {
+//            text: root.name
+//            horizontalAlignment: Config.expandedSidebar ? Qt.AlignLeft : Qt.AlignHCenter
+//            elide: Text.ElideRight
+
+//            Layout.fillWidth: true
+//        }
+//    }
 
     TapHandler {
         onTapped: NavigationController.notebookPath = path

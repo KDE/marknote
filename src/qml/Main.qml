@@ -141,11 +141,21 @@ Kirigami.ApplicationWindow {
 
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
         modal: !wideScreen
-        width: 80
+        property double expandedWidth : 12 * Kirigami.Units.gridUnit
+        property double normalWidth :80
+        width: Config.expandedSidebar ?  expandedWidth : normalWidth
         leftPadding: 0
         rightPadding: 0
         topPadding: 0
         bottomPadding: 0
+
+        Behavior on width {
+            NumberAnimation {
+                duration: Kirigami.Units.mediumDuration
+                easing.type: Easing.InOutQuart
+            }
+        }
+
         contentItem: ColumnLayout {
             spacing: 0
 
@@ -153,13 +163,23 @@ Kirigami.ApplicationWindow {
                 Layout.fillWidth: true
                 Layout.preferredHeight: root.pageStack.globalToolBar.preferredHeight
                 Layout.bottomMargin: Kirigami.Units.smallSpacing / 2
+                leftPadding: 0
+                rightPadding: 0
 
-                contentItem: RowLayout {
+
+                contentItem: Item {
                     Controls.ToolButton {
-                        Layout.alignment: Qt.AlignHCenter
+                        id: menuButton
                         icon.name: "application-menu"
                         onClicked: optionPopup.popup()
+                        x: Config.expandedSidebar ? Kirigami.Units.smallSpacing : drawer.normalWidth / 2 - width / 2
 
+                        Behavior on x {
+                            NumberAnimation {
+                                duration: Kirigami.Units.mediumDuration
+                                easing.type: Easing.InOutQuart
+                            }
+                        }
                         Controls.Menu {
                             id: optionPopup
 
@@ -182,11 +202,11 @@ Kirigami.ApplicationWindow {
                             Controls.MenuItem {
                                 id: sortName
                                 checkable: true
-                                text: i18n("sort by Name")
+                                text: i18n("Sort by Name")
                                 icon.name: "sort-name"
                                 autoExclusive: true
                                 onClicked: {
-                                    Config.sortBehaviour = "sort-name"
+                                    Config.sortBehaviour = "sort-name";
                                     Config.save();
                                 }
                                 checked: Config.sortBehaviour == "sort-name"
@@ -196,7 +216,7 @@ Kirigami.ApplicationWindow {
                             Controls.MenuItem {
                                 id: sortDate
                                 checkable: true
-                                text: i18n("sort by Date")
+                                text: i18n("Sort by Date")
                                 icon.name: "view-sort-descending"
                                 autoExclusive: true
                                 onClicked: {
@@ -216,15 +236,54 @@ Kirigami.ApplicationWindow {
                             }
 
                             Controls.MenuItem {
+                                id: expandSidebar
+                                text: Config.expandedSidebar ? i18n("Collapse Sidebar") : i18n("Expand Sidebar")
+                                icon.name: Config.expandedSidebar ? "sidebar-collapse-left" : "sidebar-expand-left"
+                                onClicked: {
+                                    Config.expandedSidebar = !Config.expandedSidebar;
+                                    Config.save();
+                                }
+                                Shortcut {
+                                    sequence: "Ctrl+Shift+S"
+                                    onActivated: expandSidebar.clicked()
+                                }
+                            }
+                            Controls.MenuItem {
                                 action: KActionFromAction {
                                     action: App.action('open_about_page')
                                 }
                             }
                         }
                     }
+                    Kirigami.Heading {
+                        text: i18n("MarkNote")
+                        horizontalAlignment: Qt.AlignHCenter
+                        opacity: Config.expandedSidebar ? 1 : 0
+                        width: parent.width
+                        x: 0
+                        Behavior on opacity {
+                            NumberAnimation {
+                                duration: Kirigami.Units.mediumDuration
+                                easing.type: Easing.InOutQuart
+                            }
+                        }
+                    }
+                    Controls.ToolButton {
+                        icon.name: "sidebar-collapse-left"
+                        onClicked: expandSidebar.clicked()
+                        x: drawer.width - width - Kirigami.Units.smallSpacing
+                        opacity: Config.expandedSidebar ? 1 : 0
+                        enabled: Config.expandedSidebar
+                        Behavior on opacity {
+                            NumberAnimation {
+                                duration: Kirigami.Units.mediumDuration
+                                easing.type: Easing.InOutQuart
+                            }
+                        }
+
+                    }
                 }
             }
-
             Repeater {
                 model: noteBooksModel
                 delegate: NotebookDelegate {

@@ -14,5 +14,8 @@ SPDX-License-Identifier: LGPL-2.0-or-later
         <entry name="sortBehaviour" type="String">
             <default>QStringLiteral("sort-name")</default>
         </entry>
+        <entry name="expandedSidebar" type="Bool">
+            <default>true</default>
+        </entry>
     </group>
 </kcfg>

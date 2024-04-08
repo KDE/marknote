@@ -389,9 +389,6 @@ Kirigami.ScrollablePage {
             onColorChanged: updateColor();
             Component.onCompleted: updateColor();
 
-            Behavior on y {
-                NumberAnimation { duration: 1000 }
-            }
             contentItem: RowLayout{
 
                 ColumnLayout {
@@ -400,7 +397,11 @@ Kirigami.ScrollablePage {
                     spacing: Kirigami.Units.smallSpacing
                     Layout.topMargin: Kirigami.Units.smallSpacing
                     Layout.bottomMargin: Kirigami.Units.smallSpacing
-
+                    Item{
+                        id: textcolorItem
+                        Kirigami.Theme.inherit: false
+                        property color textcolor: Kirigami.Theme.textColor
+                    }
                     Kirigami.ActionTextField {
                         id: renameField
 
@@ -411,13 +412,7 @@ Kirigami.ScrollablePage {
                         enabled: false
                         background.visible: enabled
                         leftPadding: Kirigami.Units.mediumSpacing
-
-                        Item{
-                            Kirigami.Theme.inherit: false
-                            property color textcolor: Kirigami.Theme.textColor
-                        }
-
-                        color: textcolor
+                        color: textcolorItem.textcolor
 
                         rightActions: [
                             Kirigami.Action {
