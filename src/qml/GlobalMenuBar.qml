@@ -2,32 +2,30 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 import Qt.labs.platform as Labs
+import org.kde.kirigamiaddons.statefulapp.labs as StatefulAppLabs
+import org.kde.marknote
 
 Labs.MenuBar {
     id: root
-
-    required property var application
 
     NativeFileMenu {}
 
     NativeEditMenu {}
 
-    NativeWindowMenu {
-        application: root.application
-    }
+    NativeWindowMenu {}
 
     Labs.Menu {
         title: i18nc("@action:menu", "Settings")
 
-        NativeMenuItemFromAction {
-            action: root.application.action('options_configure_keybinding')
+        StatefulAppLabs.NativeMenuItem {
+            actionName: 'options_configure_keybinding'
+            application: App
         }
-        NativeMenuItemFromAction {
-            action: root.application.action('options_configure')
+        StatefulAppLabs.NativeMenuItem {
+            actionName: 'options_configure'
+            application: App
         }
     }
 
-    NativeHelpMenu {
-        application: root.application
-    }
+    NativeHelpMenu {}
 }

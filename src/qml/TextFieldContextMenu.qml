@@ -254,21 +254,21 @@ QQC2.Menu {
     QQC2.Menu {
         title: i18nc("@inmenu", "Insert")
 
-        KActionFromAction {
+        ActionFromQAction {
             action: tableActionHelper.actionInsertRowAbove
         }
 
-        KActionFromAction {
+        ActionFromQAction {
             action: tableActionHelper.actionInsertRowBelow
         }
 
         QQC2.MenuSeparator {}
 
-        KActionFromAction {
+        ActionFromQAction {
             action: tableActionHelper.actionInsertColumnBefore
         }
 
-        KActionFromAction {
+        ActionFromQAction {
             action: tableActionHelper.actionInsertColumnAfter
         }
     }
@@ -278,25 +278,25 @@ QQC2.Menu {
     QQC2.Menu {
         title: i18nc("@inmenu", "Remove")
 
-        KActionFromAction {
+        ActionFromQAction {
             action: tableActionHelper.actionRemoveRowAbove
         }
 
-        KActionFromAction {
+        ActionFromQAction {
             action: tableActionHelper.actionRemoveRowBelow
         }
 
         QQC2.MenuSeparator {}
 
-        KActionFromAction {
+        ActionFromQAction {
             action: tableActionHelper.actionRemoveColumnBefore
         }
 
-        KActionFromAction {
+        ActionFromQAction {
             action: tableActionHelper.actionRemoveColumnAfter
         }
 
-        KActionFromAction {
+        ActionFromQAction {
             action: tableActionHelper.actionRemoveCellContents
         }
     }

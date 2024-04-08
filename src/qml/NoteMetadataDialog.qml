@@ -29,6 +29,10 @@ FormCard.FormCardDialog {
 
     onOpened: nameInput.forceActiveFocus()
 
+    onRejected: {
+        root.close();
+    }
+
     onClosed: {
         name = "";
     }

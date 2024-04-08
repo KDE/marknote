@@ -11,17 +11,20 @@ import QtQuick.Layouts
 import org.kde.marknote
 import org.kde.marknote.settings
 import org.kde.kirigamiaddons.delegates as Delegates
+import org.kde.kirigamiaddons.statefulapp as StatetfulApp
 
 import "components"
 
-Kirigami.ApplicationWindow {
+StatetfulApp.StatefulWindow {
     id: root
 
     property bool wideScreen: applicationWindow().width >= 600 && !Config.fillWindow
     property bool columnModeDelayed: false
     minimumWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 22
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
-    width: Kirigami.Units.gridUnit * 65
+
+    application: App
+
     controlsVisible: false
     onWideScreenChanged: Kirigami.Settings.isMobile? drawer.close() :  (!wideScreen? drawer.close() : drawer.open())
     pageStack {
@@ -35,32 +38,19 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Loader {
-        id: kcommandbarLoader
-        active: false
-        sourceComponent: KQuickCommandBarPage {
-            application: App
-            onClosed: kcommandbarLoader.active = false
-        }
-        onActiveChanged: if (active) {
-            item.open()
-        }
+    StatetfulApp.Action {
+        actionName: 'open_about_page'
+        application: App
     }
 
     Loader {
         id: globalMenuLoader
         active: !Kirigami.Settings.isMobile
-        sourceComponent: GlobalMenuBar {
-            application: App
-        }
+        sourceComponent: GlobalMenuBar {}
     }
 
     Connections {
         target: App
-
-        function onOpenKCommandBarAction(): void {
-            kcommandbarLoader.active = true;
-        }
 
         function onNewNotebook(): void {
             const component = Qt.createComponent("org.kde.marknote", "NotebookMetadataDialog");
@@ -78,24 +68,6 @@ Kirigami.ApplicationWindow {
                 });
                 return;
             }
-        }
-
-        function onOpenAboutPage(): void {
-            const openDialogWindow = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {
-                width: root.width
-            }, {
-                width: Kirigami.Units.gridUnit * 30,
-                height: Kirigami.Units.gridUnit * 30
-            });
-        }
-
-        function onOpenAboutKDEPage(): void {
-            const openDialogWindow = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDE"), {
-                width: root.width
-            }, {
-                width: Kirigami.Units.gridUnit * 30,
-                height: Kirigami.Units.gridUnit * 30
-            });
         }
 
         function onPreferences(): void {
@@ -248,30 +220,32 @@ Kirigami.ApplicationWindow {
                         Controls.Menu {
                             id: optionPopup
 
-                            Controls.MenuItem {
-                                action: KActionFromAction {
-                                    id: newNotebookAction
-                                    action: App.action('add_notebook')
-                                }
+                            StatetfulApp.Action {
+                                id: newNotebookAction
+
+                                actionName: 'add_notebook'
+                                application: App
                             }
 
-                            Controls.MenuItem {
-                                action: KActionFromAction {
-                                    id: newNoteAction
-                                    action: App.action('add_note')
-                                }
+                            StatetfulApp.Action {
+                                id: newNoteAction
+
+                                actionName: 'add_note'
+                                application: App
                             }
 
                             Controls.Menu {
                                 title: i18nc("@title:menu", "Import")
                                 icon.name: "kontact-import-wizard"
 
-                                KActionFromAction {
-                                    action: App.action('import_maildir')
+                                StatetfulApp.Action {
+                                    actionName: 'import_maildir'
+                                    application: App
                                 }
 
-                                KActionFromAction {
-                                    action: App.action('import_knotes')
+                                StatetfulApp.Action {
+                                    actionName: 'import_knotes'
+                                    application: App
                                 }
                             }
 
@@ -310,21 +284,18 @@ Kirigami.ApplicationWindow {
                             }
 
 
-                            Controls.MenuItem {
-                                action: KActionFromAction {
-                                    action: App.action('open_kcommand_bar')
-                                }
+                            StatetfulApp.Action {
+                                actionName: 'open_kcommand_bar'
+                                application: App
                             }
 
-
-
-
-                            Controls.MenuItem {
-                                action: KActionFromAction {
-                                    action: App.action('options_configure')
-                                }
+                            StatetfulApp.Action {
+                                actionName: 'options_configure'
+                                application: App
                             }
+
                             Controls.MenuSeparator {}
+
                             Controls.MenuItem {
                                 id: expandSidebar
                                 text: Config.expandedSidebar ? i18n("Collapse Sidebar") : i18n("Expand Sidebar")
@@ -338,6 +309,7 @@ Kirigami.ApplicationWindow {
                                     onActivated: expandSidebar.clicked()
                                 }
                             }
+
 
                         }
                     }

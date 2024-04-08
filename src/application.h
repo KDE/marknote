@@ -3,48 +3,28 @@
 
 #pragma once
 
-#include "actionsmodel.h"
-#include <KActionCollection>
+#include <AbstractKirigamiApplication>
 #include <QObject>
 #include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
-class App : public QObject
+class App : public AbstractKirigamiApplication
 {
     Q_OBJECT
     QML_ELEMENT
     QML_SINGLETON
 
-    Q_PROPERTY(QSortFilterProxyModel *actionsModel READ actionsModel CONSTANT)
-
 public:
-    explicit App(QObject *parent = nullptr);
-    ~App();
-
-    Q_INVOKABLE void configureShortcuts();
-    Q_INVOKABLE QAction *action(const QString &actionName);
-    Q_INVOKABLE QString iconName(const QIcon &icon) const;
-
-    QList<KActionCollection *> actionCollections() const;
-    QSortFilterProxyModel *actionsModel();
+    App(QObject *parent = nullptr);
+    ~App() override = default;
 
 Q_SIGNALS:
-    void openSettings();
-    void openAboutPage();
-    void openAboutKDEPage();
-    void openKCommandBarAction();
     void newNotebook();
     void newNote();
     void preferences();
     void importFromMaildir();
     void importFromKNotes();
 
-protected:
-    virtual void setupActions();
-    KActionCollection *mCollection = nullptr;
-
 private:
-    void quit();
-    KalCommandBarModel *m_actionModel = nullptr;
-    QSortFilterProxyModel *m_proxyModel = nullptr;
+    void setupActions() override;
 };

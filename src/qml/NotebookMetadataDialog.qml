@@ -78,4 +78,7 @@ FormCard.FormCardDialog {
 
         close();
     }
+
+    onDiscarded: root.close();
+    onRejected: root.close();
 }
