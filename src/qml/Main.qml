@@ -261,6 +261,7 @@ Kirigami.ApplicationWindow {
                         opacity: Config.expandedSidebar ? 1 : 0
                         width: parent.width
                         x: 0
+                        y: Kirigami.Units.smallSpacing
                         Behavior on opacity {
                             NumberAnimation {
                                 duration: Kirigami.Units.mediumDuration
