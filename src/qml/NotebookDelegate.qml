@@ -78,6 +78,28 @@ Delegates.RoundedItemDelegate {
                 }
             }
         }
+        Controls.ToolButton {
+            x: parent.width - width - Kirigami.Units.smallSpacing
+            y: parent.height / 2 - height / 2
+            icon.name: "overflow-menu"
+            onClicked: {
+                const menuComponent = Qt.createComponent("org.kde.marknote", "NotebookContextMenu");
+                const menu = menuComponent.createObject(root, {
+                    path: root.path,
+                    name: root.name,
+                    model: root.model
+                });
+                menu.popup();
+            }
+            opacity: Config.expandedSidebar ? 1 : 0
+            enabled: Config.expandedSidebar
+            Behavior on opacity {
+                NumberAnimation {
+                    duration: mainAnim.duration
+                    easing.type: mainAnim.easing.type
+                }
+            }
+        }
     }
 //    contentItem: GridLayout {
 //        flow: Config.expandedSidebar ? GridLayout.LeftToRight : GridLayout.TopToBottom

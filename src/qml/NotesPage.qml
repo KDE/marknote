@@ -458,7 +458,6 @@ Kirigami.ScrollablePage {
 
                 ToolButton{
                     icon.name: "overflow-menu"
-
                     onClicked: {
                         menu.delegateItem = delegateItem;
                         menu.open()

@@ -141,8 +141,8 @@ Kirigami.ApplicationWindow {
 
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
         modal: !wideScreen
-        property double expandedWidth : 12 * Kirigami.Units.gridUnit
-        property double normalWidth :80
+        property double expandedWidth: 13 * Kirigami.Units.gridUnit
+        property double normalWidth: 80
         width: Config.expandedSidebar ?  expandedWidth : normalWidth
         leftPadding: 0
         rightPadding: 0
