@@ -289,9 +289,7 @@ Kirigami.Page {
     Kirigami.Theme.inherit: false
     Kirigami.Theme.colorSet: Kirigami.Theme.View
 
-    ScrollView {
-        anchors.fill: parent
-
+    contentItem: ScrollView {
         T.TextArea {
             id: textArea
 
