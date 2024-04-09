@@ -55,6 +55,13 @@ Kirigami.Page {
         onAccepted: document.insertImage(imagePath)
     }
 
+    TableDialog {
+        id: tableDialog
+        parent: applicationWindow().overlay
+        onAccepted: document.insertTable(rows, cols)
+
+    }
+
     RowLayout {
         id: toolBarContainer
         visible: NavigationController.noteName
@@ -259,7 +266,19 @@ Kirigami.Page {
                     ToolTip.visible: hovered
                     ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
+                ToolButton {
+                    id: tableAction
+                    icon.name: "insert-table"
+                    text: i18nc("@action:button", "Insert table")
+                    display: AbstractButton.IconOnly
+                    onClicked: {
+                        tableDialog.open()
+                    }
 
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
                 Kirigami.Separator {
                     Layout.fillHeight: true
                     Layout.margins: 0

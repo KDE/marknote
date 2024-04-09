@@ -118,6 +118,7 @@ public:
     Q_INVOKABLE QString currentLinkText() const;
     Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
     Q_INVOKABLE void insertImage(const QUrl &imagePath);
+    Q_INVOKABLE void insertTable(int rows, int columns);
 
 public Q_SLOTS:
     void load(const QUrl &fileUrl);

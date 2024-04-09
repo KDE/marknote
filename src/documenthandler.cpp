@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
+﻿// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
 // SPDX-FileCopyrightText: 2015-2024 Laurent Montel <montel@kde.org>
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: BSD-3-Clause AND LGPL-2.0-or-later
@@ -641,6 +641,34 @@ void DocumentHandler::insertImage(const QUrl &url)
     }
 
     textCursor().insertHtml(u"<img width=\"500\" src=\""_s + url.path() + u"\"\\>"_s);
+}
+
+void DocumentHandler::insertTable(int rows, int columns)
+{
+    QString htmlText;
+
+    textCursor().insertHtml(u"<br />"_s);
+
+    while (canDedentList()) {
+        m_nestedListHelper.handleOnIndentLess(textCursor());
+    }
+
+    htmlText.append(u"<table> \n <tr>"_s);
+    for (int k = 0; k < columns; k++) {
+        htmlText.append(u"<th> head </th>\n"_s);
+    }
+    htmlText.append(u"  </tr>\n"_s);
+
+    for (int j = 0; j < rows - 1; j++) {
+        htmlText.append(u"  <tr>\n"_s);
+        for (int i = 0; i < columns; i++) {
+            htmlText.append(u"<td> text  </td>"_s);
+        }
+        htmlText.append(u"  </tr>\n"_s);
+    }
+    htmlText.append(u"</table>\n"_s);
+    qDebug() << htmlText;
+    textCursor().insertHtml(htmlText);
 }
 
 void DocumentHandler::setCheckable(bool add)

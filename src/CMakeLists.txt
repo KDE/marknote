@@ -22,6 +22,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/EditPage.qml
         qml/LinkDialog.qml
         qml/ImageDialog.qml
+        qml/TableDialog.qml
 
         qml/components/ActionButton.qml
         qml/components/BottomDrawer.qml
