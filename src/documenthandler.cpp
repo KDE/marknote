@@ -307,6 +307,7 @@ static void fixupTable(QTextFrame *frame)
             tableFormat.setColumnWidthConstraints(constrains);
             tableFormat.setAlignment(Qt::AlignLeft);
             tableFormat.setCellSpacing(0);
+            tableFormat.setCellPadding(4);
             table->setFormat(tableFormat);
         }
     }
@@ -691,6 +692,7 @@ void DocumentHandler::insertTable(int rows, int columns)
     tableFormat.setColumnWidthConstraints(constrains);
     tableFormat.setAlignment(Qt::AlignLeft);
     tableFormat.setCellSpacing(0);
+    tableFormat.setCellPadding(4);
 
     Q_ASSERT(cursor.document());
     QTextTable *table = cursor.insertTable(rows, numberOfColumns, tableFormat);
