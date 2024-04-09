@@ -298,7 +298,7 @@ static void fixupTable(QTextFrame *frame)
             QList<QTextLength> constrains;
             constrains.reserve(numberOfColumns);
             const QTextLength::Type type = QTextLength::PercentageLength;
-            const int length = 100; // 100% of window width
+            const qreal length = 100; // 100% of window width
 
             const QTextLength textlength(type, length / numberOfColumns);
             for (int i = 0; i < numberOfColumns; ++i) {
