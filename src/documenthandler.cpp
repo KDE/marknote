@@ -19,6 +19,7 @@
 #include <QTextCharFormat>
 #include <QTextDocument>
 #include <QTextList>
+#include <QTextTable>
 
 using namespace Qt::StringLiterals;
 
@@ -286,6 +287,31 @@ QUrl DocumentHandler::fileUrl() const
     return m_fileUrl;
 }
 
+static void fixupTable(QTextFrame *frame)
+{
+    const auto children = frame->childFrames();
+    for (const auto child : children) {
+        if (auto table = dynamic_cast<QTextTable *>(child)) {
+            QTextTableFormat tableFormat;
+            tableFormat.setBorder(1);
+            const int numberOfColumns(table->columns());
+            QList<QTextLength> constrains;
+            constrains.reserve(numberOfColumns);
+            const QTextLength::Type type = QTextLength::PercentageLength;
+            const int length = 100; // 100% of window width
+
+            const QTextLength textlength(type, length / numberOfColumns);
+            for (int i = 0; i < numberOfColumns; ++i) {
+                constrains.append(textlength);
+            }
+            tableFormat.setColumnWidthConstraints(constrains);
+            tableFormat.setAlignment(Qt::AlignLeft);
+            tableFormat.setCellSpacing(0);
+            table->setFormat(tableFormat);
+        }
+    }
+}
+
 void DocumentHandler::load(const QUrl &fileUrl)
 {
     if (fileUrl == m_fileUrl) {
@@ -340,6 +366,8 @@ void DocumentHandler::load(const QUrl &fileUrl)
 
         currentBlock = currentBlock.next();
     }
+
+    fixupTable(textDocument()->rootFrame());
 
     reset();
 }
@@ -647,28 +675,35 @@ void DocumentHandler::insertTable(int rows, int columns)
 {
     QString htmlText;
 
-    textCursor().insertHtml(u"<br />"_s);
+    QTextCursor cursor = textCursor();
+    QTextTableFormat tableFormat;
+    tableFormat.setBorder(1);
+    const int numberOfColumns(columns);
+    QList<QTextLength> constrains;
+    constrains.reserve(numberOfColumns);
+    const QTextLength::Type type = QTextLength::PercentageLength;
+    const int length = 100; // 100% of window width
 
-    while (canDedentList()) {
-        m_nestedListHelper.handleOnIndentLess(textCursor());
+    const QTextLength textlength(type, length / numberOfColumns);
+    for (int i = 0; i < numberOfColumns; ++i) {
+        constrains.append(textlength);
     }
+    tableFormat.setColumnWidthConstraints(constrains);
+    tableFormat.setAlignment(Qt::AlignLeft);
+    tableFormat.setCellSpacing(0);
 
-    htmlText.append(u"<table> \n <tr>"_s);
-    for (int k = 0; k < columns; k++) {
-        htmlText.append(u"<th> head </th>\n"_s);
-    }
-    htmlText.append(u"  </tr>\n"_s);
+    Q_ASSERT(cursor.document());
+    QTextTable *table = cursor.insertTable(rows, numberOfColumns, tableFormat);
 
-    for (int j = 0; j < rows - 1; j++) {
-        htmlText.append(u"  <tr>\n"_s);
-        for (int i = 0; i < columns; i++) {
-            htmlText.append(u"<td> text  </td>"_s);
+    // fill table with whitespace
+    for (int i = 0, rows = table->rows(); i < rows; i++) {
+        for (int j = 0, columns = table->columns(); j < columns; j++) {
+            auto cell = table->cellAt(i, j);
+            Q_ASSERT(cell.isValid());
+            cell.firstCursorPosition().insertText(u" "_s);
         }
-        htmlText.append(u"  </tr>\n"_s);
     }
-    htmlText.append(u"</table>\n"_s);
-    qDebug() << htmlText;
-    textCursor().insertHtml(htmlText);
+    return;
 }
 
 void DocumentHandler::setCheckable(bool add)
