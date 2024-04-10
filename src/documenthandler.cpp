@@ -23,6 +23,8 @@
 
 using namespace Qt::StringLiterals;
 
+constexpr int textMargin = 20;
+
 DocumentHandler::DocumentHandler(QObject *parent)
     : QObject(parent)
     , m_document(nullptr)
@@ -309,6 +311,7 @@ static void fixupTable(QTextFrame *frame)
             tableFormat.setCellPadding(4);
             tableFormat.setBorder(0.5);
             tableFormat.setBorderCollapse(true);
+            tableFormat.setTopMargin(textMargin);
             table->setFormat(tableFormat);
         }
     }
@@ -346,9 +349,18 @@ void DocumentHandler::load(const QUrl &fileUrl)
         for (it = currentBlock.begin(); !it.atEnd(); ++it) {
             QTextFragment fragment = it.fragment();
             if (fragment.isValid()) {
+                const int pos = fragment.position();
+
+                QTextCursor cursor(textDocument());
+                cursor.setPosition(pos);
+                if (!cursor.currentList() || cursor.currentList()->item(0) == currentBlock) {
+                    QTextBlockFormat format;
+                    format.setTopMargin(textMargin);
+                    cursor.mergeBlockFormat(format);
+                }
+
                 QTextImageFormat imageFormat = fragment.charFormat().toImageFormat();
                 if (imageFormat.isValid()) {
-                    int pos = fragment.position();
                     if (!cursorPositionsToSkip.contains(pos)) {
                         QTextCursor cursor(textDocument());
                         cursor.setPosition(pos);
@@ -696,6 +708,7 @@ void DocumentHandler::insertTable(int rows, int columns)
     tableFormat.setCellPadding(4);
     tableFormat.setBorderCollapse(true);
     tableFormat.setBorder(0.5);
+    tableFormat.setTopMargin(20);
 
     Q_ASSERT(cursor.document());
     QTextTable *table = cursor.insertTable(rows, numberOfColumns, tableFormat);
