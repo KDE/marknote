@@ -2,6 +2,17 @@
 # SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 [Desktop Entry]
 Name=MarkNote
+Name[ca]=MarkNote
+Name[ca@valencia]=MarkNote
+Name[es]=MarkNote
+Name[he]=MarkNote
+Name[ia]=Marknote
+Name[ka]=MarkNote
+Name[nl]=MarkNote
+Name[sl]=MarkNote
+Name[tr]=MarkNot
+Name[uk]=MarkNote
+Name[x-test]=xxMarkNotexx
 Comment=Markdown Note Management Tool
 Comment[ca]=Eina de gestió de notes feta amb el Markdown
 Comment[ca@valencia]=Eina de gestió de notes en Markdown
