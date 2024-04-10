@@ -18,12 +18,12 @@ FormCard.FormCardDialog {
     title: i18nc("@title:window", "Insert Table")
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
-
-
     FormCard.FormSpinBoxDelegate {
         id: rowsSpinBox
         label: i18nc("@label:textbox", "Number of Rows:")
     }
+
+    FormCard.FormDelegateSeparator {}
 
     FormCard.FormSpinBoxDelegate {
         id: colsSpinBox
