@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:38+0000\n"
-"PO-Revision-Date: 2024-04-03 00:06+0200\n"
+"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"PO-Revision-Date: 2024-04-10 00:42+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -47,10 +47,9 @@ msgid "New Note"
 msgstr "Nueva nota"
 
 #: main.cpp:53 qml/Main.qml:259
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgid "MarkNote"
-msgstr "Marknote"
+msgstr "MarkNote"
 
 #: main.cpp:55
 #, kde-format
@@ -97,115 +96,123 @@ msgstr ""
 "No se puede cambiar el nombre de la nota. Ya existe otra nota con el mismo "
 "nombre."
 
-#: qml/EditPage.qml:102
+#: qml/EditPage.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Negrita"
 
-#: qml/EditPage.qml:121
+#: qml/EditPage.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Cursiva"
 
-#: qml/EditPage.qml:140
+#: qml/EditPage.qml:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Subrayado"
 
-#: qml/EditPage.qml:154
+#: qml/EditPage.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Tachado"
 
-#: qml/EditPage.qml:173
+#: qml/EditPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Aumentar el nivel de la lista"
 
-#: qml/EditPage.qml:187
+#: qml/EditPage.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Disminuir el nivel de la lista"
 
-#: qml/EditPage.qml:207
+#: qml/EditPage.qml:214
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Sin lista"
 
-#: qml/EditPage.qml:208
+#: qml/EditPage.qml:215
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Lista desordenada"
 
-#: qml/EditPage.qml:209
+#: qml/EditPage.qml:216
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Lista ordenada"
 
-#: qml/EditPage.qml:221
+#: qml/EditPage.qml:228
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Insertar casilla de verificación"
 
-#: qml/EditPage.qml:236
+#: qml/EditPage.qml:243
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Insertar enlace"
 
-#: qml/EditPage.qml:252
+#: qml/EditPage.qml:259
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Insertar imagen"
 
 #: qml/EditPage.qml:272
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Insert image"
+msgctxt "@action:button"
+msgid "Insert table"
+msgstr "Insertar imagen"
+
+#: qml/EditPage.qml:291
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Texto básico"
 
-#: qml/EditPage.qml:273
+#: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Título"
 
-#: qml/EditPage.qml:274
+#: qml/EditPage.qml:293
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Subtítulo"
 
-#: qml/EditPage.qml:275
+#: qml/EditPage.qml:294
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Sección"
 
-#: qml/EditPage.qml:276
+#: qml/EditPage.qml:295
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Subsección"
 
-#: qml/EditPage.qml:277
+#: qml/EditPage.qml:296
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Párrafo"
 
-#: qml/EditPage.qml:278
+#: qml/EditPage.qml:297
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
@@ -278,22 +285,22 @@ msgstr "Crear bloc de notas"
 #: qml/Main.qml:205
 #, kde-format
 msgid "Sort by Name"
-msgstr ""
+msgstr "Ordenar por nombre"
 
 #: qml/Main.qml:219
 #, kde-format
 msgid "Sort by Date"
-msgstr ""
+msgstr "Ordenar por fecha"
 
 #: qml/Main.qml:240
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "Contraer barra lateral"
 
 #: qml/Main.qml:240
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Expandir barra lateral"
 
 #: qml/Main.qml:303
 #, kde-format
@@ -447,6 +454,26 @@ msgstr "Documento de texto ODF (*.odt)"
 #, kde-format
 msgid "Add a note!"
 msgstr "Añada una nota"
+
+#: qml/TableDialog.qml:18
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Insert Image"
+msgctxt "@title:window"
+msgid "Insert Table"
+msgstr "Insertar imagen"
+
+#: qml/TableDialog.qml:25
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Number of Rows:"
+msgstr ""
+
+#: qml/TableDialog.qml:30
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Number of Columns:"
+msgstr ""
 
 #: qml/WelcomePage.qml:22
 #, kde-format

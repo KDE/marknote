@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:38+0000\n"
-"PO-Revision-Date: 2024-04-02 09:15+0300\n"
+"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"PO-Revision-Date: 2024-04-09 15:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: application.cpp:147
 #, kde-format
@@ -46,10 +46,9 @@ msgid "New Note"
 msgstr "Створити нотатку"
 
 #: main.cpp:53 qml/Main.qml:259
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgid "MarkNote"
-msgstr "Marknote"
+msgstr "MarkNote"
 
 #: main.cpp:55
 #, kde-format
@@ -94,115 +93,123 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Не вдалося перейменувати нотатку. Нотатка з такою назвою вже існує."
 
-#: qml/EditPage.qml:102
+#: qml/EditPage.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Жирний"
 
-#: qml/EditPage.qml:121
+#: qml/EditPage.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Курсив"
 
-#: qml/EditPage.qml:140
+#: qml/EditPage.qml:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Підкреслити"
 
-#: qml/EditPage.qml:154
+#: qml/EditPage.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Перекреслення"
 
-#: qml/EditPage.qml:173
+#: qml/EditPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Підвищити рівень у списку"
 
-#: qml/EditPage.qml:187
+#: qml/EditPage.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Знизити рівень у списку"
 
-#: qml/EditPage.qml:207
+#: qml/EditPage.qml:214
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Не є списком"
 
-#: qml/EditPage.qml:208
+#: qml/EditPage.qml:215
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Невпорядкований список"
 
-#: qml/EditPage.qml:209
+#: qml/EditPage.qml:216
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Впорядкований список"
 
-#: qml/EditPage.qml:221
+#: qml/EditPage.qml:228
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Вставити поле для позначки"
 
-#: qml/EditPage.qml:236
+#: qml/EditPage.qml:243
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Вставити посилання"
 
-#: qml/EditPage.qml:252
+#: qml/EditPage.qml:259
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Вставити зображення"
 
 #: qml/EditPage.qml:272
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Insert image"
+msgctxt "@action:button"
+msgid "Insert table"
+msgstr "Вставити зображення"
+
+#: qml/EditPage.qml:291
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Основний текст"
 
-#: qml/EditPage.qml:273
+#: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Заголовок"
 
-#: qml/EditPage.qml:274
+#: qml/EditPage.qml:293
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Підзаголовок"
 
-#: qml/EditPage.qml:275
+#: qml/EditPage.qml:294
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Розділ"
 
-#: qml/EditPage.qml:276
+#: qml/EditPage.qml:295
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Підрозділ"
 
-#: qml/EditPage.qml:277
+#: qml/EditPage.qml:296
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Абзац"
 
-#: qml/EditPage.qml:278
+#: qml/EditPage.qml:297
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
@@ -274,22 +281,22 @@ msgstr "Створити записник"
 #: qml/Main.qml:205
 #, kde-format
 msgid "Sort by Name"
-msgstr ""
+msgstr "Впорядкувати за назвою"
 
 #: qml/Main.qml:219
 #, kde-format
 msgid "Sort by Date"
-msgstr ""
+msgstr "Впорядкувати за датою"
 
 #: qml/Main.qml:240
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "Згорнути бічну панель"
 
 #: qml/Main.qml:240
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Розгорнути бічну панель"
 
 #: qml/Main.qml:303
 #, kde-format
@@ -443,6 +450,26 @@ msgstr "текстовий документ ODF (*.odt)"
 #, kde-format
 msgid "Add a note!"
 msgstr "Додайте нотатку!"
+
+#: qml/TableDialog.qml:18
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Insert Image"
+msgctxt "@title:window"
+msgid "Insert Table"
+msgstr "Вставлення зображення"
+
+#: qml/TableDialog.qml:25
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Number of Rows:"
+msgstr ""
+
+#: qml/TableDialog.qml:30
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Number of Columns:"
+msgstr ""
 
 #: qml/WelcomePage.qml:22
 #, kde-format

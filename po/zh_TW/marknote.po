@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:38+0000\n"
+"POT-Creation-Date: 2024-04-10 00:38+0000\n"
 "PO-Revision-Date: 2024-04-04 17:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -93,115 +93,123 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "無法重新命名筆記。已經有另一個筆記使用該名稱。"
 
-#: qml/EditPage.qml:102
+#: qml/EditPage.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "粗體"
 
-#: qml/EditPage.qml:121
+#: qml/EditPage.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "斜體"
 
-#: qml/EditPage.qml:140
+#: qml/EditPage.qml:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "底線"
 
-#: qml/EditPage.qml:154
+#: qml/EditPage.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "刪除線"
 
-#: qml/EditPage.qml:173
+#: qml/EditPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "提高列表等級"
 
-#: qml/EditPage.qml:187
+#: qml/EditPage.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "降低列表等級"
 
-#: qml/EditPage.qml:207
+#: qml/EditPage.qml:214
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "無列表"
 
-#: qml/EditPage.qml:208
+#: qml/EditPage.qml:215
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "無序列表"
 
-#: qml/EditPage.qml:209
+#: qml/EditPage.qml:216
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "有序列表"
 
-#: qml/EditPage.qml:221
+#: qml/EditPage.qml:228
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "插入核取方塊"
 
-#: qml/EditPage.qml:236
+#: qml/EditPage.qml:243
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "插入連結"
 
-#: qml/EditPage.qml:252
+#: qml/EditPage.qml:259
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "插入影像"
 
 #: qml/EditPage.qml:272
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Insert image"
+msgctxt "@action:button"
+msgid "Insert table"
+msgstr "插入影像"
+
+#: qml/EditPage.qml:291
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "基本文字"
 
-#: qml/EditPage.qml:273
+#: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "標題"
 
-#: qml/EditPage.qml:274
+#: qml/EditPage.qml:293
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "副標題"
 
-#: qml/EditPage.qml:275
+#: qml/EditPage.qml:294
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "區段"
 
-#: qml/EditPage.qml:276
+#: qml/EditPage.qml:295
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "子區段"
 
-#: qml/EditPage.qml:277
+#: qml/EditPage.qml:296
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "段落"
 
-#: qml/EditPage.qml:278
+#: qml/EditPage.qml:297
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
@@ -442,6 +450,26 @@ msgstr "ODF 文字文件 (*.odt)"
 #, kde-format
 msgid "Add a note!"
 msgstr "新增筆記！"
+
+#: qml/TableDialog.qml:18
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Insert Image"
+msgctxt "@title:window"
+msgid "Insert Table"
+msgstr "插入影像"
+
+#: qml/TableDialog.qml:25
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Number of Rows:"
+msgstr ""
+
+#: qml/TableDialog.qml:30
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Number of Columns:"
+msgstr ""
 
 #: qml/WelcomePage.qml:22
 #, kde-format
