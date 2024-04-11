@@ -59,7 +59,6 @@ Kirigami.Page {
         id: tableDialog
         parent: applicationWindow().overlay
         onAccepted: document.insertTable(rows, cols)
-
     }
 
     RowLayout {
