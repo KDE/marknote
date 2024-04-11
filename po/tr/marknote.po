@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-10 00:38+0000\n"
-"PO-Revision-Date: 2024-04-09 14:00+0300\n"
+"PO-Revision-Date: 2024-04-10 14:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -165,12 +165,10 @@ msgid "Insert image"
 msgstr "Görsel ekle"
 
 #: qml/EditPage.qml:272
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr "Görsel ekle"
+msgstr "Tablo ekle"
 
 #: qml/EditPage.qml:291
 #, kde-format
@@ -451,24 +449,22 @@ msgid "Add a note!"
 msgstr "Bir not ekle!"
 
 #: qml/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "Görsel Ekle"
+msgstr "Tablo Ekle"
 
 #: qml/TableDialog.qml:25
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Satır sayısı:"
 
 #: qml/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Sütun sayısı:"
 
 #: qml/WelcomePage.qml:22
 #, kde-format

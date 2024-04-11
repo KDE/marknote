@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-10 00:38+0000\n"
-"PO-Revision-Date: 2024-04-09 15:53+0300\n"
+"PO-Revision-Date: 2024-04-10 18:34+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -166,12 +166,10 @@ msgid "Insert image"
 msgstr "Вставити зображення"
 
 #: qml/EditPage.qml:272
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr "Вставити зображення"
+msgstr "Вставити таблицю"
 
 #: qml/EditPage.qml:291
 #, kde-format
@@ -452,24 +450,22 @@ msgid "Add a note!"
 msgstr "Додайте нотатку!"
 
 #: qml/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "Вставлення зображення"
+msgstr "Вставлення таблиці"
 
 #: qml/TableDialog.qml:25
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Кількість рядків:"
 
 #: qml/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Кількість стовпчиків:"
 
 #: qml/WelcomePage.qml:22
 #, kde-format

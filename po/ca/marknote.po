@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-10 00:38+0000\n"
-"PO-Revision-Date: 2024-04-09 12:25+0200\n"
+"PO-Revision-Date: 2024-04-10 12:21+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -169,12 +169,10 @@ msgid "Insert image"
 msgstr "Insereix una imatge"
 
 #: qml/EditPage.qml:272
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr "Insereix una imatge"
+msgstr "Insereix una taula"
 
 #: qml/EditPage.qml:291
 #, kde-format
@@ -455,24 +453,22 @@ msgid "Add a note!"
 msgstr "Afegeix una nota!"
 
 #: qml/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "Inserció d'una imatge"
+msgstr "Inserció d'una taula"
 
 #: qml/TableDialog.qml:25
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Nombre de files:"
 
 #: qml/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Nombre de columnes:"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
