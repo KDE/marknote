@@ -17,6 +17,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/NotebookDelegate.qml
         qml/NotebookDeleteAction.qml
         qml/NotebookMetadataDialog.qml
+        qml/NotebookDeleteDialog.qml
 
         # Editor
         qml/EditPage.qml
