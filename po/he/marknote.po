@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-10 00:38+0000\n"
-"PO-Revision-Date: 2024-04-09 07:57+0300\n"
+"PO-Revision-Date: 2024-04-10 06:46+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -166,12 +166,10 @@ msgid "Insert image"
 msgstr "הוספת תמונה"
 
 #: qml/EditPage.qml:272
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr "הוספת תמונה"
+msgstr "הוספת טבלה"
 
 #: qml/EditPage.qml:291
 #, kde-format
@@ -452,24 +450,22 @@ msgid "Add a note!"
 msgstr "אפשר להוסיף פתקית!"
 
 #: qml/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "הוספת תמונה"
+msgstr "הוספת טבלה"
 
 #: qml/TableDialog.qml:25
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "מספר שורות:"
 
 #: qml/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "מספר עמודות:"
 
 #: qml/WelcomePage.qml:22
 #, kde-format

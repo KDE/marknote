@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-10 00:38+0000\n"
-"PO-Revision-Date: 2024-04-03 07:25+0200\n"
+"PO-Revision-Date: 2024-04-10 09:38+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -43,8 +43,7 @@ msgid "New Note"
 msgstr "Nouvelle note"
 
 #: main.cpp:53 qml/Main.qml:259
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgid "MarkNote"
 msgstr "MarkNote"
 
@@ -282,22 +281,22 @@ msgstr "Créer un cahier de notes"
 #: qml/Main.qml:205
 #, kde-format
 msgid "Sort by Name"
-msgstr ""
+msgstr "Trié par nom"
 
 #: qml/Main.qml:219
 #, kde-format
 msgid "Sort by Date"
-msgstr ""
+msgstr "Trier par date"
 
 #: qml/Main.qml:240
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "Réduire la barre latérale"
 
 #: qml/Main.qml:240
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Développer la barre latérale"
 
 #: qml/Main.qml:303
 #, kde-format
