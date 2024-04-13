@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"POT-Creation-Date: 2024-04-13 00:38+0000\n"
 "PO-Revision-Date: 2024-03-16 23:39+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -313,12 +313,25 @@ msgctxt "@action:inmenu"
 msgid "Edit Notebook"
 msgstr "Engadir un caderno"
 
-#: qml/NotebookDeleteAction.qml:15
+#: qml/NotebookContextMenu.qml:33 qml/NotebookDeleteAction.qml:15
 #, fuzzy, kde-format
 #| msgid "Delete Notebook"
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Eliminar o caderno"
+
+#: qml/NotebookDeleteDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Delete Notebook"
+msgctxt "@title:window"
+msgid "Delete Notebook"
+msgstr "Eliminar o caderno"
+
+#: qml/NotebookDeleteDialog.qml:39
+#, fuzzy, kde-format
+#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+msgstr "Seguro que quere eliminar a nota <b>%1</b>?"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, fuzzy, kde-format

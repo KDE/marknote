@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"POT-Creation-Date: 2024-04-13 00:38+0000\n"
 "PO-Revision-Date: 2024-04-07 17:09+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -310,11 +310,25 @@ msgctxt "@action:inmenu"
 msgid "Edit Notebook"
 msgstr "Redakti Notlibron"
 
-#: qml/NotebookDeleteAction.qml:15
+#: qml/NotebookContextMenu.qml:33 qml/NotebookDeleteAction.qml:15
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Forigi Notlibron"
+
+#: qml/NotebookDeleteDialog.qml:31
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Notebook"
+msgctxt "@title:window"
+msgid "Delete Notebook"
+msgstr "Forigi Notlibron"
+
+#: qml/NotebookDeleteDialog.qml:39
+#, fuzzy, kde-format
+#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+msgstr "Ĉu vi certas, ke vi volas forigi la noton <b> %1 </b>?"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format

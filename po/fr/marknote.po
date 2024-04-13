@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
-"PO-Revision-Date: 2024-04-10 09:38+0200\n"
+"POT-Creation-Date: 2024-04-13 00:38+0000\n"
+"PO-Revision-Date: 2024-04-11 09:05+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -164,12 +164,10 @@ msgid "Insert image"
 msgstr "Insérer une image"
 
 #: qml/EditPage.qml:272
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr "Insérer une image"
+msgstr "Insérer un tableau"
 
 #: qml/EditPage.qml:291
 #, kde-format
@@ -309,11 +307,25 @@ msgctxt "@action:inmenu"
 msgid "Edit Notebook"
 msgstr "Modifier un carnet de notes"
 
-#: qml/NotebookDeleteAction.qml:15
+#: qml/NotebookContextMenu.qml:33 qml/NotebookDeleteAction.qml:15
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Supprimer un cahier de notes"
+
+#: qml/NotebookDeleteDialog.qml:31
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Notebook"
+msgctxt "@title:window"
+msgid "Delete Notebook"
+msgstr "Supprimer un cahier de notes"
+
+#: qml/NotebookDeleteDialog.qml:39
+#, fuzzy, kde-format
+#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+msgstr "Voulez-vous vraiment supprimer la note <b> %1 </b> ?"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -452,24 +464,22 @@ msgid "Add a note!"
 msgstr "Ajoutez une note !"
 
 #: qml/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "Insérer une image"
+msgstr "Insérer un tableau"
 
 #: qml/TableDialog.qml:25
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Nombre de lignes :"
 
 #: qml/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Nombre de colonnes :"
 
 #: qml/WelcomePage.qml:22
 #, kde-format

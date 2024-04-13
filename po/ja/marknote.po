@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"POT-Creation-Date: 2024-04-13 00:38+0000\n"
 "PO-Revision-Date: 2023-07-28 19:11-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -303,10 +303,21 @@ msgctxt "@action:inmenu"
 msgid "Edit Notebook"
 msgstr ""
 
-#: qml/NotebookDeleteAction.qml:15
+#: qml/NotebookContextMenu.qml:33 qml/NotebookDeleteAction.qml:15
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
+msgstr ""
+
+#: qml/NotebookDeleteDialog.qml:31
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Notebook"
+msgstr ""
+
+#: qml/NotebookDeleteDialog.qml:39
+#, kde-format
+msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
 msgstr ""
 
 #: qml/NotebookMetadataDialog.qml:32
