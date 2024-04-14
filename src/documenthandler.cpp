@@ -399,7 +399,11 @@ void DocumentHandler::load(const QUrl &fileUrl)
                         cursor.setPosition(pos + 1, QTextCursor::KeepAnchor);
                         cursor.removeSelectedText();
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+                        cursor.insertHtml(u"<img style=\"max-width: 100%\" src=\""_s + imageFormat.name() + u"\"\\>"_s);
+#else
                         cursor.insertHtml(u"<img width=\"500\" src=\""_s + imageFormat.name() + u"\"\\>"_s);
+#endif
                         // The textfragment iterator is now invalid, restart from the beginning
                         // Take care not to replace the same fragment again, or we would be in
                         // an infinite loop.
@@ -720,7 +724,11 @@ void DocumentHandler::insertImage(const QUrl &url)
         m_nestedListHelper.handleOnIndentLess(textCursor());
     }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+    textCursor().insertHtml(u"<img style=\"max-width: 100%\" src=\""_s + url.path() + u"\"\\>"_s);
+#else
     textCursor().insertHtml(u"<img width=\"500\" src=\""_s + url.path() + u"\"\\>"_s);
+#endif
 }
 
 void DocumentHandler::insertTable(int rows, int columns)
