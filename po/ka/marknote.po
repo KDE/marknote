@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"POT-Creation-Date: 2024-04-13 00:38+0000\n"
 "PO-Revision-Date: 2024-04-10 04:43+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -308,11 +308,25 @@ msgctxt "@action:inmenu"
 msgid "Edit Notebook"
 msgstr "წიგნაკის ჩასწორება"
 
-#: qml/NotebookDeleteAction.qml:15
+#: qml/NotebookContextMenu.qml:33 qml/NotebookDeleteAction.qml:15
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "წიგნაკის წაშლა"
+
+#: qml/NotebookDeleteDialog.qml:31
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Notebook"
+msgctxt "@title:window"
+msgid "Delete Notebook"
+msgstr "წიგნაკის წაშლა"
+
+#: qml/NotebookDeleteDialog.qml:39
+#, fuzzy, kde-format
+#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+msgstr "მართლა გნებავთ წაშალოთ შენიშვნა <b> %1 </b>?"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format

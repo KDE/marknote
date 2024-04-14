@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-13 00:38+0000\n"
-"PO-Revision-Date: 2024-04-10 14:19+0300\n"
+"PO-Revision-Date: 2024-04-13 13:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -313,18 +313,15 @@ msgid "Delete Notebook"
 msgstr "Defteri Sil"
 
 #: qml/NotebookDeleteDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Defteri Sil"
 
 #: qml/NotebookDeleteDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
-msgstr "<b>%1</b> notunu silmek istediğinizden emin misiniz?"
+msgstr "<b>%1</b> defterini silmek istediğinizden emin misiniz?"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format

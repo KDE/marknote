@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-13 00:38+0000\n"
-"PO-Revision-Date: 2024-04-03 11:54-0300\n"
+"PO-Revision-Date: 2024-04-13 01:23-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -40,16 +40,13 @@ msgid "New Notebook"
 msgstr "Novo bloco de notas"
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nova nota"
 
 #: main.cpp:53 qml/Main.qml:259
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgid "MarkNote"
 msgstr "Marknote"
 
@@ -94,7 +91,7 @@ msgstr "igormoreiraa@vivaldi.net, geraldosimiao@fedoraproject.org"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
-msgstr ""
+msgstr "Não foi possível renomear essa nota. Já existe uma com o mesmo nome."
 
 #: qml/EditPage.qml:109
 #, kde-format
@@ -169,12 +166,10 @@ msgid "Insert image"
 msgstr "Inserir imagem"
 
 #: qml/EditPage.qml:272
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr "Inserir imagem"
+msgstr "Inserir tabela"
 
 #: qml/EditPage.qml:291
 #, kde-format
@@ -274,34 +269,34 @@ msgstr "Texto da URL:"
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
+"Não foi possível criar uma nota, primeiro você precisa criar um bloco de "
+"notas."
 
 #: qml/Main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Excluir bloco de notas"
+msgstr "Criar bloco de notas"
 
 #: qml/Main.qml:205
 #, kde-format
 msgid "Sort by Name"
-msgstr ""
+msgstr "Ordenar por nome"
 
 #: qml/Main.qml:219
 #, kde-format
 msgid "Sort by Date"
-msgstr ""
+msgstr "Ordenar por data"
 
 #: qml/Main.qml:240
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "Recolher barra lateral"
 
 #: qml/Main.qml:240
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Expandir barra lateral"
 
 #: qml/Main.qml:303
 #, kde-format
@@ -321,18 +316,15 @@ msgid "Delete Notebook"
 msgstr "Excluir bloco de notas"
 
 #: qml/NotebookDeleteDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Excluir bloco de notas"
 
 #: qml/NotebookDeleteDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
-msgstr "Você tem certeza que deseja excluir a nota<b> %1 </b>?"
+msgstr "Você tem certeza que deseja excluir o bloco de notas<b> %1 </b>?"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -449,25 +441,21 @@ msgid "PDF file (*.pdf)"
 msgstr "Arquivo PDF (*.pdf)"
 
 #: qml/NotesPage.qml:354
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Export to PDF"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr "Exportar como PDF"
+msgstr "Exportar como ODT"
 
 #: qml/NotesPage.qml:360
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export to PDF"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr "Exportar como PDF"
+msgstr "Exportar como ODT"
 
 #: qml/NotesPage.qml:361
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "Documento de texto ODF (*.odt)"
 
 #: qml/NotesPage.qml:484
 #, kde-format
@@ -475,24 +463,22 @@ msgid "Add a note!"
 msgstr "Adicionar uma nota!"
 
 #: qml/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "Inserir imagem"
+msgstr "Inserir tabela"
 
 #: qml/TableDialog.qml:25
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Número de linhas:"
 
 #: qml/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Número de colunas:"
 
 #: qml/WelcomePage.qml:22
 #, kde-format

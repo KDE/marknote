@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-13 00:38+0000\n"
-"PO-Revision-Date: 2024-04-07 17:09+0100\n"
+"PO-Revision-Date: 2024-04-13 11:51+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -46,10 +46,9 @@ msgid "New Note"
 msgstr "Nova Noto"
 
 #: main.cpp:53 qml/Main.qml:259
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgid "MarkNote"
-msgstr "Marknote"
+msgstr "MarkNote"
 
 #: main.cpp:55
 #, kde-format
@@ -167,12 +166,10 @@ msgid "Insert image"
 msgstr "Enmeti bildon"
 
 #: qml/EditPage.qml:272
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr "Enmeti bildon"
+msgstr "Enmeti tabelon"
 
 #: qml/EditPage.qml:291
 #, kde-format
@@ -282,22 +279,22 @@ msgstr "Krei Notlibron"
 #: qml/Main.qml:205
 #, kde-format
 msgid "Sort by Name"
-msgstr ""
+msgstr "Ordigi laŭ Nomo"
 
 #: qml/Main.qml:219
 #, kde-format
 msgid "Sort by Date"
-msgstr ""
+msgstr "Ordigi laŭ Dato"
 
 #: qml/Main.qml:240
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "Malvastigi Flankbreton"
 
 #: qml/Main.qml:240
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Vastigi Flankbreton"
 
 #: qml/Main.qml:303
 #, kde-format
@@ -317,18 +314,15 @@ msgid "Delete Notebook"
 msgstr "Forigi Notlibron"
 
 #: qml/NotebookDeleteDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Forigi Notlibron"
 
 #: qml/NotebookDeleteDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
-msgstr "Ĉu vi certas, ke vi volas forigi la noton <b> %1 </b>?"
+msgstr "Ĉu vi certas, ke vi volas forigi la Notlibron <b> %1 </b>?"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -467,9 +461,7 @@ msgid "Add a note!"
 msgstr "Aldonu noton!"
 
 #: qml/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Enmeti Bildon"
@@ -478,13 +470,13 @@ msgstr "Enmeti Bildon"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Nombro da Vicoj:"
 
 #: qml/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Nombro da Kolumnoj:"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
