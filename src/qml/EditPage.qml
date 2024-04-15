@@ -378,7 +378,7 @@ Kirigami.Page {
                     textArea.text = text
                 }
                 onError: (message) => {
-                    print(message)
+                    console.error("Error message from document handler", message)
                 }
 
                 onCopy: textArea.copy();

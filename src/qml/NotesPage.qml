@@ -21,19 +21,17 @@ Kirigami.ScrollablePage {
 
     property bool wideScreen: applicationWindow().width >= 600
 
-    Item{
+    Item {
         id: windowItem
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
         property color windowBackground: Kirigami.Theme.backgroundColor
-        Component.onCompleted: print(windowBackground)
     }
-    Item{
+    Item {
         id: viewItem
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         property color viewBackground: Kirigami.Theme.backgroundColor
-        Component.onCompleted: print(viewBackground)
     }
     property color backgroundColor: Kirigami.ColorUtils.linearInterpolation(windowItem.windowBackground, viewItem.viewBackground, 0.6)
 
