@@ -19,6 +19,9 @@ Kirigami.ApplicationWindow {
 
     property bool wideScreen: applicationWindow().width >= 600
 
+    minimumWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 22
+    minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
+
     controlsVisible: false
     onWideScreenChanged: !wideScreen? drawer.close() : drawer.open()
     pageStack {
