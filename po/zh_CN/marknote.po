@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 00:38+0000\n"
-"PO-Revision-Date: 2024-04-12 19:12\n"
+"PO-Revision-Date: 2024-04-16 14:00\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -313,12 +313,10 @@ msgid "Delete Notebook"
 msgstr ""
 
 #: qml/NotebookDeleteDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
-msgstr "创建笔记本"
+msgstr ""
 
 #: qml/NotebookDeleteDialog.qml:39
 #, kde-format

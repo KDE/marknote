@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 00:38+0000\n"
-"PO-Revision-Date: 2024-04-10 10:30+0800\n"
-"Last-Translator: C.T. Liu <brli@chakralinux.org>\n"
+"PO-Revision-Date: 2024-04-16 19:35+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: application.cpp:147
 #, kde-format
@@ -313,18 +313,15 @@ msgid "Delete Notebook"
 msgstr "刪除筆記本"
 
 #: qml/NotebookDeleteDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "刪除筆記本"
 
 #: qml/NotebookDeleteDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
-msgstr "您確定要刪除筆記 <b>%1</b> 嗎？"
+msgstr "您確定要刪除筆記本 <b>%1</b> 嗎？"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
