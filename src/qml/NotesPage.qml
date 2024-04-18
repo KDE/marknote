@@ -463,6 +463,7 @@ Kirigami.ScrollablePage {
 
             onClicked: {
                 if (highlighted) {
+                    applicationWindow().pageStack.currentIndex = applicationWindow().pageStack.depth - 1;
                     return;
                 }
                 NavigationController.notePath = path;

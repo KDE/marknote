@@ -25,13 +25,14 @@ Kirigami.ApplicationWindow {
     onWideScreenChanged: !wideScreen? drawer.close() : drawer.open()
     pageStack {
         globalToolBar {
-            canContainHandles: wideScreen
             style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
             showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
         }
 
-        popHiddenPages:true
         defaultColumnWidth: 15 * Kirigami.Units.gridUnit
+        columnView {
+            columnResizeMode: width >= pageStack.defaultColumnWidth * 3.5 && pageStack.depth >= 2 ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
+        }
     }
 
     Loader {
