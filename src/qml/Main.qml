@@ -91,16 +91,27 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Component.onCompleted: if (noteBooksModel.rowCount() !== 0) {
-        NavigationController.notebookPath = noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path);
-    } else {
-        pageStack.push(Qt.createComponent("org.kde.marknote", "WelcomePage"), {
-            model : noteBooksModel,
-        });
+    Component.onCompleted: {
+        NavigationController.mobileMode = Kirigami.Settings.isMobile;
+            if (noteBooksModel.rowCount() !== 0) {
+            NavigationController.notebookPath = noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path);
+        } else {
+            pageStack.push(Qt.createComponent("org.kde.marknote", "WelcomePage"), {
+                model : noteBooksModel,
+            });
+        }
     }
 
     function openBottomDrawer() {
         bottomDrawer.open()
+    }
+
+    Connections {
+        target: Kirigami.Settings
+
+        function onIsMobileChanged(): void {
+            NavigationController.mobileMode = Kirigami.Settings.isMobile;
+        }
     }
 
     Connections {
@@ -118,9 +129,9 @@ Kirigami.ApplicationWindow {
                 if (!root.pageStack.items[1] || root.pageStack.items[1].objectName !== "EditPage") {
                     root.pageStack.clear();
                     root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
-                    if (!Kirigami.Settings.isMobile) {
-                        root.pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"));
-                    }
+                    root.pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"));
+                } else {
+                    root.pageStack.currentIndex = root.pageStack.depth - 1;
                 }
             } else {
                 root.pageStack.clear();

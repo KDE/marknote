@@ -27,6 +27,9 @@ class NavigationController : public QObject
     /// This property holds the current note path.
     Q_PROPERTY(QUrl noteFullPath READ noteFullPath NOTIFY notePathChanged)
 
+    /// This property holds whether we are in mobile mode.
+    Q_PROPERTY(bool mobileMode READ mobileMode WRITE setMobileMode NOTIFY mobileModeChanged)
+
 public:
     explicit NavigationController(QObject *parent = nullptr);
 
@@ -41,13 +44,18 @@ public:
     QString noteName() const;
     QUrl noteFullPath() const;
 
+    bool mobileMode() const;
+    void setMobileMode(bool mobileMode);
+
 Q_SIGNALS:
     void notebookPathChanged();
     void notebookIconNameChanged();
     void notebookColorChanged();
     void notePathChanged();
+    void mobileModeChanged();
 
 private:
     QString m_notebookPath;
     QString m_notePath;
+    bool m_mobileMode;
 };

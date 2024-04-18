@@ -19,6 +19,20 @@ NavigationController::NavigationController(QObject *parent)
 {
 }
 
+bool NavigationController::mobileMode() const
+{
+    return m_mobileMode;
+}
+
+void NavigationController::setMobileMode(bool mobileMode)
+{
+    if (m_mobileMode == mobileMode) {
+        return;
+    }
+    m_mobileMode = mobileMode;
+    Q_EMIT mobileModeChanged();
+}
+
 QString NavigationController::notebookPath() const
 {
     return m_notebookPath;
@@ -37,6 +51,9 @@ void NavigationController::setNotebookPath(const QString &notebookPath)
     m_notebookPath = notebookPath;
     Q_EMIT notebookPathChanged();
 
+    if (m_mobileMode) {
+        return;
+    }
     const QString dotDirectory = m_notebookPath + u'/' + QStringLiteral(".directory");
 
     if (QFile::exists(dotDirectory)) {
