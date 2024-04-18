@@ -14,7 +14,7 @@
 #include <QUrl>
 
 #include "../marknote-version.h"
-#include <marknotesettings.h>
+#include "config.h"
 
 #ifdef Q_OS_WINDOWS
 #include <Windows.h>
@@ -69,8 +69,6 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(about);
 
-    qmlRegisterSingletonInstance<MarknoteSettings>("org.kde.marknote.private", 1, 0, "Config", MarknoteSettings::self());
-
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.loadFromModule(u"org.kde.marknote"_s, u"Main"_s);
@@ -79,8 +77,8 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    QObject::connect(QApplication::instance(), &QCoreApplication::aboutToQuit, QApplication::instance(), [] {
-        MarknoteSettings::self()->save();
+    QObject::connect(QApplication::instance(), &QCoreApplication::aboutToQuit, QApplication::instance(), [&engine] {
+        engine.singletonInstance<Config *>("org.kde.marknote", "Config")->save();
     });
 
     return app.exec();

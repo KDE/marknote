@@ -7,7 +7,6 @@ import org.kde.kirigami as Kirigami
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.marknote
-import org.kde.marknote.private
 import org.kde.kirigamiaddons.delegates as Delegates
 
 Delegates.RoundedItemDelegate {
@@ -27,7 +26,7 @@ Delegates.RoundedItemDelegate {
     Behavior on implicitHeight {
         NumberAnimation {
             id: mainAnim
-            duration: Kirigami.Units.mediumDuration
+            duration: Kirigami.Units.shortDuration
             easing.type: Easing.InOutQuart
         }
     }

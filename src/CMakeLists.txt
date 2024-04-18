@@ -9,6 +9,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml
         qml/ContextMenu.qml
+        qml/SettingsDialog.qml
         qml/KQuickCommandBarPage.qml
         qml/KActionFromAction.qml
 
@@ -38,7 +39,11 @@ qt_add_qml_module(marknote_static STATIC
         application.cpp
         actionsmodel.cpp
         commandbarfiltermodel.cpp
+        config.cpp
 )
+
+
+kconfig_add_kcfg_files(marknote_static GENERATE_MOC marknotesettings.kcfgc)
 
 target_link_libraries(marknote_static PUBLIC
     Qt::Core
@@ -61,8 +66,6 @@ endif()
 
 
 add_executable(marknote main.cpp)
-
-kconfig_add_kcfg_files(marknote GENERATE_MOC marknotesettings.kcfgc)
 
 target_link_libraries(marknote PRIVATE marknote_static marknote_staticplugin)
 if (NOT ANDROID)

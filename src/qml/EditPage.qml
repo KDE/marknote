@@ -317,6 +317,8 @@ Kirigami.Page {
             topPadding: 0
             bottomPadding: 0
 
+            font: Config.editorFont
+
             implicitWidth: Math.max(contentWidth + leftPadding + rightPadding,
                                     implicitBackgroundWidth + leftInset + rightInset)
             implicitHeight: Math.max(contentHeight + topPadding + bottomPadding,

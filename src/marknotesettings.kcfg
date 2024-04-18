@@ -6,16 +6,23 @@ SPDX-License-Identifier: LGPL-2.0-or-later
 -->
 
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
-                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
-    <kcfgfile name="marknoterc" />
-    <group name="General">
-        <entry name="sortBehaviour" type="String">
-            <default>QStringLiteral("sort-name")</default>
-        </entry>
-        <entry name="expandedSidebar" type="Bool">
-            <default>true</default>
-        </entry>
-    </group>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                        http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name="marknoterc" />
+  <include>QFontDatabase</include>
+  <group name="General">
+    <entry name="sortBehaviour" type="String">
+      <default>QStringLiteral("sort-name")</default>
+    </entry>
+    <entry name="expandedSidebar" type="Bool">
+      <default>true</default>
+    </entry>
+  </group>
+
+  <group name="Fonts">
+    <entry name="EditorFont" type="Font" key="editor-font">
+      <default code="true">QFontDatabase::systemFont(QFontDatabase::GeneralFont)</default>
+    </entry>
+  </group>
 </kcfg>

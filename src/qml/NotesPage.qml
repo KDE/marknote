@@ -7,7 +7,6 @@ import QtQuick.Layouts
 import QtQuick.Dialogs
 import org.kde.kitemmodels
 import org.kde.marknote
-import org.kde.marknote.private
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as Components

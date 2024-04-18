@@ -9,7 +9,6 @@ import org.kde.kirigami as Kirigami
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.marknote
-import org.kde.marknote.private
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import "components"
@@ -254,6 +253,19 @@ Kirigami.ApplicationWindow {
                             Controls.MenuItem {
                                 action: KActionFromAction {
                                     action: App.action('open_about_page')
+                                }
+                            }
+
+                            Controls.MenuItem {
+                                text: i18nc("@action:inmenu", "Settings")
+                                onClicked: {
+                                    const component = Qt.createComponent("org.kde.marknote", "SettingsDialog");
+                                    if (component.status !== Component.Ready) {
+                                        console.error(component.errorString());
+                                        return;
+                                    }
+                                    const dialog = component.createObject(root);
+                                    dialog.open();
                                 }
                             }
                         }
