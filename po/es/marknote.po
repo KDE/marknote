@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-16 00:38+0000\n"
+"POT-Creation-Date: 2024-04-19 00:38+0000\n"
 "PO-Revision-Date: 2024-04-13 10:42+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -46,7 +46,7 @@ msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nueva nota"
 
-#: main.cpp:53 qml/Main.qml:262
+#: main.cpp:53 qml/Main.qml:286
 #, kde-format
 msgid "MarkNote"
 msgstr "MarkNote"
@@ -280,27 +280,33 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Crear bloc de notas"
 
-#: qml/Main.qml:208
+#: qml/Main.qml:219
 #, kde-format
 msgid "Sort by Name"
 msgstr "Ordenar por nombre"
 
-#: qml/Main.qml:222
+#: qml/Main.qml:233
 #, kde-format
 msgid "Sort by Date"
 msgstr "Ordenar por fecha"
 
-#: qml/Main.qml:243
+#: qml/Main.qml:254
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Contraer barra lateral"
 
-#: qml/Main.qml:243
+#: qml/Main.qml:254
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Expandir barra lateral"
 
-#: qml/Main.qml:306
+#: qml/Main.qml:272
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Settings"
+msgstr ""
+
+#: qml/Main.qml:330
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Sus blocs de notas"
@@ -370,91 +376,91 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Nombre:"
 
-#: qml/NotesPage.qml:45
+#: qml/NotesPage.qml:44
 #, kde-format
 msgid "Add note"
 msgstr "Añadir nota"
 
-#: qml/NotesPage.qml:128
+#: qml/NotesPage.qml:127
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Salir de la búsqueda (%1)"
 
-#: qml/NotesPage.qml:128
+#: qml/NotesPage.qml:127
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Buscar notas (%1)"
 
-#: qml/NotesPage.qml:173
+#: qml/NotesPage.qml:172
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Borrar nota"
 
-#: qml/NotesPage.qml:185
+#: qml/NotesPage.qml:184
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "¿Seguro que quiere borrar la nota <b>%1</b>?"
 
-#: qml/NotesPage.qml:308
+#: qml/NotesPage.qml:307
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Cambiar nombre de nota"
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:313
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Borrar nota"
 
-#: qml/NotesPage.qml:325
+#: qml/NotesPage.qml:324
 #, kde-format
 msgctxt "@action:inmenu"
+msgid "Export to HTML"
+msgstr "Exportar a HTML"
+
+#: qml/NotesPage.qml:330
+#, kde-format
+msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exportar a HTML"
 
 #: qml/NotesPage.qml:331
 #, kde-format
-msgctxt "@title:window"
-msgid "Export to HTML"
-msgstr "Exportar a HTML"
-
-#: qml/NotesPage.qml:332
-#, kde-format
 msgid "HTML file (*.html)"
 msgstr "Archivo HTML (*.html)"
 
-#: qml/NotesPage.qml:338
+#: qml/NotesPage.qml:337
 #, kde-format
 msgctxt "@action:inmenu"
+msgid "Export to PDF"
+msgstr "Exportar a PDF"
+
+#: qml/NotesPage.qml:343
+#, kde-format
+msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exportar a PDF"
 
 #: qml/NotesPage.qml:344
 #, kde-format
-msgctxt "@title:window"
-msgid "Export to PDF"
-msgstr "Exportar a PDF"
-
-#: qml/NotesPage.qml:345
-#, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Archivo PDF (*.pdf)"
 
-#: qml/NotesPage.qml:351
+#: qml/NotesPage.qml:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Exportar a ODT"
 
-#: qml/NotesPage.qml:357
+#: qml/NotesPage.qml:356
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exportar a ODT"
 
-#: qml/NotesPage.qml:358
+#: qml/NotesPage.qml:357
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Documento de texto ODF (*.odt)"
@@ -463,6 +469,24 @@ msgstr "Documento de texto ODF (*.odt)"
 #, kde-format
 msgid "Add a note!"
 msgstr "Añada una nota"
+
+#: qml/SettingsDialog.qml:13
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Editor Settings"
+msgstr ""
+
+#: qml/SettingsDialog.qml:24
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Font family:"
+msgstr ""
+
+#: qml/SettingsDialog.qml:48
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Font size:"
+msgstr ""
 
 #: qml/TableDialog.qml:18
 #, kde-format

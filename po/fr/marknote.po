@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-16 00:38+0000\n"
+"POT-Creation-Date: 2024-04-19 00:38+0000\n"
 "PO-Revision-Date: 2024-04-14 09:05+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -42,7 +42,7 @@ msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nouvelle note"
 
-#: main.cpp:53 qml/Main.qml:262
+#: main.cpp:53 qml/Main.qml:286
 #, kde-format
 msgid "MarkNote"
 msgstr "MarkNote"
@@ -276,27 +276,33 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Créer un cahier de notes"
 
-#: qml/Main.qml:208
+#: qml/Main.qml:219
 #, kde-format
 msgid "Sort by Name"
 msgstr "Trié par nom"
 
-#: qml/Main.qml:222
+#: qml/Main.qml:233
 #, kde-format
 msgid "Sort by Date"
 msgstr "Trier par date"
 
-#: qml/Main.qml:243
+#: qml/Main.qml:254
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Réduire la barre latérale"
 
-#: qml/Main.qml:243
+#: qml/Main.qml:254
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Développer la barre latérale"
 
-#: qml/Main.qml:306
+#: qml/Main.qml:272
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Settings"
+msgstr ""
+
+#: qml/Main.qml:330
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vos carnets de notes"
@@ -366,91 +372,91 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Nom :"
 
-#: qml/NotesPage.qml:45
+#: qml/NotesPage.qml:44
 #, kde-format
 msgid "Add note"
 msgstr "Ajouter une remarque"
 
-#: qml/NotesPage.qml:128
+#: qml/NotesPage.qml:127
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Sortir de la recherche (%1)"
 
-#: qml/NotesPage.qml:128
+#: qml/NotesPage.qml:127
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Rechercher des notes (%1)"
 
-#: qml/NotesPage.qml:173
+#: qml/NotesPage.qml:172
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Supprimer une note"
 
-#: qml/NotesPage.qml:185
+#: qml/NotesPage.qml:184
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Voulez-vous vraiment supprimer la note <b> %1 </b> ?"
 
-#: qml/NotesPage.qml:308
+#: qml/NotesPage.qml:307
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Renommer une note"
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:313
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Supprimer une note"
 
-#: qml/NotesPage.qml:325
+#: qml/NotesPage.qml:324
 #, kde-format
 msgctxt "@action:inmenu"
+msgid "Export to HTML"
+msgstr "Exporter vers le format « HTML »"
+
+#: qml/NotesPage.qml:330
+#, kde-format
+msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exporter vers le format « HTML »"
 
 #: qml/NotesPage.qml:331
 #, kde-format
-msgctxt "@title:window"
-msgid "Export to HTML"
-msgstr "Exporter vers le format « HTML »"
-
-#: qml/NotesPage.qml:332
-#, kde-format
 msgid "HTML file (*.html)"
 msgstr "Fichier HTML (*.html)"
 
-#: qml/NotesPage.qml:338
+#: qml/NotesPage.qml:337
 #, kde-format
 msgctxt "@action:inmenu"
+msgid "Export to PDF"
+msgstr "Exporter vers le format « PDF »"
+
+#: qml/NotesPage.qml:343
+#, kde-format
+msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exporter vers le format « PDF »"
 
 #: qml/NotesPage.qml:344
 #, kde-format
-msgctxt "@title:window"
-msgid "Export to PDF"
-msgstr "Exporter vers le format « PDF »"
-
-#: qml/NotesPage.qml:345
-#, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Fichier « PDF » (*.pdf)"
 
-#: qml/NotesPage.qml:351
+#: qml/NotesPage.qml:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Exporter vers le format « ODT »"
 
-#: qml/NotesPage.qml:357
+#: qml/NotesPage.qml:356
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exporter vers le format « ODT »"
 
-#: qml/NotesPage.qml:358
+#: qml/NotesPage.qml:357
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Document de texte « ODF » (*.odt)"
@@ -459,6 +465,24 @@ msgstr "Document de texte « ODF » (*.odt)"
 #, kde-format
 msgid "Add a note!"
 msgstr "Ajoutez une note !"
+
+#: qml/SettingsDialog.qml:13
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Editor Settings"
+msgstr ""
+
+#: qml/SettingsDialog.qml:24
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Font family:"
+msgstr ""
+
+#: qml/SettingsDialog.qml:48
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Font size:"
+msgstr ""
 
 #: qml/TableDialog.qml:18
 #, kde-format
