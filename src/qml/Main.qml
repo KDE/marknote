@@ -283,7 +283,7 @@ Kirigami.ApplicationWindow {
                         }
                     }
                     Kirigami.Heading {
-                        text: i18n("MarkNote")
+                        text: i18nc("Application name", "Marknote")
                         horizontalAlignment: Qt.AlignHCenter
                         opacity: Config.expandedSidebar ? 1 : 0
                         width: parent.width

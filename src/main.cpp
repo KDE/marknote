@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.marknote")));
 
     KAboutData about(QStringLiteral("marknote"),
-                     i18n("MarkNote"),
+                     i18nc("Application name", "Marknote"),
                      QStringLiteral(MARKNOTE_VERSION_STRING),
                      i18n("Note taking application"),
                      KAboutLicense::GPL_V2,
