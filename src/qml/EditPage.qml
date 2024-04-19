@@ -364,6 +364,8 @@ Kirigami.Page {
                         root.saved = true;
                     }
                     oldPath = NavigationController.noteFullPath;
+
+                    textArea.forceActiveFocus();
                 }
             }
 
@@ -393,6 +395,7 @@ Kirigami.Page {
                         document.load(NavigationController.noteFullPath);
                         root.saved = true;
                         oldPath = NavigationController.noteFullPath;
+                        textArea.forceActiveFocus();
                     }
                 }
 

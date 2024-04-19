@@ -384,6 +384,10 @@ void DocumentHandler::load(const QUrl &fileUrl)
 
     fixupTable(textDocument()->rootFrame());
 
+    QTextCursor cursor = textCursor();
+    cursor.movePosition(QTextCursor::End);
+    setCursorPosition(cursor.position());
+
     reset();
 }
 
