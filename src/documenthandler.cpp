@@ -94,6 +94,7 @@ void DocumentHandler::setCursorPosition(int position)
 
     m_cursorPosition = position;
     reset();
+
     Q_EMIT cursorPositionChanged();
 }
 
@@ -976,7 +977,7 @@ bool DocumentHandler::processKeyEvent(QKeyEvent *e)
 
 bool DocumentHandler::handleShortcut(QKeyEvent *event)
 {
-    const int key = event->key() | event->modifiers();
+    const QKeySequence key = event->modifiers() | (Qt::Key)event->key();
 
     if (KStandardShortcut::copy().contains(key)) {
         copy();

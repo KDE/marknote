@@ -407,6 +407,7 @@ Kirigami.Page {
                 }
 
                 onCursorPositionChanged: {
+                    textArea.cursorPosition = cursorPosition;
                     indentAction.enabled = document.canIndentList;
                     dedentAction.enabled = document.canDedentList;
                     checkboxAction.checked = document.checkable;
