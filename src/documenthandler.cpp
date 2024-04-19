@@ -917,6 +917,7 @@ void DocumentHandler::evaluateListSupport(QKeyEvent *event)
             QTextCharFormat normalFormat;
             normalFormat.setFontWeight(QFont::Normal);
             normalFormat.setFontUnderline(false);
+            normalFormat.setFontStrikeOut(false);
             cursor.mergeCharFormat(normalFormat);
 
             cursor.endEditBlock();
@@ -932,7 +933,11 @@ void DocumentHandler::evaluateListSupport(QKeyEvent *event)
         QTextCharFormat italicFormat;
         italicFormat.setFontItalic(true);
         transform(u"*"_s, italicFormat);
-        transform(u"_"_s, italicFormat);
+
+        // underline
+        QTextCharFormat underlineFormat;
+        underlineFormat.setFontUnderline(true);
+        transform(u"_"_s, underlineFormat);
 
         // strikethrough
         QTextCharFormat strikethroughFormat;
