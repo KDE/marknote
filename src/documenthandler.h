@@ -165,6 +165,7 @@ Q_SIGNALS:
     void cut();
     void undo();
     void redo();
+    void moveCursor(int position);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;

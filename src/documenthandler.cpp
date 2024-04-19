@@ -386,7 +386,7 @@ void DocumentHandler::load(const QUrl &fileUrl)
 
     QTextCursor cursor = textCursor();
     cursor.movePosition(QTextCursor::End);
-    setCursorPosition(cursor.position());
+    moveCursor(cursor.position());
 
     reset();
 }
@@ -1007,32 +1007,32 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
     } else if (KStandardShortcut::backwardWord().contains(key)) {
         QTextCursor cursor = textCursor();
         cursor.movePosition(QTextCursor::PreviousWord);
-        setCursorPosition(cursor.position());
+        moveCursor(cursor.position());
         return true;
     } else if (KStandardShortcut::forwardWord().contains(key)) {
         QTextCursor cursor = textCursor();
         cursor.movePosition(QTextCursor::NextWord);
-        setCursorPosition(cursor.position());
+        moveCursor(cursor.position());
         return true;
     } else if (KStandardShortcut::begin().contains(key)) {
         QTextCursor cursor = textCursor();
         cursor.movePosition(QTextCursor::Start);
-        setCursorPosition(cursor.position());
+        moveCursor(cursor.position());
         return true;
     } else if (KStandardShortcut::end().contains(key)) {
         QTextCursor cursor = textCursor();
         cursor.movePosition(QTextCursor::End);
-        setCursorPosition(cursor.position());
+        moveCursor(cursor.position());
         return true;
     } else if (KStandardShortcut::beginningOfLine().contains(key)) {
         QTextCursor cursor = textCursor();
         cursor.movePosition(QTextCursor::StartOfLine);
-        setCursorPosition(cursor.position());
+        moveCursor(cursor.position());
         return true;
     } else if (KStandardShortcut::endOfLine().contains(key)) {
         QTextCursor cursor = textCursor();
         cursor.movePosition(QTextCursor::EndOfLine);
-        setCursorPosition(cursor.position());
+        moveCursor(cursor.position());
         return true;
         //} else if (searchSupport() && KStandardShortcut::find().contains(key)) {
         //    Q_EMIT findText();
@@ -1057,7 +1057,7 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
             cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
         }
         cursor.removeSelectedText();
-        setCursorPosition(cursor.position());
+        moveCursor(cursor.position());
         return true;
     }
 

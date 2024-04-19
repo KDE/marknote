@@ -311,11 +311,11 @@ Kirigami.Page {
         T.TextArea {
             id: textArea
 
-            textMargin: Math.max(Kirigami.Units.gridUnit * 2, toolBarContainer.height)
+            textMargin: Kirigami.Units.gridUnit * 2
             leftPadding: 0
             rightPadding: 0
             topPadding: 0
-            bottomPadding: 0
+            bottomPadding: toolBarContainer.height
 
             font: Config.editorFont
 
@@ -409,8 +409,11 @@ Kirigami.Page {
                     checkboxAction.checked = document.checkable;
                 }
 
+                onMoveCursor: (position) => {
+                    textArea.cursorPosition = position;
+                }
+
                 onCursorPositionChanged: {
-                    textArea.cursorPosition = cursorPosition;
                     indentAction.enabled = document.canIndentList;
                     dedentAction.enabled = document.canDedentList;
                     checkboxAction.checked = document.checkable;
