@@ -394,6 +394,7 @@ Kirigami.ScrollablePage {
             }
 
             contentItem: RowLayout{
+                spacing: Kirigami.Units.smallSpacing
 
                 ColumnLayout {
                     Layout.fillWidth: true
@@ -409,13 +410,15 @@ Kirigami.ScrollablePage {
                         id: renameField
 
                         Layout.fillWidth: true
+                        Layout.leftMargin: Kirigami.Units.smallSpacing
+
                         text: name
                         onAccepted: acceptedAction.triggered();
                         visible: true
                         enabled: false
                         background.visible: enabled
                         topPadding: enabled ? Kirigami.Units.smallSpacing : 0
-                        leftPadding: Kirigami.Units.mediumSpacing
+                        leftPadding: enabled ? Kirigami.Units.smallSpacing : 0
                         color: textcolorItem.textcolor
 
                         rightActions: [
@@ -441,7 +444,7 @@ Kirigami.ScrollablePage {
                     }
 
                     Label {
-                        Layout.leftMargin: Kirigami.Units.mediumSpacing
+                        Layout.leftMargin: Kirigami.Units.smallSpacing
                         text: Qt.formatDateTime(date, Qt.SystemLocaleDate)
                         font: Kirigami.Theme.smallFont
                         color: Kirigami.Theme.disabledTextColor
@@ -454,6 +457,8 @@ Kirigami.ScrollablePage {
 
                 ToolButton{
                     icon.name: "overflow-menu"
+                    Layout.alignment: Qt.AlignTop
+                    Layout.margins: Kirigami.Units.smallSpacing
                     onClicked: {
                         menu.delegateItem = delegateItem;
                         menu.open()
