@@ -399,8 +399,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     spacing: Kirigami.Units.smallSpacing
-                    Layout.topMargin: Kirigami.Units.smallSpacing
-                    Layout.bottomMargin: Kirigami.Units.smallSpacing
+
                     Item{
                         id: textcolorItem
                         Kirigami.Theme.inherit: false
@@ -415,6 +414,7 @@ Kirigami.ScrollablePage {
                         visible: true
                         enabled: false
                         background.visible: enabled
+                        topPadding: enabled ? Kirigami.Units.smallSpacing : 0
                         leftPadding: Kirigami.Units.mediumSpacing
                         color: textcolorItem.textcolor
 
