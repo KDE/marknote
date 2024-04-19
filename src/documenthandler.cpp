@@ -857,6 +857,89 @@ void DocumentHandler::evaluateListSupport(QKeyEvent *event)
         }
     }
 
+    if (event->key() == Qt::Key_Space) {
+        const auto blockText = textCursor().block().text();
+
+        // Automatic block transformation to header
+        if (blockText.startsWith(u'#')) {
+            int i = 0;
+            while (blockText.length() > i && i < 6 && blockText[i] == u'#') {
+                i++;
+            }
+
+            auto cursor = textCursor();
+            cursor.beginEditBlock();
+            setHeadingLevel(i);
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, i + 1);
+            cursor.deleteChar();
+            cursor.endEditBlock();
+        }
+    }
+
+    if (event->key() != Qt::Key_Return) {
+        auto cursor = textCursor();
+        const auto blockText = cursor.block().text().left(cursor.positionInBlock() - 1);
+
+        auto transform = [&cursor, &blockText](const QString &symbol, const QTextCharFormat &format) {
+            const auto firstSymbolsInBlock = blockText.indexOf(symbol);
+            const auto symbolSize = symbol.length();
+
+            if (symbolSize == 1 && blockText.indexOf(symbol + symbol) == firstSymbolsInBlock) {
+                // Prefer matching with either **text** or __text__ instead of just **text* or __text_
+                return;
+            }
+
+            if (firstSymbolsInBlock == -1 || !blockText.endsWith(symbol) || (firstSymbolsInBlock + symbolSize + 2 >= cursor.positionInBlock())) {
+                return;
+            }
+
+            cursor.beginEditBlock();
+            cursor.movePosition(QTextCursor::Left, QTextCursor::MoveAnchor, 1);
+
+            // delete the last instance of the symbol
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, symbolSize);
+            cursor.deleteChar();
+
+            // select the text and bold it
+            const auto selectionSize = cursor.positionInBlock() - (firstSymbolsInBlock + symbolSize);
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, selectionSize);
+
+            cursor.mergeCharFormat(format);
+
+            // delete the first instance of the symbol
+            cursor.clearSelection();
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, symbolSize);
+            cursor.deleteChar();
+
+            // move back to initial position and font weight
+            cursor.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, selectionSize);
+
+            QTextCharFormat normalFormat;
+            normalFormat.setFontWeight(QFont::Normal);
+            normalFormat.setFontUnderline(false);
+            cursor.mergeCharFormat(normalFormat);
+
+            cursor.endEditBlock();
+        };
+
+        // bold
+        QTextCharFormat boldFormat;
+        boldFormat.setFontWeight(QFont::Bold);
+        transform(u"**"_s, boldFormat);
+        transform(u"__"_s, boldFormat);
+
+        // italic
+        QTextCharFormat italicFormat;
+        italicFormat.setFontItalic(true);
+        transform(u"*"_s, italicFormat);
+        transform(u"_"_s, italicFormat);
+
+        // strikethrough
+        QTextCharFormat strikethroughFormat;
+        strikethroughFormat.setFontStrikeOut(true);
+        transform(u"~~"_s, strikethroughFormat);
+    }
+
     // Match the behavior of office suites: newline after header switches to normal text
     if ((event->key() == Qt::Key_Return) && (textCursor().blockFormat().headingLevel() > 0) && (textCursor().atBlockEnd())) {
         // it should be undoable together with actual "return" keypress
