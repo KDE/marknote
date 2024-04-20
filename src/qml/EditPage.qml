@@ -278,6 +278,10 @@ Kirigami.Page {
                     ToolTip.visible: hovered
                     ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
+                TextField {
+                    onAccepted: latex.renderPNG(text)
+
+                }
                 Kirigami.Separator {
                     Layout.fillHeight: true
                     Layout.margins: 0
@@ -427,6 +431,9 @@ Kirigami.Page {
                     }
                     headingLevelComboBox.currentIndex = document.currentHeadingLevel
                 }
+            }
+            LatexToPNG {
+                id: latex
             }
 
             Timer {

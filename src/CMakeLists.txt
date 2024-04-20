@@ -31,6 +31,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/components/DoubleActionButton.qml
     SOURCES
         documenthandler.cpp
+        latextopng.cpp
         notesmodel.cpp
         notebooksmodel.cpp
         nestedlisthelper.cpp
