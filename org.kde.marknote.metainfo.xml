@@ -6,36 +6,6 @@
 <component type="desktop-application">
   <id>org.kde.marknote</id>
   <name>Marknote</name>
-  <name xml:lang="ast">MarkNote</name>
-  <name xml:lang="ca">MarkNote</name>
-  <name xml:lang="ca-valencia">MarkNote</name>
-  <name xml:lang="cs">MarkNote</name>
-  <name xml:lang="de">MarkNote</name>
-  <name xml:lang="en-GB">MarkNote</name>
-  <name xml:lang="eo">MarkNote</name>
-  <name xml:lang="es">MarkNote</name>
-  <name xml:lang="eu">MarkNote</name>
-  <name xml:lang="fi">MarkNote</name>
-  <name xml:lang="fr">MarkNote</name>
-  <name xml:lang="gl">MarkNote</name>
-  <name xml:lang="he">MarkNote</name>
-  <name xml:lang="ia">Marknote</name>
-  <name xml:lang="it">MarkNote</name>
-  <name xml:lang="ka">MarkNote</name>
-  <name xml:lang="ko">MarkNote</name>
-  <name xml:lang="lv">MarkNote</name>
-  <name xml:lang="nl">MarkNote</name>
-  <name xml:lang="nn">MarkNote</name>
-  <name xml:lang="pl">MarkNote</name>
-  <name xml:lang="pt">MarkNote</name>
-  <name xml:lang="pt-BR">MarkNote</name>
-  <name xml:lang="sk">MarkNote</name>
-  <name xml:lang="sl">MarkNote</name>
-  <name xml:lang="sv">MarkNote</name>
-  <name xml:lang="tr">MarkNot</name>
-  <name xml:lang="uk">MarkNote</name>
-  <name xml:lang="x-test">xxMarkNotexx</name>
-  <name xml:lang="zh-TW">MarkNote</name>
   <summary>Write down your thoughts</summary>
   <summary xml:lang="ca">Ecriviu les vostres idees</summary>
   <summary xml:lang="ca-valencia">Ecriviu les vostres idees</summary>
