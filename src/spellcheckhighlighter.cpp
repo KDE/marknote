@@ -42,20 +42,20 @@ SyntaxHighlighter::SyntaxHighlighter(QObject *parent)
 
 void SyntaxHighlighter::highlightBlock(const QString &text)
 {
-    //    if (text != previousText) {
-    //        previousText = text;
-    //        checker->stop();
-    //        errors.clear();
-    //        checker->setText(text);
-    //    }
-    //    for (const auto &error : errors) {
-    //        setFormat(error.first, error.second.size(), errorFormat);
-    //    }
+    if (text != previousText) {
+        previousText = text;
+        checker->stop();
+        errors.clear();
+        checker->setText(text);
+    }
+    for (const auto &error : errors) {
+        setFormat(error.first, error.second.size(), errorFormat);
+    }
     QTextCharFormat latexFormat;
     latexFormat.setFontWeight(QFont::Bold);
     latexFormat.setForeground(Qt::darkMagenta);
 
-    QRegularExpression expression(QString::fromUtf8("\$.+?\$"));
+    QRegularExpression expression(QString::fromUtf8(R"(\$.+?\$)"));
     QRegularExpressionMatchIterator i = expression.globalMatch(text);
     while (i.hasNext()) {
         QRegularExpressionMatch match = i.next();
