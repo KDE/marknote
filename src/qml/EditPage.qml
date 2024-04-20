@@ -438,6 +438,12 @@ Kirigami.Page {
                 id: latex
             }
 
+//            SyntaxHighlighter{
+//                id: syntaxHighlighter
+//                document: textArea.textDocument
+//            }
+
+
             Timer {
                 id: saveTimer
 

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "spellcheckhighlighter.h"
+#include "qregularexpression.h"
 
 #include <QQmlFile>
 #include <QQmlFileSelector>
@@ -41,17 +42,26 @@ SyntaxHighlighter::SyntaxHighlighter(QObject *parent)
 
 void SyntaxHighlighter::highlightBlock(const QString &text)
 {
-    //        if (settings.checkerEnabledByDefault()) {
-    if (text != previousText) {
-        previousText = text;
-        checker->stop();
-        errors.clear();
-        checker->setText(text);
+    //    if (text != previousText) {
+    //        previousText = text;
+    //        checker->stop();
+    //        errors.clear();
+    //        checker->setText(text);
+    //    }
+    //    for (const auto &error : errors) {
+    //        setFormat(error.first, error.second.size(), errorFormat);
+    //    }
+    QTextCharFormat latexFormat;
+    latexFormat.setFontWeight(QFont::Bold);
+    latexFormat.setForeground(Qt::darkMagenta);
+
+    QRegularExpression expression(QString::fromUtf8("\$.+?\$"));
+    QRegularExpressionMatchIterator i = expression.globalMatch(text);
+    while (i.hasNext()) {
+        QRegularExpressionMatch match = i.next();
+        setFormat(match.capturedStart(), match.capturedLength(), latexFormat);
     }
-    for (const auto &error : errors) {
-        setFormat(error.first, error.second.size(), errorFormat);
-    }
-    //        }
+
     //        auto handler = dynamic_cast<DocumentHandler *>(parent());
     //        auto room = handler->room();
     //        if (!room) {

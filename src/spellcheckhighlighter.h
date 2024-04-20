@@ -19,6 +19,8 @@
 
 class SyntaxHighlighter : public QSyntaxHighlighter
 {
+    Q_OBJECT
+    QML_ELEMENT
 public:
     QTextCharFormat mentionFormat;
     QTextCharFormat errorFormat;
@@ -27,7 +29,7 @@ public:
     QList<QPair<int, QString>> errors;
     QString previousText;
     QTimer rehighlightTimer;
-    SyntaxHighlighter(QObject *parent);
+    SyntaxHighlighter(QObject *parent = nullptr);
 
     void highlightBlock(const QString &text) override;
 };
