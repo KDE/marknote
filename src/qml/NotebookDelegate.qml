@@ -22,6 +22,7 @@ Delegates.RoundedItemDelegate {
     icon.name: iconName
     text: name
     highlighted: NavigationController.notebookPath === path
+    activeFocusOnTab: true
 
     Behavior on implicitHeight {
         NumberAnimation {
