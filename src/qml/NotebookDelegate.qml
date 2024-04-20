@@ -27,7 +27,7 @@ Delegates.RoundedItemDelegate {
     Behavior on implicitHeight {
         NumberAnimation {
             id: mainAnim
-            duration: Kirigami.Units.shortDuration
+            duration: Kirigami.Units.mediumDuration
             easing.type: Easing.InOutQuart
         }
     }
