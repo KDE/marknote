@@ -21,6 +21,8 @@
 #include <QTextList>
 #include <QTextTable>
 
+#include "spellcheckhighlighter.h"
+
 using namespace Qt::StringLiterals;
 
 constexpr int textMargin = 20;
@@ -32,7 +34,11 @@ DocumentHandler::DocumentHandler(QObject *parent)
     , m_cursorPosition(-1)
     , m_selectionStart(0)
     , m_selectionEnd(0)
+    , m_highlighter(new SyntaxHighlighter(this))
 {
+    connect(this, &DocumentHandler::documentChanged, this, [this]() {
+        m_highlighter.setDocument(m_document->textDocument());
+    });
 }
 
 QQuickItem *DocumentHandler::textArea() const

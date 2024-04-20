@@ -44,9 +44,9 @@ void LatexToPNG::renderPNG(QString latexText)
         }
 
         QProcess *dvipngProcess = new QProcess();
-        QStringList dvipngArguments = {QString::fromUtf8("tempfile.dvi")};
+        QStringList dvipngArguments = {QString::fromUtf8("--no-fonts"), QString::fromUtf8("tempfile.dvi")};
 
-        dvipngProcess->start(QString::fromUtf8("dvipng"), dvipngArguments);
+        dvipngProcess->start(QString::fromUtf8("dvisvgm"), dvipngArguments);
         connect(dvipngProcess, &QProcess::finished, this, [](int exitCode, QProcess::ExitStatus exitStatus) {
             qWarning() << "done" << exitStatus;
         });

@@ -315,6 +315,8 @@ Kirigami.Page {
         T.TextArea {
             id: textArea
 
+            Kirigami.SpellCheck.enabled: true
+
             textMargin: Kirigami.Units.gridUnit * 2
             leftPadding: 0
             rightPadding: 0

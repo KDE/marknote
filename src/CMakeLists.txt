@@ -31,7 +31,6 @@ qt_add_qml_module(marknote_static STATIC
         qml/components/DoubleActionButton.qml
     SOURCES
         documenthandler.cpp
-        latextopng.cpp
         notesmodel.cpp
         notebooksmodel.cpp
         nestedlisthelper.cpp
@@ -41,6 +40,9 @@ qt_add_qml_module(marknote_static STATIC
         actionsmodel.cpp
         commandbarfiltermodel.cpp
         config.cpp
+        latextopng.cpp
+        spellcheckhighlighter.cpp
+
 )
 
 
@@ -59,6 +61,7 @@ target_link_libraries(marknote_static PUBLIC
     KF6::CoreAddons
     KF6::ColorScheme
     KF6::XmlGui
+    KF6::SonnetCore
 )
 
 if (TARGET md4c::md4c-html)

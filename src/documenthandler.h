@@ -15,8 +15,10 @@
 #include <QTextCursor>
 #include <QUrl>
 
-class QTextDocument;
+#include "spellcheckhighlighter.h"
 
+class QTextDocument;
+class SyntaxHighlighter;
 class DocumentHandler : public QObject
 {
     Q_OBJECT
@@ -192,6 +194,7 @@ private:
     QQuickTextDocument *m_document;
     QQuickItem *m_textArea;
     QColor mLinkColor;
+    SyntaxHighlighter m_highlighter;
 
     int m_cursorPosition;
     int m_selectionStart;
