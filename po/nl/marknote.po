@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:38+0000\n"
-"PO-Revision-Date: 2024-04-13 10:38+0200\n"
+"POT-Creation-Date: 2024-04-20 00:38+0000\n"
+"PO-Revision-Date: 2024-04-19 11:25+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: application.cpp:147
 #, kde-format
@@ -45,8 +45,10 @@ msgid "New Note"
 msgstr "Nieuwe notitie"
 
 #: main.cpp:53 qml/Main.qml:286
-#, kde-format
-msgid "MarkNote"
+#, fuzzy, kde-format
+#| msgid "MarkNote"
+msgctxt "Application name"
+msgid "Marknote"
 msgstr "MarkNote"
 
 #: main.cpp:55
@@ -301,7 +303,7 @@ msgstr "Zijbalk uitvouwen"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
 #: qml/Main.qml:330
 #, kde-format
@@ -462,7 +464,7 @@ msgstr "Naar ODT exporteren"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-tekstdocument (*.odt)"
 
-#: qml/NotesPage.qml:481
+#: qml/NotesPage.qml:486
 #, kde-format
 msgid "Add a note!"
 msgstr "Een notitie toevoegen!"
@@ -471,19 +473,19 @@ msgstr "Een notitie toevoegen!"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Editor Settings"
-msgstr ""
+msgstr "Editor-instellingen"
 
 #: qml/SettingsDialog.qml:24
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "Lettertypefamilie:"
 
 #: qml/SettingsDialog.qml:48
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "Tekengrootte:"
 
 #: qml/TableDialog.qml:18
 #, kde-format

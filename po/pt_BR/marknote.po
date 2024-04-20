@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:38+0000\n"
+"POT-Creation-Date: 2024-04-20 00:38+0000\n"
 "PO-Revision-Date: 2024-04-13 01:23-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -46,8 +46,10 @@ msgid "New Note"
 msgstr "Nova nota"
 
 #: main.cpp:53 qml/Main.qml:286
-#, kde-format
-msgid "MarkNote"
+#, fuzzy, kde-format
+#| msgid "MarkNote"
+msgctxt "Application name"
+msgid "Marknote"
 msgstr "Marknote"
 
 #: main.cpp:55
@@ -463,7 +465,7 @@ msgstr "Exportar como ODT"
 msgid "ODF Text Document (*.odt)"
 msgstr "Documento de texto ODF (*.odt)"
 
-#: qml/NotesPage.qml:481
+#: qml/NotesPage.qml:486
 #, kde-format
 msgid "Add a note!"
 msgstr "Adicionar uma nota!"

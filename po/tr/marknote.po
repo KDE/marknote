@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:38+0000\n"
-"PO-Revision-Date: 2024-04-13 13:38+0300\n"
+"POT-Creation-Date: 2024-04-20 00:38+0000\n"
+"PO-Revision-Date: 2024-04-19 13:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -45,8 +45,10 @@ msgid "New Note"
 msgstr "Yeni Not"
 
 #: main.cpp:53 qml/Main.qml:286
-#, kde-format
-msgid "MarkNote"
+#, fuzzy, kde-format
+#| msgid "MarkNote"
+msgctxt "Application name"
+msgid "Marknote"
 msgstr "MarkNot"
 
 #: main.cpp:55
@@ -299,7 +301,7 @@ msgstr "Kenar Çubuğunu Genişlet"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 #: qml/Main.qml:330
 #, kde-format
@@ -460,7 +462,7 @@ msgstr "ODT’ye Dışa Aktar"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF metin belgesi (*.odt)"
 
-#: qml/NotesPage.qml:481
+#: qml/NotesPage.qml:486
 #, kde-format
 msgid "Add a note!"
 msgstr "Bir not ekle!"
@@ -469,19 +471,19 @@ msgstr "Bir not ekle!"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Editor Settings"
-msgstr ""
+msgstr "Düzenleyici Ayarları"
 
 #: qml/SettingsDialog.qml:24
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "Yazıtipi ailesi:"
 
 #: qml/SettingsDialog.qml:48
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "Yazıtipi boyutu:"
 
 #: qml/TableDialog.qml:18
 #, kde-format

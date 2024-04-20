@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:38+0000\n"
-"PO-Revision-Date: 2024-04-14 05:55+0200\n"
+"POT-Creation-Date: 2024-04-20 00:38+0000\n"
+"PO-Revision-Date: 2024-04-19 13:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -46,8 +46,10 @@ msgid "New Note"
 msgstr "ახალი ჩანაწერი"
 
 #: main.cpp:53 qml/Main.qml:286
-#, kde-format
-msgid "MarkNote"
+#, fuzzy, kde-format
+#| msgid "MarkNote"
+msgctxt "Application name"
+msgid "Marknote"
 msgstr "MarkNote"
 
 #: main.cpp:55
@@ -301,7 +303,7 @@ msgstr "გვერდითი ზოლის გაფართოება"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Settings"
-msgstr ""
+msgstr "მორგება"
 
 #: qml/Main.qml:330
 #, kde-format
@@ -462,7 +464,7 @@ msgstr "გატანა ODT-ში"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF ტექსტური დოკუმენტი (*.odt)"
 
-#: qml/NotesPage.qml:481
+#: qml/NotesPage.qml:486
 #, kde-format
 msgid "Add a note!"
 msgstr "დაამატეთ შენიშვნა!"
@@ -471,19 +473,19 @@ msgstr "დაამატეთ შენიშვნა!"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Editor Settings"
-msgstr ""
+msgstr "რედაქტორის მორგება"
 
 #: qml/SettingsDialog.qml:24
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "ფონტის ოჯახი:"
 
 #: qml/SettingsDialog.qml:48
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "ფონტის ზომა:"
 
 #: qml/TableDialog.qml:18
 #, kde-format

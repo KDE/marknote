@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:38+0000\n"
-"PO-Revision-Date: 2024-04-13 08:38+0300\n"
+"POT-Creation-Date: 2024-04-20 00:38+0000\n"
+"PO-Revision-Date: 2024-04-19 16:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -46,8 +46,10 @@ msgid "New Note"
 msgstr "Створити нотатку"
 
 #: main.cpp:53 qml/Main.qml:286
-#, kde-format
-msgid "MarkNote"
+#, fuzzy, kde-format
+#| msgid "MarkNote"
+msgctxt "Application name"
+msgid "Marknote"
 msgstr "MarkNote"
 
 #: main.cpp:55
@@ -300,7 +302,7 @@ msgstr "Розгорнути бічну панель"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Settings"
-msgstr ""
+msgstr "Параметри"
 
 #: qml/Main.qml:330
 #, kde-format
@@ -461,7 +463,7 @@ msgstr "Експортувати в ODT"
 msgid "ODF Text Document (*.odt)"
 msgstr "текстовий документ ODF (*.odt)"
 
-#: qml/NotesPage.qml:481
+#: qml/NotesPage.qml:486
 #, kde-format
 msgid "Add a note!"
 msgstr "Додайте нотатку!"
@@ -470,19 +472,19 @@ msgstr "Додайте нотатку!"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Editor Settings"
-msgstr ""
+msgstr "Параметри редактора"
 
 #: qml/SettingsDialog.qml:24
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "Гарнітура шрифту:"
 
 #: qml/SettingsDialog.qml:48
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "Розмір шрифту:"
 
 #: qml/TableDialog.qml:18
 #, kde-format

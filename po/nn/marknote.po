@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:38+0000\n"
+"POT-Creation-Date: 2024-04-20 00:38+0000\n"
 "PO-Revision-Date: 2024-03-23 13:08+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -50,7 +50,8 @@ msgstr "Nytt notat"
 #: main.cpp:53 qml/Main.qml:286
 #, fuzzy, kde-format
 #| msgid "Marknote"
-msgid "MarkNote"
+msgctxt "Application name"
+msgid "Marknote"
 msgstr "Marknote"
 
 #: main.cpp:55
@@ -478,7 +479,7 @@ msgstr ""
 msgid "ODF Text Document (*.odt)"
 msgstr ""
 
-#: qml/NotesPage.qml:481
+#: qml/NotesPage.qml:486
 #, kde-format
 msgid "Add a note!"
 msgstr "Legg til notat!"
