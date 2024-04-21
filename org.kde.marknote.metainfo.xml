@@ -6,6 +6,13 @@
 <component type="desktop-application">
   <id>org.kde.marknote</id>
   <name>Marknote</name>
+  <name xml:lang="ca">Marknote</name>
+  <name xml:lang="he">Marknote</name>
+  <name xml:lang="nl">Marknote</name>
+  <name xml:lang="sl">Marknote</name>
+  <name xml:lang="tr">Marknot</name>
+  <name xml:lang="uk">Marknote</name>
+  <name xml:lang="x-test">xxMarknotexx</name>
   <summary>Write down your thoughts</summary>
   <summary xml:lang="ca">Ecriviu les vostres idees</summary>
   <summary xml:lang="ca-valencia">Ecriviu les vostres idees</summary>
