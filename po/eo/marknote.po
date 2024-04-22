@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-20 00:38+0000\n"
-"PO-Revision-Date: 2024-04-13 11:51+0100\n"
+"PO-Revision-Date: 2024-04-21 17:45+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -46,11 +46,10 @@ msgid "New Note"
 msgstr "Nova Noto"
 
 #: main.cpp:53 qml/Main.qml:286
-#, fuzzy, kde-format
-#| msgid "MarkNote"
+#, kde-format
 msgctxt "Application name"
 msgid "Marknote"
-msgstr "MarkNote"
+msgstr "Marknote"
 
 #: main.cpp:55
 #, kde-format
@@ -302,7 +301,7 @@ msgstr "Vastigi Flankbreton"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Settings"
-msgstr ""
+msgstr "Agordoj"
 
 #: qml/Main.qml:330
 #, kde-format
@@ -472,19 +471,19 @@ msgstr "Aldonu noton!"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Editor Settings"
-msgstr ""
+msgstr "Redaktilaj Agordoj"
 
 #: qml/SettingsDialog.qml:24
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "Tiparfamilio:"
 
 #: qml/SettingsDialog.qml:48
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "Tipargrandeco:"
 
 #: qml/TableDialog.qml:18
 #, kde-format
