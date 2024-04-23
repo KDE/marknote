@@ -16,8 +16,8 @@ import "components"
 Kirigami.ApplicationWindow {
     id: root
 
-    property bool wideScreen: applicationWindow().width >= 600
-
+    property bool wideScreen: applicationWindow().width >= 600 && !Config.fillWindow
+    property bool columnModeDelayed: false
     minimumWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 22
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
 
@@ -26,12 +26,20 @@ Kirigami.ApplicationWindow {
     pageStack {
         globalToolBar {
             style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
-            showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
+            showNavigationButtons: Config.fillWindow? Kirigami.ApplicationHeaderStyle.None : Kirigami.ApplicationHeaderStyle.ShowBackButton
         }
 
-        defaultColumnWidth: 15 * Kirigami.Units.gridUnit
+        defaultColumnWidth: Config.fillWindow? 0 : 15 * Kirigami.Units.gridUnit
+        Behavior on defaultColumnWidth {
+            NumberAnimation {
+                id: columnWidthAnimation
+                duration: Kirigami.Units.mediumDuration
+                easing.type: Easing.InOutQuart
+                onFinished: root.columnModeDelayed = Config.fillWindow
+            }
+        }
         columnView {
-            columnResizeMode: width >= pageStack.defaultColumnWidth * 3.5 && pageStack.depth >= 2 ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
+            columnResizeMode: (width >= pageStack.defaultColumnWidth * 3.5 && !columnModeDelayed) && pageStack.depth >= 2 ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
         }
     }
 
@@ -142,7 +150,9 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
-
+        Component.onCompleted: if(Config.fillWindow === true) {
+                               drawer.close()
+                               }
         NoteBooksModel {
             id: noteBooksModel
 
@@ -154,10 +164,10 @@ Kirigami.ApplicationWindow {
         }
 
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        modal: !wideScreen
+        modal: false
         property double expandedWidth: 13 * Kirigami.Units.gridUnit
         property double normalWidth: 80
-        width: Config.expandedSidebar ?  expandedWidth : normalWidth
+        width:  Config.expandedSidebar ?  expandedWidth : normalWidth
         leftPadding: 0
         rightPadding: 0
         topPadding: 0
@@ -171,6 +181,7 @@ Kirigami.ApplicationWindow {
         }
 
         contentItem: ColumnLayout {
+//            visible: !Config.fillWindow
             spacing: 0
 
             Controls.ToolBar {

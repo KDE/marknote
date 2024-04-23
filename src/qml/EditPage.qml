@@ -25,6 +25,7 @@ Kirigami.Page {
     titleDelegate: RowLayout {
         visible: NavigationController.noteName
         Layout.fillWidth: true
+        Item { width: fillWindowButton.width }
         Item { Layout.fillWidth: true }
         Rectangle {
             height:5
@@ -39,6 +40,19 @@ Kirigami.Page {
 
         }
         Item { Layout.fillWidth: true }
+        ToolButton {
+            id: fillWindowButton
+            icon.name: "view-fullscreen"
+            text: i18n("Focus Mode")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: Config.fillWindow
+            onClicked: Config.fillWindow = !Config.fillWindow
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
     }
 
     LinkDialog {

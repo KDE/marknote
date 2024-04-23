@@ -17,7 +17,6 @@ Kirigami.ScrollablePage {
     id: root
 
     objectName: "NotesPage"
-
     property bool wideScreen: applicationWindow().width >= 600
 
     Item {

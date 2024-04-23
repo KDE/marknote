@@ -18,6 +18,9 @@ SPDX-License-Identifier: LGPL-2.0-or-later
     <entry name="expandedSidebar" type="Bool">
       <default>true</default>
     </entry>
+    <entry name="fillWindow" type="Bool">
+      <default>true</default>
+    </entry>
   </group>
 
   <group name="Fonts">
