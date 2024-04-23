@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-20 00:38+0000\n"
-"PO-Revision-Date: 2024-04-17 14:32+0200\n"
+"PO-Revision-Date: 2024-04-22 12:39+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -45,8 +45,7 @@ msgid "New Note"
 msgstr "Nove Nota"
 
 #: main.cpp:53 qml/Main.qml:286
-#, fuzzy, kde-format
-#| msgid "MarkNote"
+#, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
@@ -301,7 +300,7 @@ msgstr "Expande Barra lateral"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Settings"
-msgstr ""
+msgstr "Preferentias"
 
 #: qml/Main.qml:330
 #, kde-format
@@ -471,19 +470,19 @@ msgstr "Adde un nota!"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Editor Settings"
-msgstr ""
+msgstr "Preferentias de Editor"
 
 #: qml/SettingsDialog.qml:24
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "Familia de Font:"
 
 #: qml/SettingsDialog.qml:48
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "Dimension de Font:"
 
 #: qml/TableDialog.qml:18
 #, kde-format
