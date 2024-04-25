@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-24 00:38+0000\n"
-"PO-Revision-Date: 2024-04-20 08:59+0300\n"
+"PO-Revision-Date: 2024-04-24 10:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -97,7 +97,7 @@ msgstr "Не вдалося перейменувати нотатку. Нота�
 #: qml/EditPage.qml:46
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "Режим фокусування"
 
 #: qml/EditPage.qml:122
 #, kde-format

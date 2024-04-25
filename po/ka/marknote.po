@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-24 00:38+0000\n"
-"PO-Revision-Date: 2024-04-22 09:46+0200\n"
+"PO-Revision-Date: 2024-04-24 06:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -98,7 +98,7 @@ msgstr ""
 #: qml/EditPage.qml:46
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "ფოკუსის რეჟიმი"
 
 #: qml/EditPage.qml:122
 #, kde-format
