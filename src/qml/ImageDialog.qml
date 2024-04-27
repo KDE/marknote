@@ -11,8 +11,9 @@ import QtQuick.Dialogs
 
 FormCard.FormCardDialog {
     id: root
-
     readonly property alias imagePath: imageField.path
+
+    property string notePath
 
     title: i18nc("@title:window", "Insert Image")
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
@@ -27,6 +28,12 @@ FormCard.FormCardDialog {
         onAccepted: imageField.path = selectedFile
     }
 
+    SketchDialog {
+        id: sketchDialog
+        notePath: root.notePath
+        onAboutToHide: imageField.path = "file://" + imagePath
+    }
+
     FormCard.FormButtonDelegate {
         id: imageField
 
@@ -38,6 +45,17 @@ FormCard.FormCardDialog {
         onClicked: fileDialog.open()
     }
 
+    FormCard.FormDelegateSeparator {}
+
+    FormCard.FormButtonDelegate {
+        id: sketchField
+
+        text: i18nc("@label:textbox", "Quick Sketch")
+        onClicked: {
+            sketchDialog.open()
+        }
+
+    }
     Item {
         visible: imageField.path.toString().length > 0
 
