@@ -67,6 +67,7 @@ Kirigami.Page {
 
         parent: applicationWindow().overlay
         onAccepted: document.insertImage(imagePath)
+        notePath: NavigationController.noteFullPath
     }
 
     TableDialog {
