@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-24 00:38+0000\n"
-"PO-Revision-Date: 2024-04-22 12:39+0200\n"
+"PO-Revision-Date: 2024-04-26 14:53+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -96,7 +96,7 @@ msgstr "Incapace a renominar nota. Un nota ja existe con le mesme nomine."
 #: qml/EditPage.qml:46
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "Modo de Foco"
 
 #: qml/EditPage.qml:122
 #, kde-format
