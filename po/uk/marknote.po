@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-24 00:38+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-04-24 10:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -99,153 +99,159 @@ msgstr "Не вдалося перейменувати нотатку. Нота�
 msgid "Focus Mode"
 msgstr "Режим фокусування"
 
-#: qml/EditPage.qml:122
+#: qml/EditPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Жирний"
 
-#: qml/EditPage.qml:141
+#: qml/EditPage.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Курсив"
 
-#: qml/EditPage.qml:160
+#: qml/EditPage.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Підкреслити"
 
-#: qml/EditPage.qml:174
+#: qml/EditPage.qml:175
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Перекреслення"
 
-#: qml/EditPage.qml:193
+#: qml/EditPage.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Підвищити рівень у списку"
 
-#: qml/EditPage.qml:207
+#: qml/EditPage.qml:208
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Знизити рівень у списку"
 
-#: qml/EditPage.qml:227
+#: qml/EditPage.qml:228
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Не є списком"
 
-#: qml/EditPage.qml:228
+#: qml/EditPage.qml:229
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Невпорядкований список"
 
-#: qml/EditPage.qml:229
+#: qml/EditPage.qml:230
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Впорядкований список"
 
-#: qml/EditPage.qml:241
+#: qml/EditPage.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Вставити поле для позначки"
 
-#: qml/EditPage.qml:256
+#: qml/EditPage.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Вставити посилання"
 
-#: qml/EditPage.qml:272
+#: qml/EditPage.qml:273
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Вставити зображення"
 
-#: qml/EditPage.qml:285
+#: qml/EditPage.qml:286
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Вставити таблицю"
 
-#: qml/EditPage.qml:304
+#: qml/EditPage.qml:305
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Основний текст"
 
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:306
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Заголовок"
 
-#: qml/EditPage.qml:306
+#: qml/EditPage.qml:307
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Підзаголовок"
 
-#: qml/EditPage.qml:307
+#: qml/EditPage.qml:308
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Розділ"
 
-#: qml/EditPage.qml:308
+#: qml/EditPage.qml:309
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Підрозділ"
 
-#: qml/EditPage.qml:309
+#: qml/EditPage.qml:310
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Абзац"
 
-#: qml/EditPage.qml:310
+#: qml/EditPage.qml:311
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Підпараграф"
 
-#: qml/ImageDialog.qml:17
+#: qml/ImageDialog.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
 msgstr "Вставлення зображення"
 
-#: qml/ImageDialog.qml:23
+#: qml/ImageDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
 msgstr "Виберіть зображення"
 
-#: qml/ImageDialog.qml:26
+#: qml/ImageDialog.qml:27
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
 msgstr "файли зображень (*.jpg *.jpeg *.png *.svg *.webp)"
 
-#: qml/ImageDialog.qml:26
+#: qml/ImageDialog.qml:27
 #, kde-format
 msgid "All files (*)"
 msgstr "усі файли (*)"
 
-#: qml/ImageDialog.qml:35
+#: qml/ImageDialog.qml:42
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
 msgstr "Розташування зображення:"
+
+#: qml/ImageDialog.qml:53
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Quick Sketch"
+msgstr ""
 
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
