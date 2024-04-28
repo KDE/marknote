@@ -88,7 +88,7 @@ QHash<int, QByteArray> NotesModel::roleNames() const
 
 QString NotesModel::addNote(const QString &name)
 {
-    const QString path = m_path + QDir::separator() + name + QStringLiteral(".md");
+    const QString path = m_path + u'/' + name + QStringLiteral(".md");
     QFile file(path);
     if (file.open(QFile::WriteOnly)) {
         file.write("# " + name.toUtf8());
@@ -107,7 +107,7 @@ void NotesModel::deleteNote(const QUrl &path)
 
 void NotesModel::renameNote(const QUrl &path, const QString &name)
 {
-    QString newPath = m_path + QDir::separator() + name + QStringLiteral(".md");
+    QString newPath = m_path + u'/' + name + QStringLiteral(".md");
     if (QFile::exists(newPath)) {
         Q_EMIT errorOccured(i18nc("@info:status", "Unable to rename note. A note already exists with the same name."));
         return;
@@ -127,7 +127,7 @@ void NotesModel::setPath(const QString &newPath)
         return;
 
     if (!m_path.isEmpty()) {
-        m_watcher.removePath(m_path + QDir::separator() + QStringLiteral(".directory"));
+        m_watcher.removePath(m_path + u'/' + QStringLiteral(".directory"));
     }
     m_path = newPath;
     updateEntries();
@@ -136,13 +136,13 @@ void NotesModel::setPath(const QString &newPath)
     updateColor();
 
     if (!m_path.isEmpty()) {
-        m_watcher.addPath(m_path + QDir::separator() + QStringLiteral(".directory"));
+        m_watcher.addPath(m_path + u'/' + QStringLiteral(".directory"));
     }
 }
 
 void NotesModel::updateColor()
 {
-    const QString dotDirectory = m_path + QDir::separator() + QStringLiteral(".directory");
+    const QString dotDirectory = m_path + u'/' + QStringLiteral(".directory");
     if (QFile::exists(dotDirectory)) {
         m_color = KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-Color");
     } else {
