@@ -69,7 +69,6 @@ Controls.Dialog {
     RowLayout {
         id: colorToolBarContainer
         z: 600000
-        parent: root.overlay
 
         anchors {
             top: parent.top
@@ -193,7 +192,6 @@ Controls.Dialog {
     RowLayout {
         id: widthToolBarContainer
         z: 600000
-        parent: root.overlay
 
         anchors {
             top: parent.top
@@ -275,10 +273,10 @@ Controls.Dialog {
             }
         }
     }
+
     RowLayout {
         id: bottomToolBarContainer
         z: 600000
-        parent: root.overlay
 
         anchors {
             right: parent.right
