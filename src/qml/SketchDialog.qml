@@ -132,7 +132,7 @@ Controls.Dialog {
 
                             Behavior on width {
                                 NumberAnimation {
-                                    duration: Kirigami.Units.mediumDuration
+                                    duration: Kirigami.Units.shortDuration
                                     easing.type: Easing.InOutQuart
                                 }
                             }
@@ -179,7 +179,7 @@ Controls.Dialog {
 
                                 Behavior on width {
                                     NumberAnimation {
-                                        duration: Kirigami.Units.mediumDuration
+                                        duration: Kirigami.Units.shortDuration
                                         easing.type: Easing.InOutQuart
                                     }
                                 }
@@ -264,7 +264,7 @@ Controls.Dialog {
 
                                 Behavior on width {
                                     NumberAnimation {
-                                        duration: Kirigami.Units.mediumDuration
+                                        duration: Kirigami.Units.shortDuration
                                         easing.type: Easing.InOutQuart
                                     }
                                 }
