@@ -74,10 +74,10 @@ bool NestedListHelper::canDedent(const QTextCursor &textCursor) const
     return false;
 }
 
-bool NestedListHelper::handleAfterKeyPressEvent(QKeyEvent *event, const QTextCursor &cursor)
+bool NestedListHelper::handleAfterKeyPressEvent(int key, const QTextCursor &cursor)
 {
     // Only attempt to handle Backspace and Return
-    if ((event->key() != Qt::Key_Backspace) && (event->key() != Qt::Key_Return)) {
+    if ((key != Qt::Key_Backspace) && (key != Qt::Key_Return)) {
         return false;
     }
 
@@ -95,7 +95,7 @@ bool NestedListHelper::handleAfterKeyPressEvent(QKeyEvent *event, const QTextCur
             reformatList(cursor.block());
 
             // No need to reformatList in this case. reformatList is slow.
-            if ((event->key() == Qt::Key_Return) || (event->key() == Qt::Key_Backspace)) {
+            if ((key == Qt::Key_Return) || (key == Qt::Key_Backspace)) {
                 handled = true;
             }
         } else {

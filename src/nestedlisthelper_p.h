@@ -55,7 +55,7 @@ public:
      * @param event The event to be handled
      * @return Whether the event was completely handled by this method.
      */
-    bool handleAfterKeyPressEvent(QKeyEvent *event, const QTextCursor &cursor);
+    bool handleAfterKeyPressEvent(int key, const QTextCursor &cursor);
 
     /**
      * Increases the indent (nesting level) on the current list item or selection.

@@ -4,9 +4,7 @@
 #ifndef DOCUMENTHANDLER_H
 #define DOCUMENTHANDLER_H
 
-#define protected public
 #include <QQuickItem>
-#undef protected
 
 #include "nestedlisthelper_p.h"
 #include <QFont>
@@ -119,6 +117,7 @@ public:
     Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
     Q_INVOKABLE void insertImage(const QUrl &imagePath);
     Q_INVOKABLE void insertTable(int rows, int columns);
+    Q_INVOKABLE void slotKeyPressed(int key);
 
 public Q_SLOTS:
     void load(const QUrl &fileUrl);
@@ -177,9 +176,11 @@ private:
     QTextDocument *textDocument() const;
     void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
     QColor linkColor();
-    void evaluateReturnKeySupport(QKeyEvent *event);
-    void evaluateListSupport(QKeyEvent *event);
+    bool evaluateReturnKeySupport(QKeyEvent *event);
+    bool evaluateListSupport(QKeyEvent *event);
     bool handleShortcut(QKeyEvent *event);
+    /// @returns whether the event should be handled by the normal TextEdit
+    /// keyPressed event handler
     bool processKeyEvent(QKeyEvent *event);
     void moveLineUpDown(bool moveUp);
     void moveCursorBeginUpDown(bool moveUp);

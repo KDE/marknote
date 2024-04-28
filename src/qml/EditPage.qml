@@ -358,7 +358,11 @@ Kirigami.Page {
                 }
             }
 
+            property int lastKey
+            Keys.onPressed: (event) => lastKey = event.key
+
             onTextChanged: {
+                document.slotKeyPressed(lastKey)
                 root.saved = false;
                 saveTimer.restart()
             }

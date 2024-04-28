@@ -56,9 +56,7 @@ void DocumentHandler::setTextArea(QQuickItem *textArea)
 bool DocumentHandler::eventFilter(QObject *object, QEvent *event)
 {
     if (object == m_textArea && event->type() == QEvent::KeyPress) {
-        processKeyEvent(static_cast<QKeyEvent *>(event));
-        event->ignore();
-        return true;
+        return !processKeyEvent(static_cast<QKeyEvent *>(event));
     }
     return false;
 }
@@ -757,11 +755,10 @@ bool DocumentHandler::checkable() const
         || textCursor().blockFormat().marker() == QTextBlockFormat::MarkerType::Checked;
 }
 
-void DocumentHandler::evaluateReturnKeySupport(QKeyEvent *event)
+bool DocumentHandler::evaluateReturnKeySupport(QKeyEvent *event)
 {
     if (event->key() != Qt::Key_Return) {
-        evaluateListSupport(event);
-        return;
+        return evaluateListSupport(event);
     }
 
     QTextCursor cursor = textCursor();
@@ -808,12 +805,13 @@ void DocumentHandler::evaluateReturnKeySupport(QKeyEvent *event)
             cursor.movePosition(QTextCursor::StartOfBlock);
             setCursorPosition(cursor.position());
         }
+        return false;
     } else {
-        evaluateListSupport(event);
+        return evaluateListSupport(event);
     }
 }
 
-void DocumentHandler::evaluateListSupport(QKeyEvent *event)
+bool DocumentHandler::evaluateListSupport(QKeyEvent *event)
 {
     bool handled = false;
     if (textCursor().currentList()) {
@@ -858,11 +856,16 @@ void DocumentHandler::evaluateListSupport(QKeyEvent *event)
             moveCursorBeginUpDown(false);
             event->accept();
         } else {
-            m_textArea->keyPressEvent(event);
+            return true;
         }
+        return false;
     }
+    return false;
+}
 
-    if (event->key() == Qt::Key_Space) {
+void DocumentHandler::slotKeyPressed(int key)
+{
+    if (key == Qt::Key_Space) {
         const auto blockText = textCursor().block().text();
 
         // Automatic block transformation to header
@@ -881,7 +884,7 @@ void DocumentHandler::evaluateListSupport(QKeyEvent *event)
         }
     }
 
-    if (event->key() != Qt::Key_Return) {
+    if (key != Qt::Key_Return) {
         auto cursor = textCursor();
         const auto blockText = cursor.block().text().left(cursor.positionInBlock() - 1);
 
@@ -951,7 +954,7 @@ void DocumentHandler::evaluateListSupport(QKeyEvent *event)
     }
 
     // Match the behavior of office suites: newline after header switches to normal text
-    if ((event->key() == Qt::Key_Return) && (textCursor().blockFormat().headingLevel() > 0) && (textCursor().atBlockEnd())) {
+    if ((key == Qt::Key_Return) && (textCursor().blockFormat().headingLevel() > 0) && (textCursor().atBlockEnd())) {
         // it should be undoable together with actual "return" keypress
         textCursor().joinPreviousEditBlock();
         setHeadingLevel(0);
@@ -959,7 +962,7 @@ void DocumentHandler::evaluateListSupport(QKeyEvent *event)
     }
 
     if (textCursor().currentList()) {
-        m_nestedListHelper.handleAfterKeyPressEvent(event, textCursor());
+        m_nestedListHelper.handleAfterKeyPressEvent(key, textCursor());
     }
     Q_EMIT cursorPositionChanged();
 }
@@ -974,7 +977,7 @@ bool DocumentHandler::processKeyEvent(QKeyEvent *e)
         textCursor().clearSelection();
         Q_EMIT focusUp();
     } else {
-        evaluateReturnKeySupport(e);
+        return evaluateReturnKeySupport(e);
     }
     return true;
 }
