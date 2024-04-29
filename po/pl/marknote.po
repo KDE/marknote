@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-28 00:38+0000\n"
-"PO-Revision-Date: 2024-03-17 11:23+0100\n"
+"PO-Revision-Date: 2024-04-28 12:27+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,40 +16,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: application.cpp:147
 #, kde-format
 msgid "Open Command Bar"
-msgstr ""
+msgstr "Otwórz pasek poleceń"
 
 #: application.cpp:169
 #, kde-format
 msgid "About %1"
-msgstr ""
+msgstr "O %1"
 
 #: application.cpp:176
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "O KDE"
 
 #: application.cpp:189
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
-msgstr "Nowy notatnik"
+msgstr "Nowy zeszyt"
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nowa notatka"
 
 #: main.cpp:53 qml/Main.qml:297
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
@@ -77,7 +74,7 @@ msgstr "Opiekun"
 #: main.cpp:63
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:68
 #, kde-format
@@ -95,12 +92,12 @@ msgstr "lukasz.wojnilowicz@gmail.com"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
-msgstr ""
+msgstr "Nie można przemianować notatki. Notatka o takiej nazwie już istnieje."
 
 #: qml/EditPage.qml:46
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "Tryb skupienia"
 
 #: qml/EditPage.qml:123
 #, kde-format
@@ -145,42 +142,40 @@ msgid "No list"
 msgstr "Bez listy"
 
 #: qml/EditPage.qml:229
-#, fuzzy, kde-format
-#| msgid "Add numbered list"
+#, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
-msgstr "Dodaj listę numerowaną"
+msgstr "Nieuporządkowana lista"
 
 #: qml/EditPage.qml:230
-#, fuzzy, kde-format
-#| msgid "Add numbered list"
+#, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
-msgstr "Dodaj listę numerowaną"
+msgstr "Uporządkowana lista"
 
 #: qml/EditPage.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
-msgstr ""
+msgstr "Wstaw pole wyboru"
 
 #: qml/EditPage.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
-msgstr ""
+msgstr "Wstaw odnośnik"
 
 #: qml/EditPage.qml:273
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
-msgstr ""
+msgstr "Wstaw obraz"
 
 #: qml/EditPage.qml:286
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr ""
+msgstr "Wstaw tabelę"
 
 #: qml/EditPage.qml:305
 #, kde-format
@@ -228,97 +223,96 @@ msgstr "Podakapit"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "Wstaw obraz"
 
 #: qml/ImageDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "Wybierz obraz"
 
 #: qml/ImageDialog.qml:27
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr ""
+msgstr "Pliki obrazów (*.jpg *.jpeg *.png *.svg *.webp)"
 
 #: qml/ImageDialog.qml:27
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "Wszystkie pliki (*)"
 
 #: qml/ImageDialog.qml:42
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
-msgstr ""
+msgstr "Położenie obrazu:"
 
 #: qml/ImageDialog.qml:53
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Quick Sketch"
-msgstr ""
+msgstr "Szybki szkic"
 
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
 msgid "No results found"
-msgstr ""
+msgstr "Nie ma żadnych wyników"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "Wstaw odnośnik"
 
 #: qml/LinkDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Tekst odnośnika:"
 
 #: qml/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "Adres URL odnośnika:"
 
 #: qml/Main.qml:76
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
-msgstr ""
+msgstr "Nie można utworzyć nowej notatki. Najpierw musisz utworzyć notatnik."
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Usuń notatnik"
+msgstr "Utwórz notatnik"
 
 #: qml/Main.qml:230
 #, kde-format
 msgid "Sort by Name"
-msgstr ""
+msgstr "Uszereguj wg nazwy"
 
 #: qml/Main.qml:244
 #, kde-format
 msgid "Sort by Date"
-msgstr ""
+msgstr "Uszereguj wg daty"
 
 #: qml/Main.qml:265
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "Zwiń pasek boczny"
 
 #: qml/Main.qml:265
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Rozwiń pasek boczny"
 
 #: qml/Main.qml:283
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 #: qml/Main.qml:341
 #, kde-format
@@ -326,79 +320,69 @@ msgid "Your Notebooks"
 msgstr "Twoje notatniki"
 
 #: qml/NotebookContextMenu.qml:16
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit Notebook"
-msgstr "Dodaj notatnik"
+msgstr "Edytuj notatnik"
 
 #: qml/NotebookContextMenu.qml:33 qml/NotebookDeleteAction.qml:15
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Usuń notatnik"
 
 #: qml/NotebookDeleteDialog.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Usuń notatnik"
 
 #: qml/NotebookDeleteDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
-msgstr "Czy na pewno usunąć notatkę <b>%1</b>?"
+msgstr "Czy na pewno usunąć notatnik <b>%1</b>?"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
-msgstr "Nowy notatnik"
+msgstr "Nowy zeszyt"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Notebook"
-msgstr "Dodaj notatnik"
+msgstr "Edytuj notatnik"
 
 #: qml/NotebookMetadataDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr "Nazwa notatki:"
+msgstr "Nazwa:"
 
 #: qml/NotebookMetadataDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
-msgstr ""
+msgstr "Ikona"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Note"
 msgstr "Nowa notatka"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
-msgstr "Usuń notatkę"
+msgstr "Edytuj notatkę"
 
 #: qml/NoteMetadataDialog.qml:48
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
-msgstr "Nazwa notatki:"
+msgstr "Nazwa:"
 
 #: qml/NotesPage.qml:43
 #, kde-format
@@ -416,8 +400,7 @@ msgid "Search notes (%1)"
 msgstr "Poszukaj notatek (%1)"
 
 #: qml/NotesPage.qml:171
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Usuń notatkę"
@@ -428,15 +411,13 @@ msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Czy na pewno usunąć notatkę <b>%1</b>?"
 
 #: qml/NotesPage.qml:306
-#, fuzzy, kde-format
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Przemianuj notatkę"
 
 #: qml/NotesPage.qml:312
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Usuń notatkę"
@@ -445,52 +426,52 @@ msgstr "Usuń notatkę"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Wyeksportuj do HTML"
 
 #: qml/NotesPage.qml:329
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Wyeksportuj do HTML"
 
 #: qml/NotesPage.qml:330
 #, kde-format
 msgid "HTML file (*.html)"
-msgstr ""
+msgstr "Plik HTML (*.html)"
 
 #: qml/NotesPage.qml:336
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Eksport do PDFa"
 
 #: qml/NotesPage.qml:342
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Eksport do PDFa"
 
 #: qml/NotesPage.qml:343
 #, kde-format
 msgid "PDF file (*.pdf)"
-msgstr ""
+msgstr "Plik PDF (*.pdf)"
 
 #: qml/NotesPage.qml:349
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Wyeksportuj do ODT"
 
 #: qml/NotesPage.qml:355
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Wyeksportuj do ODT"
 
 #: qml/NotesPage.qml:356
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "Dokument tekstowy ODF (*.odt)"
 
 #: qml/NotesPage.qml:485
 #, kde-format
@@ -501,37 +482,37 @@ msgstr "Dodaj notatkę!"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Editor Settings"
-msgstr ""
+msgstr "Ustawienia edytora"
 
 #: qml/SettingsDialog.qml:24
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "Rodzina czcionek:"
 
 #: qml/SettingsDialog.qml:48
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "Rozmiar czcionki:"
 
 #: qml/TableDialog.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr ""
+msgstr "Wstaw tabelę"
 
 #: qml/TableDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Liczba wierszy:"
 
 #: qml/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Liczba kolumn:"
 
 #: qml/WelcomePage.qml:22
 #, kde-format

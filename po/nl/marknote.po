@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-28 00:38+0000\n"
-"PO-Revision-Date: 2024-04-24 11:17+0200\n"
+"PO-Revision-Date: 2024-04-28 13:39+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -251,7 +251,7 @@ msgstr "Afbeeldingslocatie:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Quick Sketch"
-msgstr ""
+msgstr "Snelle schets"
 
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
