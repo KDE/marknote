@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-28 00:38+0000\n"
-"PO-Revision-Date: 2024-04-26 14:53+0200\n"
+"PO-Revision-Date: 2024-04-29 15:31+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -250,7 +250,7 @@ msgstr "Location de imagine"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Quick Sketch"
-msgstr ""
+msgstr "Schizzo rapide"
 
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
