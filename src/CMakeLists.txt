@@ -68,6 +68,18 @@ endif()
 
 add_executable(marknote main.cpp)
 
+if(APPLE)
+    set_target_properties(marknote PROPERTIES
+        MACOSX_BUNDLE_DISPLAY_NAME "Marknote"
+        MACOSX_BUNDLE_BUNDLE_NAME "Marknote"
+        MACOSX_BUNDLE_LONG_VERSION_STRING "Marknote ${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.marknote"
+        MACOSX_BUNDLE_COPYRIGHT "2002-2024 The Marknote Developers")
+endif()
+
+
 target_link_libraries(marknote PRIVATE marknote_static marknote_staticplugin)
 if (NOT ANDROID)
     target_link_libraries(marknote PRIVATE Qt::Widgets)
