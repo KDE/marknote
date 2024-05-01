@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-28 00:38+0000\n"
-"PO-Revision-Date: 2024-04-22 17:02+0200\n"
+"PO-Revision-Date: 2024-04-28 20:56+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -97,7 +97,7 @@ msgstr ""
 #: qml/EditPage.qml:46
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "Modalità di messa a fuoco"
 
 #: qml/EditPage.qml:123
 #, kde-format
@@ -251,7 +251,7 @@ msgstr "Posizione immagini:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Quick Sketch"
-msgstr ""
+msgstr "Schizzo rapido"
 
 #: qml/KQuickCommandBarPage.qml:131
 #, kde-format
