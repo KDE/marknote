@@ -22,7 +22,7 @@ Kirigami.ApplicationWindow {
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
 
     controlsVisible: false
-    onWideScreenChanged: !wideScreen? drawer.close() : drawer.open()
+    onWideScreenChanged: Kirigami.Settings.isMobile? drawer.close() :  (!wideScreen? drawer.close() : drawer.open())
     pageStack {
         globalToolBar {
             style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
@@ -150,7 +150,7 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
-        Component.onCompleted: if(Config.fillWindow === true) {
+        Component.onCompleted: if(Config.fillWindow === true || Kirigami.Settings.isMobile === true) {
                                drawer.close()
                                }
         NoteBooksModel {
@@ -164,7 +164,7 @@ Kirigami.ApplicationWindow {
         }
 
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        modal: false
+        modal: Kirigami.Settings.isMobile ? true : false
         property double expandedWidth: 13 * Kirigami.Units.gridUnit
         property double normalWidth: 80
         width:  Config.expandedSidebar ?  expandedWidth : normalWidth
