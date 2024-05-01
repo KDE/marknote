@@ -44,7 +44,7 @@ Controls.Dialog {
             if (canvas.erase === true) {
                 ctx.globalCompositeOperation = 'destination-out'
             } else {
-                ctx.globalCompositeOperation = "destination-atop"
+                ctx.globalCompositeOperation = "source-over"
 
             }
             ctx.lineWidth = canvas.strokeWidth
