@@ -312,20 +312,21 @@ Kirigami.Page {
         }
         z: 600000
         parent: root.overlay
-        MouseArea {
-            anchors.fill: parent
-        }
+
         Kirigami.ShadowedRectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
             color: Kirigami.Theme.backgroundColor
-            height: Kirigami.Units.gridUnit *5
+            height: Kirigami.Units.gridUnit * 5 + Kirigami.Units.smallSpacing
 
             shadow {
                 size: 15
                 color: Qt.rgba(0, 0, 0, 0.2)
+            }
+            MouseArea {
+                anchors.fill: parent
             }
             Kirigami.Separator {
                 width: parent.width
@@ -374,6 +375,7 @@ Kirigami.Page {
                     Layout.rightMargin: Kirigami.Units.mediumSpacing
                     Layout.leftMargin: Kirigami.Units.mediumSpacing
                     Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+                    Layout.topMargin: 0
                     Layout.fillWidth: true
                     Layout.maximumWidth: Kirigami.Units.gridUnit * 20
                     Layout.alignment: Qt.AlignHCenter
@@ -415,7 +417,6 @@ Kirigami.Page {
 
             Layout.margins: Kirigami.Units.largeSpacing
             Layout.alignment:Qt.AlignHCenter
-
             background: ToolbarBackground {}
             RowLayout {
                 Loader { sourceComponent: textFormatGroup }
