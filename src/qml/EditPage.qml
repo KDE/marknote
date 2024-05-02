@@ -196,7 +196,10 @@ Kirigami.Page {
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
-
+    }
+    }
+    Component{
+    id: listStyleGroup
         ComboBox {
             id: listStyleComboBox
             onActivated: (index) => {
@@ -212,7 +215,6 @@ Kirigami.Page {
                 { text: i18nc("@item:inmenu ordered style", "Ordered list"), value: 4 },
             ]
         }
-    }
     }
     Component{
         id: insertGroup
@@ -334,7 +336,7 @@ Kirigami.Page {
                 anchors.fill: parent
                 SwipeView{
                     id: swipeView
-
+                    clip: true
                     Layout.margins: Kirigami.Units.mediumSpacing
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -344,14 +346,20 @@ Kirigami.Page {
                     Item {
                         id: firstPage
                         RowLayout {
-                        Loader { sourceComponent: textFormatGroup }
-                        Loader { sourceComponent: headingGroup }
+                            width: swipeView.width
+                            Loader { sourceComponent: textFormatGroup }
+                            Item { Layout.fillWidth: true }
+                            Loader { sourceComponent: headingGroup }
                         }
                     }
                     Item {
                         id: secondPage
-                        Loader { sourceComponent: listFormatGroup }
-                    }
+                        RowLayout {
+                            width: swipeView.width
+                            Loader { sourceComponent: listFormatGroup }
+                            Item { Layout.fillWidth: true }
+                            Loader { sourceComponent: listStyleGroup }
+                        }                    }
                     Item {
                         id: thirdPage
                         Loader { sourceComponent: insertGroup }
@@ -414,6 +422,7 @@ Kirigami.Page {
                     Layout.margins: 0
                 }
                 Loader { sourceComponent: listFormatGroup }
+                Loader { sourceComponent: listStyleGroup }
                 Kirigami.Separator {
                     Layout.fillHeight: true
                     Layout.margins: 0
