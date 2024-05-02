@@ -312,7 +312,9 @@ Kirigami.Page {
         }
         z: 600000
         parent: root.overlay
-
+        MouseArea {
+            anchors.fill: parent
+        }
         Kirigami.ShadowedRectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
