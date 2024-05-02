@@ -9,6 +9,8 @@ import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as Components
 import QtQuick.Templates as T
 
+import "components"
+
 Controls.Dialog {
     id: root
 
@@ -85,24 +87,7 @@ Controls.Dialog {
             Layout.margins: Kirigami.Units.largeSpacing
             Layout.alignment:Qt.AlignHCenter
 
-            background: Kirigami.ShadowedRectangle {
-                color: Kirigami.Theme.backgroundColor
-                radius: 5
-
-                shadow {
-                    size: 15
-                    yOffset: 3
-                    color: Qt.rgba(0, 0, 0, 0.2)
-                }
-
-                border {
-                    color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
-                    width: 1
-                }
-
-                Kirigami.Theme.inherit: false
-                Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            }
+            background: ToolbarBackground{}
             RowLayout {
                 id: colorLayout
                 Controls.ButtonGroup {
@@ -208,24 +193,8 @@ Controls.Dialog {
             Layout.margins: Kirigami.Units.largeSpacing
             Layout.alignment:Qt.AlignHCenter
 
-            background: Kirigami.ShadowedRectangle {
-                color: Kirigami.Theme.backgroundColor
-                radius: 5
+            background: ToolbarBackground{}
 
-                shadow {
-                    size: 15
-                    yOffset: 3
-                    color: Qt.rgba(0, 0, 0, 0.2)
-                }
-
-                border {
-                    color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
-                    width: 1
-                }
-
-                Kirigami.Theme.inherit: false
-                Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            }
             ColumnLayout {
                 id: widthLayout
                 Controls.ButtonGroup {
@@ -293,24 +262,8 @@ Controls.Dialog {
             Layout.margins: Kirigami.Units.largeSpacing
             Layout.alignment:Qt.AlignHCenter
 
-            background: Kirigami.ShadowedRectangle {
-                color: Kirigami.Theme.backgroundColor
-                radius: 5
+            background: ToolbarBackground{}
 
-                shadow {
-                    size: 15
-                    yOffset: 3
-                    color: Qt.rgba(0, 0, 0, 0.2)
-                }
-
-                border {
-                    color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
-                    width: 1
-                }
-
-                Kirigami.Theme.inherit: false
-                Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                }
             RowLayout{
                 Controls.ToolButton {
                     text: "Cancel"

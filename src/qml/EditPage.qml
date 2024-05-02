@@ -7,6 +7,9 @@ import QtQuick.Controls
 import QtQuick.Templates as T
 import QtQuick.Layouts
 
+import "components"
+
+
 import org.kde.marknote
 
 Kirigami.Page {
@@ -14,8 +17,15 @@ Kirigami.Page {
 
     objectName: "EditPage"
 
+    property bool wideScreen: applicationWindow().width >= toolbar.width + Kirigami.Units.largeSpacing * 2
+
     property bool saved: true
     property string oldPath: ''
+    property bool listIndent: true
+    property bool listDedent: true
+    property bool checkbox: false
+    property int listStyle
+    property int heading
 
     leftPadding: 0
     rightPadding: 0
@@ -25,7 +35,10 @@ Kirigami.Page {
     titleDelegate: RowLayout {
         visible: NavigationController.noteName
         Layout.fillWidth: true
-        Item { width: fillWindowButton.width }
+        Item {
+            width: fillWindowButton.width
+            visible: wideScreen
+        }
         Item { Layout.fillWidth: true }
         Rectangle {
             height:5
@@ -42,6 +55,7 @@ Kirigami.Page {
         Item { Layout.fillWidth: true }
         ToolButton {
             id: fillWindowButton
+            visible: wideScreen
             icon.name: "view-fullscreen"
             text: i18n("Focus Mode")
             display: AbstractButton.IconOnly
@@ -75,10 +89,308 @@ Kirigami.Page {
         parent: applicationWindow().overlay
         onAccepted: document.insertTable(rows, cols)
     }
+    Component {
+        id: textFormatGroup
+        RowLayout {
+        ToolButton {
+            id: boldButton
+            Shortcut {
+                sequence: "Ctrl+B"
+                onActivated: boldButton.clicked()
+            }
+            icon.name: "format-text-bold"
+            text: i18nc("@action:button", "Bold")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: document.bold
+            onClicked: {
+                document.bold = !document.bold
+            }
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        ToolButton {
+            id: italicButton
+            Shortcut {
+                sequence: "Ctrl+I"
+                onActivated: italicButton.clicked()
+            }
+            icon.name: "format-text-italic"
+            text: i18nc("@action:button", "Italic")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: document.italic
+            onClicked: {
+                document.italic = checked;
+            }
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        ToolButton {
+            id: underlineButton
+            Shortcut {
+                sequence: "Ctrl+U"
+                onActivated: underlineButton.clicked()
+            }
+            icon.name: "format-text-underline"
+            text: i18nc("@action:button", "Underline")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: document.underline
+            onClicked: {
+                document.underline = checked;
+            }
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        ToolButton {
+            icon.name: "format-text-strikethrough"
+            text: i18nc("@action:button", "Strikethrough")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: document.strikethrough
+            onClicked: {
+                document.strikethrough = checked;
+            }
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+    }
+    }
+    Component {
+        id: listFormatGroup
+        RowLayout {
+        ToolButton {
+            id: indentAction
+            icon.name: "format-indent-more"
+            text: i18nc("@action:button", "Increase List Level")
+            display: AbstractButton.IconOnly
+            onClicked: {
+                document.indentListMore();
+
+            }
+            enabled: root.listIndent
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        ToolButton {
+            id: dedentAction
+            icon.name: "format-indent-less"
+            text: i18nc("@action:button", "Decrease List Level")
+            display: AbstractButton.IconOnly
+            onClicked: {
+                document.indentListLess();
+            }
+            enabled: root.listDedent
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        ComboBox {
+            id: listStyleComboBox
+            onActivated: (index) => {
+                document.setListStyle(currentValue);
+            }
+            currentIndex: root.listStyle
+            enabled: indentAction.enabled || dedentAction.enabled
+            textRole: "text"
+            valueRole: "value"
+            model: [
+                { text: i18nc("@item:inmenu no list style", "No list"), value: 0 },
+                { text: i18nc("@item:inmenu unordered style", "Unordered list"), value: 1 },
+                { text: i18nc("@item:inmenu ordered style", "Ordered list"), value: 4 },
+            ]
+        }
+    }
+    }
+    Component{
+        id: insertGroup
+        RowLayout {
+        ToolButton {
+            id: checkboxAction
+            icon.name: "checkbox-symbolic"
+            text: i18nc("@action:button", "Insert checkbox")
+            display: AbstractButton.IconOnly
+            checkable: true
+            onClicked: {
+                document.checkable = !document.checkable;
+            }
+            checked: root.checkbox
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        ToolButton {
+            id: linkAction
+            icon.name: "insert-link-symbolic"
+            text: i18nc("@action:button", "Insert link")
+            display: AbstractButton.IconOnly
+            onClicked: {
+                linkDialog.linkText = document.currentLinkText();
+                linkDialog.linkUrl = document.currentLinkUrl();
+                linkDialog.open();
+            }
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        ToolButton {
+            id: imageAction
+            icon.name: "insert-image-symbolic"
+            text: i18nc("@action:button", "Insert image")
+            display: AbstractButton.IconOnly
+            onClicked: {
+                imageDialog.open();
+            }
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        ToolButton {
+            id: tableAction
+            icon.name: "insert-table"
+            text: i18nc("@action:button", "Insert table")
+            display: AbstractButton.IconOnly
+            onClicked: {
+                tableDialog.open()
+            }
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+    }
+    }
+    Component{
+        id: headingGroup
+        ComboBox {
+            id: headingLevelComboBox
+            currentIndex: root.heading
+
+            model: [
+                i18nc("@item:inmenu no heading", "Basic text"),
+                i18nc("@item:inmenu heading level 1 (largest)", "Title"),
+                i18nc("@item:inmenu heading level 2", "Subtitle"),
+                i18nc("@item:inmenu heading level 3", "Section"),
+                i18nc("@item:inmenu heading level 4", "Subsection"),
+                i18nc("@item:inmenu heading level 5", "Paragraph"),
+                i18nc("@item:inmenu heading level 6 (smallest)", "Subparagraph")
+            ]
+
+            onActivated: (index) => {
+                document.setHeadingLevel(index);
+            }
+        }
+    }
 
     RowLayout {
+        id: mobileToolBarContainer
+        visible: !wideScreen
+
+        anchors {
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+        }
+        z: 600000
+        parent: root.overlay
+
+        Kirigami.ShadowedRectangle {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Kirigami.Theme.inherit: false
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            color: Kirigami.Theme.backgroundColor
+            height: Kirigami.Units.gridUnit *5
+
+            shadow {
+                size: 15
+                color: Qt.rgba(0, 0, 0, 0.2)
+            }
+            Kirigami.Separator {
+                width: parent.width
+                anchors.top: parent.top
+
+            }
+
+            ColumnLayout {
+                id: mobileToolbarLayout
+                anchors.fill: parent
+                SwipeView{
+                    id: swipeView
+
+                    Layout.margins: Kirigami.Units.mediumSpacing
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+
+                    currentIndex: categorySelector.selectedIndex
+                    interactive: false
+                    Item {
+                        id: firstPage
+                        RowLayout {
+                        Loader { sourceComponent: textFormatGroup }
+                        Loader { sourceComponent: headingGroup }
+                        }
+                    }
+                    Item {
+                        id: secondPage
+                        Loader { sourceComponent: listFormatGroup }
+                    }
+                    Item {
+                        id: thirdPage
+                        Loader { sourceComponent: insertGroup }
+                    }
+
+                }
+                RadioSelector{
+                    id: categorySelector
+
+                    Layout.rightMargin: Kirigami.Units.mediumSpacing
+                    Layout.leftMargin: Kirigami.Units.mediumSpacing
+                    Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+                    Layout.fillWidth: true
+                    Layout.maximumWidth: Kirigami.Units.gridUnit * 20
+                    Layout.alignment: Qt.AlignHCenter
+
+                    consistentWidth: true
+
+                    actions: [
+                       Kirigami.Action {
+                           text: i18n("Format")
+                       },
+                       Kirigami.Action {
+                           text: i18n("Lists")
+                       },
+                       Kirigami.Action {
+                            text: i18n("Insert")
+                        }
+                   ]
+                }
+
+            }
+        }
+    }
+    RowLayout {
         id: toolBarContainer
-        visible: NavigationController.noteName
+        visible: wideScreen
+
+
         z: 600000
         parent: root.overlay
 
@@ -94,227 +406,24 @@ Kirigami.Page {
             Layout.margins: Kirigami.Units.largeSpacing
             Layout.alignment:Qt.AlignHCenter
 
-            background: Kirigami.ShadowedRectangle {
-                color: Kirigami.Theme.backgroundColor
-                radius: 5
-
-                shadow {
-                    size: 15
-                    yOffset: 3
-                    color: Qt.rgba(0, 0, 0, 0.2)
-                }
-
-                border {
-                    color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
-                    width: 1
-                }
-
-                Kirigami.Theme.inherit: false
-                Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            }
+            background: ToolbarBackground {}
             RowLayout {
-                ToolButton {
-                    id: boldButton
-                    Shortcut {
-                        sequence: "Ctrl+B"
-                        onActivated: boldButton.clicked()
-                    }
-                    icon.name: "format-text-bold"
-                    text: i18nc("@action:button", "Bold")
-                    display: AbstractButton.IconOnly
-                    checkable: true
-                    checked: document.bold
-                    onClicked: {
-                        document.bold = !document.bold
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
-                ToolButton {
-                    id: italicButton
-                    Shortcut {
-                        sequence: "Ctrl+I"
-                        onActivated: italicButton.clicked()
-                    }
-                    icon.name: "format-text-italic"
-                    text: i18nc("@action:button", "Italic")
-                    display: AbstractButton.IconOnly
-                    checkable: true
-                    checked: document.italic
-                    onClicked: {
-                        document.italic = checked;
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
-                ToolButton {
-                    id: underlineButton
-                    Shortcut {
-                        sequence: "Ctrl+U"
-                        onActivated: underlineButton.clicked()
-                    }
-                    icon.name: "format-text-underline"
-                    text: i18nc("@action:button", "Underline")
-                    display: AbstractButton.IconOnly
-                    checkable: true
-                    checked: document.underline
-                    onClicked: {
-                        document.underline = checked;
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
-                ToolButton {
-                    icon.name: "format-text-strikethrough"
-                    text: i18nc("@action:button", "Strikethrough")
-                    display: AbstractButton.IconOnly
-                    checkable: true
-                    checked: document.strikethrough
-                    onClicked: {
-                        document.strikethrough = checked;
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
+                Loader { sourceComponent: textFormatGroup }
                 Kirigami.Separator {
                     Layout.fillHeight: true
                     Layout.margins: 0
                 }
-                ToolButton {
-                    id: indentAction
-                    icon.name: "format-indent-more"
-                    text: i18nc("@action:button", "Increase List Level")
-                    display: AbstractButton.IconOnly
-                    onClicked: {
-                        document.indentListMore();
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
-
-                ToolButton {
-                    id: dedentAction
-                    icon.name: "format-indent-less"
-                    text: i18nc("@action:button", "Decrease List Level")
-                    display: AbstractButton.IconOnly
-                    onClicked: {
-                        document.indentListLess();
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
-
-                ComboBox {
-                    id: listStyleComboBox
-                    onActivated: (index) => {
-                        document.setListStyle(currentValue);
-                    }
-                    enabled: indentAction.enabled || dedentAction.enabled
-                    textRole: "text"
-                    valueRole: "value"
-                    model: [
-                        { text: i18nc("@item:inmenu no list style", "No list"), value: 0 },
-                        { text: i18nc("@item:inmenu unordered style", "Unordered list"), value: 1 },
-                        { text: i18nc("@item:inmenu ordered style", "Ordered list"), value: 4 },
-                    ]
-                }
-
+                Loader { sourceComponent: listFormatGroup }
                 Kirigami.Separator {
                     Layout.fillHeight: true
                     Layout.margins: 0
                 }
-
-                ToolButton {
-                    id: checkboxAction
-                    icon.name: "checkbox-symbolic"
-                    text: i18nc("@action:button", "Insert checkbox")
-                    display: AbstractButton.IconOnly
-                    checkable: true
-                    onClicked: {
-                        document.checkable = !document.checkable;
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
-
-                ToolButton {
-                    id: linkAction
-                    icon.name: "insert-link-symbolic"
-                    text: i18nc("@action:button", "Insert link")
-                    display: AbstractButton.IconOnly
-                    onClicked: {
-                        linkDialog.linkText = document.currentLinkText();
-                        linkDialog.linkUrl = document.currentLinkUrl();
-                        linkDialog.open();
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
-
-                ToolButton {
-                    id: imageAction
-                    icon.name: "insert-image-symbolic"
-                    text: i18nc("@action:button", "Insert image")
-                    display: AbstractButton.IconOnly
-                    onClicked: {
-                        imageDialog.open();
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
-                ToolButton {
-                    id: tableAction
-                    icon.name: "insert-table"
-                    text: i18nc("@action:button", "Insert table")
-                    display: AbstractButton.IconOnly
-                    onClicked: {
-                        tableDialog.open()
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
+                Loader { sourceComponent: insertGroup }
                 Kirigami.Separator {
                     Layout.fillHeight: true
                     Layout.margins: 0
                 }
-
-                ComboBox {
-                    id: headingLevelComboBox
-
-                    model: [
-                        i18nc("@item:inmenu no heading", "Basic text"),
-                        i18nc("@item:inmenu heading level 1 (largest)", "Title"),
-                        i18nc("@item:inmenu heading level 2", "Subtitle"),
-                        i18nc("@item:inmenu heading level 3", "Section"),
-                        i18nc("@item:inmenu heading level 4", "Subsection"),
-                        i18nc("@item:inmenu heading level 5", "Paragraph"),
-                        i18nc("@item:inmenu heading level 6 (smallest)", "Subparagraph")
-                    ]
-
-                    onActivated: (index) => {
-                        document.setHeadingLevel(index);
-                    }
-                }
+                Loader { sourceComponent: headingGroup }
             }
         }
     }
@@ -330,7 +439,7 @@ Kirigami.Page {
             leftPadding: 0
             rightPadding: 0
             topPadding: 0
-            bottomPadding: toolBarContainer.height
+            bottomPadding: mobileToolBarContainer.height
 
             font: Config.editorFont
 
@@ -425,7 +534,7 @@ Kirigami.Page {
                 }
 
                 onCheckableChanged: {
-                    checkboxAction.checked = document.checkable;
+                    root.checkbox = document.checkable;
                 }
 
                 onMoveCursor: (position) => {
@@ -433,18 +542,18 @@ Kirigami.Page {
                 }
 
                 onCursorPositionChanged: {
-                    indentAction.enabled = document.canIndentList;
-                    dedentAction.enabled = document.canDedentList;
-                    checkboxAction.checked = document.checkable;
+                    root.listIndent = document.canIndentList;
+                    root.listDedent = document.canDedentList;
+                    root.checkbox = document.checkable;
 
                     if (document.currentListStyle === 0) {
-                        listStyleComboBox.currentIndex = 0;
+                        root.listStyle = 0;
                     } else if (document.currentListStyle === 1) {
-                        listStyleComboBox.currentIndex = 1;
+                        root.listStyle = 1;
                     } else if (document.currentListStyle === 4) {
-                        listStyleComboBox.currentIndex = 2;
+                        root.listStyle = 2;
                     }
-                    headingLevelComboBox.currentIndex = document.currentHeadingLevel
+                    root.heading = document.currentHeadingLevel
                 }
             }
 

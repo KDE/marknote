@@ -30,6 +30,8 @@ qt_add_qml_module(marknote_static STATIC
         qml/components/ActionButton.qml
         qml/components/BottomDrawer.qml
         qml/components/DoubleActionButton.qml
+        qml/components/RadioSelector.qml
+        qml/components/ToolbarBackground.qml
     SOURCES
         documenthandler.cpp
         notesmodel.cpp
