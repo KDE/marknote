@@ -444,6 +444,8 @@ Kirigami.Page {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
 
     contentItem: ScrollView {
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
         T.TextArea {
             id: textArea
 
