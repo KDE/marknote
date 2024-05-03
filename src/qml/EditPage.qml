@@ -89,117 +89,129 @@ Kirigami.Page {
         parent: applicationWindow().overlay
         onAccepted: document.insertTable(rows, cols)
     }
+
     Component {
         id: textFormatGroup
+
         RowLayout {
-        ToolButton {
-            id: boldButton
-            Shortcut {
-                sequence: "Ctrl+B"
-                onActivated: boldButton.clicked()
-            }
-            icon.name: "format-text-bold"
-            text: i18nc("@action:button", "Bold")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: document.bold
-            onClicked: {
-                document.bold = !document.bold
-            }
+            spacing: Kirigami.Units.smallSpacing
 
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-        ToolButton {
-            id: italicButton
-            Shortcut {
-                sequence: "Ctrl+I"
-                onActivated: italicButton.clicked()
-            }
-            icon.name: "format-text-italic"
-            text: i18nc("@action:button", "Italic")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: document.italic
-            onClicked: {
-                document.italic = checked;
-            }
+            ToolButton {
+                id: boldButton
+                Shortcut {
+                    sequence: "Ctrl+B"
+                    onActivated: boldButton.clicked()
+                }
+                icon.name: "format-text-bold"
+                text: i18nc("@action:button", "Bold")
+                display: AbstractButton.IconOnly
+                checkable: true
+                checked: document.bold
+                onClicked: {
+                    document.bold = !document.bold
+                }
 
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-        ToolButton {
-            id: underlineButton
-            Shortcut {
-                sequence: "Ctrl+U"
-                onActivated: underlineButton.clicked()
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
             }
-            icon.name: "format-text-underline"
-            text: i18nc("@action:button", "Underline")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: document.underline
-            onClicked: {
-                document.underline = checked;
-            }
+            ToolButton {
+                id: italicButton
+                Shortcut {
+                    sequence: "Ctrl+I"
+                    onActivated: italicButton.clicked()
+                }
+                icon.name: "format-text-italic"
+                text: i18nc("@action:button", "Italic")
+                display: AbstractButton.IconOnly
+                checkable: true
+                checked: document.italic
+                onClicked: {
+                    document.italic = checked;
+                }
 
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-        ToolButton {
-            icon.name: "format-text-strikethrough"
-            text: i18nc("@action:button", "Strikethrough")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: document.strikethrough
-            onClicked: {
-                document.strikethrough = checked;
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
             }
+            ToolButton {
+                id: underlineButton
+                Shortcut {
+                    sequence: "Ctrl+U"
+                    onActivated: underlineButton.clicked()
+                }
+                icon.name: "format-text-underline"
+                text: i18nc("@action:button", "Underline")
+                display: AbstractButton.IconOnly
+                checkable: true
+                checked: document.underline
+                onClicked: {
+                    document.underline = checked;
+                }
 
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            ToolButton {
+                icon.name: "format-text-strikethrough"
+                text: i18nc("@action:button", "Strikethrough")
+                display: AbstractButton.IconOnly
+                checkable: true
+                checked: document.strikethrough
+                onClicked: {
+                    document.strikethrough = checked;
+                }
+
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
         }
     }
+
+    Kirigami.Action {
+        id: indentAction
+
+        text: i18nc("@action:button", "Increase List Level")
+        icon.name: "format-indent-more"
+        onTriggered: {
+            document.indentListMore();
+        }
+        enabled: root.listIndent
     }
+
     Component {
         id: listFormatGroup
+
         RowLayout {
-        ToolButton {
-            id: indentAction
-            icon.name: "format-indent-more"
-            text: i18nc("@action:button", "Increase List Level")
-            display: AbstractButton.IconOnly
-            onClicked: {
-                document.indentListMore();
+            spacing: Kirigami.Units.smallSpacing
 
+            ToolButton {
+                action: indentAction
+                display: AbstractButton.IconOnly
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
             }
-            enabled: root.listIndent
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
 
-        ToolButton {
-            id: dedentAction
-            icon.name: "format-indent-less"
-            text: i18nc("@action:button", "Decrease List Level")
-            display: AbstractButton.IconOnly
-            onClicked: {
-                document.indentListLess();
+            ToolButton {
+                id: dedentAction
+                icon.name: "format-indent-less"
+                text: i18nc("@action:button", "Decrease List Level")
+                display: AbstractButton.IconOnly
+                onClicked: {
+                    document.indentListLess();
+                }
+                enabled: root.listDedent
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
             }
-            enabled: root.listDedent
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
         }
-    }
     }
     Component{
-    id: listStyleGroup
+        id: listStyleGroup
         ComboBox {
             id: listStyleComboBox
             onActivated: (index) => {
