@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-05-03 00:38+0000\n"
 "PO-Revision-Date: 2024-03-11 11:44+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -97,132 +97,147 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 
-#: qml/EditPage.qml:46
+#: qml/EditPage.qml:60
 #, kde-format
 msgid "Focus Mode"
 msgstr ""
 
-#: qml/EditPage.qml:123
+#: qml/EditPage.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Treknraksts"
 
-#: qml/EditPage.qml:142
+#: qml/EditPage.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Slīpraksts"
 
-#: qml/EditPage.qml:161
+#: qml/EditPage.qml:140
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Pasvītrots"
 
-#: qml/EditPage.qml:175
+#: qml/EditPage.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Pārsvītrots"
 
-#: qml/EditPage.qml:194
+#: qml/EditPage.qml:174
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr ""
 
-#: qml/EditPage.qml:208
+#: qml/EditPage.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr ""
 
-#: qml/EditPage.qml:228
+#: qml/EditPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Add list"
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Pievienot sarakstu"
 
-#: qml/EditPage.qml:229
+#: qml/EditPage.qml:214
 #, fuzzy, kde-format
 #| msgid "Add numbered list"
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Pievienot numurētu sarakstu"
 
-#: qml/EditPage.qml:230
+#: qml/EditPage.qml:215
 #, fuzzy, kde-format
 #| msgid "Add numbered list"
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Pievienot numurētu sarakstu"
 
-#: qml/EditPage.qml:242
+#: qml/EditPage.qml:225
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr ""
 
-#: qml/EditPage.qml:257
+#: qml/EditPage.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr ""
 
-#: qml/EditPage.qml:273
+#: qml/EditPage.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr ""
 
-#: qml/EditPage.qml:286
+#: qml/EditPage.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr ""
 
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:289
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr ""
 
-#: qml/EditPage.qml:306
+#: qml/EditPage.qml:290
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr ""
 
-#: qml/EditPage.qml:307
+#: qml/EditPage.qml:291
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr ""
 
-#: qml/EditPage.qml:308
+#: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr ""
 
-#: qml/EditPage.qml:309
+#: qml/EditPage.qml:293
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr ""
 
-#: qml/EditPage.qml:310
+#: qml/EditPage.qml:294
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr ""
 
-#: qml/EditPage.qml:311
+#: qml/EditPage.qml:295
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
+msgstr ""
+
+#: qml/EditPage.qml:387
+#, kde-format
+msgid "Format"
+msgstr ""
+
+#: qml/EditPage.qml:390
+#, kde-format
+msgid "Lists"
+msgstr ""
+
+#: qml/EditPage.qml:393
+#, kde-format
+msgid "Insert"
 msgstr ""
 
 #: qml/ImageDialog.qml:18
