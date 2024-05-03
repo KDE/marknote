@@ -352,7 +352,7 @@ Kirigami.ApplicationWindow {
         drawerContentItem: ColumnLayout {
             Repeater {
                 model: noteBooksModel
-                delegate: Kirigami.SwipeListItem {
+                delegate: Delegates.RoundedItemDelegate {
                     id: drawerDelegateItem
 
                     required property int index
@@ -362,7 +362,6 @@ Kirigami.ApplicationWindow {
                     required property string color;
 
                     Layout.fillWidth: true
-                    alwaysVisibleActions:true
 
                     contentItem: RowLayout {
                         Kirigami.Icon {
@@ -372,12 +371,14 @@ Kirigami.ApplicationWindow {
                         }
                         Controls.Label { text: name}
                         Item { Layout.fillWidth: true}
-                    }
-
-                    actions: NotebookDeleteAction {
-                        path: drawerDelegateItem.path
-                        name: drawerDelegateItem.name
-                        model: noteBooksModel
+                        Controls.ToolButton {
+                            display: Controls.AbstractButton.IconOnly
+                            action: NotebookDeleteAction {
+                                path: drawerDelegateItem.path
+                                name: drawerDelegateItem.name
+                                model: noteBooksModel
+                           }
+                        }
                     }
 
                     onClicked: {
