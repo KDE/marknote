@@ -50,7 +50,7 @@ Item{
                 background: Rectangle{
                     anchors.fill: button
 
-                    radius: height/2
+                    radius: Kirigami.Units.cornerRadius
                     color: Kirigami.Theme.textColor
                     opacity: button.hovered ? 0.1 : 0
 
@@ -155,7 +155,7 @@ Item{
         y: switchLayout.y
         z: switchLayout.z - 1
         height: switchLayout.implicitHeight
-        radius: height/2
+        radius: Kirigami.Units.cornerRadius
 
         color: Kirigami.Theme.hoverColor
         opacity: 0.4
