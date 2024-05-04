@@ -9,7 +9,6 @@ import QtQuick.Layouts
 
 import "components"
 
-
 import org.kde.marknote
 
 Kirigami.Page {
@@ -39,7 +38,6 @@ Kirigami.Page {
     property alias document: document
 
     property bool init: false
-
 
     function loadNote(): void {
         if (root.oldPath.length > 0 && !saved) {
@@ -600,6 +598,22 @@ Kirigami.Page {
                 }
             }
 
+
+            TapHandler {
+                acceptedButtons: Qt.RightButton
+                // unfortunately, taphandler's pressed event only triggers when the press is lifted
+                // we need to use the longpress signal since it triggers when the button is first pressed
+                longPressThreshold: 0.001 // https://invent.kde.org/qt/qt/qtdeclarative/-/commit/8f6809681ec82da783ae8dcd76fa2c209b28fde6
+                onLongPressed: {
+                    textFieldContextMenu.targetClick(
+                        point,
+                        textArea,
+                        /*spellcheckHighlighterInstantiator*/ null,
+                        /*mousePosition*/ null,
+                    );
+                }
+            }
+
             Timer {
                 id: saveTimer
 
@@ -611,5 +625,9 @@ Kirigami.Page {
                 }
             }
         }
+    }
+
+    TextFieldContextMenu {
+        id: textFieldContextMenu
     }
 }

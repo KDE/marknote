@@ -27,12 +27,14 @@ qt_add_qml_module(marknote_static STATIC
         qml/ImageDialog.qml
         qml/TableDialog.qml
         qml/SketchDialog.qml
+        qml/TextFieldContextMenu.qml
 
         qml/components/ActionButton.qml
         qml/components/BottomDrawer.qml
         qml/components/DoubleActionButton.qml
         qml/components/RadioSelector.qml
         qml/components/ToolbarBackground.qml
+
     SOURCES
         documenthandler.cpp
         notesmodel.cpp
@@ -45,7 +47,6 @@ qt_add_qml_module(marknote_static STATIC
         commandbarfiltermodel.cpp
         config.cpp
 )
-
 
 kconfig_add_kcfg_files(marknote_static GENERATE_MOC marknotesettings.kcfgc)
 
