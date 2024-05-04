@@ -433,12 +433,15 @@ Kirigami.Page {
                     actions: [
                        Kirigami.Action {
                            text: i18n("Format")
+                           icon.name: "format-border-style"
                        },
                        Kirigami.Action {
                            text: i18n("Lists")
+                           icon.name: "media-playlist-append"
                        },
                        Kirigami.Action {
-                            text: i18n("Insert")
+                           text: i18n("Insert")
+                           icon.name: "kdenlive-add-text-clip"
                         }
                    ]
                 }
