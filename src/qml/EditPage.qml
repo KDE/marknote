@@ -9,7 +9,7 @@ import QtQuick.Layouts
 
 import "components"
 
-
+import org.kde.kirigamiaddons.components as Components
 import org.kde.marknote
 
 Kirigami.Page {
@@ -17,7 +17,7 @@ Kirigami.Page {
 
     objectName: "EditPage"
 
-    property bool wideScreen: applicationWindow().width >= toolbar.width + Kirigami.Units.largeSpacing * 2
+    readonly property bool wideScreen: width >= toolBar.width + Kirigami.Units.largeSpacing * 2
 
     property bool saved: true
     property string oldPath: ''
@@ -410,45 +410,38 @@ Kirigami.Page {
             }
         }
     }
-    RowLayout {
-        id: toolBarContainer
+
+    Components.FloatingToolBar {
+        id: toolBar
+
         visible: wideScreen
-
-
         z: 600000
         parent: root.overlay
 
         anchors {
             bottom: parent.bottom
-            left: parent.left
-            right: parent.right
+            margins: Kirigami.Units.largeSpacing
+            horizontalCenter: parent.horizontalCenter
         }
 
-        ToolBar {
-            id: toolbar
-
-            Layout.margins: Kirigami.Units.largeSpacing
-            Layout.alignment:Qt.AlignHCenter
-            background: ToolbarBackground {}
-            RowLayout {
-                Loader { sourceComponent: textFormatGroup }
-                Kirigami.Separator {
-                    Layout.fillHeight: true
-                    Layout.margins: 0
-                }
-                Loader { sourceComponent: listFormatGroup }
-                Loader { sourceComponent: listStyleGroup }
-                Kirigami.Separator {
-                    Layout.fillHeight: true
-                    Layout.margins: 0
-                }
-                Loader { sourceComponent: insertGroup }
-                Kirigami.Separator {
-                    Layout.fillHeight: true
-                    Layout.margins: 0
-                }
-                Loader { sourceComponent: headingGroup }
+        contentItem: RowLayout {
+            Loader { sourceComponent: textFormatGroup }
+            Kirigami.Separator {
+                Layout.fillHeight: true
+                Layout.margins: 0
             }
+            Loader { sourceComponent: listFormatGroup }
+            Loader { sourceComponent: listStyleGroup }
+            Kirigami.Separator {
+                Layout.fillHeight: true
+                Layout.margins: 0
+            }
+            Loader { sourceComponent: insertGroup }
+            Kirigami.Separator {
+                Layout.fillHeight: true
+                Layout.margins: 0
+            }
+            Loader { sourceComponent: headingGroup }
         }
     }
 

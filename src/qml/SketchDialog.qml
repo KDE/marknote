@@ -71,41 +71,85 @@ Controls.Dialog {
             }
         }
     }
-    RowLayout {
+
+    Components.FloatingToolBar {
         id: colorToolBarContainer
+
         z: 600000
 
         anchors {
             top: parent.top
-            left: parent.left
-            right: parent.right
+            margins: Kirigami.Units.largeSpacing
+            horizontalCenter: parent.horizontalCenter
         }
 
-        Controls.ToolBar {
-            id: colorToolbar
+        contentItem: RowLayout {
+            id: colorLayout
 
-            Layout.margins: Kirigami.Units.largeSpacing
-            Layout.alignment:Qt.AlignHCenter
+            Controls.ButtonGroup {
+                buttons: colorLayout.children
+            }
 
-            background: ToolbarBackground{}
-            RowLayout {
-                id: colorLayout
-                Controls.ButtonGroup {
-                    buttons: colorLayout.children
+            Controls.ToolButton {
+                id: eraserButton
+                implicitHeight: Kirigami.Units.gridUnit * 2
+                autoExclusive: true
+                checkable: true
+                background.visible: false
+                contentItem: Item {
+                    width: height
+                    Kirigami.ShadowedRectangle {
+                        anchors.centerIn: parent
+                        color: "white"
+                        radius: Kirigami.Units.mediumSpacing
+                        width: eraserButton.checked ? parent.width - 10 : parent.width  - 4
+                        height: width
+                        border{
+                            width: 1
+                            color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
+                        }
+                        shadow {
+                            size: 5
+                            yOffset: 3
+                            color: Qt.rgba(0, 0, 0, 0.2)
+                        }
+
+                        Behavior on width {
+                            NumberAnimation {
+                                duration: Kirigami.Units.shortDuration
+                                easing.type: Easing.InOutQuart
+                            }
+                        }
+                    }
+                }
+            }
+
+            Repeater {
+                model: ListModel {
+                    ListElement { color: "#1A1B1D" }
+                    ListElement { color: "#de324c" }
+                    ListElement { color: "#f4895f" }
+                    ListElement { color: "#f8e16f" }
+                    ListElement { color: "#95cf92" }
+                    ListElement { color: "#369acc" }
+                    ListElement { color: "#9656a2" }
+
                 }
                 Controls.ToolButton {
-                    id: eraserButton
+                    id: delegate
                     implicitHeight: Kirigami.Units.gridUnit * 2
                     autoExclusive: true
                     checkable: true
+                    onClicked: canvas.color = color
+                    required property string color
                     background.visible: false
                     contentItem: Item {
                         width: height
                         Kirigami.ShadowedRectangle {
                             anchors.centerIn: parent
-                            color: "white"
+                            color: delegate.color
                             radius: Kirigami.Units.mediumSpacing
-                            width: eraserButton.checked ? parent.width - 10 : parent.width  - 4
+                            width: delegate.checked ? parent.width - 10 : parent.width  - 4
                             height: width
                             border{
                                 width: 1
@@ -126,117 +170,56 @@ Controls.Dialog {
                         }
                     }
                 }
-
-                Repeater {
-                    model: ListModel {
-                        ListElement { color: "#1A1B1D" }
-                        ListElement { color: "#de324c" }
-                        ListElement { color: "#f4895f" }
-                        ListElement { color: "#f8e16f" }
-                        ListElement { color: "#95cf92" }
-                        ListElement { color: "#369acc" }
-                        ListElement { color: "#9656a2" }
-
-                    }
-                    Controls.ToolButton {
-                        id: delegate
-                        implicitHeight: Kirigami.Units.gridUnit * 2
-                        autoExclusive: true
-                        checkable: true
-                        onClicked: canvas.color = color
-                        required property string color
-                        background.visible: false
-                        contentItem: Item {
-                            width: height
-                            Kirigami.ShadowedRectangle {
-                                anchors.centerIn: parent
-                                color: delegate.color
-                                radius: Kirigami.Units.mediumSpacing
-                                width: delegate.checked ? parent.width - 10 : parent.width  - 4
-                                height: width
-                                border{
-                                    width: 1
-                                    color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
-                                }
-                                shadow {
-                                    size: 5
-                                    yOffset: 3
-                                    color: Qt.rgba(0, 0, 0, 0.2)
-                                }
-
-                                Behavior on width {
-                                    NumberAnimation {
-                                        duration: Kirigami.Units.shortDuration
-                                        easing.type: Easing.InOutQuart
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
             }
         }
     }
-    RowLayout {
+
+    Components.FloatingToolBar {
         id: widthToolBarContainer
+
         z: 600000
 
         anchors {
-            top: parent.top
             left: parent.left
-            bottom: parent.bottom
+            verticalCenter: parent.verticalCenter
+            margins: Kirigami.Units.largeSpacing
         }
 
-        Controls.ToolBar {
-            id: widthToolbar
+        contentItem: ColumnLayout {
+            id: widthLayout
 
-            Layout.margins: Kirigami.Units.largeSpacing
-            Layout.alignment:Qt.AlignHCenter
+            Controls.ButtonGroup {
+                buttons: widthLayout.children
+            }
 
-            background: ToolbarBackground{}
+            Repeater {
+                model: ListModel {
+                    ListElement { strokeWidth: 2 }
+                    ListElement { strokeWidth: 4 }
+                    ListElement { strokeWidth: 6 }
+                    ListElement { strokeWidth: 8 }
 
-            ColumnLayout {
-                id: widthLayout
-                Controls.ButtonGroup {
-                    buttons: widthLayout.children
                 }
+                Controls.ToolButton {
+                    id: widthDelegate
+                    implicitHeight: Kirigami.Units.gridUnit * 2
+                    autoExclusive: true
+                    checkable: true
+                    onClicked: canvas.strokeWidth = strokeWidth
+                    required property int strokeWidth
+                    contentItem: Item {
+                        width: height
+                        Kirigami.ShadowedRectangle {
+                            anchors.centerIn: parent
+                            color: "black"
+                            radius: 200
+                            width: widthDelegate.strokeWidth * 2
+                            height: width
 
-                Repeater {
-                    model: ListModel {
-                        ListElement { strokeWidth: 2 }
-                        ListElement { strokeWidth: 4 }
-                        ListElement { strokeWidth: 6 }
-                        ListElement { strokeWidth: 8 }
-
-                    }
-                    Controls.ToolButton {
-                        id: widthDelegate
-                        implicitHeight: Kirigami.Units.gridUnit * 2
-                        autoExclusive: true
-                        checkable: true
-                        onClicked: canvas.strokeWidth = strokeWidth
-                        required property int strokeWidth
-//                        background.visible: false
-                        contentItem: Item {
-                            width: height
-                            Kirigami.ShadowedRectangle {
-                                anchors.centerIn: parent
-                                color: "black"
-                                radius: 200
-                                width: widthDelegate.strokeWidth * 2
-                                height: width
-
-//                                shadow {
-//                                    size: 3
-//                                    yOffset: 3
-//                                    color: Qt.rgba(0, 0, 0, 0.2)
-//                                }
-
-                                Behavior on width {
-                                    NumberAnimation {
-                                        duration: Kirigami.Units.shortDuration
-                                        easing.type: Easing.InOutQuart
-                                    }
+                            Behavior on width {
+                                NumberAnimation {
+                                    duration: Kirigami.Units.shortDuration
+                                    easing.type: Easing.InOutQuart
                                 }
                             }
                         }
@@ -246,43 +229,35 @@ Controls.Dialog {
         }
     }
 
-    RowLayout {
+    Components.FloatingToolBar {
         id: bottomToolBarContainer
+
         z: 600000
 
         anchors {
-            right: parent.right
-            left: parent.left
             bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
+            margins: Kirigami.Units.largeSpacing
         }
 
-        Controls.ToolBar {
-            id: bottomToolbar
-
-            Layout.margins: Kirigami.Units.largeSpacing
-            Layout.alignment:Qt.AlignHCenter
-
-            background: ToolbarBackground{}
-
-            RowLayout{
-                Controls.ToolButton {
-                    text: "Cancel"
-                    icon.name: "dialog-close"
-                    onClicked:{
-                        root.close()
-                    }
+        contentItem: RowLayout{
+            Controls.ToolButton {
+                text: "Cancel"
+                icon.name: "dialog-close"
+                onClicked:{
+                    root.close()
                 }
-                Controls.ToolButton {
-                    id: saveButton
-                    property string imagePath
-                    text: "Save"
-                    icon.name: "answer-correct"
-                    onClicked:{
-                        var notepath = root.notePath.slice(7, -3)
-                        imagePath = notepath + Math.random(1000) +".png"
-                        print(canvas.save(imagePath))
-                        root.close()
-                    }
+            }
+            Controls.ToolButton {
+                id: saveButton
+                property string imagePath
+                text: "Save"
+                icon.name: "answer-correct"
+                onClicked:{
+                    var notepath = root.notePath.slice(7, -3)
+                    imagePath = notepath + Math.random(1000) +".png"
+                    print(canvas.save(imagePath))
+                    root.close()
                 }
             }
         }
