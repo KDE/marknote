@@ -47,6 +47,8 @@ int main(int argc, char *argv[])
 #endif
     KLocalizedString::setApplicationDomain("marknote");
 
+    QCommandLineParser parser;
+
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.marknote")));
 
     KAboutData about(QStringLiteral("marknote"),
@@ -68,6 +70,10 @@ int main(int argc, char *argv[])
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(about);
+
+    about.setupCommandLine(&parser);
+    parser.process(app);
+    about.processCommandLine(&parser);
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
