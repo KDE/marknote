@@ -545,6 +545,15 @@ Kirigami.Page {
             textFormat: TextEdit.MarkdownText
             wrapMode: TextEdit.Wrap
 
+            TableActionHelper {
+                id: tableHelper
+
+                document: textArea.textDocument
+                cursorPosition: textArea.cursorPosition
+                selectionStart: textArea.selectionStart
+                selectionEnd: textArea.selectionEnd
+            }
+
             DocumentHandler {
                 id: document
 
@@ -636,5 +645,6 @@ Kirigami.Page {
 
     TextFieldContextMenu {
         id: textFieldContextMenu
+        tableActionHelper: tableHelper
     }
 }

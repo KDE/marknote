@@ -11,6 +11,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.sonnet as Sonnet
+import org.kde.marknote
 
 QQC2.Menu {
     id: root
@@ -21,6 +22,7 @@ QQC2.Menu {
     property int restoredSelectionStart
     property int restoredSelectionEnd
     property bool persistentSelectionSetting
+    required property TableActionHelper tableActionHelper
 
     // assuming that Instantiator::active is bound to target.Kirigami.SpellCheck.enabled
     property Instantiator/*<Sonnet.SpellcheckHighlighter>*/ spellcheckHighlighterInstantiator
@@ -190,7 +192,7 @@ QQC2.Menu {
         action: QQC2.Action {
             enabled: false
             text: root.spellcheckHighlighter
-                ? qsTr('No Suggestions for "%1"')
+                ? i18nc("@action:inmenu", 'No Suggestions for "%1"')
                     .arg(root.spellcheckHighlighter.wordUnderMouse)
                 : ""
         }
@@ -204,7 +206,7 @@ QQC2.Menu {
         visible: root.__showSpellcheckActions()
         action: QQC2.Action {
             text: root.spellcheckHighlighter
-                ? qsTr('Add "%1" to Dictionary')
+                ? i18nc("@action:inmenu", 'Add "%1" to Dictionary')
                     .arg(root.spellcheckHighlighter.wordUnderMouse)
                 : ""
 
@@ -220,7 +222,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         visible: root.__showSpellcheckActions()
         action: QQC2.Action {
-            text: qsTr("Ignore")
+            text: i18nc("@action:inmenu", "Ignore")
             onTriggered: {
                 root.deselectWhenMenuClosed = false;
                 root.runOnMenuClose = () => {
@@ -235,7 +237,7 @@ QQC2.Menu {
 
         checkable: true
         checked: root.target?.Kirigami.SpellCheck.enabled ?? false
-        text: qsTr("Spell Check")
+        text: i18nc("@action:inmenu", "Spell Check")
 
         onToggled: {
             if (root.target) {
@@ -249,10 +251,60 @@ QQC2.Menu {
             && (root.__editable() || root.__showPasswordRestrictedActions())
     }
 
+    QQC2.Menu {
+        title: i18nc("@inmenu", "Insert")
+
+        KActionFromAction {
+            action: tableActionHelper.actionInsertRowAbove
+        }
+
+        KActionFromAction {
+            action: tableActionHelper.actionInsertRowBelow
+        }
+
+        QQC2.MenuSeparator {}
+
+        KActionFromAction {
+            action: tableActionHelper.actionInsertColumnBefore
+        }
+
+        KActionFromAction {
+            action: tableActionHelper.actionInsertColumnAfter
+        }
+    }
+
+    QQC2.MenuSeparator {}
+
+    QQC2.Menu {
+        title: i18nc("@inmenu", "Remove")
+
+        KActionFromAction {
+            action: tableActionHelper.actionRemoveRowAbove
+        }
+
+        KActionFromAction {
+            action: tableActionHelper.actionRemoveRowBelow
+        }
+
+        QQC2.MenuSeparator {}
+
+        KActionFromAction {
+            action: tableActionHelper.actionRemoveColumnBefore
+        }
+
+        KActionFromAction {
+            action: tableActionHelper.actionRemoveColumnAfter
+        }
+
+        KActionFromAction {
+            action: tableActionHelper.actionRemoveCellContents
+        }
+    }
+
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-undo-symbolic"
-            text: qsTr("Undo")
+            text: i18nc("@action:inmenu", "Undo")
             shortcut: StandardKey.Undo
         }
         visible: root.__showPasswordRestrictedEditingActions()
@@ -267,7 +319,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-redo-symbolic"
-            text: qsTr("Redo")
+            text: i18nc("@action:inmenu", "Redo")
             shortcut: StandardKey.Redo
         }
         visible: root.__showPasswordRestrictedEditingActions()
@@ -285,7 +337,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-cut-symbolic"
-            text: qsTr("Cut")
+            text: i18nc("@action:inmenu", "Cut")
             shortcut: StandardKey.Cut
         }
         visible: root.__showPasswordRestrictedEditingActions()
@@ -300,7 +352,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-copy-symbolic"
-            text: qsTr("Copy")
+            text: i18nc("@action:inmenu", "Copy")
             shortcut: StandardKey.Copy
         }
         visible: root.__showPasswordRestrictedActions()
@@ -315,7 +367,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-paste-symbolic"
-            text: qsTr("Paste")
+            text: i18nc("@action:inmenu", "Paste")
             shortcut: StandardKey.Paste
         }
         visible: root.__editable()
@@ -330,7 +382,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-delete-symbolic"
-            text: qsTr("Delete")
+            text: i18nc("@action:inmenu", "Delete")
             shortcut: StandardKey.Delete
         }
         visible: root.__editable()
@@ -349,7 +401,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-select-all-symbolic"
-            text: qsTr("Select All")
+            text: i18nc("@action:inmenu", "Select All")
             shortcut: StandardKey.SelectAll
         }
         visible: root.target !== null

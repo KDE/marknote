@@ -45,6 +45,7 @@ qt_add_qml_module(marknote_static STATIC
         application.cpp
         actionsmodel.cpp
         commandbarfiltermodel.cpp
+        tableactionhelper.cpp
         config.cpp
 )
 
