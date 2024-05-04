@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-03 00:38+0000\n"
+"POT-Creation-Date: 2024-05-04 00:40+0000\n"
 "PO-Revision-Date: 2024-04-02 03:36+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -102,79 +102,79 @@ msgstr "Ezin du oharra berrizendatu. Izen bera duen ohar bat dago."
 msgid "Focus Mode"
 msgstr ""
 
-#: qml/EditPage.qml:102
+#: qml/EditPage.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Lodia"
 
-#: qml/EditPage.qml:121
+#: qml/EditPage.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Etzana"
 
-#: qml/EditPage.qml:140
+#: qml/EditPage.qml:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Azpimarra"
 
-#: qml/EditPage.qml:154
+#: qml/EditPage.qml:158
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Marratua"
 
-#: qml/EditPage.qml:174
+#: qml/EditPage.qml:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Handiagotu zerrenda-maila"
 
-#: qml/EditPage.qml:189
+#: qml/EditPage.qml:201
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Txikiagotu zerrenda-maila"
 
-#: qml/EditPage.qml:213
+#: qml/EditPage.qml:225
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Zerrenda ez"
 
-#: qml/EditPage.qml:214
+#: qml/EditPage.qml:226
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Zerrenda ez-ordenatua"
 
-#: qml/EditPage.qml:215
+#: qml/EditPage.qml:227
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Zerrenda ordenatua"
 
-#: qml/EditPage.qml:225
+#: qml/EditPage.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Txertatu hautapen-laukia"
 
-#: qml/EditPage.qml:240
+#: qml/EditPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Txertatu esteka"
 
-#: qml/EditPage.qml:256
+#: qml/EditPage.qml:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Txertatu irudia"
 
-#: qml/EditPage.qml:269
+#: qml/EditPage.qml:281
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert image"
@@ -182,59 +182,59 @@ msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Txertatu irudia"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:301
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Oinarrizko testua"
 
-#: qml/EditPage.qml:290
+#: qml/EditPage.qml:302
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Titulua"
 
-#: qml/EditPage.qml:291
+#: qml/EditPage.qml:303
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Azpititulua"
 
-#: qml/EditPage.qml:292
+#: qml/EditPage.qml:304
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Atala"
 
-#: qml/EditPage.qml:293
+#: qml/EditPage.qml:305
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Azpiatala"
 
-#: qml/EditPage.qml:294
+#: qml/EditPage.qml:306
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragrafoa"
 
-#: qml/EditPage.qml:295
+#: qml/EditPage.qml:307
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Azpiparagrafoa"
 
-#: qml/EditPage.qml:387
+#: qml/EditPage.qml:399
 #, kde-format
 msgid "Format"
 msgstr ""
 
-#: qml/EditPage.qml:390
+#: qml/EditPage.qml:402
 #, kde-format
 msgid "Lists"
 msgstr ""
 
-#: qml/EditPage.qml:393
+#: qml/EditPage.qml:405
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"

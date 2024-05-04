@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-03 00:38+0000\n"
-"PO-Revision-Date: 2024-04-28 08:33+0300\n"
+"POT-Creation-Date: 2024-05-04 00:40+0000\n"
+"PO-Revision-Date: 2024-05-03 07:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -99,142 +99,140 @@ msgstr "Не вдалося перейменувати нотатку. Нота�
 msgid "Focus Mode"
 msgstr "Режим фокусування"
 
-#: qml/EditPage.qml:102
+#: qml/EditPage.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Жирний"
 
-#: qml/EditPage.qml:121
+#: qml/EditPage.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Курсив"
 
-#: qml/EditPage.qml:140
+#: qml/EditPage.qml:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Підкреслити"
 
-#: qml/EditPage.qml:154
+#: qml/EditPage.qml:158
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Перекреслення"
 
-#: qml/EditPage.qml:174
+#: qml/EditPage.qml:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Підвищити рівень у списку"
 
-#: qml/EditPage.qml:189
+#: qml/EditPage.qml:201
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Знизити рівень у списку"
 
-#: qml/EditPage.qml:213
+#: qml/EditPage.qml:225
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Не є списком"
 
-#: qml/EditPage.qml:214
+#: qml/EditPage.qml:226
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Невпорядкований список"
 
-#: qml/EditPage.qml:215
+#: qml/EditPage.qml:227
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Впорядкований список"
 
-#: qml/EditPage.qml:225
+#: qml/EditPage.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Вставити поле для позначки"
 
-#: qml/EditPage.qml:240
+#: qml/EditPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Вставити посилання"
 
-#: qml/EditPage.qml:256
+#: qml/EditPage.qml:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Вставити зображення"
 
-#: qml/EditPage.qml:269
+#: qml/EditPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Вставити таблицю"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:301
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Основний текст"
 
-#: qml/EditPage.qml:290
+#: qml/EditPage.qml:302
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Заголовок"
 
-#: qml/EditPage.qml:291
+#: qml/EditPage.qml:303
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Підзаголовок"
 
-#: qml/EditPage.qml:292
+#: qml/EditPage.qml:304
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Розділ"
 
-#: qml/EditPage.qml:293
+#: qml/EditPage.qml:305
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Підрозділ"
 
-#: qml/EditPage.qml:294
+#: qml/EditPage.qml:306
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Абзац"
 
-#: qml/EditPage.qml:295
+#: qml/EditPage.qml:307
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Підпараграф"
 
-#: qml/EditPage.qml:387
+#: qml/EditPage.qml:399
 #, kde-format
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
-#: qml/EditPage.qml:390
+#: qml/EditPage.qml:402
 #, kde-format
 msgid "Lists"
-msgstr ""
+msgstr "Списки"
 
-#: qml/EditPage.qml:393
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#: qml/EditPage.qml:405
+#, kde-format
 msgid "Insert"
-msgstr "Вставити посилання"
+msgstr "Вставити"
 
 #: qml/ImageDialog.qml:18
 #, kde-format

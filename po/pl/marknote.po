@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-03 00:38+0000\n"
+"POT-Creation-Date: 2024-05-04 00:40+0000\n"
 "PO-Revision-Date: 2024-04-28 12:27+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -99,137 +99,137 @@ msgstr "Nie można przemianować notatki. Notatka o takiej nazwie już istnieje.
 msgid "Focus Mode"
 msgstr "Tryb skupienia"
 
-#: qml/EditPage.qml:102
+#: qml/EditPage.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Pogrubienie"
 
-#: qml/EditPage.qml:121
+#: qml/EditPage.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kursywa"
 
-#: qml/EditPage.qml:140
+#: qml/EditPage.qml:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Podkreśl"
 
-#: qml/EditPage.qml:154
+#: qml/EditPage.qml:158
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Przekreślenie"
 
-#: qml/EditPage.qml:174
+#: qml/EditPage.qml:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Zwiększ poziom listy"
 
-#: qml/EditPage.qml:189
+#: qml/EditPage.qml:201
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Zmniejsz poziom listy"
 
-#: qml/EditPage.qml:213
+#: qml/EditPage.qml:225
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Bez listy"
 
-#: qml/EditPage.qml:214
+#: qml/EditPage.qml:226
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Nieuporządkowana lista"
 
-#: qml/EditPage.qml:215
+#: qml/EditPage.qml:227
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Uporządkowana lista"
 
-#: qml/EditPage.qml:225
+#: qml/EditPage.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Wstaw pole wyboru"
 
-#: qml/EditPage.qml:240
+#: qml/EditPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Wstaw odnośnik"
 
-#: qml/EditPage.qml:256
+#: qml/EditPage.qml:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Wstaw obraz"
 
-#: qml/EditPage.qml:269
+#: qml/EditPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Wstaw tabelę"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:301
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Podstawowy tekst"
 
-#: qml/EditPage.qml:290
+#: qml/EditPage.qml:302
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Tytuł"
 
-#: qml/EditPage.qml:291
+#: qml/EditPage.qml:303
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Podtytuł"
 
-#: qml/EditPage.qml:292
+#: qml/EditPage.qml:304
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Rozdział"
 
-#: qml/EditPage.qml:293
+#: qml/EditPage.qml:305
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Podrozdział"
 
-#: qml/EditPage.qml:294
+#: qml/EditPage.qml:306
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Akapit"
 
-#: qml/EditPage.qml:295
+#: qml/EditPage.qml:307
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Podakapit"
 
-#: qml/EditPage.qml:387
+#: qml/EditPage.qml:399
 #, kde-format
 msgid "Format"
 msgstr ""
 
-#: qml/EditPage.qml:390
+#: qml/EditPage.qml:402
 #, kde-format
 msgid "Lists"
 msgstr ""
 
-#: qml/EditPage.qml:393
+#: qml/EditPage.qml:405
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
