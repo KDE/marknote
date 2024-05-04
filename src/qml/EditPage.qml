@@ -213,6 +213,16 @@ Kirigami.Page {
         enabled: root.listIndent
     }
 
+    Kirigami.Action {
+        id: dedentAction
+        icon.name: "format-indent-less"
+        text: i18nc("@action:button", "Decrease List Level")
+        onTrigerred: {
+            document.indentListLess();
+        }
+        enabled: root.listDedent
+    }
+
     Component {
         id: listFormatGroup
 
@@ -228,14 +238,8 @@ Kirigami.Page {
             }
 
             ToolButton {
-                id: dedentAction
-                icon.name: "format-indent-less"
-                text: i18nc("@action:button", "Decrease List Level")
+                action: dedentAction
                 display: AbstractButton.IconOnly
-                onClicked: {
-                    document.indentListLess();
-                }
-                enabled: root.listDedent
                 ToolTip.text: text
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
