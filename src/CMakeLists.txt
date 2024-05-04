@@ -5,6 +5,7 @@ qt_add_qml_module(marknote_static STATIC
     URI org.kde.marknote
     QML_FILES
         qml/Main.qml
+        qml/MainEditor.qml
         qml/NotesPage.qml
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml

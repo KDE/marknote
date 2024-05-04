@@ -77,7 +77,17 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    engine.loadFromModule(u"org.kde.marknote"_s, u"Main"_s);
+
+    if (parser.positionalArguments().length() > 0) {
+        const auto path = parser.positionalArguments()[0];
+        if (QFile::exists(path)) {
+            engine.rootContext()->setContextProperty(u"cliNoteName"_s, path.split(QLatin1Char('/')).last().replace(u".md"_s, QString{}));
+            engine.rootContext()->setContextProperty(u"cliNoteFullPath"_s, QUrl::fromLocalFile(path));
+        }
+        engine.loadFromModule(u"org.kde.marknote"_s, u"MainEditor"_s);
+    } else {
+        engine.loadFromModule(u"org.kde.marknote"_s, u"Main"_s);
+    }
 
     if (engine.rootObjects().isEmpty()) {
         return -1;

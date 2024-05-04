@@ -26,14 +26,48 @@ Kirigami.Page {
     property bool checkbox: false
     property int listStyle
     property int heading
+    property bool singleDocumentMode: false
 
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
     bottomPadding: 0
 
+    // Only overwrite these values in MainEditor
+    property string noteName: NavigationController.noteName
+    property string noteFullPath: NavigationController.noteFullPath
+    property alias document: document
+
+    property bool init: false
+
+
+    function loadNote(): void {
+        if (root.oldPath.length > 0 && !saved) {
+            document.saveAs(root.oldPath);
+        }
+        if (root.noteFullPath.toString().length > 0) {
+            document.load(root.noteFullPath);
+            root.saved = true;
+        }
+        root.oldPath = root.noteFullPath;
+
+        textArea.forceActiveFocus();
+    }
+
+    Component.onCompleted: {
+        init = true;
+        loadNote();
+    }
+
+    onNoteFullPathChanged: () => {
+        if (!init) {
+            return;
+        }
+        loadNote();
+    }
+
     titleDelegate: RowLayout {
-        visible: NavigationController.noteName
+        visible: root.noteName
         Layout.fillWidth: true
         Item {
             width: fillWindowButton.width
@@ -48,14 +82,14 @@ Kirigami.Page {
             visible: !root.saved
         }
         Kirigami.Heading {
-            text: NavigationController.noteName
+            text: root.noteName
             type: root.saved? Kirigami.Heading.Type.Normal:Kirigami.Heading.Type.Primary
 
         }
         Item { Layout.fillWidth: true }
         ToolButton {
             id: fillWindowButton
-            visible: wideScreen
+            visible: wideScreen && !root.singleDocumentMode
             icon.name: "view-fullscreen"
             text: i18n("Focus Mode")
             display: AbstractButton.IconOnly
@@ -81,7 +115,7 @@ Kirigami.Page {
 
         parent: applicationWindow().overlay
         onAccepted: document.insertImage(imagePath)
-        notePath: NavigationController.noteFullPath
+        notePath: root.noteFullPath
     }
 
     TableDialog {
@@ -506,23 +540,6 @@ Kirigami.Page {
             textFormat: TextEdit.MarkdownText
             wrapMode: TextEdit.Wrap
 
-            Connections {
-                target: NavigationController
-
-                function onNotePathChanged(): void {
-                    if (oldPath.length > 0 && !saved) {
-                        document.saveAs(oldPath);
-                    }
-                    if (NavigationController.notePath.length > 0) {
-                        document.load(NavigationController.noteFullPath);
-                        root.saved = true;
-                    }
-                    oldPath = NavigationController.noteFullPath;
-
-                    textArea.forceActiveFocus();
-                }
-            }
-
             DocumentHandler {
                 id: document
 
@@ -545,17 +562,17 @@ Kirigami.Page {
                 onRedo: textArea.redo();
 
                 Component.onCompleted: {
-                    if (NavigationController.notePath.length > 0) {
-                        document.load(NavigationController.noteFullPath);
+                    if (root.noteFullPath.toString().length > 0) {
+                        document.load(root.noteFullPath);
                         root.saved = true;
-                        oldPath = NavigationController.noteFullPath;
+                        root.oldPath = root.noteFullPath;
                         textArea.forceActiveFocus();
                     }
                 }
 
                 Component.onDestruction: {
-                    if (!saved && NavigationController.notePath.length > 0) {
-                        document.saveAs(NavigationController.noteFullPath);
+                    if (!saved && root.noteFullPath.toString().length > 0) {
+                        document.saveAs(root.noteFullPath);
                     }
                 }
 
@@ -588,8 +605,8 @@ Kirigami.Page {
 
                 repeat: false
                 interval: 1000
-                onTriggered: if (NavigationController.notePath.length > 0) {
-                    document.saveAs(NavigationController.noteFullPath);
+                onTriggered: if (root.noteFullPath.toString().length > 0) {
+                    document.saveAs(root.noteFullPath);
                     saved = true;
                 }
             }

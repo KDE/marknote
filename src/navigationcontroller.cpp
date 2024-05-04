@@ -105,6 +105,9 @@ QString NavigationController::noteName() const
 
 QUrl NavigationController::noteFullPath() const
 {
+    if (m_notebookPath.isEmpty() || m_notePath.isEmpty()) {
+        return {};
+    }
     return QUrl::fromLocalFile(m_notebookPath + u'/' + m_notePath);
 }
 
