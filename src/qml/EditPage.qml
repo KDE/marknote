@@ -217,7 +217,7 @@ Kirigami.Page {
         id: dedentAction
         icon.name: "format-indent-less"
         text: i18nc("@action:button", "Decrease List Level")
-        onTrigerred: {
+        onTriggered: {
             document.indentListLess();
         }
         enabled: root.listDedent
