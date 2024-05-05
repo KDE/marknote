@@ -29,6 +29,7 @@ include(KDEClangFormat)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMQtDeclareLoggingCategory)
 include(KDEGitCommitHooks)
+include(ECMAddAppIcon)
 include(ECMAddTests)
 
 ecm_setup_version(${PROJECT_VERSION}
