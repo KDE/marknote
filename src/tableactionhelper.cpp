@@ -219,14 +219,6 @@ void TableActionHelper::setDocument(QQuickTextDocument *document)
 
     m_document = document;
 
-    if (m_document) {
-        connect(m_document, &QQuickTextDocument::textDocumentChanged, this, [this]() {
-            if (m_document->textDocument()) {
-                _k_updateActions(true);
-            }
-        });
-    }
-
     Q_EMIT documentChanged();
 }
 
