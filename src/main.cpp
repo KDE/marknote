@@ -4,6 +4,7 @@
 */
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedContext>
 #include <KLocalizedString>
 #include <QApplication>
@@ -37,6 +38,8 @@ int main(int argc, char *argv[])
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
+
+    KCrash::initialize();
 
 #ifdef WITH_BREEZEICONS_LIB
     BreezeIcons::initIcons();

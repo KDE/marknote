@@ -64,6 +64,7 @@ target_link_libraries(marknote_static PUBLIC
     KF6::CoreAddons
     KF6::ColorScheme
     KF6::XmlGui
+    KF6::Crash
 )
 
 if (TARGET md4c::md4c-html)
