@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
+    QIcon::setFallbackThemeName(u"breeze"_s);
     QApplication app(argc, argv);
     // Default to org.kde.desktop style unless the user forces another style
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
@@ -56,6 +57,11 @@ int main(int argc, char *argv[])
     font.setPointSize(10);
     app.setFont(font);
 #endif
+
+#ifdef Q_OS_MACOS
+    QApplication::setStyle(QStringLiteral("breeze"));
+#endif
+
     KLocalizedString::setApplicationDomain("marknote");
 
     QCommandLineParser parser;
