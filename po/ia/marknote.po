@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-04 00:40+0000\n"
+"POT-Creation-Date: 2024-05-05 00:39+0000\n"
 "PO-Revision-Date: 2024-04-29 15:31+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -44,44 +44,44 @@ msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nove Nota"
 
-#: main.cpp:53 qml/Main.qml:297
+#: main.cpp:55 qml/Main.qml:297
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:55
+#: main.cpp:57
 #, kde-format
 msgid "Note taking application"
 msgstr "Application per prender notas"
 
-#: main.cpp:57
+#: main.cpp:59
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:58
+#: main.cpp:60
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:59 main.cpp:64
+#: main.cpp:61 main.cpp:66
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantenitor"
 
-#: main.cpp:63
+#: main.cpp:65
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:68
+#: main.cpp:70
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Giovanni Sora"
 
-#: main.cpp:68
+#: main.cpp:70
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -93,142 +93,142 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Incapace a renominar nota. Un nota ja existe con le mesme nomine."
 
-#: qml/EditPage.qml:60
+#: qml/EditPage.qml:92
 #, kde-format
 msgid "Focus Mode"
 msgstr "Modo de Foco"
 
-#: qml/EditPage.qml:106
+#: qml/EditPage.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Grasse"
 
-#: qml/EditPage.qml:125
+#: qml/EditPage.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Italic"
 
-#: qml/EditPage.qml:144
+#: qml/EditPage.qml:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Sublinea"
 
-#: qml/EditPage.qml:158
+#: qml/EditPage.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Barrate"
 
-#: qml/EditPage.qml:176
+#: qml/EditPage.qml:208
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Augmenta nivello de lista"
 
-#: qml/EditPage.qml:201
+#: qml/EditPage.qml:219
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Decrementa nivello de lista"
 
-#: qml/EditPage.qml:225
+#: qml/EditPage.qml:261
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Nulle lista"
 
-#: qml/EditPage.qml:226
+#: qml/EditPage.qml:262
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Lista non ordinate"
 
-#: qml/EditPage.qml:227
+#: qml/EditPage.qml:263
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Lista ordinate"
 
-#: qml/EditPage.qml:237
+#: qml/EditPage.qml:273
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Inserta Quadrato de Selection"
 
-#: qml/EditPage.qml:252
+#: qml/EditPage.qml:288
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Inserta ligamine"
 
-#: qml/EditPage.qml:268
+#: qml/EditPage.qml:304
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Inserta imagine"
 
-#: qml/EditPage.qml:281
+#: qml/EditPage.qml:317
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Inserta tabella"
 
-#: qml/EditPage.qml:301
+#: qml/EditPage.qml:337
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Texto Basic"
 
-#: qml/EditPage.qml:302
+#: qml/EditPage.qml:338
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Titulo"
 
-#: qml/EditPage.qml:303
+#: qml/EditPage.qml:339
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Sub-Titulo"
 
-#: qml/EditPage.qml:304
+#: qml/EditPage.qml:340
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Section"
 
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:341
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Sub-section"
 
-#: qml/EditPage.qml:306
+#: qml/EditPage.qml:342
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragrapho"
 
-#: qml/EditPage.qml:307
+#: qml/EditPage.qml:343
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Sub-paragrapho"
 
-#: qml/EditPage.qml:399
+#: qml/EditPage.qml:435
 #, kde-format
 msgid "Format"
 msgstr ""
 
-#: qml/EditPage.qml:402
+#: qml/EditPage.qml:439
 #, kde-format
 msgid "Lists"
 msgstr ""
 
-#: qml/EditPage.qml:405
+#: qml/EditPage.qml:443
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -530,10 +530,105 @@ msgctxt "@label:textbox"
 msgid "Number of Columns:"
 msgstr "Numero de columnas:"
 
+#: qml/TextFieldContextMenu.qml:225
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:240
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:255
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Insert link"
+msgctxt "@inmenu"
+msgid "Insert"
+msgstr "Inserta ligamine"
+
+#: qml/TextFieldContextMenu.qml:279
+#, kde-format
+msgctxt "@inmenu"
+msgid "Remove"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:307
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:322
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:340
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:355
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:370
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:385
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Note"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Dele Nota"
+
+#: qml/TextFieldContextMenu.qml:404
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr ""
+
 #: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Initia a crear tu prime quaderno!"
+
+#: tableactionhelper.cpp:148 tableactionhelper.cpp:173
+#, kde-format
+msgid "Row Below"
+msgstr ""
+
+#: tableactionhelper.cpp:154 tableactionhelper.cpp:179
+#, kde-format
+msgid "Row Above"
+msgstr ""
+
+#: tableactionhelper.cpp:160 tableactionhelper.cpp:185
+#, kde-format
+msgid "Column Before"
+msgstr ""
+
+#: tableactionhelper.cpp:167 tableactionhelper.cpp:192
+#, kde-format
+msgid "Column After"
+msgstr ""
+
+#: tableactionhelper.cpp:198
+#, kde-format
+msgid "Cell Contents"
+msgstr ""
 
 #~ msgid "New Note (%1)"
 #~ msgstr "Nove Nota (%1)"

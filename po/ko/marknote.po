@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-04 00:40+0000\n"
+"POT-Creation-Date: 2024-05-05 00:39+0000\n"
 "PO-Revision-Date: 2024-02-10 00:18+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -46,45 +46,45 @@ msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "새 메모"
 
-#: main.cpp:53 qml/Main.qml:297
+#: main.cpp:55 qml/Main.qml:297
 #, fuzzy, kde-format
 #| msgid "Marknote"
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:55
+#: main.cpp:57
 #, kde-format
 msgid "Note taking application"
 msgstr "메모 작성 프로그램"
 
-#: main.cpp:57
+#: main.cpp:59
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:58
+#: main.cpp:60
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:59 main.cpp:64
+#: main.cpp:61 main.cpp:66
 #, kde-format
 msgid "Maintainer"
 msgstr "관리자"
 
-#: main.cpp:63
+#: main.cpp:65
 #, kde-format
 msgid "Carl Schwan"
 msgstr ""
 
-#: main.cpp:68
+#: main.cpp:70
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "박신조"
 
-#: main.cpp:68
+#: main.cpp:70
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -96,145 +96,145 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 
-#: qml/EditPage.qml:60
+#: qml/EditPage.qml:92
 #, kde-format
 msgid "Focus Mode"
 msgstr ""
 
-#: qml/EditPage.qml:106
+#: qml/EditPage.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "굵게"
 
-#: qml/EditPage.qml:125
+#: qml/EditPage.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "이탤릭"
 
-#: qml/EditPage.qml:144
+#: qml/EditPage.qml:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "밑줄"
 
-#: qml/EditPage.qml:158
+#: qml/EditPage.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "취소선"
 
-#: qml/EditPage.qml:176
+#: qml/EditPage.qml:208
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr ""
 
-#: qml/EditPage.qml:201
+#: qml/EditPage.qml:219
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr ""
 
-#: qml/EditPage.qml:225
+#: qml/EditPage.qml:261
 #, fuzzy, kde-format
 #| msgid "Add list"
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "목록 추가"
 
-#: qml/EditPage.qml:226
+#: qml/EditPage.qml:262
 #, fuzzy, kde-format
 #| msgid "Add numbered list"
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "번호 매긴 목록 추가"
 
-#: qml/EditPage.qml:227
+#: qml/EditPage.qml:263
 #, fuzzy, kde-format
 #| msgid "Add numbered list"
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "번호 매긴 목록 추가"
 
-#: qml/EditPage.qml:237
+#: qml/EditPage.qml:273
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr ""
 
-#: qml/EditPage.qml:252
+#: qml/EditPage.qml:288
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr ""
 
-#: qml/EditPage.qml:268
+#: qml/EditPage.qml:304
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr ""
 
-#: qml/EditPage.qml:281
+#: qml/EditPage.qml:317
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr ""
 
-#: qml/EditPage.qml:301
+#: qml/EditPage.qml:337
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr ""
 
-#: qml/EditPage.qml:302
+#: qml/EditPage.qml:338
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr ""
 
-#: qml/EditPage.qml:303
+#: qml/EditPage.qml:339
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr ""
 
-#: qml/EditPage.qml:304
+#: qml/EditPage.qml:340
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr ""
 
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:341
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr ""
 
-#: qml/EditPage.qml:306
+#: qml/EditPage.qml:342
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr ""
 
-#: qml/EditPage.qml:307
+#: qml/EditPage.qml:343
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr ""
 
-#: qml/EditPage.qml:399
+#: qml/EditPage.qml:435
 #, kde-format
 msgid "Format"
 msgstr ""
 
-#: qml/EditPage.qml:402
+#: qml/EditPage.qml:439
 #, kde-format
 msgid "Lists"
 msgstr ""
 
-#: qml/EditPage.qml:405
+#: qml/EditPage.qml:443
 #, kde-format
 msgid "Insert"
 msgstr ""
@@ -548,10 +548,102 @@ msgctxt "@label:textbox"
 msgid "Number of Columns:"
 msgstr ""
 
+#: qml/TextFieldContextMenu.qml:225
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:240
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:255
+#, kde-format
+msgctxt "@inmenu"
+msgid "Insert"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:279
+#, kde-format
+msgctxt "@inmenu"
+msgid "Remove"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:307
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:322
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:340
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:355
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:370
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:385
+#, fuzzy, kde-format
+#| msgid "Delete Note"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "메모 삭제"
+
+#: qml/TextFieldContextMenu.qml:404
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr ""
+
 #: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "첫 공책을 만들어서 시작하십시오!"
+
+#: tableactionhelper.cpp:148 tableactionhelper.cpp:173
+#, kde-format
+msgid "Row Below"
+msgstr ""
+
+#: tableactionhelper.cpp:154 tableactionhelper.cpp:179
+#, kde-format
+msgid "Row Above"
+msgstr ""
+
+#: tableactionhelper.cpp:160 tableactionhelper.cpp:185
+#, kde-format
+msgid "Column Before"
+msgstr ""
+
+#: tableactionhelper.cpp:167 tableactionhelper.cpp:192
+#, kde-format
+msgid "Column After"
+msgstr ""
+
+#: tableactionhelper.cpp:198
+#, kde-format
+msgid "Cell Contents"
+msgstr ""
 
 #~ msgid "New Note (%1)"
 #~ msgstr "새 메모(%1)"
