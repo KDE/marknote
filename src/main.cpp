@@ -4,6 +4,7 @@
 */
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedContext>
 #include <KLocalizedString>
 #include <QApplication>
@@ -20,6 +21,10 @@
 #include <Windows.h>
 #endif
 
+#ifdef WITH_BREEZEICONS_LIB
+#include <BreezeIcons>
+#endif
+
 using namespace Qt::Literals::StringLiterals;
 
 int main(int argc, char *argv[])
@@ -34,6 +39,12 @@ int main(int argc, char *argv[])
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
 
+    KCrash::initialize();
+
+#ifdef WITH_BREEZEICONS_LIB
+    BreezeIcons::initIcons();
+#endif
+
 #ifdef Q_OS_WINDOWS
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {
         freopen("CONOUT$", "w", stdout);
@@ -46,6 +57,8 @@ int main(int argc, char *argv[])
     app.setFont(font);
 #endif
     KLocalizedString::setApplicationDomain("marknote");
+
+    QCommandLineParser parser;
 
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.marknote")));
 
@@ -69,9 +82,23 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(about);
 
+    about.setupCommandLine(&parser);
+    parser.process(app);
+    about.processCommandLine(&parser);
+
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    engine.loadFromModule(u"org.kde.marknote"_s, u"Main"_s);
+
+    if (parser.positionalArguments().length() > 0) {
+        const auto path = parser.positionalArguments()[0];
+        if (QFile::exists(path)) {
+            engine.rootContext()->setContextProperty(u"cliNoteName"_s, path.split(QLatin1Char('/')).last().replace(u".md"_s, QString{}));
+            engine.rootContext()->setContextProperty(u"cliNoteFullPath"_s, QUrl::fromLocalFile(path));
+        }
+        engine.loadFromModule(u"org.kde.marknote"_s, u"MainEditor"_s);
+    } else {
+        engine.loadFromModule(u"org.kde.marknote"_s, u"Main"_s);
+    }
 
     if (engine.rootObjects().isEmpty()) {
         return -1;

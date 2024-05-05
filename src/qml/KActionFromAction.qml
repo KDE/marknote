@@ -15,4 +15,5 @@ Kirigami.Action {
     visible: action.text.length > 0
     checkable: action.checkable
     checked: action.checked
+    enabled: action.enabled
 }

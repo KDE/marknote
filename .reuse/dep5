@@ -7,7 +7,7 @@ Files: README.md .gitignore
 Copyright: Mathis Brüchert <mbb@kaidan.im>
 License: CC0-1.0
 
-Files: org.kde.marknote.svg logo.png android/res/drawable/tokodon.png
+Files: org.kde.marknote.svg logo.png android/res/drawable/marknote.png icons/*
 Copyright: Mathis Brüchert <mbb@kaidan.im>
 License: CC-BY-SA-4.0
 

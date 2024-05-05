@@ -5,6 +5,7 @@ qt_add_qml_module(marknote_static STATIC
     URI org.kde.marknote
     QML_FILES
         qml/Main.qml
+        qml/MainEditor.qml
         qml/NotesPage.qml
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml
@@ -26,6 +27,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/ImageDialog.qml
         qml/TableDialog.qml
         qml/SketchDialog.qml
+        qml/TextFieldContextMenu.qml
 
         qml/components/ActionButton.qml
         qml/components/BottomDrawer.qml
@@ -41,9 +43,9 @@ qt_add_qml_module(marknote_static STATIC
         application.cpp
         actionsmodel.cpp
         commandbarfiltermodel.cpp
+        tableactionhelper.cpp
         config.cpp
 )
-
 
 kconfig_add_kcfg_files(marknote_static GENERATE_MOC marknotesettings.kcfgc)
 
@@ -60,14 +62,27 @@ target_link_libraries(marknote_static PUBLIC
     KF6::CoreAddons
     KF6::ColorScheme
     KF6::XmlGui
+    KF6::Crash
 )
 
 if (TARGET md4c::md4c-html)
     target_link_libraries(marknote_static PUBLIC md4c::md4c-html)
 endif()
 
-
 add_executable(marknote main.cpp)
+
+if(TARGET KF6::BreezeIcons)
+    target_link_libraries(ark
+            KF6::BreezeIcons
+    )
+    target_compile_definitions(marknote PRIVATE WITH_BREEZEICONS_LIB)
+endif ()
+
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/*-apps-org.kde.marknote.png")
+ecm_add_app_icon(marknote ICONS
+    "${CMAKE_CURRENT_SOURCE_DIR}/../icons/sc-apps-org.kde.marknote.svg"
+    ${ICONS_SRCS}
+)
 
 if(APPLE)
     set_target_properties(marknote PROPERTIES
