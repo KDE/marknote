@@ -597,6 +597,9 @@ Kirigami.Page {
                 onMoveCursor: (position) => {
                     textArea.cursorPosition = position;
                 }
+                onSelectCursor: (start, end) => {
+                    textArea.select(start, end);
+                }
 
                 onCursorPositionChanged: {
                     root.listIndent = document.canIndentList;

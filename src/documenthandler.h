@@ -165,6 +165,7 @@ Q_SIGNALS:
     void undo();
     void redo();
     void moveCursor(int position);
+    void selectCursor(int start, int end);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;

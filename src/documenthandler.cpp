@@ -973,11 +973,27 @@ bool DocumentHandler::processKeyEvent(QKeyEvent *e)
         && textCursor().block().layout()->lineForTextPosition(textCursor().position()).lineNumber() == 0) {
         textCursor().clearSelection();
         Q_EMIT focusUp();
-    } else if (e->key() == Qt::Key_Backtab && e->modifiers() == Qt::ShiftModifier) {
-        textCursor().clearSelection();
-        Q_EMIT focusUp();
     } else {
-        return evaluateReturnKeySupport(e);
+        QTextTable *table = textCursor().currentTable();
+        const bool isTable = (table != nullptr);
+        if (isTable && (e->key() == Qt::Key_Backtab || e->key() == Qt::Key_Tab)) {
+            // navigate to previous or next table cell
+            auto cursor = textCursor();
+            auto ok = cursor.movePosition(e->key() == Qt::Key_Tab ? QTextCursor::NextCell : QTextCursor::PreviousCell);
+            if (!ok) {
+                ok = cursor.movePosition(e->key() == Qt::Key_Tab ? QTextCursor::NextBlock : QTextCursor::PreviousBlock);
+                moveCursor(cursor.position());
+            } else {
+                cursor.movePosition(QTextCursor::StartOfLine);
+                const int start = cursor.position();
+                cursor.movePosition(QTextCursor::EndOfLine);
+                const int end = cursor.position();
+                selectCursor(start, end);
+            }
+            return false;
+        } else {
+            return evaluateReturnKeySupport(e);
+        }
     }
     return true;
 }
