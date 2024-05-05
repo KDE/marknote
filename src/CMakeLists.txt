@@ -72,8 +72,8 @@ endif()
 add_executable(marknote main.cpp)
 
 if(TARGET KF6::BreezeIcons)
-    target_link_libraries(marknote
-            KF6::BreezeIcons
+    target_link_libraries(marknote PUBLIC
+        KF6::BreezeIcons
     )
     target_compile_definitions(marknote PRIVATE WITH_BREEZEICONS_LIB)
 endif ()
