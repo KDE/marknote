@@ -33,7 +33,7 @@ Kirigami.ApplicationWindow {
         Behavior on defaultColumnWidth {
             NumberAnimation {
                 id: columnWidthAnimation
-                duration: Kirigami.Units.mediumDuration
+                duration: Kirigami.Units.shortDuration * 2
                 easing.type: Easing.InOutQuart
                 onFinished: root.columnModeDelayed = Config.fillWindow
             }
@@ -175,7 +175,7 @@ Kirigami.ApplicationWindow {
 
         Behavior on width {
             NumberAnimation {
-                duration: Kirigami.Units.mediumDuration
+                duration: Kirigami.Units.shortDuration * 2
                 easing.type: Easing.InOutQuart
             }
         }
@@ -201,7 +201,7 @@ Kirigami.ApplicationWindow {
 
                         Behavior on x {
                             NumberAnimation {
-                                duration: Kirigami.Units.mediumDuration
+                                duration: Kirigami.Units.shortDuration * 2
                                 easing.type: Easing.InOutQuart
                             }
                         }
@@ -302,7 +302,7 @@ Kirigami.ApplicationWindow {
                         y: Kirigami.Units.smallSpacing
                         Behavior on opacity {
                             NumberAnimation {
-                                duration: Kirigami.Units.mediumDuration
+                                duration: Kirigami.Units.shortDuration * 2
                                 easing.type: Easing.InOutQuart
                             }
                         }
@@ -315,7 +315,7 @@ Kirigami.ApplicationWindow {
                         enabled: Config.expandedSidebar
                         Behavior on opacity {
                             NumberAnimation {
-                                duration: Kirigami.Units.mediumDuration
+                                duration: Kirigami.Units.shortDuration * 2
                                 easing.type: Easing.InOutQuart
                             }
                         }
