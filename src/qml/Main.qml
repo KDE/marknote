@@ -20,7 +20,7 @@ Kirigami.ApplicationWindow {
     property bool columnModeDelayed: false
     minimumWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 22
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
-
+    width: Kirigami.Units.gridUnit * 65
     controlsVisible: false
     onWideScreenChanged: Kirigami.Settings.isMobile? drawer.close() :  (!wideScreen? drawer.close() : drawer.open())
     pageStack {
