@@ -18,6 +18,9 @@ FormCard.FormCardDialog {
     title: i18nc("@title:window", "Insert Table")
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
+    onAccepted: close();
+    onRejected: close();
+
     FormCard.FormSpinBoxDelegate {
         id: rowsSpinBox
         label: i18nc("@label:textbox", "Number of Rows:")
