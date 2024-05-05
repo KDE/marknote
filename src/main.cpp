@@ -20,6 +20,10 @@
 #include <Windows.h>
 #endif
 
+#ifdef WITH_BREEZEICONS_LIB
+#include <BreezeIcons>
+#endif
+
 using namespace Qt::Literals::StringLiterals;
 
 int main(int argc, char *argv[])
@@ -33,6 +37,10 @@ int main(int argc, char *argv[])
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
+
+#ifdef WITH_BREEZEICONS_LIB
+    BreezeIcons::initIcons();
+#endif
 
 #ifdef Q_OS_WINDOWS
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {

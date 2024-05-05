@@ -70,8 +70,20 @@ if (TARGET md4c::md4c-html)
     target_link_libraries(marknote_static PUBLIC md4c::md4c-html)
 endif()
 
-
 add_executable(marknote main.cpp)
+
+if(TARGET KF6::BreezeIcons)
+    target_link_libraries(ark
+            KF6::BreezeIcons
+    )
+    target_compile_definitions(marknote PRIVATE WITH_BREEZEICONS_LIB)
+endif ()
+
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/*-apps-org.kde.marknote.png")
+ecm_add_app_icon(marknote ICONS
+    "${CMAKE_CURRENT_SOURCE_DIR}/../icons/sc-apps-org.kde.marknote.svg"
+    ${ICONS_SRCS}
+)
 
 if(APPLE)
     set_target_properties(marknote PROPERTIES
