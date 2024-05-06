@@ -38,6 +38,7 @@ FormCard.FormCardDialog {
 
         label: i18nc("@label:textbox Notebook name", "Name:")
         onAccepted: root.accepted()
+        onTextChanged: root.standardButton(Controls.Dialog.Save).enabled = text.length > 0
     }
 
     FormCard.FormDelegateSeparator {
@@ -110,6 +111,10 @@ FormCard.FormCardDialog {
     }
 
     onAccepted: {
+        if (nameInput.text.length === 0) {
+            return;
+        }
+
         if (mode == NotebookMetadataDialog.Mode.Add) {
             NavigationController.notebookPath = root.model.addNoteBook(root.name, root.iconName, root.color);
         } else {

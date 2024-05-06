@@ -34,6 +34,9 @@ FormCard.FormCardDialog {
     }
 
     onAccepted: {
+        if (nameInput.text.length === 0) {
+            return;
+        }
         if (mode == NoteMetadataDialog.Mode.Add) {
             let path = root.model.addNote(root.name);
             NavigationController.notePath = path + '.md';
@@ -46,6 +49,10 @@ FormCard.FormCardDialog {
         id: nameInput
 
         label: i18nc("@label:textbox Note name", "Name:")
+        onTextChanged: {
+            root.footer.standardButton(Controls.Dialog.Save)
+            root.standardButton(Controls.Dialog.Save).enabled = text.length > 0
+        }
 
         onAccepted: root.accepted()
     }
