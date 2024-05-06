@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 00:39+0000\n"
+"POT-Creation-Date: 2024-05-06 00:38+0000\n"
 "PO-Revision-Date: 2023-11-18 22:17+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -46,45 +46,45 @@ msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Ny anteckning"
 
-#: main.cpp:55 qml/Main.qml:297
+#: main.cpp:72 qml/Main.qml:297
 #, fuzzy, kde-format
 #| msgid "Marknote"
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "MarkNote"
 
-#: main.cpp:57
+#: main.cpp:74
 #, kde-format
 msgid "Note taking application"
 msgstr "Anteckningsprogram"
 
-#: main.cpp:59
+#: main.cpp:76
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:60
+#: main.cpp:77
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:61 main.cpp:66
+#: main.cpp:78 main.cpp:83
 #, kde-format
 msgid "Maintainer"
 msgstr "Underhållsansvarig"
 
-#: main.cpp:65
+#: main.cpp:82
 #, kde-format
 msgid "Carl Schwan"
 msgstr ""
 
-#: main.cpp:70
+#: main.cpp:87
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:70
+#: main.cpp:87
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -96,145 +96,145 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 
-#: qml/EditPage.qml:92
+#: qml/EditPage.qml:93
 #, kde-format
 msgid "Focus Mode"
 msgstr ""
 
-#: qml/EditPage.qml:138
+#: qml/EditPage.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Fetstil"
 
-#: qml/EditPage.qml:157
+#: qml/EditPage.qml:158
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kursiv"
 
-#: qml/EditPage.qml:176
+#: qml/EditPage.qml:177
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Understruken"
 
-#: qml/EditPage.qml:190
+#: qml/EditPage.qml:191
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Överstruken"
 
-#: qml/EditPage.qml:208
+#: qml/EditPage.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr ""
 
-#: qml/EditPage.qml:219
+#: qml/EditPage.qml:220
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr ""
 
-#: qml/EditPage.qml:261
+#: qml/EditPage.qml:262
 #, fuzzy, kde-format
 #| msgid "Add list"
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Lägg till lista"
 
-#: qml/EditPage.qml:262
+#: qml/EditPage.qml:263
 #, fuzzy, kde-format
 #| msgid "Add numbered list"
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Lägg till numrerad lista"
 
-#: qml/EditPage.qml:263
+#: qml/EditPage.qml:264
 #, fuzzy, kde-format
 #| msgid "Add numbered list"
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Lägg till numrerad lista"
 
-#: qml/EditPage.qml:273
+#: qml/EditPage.qml:274
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr ""
 
-#: qml/EditPage.qml:288
+#: qml/EditPage.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr ""
 
-#: qml/EditPage.qml:304
+#: qml/EditPage.qml:305
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr ""
 
-#: qml/EditPage.qml:317
+#: qml/EditPage.qml:318
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr ""
 
-#: qml/EditPage.qml:337
+#: qml/EditPage.qml:338
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr ""
 
-#: qml/EditPage.qml:338
+#: qml/EditPage.qml:339
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr ""
 
-#: qml/EditPage.qml:339
+#: qml/EditPage.qml:340
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr ""
 
-#: qml/EditPage.qml:340
+#: qml/EditPage.qml:341
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr ""
 
-#: qml/EditPage.qml:341
+#: qml/EditPage.qml:342
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr ""
 
-#: qml/EditPage.qml:342
+#: qml/EditPage.qml:343
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr ""
 
-#: qml/EditPage.qml:343
+#: qml/EditPage.qml:344
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr ""
 
-#: qml/EditPage.qml:435
+#: qml/EditPage.qml:436
 #, kde-format
 msgid "Format"
 msgstr ""
 
-#: qml/EditPage.qml:439
+#: qml/EditPage.qml:440
 #, kde-format
 msgid "Lists"
 msgstr ""
 
-#: qml/EditPage.qml:443
+#: qml/EditPage.qml:444
 #, kde-format
 msgid "Insert"
 msgstr ""
@@ -273,7 +273,7 @@ msgctxt "@label:textbox"
 msgid "Quick Sketch"
 msgstr ""
 
-#: qml/KQuickCommandBarPage.qml:131
+#: qml/KQuickCommandBarPage.qml:121
 #, kde-format
 msgid "No results found"
 msgstr ""
@@ -536,13 +536,13 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr ""
 
-#: qml/TableDialog.qml:23
+#: qml/TableDialog.qml:26
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
 msgstr ""
 
-#: qml/TableDialog.qml:30
+#: qml/TableDialog.qml:33
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 00:39+0000\n"
-"PO-Revision-Date: 2024-05-04 01:39+0300\n"
+"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"PO-Revision-Date: 2024-05-06 00:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -44,44 +44,44 @@ msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Yeni Not"
 
-#: main.cpp:55 qml/Main.qml:297
+#: main.cpp:72 qml/Main.qml:297
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknot"
 
-#: main.cpp:57
+#: main.cpp:74
 #, kde-format
 msgid "Note taking application"
 msgstr "Not alma uygulaması"
 
-#: main.cpp:59
+#: main.cpp:76
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:60
+#: main.cpp:77
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:61 main.cpp:66
+#: main.cpp:78 main.cpp:83
 #, kde-format
 msgid "Maintainer"
 msgstr "Bakımcı"
 
-#: main.cpp:65
+#: main.cpp:82
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:70
+#: main.cpp:87
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Emir SARI"
 
-#: main.cpp:70
+#: main.cpp:87
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -93,142 +93,142 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Not yeniden adlandırılamıyor. Aynı adlı bir not halihazırda var."
 
-#: qml/EditPage.qml:92
+#: qml/EditPage.qml:93
 #, kde-format
 msgid "Focus Mode"
 msgstr "Odak Kipi"
 
-#: qml/EditPage.qml:138
+#: qml/EditPage.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Kalın"
 
-#: qml/EditPage.qml:157
+#: qml/EditPage.qml:158
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Yatık"
 
-#: qml/EditPage.qml:176
+#: qml/EditPage.qml:177
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Altı Çizili"
 
-#: qml/EditPage.qml:190
+#: qml/EditPage.qml:191
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Üzeri Çizili"
 
-#: qml/EditPage.qml:208
+#: qml/EditPage.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Liste Düzeyini Artır"
 
-#: qml/EditPage.qml:219
+#: qml/EditPage.qml:220
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Liste Düzeyini Azalt"
 
-#: qml/EditPage.qml:261
+#: qml/EditPage.qml:262
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Liste yok"
 
-#: qml/EditPage.qml:262
+#: qml/EditPage.qml:263
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Sırasız liste"
 
-#: qml/EditPage.qml:263
+#: qml/EditPage.qml:264
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Sıralı liste"
 
-#: qml/EditPage.qml:273
+#: qml/EditPage.qml:274
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "İşaret kutusu ekle"
 
-#: qml/EditPage.qml:288
+#: qml/EditPage.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Bağlantı ekle"
 
-#: qml/EditPage.qml:304
+#: qml/EditPage.qml:305
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Görsel ekle"
 
-#: qml/EditPage.qml:317
+#: qml/EditPage.qml:318
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Tablo ekle"
 
-#: qml/EditPage.qml:337
+#: qml/EditPage.qml:338
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Basit metin"
 
-#: qml/EditPage.qml:338
+#: qml/EditPage.qml:339
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Başlık"
 
-#: qml/EditPage.qml:339
+#: qml/EditPage.qml:340
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Alt başlık"
 
-#: qml/EditPage.qml:340
+#: qml/EditPage.qml:341
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Bölüm"
 
-#: qml/EditPage.qml:341
+#: qml/EditPage.qml:342
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Alt bölüm"
 
-#: qml/EditPage.qml:342
+#: qml/EditPage.qml:343
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragraf"
 
-#: qml/EditPage.qml:343
+#: qml/EditPage.qml:344
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Alt paragraf"
 
-#: qml/EditPage.qml:435
+#: qml/EditPage.qml:436
 #, kde-format
 msgid "Format"
 msgstr "Biçim"
 
-#: qml/EditPage.qml:439
+#: qml/EditPage.qml:440
 #, kde-format
 msgid "Lists"
 msgstr "Listeler"
 
-#: qml/EditPage.qml:443
+#: qml/EditPage.qml:444
 #, kde-format
 msgid "Insert"
 msgstr "Ekle"
@@ -267,7 +267,7 @@ msgctxt "@label:textbox"
 msgid "Quick Sketch"
 msgstr "Tez Eskiz"
 
-#: qml/KQuickCommandBarPage.qml:131
+#: qml/KQuickCommandBarPage.qml:121
 #, kde-format
 msgid "No results found"
 msgstr "Sonuç bulunamadı"
@@ -516,13 +516,13 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Tablo Ekle"
 
-#: qml/TableDialog.qml:23
+#: qml/TableDialog.qml:26
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
 msgstr "Satır sayısı:"
 
-#: qml/TableDialog.qml:30
+#: qml/TableDialog.qml:33
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
@@ -532,17 +532,16 @@ msgstr "Sütun sayısı:"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
-msgstr ""
+msgstr "Yok Say"
 
 #: qml/TextFieldContextMenu.qml:240
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr ""
+msgstr "Yazım Denetimi"
 
 #: qml/TextFieldContextMenu.qml:255
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "Ekle"
@@ -551,51 +550,49 @@ msgstr "Ekle"
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
-msgstr ""
+msgstr "Kaldır"
 
 #: qml/TextFieldContextMenu.qml:307
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
-msgstr ""
+msgstr "Geri Al"
 
 #: qml/TextFieldContextMenu.qml:322
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
-msgstr ""
+msgstr "Yinele"
 
 #: qml/TextFieldContextMenu.qml:340
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
-msgstr ""
+msgstr "Kes"
 
 #: qml/TextFieldContextMenu.qml:355
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
-msgstr ""
+msgstr "Kopyala"
 
 #: qml/TextFieldContextMenu.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
-msgstr ""
+msgstr "Yapıştır"
 
 #: qml/TextFieldContextMenu.qml:385
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
-msgstr "Notu Sil"
+msgstr "Sil"
 
 #: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
-msgstr ""
+msgstr "Tümünü Seç"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -605,27 +602,27 @@ msgstr "İlk defterini oluşturarak başla!"
 #: tableactionhelper.cpp:148 tableactionhelper.cpp:173
 #, kde-format
 msgid "Row Below"
-msgstr ""
+msgstr "Alttaki Satır"
 
 #: tableactionhelper.cpp:154 tableactionhelper.cpp:179
 #, kde-format
 msgid "Row Above"
-msgstr ""
+msgstr "Üstteki Satır"
 
 #: tableactionhelper.cpp:160 tableactionhelper.cpp:185
 #, kde-format
 msgid "Column Before"
-msgstr ""
+msgstr "Önceki Sütun"
 
 #: tableactionhelper.cpp:167 tableactionhelper.cpp:192
 #, kde-format
 msgid "Column After"
-msgstr ""
+msgstr "Sonraki Sütun"
 
 #: tableactionhelper.cpp:198
 #, kde-format
 msgid "Cell Contents"
-msgstr ""
+msgstr "Hücre İçeriği"
 
 #~ msgctxt "@action:button"
 #~ msgid "Color"
