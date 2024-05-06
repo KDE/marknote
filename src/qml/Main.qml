@@ -26,10 +26,10 @@ Kirigami.ApplicationWindow {
     pageStack {
         globalToolBar {
             style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
-            showNavigationButtons: Config.fillWindow? Kirigami.ApplicationHeaderStyle.None : Kirigami.ApplicationHeaderStyle.ShowBackButton
+            showNavigationButtons: Config.fillWindow ? Kirigami.ApplicationHeaderStyle.None : Kirigami.ApplicationHeaderStyle.ShowBackButton
         }
 
-        defaultColumnWidth: Config.fillWindow? 0 : 15 * Kirigami.Units.gridUnit
+        defaultColumnWidth: Config.fillWindow ? 0 : 15 * Kirigami.Units.gridUnit
         Behavior on defaultColumnWidth {
             NumberAnimation {
                 id: columnWidthAnimation
@@ -100,6 +100,7 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
+        Config.fillWindow = false;
         NavigationController.mobileMode = Kirigami.Settings.isMobile;
             if (noteBooksModel.rowCount() !== 0) {
             NavigationController.notebookPath = noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path);
