@@ -498,7 +498,7 @@ Kirigami.Page {
             leftPadding: 0
             rightPadding: 0
             topPadding: 0
-            bottomPadding: mobileToolBarContainer.height
+            bottomPadding: wideScreen? 0 : mobileToolBarContainer.height
 
             font: Config.editorFont
 
