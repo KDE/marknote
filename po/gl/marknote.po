@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:39+0000\n"
-"PO-Revision-Date: 2024-05-04 10:43+0200\n"
+"PO-Revision-Date: 2024-05-07 08:15+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -532,17 +532,16 @@ msgstr "Número de columnas:"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
-msgstr ""
+msgstr "Ignorar"
 
 #: qml/TextFieldContextMenu.qml:240
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr ""
+msgstr "Corrección ortográfica"
 
 #: qml/TextFieldContextMenu.qml:255
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "Inserir"
@@ -551,51 +550,49 @@ msgstr "Inserir"
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
-msgstr ""
+msgstr "Retirar"
 
 #: qml/TextFieldContextMenu.qml:307
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
-msgstr ""
+msgstr "Desfacer"
 
 #: qml/TextFieldContextMenu.qml:322
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
-msgstr ""
+msgstr "Refacer"
 
 #: qml/TextFieldContextMenu.qml:340
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
-msgstr ""
+msgstr "Cortar"
 
 #: qml/TextFieldContextMenu.qml:355
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #: qml/TextFieldContextMenu.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
-msgstr ""
+msgstr "Pegar"
 
 #: qml/TextFieldContextMenu.qml:385
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
-msgstr "Eliminar a nota"
+msgstr "Eliminar"
 
 #: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
-msgstr ""
+msgstr "Seleccionalo todo"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -605,27 +602,27 @@ msgstr "Comece por crear o seu primeiro caderno!"
 #: tableactionhelper.cpp:148 tableactionhelper.cpp:173
 #, kde-format
 msgid "Row Below"
-msgstr ""
+msgstr "Fila debaixo"
 
 #: tableactionhelper.cpp:154 tableactionhelper.cpp:179
 #, kde-format
 msgid "Row Above"
-msgstr ""
+msgstr "Fila superior"
 
 #: tableactionhelper.cpp:160 tableactionhelper.cpp:185
 #, kde-format
 msgid "Column Before"
-msgstr ""
+msgstr "Columna antes"
 
 #: tableactionhelper.cpp:167 tableactionhelper.cpp:192
 #, kde-format
 msgid "Column After"
-msgstr ""
+msgstr "Columna despois"
 
 #: tableactionhelper.cpp:198
 #, kde-format
 msgid "Cell Contents"
-msgstr ""
+msgstr "Contido da cela"
 
 #~ msgid "New Note (%1)"
 #~ msgstr "Nova nota (%1)"

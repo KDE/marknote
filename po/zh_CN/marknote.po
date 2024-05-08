@@ -229,11 +229,9 @@ msgid "Lists"
 msgstr ""
 
 #: qml/EditPage.qml:444
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgid "Insert"
-msgstr "插入链接"
+msgstr ""
 
 #: qml/ImageDialog.qml:18
 #, kde-format
@@ -543,12 +541,10 @@ msgid "Spell Check"
 msgstr ""
 
 #: qml/TextFieldContextMenu.qml:255
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
-msgstr "插入链接"
+msgstr ""
 
 #: qml/TextFieldContextMenu.qml:279
 #, kde-format

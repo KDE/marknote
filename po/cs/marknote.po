@@ -221,19 +221,17 @@ msgstr "Pododstavec"
 #: qml/EditPage.qml:436
 #, kde-format
 msgid "Format"
-msgstr ""
+msgstr "Formát"
 
 #: qml/EditPage.qml:440
 #, kde-format
 msgid "Lists"
-msgstr ""
+msgstr "Seznamy"
 
 #: qml/EditPage.qml:444
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgid "Insert"
-msgstr "Vložit odkaz"
+msgstr "Vložit"
 
 #: qml/ImageDialog.qml:18
 #, kde-format
@@ -543,12 +541,10 @@ msgid "Spell Check"
 msgstr ""
 
 #: qml/TextFieldContextMenu.qml:255
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
-msgstr "Vložit odkaz"
+msgstr ""
 
 #: qml/TextFieldContextMenu.qml:279
 #, kde-format
@@ -560,45 +556,43 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
-msgstr ""
+msgstr "Zpět"
 
 #: qml/TextFieldContextMenu.qml:322
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
-msgstr ""
+msgstr "Znovu"
 
 #: qml/TextFieldContextMenu.qml:340
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
-msgstr ""
+msgstr "Vyjmout"
 
 #: qml/TextFieldContextMenu.qml:355
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovat"
 
 #: qml/TextFieldContextMenu.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
-msgstr ""
+msgstr "Vložit"
 
 #: qml/TextFieldContextMenu.qml:385
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
-msgstr "Smazat poznámku"
+msgstr "Smazat"
 
 #: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
-msgstr ""
+msgstr "Vybrat vše"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -608,24 +602,24 @@ msgstr "Začněte vytvořením vašeho prvního poznámkového bloku."
 #: tableactionhelper.cpp:148 tableactionhelper.cpp:173
 #, kde-format
 msgid "Row Below"
-msgstr ""
+msgstr "Řádek pod"
 
 #: tableactionhelper.cpp:154 tableactionhelper.cpp:179
 #, kde-format
 msgid "Row Above"
-msgstr ""
+msgstr "Řádek výše"
 
 #: tableactionhelper.cpp:160 tableactionhelper.cpp:185
 #, kde-format
 msgid "Column Before"
-msgstr ""
+msgstr "Sloupec před"
 
 #: tableactionhelper.cpp:167 tableactionhelper.cpp:192
 #, kde-format
 msgid "Column After"
-msgstr ""
+msgstr "Sloupec po"
 
 #: tableactionhelper.cpp:198
 #, kde-format
 msgid "Cell Contents"
-msgstr ""
+msgstr "Obsah buňky"
