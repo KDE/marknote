@@ -12,19 +12,22 @@ class NoteBooksModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
+    Q_PROPERTY(QString storagePath READ storagePath WRITE setStoragePath NOTIFY storagePathChanged)
 
 public:
     enum Role { Path = Qt::UserRole + 1, Name, Icon, Color };
     Q_ENUM(Role)
 
     explicit NoteBooksModel(QObject *parent = nullptr);
-    NoteBooksModel(const QString &directory, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &index) const override;
 
     QVariant data(const QModelIndex &index, int role) const override;
 
     QHash<int, QByteArray> roleNames() const override;
+
+    QString storagePath() const;
+    void setStoragePath(const QString &storagePath);
 
     Q_INVOKABLE QString addNoteBook(const QString &name, const QString &icon, const QString &color);
     Q_INVOKABLE void editNoteBook(const QString &path, const QString &name, const QString &icon, const QString &color);
@@ -35,10 +38,12 @@ public:
 
 Q_SIGNALS:
     void noteBookRenamed(const QString &oldName, const QString &newName, const QString &path);
+    void storagePathChanged();
 
 private:
     QModelIndex indexForPath(const QString &path) const;
-    QDir directory;
+    std::optional<QDir> m_directory;
+    QString m_storagePath;
 };
 
 #endif // NoteBooksModel_H

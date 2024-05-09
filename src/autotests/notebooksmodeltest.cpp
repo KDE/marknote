@@ -21,7 +21,9 @@ private Q_SLOTS:
 
     void testNoteBookPath()
     {
-        NoteBooksModel model(dir);
+        NoteBooksModel model;
+        model.setStoragePath(dir);
+
         auto tester = new QAbstractItemModelTester(&model, QAbstractItemModelTester::FailureReportingMode::QtTest);
         QCOMPARE(model.rowCount({}), 0);
 

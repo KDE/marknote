@@ -9,27 +9,21 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 
-NoteBooksModel::NoteBooksModel(const QString &_directory, QObject *parent)
-    : QAbstractListModel(parent)
-    , directory(_directory)
-{
-    directory.mkpath(QStringLiteral("."));
-    qDebug() << directory.path();
-}
-
 NoteBooksModel::NoteBooksModel(QObject *parent)
-    : NoteBooksModel(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + u'/' + QStringLiteral("Notes"), parent)
+    : QAbstractListModel(parent)
 {
 }
 
 int NoteBooksModel::rowCount(const QModelIndex &index) const
 {
-    return index.isValid() ? 0 : directory.entryList(QDir::AllDirs | QDir::NoDotAndDotDot).count();
+    return index.isValid() || !m_directory ? 0 : m_directory->entryList(QDir::AllDirs | QDir::NoDotAndDotDot).count();
 }
 
 QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
 {
-    const auto entry = directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row());
+    Q_ASSERT(m_directory);
+
+    const auto entry = m_directory->entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row());
 
     switch (role) {
     case Role::Path:
@@ -53,7 +47,7 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
     }
     case Role::Name:
     case Qt::DisplayRole:
-        return directory.entryList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row());
+        return m_directory->entryList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row());
     }
 
     return {};
@@ -71,9 +65,11 @@ QHash<int, QByteArray> NoteBooksModel::roleNames() const
 
 QString NoteBooksModel::addNoteBook(const QString &name, const QString &icon, const QString &color)
 {
+    Q_ASSERT(m_directory);
+
     beginResetModel();
-    directory.mkdir(name);
-    const QString dotDirectory = directory.path() % u'/' % name % u'/' % QStringLiteral(".directory");
+    m_directory->mkdir(name);
+    const QString dotDirectory = m_directory->path() % u'/' % name % u'/' % QStringLiteral(".directory");
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
     auto desktopEntry = desktopFile.group(QStringLiteral("Desktop Entry"));
     desktopEntry.writeEntry("Icon", icon);
@@ -81,14 +77,16 @@ QString NoteBooksModel::addNoteBook(const QString &name, const QString &icon, co
     desktopFile.sync();
     endResetModel();
 
-    return directory.path() + u'/' + name;
+    return m_directory->path() + u'/' + name;
 }
 
 void NoteBooksModel::editNoteBook(const QString &path, const QString &name, const QString &icon, const QString &color)
 {
+    Q_ASSERT(m_directory);
+
     const auto oldName = path.split(QLatin1Char('/')).constLast();
 
-    const QString dotDirectory = directory.path() % u'/' % oldName % u'/' % QStringLiteral(".directory");
+    const QString dotDirectory = m_directory->path() % u'/' % oldName % u'/' % QStringLiteral(".directory");
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
     auto desktopEntry = desktopFile.group(QStringLiteral("Desktop Entry"));
     desktopEntry.writeEntry("Icon", icon);
@@ -97,9 +95,9 @@ void NoteBooksModel::editNoteBook(const QString &path, const QString &name, cons
 
     if (oldName != name) {
         beginResetModel();
-        QDir dir(directory.path());
+        QDir dir(m_directory->path());
         dir.rename(oldName, name);
-        Q_EMIT noteBookRenamed(oldName, name, directory.path() + u'/' + name);
+        Q_EMIT noteBookRenamed(oldName, name, m_directory->path() + u'/' + name);
         endResetModel();
         return;
     }
@@ -145,7 +143,7 @@ QString NoteBooksModel::colorForPath(const QString &path) const
 QModelIndex NoteBooksModel::indexForPath(const QString &path) const
 {
     const auto dirName = path.split(QLatin1Char('/')).constLast();
-    const auto entries = directory.entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot);
+    const auto entries = m_directory->entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot);
     int i = 0;
     for (const auto &entry : entries) {
         if (entry.fileName() == dirName) {
@@ -155,6 +153,24 @@ QModelIndex NoteBooksModel::indexForPath(const QString &path) const
     }
 
     return {};
+}
+
+QString NoteBooksModel::storagePath() const
+{
+    return m_storagePath;
+}
+
+void NoteBooksModel::setStoragePath(const QString &storagePath)
+{
+    if (m_storagePath == storagePath) {
+        return;
+    }
+    m_storagePath = storagePath;
+    beginResetModel();
+    m_directory = QDir(m_storagePath);
+    m_directory->mkpath(QStringLiteral("."));
+    endResetModel();
+    Q_EMIT storagePathChanged();
 }
 
 #include "moc_notebooksmodel.cpp"

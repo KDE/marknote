@@ -157,6 +157,8 @@ Kirigami.ApplicationWindow {
         NoteBooksModel {
             id: noteBooksModel
 
+            storagePath: Config.storage
+
             onNoteBookRenamed: (oldName, newName, path) => {
                 if (NavigationController.notebookName === oldName) {
                     NavigationController.notebookPath = path;

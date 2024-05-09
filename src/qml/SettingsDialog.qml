@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Dialogs
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.marknote
 
@@ -16,6 +17,27 @@ FormCard.FormCardDialog {
 
     onAccepted: root.close();
     onReset: Config.reset();
+
+    FormCard.FormButtonDelegate {
+        text: i18nc("@label:textbox", "Notes Directory:")
+        enabled: !Config.isStorageImmutable
+        description: Config.storage
+        onClicked: folderDialog.open();
+
+        FolderDialog {
+            id: folderDialog
+
+            currentFolder: 'file://' + Config.storage
+            title: i18nc("@title:window", "Select the notes directory")
+            onAccepted: {
+                Config.storage = selectedFolder.toString().replace('file://', '');
+                console.log(Config.storage);
+                Config.save();
+            }
+        }
+    }
+
+    FormCard.FormDelegateSeparator {}
 
     FormCard.AbstractFormDelegate {
         background: null
