@@ -209,6 +209,7 @@ private:
     QFont m_font;
     QUrl m_fileUrl;
     NestedListHelper m_nestedListHelper;
+    QString m_frontMatter;
 };
 
 #endif // DOCUMENTHANDLER_H

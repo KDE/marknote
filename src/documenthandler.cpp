@@ -335,9 +335,42 @@ void DocumentHandler::load(const QUrl &fileUrl)
     }
 
     QByteArray data = file.readAll();
+    QString content;
+    m_frontMatter = QString{};
+
+    if (data.startsWith("---") || data.startsWith("***") || data.startsWith("+++")) {
+        // we have a front matter
+        QTextStream stream(&data);
+        QString firstLine;
+        int line = 0;
+        QString lineContent;
+        bool foundEnd = false;
+
+        while (stream.readLineInto(&lineContent)) {
+            if (line == 0) {
+                firstLine = lineContent;
+                m_frontMatter += lineContent + u'\n';
+                line++;
+                continue;
+            }
+
+            line++;
+            if (!foundEnd) {
+                m_frontMatter += lineContent + u'\n';
+                if (lineContent == firstLine) {
+                    foundEnd = true;
+                }
+            } else {
+                content += lineContent + u'\n';
+            }
+        }
+    } else {
+        content = QString::fromUtf8(data);
+    }
+
     if (QTextDocument *doc = textDocument()) {
         doc->setBaseUrl(QUrl(fileUrl).adjusted(QUrl::RemoveFilename));
-        Q_EMIT loaded(QString::fromUtf8(data), Qt::MarkdownText);
+        Q_EMIT loaded(content, Qt::MarkdownText);
         doc->setModified(false);
     }
 
@@ -400,6 +433,9 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
         Q_EMIT error(tr("Cannot save: ") + file.errorString() + u' ' + fileUrl.toLocalFile());
         return;
+    }
+    if (!m_frontMatter.isEmpty()) {
+        file.write(m_frontMatter.toUtf8());
     }
     file.write(doc->toMarkdown().toUtf8());
     file.close();
