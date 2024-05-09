@@ -882,13 +882,23 @@ void DocumentHandler::slotKeyPressed(int key)
             cursor.deleteChar();
             cursor.endEditBlock();
         }
+
+        // Automatic block transformation to list
+        if (blockText.startsWith(u"* ") || blockText.startsWith(u"- ")) {
+            auto cursor = textCursor();
+            cursor.beginEditBlock();
+            setListStyle(1);
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 2);
+            cursor.deleteChar();
+            cursor.endEditBlock();
+        }
     }
 
     if (key != Qt::Key_Return) {
         auto cursor = textCursor();
         const auto blockText = cursor.block().text().left(cursor.positionInBlock() - 1);
 
-        auto transform = [&cursor, &blockText](const QString &symbol, const QTextCharFormat &format) {
+        auto transform = [this, &cursor, &blockText](const QString &symbol, const QTextCharFormat &format) {
             const auto firstSymbolsInBlock = blockText.indexOf(symbol);
             const auto symbolSize = symbol.length();
 
@@ -929,6 +939,7 @@ void DocumentHandler::slotKeyPressed(int key)
             cursor.mergeCharFormat(normalFormat);
 
             cursor.endEditBlock();
+            Q_EMIT cursorPositionChanged();
         };
 
         // bold
@@ -959,12 +970,37 @@ void DocumentHandler::slotKeyPressed(int key)
         textCursor().joinPreviousEditBlock();
         setHeadingLevel(0);
         textCursor().endEditBlock();
+        Q_EMIT cursorPositionChanged();
     }
 
     if (textCursor().currentList()) {
-        m_nestedListHelper.handleAfterKeyPressEvent(key, textCursor());
+        if ((key != Qt::Key_Backspace) && (key != Qt::Key_Return)) {
+            return;
+        }
+
+        auto cursor = textCursor();
+        QTextBlock currentBlock = cursor.block();
+        if (cursor.currentList()->count() == cursor.currentList()->itemNumber(currentBlock) + 1) {
+            if (cursor.currentList()->count() > 1 && cursor.currentList()->itemNumber(currentBlock)) {
+                if (currentBlock.previous().text().isEmpty()) {
+                    cursor.joinPreviousEditBlock();
+                    QTextBlockFormat bfmt;
+                    bfmt.setTopMargin(textMargin);
+                    bfmt.setBottomMargin(0);
+                    textCursor().setBlockFormat(bfmt);
+                    textCursor().endEditBlock();
+                    return;
+                }
+            }
+        }
+
+        cursor.joinPreviousEditBlock();
+        QTextBlockFormat bfmt = textCursor().block().blockFormat();
+        bfmt.setTopMargin(cursor.block().previous().textList() == nullptr ? textMargin : 0);
+        bfmt.setBottomMargin(0);
+        textCursor().setBlockFormat(bfmt);
+        textCursor().endEditBlock();
     }
-    Q_EMIT cursorPositionChanged();
 }
 
 bool DocumentHandler::processKeyEvent(QKeyEvent *e)

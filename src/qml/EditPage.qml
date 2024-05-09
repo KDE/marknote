@@ -526,11 +526,17 @@ Kirigami.Page {
                 }
             }
 
-            property int lastKey
-            Keys.onPressed: (event) => lastKey = event.key
+            property int lastKey: -1
+            Keys.onPressed: (event) => {
+                lastKey = event.key
+            }
 
             onTextChanged: {
-                document.slotKeyPressed(lastKey)
+                if (lastKey !== -1) {
+                    let key = lastKey;
+                    lastKey = -1;
+                    document.slotKeyPressed(key);
+                }
                 root.saved = false;
                 saveTimer.restart()
             }
