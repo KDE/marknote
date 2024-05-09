@@ -166,8 +166,6 @@ Kirigami.ScrollablePage {
         property string noteName
 
         dialogType: Components.MessageDialog.Warning
-        width: Math.min(parent.width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 20)
-        height: implicitHeight
         title: i18nc("@title:window", "Delete Note")
         onRejected: close()
         onAccepted: {
@@ -185,11 +183,6 @@ Kirigami.ScrollablePage {
         }
 
         footer: DialogButtonBox {
-            leftPadding: Kirigami.Units.largeSpacing * 2
-            rightPadding: Kirigami.Units.largeSpacing * 2
-            bottomPadding: Kirigami.Units.largeSpacing * 2
-            topPadding: Kirigami.Units.largeSpacing * 2
-
             standardButtons: removeDialog.standardButtons
         }
     }
