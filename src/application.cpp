@@ -200,6 +200,12 @@ void App::setupActions()
         mCollection->addAction(action->objectName(), action);
         mCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_N));
     }
+
+    actionName = QLatin1String("options_configure");
+    if (KAuthorized::authorizeAction(actionName)) {
+        auto action = KStandardAction::preferences(this, &App::preferences, this);
+        mCollection->addAction(action->objectName(), action);
+    }
 }
 
 void App::quit()

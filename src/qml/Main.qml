@@ -97,6 +97,16 @@ Kirigami.ApplicationWindow {
                 height: Kirigami.Units.gridUnit * 30
             });
         }
+
+        function onPreferences(): void {
+            const component = Qt.createComponent("org.kde.marknote", "SettingsDialog");
+            if (component.status !== Component.Ready) {
+                console.error(component.errorString());
+                return;
+            }
+            const dialog = component.createObject(root);
+            dialog.open();
+        }
     }
 
     Component.onCompleted: {
@@ -283,15 +293,8 @@ Kirigami.ApplicationWindow {
                             }
 
                             Controls.MenuItem {
-                                text: i18nc("@action:inmenu", "Settings")
-                                onClicked: {
-                                    const component = Qt.createComponent("org.kde.marknote", "SettingsDialog");
-                                    if (component.status !== Component.Ready) {
-                                        console.error(component.errorString());
-                                        return;
-                                    }
-                                    const dialog = component.createObject(root);
-                                    dialog.open();
+                                action: KActionFromAction {
+                                    action: App.action('options_configure')
                                 }
                             }
                         }

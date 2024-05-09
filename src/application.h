@@ -35,6 +35,7 @@ Q_SIGNALS:
     void openKCommandBarAction();
     void newNotebook();
     void newNote();
+    void preferences();
 
 protected:
     virtual void setupActions();
