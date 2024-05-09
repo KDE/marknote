@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:39+0000\n"
-"PO-Revision-Date: 2024-04-21 13:18+0200\n"
+"PO-Revision-Date: 2024-05-03 12:01+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -46,7 +46,7 @@ msgstr "Nouvelle note"
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
-msgstr "Marknote"
+msgstr "MarkNote"
 
 #: main.cpp:74
 #, kde-format
@@ -95,7 +95,7 @@ msgstr ""
 #: qml/EditPage.qml:93
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "Mode de focus"
 
 #: qml/EditPage.qml:139
 #, kde-format
@@ -266,7 +266,7 @@ msgstr "Emplacement de l'image : "
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Quick Sketch"
-msgstr ""
+msgstr "Croquis rapide"
 
 #: qml/KQuickCommandBarPage.qml:121
 #, kde-format
