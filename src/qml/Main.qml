@@ -55,6 +55,14 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    Loader {
+        id: globalMenuLoader
+        active: !Kirigami.Settings.isMobile
+        sourceComponent: GlobalMenuBar {
+            application: App
+        }
+    }
+
     Connections {
         target: App
 

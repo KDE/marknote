@@ -33,6 +33,15 @@ qt_add_qml_module(marknote_static STATIC
         qml/components/BottomDrawer.qml
         qml/components/DoubleActionButton.qml
         qml/components/RadioSelector.qml
+
+        # Native menu
+        qml/NativeHelpMenu.qml
+        qml/NativeWindowMenu.qml
+        qml/NativeFileMenu.qml
+        qml/NativeEditMenu.qml
+        qml/GlobalMenuBar.qml
+        qml/NativeMenuItemFromAction.qml
+
     SOURCES
         documenthandler.cpp
         notesmodel.cpp

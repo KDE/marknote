@@ -156,6 +156,20 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        ToolButton {
+            visible: applicationWindow().visibility === Window.FullScreen && applicationWindow().pageStack.depth !== 2
+            icon.name: "window-restore-symbolic"
+            text: i18nc("@action:menu", "Exit Full Screen")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: true
+            onClicked: applicationWindow().showNormal()
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
     }
 
     Components.MessageDialog {

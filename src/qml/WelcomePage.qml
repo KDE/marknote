@@ -22,4 +22,13 @@ Kirigami.Page {
         text: i18n("Start by creating your first notebook!")
         helpfulAction: newNotebookAction
     }
+
+    actions: Kirigami.Action {
+        visible: applicationWindow().visibility === Window.FullScreen
+        icon.name: "window-restore-symbolic"
+        tooltip: i18nc("@action:menu", "Exit Full Screen")
+        checkable: true
+        checked: true
+        onTriggered: applicationWindow().showNormal()
+    }
 }
