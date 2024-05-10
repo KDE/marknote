@@ -10,7 +10,6 @@ qt_add_qml_module(marknote_static STATIC
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml
         qml/ContextMenu.qml
-        qml/SettingsDialog.qml
         qml/KQuickCommandBarPage.qml
         qml/KActionFromAction.qml
 
@@ -59,6 +58,8 @@ qt_add_qml_module(marknote_static STATIC
 
 kconfig_add_kcfg_files(marknote_static GENERATE_MOC marknotesettings.kcfgc)
 
+add_subdirectory(settings)
+
 target_link_libraries(marknote_static PUBLIC
     Qt::Core
     Qt::Gui
@@ -74,6 +75,8 @@ target_link_libraries(marknote_static PUBLIC
     KF6::XmlGui
     KF6::Crash
 )
+
+target_link_libraries(marknote_static PRIVATE settingsplugin)
 
 if (TARGET md4c::md4c-html)
     target_link_libraries(marknote_static PUBLIC md4c::md4c-html)

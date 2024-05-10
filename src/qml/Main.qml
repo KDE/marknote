@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.marknote
+import org.kde.marknote.settings
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import "components"
@@ -98,14 +99,14 @@ Kirigami.ApplicationWindow {
         }
 
         function onPreferences(): void {
-            const component = Qt.createComponent("org.kde.marknote", "SettingsDialog");
-            if (component.status !== Component.Ready) {
-                console.error(component.errorString());
-                return;
-            }
-            const dialog = component.createObject(root);
-            dialog.open();
+            settingsView.open();
         }
+    }
+
+    MarkNoteSettings {
+        id: settingsView
+
+        window: root
     }
 
     Component.onCompleted: {
