@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:39+0000\n"
+"POT-Creation-Date: 2024-05-10 00:38+0000\n"
 "PO-Revision-Date: 2024-05-05 05:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -45,7 +45,7 @@ msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "ახალი ჩანაწერი"
 
-#: main.cpp:72 qml/Main.qml:298
+#: main.cpp:72 qml/Main.qml:311
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -100,140 +100,155 @@ msgstr ""
 msgid "Focus Mode"
 msgstr "ფოკუსის რეჟიმი"
 
-#: qml/EditPage.qml:139
+#: qml/EditPage.qml:107 qml/NativeWindowMenu.qml:19 qml/NotesPage.qml:163
+#: qml/WelcomePage.qml:29
+#, kde-format
+msgctxt "@action:menu"
+msgid "Exit Full Screen"
+msgstr ""
+
+#: qml/EditPage.qml:153
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "გასქელება"
 
-#: qml/EditPage.qml:158
+#: qml/EditPage.qml:172
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "დახრა"
 
-#: qml/EditPage.qml:177
+#: qml/EditPage.qml:191
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "ხაზგასმული"
 
-#: qml/EditPage.qml:191
+#: qml/EditPage.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "ხაზგადასმული"
 
-#: qml/EditPage.qml:209
+#: qml/EditPage.qml:223
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "დონის გაზრდა"
 
-#: qml/EditPage.qml:220
+#: qml/EditPage.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "დონის შემცირება"
 
-#: qml/EditPage.qml:262
+#: qml/EditPage.qml:276
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "სიის გარეშე"
 
-#: qml/EditPage.qml:263
+#: qml/EditPage.qml:277
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "დაულაგებელი სია"
 
-#: qml/EditPage.qml:264
+#: qml/EditPage.qml:278
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "დალაგებული სია"
 
-#: qml/EditPage.qml:274
+#: qml/EditPage.qml:288
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "ჩასართავის ჩასმა"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:303
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "ბმულის ჩასმა"
 
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:319
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "სურათის ჩასმა"
 
-#: qml/EditPage.qml:318
+#: qml/EditPage.qml:332
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "ცხრილის ჩასმა"
 
-#: qml/EditPage.qml:338
+#: qml/EditPage.qml:352
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "უბრალო ტექსტი"
 
-#: qml/EditPage.qml:339
+#: qml/EditPage.qml:353
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "სათაური"
 
-#: qml/EditPage.qml:340
+#: qml/EditPage.qml:354
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "სუბტიტრები"
 
-#: qml/EditPage.qml:341
+#: qml/EditPage.qml:355
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "ჭრილი"
 
-#: qml/EditPage.qml:342
+#: qml/EditPage.qml:356
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "ქვესექცია"
 
-#: qml/EditPage.qml:343
+#: qml/EditPage.qml:357
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "პარაგრაფი"
 
-#: qml/EditPage.qml:344
+#: qml/EditPage.qml:358
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "ქვეპარაგრაფი"
 
-#: qml/EditPage.qml:436
+#: qml/EditPage.qml:450
 #, kde-format
 msgid "Format"
 msgstr "ფორმატი"
 
-#: qml/EditPage.qml:440
+#: qml/EditPage.qml:454
 #, kde-format
 msgid "Lists"
 msgstr "სიები"
 
-#: qml/EditPage.qml:444
+#: qml/EditPage.qml:458
 #, kde-format
 msgid "Insert"
 msgstr "ჩასმა"
+
+#: qml/GlobalMenuBar.qml:20
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Settings"
+msgctxt "@action:menu"
+msgid "Settings"
+msgstr "მორგება"
 
 #: qml/ImageDialog.qml:18
 #, kde-format
@@ -292,48 +307,138 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "ბმულის URL:"
 
-#: qml/Main.qml:76
+#: qml/Main.qml:84
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "ახალი შენიშვნის შექმნა შეუძლებელია. ჯერ წიგნაკი უნდა შექმნათ."
 
-#: qml/Main.qml:76
+#: qml/Main.qml:84
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "წიგნაკის შექმნა"
 
-#: qml/Main.qml:231
+#: qml/Main.qml:251
 #, kde-format
 msgid "Sort by Name"
 msgstr "სახელის მიხედვით დალაგება"
 
-#: qml/Main.qml:245
+#: qml/Main.qml:265
 #, kde-format
 msgid "Sort by Date"
 msgstr "თარიღის მიხედვით დალაგება"
 
-#: qml/Main.qml:266
+#: qml/Main.qml:286
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "გვერდითი ზოლის ჩაკეცვა"
 
-#: qml/Main.qml:266
+#: qml/Main.qml:286
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "გვერდითი ზოლის გაფართოება"
 
-#: qml/Main.qml:284
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Settings"
-msgstr "მორგება"
-
-#: qml/Main.qml:342
+#: qml/Main.qml:355
 #, kde-format
 msgid "Your Notebooks"
 msgstr "თქვენი წიგნაკები"
+
+#: qml/NativeEditMenu.qml:10
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit Note"
+msgctxt "@action:menu"
+msgid "Edit"
+msgstr "შენიშვნის ჩასწორება"
+
+#: qml/NativeEditMenu.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Undo"
+msgctxt "text editing menu action"
+msgid "Undo"
+msgstr "დაბრუნება"
+
+#: qml/NativeEditMenu.qml:49
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Redo"
+msgctxt "text editing menu action"
+msgid "Redo"
+msgstr "გამეორება"
+
+#: qml/NativeEditMenu.qml:62
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Cut"
+msgctxt "text editing menu action"
+msgid "Cut"
+msgstr "ამოჭრა"
+
+#: qml/NativeEditMenu.qml:72
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy"
+msgctxt "text editing menu action"
+msgid "Copy"
+msgstr "კოპირება"
+
+#: qml/NativeEditMenu.qml:82
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste"
+msgctxt "text editing menu action"
+msgid "Paste"
+msgstr "ჩასმა"
+
+#: qml/NativeEditMenu.qml:92
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete"
+msgctxt "text editing menu action"
+msgid "Delete"
+msgstr "წაშლა"
+
+#: qml/NativeEditMenu.qml:105
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Select All"
+msgctxt "text editing menu action"
+msgid "Select All"
+msgstr "ყველას მონიშვნა"
+
+#: qml/NativeFileMenu.qml:9
+#, kde-format
+msgctxt "@action:menu"
+msgid "File"
+msgstr ""
+
+#: qml/NativeFileMenu.qml:15
+#, fuzzy, kde-format
+#| msgctxt "Application name"
+#| msgid "Marknote"
+msgctxt "@action:menu"
+msgid "Quit Marknote"
+msgstr "Marknote"
+
+#: qml/NativeHelpMenu.qml:11
+#, kde-format
+msgctxt "@action:menu"
+msgid "Help"
+msgstr ""
+
+#: qml/NativeWindowMenu.qml:12
+#, kde-format
+msgctxt "@action:menu"
+msgid "Window"
+msgstr ""
+
+#: qml/NativeWindowMenu.qml:19
+#, kde-format
+msgctxt "@action:menu"
+msgid "Enter Full Screen"
+msgstr ""
 
 #: qml/NotebookContextMenu.qml:16
 #, kde-format
@@ -415,98 +520,110 @@ msgstr "ძებნიდან გასვლა (%1)"
 msgid "Search notes (%1)"
 msgstr "შენიშვნების ძებნა (%1)"
 
-#: qml/NotesPage.qml:171
+#: qml/NotesPage.qml:183
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "შენიშვნის წაშლა"
 
-#: qml/NotesPage.qml:183
+#: qml/NotesPage.qml:195
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "მართლა გნებავთ წაშალოთ შენიშვნა <b> %1 </b>?"
 
-#: qml/NotesPage.qml:306
+#: qml/NotesPage.qml:313
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "შენიშვნის სახელის გადარქმევა"
 
-#: qml/NotesPage.qml:312
+#: qml/NotesPage.qml:319
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "შენიშვნის წაშლა"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "HTML-ში გატანა"
 
-#: qml/NotesPage.qml:329
+#: qml/NotesPage.qml:336
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "HTML-ში გატანა"
 
-#: qml/NotesPage.qml:330
+#: qml/NotesPage.qml:337
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML ფაილი (*.html)"
 
-#: qml/NotesPage.qml:336
+#: qml/NotesPage.qml:343
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "გატანა PDF-ში"
 
-#: qml/NotesPage.qml:342
+#: qml/NotesPage.qml:349
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "გატანა PDF-ში"
 
-#: qml/NotesPage.qml:343
+#: qml/NotesPage.qml:350
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "ყველა ფაილი (*)"
 
-#: qml/NotesPage.qml:349
+#: qml/NotesPage.qml:356
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "გატანა ODT-ში"
 
-#: qml/NotesPage.qml:355
+#: qml/NotesPage.qml:362
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "გატანა ODT-ში"
 
-#: qml/NotesPage.qml:356
+#: qml/NotesPage.qml:363
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF ტექსტური დოკუმენტი (*.odt)"
 
-#: qml/NotesPage.qml:485
+#: qml/NotesPage.qml:492
 #, kde-format
 msgid "Add a note!"
 msgstr "დაამატეთ შენიშვნა!"
 
-#: qml/SettingsDialog.qml:13
+#: qml/SettingsDialog.qml:14
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Editor Settings"
 msgstr "რედაქტორის მორგება"
 
-#: qml/SettingsDialog.qml:24
+#: qml/SettingsDialog.qml:22
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Notes Directory:"
+msgstr ""
+
+#: qml/SettingsDialog.qml:31
+#, kde-format
+msgctxt "@title:window"
+msgid "Select the notes directory"
+msgstr ""
+
+#: qml/SettingsDialog.qml:46
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "ფონტის ოჯახი:"
 
-#: qml/SettingsDialog.qml:48
+#: qml/SettingsDialog.qml:70
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
