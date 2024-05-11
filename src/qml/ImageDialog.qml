@@ -11,7 +11,7 @@ import QtQuick.Dialogs
 
 FormCard.FormCardDialog {
     id: root
-    readonly property alias imagePath: imageField.path
+    property alias imagePath: imageField.path
 
     property string notePath
 

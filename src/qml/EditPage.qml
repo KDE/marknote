@@ -127,7 +127,12 @@ Kirigami.Page {
         id: imageDialog
 
         parent: applicationWindow().overlay
-        onAccepted: document.insertImage(imagePath)
+        onAccepted: {
+            if (imagePath.toString().length > 0) {
+                document.insertImage(imagePath)
+                imagePath = '';
+            }
+        }
         notePath: root.noteFullPath
     }
 
