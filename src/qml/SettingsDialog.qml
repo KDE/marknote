@@ -48,15 +48,23 @@ FormCard.FormCardDialog {
             }
 
             ComboBox {
-                Layout.fillWidth: true
+                property bool isInitialising: true
+
                 model: Config.fontFamilies
                 enabled: !Config.isEditorFontImmutable
                 onCurrentIndexChanged: {
+                    if (isInitialising || !enabled) {
+                        return;
+                    }
                     Config.editorFont.familiy = currentValue;
                     Config.save();
                 }
 
-                Component.onCompleted: currentIndex = indexOfValue(Config.editorFont.family)
+                Component.onCompleted: {
+                    currentIndex = indexOfValue(Config.editorFont.family);
+                    isInitialising = false;
+                }
+                Layout.fillWidth: true
             }
         }
     }
