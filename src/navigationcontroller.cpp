@@ -80,7 +80,11 @@ void NavigationController::setNotePath(const QString &notePath)
         if (entries.isEmpty()) {
             path = QString();
         } else {
-            path = dir.entryInfoList(QDir::Files).at(0).fileName();
+            for (const auto &entry : entries) {
+                if (entry.fileName().endsWith(u".md"_s)) {
+                    path = entry.fileName();
+                }
+            }
         }
     }
 
