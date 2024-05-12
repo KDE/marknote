@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-10 00:38+0000\n"
+"POT-Creation-Date: 2024-05-12 00:39+0000\n"
 "PO-Revision-Date: 2024-05-05 20:39+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -622,7 +622,7 @@ msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "Famiglia di caratteri:"
 
-#: qml/SettingsDialog.qml:70
+#: qml/SettingsDialog.qml:78
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
