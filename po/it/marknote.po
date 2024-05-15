@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:39+0000\n"
-"PO-Revision-Date: 2024-05-05 20:39+0200\n"
+"PO-Revision-Date: 2024-05-10 16:25+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -104,7 +104,7 @@ msgstr "Modalità di messa a fuoco"
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Esci da schermo intero"
 
 #: qml/EditPage.qml:153
 #, kde-format
@@ -242,9 +242,7 @@ msgid "Insert"
 msgstr "Inserisci"
 
 #: qml/GlobalMenuBar.qml:20
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
 msgstr "Impostazioni"
@@ -344,65 +342,49 @@ msgid "Your Notebooks"
 msgstr "I tuoi taccuini"
 
 #: qml/NativeEditMenu.qml:10
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Note"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Edit"
-msgstr "Modifica nota"
+msgstr "Modifica"
 
 #: qml/NativeEditMenu.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Undo"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
 msgstr "Annulla"
 
 #: qml/NativeEditMenu.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Redo"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
 msgstr "Rifai"
 
 #: qml/NativeEditMenu.qml:62
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Cut"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
 msgstr "Taglia"
 
 #: qml/NativeEditMenu.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
 msgstr "Copia"
 
 #: qml/NativeEditMenu.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
 msgstr "Incolla"
 
 #: qml/NativeEditMenu.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
 msgstr "Elimina"
 
 #: qml/NativeEditMenu.qml:105
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Select All"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Seleziona tutto"
@@ -411,33 +393,31 @@ msgstr "Seleziona tutto"
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
-msgstr ""
+msgstr "File"
 
 #: qml/NativeFileMenu.qml:15
-#, fuzzy, kde-format
-#| msgctxt "Application name"
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Quit Marknote"
-msgstr "Marknote"
+msgstr "Esci da Marknote"
 
 #: qml/NativeHelpMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "Help"
-msgstr ""
+msgstr "Aiuto"
 
 #: qml/NativeWindowMenu.qml:12
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
-msgstr ""
+msgstr "Finestra"
 
 #: qml/NativeWindowMenu.qml:19
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
-msgstr ""
+msgstr "Passa a schermo intero"
 
 #: qml/NotebookContextMenu.qml:16
 #, kde-format
@@ -608,13 +588,13 @@ msgstr "Impostazioni dell'editor"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr ""
+msgstr "Cartella delle note:"
 
 #: qml/SettingsDialog.qml:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the notes directory"
-msgstr ""
+msgstr "Seleziona la cartella delle note"
 
 #: qml/SettingsDialog.qml:46
 #, kde-format

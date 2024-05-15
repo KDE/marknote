@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-12 00:39+0000\n"
-"PO-Revision-Date: 2024-05-11 11:10+0200\n"
+"PO-Revision-Date: 2024-05-13 11:09+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -102,7 +102,7 @@ msgstr "Mode de focus"
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Sortir du mode de plein écran"
 
 #: qml/EditPage.qml:153
 #, kde-format
@@ -240,9 +240,7 @@ msgid "Insert"
 msgstr "Insérer"
 
 #: qml/GlobalMenuBar.qml:20
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
 msgstr "Configuration"
@@ -344,88 +342,82 @@ msgid "Your Notebooks"
 msgstr "Vos carnets de notes"
 
 #: qml/NativeEditMenu.qml:10
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Note"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Edit"
-msgstr "Modifier une note"
+msgstr "Modifier"
 
 #: qml/NativeEditMenu.qml:39
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr ""
+msgstr "Annuler"
 
 #: qml/NativeEditMenu.qml:49
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
-msgstr ""
+msgstr "Refaire"
 
 #: qml/NativeEditMenu.qml:62
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
-msgstr ""
+msgstr "Couper"
 
 #: qml/NativeEditMenu.qml:72
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
-msgstr ""
+msgstr "Copier"
 
 #: qml/NativeEditMenu.qml:82
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
-msgstr ""
+msgstr "Coller"
 
 #: qml/NativeEditMenu.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
-msgstr "Supprimer une note"
+msgstr "Supprimer"
 
 #: qml/NativeEditMenu.qml:105
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
-msgstr ""
+msgstr "Tout sélectionner"
 
 #: qml/NativeFileMenu.qml:9
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
-msgstr ""
+msgstr "Fichier"
 
 #: qml/NativeFileMenu.qml:15
-#, fuzzy, kde-format
-#| msgctxt "Application name"
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Quit Marknote"
-msgstr "MarkNote"
+msgstr "Fermer MarkNote"
 
 #: qml/NativeHelpMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "Help"
-msgstr ""
+msgstr "Aide"
 
 #: qml/NativeWindowMenu.qml:12
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
-msgstr ""
+msgstr "Fenêtre"
 
 #: qml/NativeWindowMenu.qml:19
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
-msgstr ""
+msgstr "Active le mode de plein écran"
 
 #: qml/NotebookContextMenu.qml:16
 #, kde-format
@@ -596,13 +588,13 @@ msgstr "Configuration de l'éditeur"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr ""
+msgstr "Répertoire des notes :"
 
 #: qml/SettingsDialog.qml:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the notes directory"
-msgstr ""
+msgstr "Sélectionnez le répertoire de notes"
 
 #: qml/SettingsDialog.qml:46
 #, kde-format
