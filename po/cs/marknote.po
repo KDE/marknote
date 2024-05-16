@@ -103,7 +103,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Ukončit celoobrazovkový režim"
 
 #: qml/EditPage.qml:153
 #, kde-format
@@ -244,7 +244,7 @@ msgstr "Vložit"
 #, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 #: qml/ImageDialog.qml:18
 #, kde-format
@@ -341,65 +341,49 @@ msgid "Your Notebooks"
 msgstr "Vaše poznámkové bloky"
 
 #: qml/NativeEditMenu.qml:10
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Note"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Edit"
-msgstr "Upravit poznámku"
+msgstr "Upravit"
 
 #: qml/NativeEditMenu.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Undo"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
 msgstr "Zpět"
 
 #: qml/NativeEditMenu.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Redo"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
 msgstr "Znovu"
 
 #: qml/NativeEditMenu.qml:62
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Cut"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
 msgstr "Vyjmout"
 
 #: qml/NativeEditMenu.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
 msgstr "Kopírovat"
 
 #: qml/NativeEditMenu.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
 msgstr "Vložit"
 
 #: qml/NativeEditMenu.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
 msgstr "Smazat"
 
 #: qml/NativeEditMenu.qml:105
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Select All"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Vybrat vše"
@@ -408,7 +392,7 @@ msgstr "Vybrat vše"
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
-msgstr ""
+msgstr "Soubor"
 
 #: qml/NativeFileMenu.qml:15
 #, kde-format
@@ -420,19 +404,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:menu"
 msgid "Help"
-msgstr ""
+msgstr "Nápověda"
 
 #: qml/NativeWindowMenu.qml:12
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
-msgstr ""
+msgstr "Okno"
 
 #: qml/NativeWindowMenu.qml:19
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
-msgstr ""
+msgstr "Přejít do celoobrazovkového režimu"
 
 #: qml/NotebookContextMenu.qml:16
 #, kde-format
