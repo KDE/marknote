@@ -23,6 +23,7 @@ FormCard.FormCardDialog {
 
     FormCard.FormSpinBoxDelegate {
         id: rowsSpinBox
+        from: 1
         label: i18nc("@label:textbox", "Number of Rows:")
     }
 
@@ -30,6 +31,7 @@ FormCard.FormCardDialog {
 
     FormCard.FormSpinBoxDelegate {
         id: colsSpinBox
+        from: 1
         label: i18nc("@label:textbox", "Number of Columns:")
     }
 }
