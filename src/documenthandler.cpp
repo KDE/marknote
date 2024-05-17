@@ -841,7 +841,7 @@ bool DocumentHandler::evaluateReturnKeySupport(QKeyEvent *event)
             cursor.movePosition(QTextCursor::StartOfBlock);
             setCursorPosition(cursor.position());
         }
-        return false;
+        return true;
     } else {
         return evaluateListSupport(event);
     }
@@ -891,12 +891,10 @@ bool DocumentHandler::evaluateListSupport(QKeyEvent *event)
         } else if (event->key() == Qt::Key_Down && isControlClicked) {
             moveCursorBeginUpDown(false);
             event->accept();
-        } else {
-            return true;
         }
-        return false;
+        return true;
     }
-    return false;
+    return true;
 }
 
 void DocumentHandler::slotKeyPressed(int key)
