@@ -84,6 +84,41 @@
     <binary>marknote</binary>
   </provides>
   <releases>
+    <release version="1.2.0" date="2024-05-017">
+      <description>
+        <p>
+            We improved the notes management with the ability to choose a custom
+            folder where to store your notes amd made it possible to
+            change the sorting of notes from alphabetically to by date. The
+            sidebar is now collapsable and we added a focus mode where
+            everything but the text editor is displayed.
+        </p>
+        <p>
+            If you prefer to just use Marknote as a Markdown editor, we made it
+            possible to just open any markdown files directly from the file
+            browser or the console. Additionally Marknote supports
+            markdown files with a so called front matter, which is a
+            common way to inject metadata to markdown in static website
+            generators like Hugo and Jekyll.
+        </p>
+        <p>
+            In term of edition support, the subset of markdown supported
+            increased again. Now it is possible to add and edit
+            tables. Additionally we started transforming inline
+            markdown directly to rich text as you type. Support is
+            limited to a few markdown constructs but is likely to
+            grow over time. You can now customize the font used by editor.
+        </p>
+        <p>
+            Aside from being able to edit text, it's now possible to also create
+            sketches directly from MarkNote.
+        </p>
+        <p>
+            Finally we took care of ensuring MarkNote was fully usable when used
+            with Plasma Mobile.
+        </p>
+      </description>
+    </release>
     <release version="1.1.1" date="2024-04-01">
       <description>
         <p>Fix an imporant bug</p>
