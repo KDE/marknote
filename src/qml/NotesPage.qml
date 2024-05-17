@@ -188,16 +188,12 @@ Kirigami.ScrollablePage {
                 NavigationController.notePath = '';
             }
         }
-        standardButtons: Dialog.Yes | Dialog.Cancel
+        standardButtons: Dialog.Ok | Dialog.Cancel
 
         Label {
             Layout.fillWidth: true
             text: i18n("Are you sure you want to delete the note <b> %1 </b>?", removeDialog.noteName)
             wrapMode: Text.WordWrap
-        }
-
-        footer: DialogButtonBox {
-            standardButtons: removeDialog.standardButtons
         }
     }
 

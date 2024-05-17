@@ -31,21 +31,12 @@ Components.MessageDialog {
     title: i18nc("@title:window", "Delete Notebook")
     onRejected: close()
     onAccepted: deleteAction.trigger()
-    standardButtons: Controls.Dialog.Yes | Controls.Dialog.Cancel
+    standardButtons: Controls.Dialog.Ok | Controls.Dialog.Cancel
 
     contentItem: Controls.Label {
         Layout.fillWidth: true
         Layout.margins: Kirigami.Units.largeSpacing
         text: i18n("Are you sure you want to delete the Notebook <b> %1 </b>?", removeDialog.name)
         wrapMode: Text.WordWrap
-    }
-
-    footer: Controls.DialogButtonBox {
-        leftPadding: Kirigami.Units.largeSpacing * 2
-        rightPadding: Kirigami.Units.largeSpacing * 2
-        bottomPadding: Kirigami.Units.largeSpacing * 2
-        topPadding: Kirigami.Units.largeSpacing * 2
-
-        standardButtons: removeDialog.standardButtons
     }
 }
