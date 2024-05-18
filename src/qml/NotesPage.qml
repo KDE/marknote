@@ -187,6 +187,7 @@ Kirigami.ScrollablePage {
             if (notePath === NavigationController.notePath) {
                 NavigationController.notePath = '';
             }
+            close();
         }
         standardButtons: Dialog.Ok | Dialog.Cancel
 
