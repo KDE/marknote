@@ -56,7 +56,9 @@ FormCard.FormCardDialog {
                     if (isInitialising || !enabled) {
                         return;
                     }
-                    Config.editorFont.familiy = currentValue;
+                    const font = Config.editorFont;
+                    font.family = currentValue;
+                    Config.editorFont = font;
                     Config.save();
                 }
 
