@@ -54,6 +54,7 @@ qt_add_qml_module(marknote_static STATIC
         commandbarfiltermodel.cpp
         tableactionhelper.cpp
         config.cpp
+        windowcontroller.cpp
 )
 
 kconfig_add_kcfg_files(marknote_static GENERATE_MOC marknotesettings.kcfgc)
