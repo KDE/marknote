@@ -879,6 +879,7 @@ bool DocumentHandler::evaluateListSupport(QKeyEvent *event)
         const bool isShiftClicked = event->modifiers() & Qt::ShiftModifier;
         if (handleShortcut(event)) {
             event->accept();
+            return false;
         } else if (event->key() == Qt::Key_Up && isControlClicked && isShiftClicked) {
             moveLineUpDown(true);
             event->accept();
