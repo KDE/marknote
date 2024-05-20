@@ -84,7 +84,7 @@
     <binary>marknote</binary>
   </provides>
   <releases>
-    <release version="1.2.0" date="2024-05-017">
+    <release version="1.2.0" date="2024-05-17">
       <description>
         <p>
             We improved the notes management with the ability to choose a custom
