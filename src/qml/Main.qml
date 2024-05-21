@@ -347,6 +347,7 @@ Kirigami.ApplicationWindow {
 
                 ListView {
                     spacing: 0
+                    clip: true
 
                     model: noteBooksModel
                     delegate: NotebookDelegate {
