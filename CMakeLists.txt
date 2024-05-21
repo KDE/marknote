@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.16)
 # TODO move to release service
 set(RELEASE_SERVICE_VERSION_MAJOR "1")
 set(RELEASE_SERVICE_VERSION_MINOR "2")
-set(RELEASE_SERVICE_VERSION "1.2.0")
+set(RELEASE_SERVICE_VERSION "1.2.1")
 
 project(marknote VERSION ${RELEASE_SERVICE_VERSION})
 
