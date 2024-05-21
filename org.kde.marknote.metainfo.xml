@@ -84,6 +84,18 @@
     <binary>marknote</binary>
   </provides>
   <releases>
+    <release version="1.2.1" date="2024-05-21">
+      <description>
+        <p>Bug fixes release containing the following fixes:</p>
+        <ul>
+          <li>Fix saving font</li>
+          <li>Remember last window state</li>
+          <li>Close dialog after deleting note</li>
+          <li>Fix double copy paste</li>
+          <li>Fix sidebar not scrollable when there is a note books overflow</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.0" date="2024-05-17">
       <description>
         <p>
