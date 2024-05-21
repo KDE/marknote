@@ -210,7 +210,6 @@ Kirigami.ApplicationWindow {
             Controls.ToolBar {
                 Layout.fillWidth: true
                 Layout.preferredHeight: root.pageStack.globalToolBar.preferredHeight
-                Layout.bottomMargin: Kirigami.Units.smallSpacing / 2
                 leftPadding: 0
                 rightPadding: 0
 
@@ -339,14 +338,22 @@ Kirigami.ApplicationWindow {
                     }
                 }
             }
-            Repeater {
-                model: noteBooksModel
-                delegate: NotebookDelegate {
+
+            Controls.ScrollView {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+
+                Controls.ScrollBar.vertical.interactive: false
+
+                ListView {
+                    spacing: 0
+
                     model: noteBooksModel
+                    delegate: NotebookDelegate {
+                        model: noteBooksModel
+                    }
                 }
             }
-
-            Item { Layout.fillHeight: true }
         }
     }
     BottomDrawer {
