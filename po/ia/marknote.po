@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:39+0000\n"
+"POT-Creation-Date: 2024-05-23 00:39+0000\n"
 "PO-Revision-Date: 2024-05-10 12:53+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -280,7 +280,7 @@ msgctxt "@label:textbox"
 msgid "Quick Sketch"
 msgstr "Schizzo rapide"
 
-#: qml/KQuickCommandBarPage.qml:121
+#: qml/KQuickCommandBarPage.qml:59
 #, kde-format
 msgid "No results found"
 msgstr "Necun resultatos trovate"
