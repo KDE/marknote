@@ -35,11 +35,16 @@ Kirigami.ScrollablePage {
 
     background: Rectangle {color: root.backgroundColor}
 
-    ActionButton {
+    Components.FloatingButton {
         visible: Kirigami.Settings.isMobile
         parent: root.overlay
-        x: root.width - width - Kirigami.Units.gridUnit
-        y: root.height - height - pageStack.globalToolBar.preferredHeight - Kirigami.Units.gridUnit
+        anchors {
+            bottom: parent.bottom
+            right: parent.right
+            rightMargin: Kirigami.Units.gridUnit
+            bottomMargin: Kirigami.Units.gridUnit
+
+        }
         text: i18n("Add note")
         icon.name: "list-add"
         onClicked: newNoteAction.trigger()

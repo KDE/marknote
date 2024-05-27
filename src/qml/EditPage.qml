@@ -369,19 +369,57 @@ Kirigami.Page {
         }
     }
 
-    RowLayout {
-        id: mobileToolBarContainer
+    Components.FloatingButton {
+        icon.name: "document-edit"
+        parent: root.overlay
         visible: !wideScreen
+        scale: mobileToolBarContainer.hidden? 1 : 0
+
+        Behavior on scale {
+            NumberAnimation {
+
+                duration: Kirigami.Units.shortDuration * 2
+                easing.type: Easing.InOutQuart
+            }
+        }
 
         anchors {
             bottom: parent.bottom
+            right: parent.right
+            rightMargin: Kirigami.Units.gridUnit
+            bottomMargin: Kirigami.Units.gridUnit
+
+        }
+
+        onClicked: mobileToolBarContainer.hidden = false
+
+    }
+
+    RowLayout {
+        id: mobileToolBarContainer
+        visible: !wideScreen
+        property bool hidden: false
+        y: hidden? parent.height : parent.height - mobileToolBar.height
+
+        anchors {
             left: parent.left
             right: parent.right
         }
+
         z: 600000
         parent: root.overlay
 
+        Behavior on y {
+            NumberAnimation {
+
+                duration: Kirigami.Units.shortDuration * 2
+                easing.type: Easing.InOutQuart
+            }
+        }
+
         Kirigami.ShadowedRectangle {
+            id: mobileToolBar
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             Kirigami.Theme.inherit: false
@@ -404,8 +442,10 @@ Kirigami.Page {
 
             ColumnLayout {
                 id: mobileToolbarLayout
+
+
                 anchors.fill: parent
-                SwipeView{
+                SwipeView {
                     id: swipeView
                     clip: true
                     Layout.margins: Kirigami.Units.mediumSpacing
@@ -437,35 +477,58 @@ Kirigami.Page {
                     }
 
                 }
-                RadioSelector{
-                    id: categorySelector
-
-                    Layout.rightMargin: Kirigami.Units.mediumSpacing
-                    Layout.leftMargin: Kirigami.Units.mediumSpacing
-                    Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
-                    Layout.topMargin: 0
+                RowLayout {
                     Layout.fillWidth: true
-                    Layout.maximumWidth: Kirigami.Units.gridUnit * 20
-                    Layout.alignment: Qt.AlignHCenter
+                    Item{
+                        Layout.fillWidth: true
+                    }
+                    RadioSelector {
+                        id: categorySelector
 
-                    consistentWidth: true
+                        Layout.leftMargin: Kirigami.Units.mediumSpacing
+                        Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+                        Layout.topMargin: 0
+                        Layout.fillWidth: true
+                        Layout.maximumWidth: Kirigami.Units.gridUnit * 20
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 20
+                        Layout.alignment: Qt.AlignHCenter
 
-                    actions: [
-                       Kirigami.Action {
-                           text: i18n("Format")
-//                           icon.name: "format-border-style"
-                       },
-                       Kirigami.Action {
-                           text: i18n("Lists")
-//                           icon.name: "media-playlist-append"
-                       },
-                       Kirigami.Action {
-                           text: i18n("Insert")
-//                           icon.name: "kdenlive-add-text-clip"
-                        }
-                   ]
+                        consistentWidth: true
+
+                        actions: [
+                           Kirigami.Action {
+                               text: i18n("Format")
+    //                           icon.name: "format-border-style"
+                           },
+                           Kirigami.Action {
+                               text: i18n("Lists")
+    //                           icon.name: "media-playlist-append"
+                           },
+                           Kirigami.Action {
+                               text: i18n("Insert")
+    //                           icon.name: "kdenlive-add-text-clip"
+                            }
+                       ]
+                    }
+                    Item{
+                        Layout.fillWidth: true
+                    }
+                    ToolButton {
+                        icon.name: "arrow-down"
+                        Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+                        Layout.rightMargin: Kirigami.Units.mediumSpacing
+                        icon.height: Kirigami.Units.gridUnit
+                        icon.width: Kirigami.Units.gridUnit
+                        Layout.alignment: Qt.AlignRight
+
+                        Layout.topMargin: 0
+                        height: categorySelector.height
+                        width: height
+
+                        onClicked: mobileToolBarContainer.hidden = true
+
+                    }
                 }
-
             }
         }
     }
@@ -517,7 +580,16 @@ Kirigami.Page {
             leftPadding: 0
             rightPadding: 0
             topPadding: 0
-            bottomPadding: wideScreen? 0 : mobileToolBarContainer.height
+
+            bottomPadding: wideScreen? 0 : (mobileToolBarContainer.hidden ? 0 : mobileToolBarContainer.height)
+
+            Behavior on bottomPadding {
+                NumberAnimation {
+
+                    duration: Kirigami.Units.shortDuration * 2
+                    easing.type: Easing.InOutQuart
+                }
+            }
 
             font: Config.editorFont
 
