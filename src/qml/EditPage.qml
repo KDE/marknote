@@ -576,7 +576,7 @@ Kirigami.Page {
         T.TextArea {
             id: textArea
 
-            textMargin: Kirigami.Units.gridUnit * 2
+            textMargin: wideScreen? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
             leftPadding: 0
             rightPadding: 0
             topPadding: 0
