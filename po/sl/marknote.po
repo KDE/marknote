@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:39+0000\n"
+"POT-Creation-Date: 2024-05-28 00:38+0000\n"
 "PO-Revision-Date: 2024-05-10 06:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -103,7 +103,7 @@ msgstr "Opombe ni mogoče preimenovati. Opomba z istim imenom že obstaja."
 msgid "Focus Mode"
 msgstr "Način osredotočenja"
 
-#: qml/EditPage.qml:107 qml/NativeWindowMenu.qml:19 qml/NotesPage.qml:163
+#: qml/EditPage.qml:107 qml/NativeWindowMenu.qml:19 qml/NotesPage.qml:168
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -230,17 +230,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Pododstavek"
 
-#: qml/EditPage.qml:455
+#: qml/EditPage.qml:500
 #, kde-format
 msgid "Format"
 msgstr "Oblika"
 
-#: qml/EditPage.qml:459
+#: qml/EditPage.qml:504
 #, kde-format
 msgid "Lists"
 msgstr "Seznami"
 
-#: qml/EditPage.qml:463
+#: qml/EditPage.qml:508
 #, kde-format
 msgid "Insert"
 msgstr "Vstavi"
@@ -489,96 +489,96 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Ime:"
 
-#: qml/NotesPage.qml:43
+#: qml/NotesPage.qml:48
 #, kde-format
 msgid "Add note"
 msgstr "Dodaj zabeležko"
 
-#: qml/NotesPage.qml:126
+#: qml/NotesPage.qml:131
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Izhod iz iskanja (%1)"
 
-#: qml/NotesPage.qml:126
+#: qml/NotesPage.qml:131
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Išči po zabeležkah (%1)"
 
-#: qml/NotesPage.qml:183
+#: qml/NotesPage.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Izbriši zabeležko"
 
-#: qml/NotesPage.qml:196
+#: qml/NotesPage.qml:201
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Ali ste prepričani, da želite izbrisati zabeležko <b>»%1«</b>?"
 
-#: qml/NotesPage.qml:310
+#: qml/NotesPage.qml:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Preimenuj zabeležko"
 
-#: qml/NotesPage.qml:316
+#: qml/NotesPage.qml:321
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Izbriši zabeležko"
 
-#: qml/NotesPage.qml:327
+#: qml/NotesPage.qml:332
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Izvozi v HTML"
 
-#: qml/NotesPage.qml:333
+#: qml/NotesPage.qml:338
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Izvozi v HTML"
 
-#: qml/NotesPage.qml:334
+#: qml/NotesPage.qml:339
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Datoteka HTML (*.html)"
 
-#: qml/NotesPage.qml:340
+#: qml/NotesPage.qml:345
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Izvozi v PDF"
 
-#: qml/NotesPage.qml:346
+#: qml/NotesPage.qml:351
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Izvozi v PDF"
 
-#: qml/NotesPage.qml:347
+#: qml/NotesPage.qml:352
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Datoteka PDF (*.pdf)"
 
-#: qml/NotesPage.qml:353
+#: qml/NotesPage.qml:358
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Izvozi v ODT"
 
-#: qml/NotesPage.qml:359
+#: qml/NotesPage.qml:364
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Izvozi v ODT"
 
-#: qml/NotesPage.qml:360
+#: qml/NotesPage.qml:365
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Besedilni dokument ODT (*.odt)"
 
-#: qml/NotesPage.qml:489
+#: qml/NotesPage.qml:494
 #, kde-format
 msgid "Add a note!"
 msgstr "Dodaj zabeležko!"
