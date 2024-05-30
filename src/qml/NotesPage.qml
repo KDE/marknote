@@ -394,6 +394,7 @@ Kirigami.ScrollablePage {
             Component.onCompleted: updateColor();
 
             TapHandler {
+                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
                 acceptedButtons: Qt.RightButton
                 onTapped: {
                     menu.delegateItem = delegateItem;
