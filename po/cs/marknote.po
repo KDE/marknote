@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-28 00:38+0000\n"
-"PO-Revision-Date: 2024-04-03 11:31+0200\n"
+"POT-Creation-Date: 2024-05-31 00:39+0000\n"
+"PO-Revision-Date: 2024-05-30 10:41+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: application.cpp:147
 #, kde-format
@@ -48,7 +48,7 @@ msgstr "Nová poznámka"
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
-msgstr ""
+msgstr "Marknote"
 
 #: main.cpp:76
 #, kde-format
@@ -96,7 +96,7 @@ msgstr ""
 #: qml/EditPage.qml:93
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "Režim zaměření"
 
 #: qml/EditPage.qml:107 qml/NativeWindowMenu.qml:19 qml/NotesPage.qml:168
 #: qml/WelcomePage.qml:29
@@ -181,7 +181,7 @@ msgstr "Vložit obrázek"
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr ""
+msgstr "Vložit tabulku"
 
 #: qml/EditPage.qml:357
 #, kde-format
@@ -278,7 +278,7 @@ msgstr "Umístění obrázku:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Quick Sketch"
-msgstr ""
+msgstr "Rychlý nákres"
 
 #: qml/KQuickCommandBarPage.qml:59
 #, kde-format
@@ -333,7 +333,7 @@ msgstr "Svinout postranní panel"
 #: qml/Main.qml:287
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Rozbalit postranní panel"
 
 #: qml/Main.qml:365
 #, kde-format
@@ -398,7 +398,7 @@ msgstr "Soubor"
 #, kde-format
 msgctxt "@action:menu"
 msgid "Quit Marknote"
-msgstr ""
+msgstr "Ukončit Marknote"
 
 #: qml/NativeHelpMenu.qml:11
 #, kde-format
@@ -434,12 +434,12 @@ msgstr "Smazat poznámkový blok"
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
-msgstr ""
+msgstr "Smazat poznámkový blok"
 
 #: qml/NotebookDeleteDialog.qml:39
 #, kde-format
 msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
-msgstr ""
+msgstr "Opravdu si přejete smazat poznámkový blok <b> %1 </b>?"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -572,7 +572,7 @@ msgstr "Exportovat do ODT"
 msgid "ODF Text Document (*.odt)"
 msgstr "Textový dokument ODF (*.odf)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:495
 #, kde-format
 msgid "Add a note!"
 msgstr "Přidat poznámku."
@@ -581,31 +581,31 @@ msgstr "Přidat poznámku."
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Editor Settings"
-msgstr ""
+msgstr "Nastavení editoru"
 
 #: qml/SettingsDialog.qml:22
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr ""
+msgstr "Adresář s poznámkami:"
 
 #: qml/SettingsDialog.qml:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the notes directory"
-msgstr ""
+msgstr "Vyberte adresář poznámek"
 
 #: qml/SettingsDialog.qml:46
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "Typ písma:"
 
 #: qml/SettingsDialog.qml:80
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "Velikost písma:"
 
 #: qml/TableDialog.qml:18
 #, kde-format
@@ -617,37 +617,37 @@ msgstr "Vložit tabulku"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Počet řádků:"
 
 #: qml/TableDialog.qml:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Počet sloupců:"
 
 #: qml/TextFieldContextMenu.qml:225
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
-msgstr ""
+msgstr "Ignorovat"
 
 #: qml/TextFieldContextMenu.qml:240
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr ""
+msgstr "Kontrola pravopisu"
 
 #: qml/TextFieldContextMenu.qml:255
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
-msgstr ""
+msgstr "Vložit"
 
 #: qml/TextFieldContextMenu.qml:279
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
-msgstr ""
+msgstr "Odstranit"
 
 #: qml/TextFieldContextMenu.qml:307
 #, kde-format
