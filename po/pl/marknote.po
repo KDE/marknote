@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-31 00:39+0000\n"
-"PO-Revision-Date: 2024-04-28 12:27+0200\n"
+"PO-Revision-Date: 2024-06-01 08:41+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: application.cpp:147
 #, kde-format
@@ -36,7 +37,7 @@ msgstr "O KDE"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
-msgstr "Nowy zeszyt"
+msgstr "Nowy notatnik"
 
 #: application.cpp:198
 #, kde-format
@@ -103,7 +104,7 @@ msgstr "Tryb skupienia"
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Wyłącz tryb pełnoekranowy"
 
 #: qml/EditPage.qml:158
 #, kde-format
@@ -228,24 +229,20 @@ msgstr "Podakapit"
 #: qml/EditPage.qml:500
 #, kde-format
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: qml/EditPage.qml:504
 #, kde-format
 msgid "Lists"
-msgstr ""
+msgstr "Listy"
 
 #: qml/EditPage.qml:508
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgid "Insert"
-msgstr "Wstaw odnośnik"
+msgstr "staw"
 
 #: qml/GlobalMenuBar.qml:20
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
 msgstr "Ustawienia"
@@ -345,88 +342,82 @@ msgid "Your Notebooks"
 msgstr "Twoje notatniki"
 
 #: qml/NativeEditMenu.qml:10
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Note"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Edit"
-msgstr "Edytuj notatkę"
+msgstr "Edytuj"
 
 #: qml/NativeEditMenu.qml:39
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr ""
+msgstr "Cofnij"
 
 #: qml/NativeEditMenu.qml:49
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
-msgstr ""
+msgstr "Przywróć"
 
 #: qml/NativeEditMenu.qml:62
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
-msgstr ""
+msgstr "Wytnij"
 
 #: qml/NativeEditMenu.qml:72
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
-msgstr ""
+msgstr "Skopiuj"
 
 #: qml/NativeEditMenu.qml:82
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
-msgstr ""
+msgstr "Wklej"
 
 #: qml/NativeEditMenu.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
-msgstr "Usuń notatkę"
+msgstr "Usuń"
 
 #: qml/NativeEditMenu.qml:105
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
-msgstr ""
+msgstr "Zaznacz wszystko"
 
 #: qml/NativeFileMenu.qml:9
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
-msgstr ""
+msgstr "Plik"
 
 #: qml/NativeFileMenu.qml:15
-#, fuzzy, kde-format
-#| msgctxt "Application name"
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Quit Marknote"
-msgstr "Marknote"
+msgstr "Zakończ Marknote"
 
 #: qml/NativeHelpMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "Help"
-msgstr ""
+msgstr "Pomoc"
 
 #: qml/NativeWindowMenu.qml:12
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
-msgstr ""
+msgstr "Okno"
 
 #: qml/NativeWindowMenu.qml:19
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
-msgstr ""
+msgstr "Włącz tryb pełnoekranowy"
 
 #: qml/NotebookContextMenu.qml:16
 #, kde-format
@@ -455,7 +446,7 @@ msgstr "Czy na pewno usunąć notatnik <b>%1</b>?"
 #, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
-msgstr "Nowy zeszyt"
+msgstr "Nowy notatnik"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -597,13 +588,13 @@ msgstr "Ustawienia edytora"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr ""
+msgstr "Katalog notatek:"
 
 #: qml/SettingsDialog.qml:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the notes directory"
-msgstr ""
+msgstr "Wskaż katalog notatek"
 
 #: qml/SettingsDialog.qml:46
 #, kde-format
@@ -639,71 +630,67 @@ msgstr "Liczba kolumn:"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
-msgstr ""
+msgstr "Pomiń"
 
 #: qml/TextFieldContextMenu.qml:240
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr ""
+msgstr "Sprawdzanie pisowni"
 
 #: qml/TextFieldContextMenu.qml:255
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
-msgstr "Wstaw odnośnik"
+msgstr "Wstaw"
 
 #: qml/TextFieldContextMenu.qml:279
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
-msgstr ""
+msgstr "Usuń"
 
 #: qml/TextFieldContextMenu.qml:307
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
-msgstr ""
+msgstr "Cofnij"
 
 #: qml/TextFieldContextMenu.qml:322
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
-msgstr ""
+msgstr "Przywróć"
 
 #: qml/TextFieldContextMenu.qml:340
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
-msgstr ""
+msgstr "Wytnij"
 
 #: qml/TextFieldContextMenu.qml:355
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
-msgstr ""
+msgstr "Skopiuj"
 
 #: qml/TextFieldContextMenu.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
-msgstr ""
+msgstr "Wklej"
 
 #: qml/TextFieldContextMenu.qml:385
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
-msgstr "Usuń notatkę"
+msgstr "Usuń"
 
 #: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
-msgstr ""
+msgstr "Zaznacz wszystko"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -713,27 +700,27 @@ msgstr "Rozpocznij tworząc swój pierwszy notatnik!"
 #: tableactionhelper.cpp:148 tableactionhelper.cpp:173
 #, kde-format
 msgid "Row Below"
-msgstr ""
+msgstr "Wiersz poniżej"
 
 #: tableactionhelper.cpp:154 tableactionhelper.cpp:179
 #, kde-format
 msgid "Row Above"
-msgstr ""
+msgstr "Wiersz powyżej"
 
 #: tableactionhelper.cpp:160 tableactionhelper.cpp:185
 #, kde-format
 msgid "Column Before"
-msgstr ""
+msgstr "Kolumna przed"
 
 #: tableactionhelper.cpp:167 tableactionhelper.cpp:192
 #, kde-format
 msgid "Column After"
-msgstr ""
+msgstr "Kolumna za"
 
 #: tableactionhelper.cpp:198
 #, kde-format
 msgid "Cell Contents"
-msgstr ""
+msgstr "Zawartość komórki"
 
 #~ msgid "New Note (%1)"
 #~ msgstr "Nowa notatka (%1)"
