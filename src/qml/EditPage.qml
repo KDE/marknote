@@ -121,6 +121,10 @@ Kirigami.Page {
         Item{ width: 5 }
 
         Item { Layout.fillWidth: true }
+        Item {
+            width: fillWindowButton.width
+            visible: wideScreen
+        }
         ToolButton {
             id: fillWindowButton
             visible: wideScreen && !root.singleDocumentMode
@@ -135,10 +139,7 @@ Kirigami.Page {
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
-                Item {
-                    width: fillWindowButton.width
-                    visible: wideScreen
-                }
+
         ToolButton {
             visible: applicationWindow().visibility === Window.FullScreen
             icon.name: "window-restore-symbolic"
