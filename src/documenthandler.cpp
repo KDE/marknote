@@ -478,7 +478,6 @@ QTextDocument *DocumentHandler::textDocument() const
 {
     if (!m_document)
         return nullptr;
-
     return m_document->textDocument();
 }
 

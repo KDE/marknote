@@ -68,23 +68,58 @@ Kirigami.Page {
     titleDelegate: RowLayout {
         visible: root.noteName
         Layout.fillWidth: true
-        Item {
-            width: fillWindowButton.width
+
+        ToolButton {
+            icon.name: "edit-undo"
+            text: i18n("undo")
+            display: AbstractButton.IconOnly
+            Layout.leftMargin: Kirigami.Units.smallSpacing
+            onClicked: textArea.undo()
+            enabled: textArea.canUndo
             visible: wideScreen
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
         }
+        ToolButton {
+            icon.name: "edit-redo"
+            text: i18n("undo")
+            display: AbstractButton.IconOnly
+            onClicked: textArea.redo()
+            enabled: textArea.canRedo
+            visible: wideScreen
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+
+
         Item { Layout.fillWidth: true }
         Rectangle {
-            height:5
-            width: 5
+            height: 5
+            width: height
             radius: 2.5
-            color: Kirigami.Theme.textColor
-            visible: !root.saved
+            scale: root.saved ? 0 : 1
+            Behavior on scale {
+                NumberAnimation {
+
+                    duration: Kirigami.Units.shortDuration * 2
+                    easing.type: Easing.InOutQuart
+                }
+            }
+
         }
         Kirigami.Heading {
             text: root.noteName
-            type: root.saved? Kirigami.Heading.Type.Normal:Kirigami.Heading.Type.Primary
+            Layout.rightMargin: Kirigami.Units.mediumSpacing
+            Layout.leftMargin: Kirigami.Units.mediumSpacing
 
         }
+        Item{ width: 5 }
+
         Item { Layout.fillWidth: true }
         ToolButton {
             id: fillWindowButton
@@ -100,7 +135,10 @@ Kirigami.Page {
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
-
+                Item {
+                    width: fillWindowButton.width
+                    visible: wideScreen
+                }
         ToolButton {
             visible: applicationWindow().visibility === Window.FullScreen
             icon.name: "window-restore-symbolic"
@@ -445,7 +483,9 @@ Kirigami.Page {
 
 
                 anchors.fill: parent
-                SwipeView {
+                RowLayout{
+
+                    SwipeView {
                     id: swipeView
                     clip: true
                     Layout.margins: Kirigami.Units.mediumSpacing
@@ -474,6 +514,37 @@ Kirigami.Page {
                     Item {
                         id: thirdPage
                         Loader { sourceComponent: insertGroup }
+                    }
+
+                }
+
+                    Kirigami.Separator {
+                        Layout.fillHeight: true
+                        Layout.topMargin: Kirigami.Units.mediumSpacing
+                        Layout.bottomMargin: Kirigami.Units.mediumSpacing
+                    }
+                    ToolButton {
+                        icon.name: "edit-undo"
+                        text: i18n("undo")
+                        display: AbstractButton.IconOnly
+                        onClicked: textArea.undo()
+                        enabled: textArea.canUndo
+
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
+                        ToolTip.delay: Kirigami.Units.toolTipDelay
+                    }
+                    ToolButton {
+                        icon.name: "edit-redo"
+                        text: i18n("undo")
+                        display: AbstractButton.IconOnly
+                        onClicked: textArea.redo()
+                        enabled: textArea.canRedo
+                        Layout.rightMargin: Kirigami.Units.smallSpacing
+
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
+                        ToolTip.delay: Kirigami.Units.toolTipDelay
                     }
 
                 }
@@ -573,7 +644,7 @@ Kirigami.Page {
     contentItem: ScrollView {
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
-        T.TextArea {
+        TextArea {
             id: textArea
 
             textMargin: wideScreen? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
