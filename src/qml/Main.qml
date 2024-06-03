@@ -29,15 +29,6 @@ Kirigami.ApplicationWindow {
             showNavigationButtons: Config.fillWindow ? Kirigami.ApplicationHeaderStyle.None : Kirigami.ApplicationHeaderStyle.ShowBackButton
         }
 
-        defaultColumnWidth: Config.fillWindow ? 0 : 15 * Kirigami.Units.gridUnit
-        Behavior on defaultColumnWidth {
-            NumberAnimation {
-                id: columnWidthAnimation
-                duration: Kirigami.Units.shortDuration * 2
-                easing.type: Easing.InOutQuart
-                onFinished: root.columnModeDelayed = Config.fillWindow
-            }
-        }
         columnView {
             columnResizeMode: (width >= pageStack.defaultColumnWidth * 3.5 && !columnModeDelayed) && pageStack.depth >= 2 ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
         }

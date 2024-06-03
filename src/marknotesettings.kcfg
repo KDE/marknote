@@ -21,10 +21,13 @@ SPDX-License-Identifier: LGPL-2.0-or-later
     <entry name="fillWindow" type="Bool">
       <default>false</default>
     </entry>
+    <entry name="columnWidth" type="int">
+      <default>370</default>
+    </entry>
     <entry name="storage" type="Path" key="storage">
       <default code="true">QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + u'/' + QStringLiteral("Notes")</default>
     </entry>
-  </group>
+  </group>s
 
   <group name="Fonts">
     <entry name="EditorFont" type="Font" key="editor-font">

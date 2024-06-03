@@ -15,6 +15,9 @@ import org.kde.marknote
 Kirigami.Page {
     id: root
 
+    Layout.fillWidth: true
+
+
     objectName: "EditPage"
 
     readonly property bool wideScreen: width >= toolBar.width + Kirigami.Units.largeSpacing * 2
@@ -127,14 +130,25 @@ Kirigami.Page {
         }
         ToolButton {
             id: fillWindowButton
+            property int columnWidth: Config.fillWindow? 0 : Kirigami.Units.gridUnit * 15
+
+            Behavior on columnWidth {
+                NumberAnimation {
+
+                    duration: Kirigami.Units.shortDuration * 2
+                    easing.type: Easing.InOutQuart
+                }
+            }
+            onColumnWidthChanged: pageStack.defaultColumnWidth = columnWidth
             visible: wideScreen && !root.singleDocumentMode
             icon.name: "view-fullscreen"
             text: i18n("Focus Mode")
             display: AbstractButton.IconOnly
             checkable: true
             checked: Config.fillWindow
-            onClicked: Config.fillWindow = !Config.fillWindow
-
+            onClicked: {
+                Config.fillWindow = !Config.fillWindow
+            }
             ToolTip.text: text
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
