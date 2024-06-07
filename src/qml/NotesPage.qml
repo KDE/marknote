@@ -119,6 +119,7 @@ Kirigami.ScrollablePage {
             Layout.leftMargin: Kirigami.Units.largeSpacing
             Layout.rightMargin: Kirigami.Units.largeSpacing
             horizontalAlignment: Text.AlignHCenter
+            elide: Qt.ElideRight
         }
         ToolButton {
             id: headingButton
