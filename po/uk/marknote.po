@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:39+0000\n"
+"POT-Creation-Date: 2024-06-08 00:39+0000\n"
 "PO-Revision-Date: 2024-06-05 08:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -105,7 +105,7 @@ msgstr "повернути"
 msgid "Focus Mode"
 msgstr "Режим фокусування"
 
-#: qml/EditPage.qml:160 qml/NativeWindowMenu.qml:19 qml/NotesPage.qml:202
+#: qml/EditPage.qml:160 qml/NativeWindowMenu.qml:19 qml/NotesPage.qml:203
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -495,91 +495,91 @@ msgstr "Назва:"
 msgid "Add note"
 msgstr "Додати нотатку"
 
-#: qml/NotesPage.qml:165
+#: qml/NotesPage.qml:166
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Вийти з пошуку (%1)"
 
-#: qml/NotesPage.qml:165
+#: qml/NotesPage.qml:166
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Шукати нотатки (%1)"
 
-#: qml/NotesPage.qml:222
+#: qml/NotesPage.qml:223
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Вилучення нотатки"
 
-#: qml/NotesPage.qml:235
+#: qml/NotesPage.qml:236
 #, kde-format
 msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Ви дійсно бажаєте вилучити нотатку <b>%1</b>?"
 
-#: qml/NotesPage.qml:349
+#: qml/NotesPage.qml:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Перейменувати нотатку"
 
-#: qml/NotesPage.qml:355
+#: qml/NotesPage.qml:356
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Вилучити нотатку"
 
-#: qml/NotesPage.qml:366
+#: qml/NotesPage.qml:367
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Експортувати до HTML"
 
-#: qml/NotesPage.qml:372
+#: qml/NotesPage.qml:373
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Експортування до HTML"
 
-#: qml/NotesPage.qml:373
+#: qml/NotesPage.qml:374
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "файл HTML (*.html)"
 
-#: qml/NotesPage.qml:379
+#: qml/NotesPage.qml:380
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Експортувати до PDF"
 
-#: qml/NotesPage.qml:385
+#: qml/NotesPage.qml:386
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Експортування до PDF"
 
-#: qml/NotesPage.qml:386
+#: qml/NotesPage.qml:387
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "файл PDF (*.pdf)"
 
-#: qml/NotesPage.qml:392
+#: qml/NotesPage.qml:393
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Експортувати в ODT"
 
-#: qml/NotesPage.qml:398
+#: qml/NotesPage.qml:399
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Експортувати в ODT"
 
-#: qml/NotesPage.qml:399
+#: qml/NotesPage.qml:400
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "текстовий документ ODF (*.odt)"
 
-#: qml/NotesPage.qml:529
+#: qml/NotesPage.qml:530
 #, kde-format
 msgid "Add a note!"
 msgstr "Додайте нотатку!"
