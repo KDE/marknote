@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:39+0000\n"
-"PO-Revision-Date: 2024-05-24 17:14+0100\n"
+"PO-Revision-Date: 2024-06-08 12:25+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -97,7 +97,7 @@ msgstr "Unable to rename note. A note already exists with the same name."
 #: qml/EditPage.qml:554
 #, kde-format
 msgid "undo"
-msgstr ""
+msgstr "undo"
 
 #: qml/EditPage.qml:145
 #, kde-format
