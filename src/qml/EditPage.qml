@@ -106,6 +106,7 @@ Kirigami.Page {
             width: height
             radius: 2.5
             scale: root.saved ? 0 : 1
+            color: Kirigami.Theme.textColor
             Behavior on scale {
                 NumberAnimation {
 
