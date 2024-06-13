@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-11 00:39+0000\n"
-"PO-Revision-Date: 2024-06-04 12:08+0300\n"
+"PO-Revision-Date: 2024-06-13 00:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -127,25 +127,25 @@ msgstr "Yatık"
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr "Altı Çizili"
+msgstr "Altı çizili"
 
 #: qml/EditPage.qml:264
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
-msgstr "Üzeri Çizili"
+msgstr "Üzeri çizili"
 
 #: qml/EditPage.qml:282
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr "Liste Düzeyini Artır"
+msgstr "Liste düzeyini artır"
 
 #: qml/EditPage.qml:293
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr "Liste Düzeyini Azalt"
+msgstr "Liste düzeyini azalt"
 
 #: qml/EditPage.qml:335
 #, kde-format
@@ -531,13 +531,13 @@ msgstr "Notu Sil"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr "HTML’ye Dışa Aktar"
+msgstr "HTML Olarak Dışa Aktar"
 
 #: qml/NotesPage.qml:373
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
-msgstr "HTML’ye Dışa Aktar"
+msgstr "HTML Olarak Dışa Aktar"
 
 #: qml/NotesPage.qml:374
 #, kde-format
@@ -548,13 +548,13 @@ msgstr "HTML dosyası (*.html)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
-msgstr "PDF’ye Dışa Aktar"
+msgstr "PDF Olarak Dışa Aktar"
 
 #: qml/NotesPage.qml:386
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
-msgstr "PDF’ye Dışa Aktar"
+msgstr "PDF Olarak Dışa Aktar"
 
 #: qml/NotesPage.qml:387
 #, kde-format
@@ -565,13 +565,13 @@ msgstr "PDF dosyası (*.pdf)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr "ODT’ye Dışa Aktar"
+msgstr "ODT Olarak Dışa Aktar"
 
 #: qml/NotesPage.qml:399
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr "ODT’ye Dışa Aktar"
+msgstr "ODT Olarak Dışa Aktar"
 
 #: qml/NotesPage.qml:400
 #, kde-format
