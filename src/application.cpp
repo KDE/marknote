@@ -206,6 +206,20 @@ void App::setupActions()
         auto action = KStandardAction::preferences(this, &App::preferences, this);
         mCollection->addAction(action->objectName(), action);
     }
+
+    actionName = QLatin1String("import_knotes");
+    if (KAuthorized::authorizeAction(actionName)) {
+        auto action = mCollection->addAction(actionName, this, &App::importFromKNotes);
+        action->setText(i18nc("@action:inmenu", "Import from KNotes"));
+        mCollection->addAction(action->objectName(), action);
+    }
+
+    actionName = QLatin1String("import_maildir");
+    if (KAuthorized::authorizeAction(actionName)) {
+        auto action = mCollection->addAction(actionName, this, &App::importFromMaildir);
+        action->setText(i18nc("@action:inmenu", "Import from Maildir"));
+        mCollection->addAction(action->objectName(), action);
+    }
 }
 
 void App::quit()

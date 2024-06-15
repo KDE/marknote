@@ -19,6 +19,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/NotebookDeleteAction.qml
         qml/NotebookMetadataDialog.qml
         qml/NotebookDeleteDialog.qml
+        qml/ImportMaildirDialog.qml
 
         # Editor
         qml/EditPage.qml
@@ -54,6 +55,9 @@ qt_add_qml_module(marknote_static STATIC
         tableactionhelper.cpp
         config.cpp
         windowcontroller.cpp
+
+        maildirimport.cpp
+        maildirimport.h
 )
 
 kconfig_add_kcfg_files(marknote_static GENERATE_MOC marknotesettings.kcfgc)
@@ -74,6 +78,7 @@ target_link_libraries(marknote_static PUBLIC
     KF6::ColorScheme
     KF6::XmlGui
     KF6::Crash
+    KPim6::Mime
 )
 
 target_link_libraries(marknote_static PRIVATE settingsplugin)

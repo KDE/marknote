@@ -14,6 +14,7 @@ include(FeatureSummary)
 
 set(QT_MIN_VERSION 6.4)
 set(KF_MIN_VERSION 5.240)
+set(KPIM_MIME_VERSION "6.1.40")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -52,6 +53,8 @@ set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required application components and runtime dependency"
 )
+
+find_package(KPim6Mime ${KPIM_MIME_VERSION} CONFIG REQUIRED)
 
 find_package(md4c)
 set_package_properties(md4c PROPERTIES

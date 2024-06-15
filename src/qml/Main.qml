@@ -101,6 +101,26 @@ Kirigami.ApplicationWindow {
         function onPreferences(): void {
             settingsView.open();
         }
+
+        function onImportFromMaildir(): void {
+            const component = Qt.createComponent("org.kde.marknote", "ImportMaildirDialog");
+            console.error(component.errorString());
+            const dialog = component.createObject(root, {
+                mode: ImportMaildirDialog.Mode.Maildir,
+                model: noteBooksModel,
+            });
+            dialog.open();
+        }
+
+        function onImportFromKNotes(): void {
+            const component = Qt.createComponent("org.kde.marknote", "ImportMaildirDialog");
+            console.error(component.errorString());
+            const dialog = component.createObject(root, {
+                mode: ImportMaildirDialog.Mode.KNotes,
+                model: noteBooksModel,
+            });
+            dialog.open();
+        }
     }
 
     MarkNoteSettings {
@@ -233,6 +253,18 @@ Kirigami.ApplicationWindow {
                                 action: KActionFromAction {
                                     id: newNoteAction
                                     action: App.action('add_note')
+                                }
+                            }
+
+                            Controls.Menu {
+                                title: i18nc("@title:menu", "Import")
+
+                                KActionFromAction {
+                                    action: App.action('import_maildir')
+                                }
+
+                                KActionFromAction {
+                                    action: App.action('import_knotes')
                                 }
                             }
 

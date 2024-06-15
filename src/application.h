@@ -36,6 +36,8 @@ Q_SIGNALS:
     void newNotebook();
     void newNote();
     void preferences();
+    void importFromMaildir();
+    void importFromKNotes();
 
 protected:
     virtual void setupActions();
