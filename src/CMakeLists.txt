@@ -33,6 +33,7 @@ qt_add_qml_module(marknote_static STATIC
         qml/components/BottomDrawer.qml
         qml/components/DoubleActionButton.qml
         qml/components/RadioSelector.qml
+        qml/FormIconDelegate.qml
 
         # Native menu
         qml/NativeHelpMenu.qml

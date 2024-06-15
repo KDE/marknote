@@ -104,7 +104,10 @@ Kirigami.ApplicationWindow {
 
         function onImportFromMaildir(): void {
             const component = Qt.createComponent("org.kde.marknote", "ImportMaildirDialog");
-            console.error(component.errorString());
+            if (component.status !== Component.Ready) {
+                console.error(component.errorString());
+                return;
+            }
             const dialog = component.createObject(root, {
                 mode: ImportMaildirDialog.Mode.Maildir,
                 model: noteBooksModel,
@@ -114,7 +117,10 @@ Kirigami.ApplicationWindow {
 
         function onImportFromKNotes(): void {
             const component = Qt.createComponent("org.kde.marknote", "ImportMaildirDialog");
-            console.error(component.errorString());
+            if (component.status !== Component.Ready) {
+                console.error(component.errorString());
+                return;
+            }
             const dialog = component.createObject(root, {
                 mode: ImportMaildirDialog.Mode.KNotes,
                 model: noteBooksModel,

@@ -24,6 +24,8 @@ private Q_SLOTS:
         MaildirImport maildirImport;
         maildirImport.import(QUrl::fromLocalFile(QLatin1StringView(DATA_DIR) + QLatin1StringView("/maildir/")), QUrl::fromLocalFile(destination.path()));
 
+        qWarning() << destination.path() << QUrl::fromLocalFile(destination.path());
+
         QDir dir(destination.path());
         const auto entries = dir.entryInfoList(QDir::Files);
         QCOMPARE(entries.count(), 1);

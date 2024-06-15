@@ -14,3 +14,7 @@ License: CC-BY-SA-4.0
 Files: .flatpak-manifest.json
 Copyright: Justin Zobel <justin.zobel@gmail.com>
 License: GPL-3.0-or-later
+
+Files: src/autotests/testdata/*
+Copyright: None
+License: CC0-1.0
