@@ -50,12 +50,16 @@ FormCard.FormCardPage {
                 }
 
                 QQC2.ComboBox {
+                    id: fontFamilyComboBox
+
                     property bool isInitialising: true
                     Layout.fillWidth: true
                     model: Config.fontFamilies
                     enabled: !Config.isEditorFontImmutable
                     onCurrentIndexChanged: {
-                        if (isInitialising && !enabled) return
+                        if (isInitialising && !enabled) {
+                            return;
+                        }
                         Config.editorFont.famliy = currentValue;
                         Config.save();
                     }
@@ -64,6 +68,13 @@ FormCard.FormCardPage {
                         currentIndex = indexOfValue(Config.editorFont.family)
                         isInitialising = false
                     }
+
+                    Connections {
+                        target: Config
+                        function onEditorFontChanged() {
+                            fontFamilyComboBox.currentIndex = fontFamilyComboBox.indexOfValue(Config.editorFont.family)
+                        }
+                    }
                 }
             }
         }
@@ -71,6 +82,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormSpinBoxDelegate {
+            id: fontSizeSpinbox
             from: 0
             to: 25
             value: Config.editorFont.pixelSize
@@ -79,6 +91,13 @@ FormCard.FormCardPage {
             onValueChanged: {
                 Config.editorFont.pixelSize = value;
                 Config.save();
+            }
+
+            Connections {
+                target: Config
+                function onEditorFontChanged() {
+                    fontSizeSpinbox.value = Config.editorFont.pixelSize;
+                }
             }
         }
     }
