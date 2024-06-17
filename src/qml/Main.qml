@@ -264,6 +264,7 @@ Kirigami.ApplicationWindow {
 
                             Controls.Menu {
                                 title: i18nc("@title:menu", "Import")
+                                icon.name: "kontact-import-wizard"
 
                                 KActionFromAction {
                                     action: App.action('import_maildir')
@@ -323,11 +324,6 @@ Kirigami.ApplicationWindow {
                                 Shortcut {
                                     sequence: "Ctrl+Shift+S"
                                     onActivated: expandSidebar.clicked()
-                                }
-                            }
-                            Controls.MenuItem {
-                                action: KActionFromAction {
-                                    action: App.action('open_about_page')
                                 }
                             }
 
