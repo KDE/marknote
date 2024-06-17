@@ -276,34 +276,40 @@ Kirigami.ApplicationWindow {
                             }
 
                             Controls.MenuSeparator {}
+                            Controls.Menu {
+                                title: i18nc("@title:menu", "Sort Notes List")
+                                icon.name: "view-sort"
 
-                            Controls.MenuItem {
-                                id: sortName
-                                checkable: true
-                                text: i18n("Sort by Name")
-                                icon.name: "sort-name"
-                                autoExclusive: true
-                                onClicked: {
-                                    Config.sortBehaviour = "sort-name";
-                                    Config.save();
+                                Controls.MenuItem {
+                                    id: sortName
+                                    checkable: true
+                                    text: i18n("by Name")
+                                    icon.name: "sort-name"
+                                    autoExclusive: true
+                                    onClicked: {
+                                        Config.sortBehaviour = "sort-name";
+                                        Config.save();
+                                    }
+                                    checked: Config.sortBehaviour == "sort-name"
+
                                 }
-                                checked: Config.sortBehaviour == "sort-name"
 
+                                Controls.MenuItem {
+                                    id: sortDate
+                                    checkable: true
+                                    text: i18n("by Date")
+                                    icon.name: "view-sort-descending"
+                                    autoExclusive: true
+                                    onClicked: {
+                                        Config.sortBehaviour = "sort-date";
+                                        Config.save();
+                                    }
+                                    checked: Config.sortBehaviour == "sort-date"
+
+                                }
                             }
 
-                            Controls.MenuItem {
-                                id: sortDate
-                                checkable: true
-                                text: i18n("Sort by Date")
-                                icon.name: "view-sort-descending"
-                                autoExclusive: true
-                                onClicked: {
-                                    Config.sortBehaviour = "sort-date";
-                                    Config.save();
-                                }
-                                checked: Config.sortBehaviour == "sort-date"
 
-                            }
 
                             Controls.MenuSeparator {}
 
