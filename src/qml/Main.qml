@@ -310,15 +310,21 @@ Kirigami.ApplicationWindow {
                             }
 
 
-
-                            Controls.MenuSeparator {}
-
                             Controls.MenuItem {
                                 action: KActionFromAction {
                                     action: App.action('open_kcommand_bar')
                                 }
                             }
 
+
+
+
+                            Controls.MenuItem {
+                                action: KActionFromAction {
+                                    action: App.action('options_configure')
+                                }
+                            }
+                            Controls.MenuSeparator {}
                             Controls.MenuItem {
                                 id: expandSidebar
                                 text: Config.expandedSidebar ? i18n("Collapse Sidebar") : i18n("Expand Sidebar")
@@ -333,11 +339,6 @@ Kirigami.ApplicationWindow {
                                 }
                             }
 
-                            Controls.MenuItem {
-                                action: KActionFromAction {
-                                    action: App.action('options_configure')
-                                }
-                            }
                         }
                     }
                     Kirigami.Heading {
@@ -368,6 +369,7 @@ Kirigami.ApplicationWindow {
                         }
 
                     }
+
                 }
             }
 
