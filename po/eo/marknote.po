@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-11 00:39+0000\n"
+"POT-Creation-Date: 2024-06-17 00:39+0000\n"
 "PO-Revision-Date: 2024-06-05 21:43+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -45,7 +45,25 @@ msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nova Noto"
 
-#: main.cpp:74 qml/Main.qml:303
+#: application.cpp:213
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Import from KNotes"
+msgstr ""
+
+#: application.cpp:220
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Import from Maildir"
+msgstr ""
+
+#: maildirimport.cpp:88
+#, kde-format
+msgctxt "@status"
+msgid "An error occurred while writing to '%1'"
+msgstr ""
+
+#: main.cpp:74 qml/Main.qml:342
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -247,6 +265,12 @@ msgstr "Listoj"
 msgid "Insert"
 msgstr "Enmeti"
 
+#: qml/FormIconDelegate.qml:17
+#, kde-format
+msgctxt "@action:button"
+msgid "Icon"
+msgstr "Pikrogramo"
+
 #: qml/GlobalMenuBar.qml:20
 #, kde-format
 msgctxt "@action:menu"
@@ -259,7 +283,7 @@ msgctxt "@title:window"
 msgid "Insert Image"
 msgstr "Enmeti Bildon"
 
-#: qml/ImageDialog.qml:24
+#: qml/ImageDialog.qml:24 qml/ImportMaildirDialog.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
@@ -287,6 +311,38 @@ msgctxt "@label:textbox"
 msgid "Quick Sketch"
 msgstr "Rapida Skizo"
 
+#: qml/ImportMaildirDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "Import from Maildir"
+msgstr ""
+
+#: qml/ImportMaildirDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "Import from KNotes"
+msgstr ""
+
+#: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
+#, kde-format
+msgctxt "@label:textbox Notebook name"
+msgid "Name:"
+msgstr "Nomo:"
+
+#: qml/ImportMaildirDialog.qml:50
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Image Location:"
+msgctxt "@label:textbox Notebook name"
+msgid "Maildir location:"
+msgstr "Loko de Bildo:"
+
+#: qml/ImportMaildirDialog.qml:103
+#, kde-format
+msgctxt "@action:button"
+msgid "Import"
+msgstr ""
+
 #: qml/KQuickCommandBarPage.qml:121
 #, kde-format
 msgid "No results found"
@@ -310,39 +366,45 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "URL de Ligilo:"
 
-#: qml/Main.qml:75
+#: qml/Main.qml:76
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "Ne eblas krei novan noton; vi devas unue krei notlibron."
 
-#: qml/Main.qml:75
+#: qml/Main.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Krei Notlibron"
 
-#: qml/Main.qml:243
+#: qml/Main.qml:266
+#, kde-format
+msgctxt "@title:menu"
+msgid "Import"
+msgstr ""
+
+#: qml/Main.qml:282
 #, kde-format
 msgid "Sort by Name"
 msgstr "Ordigi laŭ Nomo"
 
-#: qml/Main.qml:257
+#: qml/Main.qml:296
 #, kde-format
 msgid "Sort by Date"
 msgstr "Ordigi laŭ Dato"
 
-#: qml/Main.qml:278
+#: qml/Main.qml:317
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Malvastigi Flankbreton"
 
-#: qml/Main.qml:278
+#: qml/Main.qml:317
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Vastigi Flankbreton"
 
-#: qml/Main.qml:356
+#: qml/Main.qml:395
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Viaj Notlibroj"
@@ -460,18 +522,6 @@ msgctxt "@title:window"
 msgid "Edit Notebook"
 msgstr "Redakti Notlibron"
 
-#: qml/NotebookMetadataDialog.qml:39
-#, kde-format
-msgctxt "@label:textbox Notebook name"
-msgid "Name:"
-msgstr "Nomo:"
-
-#: qml/NotebookMetadataDialog.qml:51
-#, kde-format
-msgctxt "@action:button"
-msgid "Icon"
-msgstr "Pikrogramo"
-
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
 msgctxt "@title:window"
@@ -584,36 +634,6 @@ msgstr "ODF-Tekstdokumento (*.odt)"
 msgid "Add a note!"
 msgstr "Aldonu noton!"
 
-#: qml/SettingsDialog.qml:14
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Editor Settings"
-msgstr "Redaktilaj Agordoj"
-
-#: qml/SettingsDialog.qml:22
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Notes Directory:"
-msgstr "Dosierujo de Notoj:"
-
-#: qml/SettingsDialog.qml:31
-#, kde-format
-msgctxt "@title:window"
-msgid "Select the notes directory"
-msgstr "Elektu la dosierujon de notoj"
-
-#: qml/SettingsDialog.qml:46
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Font family:"
-msgstr "Tiparfamilio:"
-
-#: qml/SettingsDialog.qml:80
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Font size:"
-msgstr "Tipargrandeco:"
-
 #: qml/TableDialog.qml:18
 #, kde-format
 msgctxt "@title:window"
@@ -702,6 +722,69 @@ msgstr "Elekti Ĉion"
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Komencu per kreo de via unua notlibro!"
+
+#: settings/MarkNoteGeneralPage.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "General"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Editor Settings"
+msgid "Editor Settings"
+msgstr "Redaktilaj Agordoj"
+
+#: settings/MarkNoteGeneralPage.qml:24
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Notes Directory:"
+msgstr "Dosierujo de Notoj:"
+
+#: settings/MarkNoteGeneralPage.qml:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Select the notes directory"
+msgstr "Elektu la dosierujon de notoj"
+
+#: settings/MarkNoteGeneralPage.qml:48
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Font family:"
+msgstr "Tiparfamilio:"
+
+#: settings/MarkNoteGeneralPage.qml:89
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Font size:"
+msgstr "Tipargrandeco:"
+
+#: settings/MarkNoteGeneralPage.qml:113
+#, kde-format
+msgid "Reset"
+msgstr ""
+
+#: settings/MarkNoteSettings.qml:15
+#, kde-format
+msgctxt "@action:button"
+msgid "General"
+msgstr ""
+
+#: settings/MarkNoteSettings.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@action:menu"
+#| msgid "Quit Marknote"
+msgctxt "@action:button"
+msgid "About MarkNote"
+msgstr "Forlasi Marknote"
+
+#: settings/MarkNoteSettings.qml:27
+#, fuzzy, kde-format
+#| msgid "About KDE"
+msgctxt "@action:button"
+msgid "About KDE"
+msgstr "Pri KDE"
 
 #: tableactionhelper.cpp:148 tableactionhelper.cpp:173
 #, kde-format

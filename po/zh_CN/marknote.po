@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-11 00:39+0000\n"
+"POT-Creation-Date: 2024-06-17 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -44,7 +44,25 @@ msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr ""
 
-#: main.cpp:74 qml/Main.qml:303
+#: application.cpp:213
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Import from KNotes"
+msgstr ""
+
+#: application.cpp:220
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Import from Maildir"
+msgstr ""
+
+#: maildirimport.cpp:88
+#, kde-format
+msgctxt "@status"
+msgid "An error occurred while writing to '%1'"
+msgstr ""
+
+#: main.cpp:74 qml/Main.qml:342
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -246,6 +264,12 @@ msgstr "列表"
 msgid "Insert"
 msgstr "插入"
 
+#: qml/FormIconDelegate.qml:17
+#, kde-format
+msgctxt "@action:button"
+msgid "Icon"
+msgstr "图标："
+
 #: qml/GlobalMenuBar.qml:20
 #, kde-format
 msgctxt "@action:menu"
@@ -258,7 +282,7 @@ msgctxt "@title:window"
 msgid "Insert Image"
 msgstr "插入图像"
 
-#: qml/ImageDialog.qml:24
+#: qml/ImageDialog.qml:24 qml/ImportMaildirDialog.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
@@ -286,6 +310,38 @@ msgctxt "@label:textbox"
 msgid "Quick Sketch"
 msgstr "快速草稿"
 
+#: qml/ImportMaildirDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "Import from Maildir"
+msgstr ""
+
+#: qml/ImportMaildirDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "Import from KNotes"
+msgstr ""
+
+#: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
+#, kde-format
+msgctxt "@label:textbox Notebook name"
+msgid "Name:"
+msgstr "名称："
+
+#: qml/ImportMaildirDialog.qml:50
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Image Location:"
+msgctxt "@label:textbox Notebook name"
+msgid "Maildir location:"
+msgstr "图像位置："
+
+#: qml/ImportMaildirDialog.qml:103
+#, kde-format
+msgctxt "@action:button"
+msgid "Import"
+msgstr ""
+
 #: qml/KQuickCommandBarPage.qml:121
 #, kde-format
 msgid "No results found"
@@ -309,39 +365,45 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr ""
 
-#: qml/Main.qml:75
+#: qml/Main.qml:76
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "无法创建新的笔记，您需要先创建笔记本。"
 
-#: qml/Main.qml:75
+#: qml/Main.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "创建笔记本"
 
-#: qml/Main.qml:243
+#: qml/Main.qml:266
+#, kde-format
+msgctxt "@title:menu"
+msgid "Import"
+msgstr ""
+
+#: qml/Main.qml:282
 #, kde-format
 msgid "Sort by Name"
 msgstr "按名称排序"
 
-#: qml/Main.qml:257
+#: qml/Main.qml:296
 #, kde-format
 msgid "Sort by Date"
 msgstr "依日期排序："
 
-#: qml/Main.qml:278
+#: qml/Main.qml:317
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "折叠侧边栏"
 
-#: qml/Main.qml:278
+#: qml/Main.qml:317
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "展开侧边栏"
 
-#: qml/Main.qml:356
+#: qml/Main.qml:395
 #, kde-format
 msgid "Your Notebooks"
 msgstr ""
@@ -459,18 +521,6 @@ msgctxt "@title:window"
 msgid "Edit Notebook"
 msgstr "编辑笔记本"
 
-#: qml/NotebookMetadataDialog.qml:39
-#, kde-format
-msgctxt "@label:textbox Notebook name"
-msgid "Name:"
-msgstr "名称："
-
-#: qml/NotebookMetadataDialog.qml:51
-#, kde-format
-msgctxt "@action:button"
-msgid "Icon"
-msgstr "图标："
-
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
 msgctxt "@title:window"
@@ -583,36 +633,6 @@ msgstr "ODF 文本文档 (*.odt)"
 msgid "Add a note!"
 msgstr ""
 
-#: qml/SettingsDialog.qml:14
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Editor Settings"
-msgstr "编辑器设置"
-
-#: qml/SettingsDialog.qml:22
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Notes Directory:"
-msgstr ""
-
-#: qml/SettingsDialog.qml:31
-#, kde-format
-msgctxt "@title:window"
-msgid "Select the notes directory"
-msgstr ""
-
-#: qml/SettingsDialog.qml:46
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Font family:"
-msgstr "字体:"
-
-#: qml/SettingsDialog.qml:80
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Font size:"
-msgstr "字体大小："
-
 #: qml/TableDialog.qml:18
 #, kde-format
 msgctxt "@title:window"
@@ -701,6 +721,67 @@ msgstr "全部选择"
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "General"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Editor Settings"
+msgid "Editor Settings"
+msgstr "编辑器设置"
+
+#: settings/MarkNoteGeneralPage.qml:24
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Notes Directory:"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Select the notes directory"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:48
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Font family:"
+msgstr "字体:"
+
+#: settings/MarkNoteGeneralPage.qml:89
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Font size:"
+msgstr "字体大小："
+
+#: settings/MarkNoteGeneralPage.qml:113
+#, kde-format
+msgid "Reset"
+msgstr ""
+
+#: settings/MarkNoteSettings.qml:15
+#, kde-format
+msgctxt "@action:button"
+msgid "General"
+msgstr ""
+
+#: settings/MarkNoteSettings.qml:21
+#, kde-format
+msgctxt "@action:button"
+msgid "About MarkNote"
+msgstr ""
+
+#: settings/MarkNoteSettings.qml:27
+#, fuzzy, kde-format
+#| msgid "About KDE"
+msgctxt "@action:button"
+msgid "About KDE"
+msgstr "关于 KDE"
 
 #: tableactionhelper.cpp:148 tableactionhelper.cpp:173
 #, kde-format
