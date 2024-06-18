@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-17 00:39+0000\n"
-"PO-Revision-Date: 2024-06-04 13:54+0200\n"
+"POT-Creation-Date: 2024-06-18 00:39+0000\n"
+"PO-Revision-Date: 2024-06-17 14:07+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -50,21 +50,21 @@ msgstr "Nota nova"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Importa des de KNotes"
 
 #: application.cpp:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Importa des del Maildir"
 
 #: maildirimport.cpp:88
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr ""
+msgstr "S'ha produït un error en escriure a «%1»"
 
-#: main.cpp:74 qml/Main.qml:342
+#: main.cpp:74 qml/Main.qml:345
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -318,13 +318,13 @@ msgstr "Esbós ràpid"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Importeu des del Maildir"
 
 #: qml/ImportMaildirDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Importeu des de KNotes"
 
 #: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
 #, kde-format
@@ -333,18 +333,16 @@ msgid "Name:"
 msgstr "Nom:"
 
 #: qml/ImportMaildirDialog.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Image Location:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr "Ubicació de la imatge:"
+msgstr "Ubicació del Maildir:"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "Importa"
 
 #: qml/KQuickCommandBarPage.qml:121
 #, kde-format
@@ -385,29 +383,37 @@ msgstr "Crea el bloc de notes"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
+msgstr "Importa"
+
+#: qml/Main.qml:280
+#, kde-format
+msgctxt "@title:menu"
+msgid "Sort Notes List"
 msgstr ""
 
-#: qml/Main.qml:282
-#, kde-format
-msgid "Sort by Name"
+#: qml/Main.qml:286
+#, fuzzy, kde-format
+#| msgid "Sort by Name"
+msgid "by Name"
 msgstr "Ordena per nom"
 
-#: qml/Main.qml:296
-#, kde-format
-msgid "Sort by Date"
+#: qml/Main.qml:300
+#, fuzzy, kde-format
+#| msgid "Sort by Date"
+msgid "by Date"
 msgstr "Ordena per data"
 
-#: qml/Main.qml:317
+#: qml/Main.qml:330
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Reduïx la barra lateral"
 
-#: qml/Main.qml:317
+#: qml/Main.qml:330
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Expandix la barra lateral"
 
-#: qml/Main.qml:395
+#: qml/Main.qml:399
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Els vostres blocs de notes"
@@ -730,12 +736,10 @@ msgstr "Comenceu creant el primer bloc de notes!"
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: settings/MarkNoteGeneralPage.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Editor Settings"
+#, kde-format
 msgid "Editor Settings"
 msgstr "Configureu l'editor"
 
@@ -766,25 +770,22 @@ msgstr "Mida de la lletra:"
 #: settings/MarkNoteGeneralPage.qml:113
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "Reinicia"
 
 #: settings/MarkNoteSettings.qml:15
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:menu"
-#| msgid "Quit Marknote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About MarkNote"
-msgstr "Ix de MarkNote"
+msgstr "Quant a MarkNote"
 
 #: settings/MarkNoteSettings.qml:27
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Quant a KDE"

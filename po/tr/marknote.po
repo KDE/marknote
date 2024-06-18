@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-17 00:39+0000\n"
-"PO-Revision-Date: 2024-06-13 00:46+0300\n"
+"POT-Creation-Date: 2024-06-18 00:39+0000\n"
+"PO-Revision-Date: 2024-06-17 11:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -48,21 +48,21 @@ msgstr "Yeni Not"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "K Notlar’dan İçe Aktar"
 
 #: application.cpp:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Maildir’den İçe Aktar"
 
 #: maildirimport.cpp:88
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr ""
+msgstr "“%1” dosyasına yazarken bir hata oluştu"
 
-#: main.cpp:74 qml/Main.qml:342
+#: main.cpp:74 qml/Main.qml:345
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -314,13 +314,13 @@ msgstr "Tez Eskiz"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Maildir’den İçe Aktar"
 
 #: qml/ImportMaildirDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "K Notlar’dan İçe Aktar"
 
 #: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
 #, kde-format
@@ -329,18 +329,16 @@ msgid "Name:"
 msgstr "Ad:"
 
 #: qml/ImportMaildirDialog.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Image Location:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr "Görsel konumu:"
+msgstr "Maildir konumu:"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "İçe Aktar"
 
 #: qml/KQuickCommandBarPage.qml:121
 #, kde-format
@@ -381,29 +379,37 @@ msgstr "Defter Oluştur"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
+msgstr "İçe Aktar"
+
+#: qml/Main.qml:280
+#, kde-format
+msgctxt "@title:menu"
+msgid "Sort Notes List"
 msgstr ""
 
-#: qml/Main.qml:282
-#, kde-format
-msgid "Sort by Name"
+#: qml/Main.qml:286
+#, fuzzy, kde-format
+#| msgid "Sort by Name"
+msgid "by Name"
 msgstr "Ada Göre Sırala"
 
-#: qml/Main.qml:296
-#, kde-format
-msgid "Sort by Date"
+#: qml/Main.qml:300
+#, fuzzy, kde-format
+#| msgid "Sort by Date"
+msgid "by Date"
 msgstr "Tarihe Göre Sırala"
 
-#: qml/Main.qml:317
+#: qml/Main.qml:330
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Kenar Çubuğunu Daralt"
 
-#: qml/Main.qml:317
+#: qml/Main.qml:330
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Kenar Çubuğunu Genişlet"
 
-#: qml/Main.qml:395
+#: qml/Main.qml:399
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Defterleriniz"
@@ -726,12 +732,10 @@ msgstr "İlk defterini oluşturarak başla!"
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: settings/MarkNoteGeneralPage.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Editor Settings"
+#, kde-format
 msgid "Editor Settings"
 msgstr "Düzenleyici Ayarları"
 
@@ -762,25 +766,22 @@ msgstr "Yazıtipi boyutu:"
 #: settings/MarkNoteGeneralPage.qml:113
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "Sıfırla"
 
 #: settings/MarkNoteSettings.qml:15
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:menu"
-#| msgid "Quit Marknote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About MarkNote"
-msgstr "Marknot’tan Çık"
+msgstr "Marknot Hakkında"
 
 #: settings/MarkNoteSettings.qml:27
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE Hakkında"

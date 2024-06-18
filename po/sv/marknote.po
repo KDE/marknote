@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-17 00:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:39+0000\n"
 "PO-Revision-Date: 2023-11-18 22:17+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -64,7 +64,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr ""
 
-#: main.cpp:74 qml/Main.qml:342
+#: main.cpp:74 qml/Main.qml:345
 #, fuzzy, kde-format
 #| msgid "Marknote"
 msgctxt "Application name"
@@ -389,27 +389,34 @@ msgctxt "@title:menu"
 msgid "Import"
 msgstr ""
 
-#: qml/Main.qml:282
+#: qml/Main.qml:280
 #, kde-format
-msgid "Sort by Name"
+msgctxt "@title:menu"
+msgid "Sort Notes List"
 msgstr ""
 
-#: qml/Main.qml:296
+#: qml/Main.qml:286
+#, fuzzy, kde-format
+#| msgid "Note name:"
+msgid "by Name"
+msgstr "Anteckningsnamn:"
+
+#: qml/Main.qml:300
 #, kde-format
-msgid "Sort by Date"
+msgid "by Date"
 msgstr ""
 
-#: qml/Main.qml:317
+#: qml/Main.qml:330
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr ""
 
-#: qml/Main.qml:317
+#: qml/Main.qml:330
 #, kde-format
 msgid "Expand Sidebar"
 msgstr ""
 
-#: qml/Main.qml:395
+#: qml/Main.qml:399
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Dina anteckningsböcker"
