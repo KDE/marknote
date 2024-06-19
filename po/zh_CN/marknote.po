@@ -388,16 +388,14 @@ msgid "Sort Notes List"
 msgstr ""
 
 #: qml/Main.qml:286
-#, fuzzy, kde-format
-#| msgid "Sort by Name"
+#, kde-format
 msgid "by Name"
-msgstr "按名称排序"
+msgstr ""
 
 #: qml/Main.qml:300
-#, fuzzy, kde-format
-#| msgid "Sort by Date"
+#, kde-format
 msgid "by Date"
-msgstr "依日期排序："
+msgstr ""
 
 #: qml/Main.qml:330
 #, kde-format
