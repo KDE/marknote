@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:39+0000\n"
-"PO-Revision-Date: 2024-06-17 05:48+0300\n"
+"PO-Revision-Date: 2024-06-18 08:12+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -386,19 +386,17 @@ msgstr "ייבוא"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
-msgstr ""
+msgstr "מיון רשימת הפתקיות"
 
 #: qml/Main.qml:286
-#, fuzzy, kde-format
-#| msgid "Sort by Name"
+#, kde-format
 msgid "by Name"
-msgstr "סידור לפי שם"
+msgstr "לפי שם"
 
 #: qml/Main.qml:300
-#, fuzzy, kde-format
-#| msgid "Sort by Date"
+#, kde-format
 msgid "by Date"
-msgstr "סידור לפי תאריך"
+msgstr "לפי תאריך"
 
 #: qml/Main.qml:330
 #, kde-format

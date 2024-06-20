@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:39+0000\n"
-"PO-Revision-Date: 2024-06-05 21:43+0200\n"
+"PO-Revision-Date: 2024-06-19 23:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -330,18 +330,16 @@ msgid "Name:"
 msgstr "Nomo:"
 
 #: qml/ImportMaildirDialog.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Image Location:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr "Loko de Bildo:"
+msgstr "Loko de Maildir:"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "Enporti"
 
 #: qml/KQuickCommandBarPage.qml:121
 #, kde-format
@@ -382,25 +380,23 @@ msgstr "Krei Notlibron"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
-msgstr ""
+msgstr "Enporti"
 
 #: qml/Main.qml:280
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
-msgstr ""
+msgstr "Oridigi Liston de Notoj"
 
 #: qml/Main.qml:286
-#, fuzzy, kde-format
-#| msgid "Sort by Name"
+#, kde-format
 msgid "by Name"
-msgstr "Ordigi laŭ Nomo"
+msgstr "laŭ Nomo"
 
 #: qml/Main.qml:300
-#, fuzzy, kde-format
-#| msgid "Sort by Date"
+#, kde-format
 msgid "by Date"
-msgstr "Ordigi laŭ Dato"
+msgstr "laŭ Dato"
 
 #: qml/Main.qml:330
 #, kde-format
@@ -738,9 +734,7 @@ msgid "General"
 msgstr ""
 
 #: settings/MarkNoteGeneralPage.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Editor Settings"
+#, kde-format
 msgid "Editor Settings"
 msgstr "Redaktilaj Agordoj"
 
@@ -780,16 +774,13 @@ msgid "General"
 msgstr ""
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:menu"
-#| msgid "Quit Marknote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About MarkNote"
-msgstr "Forlasi Marknote"
+msgstr "Pri Marknote"
 
 #: settings/MarkNoteSettings.qml:27
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Pri KDE"
