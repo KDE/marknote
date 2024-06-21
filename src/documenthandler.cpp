@@ -9,7 +9,9 @@
 #include <KLocalizedString>
 #include <KStandardShortcut>
 
+#include <QAbstractTextDocumentLayout>
 #include <QClipboard>
+#include <QDesktopServices>
 #include <QFile>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -57,6 +59,23 @@ bool DocumentHandler::eventFilter(QObject *object, QEvent *event)
 {
     if (object == m_textArea && event->type() == QEvent::KeyPress) {
         return !processKeyEvent(static_cast<QKeyEvent *>(event));
+    }
+
+    // activate only links covered by press and release, on release
+    // matches the behavior of TextArea::linkActivated
+    // we can't use that directly though as it prevents placing the cursor inside a link
+    if (auto me = static_cast<QMouseEvent *>(event);
+        object == m_textArea && event->type() == QEvent::MouseButtonPress && me->modifiers() == Qt::ControlModifier) {
+        m_activeLink = m_document->textDocument()->documentLayout()->anchorAt(me->position());
+    }
+    if (auto me = static_cast<QMouseEvent *>(event);
+        object == m_textArea && event->type() == QEvent::MouseButtonRelease && me->modifiers() == Qt::ControlModifier) {
+        const auto link = m_document->textDocument()->documentLayout()->anchorAt(me->position());
+        if (!link.isEmpty() && m_activeLink == link) {
+            QDesktopServices::openUrl(QUrl(link));
+            return true;
+        }
+        m_activeLink.clear();
     }
     return false;
 }

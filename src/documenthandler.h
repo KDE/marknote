@@ -210,6 +210,7 @@ private:
     QUrl m_fileUrl;
     NestedListHelper m_nestedListHelper;
     QString m_frontMatter;
+    QString m_activeLink;
 };
 
 #endif // DOCUMENTHANDLER_H
