@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the marknote package.
 #
-# SPDX-FileCopyrightText: 2023 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:39+0000\n"
-"PO-Revision-Date: 2023-11-18 22:17+0100\n"
+"PO-Revision-Date: 2024-06-21 14:05+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,33 +15,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: application.cpp:147
 #, kde-format
 msgid "Open Command Bar"
-msgstr ""
+msgstr "Visa kommandorad"
 
 #: application.cpp:169
 #, kde-format
 msgid "About %1"
-msgstr ""
+msgstr "Om %1"
 
 #: application.cpp:176
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "Om KDE"
 
 #: application.cpp:189
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "Ny anteckningsbok"
 
 #: application.cpp:198
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Ny anteckning"
@@ -50,26 +48,25 @@ msgstr "Ny anteckning"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Importera från Anteckningar"
 
 #: application.cpp:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Importera från Maildir"
 
 #: maildirimport.cpp:88
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr ""
+msgstr "Ett fel uppstod vid skrivning till '%1'"
 
 #: main.cpp:74 qml/Main.qml:345
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgctxt "Application name"
 msgid "Marknote"
-msgstr "MarkNote"
+msgstr "Marknote"
 
 #: main.cpp:76
 #, kde-format
@@ -94,7 +91,7 @@ msgstr "Underhållsansvarig"
 #: main.cpp:84
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:89
 #, kde-format
@@ -113,24 +110,26 @@ msgstr "stefan.asserhall@gmail.com"
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
+"Kunde inte byta namn på anteckningen. En anteckning med samma namn finns "
+"redan."
 
 #: qml/EditPage.qml:77 qml/EditPage.qml:90 qml/EditPage.qml:544
 #: qml/EditPage.qml:555
 #, kde-format
 msgid "undo"
-msgstr ""
+msgstr "ångra"
 
 #: qml/EditPage.qml:146
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "Fokuseringsläge"
 
 #: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:19 qml/NotesPage.qml:203
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Avsluta fullskärm"
 
 #: qml/EditPage.qml:212
 #, kde-format
@@ -160,261 +159,256 @@ msgstr "Överstruken"
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "Öka listnivå"
 
 #: qml/EditPage.qml:293
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "Minska listnivå"
 
 #: qml/EditPage.qml:335
-#, fuzzy, kde-format
-#| msgid "Add list"
+#, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
-msgstr "Lägg till lista"
+msgstr "Ingen lista"
 
 #: qml/EditPage.qml:336
-#, fuzzy, kde-format
-#| msgid "Add numbered list"
+#, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
-msgstr "Lägg till numrerad lista"
+msgstr "Oordnad lista"
 
 #: qml/EditPage.qml:337
-#, fuzzy, kde-format
-#| msgid "Add numbered list"
+#, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
-msgstr "Lägg till numrerad lista"
+msgstr "Ordnad lista"
 
 #: qml/EditPage.qml:347
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
-msgstr ""
+msgstr "Infoga kryssruta"
 
 #: qml/EditPage.qml:362
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
-msgstr ""
+msgstr "Infoga länk"
 
 #: qml/EditPage.qml:378
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
-msgstr ""
+msgstr "Infoga bild"
 
 #: qml/EditPage.qml:391
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr ""
+msgstr "Infoga tabell"
 
 #: qml/EditPage.qml:411
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
-msgstr ""
+msgstr "Grundtext"
 
 #: qml/EditPage.qml:412
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: qml/EditPage.qml:413
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
-msgstr ""
+msgstr "Undertitel"
 
 #: qml/EditPage.qml:414
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
-msgstr ""
+msgstr "Avsnitt"
 
 #: qml/EditPage.qml:415
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
-msgstr ""
+msgstr "Delavsnitt"
 
 #: qml/EditPage.qml:416
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
-msgstr ""
+msgstr "Stycke"
 
 #: qml/EditPage.qml:417
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
-msgstr ""
+msgstr "Delstycke"
 
 #: qml/EditPage.qml:587
 #, kde-format
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: qml/EditPage.qml:591
 #, kde-format
 msgid "Lists"
-msgstr ""
+msgstr "Listor"
 
 #: qml/EditPage.qml:595
 #, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "Infoga"
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
-msgstr ""
+msgstr "Ikon"
 
 #: qml/GlobalMenuBar.qml:20
 #, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
-msgstr ""
+msgstr "Inställningar"
 
 #: qml/ImageDialog.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "Infoga bild"
 
 #: qml/ImageDialog.qml:24 qml/ImportMaildirDialog.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "Välj en bild"
 
 #: qml/ImageDialog.qml:27
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr ""
+msgstr "Bildfiler (*.jpg *.jpeg *.png *.svg *.webp)"
 
 #: qml/ImageDialog.qml:27
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "Alla filer (*)"
 
 #: qml/ImageDialog.qml:42
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
-msgstr ""
+msgstr "Bildplats:"
 
 #: qml/ImageDialog.qml:53
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Quick Sketch"
-msgstr ""
+msgstr "Snabbsketch"
 
 #: qml/ImportMaildirDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Importera från Maildir"
 
 #: qml/ImportMaildirDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Importera från Anteckningar"
 
 #: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr "Anteckningsnamn:"
+msgstr "Namn:"
 
 #: qml/ImportMaildirDialog.qml:50
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr ""
+msgstr "Maildir-plats:"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "Importera"
 
 #: qml/KQuickCommandBarPage.qml:121
 #, kde-format
 msgid "No results found"
-msgstr ""
+msgstr "Inga resultat hittades"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "Infoga länk"
 
 #: qml/LinkDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Länktext:"
 
 #: qml/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "Länkwebbadress:"
 
 #: qml/Main.qml:76
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
+"Kan inte skapa en ny anteckning, ett anteckningsbok måste skapas först."
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Ta bort anteckningsbok"
+msgstr "Skapa anteckningsbok"
 
 #: qml/Main.qml:266
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
-msgstr ""
+msgstr "Importera"
 
 #: qml/Main.qml:280
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
-msgstr ""
+msgstr "Sortera anteckningslista"
 
 #: qml/Main.qml:286
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgid "by Name"
-msgstr "Anteckningsnamn:"
+msgstr "enligt namn"
 
 #: qml/Main.qml:300
 #, kde-format
 msgid "by Date"
-msgstr ""
+msgstr "enligt datum"
 
 #: qml/Main.qml:330
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "Dra ihop sidorad"
 
 #: qml/Main.qml:330
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Expandera sidorad"
 
 #: qml/Main.qml:399
 #, kde-format
@@ -422,147 +416,135 @@ msgid "Your Notebooks"
 msgstr "Dina anteckningsböcker"
 
 #: qml/NativeEditMenu.qml:10
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Edit"
-msgstr "Ta bort anteckning"
+msgstr "Redigera"
 
 #: qml/NativeEditMenu.qml:39
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr ""
+msgstr "Ångra"
 
 #: qml/NativeEditMenu.qml:49
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
-msgstr ""
+msgstr "Gör om"
 
 #: qml/NativeEditMenu.qml:62
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
-msgstr ""
+msgstr "Klipp ut"
 
 #: qml/NativeEditMenu.qml:72
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
-msgstr ""
+msgstr "Kopiera"
 
 #: qml/NativeEditMenu.qml:82
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
-msgstr ""
+msgstr "Klistra in"
 
 #: qml/NativeEditMenu.qml:92
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
-msgstr "Ta bort anteckning"
+msgstr "Ta bort"
 
 #: qml/NativeEditMenu.qml:105
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
-msgstr ""
+msgstr "Markera alla"
 
 #: qml/NativeFileMenu.qml:9
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
-msgstr ""
+msgstr "Arkiv"
 
 #: qml/NativeFileMenu.qml:15
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Quit Marknote"
-msgstr "MarkNote"
+msgstr "Avsluta MarkNote"
 
 #: qml/NativeHelpMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "Help"
-msgstr ""
+msgstr "Hjälp"
 
 #: qml/NativeWindowMenu.qml:12
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
-msgstr ""
+msgstr "Fönster"
 
 #: qml/NativeWindowMenu.qml:19
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
-msgstr ""
+msgstr "Gå till fullskärm"
 
 #: qml/NotebookContextMenu.qml:16
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit Notebook"
-msgstr "Lägg till anteckningsbok"
+msgstr "Redigera anteckningsbok"
 
 #: qml/NotebookContextMenu.qml:33 qml/NotebookDeleteAction.qml:15
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Ta bort anteckningsbok"
 
 #: qml/NotebookDeleteDialog.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Ta bort anteckningsbok"
 
 #: qml/NotebookDeleteDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
-msgstr "Är du säker på att du vill ta bort anteckningen <b>%1</b>?"
+msgstr "Är du säker på att du vill ta bort anteckningsboken <b>%1</b>?"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
 msgstr "Ny anteckningsbok"
 
 #: qml/NotebookMetadataDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Notebook"
-msgstr "Lägg till anteckningsbok"
+msgstr "Redigera anteckningsbok"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Note"
 msgstr "Ny anteckning"
 
 #: qml/NoteMetadataDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
-msgstr "Ta bort anteckning"
+msgstr "Redigera anteckning"
 
 #: qml/NoteMetadataDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
-msgstr "Anteckningsnamn:"
+msgstr "Namn:"
 
 #: qml/NotesPage.qml:82
 #, kde-format
@@ -580,8 +562,7 @@ msgid "Search notes (%1)"
 msgstr "Sök anteckningar (%1)"
 
 #: qml/NotesPage.qml:223
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Ta bort anteckning"
@@ -592,15 +573,13 @@ msgid "Are you sure you want to delete the note <b> %1 </b>?"
 msgstr "Är du säker på att du vill ta bort anteckningen <b>%1</b>?"
 
 #: qml/NotesPage.qml:350
-#, fuzzy, kde-format
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
-msgstr "Byt namn anteckning"
+msgstr "Byt namn på anteckning"
 
 #: qml/NotesPage.qml:356
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Ta bort anteckning"
@@ -609,52 +588,52 @@ msgstr "Ta bort anteckning"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Exportera till HTML"
 
 #: qml/NotesPage.qml:373
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Exportera till HTML"
 
 #: qml/NotesPage.qml:374
 #, kde-format
 msgid "HTML file (*.html)"
-msgstr ""
+msgstr "HTML-fil (*.html)"
 
 #: qml/NotesPage.qml:380
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Exportera till PDF"
 
 #: qml/NotesPage.qml:386
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Exportera till PDF"
 
 #: qml/NotesPage.qml:387
 #, kde-format
 msgid "PDF file (*.pdf)"
-msgstr ""
+msgstr "PDF-fil (*.pdf)"
 
 #: qml/NotesPage.qml:393
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Exportera till ODT"
 
 #: qml/NotesPage.qml:399
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Exportera till ODT"
 
 #: qml/NotesPage.qml:400
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "ODF-textdokument (*.odt)"
 
 #: qml/NotesPage.qml:530
 #, kde-format
@@ -665,86 +644,85 @@ msgstr "Lägg till en anteckning."
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr ""
+msgstr "Infoga tabell"
 
 #: qml/TableDialog.qml:27
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Antal rader:"
 
 #: qml/TableDialog.qml:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Antal kolumner:"
 
 #: qml/TextFieldContextMenu.qml:225
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
-msgstr ""
+msgstr "Ignorera"
 
 #: qml/TextFieldContextMenu.qml:240
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr ""
+msgstr "Stavningskontroll"
 
 #: qml/TextFieldContextMenu.qml:255
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
-msgstr ""
+msgstr "Infoga"
 
 #: qml/TextFieldContextMenu.qml:279
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
-msgstr ""
+msgstr "Ta bort"
 
 #: qml/TextFieldContextMenu.qml:307
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
-msgstr ""
+msgstr "Ångra"
 
 #: qml/TextFieldContextMenu.qml:322
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
-msgstr ""
+msgstr "Gör om"
 
 #: qml/TextFieldContextMenu.qml:340
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
-msgstr ""
+msgstr "Klipp ut"
 
 #: qml/TextFieldContextMenu.qml:355
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
-msgstr ""
+msgstr "Kopiera"
 
 #: qml/TextFieldContextMenu.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
-msgstr ""
+msgstr "Klistra in"
 
 #: qml/TextFieldContextMenu.qml:385
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
-msgstr "Ta bort anteckning"
+msgstr "Ta bort"
 
 #: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
-msgstr ""
+msgstr "Markera alla"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -755,85 +733,84 @@ msgstr "Börja med att skapa din första anteckningsbok."
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 #: settings/MarkNoteGeneralPage.qml:19
 #, kde-format
 msgid "Editor Settings"
-msgstr ""
+msgstr "Editorinställningar"
 
 #: settings/MarkNoteGeneralPage.qml:24
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr ""
+msgstr "Anteckningskatalog:"
 
 #: settings/MarkNoteGeneralPage.qml:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the notes directory"
-msgstr ""
+msgstr "Välj anteckningskatalogen"
 
 #: settings/MarkNoteGeneralPage.qml:48
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "Teckensnittsfamilj:"
 
 #: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "Teckenstorlek:"
 
 #: settings/MarkNoteGeneralPage.qml:113
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "Återställ"
 
 #: settings/MarkNoteSettings.qml:15
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About MarkNote"
-msgstr "MarkNote"
+msgstr "Om MarkNote"
 
 #: settings/MarkNoteSettings.qml:27
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
-msgstr ""
+msgstr "Om KDE"
 
 #: tableactionhelper.cpp:148 tableactionhelper.cpp:173
 #, kde-format
 msgid "Row Below"
-msgstr ""
+msgstr "Rad nedanför"
 
 #: tableactionhelper.cpp:154 tableactionhelper.cpp:179
 #, kde-format
 msgid "Row Above"
-msgstr ""
+msgstr "Rad ovanför"
 
 #: tableactionhelper.cpp:160 tableactionhelper.cpp:185
 #, kde-format
 msgid "Column Before"
-msgstr ""
+msgstr "Kolumn före"
 
 #: tableactionhelper.cpp:167 tableactionhelper.cpp:192
 #, kde-format
 msgid "Column After"
-msgstr ""
+msgstr "Kolumn efter"
 
 #: tableactionhelper.cpp:198
 #, kde-format
 msgid "Cell Contents"
-msgstr ""
+msgstr "Cellinnehåll"
 
 #~ msgid "New Note (%1)"
 #~ msgstr "Ny anteckning (%1)"
