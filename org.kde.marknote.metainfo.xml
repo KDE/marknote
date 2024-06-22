@@ -20,6 +20,7 @@
   <name xml:lang="nl">Marknote</name>
   <name xml:lang="pl">Marknote</name>
   <name xml:lang="sl">Marknote</name>
+  <name xml:lang="sv">Marknote</name>
   <name xml:lang="tr">Marknot</name>
   <name xml:lang="uk">Marknote</name>
   <name xml:lang="x-test">xxMarknotexx</name>
@@ -41,6 +42,7 @@
   <summary xml:lang="pl">Spisz swoje myśli</summary>
   <summary xml:lang="pt-BR">Anote o que vier à sua cabeça</summary>
   <summary xml:lang="sl">Zapišite svoje misli</summary>
+  <summary xml:lang="sv">Skriv ner dina tankar</summary>
   <summary xml:lang="tr">Markdown İstamcisi</summary>
   <summary xml:lang="uk">Записуйте ваші думки</summary>
   <summary xml:lang="x-test">xxWrite down your thoughtsxx</summary>
@@ -63,6 +65,7 @@
     <p xml:lang="pl">Marknote umożliwia tworzenie sformatowanych notatek i łatwe zarządzanie nimi w notatnikach. Możesz dostosować swoje notatniki, wybierając im ikony i barwy akcentujące, co czyni je łatwo rozróżnialnymi, a notatki są wtedy zawsze pod ręką. Twoje notatki są zapisywane jako pliki Markdown w twoim katalogu dokumentów, czyniąc łatwym ich używanie poza Marknote, jak i w nim samym.</p>
     <p xml:lang="pt-BR">Marknote permite criar notas de rich text e organizá-las facilmente em cadernos. Você pode personalizar seus cadernos escolhendo um ícone e uma cor de destaque para cada um, facilitando a distinção entre eles e mantendo suas anotações ao seu alcance. Suas notas são salvas como arquivos Markdown na pasta documentos, facilitando o uso de suas notas fora do Marknote e dentro do aplicativo.</p>
     <p xml:lang="sl">Marknote vam omogoča ustvarjanje zapiskov z obogatenim besedilom in njihovo preprosto organiziranje v zvezke. Svoje zvezke lahko prilagodite tako, da za vsakega izberete ikono in barvo poudarka, kar olajša razlikovanje med njimi in ohranjanje zapiskov na dosegu roke. Vaši zapiski so shranjeni kot datoteke Markdown v vaši mapi Dokumenti, kar olajša uporabo vaših zapiskov zunaj Marknota in znotraj aplikacije.</p>
+    <p xml:lang="sv">Marknote låter dig skapa anteckningar med Rich text och enkelt organisera dem i anteckningsböcker. Du kan anpassa dina anteckningsböcker genom att välja en ikon och accentfärg för var och en, vilket gör det enkelt att skilja dem åt och ha anteckningarna till hands. Dina anteckningar sparas som Markdown-filer i katalogen Dokument, vilket gör det enkelt att använda anteckningarna utanför Marknote såväl som inuti programmet.</p>
     <p xml:lang="tr">Marknot zengin metin notlar oluşturmanıza ve onları defterlerde organize etmenize olanak tanır. Defterleriniz için bir simge ve vurgu rengi seçerek onları kişiselleştirebilir ve her birini kendi içinde öne çıkarabilirsiniz. Notlarınız, Belgeler klasörünüze Markdown dosyalarıı olarak kaydedilir; böylece hem Marknot içinden hem de dosya yöneticinizden onlara kolaylıkla erişebilirsiniz.</p>
     <p xml:lang="uk">Marknote надає змогу створювати форматовані текстові нотатки та без проблем упорядковувати їх за нотатниками. Ви можете персоналізувати ваші нотатники, вибравши піктограму та колір позначення для кожного нотатника, спрощуючи пошук нотатників та роблячи доступ до ваших нотаток якомога простішим. Ваші нотатки буде збережено до файлів Markdown у вашій теці «Документи», щоб спрощує користування нотатками поза Marknote та у самій програмі.</p>
     <p xml:lang="x-test">xxMarknote lets you create rich text notes and easily organise them into notebooks. You can personalise your notebooks by choosing an icon and accent color for each one, making it easy to distinguish between them and keep your notes at your fingertips. Your notes are saved as Markdown files in your Documents folder, making it easy to use your notes outside of Marknote as well as inside the app.xx</p>
