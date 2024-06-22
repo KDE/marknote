@@ -16,6 +16,7 @@
 #include <QUrl>
 
 #include "../marknote-version.h"
+#include "colorschemer.h"
 #include "config.h"
 #include "windowcontroller.h"
 
@@ -66,8 +67,6 @@ int main(int argc, char *argv[])
 
     KLocalizedString::setApplicationDomain("marknote");
 
-    QCommandLineParser parser;
-
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.marknote")));
 
     KAboutData about(QStringLiteral("marknote"),
@@ -90,6 +89,12 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(about);
 
+    ColorSchemer colorScheme;
+    if (!MarknoteSettings::self()->colorScheme().isEmpty()) {
+        colorScheme.apply(MarknoteSettings::self()->colorScheme());
+    }
+
+    QCommandLineParser parser;
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
@@ -112,8 +117,8 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    QObject::connect(QApplication::instance(), &QCoreApplication::aboutToQuit, QApplication::instance(), [&engine] {
-        engine.singletonInstance<Config *>("org.kde.marknote", "Config")->save();
+    QObject::connect(QApplication::instance(), &QCoreApplication::aboutToQuit, QApplication::instance(), [] {
+        MarknoteSettings::self()->save();
     });
 
     QQuickWindow *window = nullptr;

@@ -27,6 +27,9 @@ SPDX-License-Identifier: LGPL-2.0-or-later
     <entry name="storage" type="Path" key="storage">
       <default code="true">QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + u'/' + QStringLiteral("Notes")</default>
     </entry>
+    <entry name="colorScheme" type="String">
+      <label>Color scheme</label>
+    </entry>
   </group>s
 
   <group name="Fonts">

@@ -16,6 +16,27 @@ FormCard.FormCardPage {
     title: i18nc("@title:window", "General")
 
     FormCard.FormHeader {
+        title: i18n("General theme")
+    }
+
+    FormCard.FormCard {
+        FormCard.FormComboBoxDelegate {
+            id: root
+
+            text: i18n("Color theme")
+            textRole: "display"
+            valueRole: "display"
+            model: ColorSchemer.model
+            Component.onCompleted: currentIndex = ColorSchemer.indexForScheme(Config.colorScheme)
+            onCurrentValueChanged: {
+                ColorSchemer.apply(currentIndex);
+                Config.colorScheme = ColorSchemer.nameForIndex(currentIndex);
+                Config.save();
+            }
+        }
+    }
+
+    FormCard.FormHeader {
         title: i18n("Editor Settings")
     }
 
@@ -54,7 +75,7 @@ FormCard.FormCardPage {
 
                     property bool isInitialising: true
                     Layout.fillWidth: true
-                    model: Config.fontFamilies
+                    model: ConfigHelper.fontFamilies
                     enabled: !Config.isEditorFontImmutable
                     onCurrentIndexChanged: {
                         if (isInitialising && !enabled) {
@@ -97,22 +118,6 @@ FormCard.FormCardPage {
                 target: Config
                 function onEditorFontChanged() {
                     fontSizeSpinbox.value = Config.editorFont.pixelSize;
-                }
-            }
-        }
-    }
-
-    footer: QQC2.ToolBar {
-        height: visible ? implicitHeight : 0
-        contentItem: RowLayout {
-            Item {
-                Layout.fillWidth: true
-            }
-
-            QQC2.Button {
-                text: i18n("Reset")
-                onClicked: {
-                    Config.reset()
                 }
             }
         }

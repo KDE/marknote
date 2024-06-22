@@ -56,6 +56,8 @@ qt_add_qml_module(marknote_static STATIC
         tableactionhelper.cpp
         config.cpp
         windowcontroller.cpp
+        colorschemer.cpp
+        foreigntypes.h
 
         maildirimport.cpp
         maildirimport.h

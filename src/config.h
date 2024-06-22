@@ -6,10 +6,10 @@
 #include <QtQml>
 #include <marknotesettings.h>
 
-class Config : public MarknoteSettings
+class Config : public QObject
 {
     Q_OBJECT
-    QML_ELEMENT
+    QML_NAMED_ELEMENT(ConfigHelper)
     QML_SINGLETON
 
     Q_PROPERTY(QStringList fontFamilies READ fontFamilies CONSTANT)
@@ -18,6 +18,4 @@ public:
     explicit Config(QObject *parent = nullptr);
 
     QStringList fontFamilies() const;
-
-    Q_INVOKABLE void reset();
 };

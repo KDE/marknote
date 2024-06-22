@@ -5,16 +5,11 @@
 #include <QFontDatabase>
 
 Config::Config(QObject *parent)
-    : MarknoteSettings(parent)
+    : QObject(parent)
 {
 }
 
 QStringList Config::fontFamilies() const
 {
     return QFontDatabase::families();
-}
-
-void Config::reset()
-{
-    setEditorFont(defaultEditorFontValue());
 }

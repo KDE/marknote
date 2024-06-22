@@ -9,3 +9,4 @@ DefaultValueGetters=true
 GenerateProperties=true
 ParentInConstructor=true
 Notifiers=true
+Singleton=true
