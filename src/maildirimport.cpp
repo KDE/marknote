@@ -56,7 +56,10 @@ static QString cleanFileName(const QString &name)
 void MaildirImport::import(const QUrl &maildir, const QUrl &destinationDir)
 {
     QFileInfo maildirInfo(maildir.toLocalFile());
-    Q_ASSERT(maildirInfo.exists());
+    if (!maildirInfo.exists()) {
+        qWarning() << maildir.toLocalFile() << " doesn't exist";
+        return;
+    }
     Q_ASSERT(maildirInfo.isDir());
 
     QFileInfo destinationInfo(destinationDir.toLocalFile());
