@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.16)
 
 # TODO move to release service
 set(RELEASE_SERVICE_VERSION_MAJOR "1")
-set(RELEASE_SERVICE_VERSION_MINOR "2")
-set(RELEASE_SERVICE_VERSION "1.2.1")
+set(RELEASE_SERVICE_VERSION_MINOR "3")
+set(RELEASE_SERVICE_VERSION "1.3.0")
 
 project(marknote VERSION ${RELEASE_SERVICE_VERSION})
 
@@ -14,7 +14,7 @@ include(FeatureSummary)
 
 set(QT_MIN_VERSION 6.4)
 set(KF_MIN_VERSION 5.240)
-set(KPIM_MIME_VERSION "6.1.40")
+set(KPIM_MIME_VERSION "6.1.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
