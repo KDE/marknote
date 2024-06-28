@@ -6,7 +6,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.settings as KirigamiSettings
 import QtQuick.Layouts
 
-KirigamiSettings.ConfigurationsView {
+KirigamiSettings.ConfigurationView {
     id: root
 
     modules: [
