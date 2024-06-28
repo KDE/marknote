@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:39+0000\n"
+"POT-Creation-Date: 2024-06-28 00:39+0000\n"
 "PO-Revision-Date: 2024-06-22 12:57+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -62,44 +62,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "An error occurred while writing to '%1'"
 
-#: main.cpp:74 qml/Main.qml:345
+#: main.cpp:73 qml/Main.qml:345
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:76
+#: main.cpp:75
 #, kde-format
 msgid "Note taking application"
 msgstr "Note taking application"
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:79
+#: main.cpp:78
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:80 main.cpp:85
+#: main.cpp:79 main.cpp:84
 #, kde-format
 msgid "Maintainer"
 msgstr "Maintainer"
 
-#: main.cpp:84
+#: main.cpp:83
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:89
+#: main.cpp:88
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Steve Allewell"
 
-#: main.cpp:89
+#: main.cpp:88
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -733,38 +733,45 @@ msgid "General"
 msgstr "General"
 
 #: settings/MarkNoteGeneralPage.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "General"
+msgid "General theme"
+msgstr "General"
+
+#: settings/MarkNoteGeneralPage.qml:26
+#, kde-format
+msgid "Color theme"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:40
 #, kde-format
 msgid "Editor Settings"
 msgstr "Editor Settings"
 
-#: settings/MarkNoteGeneralPage.qml:24
+#: settings/MarkNoteGeneralPage.qml:45
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
 msgstr "Notes Directory:"
 
-#: settings/MarkNoteGeneralPage.qml:33
+#: settings/MarkNoteGeneralPage.qml:54
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the notes directory"
 msgstr "Select the notes directory"
 
-#: settings/MarkNoteGeneralPage.qml:48
+#: settings/MarkNoteGeneralPage.qml:69
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "Font family:"
 
-#: settings/MarkNoteGeneralPage.qml:89
+#: settings/MarkNoteGeneralPage.qml:110
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
 msgstr "Font size:"
-
-#: settings/MarkNoteGeneralPage.qml:113
-#, kde-format
-msgid "Reset"
-msgstr "Reset"
 
 #: settings/MarkNoteSettings.qml:15
 #, kde-format
@@ -808,3 +815,6 @@ msgstr "Column After"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Cell Contents"
+
+#~ msgid "Reset"
+#~ msgstr "Reset"
