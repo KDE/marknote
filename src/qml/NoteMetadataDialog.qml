@@ -27,7 +27,10 @@ FormCard.FormCardDialog {
     title: mode === NotebookMetadataDialog.Mode.Add ? i18nc("@title:window", "New Note") : i18nc("@title:window", "Edit Note")
     standardButtons: Controls.Dialog.Save | Controls.Dialog.Cancel
 
-    onOpened: nameInput.forceActiveFocus()
+    onOpened: {
+        nameInput.forceActiveFocus()
+        root.standardButton(Controls.Dialog.Save).enabled = nameInput.text.length > 0
+    }
 
     onClosed: {
         name = "";
