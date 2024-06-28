@@ -92,19 +92,8 @@
     <binary>marknote</binary>
   </provides>
   <releases>
-    <release version="1.2.1" date="2024-05-21">
-      <description>
-        <p>Bug fixes release containing the following fixes:</p>
-        <ul>
-          <li>Fix saving font</li>
-          <li>Remember last window state</li>
-          <li>Close dialog after deleting note</li>
-          <li>Fix double copy paste</li>
-          <li>Fix sidebar not scrollable when there is a note books overflow</li>
-        </ul>
-      </description>
-    </release>
     <release version="1.3.0" date="2024-06-28">
+      <url>https://blogs.kde.org/2024/06/28/marknote-1.3/</url>
       <description>
         <p>
             On small phone screens, you want as much space as possible to write and read
@@ -132,6 +121,18 @@
             MarkNote, MarkNote now offers several import options. for now you
             can import your notes from KNotes and maildir.
         </p>
+      </description>
+    </release>
+    <release version="1.2.1" date="2024-05-21">
+      <description>
+        <p>Bug fixes release containing the following fixes:</p>
+        <ul>
+          <li>Fix saving font</li>
+          <li>Remember last window state</li>
+          <li>Close dialog after deleting note</li>
+          <li>Fix double copy paste</li>
+          <li>Fix sidebar not scrollable when there is a note books overflow</li>
+        </ul>
       </description>
     </release>
     <release version="1.2.0" date="2024-05-17">
