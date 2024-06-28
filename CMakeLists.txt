@@ -48,7 +48,7 @@ if (BUILD_TESTING)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 endif()
 
-find_package(KF6KirigamiAddons 1.2.0 REQUIRED)
+find_package(KF6KirigamiAddons 1.3.0 REQUIRED)
 set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required application components and runtime dependency"
