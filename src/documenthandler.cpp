@@ -1099,6 +1099,17 @@ bool DocumentHandler::processKeyEvent(QKeyEvent *e)
         return false;
     }
 
+    if (e->key() == Qt::Key_Space && e->modifiers() & Qt::ControlModifier && checkable()) {
+        auto c = textCursor();
+        QTextBlockFormat fmt;
+        fmt.setMarker(c.blockFormat().marker() == QTextBlockFormat::MarkerType::Checked ? QTextBlockFormat::MarkerType::Unchecked
+                                                                                        : QTextBlockFormat::MarkerType::Checked);
+        c.beginEditBlock();
+        c.mergeBlockFormat(fmt);
+        c.endEditBlock();
+        return false;
+    }
+
     return evaluateReturnKeySupport(e);
 }
 
