@@ -13,7 +13,7 @@
 using namespace Qt::StringLiterals;
 
 MaildirImport::MaildirImport(QObject *parent)
-    : QObject()
+    : QObject(parent)
 {
 }
 
