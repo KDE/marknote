@@ -104,6 +104,36 @@
         </ul>
       </description>
     </release>
+    <release version="1.3.0" date="2024-06-28">
+      <description>
+        <p>
+            On small phone screens, you want as much space as possible to write and read
+            your notes. MarkNote now lets you hide the editor toolbar on mobile, so you can
+            focus on the important stuff while having the formatting options just a tap
+            away.
+        </p>
+        <p>
+            On desktop, you can now adjust the width of the note list and editor by
+            dragging the separator, just like in other desktop applications.
+        </p>
+        <p>
+            You can now undo and redo changes using buttons in the UI, rather than relying
+            on keyboard shortcuts, which is especially helpful if you're using a virtual
+            keyboard that may not have a control key.
+            The application menu has been reorganized and simplified to make it
+            less
+            cluttered.
+        </p>
+        <p>
+            We added implemented clickable links! You can now ctrl-click links to open them.
+        </p>
+        <p>
+            To make it easier to switch from your current notes application to
+            MarkNote, MarkNote now offers several import options. for now you
+            can import your notes from KNotes and maildir.
+        </p>
+      </description>
+    </release>
     <release version="1.2.0" date="2024-05-17">
       <description>
         <p>
