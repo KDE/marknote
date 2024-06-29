@@ -660,7 +660,7 @@ Kirigami.Page {
     contentItem: ScrollView {
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
-        TextArea {
+        T.TextArea {
             id: textArea
 
             textMargin: wideScreen? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
