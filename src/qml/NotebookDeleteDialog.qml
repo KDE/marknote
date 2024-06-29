@@ -33,10 +33,9 @@ Components.MessageDialog {
     onAccepted: deleteAction.trigger()
     standardButtons: Controls.Dialog.Ok | Controls.Dialog.Cancel
 
-    contentItem: Controls.Label {
+    Controls.Label {
         Layout.fillWidth: true
-        Layout.margins: Kirigami.Units.largeSpacing
-        text: i18n("Are you sure you want to delete the Notebook <b> %1 </b>?", removeDialog.name)
+        text: i18n("Are you sure you want to delete the Notebook <b> %1 </b>? This will delete the content of <b>%2</b> definitively.", removeDialog.name, removeDialog.model.storagePath + '/' + removeDialog.name)
         wrapMode: Text.WordWrap
     }
 }
