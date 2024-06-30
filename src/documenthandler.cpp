@@ -15,6 +15,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QGuiApplication>
+#include <QMimeData>
 #include <QPalette>
 #include <QQmlFile>
 #include <QTextBlock>
@@ -1121,7 +1122,18 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
         copy();
         return true;
     } else if (KStandardShortcut::paste().contains(key)) {
-        textCursor().insertText(QGuiApplication::clipboard()->text(QClipboard::Clipboard));
+        const auto mimeData = QGuiApplication::clipboard()->mimeData(QClipboard::Clipboard);
+        if (const auto urls = mimeData->urls(); urls.size() == 1 && urls.front().scheme() == "https"_L1) {
+            updateLink(urls.front().toString(), QString());
+            return true;
+        }
+
+        const auto text = mimeData->text();
+        if (const QUrl url(text); url.isValid() && url.scheme() == "https"_L1) {
+            updateLink(url.toString(), QString());
+        } else {
+            textCursor().insertText(text);
+        }
         return true;
     } else if (KStandardShortcut::cut().contains(key)) {
         cut();
