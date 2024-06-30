@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-30 00:39+0000\n"
 "PO-Revision-Date: 2024-06-28 12:17+0300\n"
 "Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -509,9 +509,12 @@ msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Вилучити записник"
 
-#: qml/NotebookDeleteDialog.qml:39
-#, kde-format
-msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+#: qml/NotebookDeleteDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+msgid ""
+"Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
+"the content of <b>%2</b> definitively."
 msgstr "Ви справді хочете вилучити записник <b>%1</b>?"
 
 #: qml/NotebookMetadataDialog.qml:32
@@ -566,8 +569,11 @@ msgid "Delete Note"
 msgstr "Вилучення нотатки"
 
 #: qml/NotesPage.qml:236
-#, kde-format
-msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, fuzzy, kde-format
+#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgid ""
+"Are you sure you want to delete the note <b> %1 </b>? This will delete the "
+"file <b>%2</b> definitively."
 msgstr "Ви дійсно бажаєте вилучити нотатку <b>%1</b>?"
 
 #: qml/NotesPage.qml:350

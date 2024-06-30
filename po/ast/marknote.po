@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-30 00:39+0000\n"
 "PO-Revision-Date: 2024-03-27 22:39+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -508,9 +508,11 @@ msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr ""
 
-#: qml/NotebookDeleteDialog.qml:39
+#: qml/NotebookDeleteDialog.qml:38
 #, kde-format
-msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+msgid ""
+"Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
+"the content of <b>%2</b> definitively."
 msgstr ""
 
 #: qml/NotebookMetadataDialog.qml:32
@@ -566,7 +568,9 @@ msgstr ""
 
 #: qml/NotesPage.qml:236
 #, kde-format
-msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgid ""
+"Are you sure you want to delete the note <b> %1 </b>? This will delete the "
+"file <b>%2</b> definitively."
 msgstr ""
 
 #: qml/NotesPage.qml:350

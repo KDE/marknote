@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-30 00:39+0000\n"
 "PO-Revision-Date: 2023-12-11 18:12+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -523,10 +523,12 @@ msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Poista muistikirja"
 
-#: qml/NotebookDeleteDialog.qml:39
+#: qml/NotebookDeleteDialog.qml:38
 #, fuzzy, kde-format
 #| msgid "Are you sure you want to delete the note <b> %1 </b>?"
-msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+msgid ""
+"Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
+"the content of <b>%2</b> definitively."
 msgstr "Haluatko varmasti poistaa muistiinpanon <b>%1</b>?"
 
 #: qml/NotebookMetadataDialog.qml:32
@@ -587,8 +589,11 @@ msgid "Delete Note"
 msgstr "Poista muistiinpano"
 
 #: qml/NotesPage.qml:236
-#, kde-format
-msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, fuzzy, kde-format
+#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+msgid ""
+"Are you sure you want to delete the note <b> %1 </b>? This will delete the "
+"file <b>%2</b> definitively."
 msgstr "Haluatko varmasti poistaa muistiinpanon <b>%1</b>?"
 
 #: qml/NotesPage.qml:350
