@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-19 11:17+0200\n"
+"PO-Revision-Date: 2024-06-30 20:39+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -511,12 +511,13 @@ msgid "Delete Notebook"
 msgstr "Notitieboek verwijderen"
 
 #: qml/NotebookDeleteDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
 "the content of <b>%2</b> definitively."
-msgstr "Wilt u het notitieboek <b> %1 </b> verwijderen?"
+msgstr ""
+"Wilt u het notitieboek <b> %1 </b> verwijderen? Dit zal alle inhoud van <b>"
+"%2</b> definitief verwijderen."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -570,12 +571,13 @@ msgid "Delete Note"
 msgstr "Notitie verwijderen"
 
 #: qml/NotesPage.qml:236
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
-msgstr "Wilt u werkelijk de notitie <b> %1 </b> wissen?"
+msgstr ""
+"Wilt u werkelijk de notitie <b> %1 </b> wissen? Dit zal het bestand <b>%2</"
+"b> definitief verwijderen."
 
 #: qml/NotesPage.qml:350
 #, kde-format
@@ -741,18 +743,14 @@ msgid "General"
 msgstr "Algemeen"
 
 #: settings/MarkNoteGeneralPage.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "General"
+#, kde-format
 msgid "General theme"
-msgstr "Algemeen"
+msgstr "Algemeen thema"
 
 #: settings/MarkNoteGeneralPage.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Color"
+#, kde-format
 msgid "Color theme"
-msgstr "Kleur"
+msgstr "Kleurenthema"
 
 #: settings/MarkNoteGeneralPage.qml:40
 #, kde-format

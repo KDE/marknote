@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-28 21:11+0200\n"
+"PO-Revision-Date: 2024-06-30 17:27+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -514,12 +514,13 @@ msgid "Delete Notebook"
 msgstr "Borrar bloc de notas"
 
 #: qml/NotebookDeleteDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
 "the content of <b>%2</b> definitively."
-msgstr "¿Seguro que quiere borrar el bloc de notas <b>%1</b>?"
+msgstr ""
+"¿Seguro que quiere borrar el bloc de notas <b>%1</b>? Esto borrará el "
+"contenido de <b>%2</b> de forma definitiva."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -573,12 +574,13 @@ msgid "Delete Note"
 msgstr "Borrar nota"
 
 #: qml/NotesPage.qml:236
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
-msgstr "¿Seguro que quiere borrar la nota <b>%1</b>?"
+msgstr ""
+"¿Seguro que quiere borrar la nota <b>%1</b>? Esto borrará el archivo <b>%2</"
+"b> de forma definitiva."
 
 #: qml/NotesPage.qml:350
 #, kde-format

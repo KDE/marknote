@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-28 14:13+0300\n"
+"PO-Revision-Date: 2024-06-30 18:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -509,12 +509,13 @@ msgid "Delete Notebook"
 msgstr "Defteri Sil"
 
 #: qml/NotebookDeleteDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
 "the content of <b>%2</b> definitively."
-msgstr "<b>%1</b> defterini silmek istediğinizden emin misiniz?"
+msgstr ""
+"<b>%1</b> defterini silmek istediğinizden emin misiniz? Bu, <b>%2</b> "
+"içeriğini kalıcı olarak siler."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -568,12 +569,13 @@ msgid "Delete Note"
 msgstr "Notu Sil"
 
 #: qml/NotesPage.qml:236
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
-msgstr "<b>%1</b> notunu silmek istediğinizden emin misiniz?"
+msgstr ""
+"<b>%1</b> notunu silmek istediğinizden emin misiniz? Bu, <b>%2</b> dosyasını "
+"kalıcı olarak siler."
 
 #: qml/NotesPage.qml:350
 #, kde-format

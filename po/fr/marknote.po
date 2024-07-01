@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-26 20:13+0200\n"
+"PO-Revision-Date: 2024-06-29 17:41+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -742,14 +742,12 @@ msgstr "Général"
 #: settings/MarkNoteGeneralPage.qml:19
 #, kde-format
 msgid "General theme"
-msgstr ""
+msgstr "Thème général"
 
 #: settings/MarkNoteGeneralPage.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Color"
+#, kde-format
 msgid "Color theme"
-msgstr "Couleur"
+msgstr "Thème de couleurs"
 
 #: settings/MarkNoteGeneralPage.qml:40
 #, kde-format

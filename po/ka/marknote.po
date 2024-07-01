@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-28 05:39+0200\n"
+"PO-Revision-Date: 2024-06-30 07:26+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -511,12 +511,13 @@ msgid "Delete Notebook"
 msgstr "წიგნაკის წაშლა"
 
 #: qml/NotebookDeleteDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
 "the content of <b>%2</b> definitively."
-msgstr "მართლა გნებავთ წაშალოთ წიგნაკი <b> %1 </b>?"
+msgstr ""
+"მართლა გნებავთ წაშალოთ წიგნაკი <b> %1 </b>? ეს ნამდვილად წაშლის <b>%2</b>-ის "
+"შემცველობას."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -570,12 +571,13 @@ msgid "Delete Note"
 msgstr "შენიშვნის წაშლა"
 
 #: qml/NotesPage.qml:236
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
-msgstr "მართლა გნებავთ წაშალოთ შენიშვნა <b> %1 </b>?"
+msgstr ""
+"მართლა გნებავთ წაშალოთ შენიშვნა <b> %1 </b>? ეს ნამდვილად წაშლის ფაილს <b>"
+"%2</b>."
 
 #: qml/NotesPage.qml:350
 #, kde-format

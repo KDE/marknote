@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-09 19:08+0900\n"
+"PO-Revision-Date: 2024-06-30 11:48+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -48,19 +48,19 @@ msgstr "新增筆記"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "從 KNotes 匯入"
 
 #: application.cpp:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "從 Maildir 匯入"
 
 #: maildirimport.cpp:91
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr ""
+msgstr "寫入「%1」時發生錯誤"
 
 #: main.cpp:73 qml/Main.qml:345
 #, kde-format
@@ -314,13 +314,13 @@ msgstr "快速草稿"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "從 Maildir 匯入"
 
 #: qml/ImportMaildirDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "從 KNotes 匯入"
 
 #: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
 #, kde-format
@@ -329,18 +329,16 @@ msgid "Name:"
 msgstr "名稱："
 
 #: qml/ImportMaildirDialog.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Image Location:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr "影像位置："
+msgstr "Maildir 位置："
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "匯入"
 
 #: qml/KQuickCommandBarPage.qml:121
 #, kde-format
@@ -381,25 +379,23 @@ msgstr "建立筆記本"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
-msgstr ""
+msgstr "匯入"
 
 #: qml/Main.qml:280
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
-msgstr ""
+msgstr "排序筆記列表"
 
 #: qml/Main.qml:286
-#, fuzzy, kde-format
-#| msgid "Sort by Name"
+#, kde-format
 msgid "by Name"
-msgstr "以名稱排序"
+msgstr "以名稱"
 
 #: qml/Main.qml:300
-#, fuzzy, kde-format
-#| msgid "Sort by Date"
+#, kde-format
 msgid "by Date"
-msgstr "以日期排序"
+msgstr "以日期"
 
 #: qml/Main.qml:330
 #, kde-format
@@ -740,22 +736,20 @@ msgstr "從建立您的第一本筆記本開始吧！"
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #: settings/MarkNoteGeneralPage.qml:19
 #, kde-format
 msgid "General theme"
-msgstr ""
+msgstr "一般主題"
 
 #: settings/MarkNoteGeneralPage.qml:26
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "顏色主題"
 
 #: settings/MarkNoteGeneralPage.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Editor Settings"
+#, kde-format
 msgid "Editor Settings"
 msgstr "編輯器設定"
 
@@ -787,19 +781,16 @@ msgstr "字型大小："
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:menu"
-#| msgid "Quit Marknote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About MarkNote"
-msgstr "離開 Marknote"
+msgstr "關於 Marknote"
 
 #: settings/MarkNoteSettings.qml:27
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "關於 KDE"
