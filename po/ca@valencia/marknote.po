@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2023, 2024.
+# SPDX-FileCopyrightText: 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-18 17:31+0200\n"
+"PO-Revision-Date: 2024-06-30 10:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #: application.cpp:147
 #, kde-format
@@ -513,12 +513,13 @@ msgid "Delete Notebook"
 msgstr "Suprimiu el bloc de notes"
 
 #: qml/NotebookDeleteDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
 "the content of <b>%2</b> definitively."
-msgstr "Segur que voleu suprimir el bloc de notes <b> %1 </b>?"
+msgstr ""
+"Segur que voleu suprimir el bloc de notes <b> %1 </b>? Açò suprimirà de "
+"manera permanent el contingut de <b>%2</b>."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -572,12 +573,13 @@ msgid "Delete Note"
 msgstr "Suprimiu la nota"
 
 #: qml/NotesPage.qml:236
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
-msgstr "Segur que voleu suprimir la nota <b> %1 </b>?"
+msgstr ""
+"Segur que voleu suprimir la nota <b>%1</b>? Açò suprimirà de manera "
+"permanent el fitxer <b>%2</b>."
 
 #: qml/NotesPage.qml:350
 #, kde-format
@@ -743,16 +745,14 @@ msgid "General"
 msgstr "General"
 
 #: settings/MarkNoteGeneralPage.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "General"
+#, kde-format
 msgid "General theme"
-msgstr "General"
+msgstr "Tema general"
 
 #: settings/MarkNoteGeneralPage.qml:26
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Tema de color"
 
 #: settings/MarkNoteGeneralPage.qml:40
 #, kde-format
@@ -825,6 +825,3 @@ msgstr "Columna després"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contingut de la cel·la"
-
-#~ msgid "Reset"
-#~ msgstr "Reinicia"
