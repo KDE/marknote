@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-21 14:05+0200\n"
+"PO-Revision-Date: 2024-07-02 21:44+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -512,12 +512,13 @@ msgid "Delete Notebook"
 msgstr "Ta bort anteckningsbok"
 
 #: qml/NotebookDeleteDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
 "the content of <b>%2</b> definitively."
-msgstr "Är du säker på att du vill ta bort anteckningsboken <b>%1</b>?"
+msgstr ""
+"Är du säker på att du vill ta bort anteckningsboken <b>%1</b>? Det tar bort "
+"innehållet i <b>%2</b> definitivt."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -571,12 +572,13 @@ msgid "Delete Note"
 msgstr "Ta bort anteckning"
 
 #: qml/NotesPage.qml:236
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
-msgstr "Är du säker på att du vill ta bort anteckningen <b>%1</b>?"
+msgstr ""
+"Är du säker på att du vill ta bort anteckningen <b>%1</b>?  Det tar bort "
+"filen <b>%2</b> definitivt."
 
 #: qml/NotesPage.qml:350
 #, kde-format
@@ -742,16 +744,14 @@ msgid "General"
 msgstr "Allmänt"
 
 #: settings/MarkNoteGeneralPage.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "General"
+#, kde-format
 msgid "General theme"
-msgstr "Allmänt"
+msgstr "Allmänt tema"
 
 #: settings/MarkNoteGeneralPage.qml:26
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Färgtema"
 
 #: settings/MarkNoteGeneralPage.qml:40
 #, kde-format
