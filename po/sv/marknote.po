@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:39+0000\n"
+"POT-Creation-Date: 2024-07-04 00:39+0000\n"
 "PO-Revision-Date: 2024-07-02 21:44+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -17,40 +17,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: application.cpp:147
-#, kde-format
-msgid "Open Command Bar"
-msgstr "Visa kommandorad"
-
-#: application.cpp:169
-#, kde-format
-msgid "About %1"
-msgstr "Om %1"
-
-#: application.cpp:176
-#, kde-format
-msgid "About KDE"
-msgstr "Om KDE"
-
-#: application.cpp:189
+#: application.cpp:29
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "Ny anteckningsbok"
 
-#: application.cpp:198
+#: application.cpp:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Ny anteckning"
 
-#: application.cpp:213
+#: application.cpp:54
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
 msgstr "Importera från Anteckningar"
 
-#: application.cpp:220
+#: application.cpp:61
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
@@ -62,44 +47,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Ett fel uppstod vid skrivning till '%1'"
 
-#: main.cpp:73 qml/Main.qml:345
+#: main.cpp:72 qml/Main.qml:315
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:75
+#: main.cpp:74
 #, kde-format
 msgid "Note taking application"
 msgstr "Anteckningsprogram"
 
-#: main.cpp:77
+#: main.cpp:76
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:79 main.cpp:84
+#: main.cpp:78 main.cpp:83
 #, kde-format
 msgid "Maintainer"
 msgstr "Underhållsansvarig"
 
-#: main.cpp:83
+#: main.cpp:82
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:88
+#: main.cpp:87
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:88
+#: main.cpp:87
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -124,7 +109,7 @@ msgstr "ångra"
 msgid "Focus Mode"
 msgstr "Fokuseringsläge"
 
-#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:19 qml/NotesPage.qml:203
+#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:203
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -272,7 +257,7 @@ msgctxt "@action:button"
 msgid "Icon"
 msgstr "Ikon"
 
-#: qml/GlobalMenuBar.qml:20
+#: qml/GlobalMenuBar.qml:18
 #, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
@@ -342,11 +327,6 @@ msgctxt "@action:button"
 msgid "Import"
 msgstr "Importera"
 
-#: qml/KQuickCommandBarPage.qml:121
-#, kde-format
-msgid "No results found"
-msgstr "Inga resultat hittades"
-
 #: qml/LinkDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
@@ -365,52 +345,52 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "Länkwebbadress:"
 
-#: qml/Main.qml:76
+#: qml/Main.qml:66
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 "Kan inte skapa en ny anteckning, ett anteckningsbok måste skapas först."
 
-#: qml/Main.qml:76
+#: qml/Main.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Skapa anteckningsbok"
 
-#: qml/Main.qml:266
+#: qml/Main.qml:236
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importera"
 
-#: qml/Main.qml:280
+#: qml/Main.qml:252
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Sortera anteckningslista"
 
-#: qml/Main.qml:286
+#: qml/Main.qml:258
 #, kde-format
 msgid "by Name"
 msgstr "enligt namn"
 
-#: qml/Main.qml:300
+#: qml/Main.qml:272
 #, kde-format
 msgid "by Date"
 msgstr "enligt datum"
 
-#: qml/Main.qml:330
+#: qml/Main.qml:299
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Dra ihop sidorad"
 
-#: qml/Main.qml:330
+#: qml/Main.qml:299
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Expandera sidorad"
 
-#: qml/Main.qml:399
+#: qml/Main.qml:369
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Dina anteckningsböcker"
@@ -463,17 +443,11 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Markera alla"
 
-#: qml/NativeFileMenu.qml:9
+#: qml/NativeFileMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
 msgstr "Arkiv"
-
-#: qml/NativeFileMenu.qml:15
-#, kde-format
-msgctxt "@action:menu"
-msgid "Quit Marknote"
-msgstr "Avsluta MarkNote"
 
 #: qml/NativeHelpMenu.qml:11
 #, kde-format
@@ -481,13 +455,13 @@ msgctxt "@action:menu"
 msgid "Help"
 msgstr "Hjälp"
 
-#: qml/NativeWindowMenu.qml:12
+#: qml/NativeWindowMenu.qml:13
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
 msgstr "Fönster"
 
-#: qml/NativeWindowMenu.qml:19
+#: qml/NativeWindowMenu.qml:21
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
@@ -544,7 +518,7 @@ msgctxt "@title:window"
 msgid "Edit Note"
 msgstr "Redigera anteckning"
 
-#: qml/NoteMetadataDialog.qml:54
+#: qml/NoteMetadataDialog.qml:58
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
@@ -824,6 +798,22 @@ msgstr "Kolumn efter"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Cellinnehåll"
+
+#~ msgid "Open Command Bar"
+#~ msgstr "Visa kommandorad"
+
+#~ msgid "About %1"
+#~ msgstr "Om %1"
+
+#~ msgid "About KDE"
+#~ msgstr "Om KDE"
+
+#~ msgid "No results found"
+#~ msgstr "Inga resultat hittades"
+
+#~ msgctxt "@action:menu"
+#~ msgid "Quit Marknote"
+#~ msgstr "Avsluta MarkNote"
 
 #~ msgid "Reset"
 #~ msgstr "Återställ"

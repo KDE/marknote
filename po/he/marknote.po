@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:39+0000\n"
+"POT-Creation-Date: 2024-07-04 00:39+0000\n"
 "PO-Revision-Date: 2024-06-30 08:53+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -18,40 +18,25 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 24.05.0\n"
 
-#: application.cpp:147
-#, kde-format
-msgid "Open Command Bar"
-msgstr "פתיחת סרגל פקודות"
-
-#: application.cpp:169
-#, kde-format
-msgid "About %1"
-msgstr "על %1"
-
-#: application.cpp:176
-#, kde-format
-msgid "About KDE"
-msgstr "על KDE"
-
-#: application.cpp:189
+#: application.cpp:29
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "מחברת חדשה"
 
-#: application.cpp:198
+#: application.cpp:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "פתקית חדשה"
 
-#: application.cpp:213
+#: application.cpp:54
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
 msgstr "ייבוא מ־KNotes"
 
-#: application.cpp:220
+#: application.cpp:61
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
@@ -63,44 +48,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "אירעה שגיאה בכתיבה אל ‚%1’"
 
-#: main.cpp:73 qml/Main.qml:345
+#: main.cpp:72 qml/Main.qml:315
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:75
+#: main.cpp:74
 #, kde-format
 msgid "Note taking application"
 msgstr "יישום לכתיבת פתקיות"
 
-#: main.cpp:77
+#: main.cpp:76
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr "© 2023 מתיס בריכרט"
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "מתיס בריכרט"
 
-#: main.cpp:79 main.cpp:84
+#: main.cpp:78 main.cpp:83
 #, kde-format
 msgid "Maintainer"
 msgstr "מתחזק"
 
-#: main.cpp:83
+#: main.cpp:82
 #, kde-format
 msgid "Carl Schwan"
 msgstr "קארל שוואן"
 
-#: main.cpp:88
+#: main.cpp:87
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "צוות התרגום של KDE ישראל"
 
-#: main.cpp:88
+#: main.cpp:87
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -123,7 +108,7 @@ msgstr "הסגה"
 msgid "Focus Mode"
 msgstr "מצב מיקוד"
 
-#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:19 qml/NotesPage.qml:203
+#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:203
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -271,7 +256,7 @@ msgctxt "@action:button"
 msgid "Icon"
 msgstr "סמל"
 
-#: qml/GlobalMenuBar.qml:20
+#: qml/GlobalMenuBar.qml:18
 #, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
@@ -341,11 +326,6 @@ msgctxt "@action:button"
 msgid "Import"
 msgstr "ייבוא"
 
-#: qml/KQuickCommandBarPage.qml:121
-#, kde-format
-msgid "No results found"
-msgstr "לא נמצאו תוצאות"
-
 #: qml/LinkDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
@@ -364,51 +344,51 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "כתובת קישור:"
 
-#: qml/Main.qml:76
+#: qml/Main.qml:66
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "לא ניתן ליצור פתקית חדשה, צריך ליצור מחברת תחילה."
 
-#: qml/Main.qml:76
+#: qml/Main.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "יצירת מחברת"
 
-#: qml/Main.qml:266
+#: qml/Main.qml:236
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "ייבוא"
 
-#: qml/Main.qml:280
+#: qml/Main.qml:252
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "מיון רשימת הפתקיות"
 
-#: qml/Main.qml:286
+#: qml/Main.qml:258
 #, kde-format
 msgid "by Name"
 msgstr "לפי שם"
 
-#: qml/Main.qml:300
+#: qml/Main.qml:272
 #, kde-format
 msgid "by Date"
 msgstr "לפי תאריך"
 
-#: qml/Main.qml:330
+#: qml/Main.qml:299
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "צמצום סרגל צד"
 
-#: qml/Main.qml:330
+#: qml/Main.qml:299
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "הרחבת סרגל צד"
 
-#: qml/Main.qml:399
+#: qml/Main.qml:369
 #, kde-format
 msgid "Your Notebooks"
 msgstr "המחברות שלך"
@@ -461,17 +441,11 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "בחירה בהכול"
 
-#: qml/NativeFileMenu.qml:9
+#: qml/NativeFileMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
 msgstr "קובץ"
-
-#: qml/NativeFileMenu.qml:15
-#, kde-format
-msgctxt "@action:menu"
-msgid "Quit Marknote"
-msgstr "יציאה מ־Marknote"
 
 #: qml/NativeHelpMenu.qml:11
 #, kde-format
@@ -479,13 +453,13 @@ msgctxt "@action:menu"
 msgid "Help"
 msgstr "עזרה"
 
-#: qml/NativeWindowMenu.qml:12
+#: qml/NativeWindowMenu.qml:13
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
 msgstr "חלון"
 
-#: qml/NativeWindowMenu.qml:19
+#: qml/NativeWindowMenu.qml:21
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
@@ -541,7 +515,7 @@ msgctxt "@title:window"
 msgid "Edit Note"
 msgstr "עריכת פתקית"
 
-#: qml/NoteMetadataDialog.qml:54
+#: qml/NoteMetadataDialog.qml:58
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
@@ -820,6 +794,22 @@ msgstr "עמודה אחרי"
 #, kde-format
 msgid "Cell Contents"
 msgstr "תוכן התא"
+
+#~ msgid "Open Command Bar"
+#~ msgstr "פתיחת סרגל פקודות"
+
+#~ msgid "About %1"
+#~ msgstr "על %1"
+
+#~ msgid "About KDE"
+#~ msgstr "על KDE"
+
+#~ msgid "No results found"
+#~ msgstr "לא נמצאו תוצאות"
+
+#~ msgctxt "@action:menu"
+#~ msgid "Quit Marknote"
+#~ msgstr "יציאה מ־Marknote"
 
 #~ msgid "Reset"
 #~ msgstr "איפוס:"
