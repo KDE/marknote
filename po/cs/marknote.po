@@ -795,19 +795,3 @@ msgstr "Sloupec po"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Obsah buňky"
-
-#~ msgid "Open Command Bar"
-#~ msgstr "Otevřít pruh s příkazy"
-
-#~ msgid "About %1"
-#~ msgstr "O aplikaci %1"
-
-#~ msgid "About KDE"
-#~ msgstr "O prostředí KDE"
-
-#~ msgid "No results found"
-#~ msgstr "Nenalezeny žádné výsledky"
-
-#~ msgctxt "@action:menu"
-#~ msgid "Quit Marknote"
-#~ msgstr "Ukončit Marknote"

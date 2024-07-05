@@ -791,15 +791,3 @@ msgstr "后一列"
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"
-
-#~ msgid "Open Command Bar"
-#~ msgstr "打开命令栏"
-
-#~ msgid "About %1"
-#~ msgstr "关于 %1"
-
-#~ msgid "About KDE"
-#~ msgstr "关于 KDE"
-
-#~ msgid "No results found"
-#~ msgstr "无搜索结果"
