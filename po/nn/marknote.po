@@ -814,16 +814,3 @@ msgstr ""
 #, kde-format
 msgid "Cell Contents"
 msgstr ""
-
-#~ msgid "About %1"
-#~ msgstr "Om %1"
-
-#~ msgid "About KDE"
-#~ msgstr "Om KDE"
-
-#, fuzzy
-#~| msgctxt "Application name"
-#~| msgid "Marknote"
-#~ msgctxt "@action:menu"
-#~ msgid "Quit Marknote"
-#~ msgstr "Marknote"

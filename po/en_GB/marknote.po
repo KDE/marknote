@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-04 00:39+0000\n"
-"PO-Revision-Date: 2024-06-29 11:27+0100\n"
+"PO-Revision-Date: 2024-07-05 13:50+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -483,12 +483,13 @@ msgid "Delete Notebook"
 msgstr "Delete Notebook"
 
 #: qml/NotebookDeleteDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
 "the content of <b>%2</b> definitively."
-msgstr "Are you sure you want to delete the Notebook <b> %1 </b>?"
+msgstr ""
+"Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
+"the content of <b>%2</b> definitively."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -542,12 +543,13 @@ msgid "Delete Note"
 msgstr "Delete Note"
 
 #: qml/NotesPage.qml:236
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
-msgstr "Are you sure you want to delete the note <b> %1 </b>?"
+msgstr ""
+"Are you sure you want to delete the note <b> %1 </b>? This will delete the "
+"file <b>%2</b> definitively."
 
 #: qml/NotesPage.qml:350
 #, kde-format
