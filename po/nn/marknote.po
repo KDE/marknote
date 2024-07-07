@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-04 00:39+0000\n"
-"PO-Revision-Date: 2024-05-08 19:52+0200\n"
+"PO-Revision-Date: 2024-07-06 15:50+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -34,13 +34,13 @@ msgstr "Nytt notat"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Importer frå KNotes"
 
 #: application.cpp:61
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Importer frå Maildir-mappe"
 
 #: maildirimport.cpp:91
 #, kde-format
@@ -101,7 +101,7 @@ msgstr ""
 #: qml/EditPage.qml:555
 #, kde-format
 msgid "undo"
-msgstr ""
+msgstr "angra"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -113,7 +113,7 @@ msgstr "Fokusmodus"
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Gå ut av fullskjermsmodus"
 
 #: qml/EditPage.qml:212
 #, kde-format
@@ -161,37 +161,37 @@ msgstr "Inga liste"
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
-msgstr ""
+msgstr "Usortert liste"
 
 #: qml/EditPage.qml:337
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
-msgstr ""
+msgstr "Sortert liste"
 
 #: qml/EditPage.qml:347
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
-msgstr ""
+msgstr "Set inn avkryssingsboks"
 
 #: qml/EditPage.qml:362
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
-msgstr ""
+msgstr "Set inn lenkje"
 
 #: qml/EditPage.qml:378
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
-msgstr ""
+msgstr "Set inn bilete"
 
 #: qml/EditPage.qml:391
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr ""
+msgstr "Set inn tabell"
 
 #: qml/EditPage.qml:411
 #, kde-format
@@ -238,57 +238,57 @@ msgstr "Underavsnitt"
 #: qml/EditPage.qml:587
 #, kde-format
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: qml/EditPage.qml:591
 #, kde-format
 msgid "Lists"
-msgstr ""
+msgstr "Lister"
 
 #: qml/EditPage.qml:595
 #, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "Set inn"
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
-msgstr ""
+msgstr "Ikon"
 
 #: qml/GlobalMenuBar.qml:18
 #, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
-msgstr ""
+msgstr "Innstillingar"
 
 #: qml/ImageDialog.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "Set inn bilete"
 
 #: qml/ImageDialog.qml:24 qml/ImportMaildirDialog.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "Vel bilete"
 
 #: qml/ImageDialog.qml:27
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr ""
+msgstr "Biletfiler (*.jpg *.jpeg *.png *.svg *.webp)"
 
 #: qml/ImageDialog.qml:27
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "Alle filer (*)"
 
 #: qml/ImageDialog.qml:42
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
-msgstr ""
+msgstr "Biletadresse:"
 
 #: qml/ImageDialog.qml:53
 #, kde-format
@@ -300,50 +300,49 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Importer frå Maildir-mappe"
 
 #: qml/ImportMaildirDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Importer frå KNotes"
 
 #: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr "Notatnamn:"
+msgstr "Namn:"
 
 #: qml/ImportMaildirDialog.qml:50
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr ""
+msgstr "Maildir-adresse:"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "Set inn lenkje"
 
 #: qml/LinkDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Lenkjetekst:"
 
 #: qml/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "Lenkjeadresse:"
 
 #: qml/Main.qml:66
 #, kde-format
@@ -352,17 +351,16 @@ msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr "Slett notatbok"
+msgstr "Ny notatbok"
 
 #: qml/Main.qml:236
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 #: qml/Main.qml:252
 #, kde-format
@@ -371,122 +369,116 @@ msgid "Sort Notes List"
 msgstr ""
 
 #: qml/Main.qml:258
-#, fuzzy, kde-format
-#| msgid "Note name:"
+#, kde-format
 msgid "by Name"
-msgstr "Notatnamn:"
+msgstr "etter namn"
 
 #: qml/Main.qml:272
 #, kde-format
 msgid "by Date"
-msgstr ""
+msgstr "etter dato"
 
 #: qml/Main.qml:299
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "Fald saman sidestolpe"
 
 #: qml/Main.qml:299
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Utvid sidestolpe"
 
 #: qml/Main.qml:369
 #, kde-format
 msgid "Your Notebooks"
-msgstr "Notatboka dine"
+msgstr "Notatbøkene dine"
 
 #: qml/NativeEditMenu.qml:10
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Edit"
-msgstr "Slett notat"
+msgstr "Rediger"
 
 #: qml/NativeEditMenu.qml:39
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr ""
+msgstr "Angra"
 
 #: qml/NativeEditMenu.qml:49
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
-msgstr ""
+msgstr "Gjer om"
 
 #: qml/NativeEditMenu.qml:62
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
-msgstr ""
+msgstr "Klipp ut"
 
 #: qml/NativeEditMenu.qml:72
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
-msgstr ""
+msgstr "Kopier"
 
 #: qml/NativeEditMenu.qml:82
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
-msgstr ""
+msgstr "Lim inn"
 
 #: qml/NativeEditMenu.qml:92
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
-msgstr "Slett notat"
+msgstr "Slett"
 
 #: qml/NativeEditMenu.qml:105
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
-msgstr ""
+msgstr "Merk alt"
 
 #: qml/NativeFileMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
-msgstr ""
+msgstr "Fil"
 
 #: qml/NativeHelpMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "Help"
-msgstr ""
+msgstr "Hjelp"
 
 #: qml/NativeWindowMenu.qml:13
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
-msgstr ""
+msgstr "Vindauge"
 
 #: qml/NativeWindowMenu.qml:21
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
-msgstr ""
+msgstr "Start fullskjermmodus"
 
 #: qml/NotebookContextMenu.qml:16
-#, fuzzy, kde-format
-#| msgid "Add Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit Notebook"
-msgstr "Legg til notatbok"
+msgstr "Rediger notatbok"
 
 #: qml/NotebookContextMenu.qml:33 qml/NotebookDeleteAction.qml:15
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Slett notatbok"
 
 #: qml/NotebookDeleteDialog.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete Notebook"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Slett notatbok"
