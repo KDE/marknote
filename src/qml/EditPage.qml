@@ -479,7 +479,7 @@ Kirigami.Page {
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
             color: Kirigami.Theme.backgroundColor
-            height: Kirigami.Units.gridUnit * 5 + Kirigami.Units.smallSpacing
+            height: Kirigami.Units.gridUnit * 5 + Kirigami.Units.smallSpacing*2
 
             shadow {
                 size: 15
@@ -507,13 +507,15 @@ Kirigami.Page {
                     Layout.margins: Kirigami.Units.mediumSpacing
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-
+                    implicitHeight: undoButton.height
                     currentIndex: categorySelector.selectedIndex
                     interactive: false
                     Item {
                         id: firstPage
+
                         RowLayout {
                             width: swipeView.width
+                            height: swipeView.height
                             Loader { sourceComponent: textFormatGroup }
                             Item { Layout.fillWidth: true }
                             Loader { sourceComponent: headingGroup }
@@ -522,6 +524,7 @@ Kirigami.Page {
                     Item {
                         id: secondPage
                         RowLayout {
+                            height: swipeView.height
                             width: swipeView.width
                             Loader { sourceComponent: listFormatGroup }
                             Item { Layout.fillWidth: true }
@@ -529,7 +532,11 @@ Kirigami.Page {
                         }                    }
                     Item {
                         id: thirdPage
-                        Loader { sourceComponent: insertGroup }
+                        RowLayout {
+                            height: swipeView.height
+                            width: swipeView.width
+                            Loader { sourceComponent: insertGroup }
+                        }
                     }
 
                 }
@@ -545,18 +552,21 @@ Kirigami.Page {
                         display: AbstractButton.IconOnly
                         onClicked: textArea.undo()
                         enabled: textArea.canUndo
-
+//                        Layout.topMargin: Kirigami.Units.smallSpacing
+//                        Layout.bottomMargin: Kirigami.Units.smallSpacing
                         ToolTip.text: text
                         ToolTip.visible: hovered
                         ToolTip.delay: Kirigami.Units.toolTipDelay
                     }
                     ToolButton {
+                        id: undoButton
                         icon.name: "edit-redo"
                         text: i18n("undo")
                         display: AbstractButton.IconOnly
                         onClicked: textArea.redo()
                         enabled: textArea.canRedo
-                        Layout.rightMargin: Kirigami.Units.smallSpacing
+//                        Layout.topMargin: Kirigami.Units.smallSpacing
+//                        Layout.bottomMargin: Kirigami.Units.smallSpacing
 
                         ToolTip.text: text
                         ToolTip.visible: hovered
