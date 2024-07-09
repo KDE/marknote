@@ -42,7 +42,7 @@ Kirigami.ScrollablePage {
 
 
                 const tmpWidth = Math.round(root.currentWidth - (_lastX - mouse.x));
-                if (tmpWidth > Kirigami.Units.gridUnit * 8 && tmpWidth < applicationWindow().width /3.5 - 1 )root.currentWidth = tmpWidth;
+                if (tmpWidth > 800/3.5 && tmpWidth < applicationWindow().width /3.5 - 1 )root.currentWidth = tmpWidth;
 
             }
        }

@@ -17,8 +17,8 @@ import "components"
 
 StatetfulApp.StatefulWindow {
     id: root
-
-    property bool wideScreen: applicationWindow().width >= pageStack.defaultColumnWidth * 3.5 && !Config.fillWindow
+    property int minWideScreenWidth: 800
+    property bool wideScreen: applicationWindow().width >= minWideScreenWidth && !Config.fillWindow
     property bool columnModeDelayed: false
     minimumWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 22
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
@@ -34,10 +34,10 @@ StatetfulApp.StatefulWindow {
         }
 
         columnView {
-            columnResizeMode: (width >= pageStack.defaultColumnWidth * 3.5 && !columnModeDelayed) && pageStack.depth >= 2 ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
+            columnResizeMode: (width >= minWideScreenWidth && !columnModeDelayed) && pageStack.depth >= 2 ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
         }
     }
-//    onWidthChanged: pageStack.defaultColumnWidth = Math.max(Math.min(root.width/3.5, pageStack.defaultColumnWidth), Kirigami.Units.gridUnit * 8 )
+    onWidthChanged: pageStack.defaultColumnWidth = Math.max(Math.min(root.width/3.5, pageStack.defaultColumnWidth), minWideScreenWidth / 3.5 )
 
     StatetfulApp.Action {
         actionName: 'open_about_page'
