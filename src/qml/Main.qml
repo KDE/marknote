@@ -18,7 +18,7 @@ import "components"
 StatetfulApp.StatefulWindow {
     id: root
 
-    property bool wideScreen: applicationWindow().width >= 600 && !Config.fillWindow
+    property bool wideScreen: applicationWindow().width >= pageStack.defaultColumnWidth * 3.5 && !Config.fillWindow
     property bool columnModeDelayed: false
     minimumWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 22
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
@@ -26,7 +26,7 @@ StatetfulApp.StatefulWindow {
     application: App
 
     controlsVisible: false
-    onWideScreenChanged: Kirigami.Settings.isMobile? drawer.close() :  (!wideScreen? drawer.close() : drawer.open())
+    onWideScreenChanged: Kirigami.Settings.isMobile? drawer.close() :  (!wideScreen? (drawer.close()) : drawer.open())
     pageStack {
         globalToolBar {
             style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
