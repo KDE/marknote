@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 00:39+0000\n"
+"POT-Creation-Date: 2024-07-09 00:39+0000\n"
 "PO-Revision-Date: 2024-04-02 03:36+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -100,8 +100,8 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Ezin du oharra berrizendatu. Izen bera duen ohar bat dago."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:90 qml/EditPage.qml:544
-#: qml/EditPage.qml:555
+#: qml/EditPage.qml:77 qml/EditPage.qml:90 qml/EditPage.qml:551
+#: qml/EditPage.qml:564
 #, kde-format
 msgid "undo"
 msgstr ""
@@ -240,17 +240,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Azpiparagrafoa"
 
-#: qml/EditPage.qml:587
+#: qml/EditPage.qml:597
 #, kde-format
 msgid "Format"
 msgstr ""
 
-#: qml/EditPage.qml:591
+#: qml/EditPage.qml:601
 #, kde-format
 msgid "Lists"
 msgstr ""
 
-#: qml/EditPage.qml:595
+#: qml/EditPage.qml:605
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 00:39+0000\n"
+"POT-Creation-Date: 2024-07-09 00:39+0000\n"
 "PO-Revision-Date: 2024-06-30 10:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -100,8 +100,8 @@ msgstr ""
 "No s'ha pogut canviar el nom de la nota. Ja existix una nota amb el mateix "
 "nom."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:90 qml/EditPage.qml:544
-#: qml/EditPage.qml:555
+#: qml/EditPage.qml:77 qml/EditPage.qml:90 qml/EditPage.qml:551
+#: qml/EditPage.qml:564
 #, kde-format
 msgid "undo"
 msgstr "desfera"
@@ -238,17 +238,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Subparàgraf"
 
-#: qml/EditPage.qml:587
+#: qml/EditPage.qml:597
 #, kde-format
 msgid "Format"
 msgstr "Format"
 
-#: qml/EditPage.qml:591
+#: qml/EditPage.qml:601
 #, kde-format
 msgid "Lists"
 msgstr "Llistes"
 
-#: qml/EditPage.qml:595
+#: qml/EditPage.qml:605
 #, kde-format
 msgid "Insert"
 msgstr "Inserix"

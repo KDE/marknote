@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 00:39+0000\n"
+"POT-Creation-Date: 2024-07-09 00:39+0000\n"
 "PO-Revision-Date: 2024-06-30 09:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -97,8 +97,8 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Не вдалося перейменувати нотатку. Нотатка з такою назвою вже існує."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:90 qml/EditPage.qml:544
-#: qml/EditPage.qml:555
+#: qml/EditPage.qml:77 qml/EditPage.qml:90 qml/EditPage.qml:551
+#: qml/EditPage.qml:564
 #, kde-format
 msgid "undo"
 msgstr "повернути"
@@ -235,17 +235,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Підпараграф"
 
-#: qml/EditPage.qml:587
+#: qml/EditPage.qml:597
 #, kde-format
 msgid "Format"
 msgstr "Формат"
 
-#: qml/EditPage.qml:591
+#: qml/EditPage.qml:601
 #, kde-format
 msgid "Lists"
 msgstr "Списки"
 
-#: qml/EditPage.qml:595
+#: qml/EditPage.qml:605
 #, kde-format
 msgid "Insert"
 msgstr "Вставити"
