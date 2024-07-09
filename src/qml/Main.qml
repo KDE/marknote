@@ -37,6 +37,7 @@ StatetfulApp.StatefulWindow {
             columnResizeMode: (width >= pageStack.defaultColumnWidth * 3.5 && !columnModeDelayed) && pageStack.depth >= 2 ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
         }
     }
+//    onWidthChanged: pageStack.defaultColumnWidth = Math.max(Math.min(root.width/3.5, pageStack.defaultColumnWidth), Kirigami.Units.gridUnit * 8 )
 
     StatetfulApp.Action {
         actionName: 'open_about_page'
@@ -109,6 +110,7 @@ StatetfulApp.StatefulWindow {
 
     Component.onCompleted: {
         Config.fillWindow = false;
+        Kirigami.Settings.isMobile? drawer.close() :  (!wideScreen? (drawer.close()) : drawer.open())
         NavigationController.mobileMode = Kirigami.Settings.isMobile;
             if (noteBooksModel.rowCount() !== 0) {
             NavigationController.notebookPath = noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path);

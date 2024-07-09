@@ -24,7 +24,7 @@ Kirigami.ScrollablePage {
        anchors.top: parent.top
        anchors.bottom: parent.bottom
        parent: applicationWindow().overlay
-
+       visible: pageStack.columnView.columnResizeMode !== Kirigami.ColumnView.SingleColumn
        x: pageStack.defaultColumnWidth - width/2 + root.x + applicationWindow().globalDrawer.width
        width: Kirigami.Units.smallSpacing * 2
        z: root.z + 1
@@ -34,8 +34,6 @@ Kirigami.ScrollablePage {
 
        onPressed: mouse => {
            _lastX = mouse.x;
-           print("pressed")
-
        }
        onPositionChanged: mouse => {
            if (_lastX == -1) {
@@ -44,7 +42,7 @@ Kirigami.ScrollablePage {
 
 
                 const tmpWidth = Math.round(root.currentWidth - (_lastX - mouse.x));
-                if (tmpWidth > Kirigami.Units.gridUnit * 8 && tmpWidth < Kirigami.Units.gridUnit * 20 )root.currentWidth = tmpWidth;
+                if (tmpWidth > Kirigami.Units.gridUnit * 8 && tmpWidth < applicationWindow().width /3.5 - 1 )root.currentWidth = tmpWidth;
 
             }
        }
