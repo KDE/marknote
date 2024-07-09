@@ -273,33 +273,23 @@ QQC2.Menu {
         }
     }
 
-    QQC2.MenuSeparator {}
-
     QQC2.Menu {
         title: i18nc("@inmenu", "Remove")
 
         ActionFromQAction {
-            action: tableActionHelper.actionRemoveRowAbove
+            action: tableActionHelper.actionRemoveRow
         }
 
         ActionFromQAction {
-            action: tableActionHelper.actionRemoveRowBelow
-        }
-
-        QQC2.MenuSeparator {}
-
-        ActionFromQAction {
-            action: tableActionHelper.actionRemoveColumnBefore
-        }
-
-        ActionFromQAction {
-            action: tableActionHelper.actionRemoveColumnAfter
+            action: tableActionHelper.actionRemoveColumn
         }
 
         ActionFromQAction {
             action: tableActionHelper.actionRemoveCellContents
         }
     }
+
+    QQC2.MenuSeparator { }
 
     QQC2.MenuItem {
         action: QQC2.Action {

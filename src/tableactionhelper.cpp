@@ -33,47 +33,21 @@ void TableActionHelper::_k_slotRemoveCellContents()
     }
 }
 
-void TableActionHelper::_k_slotRemoveRowBelow()
+void TableActionHelper::_k_slotRemoveRow()
 {
     QTextTable *table = textCursor().currentTable();
     if (table) {
         const QTextTableCell cell = table->cellAt(textCursor());
-        if (cell.row() < table->rows() - 1) {
-            table->removeRows(cell.row(), 1);
-        }
+        table->removeRows(cell.row(), 1);
     }
 }
 
-void TableActionHelper::_k_slotRemoveRowAbove()
+void TableActionHelper::_k_slotRemoveColumn()
 {
     QTextTable *table = textCursor().currentTable();
     if (table) {
         const QTextTableCell cell = table->cellAt(textCursor());
-        if (cell.row() >= 1) {
-            table->removeRows(cell.row() - 1, 1);
-        }
-    }
-}
-
-void TableActionHelper::_k_slotRemoveColumnBefore()
-{
-    QTextTable *table = textCursor().currentTable();
-    if (table) {
-        const QTextTableCell cell = table->cellAt(textCursor());
-        if (cell.column() > 0) {
-            table->removeColumns(cell.column() - 1, 1);
-        }
-    }
-}
-
-void TableActionHelper::_k_slotRemoveColumnAfter()
-{
-    QTextTable *table = textCursor().currentTable();
-    if (table) {
-        const QTextTableCell cell = table->cellAt(textCursor());
-        if (cell.column() < table->columns() - 1) {
-            table->removeColumns(cell.column(), 1);
-        }
+        table->removeColumns(cell.column(), 1);
     }
 }
 
@@ -124,19 +98,15 @@ void TableActionHelper::_k_slotInsertColumnAfter()
 void TableActionHelper::_k_updateActions(bool forceUpdate)
 {
     if (forceUpdate) {
-        QTextTable *table = textCursor().currentTable();
-        const bool isTable = (table != nullptr);
+        const bool isTable = textCursor().currentTable();
         actionInsertRowBelow->setEnabled(isTable);
         actionInsertRowAbove->setEnabled(isTable);
 
         actionInsertColumnBefore->setEnabled(isTable);
         actionInsertColumnAfter->setEnabled(isTable);
 
-        actionRemoveRowBelow->setEnabled(isTable);
-        actionRemoveRowAbove->setEnabled(isTable);
-
-        actionRemoveColumnBefore->setEnabled(isTable);
-        actionRemoveColumnAfter->setEnabled(isTable);
+        actionRemoveRow->setEnabled(isTable);
+        actionRemoveColumn->setEnabled(isTable);
 
         actionRemoveCellContents->setEnabled(isTable);
     }
@@ -170,29 +140,16 @@ TableActionHelper::TableActionHelper(QObject *parent)
         _k_slotInsertColumnAfter();
     });
 
-    actionRemoveRowBelow = new QAction(i18n("Row Below"), this);
-    actionRemoveRowBelow->setObjectName("remove_row_below"_L1);
-    connect(actionRemoveRowBelow, &QAction::triggered, this, [this]() {
-        _k_slotRemoveRowBelow();
+    actionRemoveRow = new QAction(QIcon::fromTheme(u"edit-table-delete-row"_s), i18n("Row"), this);
+    actionRemoveRow->setObjectName("remove_row"_L1);
+    connect(actionRemoveRow, &QAction::triggered, this, [this]() {
+        _k_slotRemoveRow();
     });
 
-    actionRemoveRowAbove = new QAction(i18n("Row Above"), this);
-    actionRemoveRowAbove->setObjectName("remove_row_above"_L1);
-    connect(actionRemoveRowAbove, &QAction::triggered, this, [this]() {
-        _k_slotRemoveRowAbove();
-    });
-
-    actionRemoveColumnBefore = new QAction(i18n("Column Before"), this);
-    actionRemoveColumnBefore->setObjectName("remove_column_before"_L1);
-
-    connect(actionRemoveColumnBefore, &QAction::triggered, this, [this]() {
-        _k_slotRemoveColumnBefore();
-    });
-
-    actionRemoveColumnAfter = new QAction(i18n("Column After"), this);
-    actionRemoveColumnAfter->setObjectName("remove_column_after"_L1);
-    connect(actionRemoveColumnAfter, &QAction::triggered, this, [this]() {
-        _k_slotRemoveColumnAfter();
+    actionRemoveColumn = new QAction(QIcon::fromTheme(u"edit-table-delete-column"_s), i18n("Column"), this);
+    actionRemoveColumn->setObjectName("remove_column"_L1);
+    connect(actionRemoveColumn, &QAction::triggered, this, [this]() {
+        _k_slotRemoveColumn();
     });
 
     actionRemoveCellContents = new QAction(i18n("Cell Contents"), this);

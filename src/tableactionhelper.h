@@ -30,11 +30,8 @@ class TableActionHelper : public QObject
     Q_PROPERTY(QAction *actionInsertColumnBefore MEMBER actionInsertColumnBefore CONSTANT)
     Q_PROPERTY(QAction *actionInsertColumnAfter MEMBER actionInsertColumnAfter CONSTANT)
 
-    Q_PROPERTY(QAction *actionRemoveRowBelow MEMBER actionRemoveRowBelow CONSTANT)
-    Q_PROPERTY(QAction *actionRemoveRowAbove MEMBER actionRemoveRowAbove CONSTANT)
-
-    Q_PROPERTY(QAction *actionRemoveColumnBefore MEMBER actionRemoveColumnBefore CONSTANT)
-    Q_PROPERTY(QAction *actionRemoveColumnAfter MEMBER actionRemoveColumnAfter CONSTANT)
+    Q_PROPERTY(QAction *actionRemoveRow MEMBER actionRemoveRow CONSTANT)
+    Q_PROPERTY(QAction *actionRemoveColumn MEMBER actionRemoveColumn CONSTANT)
 
     Q_PROPERTY(QAction *actionRemoveCellContents MEMBER actionRemoveCellContents CONSTANT)
 
@@ -69,10 +66,8 @@ private:
     void _k_slotInsertColumnBefore();
     void _k_slotInsertColumnAfter();
 
-    void _k_slotRemoveRowBelow();
-    void _k_slotRemoveRowAbove();
-    void _k_slotRemoveColumnBefore();
-    void _k_slotRemoveColumnAfter();
+    void _k_slotRemoveRow();
+    void _k_slotRemoveColumn();
     void _k_slotRemoveCellContents();
 
     void _k_updateActions(bool forceUpdate = false);
@@ -83,11 +78,8 @@ private:
     QAction *actionInsertColumnBefore = nullptr;
     QAction *actionInsertColumnAfter = nullptr;
 
-    QAction *actionRemoveRowBelow = nullptr;
-    QAction *actionRemoveRowAbove = nullptr;
-
-    QAction *actionRemoveColumnBefore = nullptr;
-    QAction *actionRemoveColumnAfter = nullptr;
+    QAction *actionRemoveRow = nullptr;
+    QAction *actionRemoveColumn = nullptr;
 
     QAction *actionRemoveCellContents = nullptr;
 
