@@ -18,6 +18,8 @@ public:
     App(QObject *parent = nullptr);
     ~App() override = default;
 
+    Q_INVOKABLE [[nodiscard]] static QString iconName(const QIcon &icon);
+
 Q_SIGNALS:
     void newNotebook();
     void newNote();

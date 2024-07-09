@@ -19,6 +19,11 @@ App::App(QObject *parent)
     setupActions();
 }
 
+QString App::iconName(const QIcon &icon)
+{
+    return icon.name();
+}
+
 void App::setupActions()
 {
     AbstractKirigamiApplication::setupActions();
