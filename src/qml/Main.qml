@@ -18,8 +18,13 @@ import "components"
 StatetfulApp.StatefulWindow {
     id: root
     property int minWideScreenWidth: 800
+    property int normalColumnWidth: Kirigami.Units.gridUnit * 15
+    property double maximalColumWidthPercentage: 0.3
+    property int minimalColumnWidth: minWideScreenWidth * maximalColumWidthPercentage
+
     property bool wideScreen: applicationWindow().width >= minWideScreenWidth && !Config.fillWindow
     property bool columnModeDelayed: false
+
     minimumWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 22
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
 
@@ -37,7 +42,39 @@ StatetfulApp.StatefulWindow {
             columnResizeMode: (width >= minWideScreenWidth && !columnModeDelayed) && pageStack.depth >= 2 ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
         }
     }
-    onWidthChanged: pageStack.defaultColumnWidth = Math.max(Math.min(root.width/3.5, pageStack.defaultColumnWidth), minWideScreenWidth / 3.5 )
+
+    // resizing the columns
+    onWidthChanged: pageStack.defaultColumnWidth = Math.max(Math.min(root.width * maximalColumWidthPercentage, pageStack.defaultColumnWidth), minimalColumnWidth )
+
+    property int currentWidth: normalColumnWidth
+
+    onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
+
+    MouseArea {
+        id: collumnResizeArea
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        parent: applicationWindow().overlay
+        visible: pageStack.columnView.columnResizeMode !== Kirigami.ColumnView.SingleColumn
+        x: pageStack.defaultColumnWidth - width/2 + root.x + applicationWindow().globalDrawer.width
+        width: Kirigami.Units.smallSpacing * 2
+        z: root.z + 1
+        cursorShape: Qt.SplitHCursor
+        property int _lastX
+
+        onPressed: mouse => {
+            _lastX = mouse.x;
+        }
+        onPositionChanged: mouse => {
+            if (_lastX == -1) {
+                return;
+            } else {
+                const tmpWidth = Math.round(root.currentWidth - (_lastX - mouse.x));
+                if (tmpWidth > minimalColumnWidth && tmpWidth < applicationWindow().width * maximalColumWidthPercentage ) root.currentWidth = tmpWidth;
+            }
+        }
+    }
+
 
     StatetfulApp.Action {
         actionName: 'open_about_page'

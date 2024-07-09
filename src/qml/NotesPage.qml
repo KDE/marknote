@@ -15,38 +15,6 @@ import "components"
 
 Kirigami.ScrollablePage {
     id: root
-    property int currentWidth: Kirigami.Units.gridUnit * 15
-
-    onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
-
-    MouseArea {
-       id: area
-       anchors.top: parent.top
-       anchors.bottom: parent.bottom
-       parent: applicationWindow().overlay
-       visible: pageStack.columnView.columnResizeMode !== Kirigami.ColumnView.SingleColumn
-       x: pageStack.defaultColumnWidth - width/2 + root.x + applicationWindow().globalDrawer.width
-       width: Kirigami.Units.smallSpacing * 2
-       z: root.z + 1
-       cursorShape: Qt.SplitHCursor
-
-       property int _lastX
-
-       onPressed: mouse => {
-           _lastX = mouse.x;
-       }
-       onPositionChanged: mouse => {
-           if (_lastX == -1) {
-               return;
-           } else {
-
-
-                const tmpWidth = Math.round(root.currentWidth - (_lastX - mouse.x));
-                if (tmpWidth > 800/3.5 && tmpWidth < applicationWindow().width /3.5 - 1 )root.currentWidth = tmpWidth;
-
-            }
-       }
-   }
 
     objectName: "NotesPage"
     property bool wideScreen: applicationWindow().width >= 600
