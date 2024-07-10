@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-09 00:39+0000\n"
+"POT-Creation-Date: 2024-07-10 00:39+0000\n"
 "PO-Revision-Date: 2024-07-03 10:41+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -47,7 +47,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr ""
 
-#: main.cpp:72 qml/Main.qml:315
+#: main.cpp:72 qml/Main.qml:354
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -107,7 +107,7 @@ msgstr "vrátit zpět"
 msgid "Focus Mode"
 msgstr "Režim zaměření"
 
-#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:203
+#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:169
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -343,51 +343,51 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "URL odkazu:"
 
-#: qml/Main.qml:66
+#: qml/Main.qml:104
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 
-#: qml/Main.qml:66
+#: qml/Main.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Vytvořit poznámkový blok"
 
-#: qml/Main.qml:236
+#: qml/Main.qml:275
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Import"
 
-#: qml/Main.qml:252
+#: qml/Main.qml:291
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Seřadit seznam poznámek"
 
-#: qml/Main.qml:258
+#: qml/Main.qml:297
 #, kde-format
 msgid "by Name"
 msgstr "podle názvu"
 
-#: qml/Main.qml:272
+#: qml/Main.qml:311
 #, kde-format
 msgid "by Date"
 msgstr "podle data"
 
-#: qml/Main.qml:299
+#: qml/Main.qml:338
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Svinout postranní panel"
 
-#: qml/Main.qml:299
+#: qml/Main.qml:338
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Rozbalit postranní panel"
 
-#: qml/Main.qml:369
+#: qml/Main.qml:408
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vaše poznámkové bloky"
@@ -521,28 +521,28 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Název:"
 
-#: qml/NotesPage.qml:82
+#: qml/NotesPage.qml:48
 #, kde-format
 msgid "Add note"
 msgstr "Přidat poznámku"
 
-#: qml/NotesPage.qml:166
+#: qml/NotesPage.qml:132
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Ukončit hledání (%1)"
 
-#: qml/NotesPage.qml:166
+#: qml/NotesPage.qml:132
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Hledat poznámky (%1)"
 
-#: qml/NotesPage.qml:223
+#: qml/NotesPage.qml:189
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Smazat poznámku"
 
-#: qml/NotesPage.qml:236
+#: qml/NotesPage.qml:202
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -551,70 +551,70 @@ msgstr ""
 "Opravdu si přejete smazat poznámku <b> %1 </b>? Tím dojde k trvalému smazání "
 "souboru <b>%2</b>."
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:316
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Přejmenovat poznámku"
 
-#: qml/NotesPage.qml:356
+#: qml/NotesPage.qml:322
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Smazat poznámku"
 
-#: qml/NotesPage.qml:367
+#: qml/NotesPage.qml:333
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Exportovat do HTML"
 
-#: qml/NotesPage.qml:373
+#: qml/NotesPage.qml:339
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exportovat do HTML"
 
-#: qml/NotesPage.qml:374
+#: qml/NotesPage.qml:340
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Soubor HTML (*.html)"
 
-#: qml/NotesPage.qml:380
+#: qml/NotesPage.qml:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Exportovat do PDF"
 
-#: qml/NotesPage.qml:386
+#: qml/NotesPage.qml:352
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exportovat do PDF"
 
-#: qml/NotesPage.qml:387
+#: qml/NotesPage.qml:353
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Soubor PDF (*.pdf)"
 
-#: qml/NotesPage.qml:393
+#: qml/NotesPage.qml:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Exportovat do ODT"
 
-#: qml/NotesPage.qml:399
+#: qml/NotesPage.qml:365
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exportovat do ODT"
 
-#: qml/NotesPage.qml:400
+#: qml/NotesPage.qml:366
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Textový dokument ODF (*.odf)"
 
-#: qml/NotesPage.qml:530
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Přidat poznámku."

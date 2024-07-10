@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-09 00:39+0000\n"
+"POT-Creation-Date: 2024-07-10 00:39+0000\n"
 "PO-Revision-Date: 2024-07-01 11:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -47,7 +47,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "寫入「%1」時發生錯誤"
 
-#: main.cpp:72 qml/Main.qml:315
+#: main.cpp:72 qml/Main.qml:354
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -107,7 +107,7 @@ msgstr "復原"
 msgid "Focus Mode"
 msgstr "專注模式"
 
-#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:203
+#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:169
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -343,51 +343,51 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "連結網址："
 
-#: qml/Main.qml:66
+#: qml/Main.qml:104
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "無法建立新筆記，您必須先建立筆記本。"
 
-#: qml/Main.qml:66
+#: qml/Main.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "建立筆記本"
 
-#: qml/Main.qml:236
+#: qml/Main.qml:275
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "匯入"
 
-#: qml/Main.qml:252
+#: qml/Main.qml:291
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "排序筆記列表"
 
-#: qml/Main.qml:258
+#: qml/Main.qml:297
 #, kde-format
 msgid "by Name"
 msgstr "以名稱"
 
-#: qml/Main.qml:272
+#: qml/Main.qml:311
 #, kde-format
 msgid "by Date"
 msgstr "以日期"
 
-#: qml/Main.qml:299
+#: qml/Main.qml:338
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "收合側邊欄"
 
-#: qml/Main.qml:299
+#: qml/Main.qml:338
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "展開側邊欄"
 
-#: qml/Main.qml:369
+#: qml/Main.qml:408
 #, kde-format
 msgid "Your Notebooks"
 msgstr "您的筆記本"
@@ -519,98 +519,98 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "名稱："
 
-#: qml/NotesPage.qml:82
+#: qml/NotesPage.qml:48
 #, kde-format
 msgid "Add note"
 msgstr "新增筆記"
 
-#: qml/NotesPage.qml:166
+#: qml/NotesPage.qml:132
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "離開搜尋 (%1)"
 
-#: qml/NotesPage.qml:166
+#: qml/NotesPage.qml:132
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "搜尋筆記 (%1)"
 
-#: qml/NotesPage.qml:223
+#: qml/NotesPage.qml:189
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "刪除筆記"
 
-#: qml/NotesPage.qml:236
+#: qml/NotesPage.qml:202
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr "您確定要刪除筆記 <b>%1</b> 嗎？這會永久完全刪除檔案 <b>%2</b>。"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:316
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "重新命名筆記"
 
-#: qml/NotesPage.qml:356
+#: qml/NotesPage.qml:322
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "刪除筆記"
 
-#: qml/NotesPage.qml:367
+#: qml/NotesPage.qml:333
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "匯出為 HTML"
 
-#: qml/NotesPage.qml:373
+#: qml/NotesPage.qml:339
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "匯出為 HTML"
 
-#: qml/NotesPage.qml:374
+#: qml/NotesPage.qml:340
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML 檔案 (*.html)"
 
-#: qml/NotesPage.qml:380
+#: qml/NotesPage.qml:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "匯出為 PDF"
 
-#: qml/NotesPage.qml:386
+#: qml/NotesPage.qml:352
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "匯出為 PDF"
 
-#: qml/NotesPage.qml:387
+#: qml/NotesPage.qml:353
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF 檔案 (*.pdf)"
 
-#: qml/NotesPage.qml:393
+#: qml/NotesPage.qml:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "匯出為 ODT"
 
-#: qml/NotesPage.qml:399
+#: qml/NotesPage.qml:365
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "匯出為 ODT"
 
-#: qml/NotesPage.qml:400
+#: qml/NotesPage.qml:366
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF 文字文件 (*.odt)"
 
-#: qml/NotesPage.qml:530
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "新增筆記！"
