@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-10 00:39+0000\n"
+"POT-Creation-Date: 2024-07-11 00:39+0000\n"
 "PO-Revision-Date: 2024-06-30 08:53+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -654,49 +654,49 @@ msgctxt "@inmenu"
 msgid "Insert"
 msgstr "הוספה"
 
-#: qml/TextFieldContextMenu.qml:279
+#: qml/TextFieldContextMenu.qml:277
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "הסרה"
 
-#: qml/TextFieldContextMenu.qml:307
+#: qml/TextFieldContextMenu.qml:297
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "הסגה"
 
-#: qml/TextFieldContextMenu.qml:322
+#: qml/TextFieldContextMenu.qml:312
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "ביצוע מחדש"
 
-#: qml/TextFieldContextMenu.qml:340
+#: qml/TextFieldContextMenu.qml:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "גזירה"
 
-#: qml/TextFieldContextMenu.qml:355
+#: qml/TextFieldContextMenu.qml:345
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "העתקה"
 
-#: qml/TextFieldContextMenu.qml:370
+#: qml/TextFieldContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "הדבקה"
 
-#: qml/TextFieldContextMenu.qml:385
+#: qml/TextFieldContextMenu.qml:375
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "מחיקה"
 
-#: qml/TextFieldContextMenu.qml:404
+#: qml/TextFieldContextMenu.qml:394
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
@@ -770,27 +770,38 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "על KDE"
 
-#: tableactionhelper.cpp:148 tableactionhelper.cpp:173
+#: tableactionhelper.cpp:118
 #, kde-format
 msgid "Row Below"
 msgstr "שורה מתחת"
 
-#: tableactionhelper.cpp:154 tableactionhelper.cpp:179
+#: tableactionhelper.cpp:124
 #, kde-format
 msgid "Row Above"
 msgstr "שורה מעל"
 
-#: tableactionhelper.cpp:160 tableactionhelper.cpp:185
+#: tableactionhelper.cpp:130
 #, kde-format
 msgid "Column Before"
 msgstr "עמודה לפני"
 
-#: tableactionhelper.cpp:167 tableactionhelper.cpp:192
+#: tableactionhelper.cpp:137
 #, kde-format
 msgid "Column After"
 msgstr "עמודה אחרי"
 
-#: tableactionhelper.cpp:198
+#: tableactionhelper.cpp:143
+#, kde-format
+msgid "Row"
+msgstr ""
+
+#: tableactionhelper.cpp:149
+#, fuzzy, kde-format
+#| msgid "Column After"
+msgid "Column"
+msgstr "עמודה אחרי"
+
+#: tableactionhelper.cpp:155
 #, kde-format
 msgid "Cell Contents"
 msgstr "תוכן התא"

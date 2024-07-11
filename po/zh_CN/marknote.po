@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-10 00:39+0000\n"
+"POT-Creation-Date: 2024-07-11 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -651,49 +651,49 @@ msgctxt "@inmenu"
 msgid "Insert"
 msgstr "插入"
 
-#: qml/TextFieldContextMenu.qml:279
+#: qml/TextFieldContextMenu.qml:277
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "移除"
 
-#: qml/TextFieldContextMenu.qml:307
+#: qml/TextFieldContextMenu.qml:297
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "撤销"
 
-#: qml/TextFieldContextMenu.qml:322
+#: qml/TextFieldContextMenu.qml:312
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "重做"
 
-#: qml/TextFieldContextMenu.qml:340
+#: qml/TextFieldContextMenu.qml:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "剪切"
 
-#: qml/TextFieldContextMenu.qml:355
+#: qml/TextFieldContextMenu.qml:345
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "复制"
 
-#: qml/TextFieldContextMenu.qml:370
+#: qml/TextFieldContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "粘贴"
 
-#: qml/TextFieldContextMenu.qml:385
+#: qml/TextFieldContextMenu.qml:375
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "删除"
 
-#: qml/TextFieldContextMenu.qml:404
+#: qml/TextFieldContextMenu.qml:394
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
@@ -767,27 +767,38 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr ""
 
-#: tableactionhelper.cpp:148 tableactionhelper.cpp:173
+#: tableactionhelper.cpp:118
 #, kde-format
 msgid "Row Below"
 msgstr "下一行"
 
-#: tableactionhelper.cpp:154 tableactionhelper.cpp:179
+#: tableactionhelper.cpp:124
 #, kde-format
 msgid "Row Above"
 msgstr "上一行"
 
-#: tableactionhelper.cpp:160 tableactionhelper.cpp:185
+#: tableactionhelper.cpp:130
 #, kde-format
 msgid "Column Before"
 msgstr "前一列"
 
-#: tableactionhelper.cpp:167 tableactionhelper.cpp:192
+#: tableactionhelper.cpp:137
 #, kde-format
 msgid "Column After"
 msgstr "后一列"
 
-#: tableactionhelper.cpp:198
+#: tableactionhelper.cpp:143
+#, kde-format
+msgid "Row"
+msgstr ""
+
+#: tableactionhelper.cpp:149
+#, fuzzy, kde-format
+#| msgid "Column After"
+msgid "Column"
+msgstr "后一列"
+
+#: tableactionhelper.cpp:155
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"

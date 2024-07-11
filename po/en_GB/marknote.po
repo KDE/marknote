@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-10 00:39+0000\n"
+"POT-Creation-Date: 2024-07-11 00:39+0000\n"
 "PO-Revision-Date: 2024-07-05 13:50+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -655,49 +655,49 @@ msgctxt "@inmenu"
 msgid "Insert"
 msgstr "Insert"
 
-#: qml/TextFieldContextMenu.qml:279
+#: qml/TextFieldContextMenu.qml:277
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "Remove"
 
-#: qml/TextFieldContextMenu.qml:307
+#: qml/TextFieldContextMenu.qml:297
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Undo"
 
-#: qml/TextFieldContextMenu.qml:322
+#: qml/TextFieldContextMenu.qml:312
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Redo"
 
-#: qml/TextFieldContextMenu.qml:340
+#: qml/TextFieldContextMenu.qml:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Cut"
 
-#: qml/TextFieldContextMenu.qml:355
+#: qml/TextFieldContextMenu.qml:345
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Copy"
 
-#: qml/TextFieldContextMenu.qml:370
+#: qml/TextFieldContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Paste"
 
-#: qml/TextFieldContextMenu.qml:385
+#: qml/TextFieldContextMenu.qml:375
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Delete"
 
-#: qml/TextFieldContextMenu.qml:404
+#: qml/TextFieldContextMenu.qml:394
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
@@ -771,27 +771,38 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "About KDE"
 
-#: tableactionhelper.cpp:148 tableactionhelper.cpp:173
+#: tableactionhelper.cpp:118
 #, kde-format
 msgid "Row Below"
 msgstr "Row Below"
 
-#: tableactionhelper.cpp:154 tableactionhelper.cpp:179
+#: tableactionhelper.cpp:124
 #, kde-format
 msgid "Row Above"
 msgstr "Row Above"
 
-#: tableactionhelper.cpp:160 tableactionhelper.cpp:185
+#: tableactionhelper.cpp:130
 #, kde-format
 msgid "Column Before"
 msgstr "Column Before"
 
-#: tableactionhelper.cpp:167 tableactionhelper.cpp:192
+#: tableactionhelper.cpp:137
 #, kde-format
 msgid "Column After"
 msgstr "Column After"
 
-#: tableactionhelper.cpp:198
+#: tableactionhelper.cpp:143
+#, kde-format
+msgid "Row"
+msgstr ""
+
+#: tableactionhelper.cpp:149
+#, fuzzy, kde-format
+#| msgid "Column After"
+msgid "Column"
+msgstr "Column After"
+
+#: tableactionhelper.cpp:155
 #, kde-format
 msgid "Cell Contents"
 msgstr "Cell Contents"
