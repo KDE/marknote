@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-11 00:39+0000\n"
-"PO-Revision-Date: 2024-06-30 07:26+0200\n"
+"PO-Revision-Date: 2024-07-11 05:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -796,13 +796,12 @@ msgstr "სვეტი შემდეგ"
 #: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
-msgstr ""
+msgstr "მწკრივი"
 
 #: tableactionhelper.cpp:149
-#, fuzzy, kde-format
-#| msgid "Column After"
+#, kde-format
 msgid "Column"
-msgstr "სვეტი შემდეგ"
+msgstr "სვეტი"
 
 #: tableactionhelper.cpp:155
 #, kde-format

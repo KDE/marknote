@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-11 00:39+0000\n"
-"PO-Revision-Date: 2024-06-30 11:02+0200\n"
+"PO-Revision-Date: 2024-07-11 05:53+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -555,7 +555,7 @@ msgid ""
 "file <b>%2</b> definitively."
 msgstr ""
 "Ali ste prepričani, da želite izbrisati zabeležko <b>»%1«</b>? S tem boste "
-"dokončno izbrisali datoteko <b>%2</b>. "
+"dokončno izbrisali datoteko <b>%2</b>."
 
 #: qml/NotesPage.qml:316
 #, kde-format
@@ -800,13 +800,12 @@ msgstr "Stolpec za"
 #: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
-msgstr ""
+msgstr "Vrstica"
 
 #: tableactionhelper.cpp:149
-#, fuzzy, kde-format
-#| msgid "Column After"
+#, kde-format
 msgid "Column"
-msgstr "Stolpec za"
+msgstr "Stolpec"
 
 #: tableactionhelper.cpp:155
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-11 00:39+0000\n"
-"PO-Revision-Date: 2024-06-30 10:00+0200\n"
+"PO-Revision-Date: 2024-07-11 08:49+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: application.cpp:29
 #, kde-format
@@ -798,31 +798,14 @@ msgstr "Columna després"
 #: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
-msgstr ""
+msgstr "Fila"
 
 #: tableactionhelper.cpp:149
-#, fuzzy, kde-format
-#| msgid "Column After"
+#, kde-format
 msgid "Column"
-msgstr "Columna després"
+msgstr "Columna"
 
 #: tableactionhelper.cpp:155
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contingut de la cel·la"
-
-#~ msgid "Open Command Bar"
-#~ msgstr "Obri la barra d'ordres"
-
-#~ msgid "About %1"
-#~ msgstr "Quant a %1"
-
-#~ msgid "About KDE"
-#~ msgstr "Quant a KDE"
-
-#~ msgid "No results found"
-#~ msgstr "No s'ha trobat cap resultat"
-
-#~ msgctxt "@action:menu"
-#~ msgid "Quit Marknote"
-#~ msgstr "Ix de MarkNote"
