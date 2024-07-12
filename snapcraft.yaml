@@ -1,0 +1,72 @@
+# * Copyright 2024 Soumyadeep Ghosh (সৌম্যদীপ ঘোষ) <soumyadeepghosh2004@zohomail.in>
+# * SPDX-License-Identifier: GPL-2.0-or-later
+name: marknote
+confinement: strict
+grade: stable
+base: core22
+adopt-info: marknote
+compression: lzo
+
+apps:
+  marknote:
+    extensions:
+      - kde-neon-6
+    common-id: org.kde.marknote
+    desktop: usr/share/applications/org.kde.marknote.desktop
+    command: usr/bin/marknote
+    plugs:
+      - home
+      - removable-media
+
+slots:
+  session-dbus-interface:
+    interface: dbus
+    name: org.kde.marknote
+    bus: session
+
+parts:
+  kirigami-addons:
+    source: https://invent.kde.org/libraries/kirigami-addons.git
+    source-tag: 'v1.3.0'
+    source-depth: 1
+    plugin: cmake
+    cmake-parameters:
+      - -DBUILD_TESTING=OFF
+      - -DCMAKE_BUILD_TYPE=Release
+    prime:
+      - -usr/include
+      - -usr/lib/*/cmake
+
+  kmime:
+    source: https://invent.kde.org/pim/kmime.git
+    source-tag: 'v24.05.2'
+    source-depth: 1
+    plugin: cmake
+    cmake-parameters:
+      - -DBUILD_TESTING=OFF
+      - -DCMAKE_BUILD_TYPE=Release
+    prime:
+      - -usr/include
+      - -usr/lib/*/cmake
+
+  marknote:
+    after: [kirigami-addons, kmime]
+    parse-info:
+      - usr/share/metainfo/org.kde.marknote.metainfo.xml
+    plugin: cmake
+    source: https://invent.kde.org/office/marknote/-/archive/v1.3.0/marknote-v1.3.0.tar.gz
+    build-environment:
+      - CMAKE_PREFIX_PATH: $CRAFT_STAGE/usr:/snap/kde-qt6-core22-sdk/current/usr:/snap/kf6-core22-sdk/current/usr${CMAKE_PREFIX_PATH:+:$CMAKE_PREFIX_PATH}
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DENABLE_TESTING=OFF
+      - -DBUILD_TESTING=OFF
+    prime:
+      - -usr/lib/*/cmake/*
+      - -usr/include/*
+      - -usr/share/ECM/*
+      - -usr/share/man/*
+      - -usr/share/icons/breeze-dark*
+      - -usr/lib/aspell/*
+      - -usr/share/lintian
