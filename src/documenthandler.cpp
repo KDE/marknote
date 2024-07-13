@@ -617,6 +617,11 @@ QString DocumentHandler::currentLinkText() const
     return cursor.selectedText();
 }
 
+QString DocumentHandler::anchorAt(const QPointF &p) const
+{
+    return m_document->textDocument()->documentLayout()->anchorAt(p);
+}
+
 void DocumentHandler::selectLinkText(QTextCursor *cursor) const
 {
     // If the cursor is on a link, select the text of the link.

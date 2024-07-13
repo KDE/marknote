@@ -114,6 +114,7 @@ public:
 
     Q_INVOKABLE QString currentLinkUrl() const;
     Q_INVOKABLE QString currentLinkText() const;
+    Q_INVOKABLE [[nodiscard]] QString anchorAt(const QPointF &p) const;
     Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
     Q_INVOKABLE void insertImage(const QUrl &imagePath);
     Q_INVOKABLE void insertTable(int rows, int columns);

@@ -23,6 +23,7 @@ QQC2.Menu {
     property int restoredSelectionEnd
     property bool persistentSelectionSetting
     required property TableActionHelper tableActionHelper
+    property url currentLink
 
     // assuming that Instantiator::active is bound to target.Kirigami.SpellCheck.enabled
     property Instantiator/*<Sonnet.SpellcheckHighlighter>*/ spellcheckHighlighterInstantiator
@@ -249,6 +250,18 @@ QQC2.Menu {
     QQC2.MenuSeparator {
         visible: root.__hasSpellcheckCapability()
             && (root.__editable() || root.__showPasswordRestrictedActions())
+    }
+
+    QQC2.MenuItem {
+        visible: root.currentLink != ""
+        action: QQC2.Action {
+            text: i18nc("@inmenu", "Open Link")
+            icon.name: "document-open"
+            onTriggered: Qt.openUrlExternally(root.currentLink)
+        }
+    }
+    QQC2.MenuSeparator {
+        visible: root.currentLink != ""
     }
 
     QQC2.Menu {
