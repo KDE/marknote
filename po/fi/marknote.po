@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:39+0000\n"
+"POT-Creation-Date: 2024-07-13 00:39+0000\n"
 "PO-Revision-Date: 2023-12-11 18:12+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: application.cpp:29
+#: application.cpp:34
 #, fuzzy, kde-format
 #| msgid "New Notebook"
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "Uusi muistikirja"
 
-#: application.cpp:38
+#: application.cpp:43
 #, fuzzy, kde-format
 #| msgid "New Note"
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Uusi muistiinpano"
 
-#: application.cpp:54
+#: application.cpp:59
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
 msgstr ""
 
-#: application.cpp:61
+#: application.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"

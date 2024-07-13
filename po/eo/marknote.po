@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:39+0000\n"
-"PO-Revision-Date: 2024-06-30 09:00+0200\n"
+"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"PO-Revision-Date: 2024-07-12 22:08+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -18,25 +18,25 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: application.cpp:29
+#: application.cpp:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "Nova Notlibro"
 
-#: application.cpp:38
+#: application.cpp:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nova Noto"
 
-#: application.cpp:54
+#: application.cpp:59
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
 msgstr "Enporti el KNotes"
 
-#: application.cpp:61
+#: application.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
@@ -795,31 +795,14 @@ msgstr "Kolumno Post"
 #: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
-msgstr ""
+msgstr "Vico"
 
 #: tableactionhelper.cpp:149
-#, fuzzy, kde-format
-#| msgid "Column After"
+#, kde-format
 msgid "Column"
-msgstr "Kolumno Post"
+msgstr "Kolumno"
 
 #: tableactionhelper.cpp:155
 #, kde-format
 msgid "Cell Contents"
 msgstr "Ĉelenhavo"
-
-#~ msgid "Open Command Bar"
-#~ msgstr "Malfermi Komandbreton"
-
-#~ msgid "About %1"
-#~ msgstr "Pri %1"
-
-#~ msgid "About KDE"
-#~ msgstr "Pri KDE"
-
-#~ msgid "No results found"
-#~ msgstr "Trovis neniujn rezultojn"
-
-#~ msgctxt "@action:menu"
-#~ msgid "Quit Marknote"
-#~ msgstr "Forlasi Marknote"

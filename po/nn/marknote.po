@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:39+0000\n"
-"PO-Revision-Date: 2024-07-06 15:50+0200\n"
+"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"PO-Revision-Date: 2024-07-12 21:07+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,30 +13,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: application.cpp:29
+#: application.cpp:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "Ny notatbok"
 
-#: application.cpp:38
+#: application.cpp:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nytt notat"
 
-#: application.cpp:54
+#: application.cpp:59
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
 msgstr "Importer frå KNotes"
 
-#: application.cpp:61
+#: application.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
@@ -46,7 +46,7 @@ msgstr "Importer frå Maildir-mappe"
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr ""
+msgstr "Det oppstod ein feil ved lagring til «%1»"
 
 #: main.cpp:72 qml/Main.qml:354
 #, kde-format
