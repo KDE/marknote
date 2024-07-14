@@ -793,10 +793,9 @@ msgid "Row"
 msgstr ""
 
 #: tableactionhelper.cpp:149
-#, fuzzy, kde-format
-#| msgid "Column After"
+#, kde-format
 msgid "Column"
-msgstr "后一列"
+msgstr ""
 
 #: tableactionhelper.cpp:155
 #, kde-format
