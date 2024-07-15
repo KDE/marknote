@@ -20,6 +20,10 @@ FormCard.FormCardDialog {
 
     onAccepted: close();
     onRejected: close();
+    onAboutToHide: {
+        grid.clickedYPos = 0
+        grid.clickedXPos = 0
+    }
     MouseArea {
         Layout.alignment: Qt.AlignHCenter
         width: grid.width
@@ -92,10 +96,12 @@ FormCard.FormCardDialog {
                             bottomRightRadius: (delegate.gridXPos === grid.columns && delegate.gridYPos === grid.rows)? Kirigami.Units.cornerRadius: 0
                         }
 
-                        color: if ((delegate.gridXPos <= grid.hoveredXPos && delegate.gridYPos <= grid.hoveredYPos && grid.hovered) ) {
-                                   Kirigami.Theme.hoverColor
+                        color: if (delegate.gridXPos <= grid.hoveredXPos && delegate.gridYPos <= grid.hoveredYPos && grid.hovered && delegate.gridXPos <= grid.clickedXPos && delegate.gridYPos <= grid.clickedYPos) {
+                                   Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.hoverColor, Kirigami.Theme.backgroundColor, 0.4)
                                } else if (delegate.gridXPos <= grid.clickedXPos && delegate.gridYPos <= grid.clickedYPos) {
-                                   Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.hoverColor, Kirigami.Theme.backgroundColor, 0.7)
+                                   Kirigami.Theme.hoverColor
+                               } else if (delegate.gridXPos <= grid.hoveredXPos && delegate.gridYPos <= grid.hoveredYPos && grid.hovered) {
+                                   Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.hoverColor, Kirigami.Theme.backgroundColor, 0.8)
                                } else {
                                    Kirigami.Theme.backgroundColor
                                }
