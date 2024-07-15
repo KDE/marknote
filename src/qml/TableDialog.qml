@@ -12,15 +12,16 @@ import QtQuick.Dialogs
 FormCard.FormCardDialog {
     id: root
 
-    readonly property alias rows: rowsSpinBox.value
-    readonly property alias cols: colsSpinBox.value
+    property int rows: rowsSpinBox.value
+    property int cols: colsSpinBox.value
 
+    onRowsChanged: print(rows)
     title: i18nc("@title:window", "Insert Table")
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     onAccepted: close();
     onRejected: close();
-    onAboutToHide: {
+    onAboutToShow: {
         grid.clickedYPos = 0
         grid.clickedXPos = 0
     }
@@ -123,7 +124,7 @@ FormCard.FormCardDialog {
 
         Layout.alignment: Qt.AlignHCenter
         QQC2.SpinBox {
-            id: rowsSpinBox
+            id: colsSpinBox
 
             from: 1
             value: grid.hovered? grid.hoveredXPos : grid.clickedXPos
@@ -135,7 +136,7 @@ FormCard.FormCardDialog {
         }
 
         QQC2.SpinBox {
-            id: colsSpinBox
+            id: rowsSpinBox
             from: 1
             value: grid.hovered? grid.hoveredYPos : grid.clickedYPos
             onValueModified: grid.clickedYPos = value
