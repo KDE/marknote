@@ -254,7 +254,7 @@ Controls.Dialog {
                 text: "Save"
                 icon.name: "answer-correct"
                 onClicked:{
-                    var notepath = root.notePath.slice(7, -3).replace(" ", "_")
+                    var notepath = root.notePath.slice(7, -3)/*.replace(" ", "_")*/
                     imagePath = notepath + Math.random(1000) +".png"
                     print(canvas.save(imagePath))
                     root.close()
