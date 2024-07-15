@@ -85,7 +85,7 @@ FormCard.FormCardDialog {
                         height: Kirigami.Units.gridUnit
                         width: Kirigami.Units.gridUnit
                         anchors.centerIn: parent
-                        Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                        Kirigami.Theme.colorSet: Kirigami.Theme.Window
                         corners {
                             topLeftRadius: (delegate.gridXPos === 1 && delegate.gridYPos === 1)? Kirigami.Units.cornerRadius: 0
                             topRightRadius: (delegate.gridXPos === grid.columns && delegate.gridYPos === 1)? Kirigami.Units.cornerRadius: 0
