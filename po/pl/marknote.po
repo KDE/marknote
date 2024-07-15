@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-06-01 08:41+0200\n"
+"PO-Revision-Date: 2024-07-14 13:17+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -34,19 +34,19 @@ msgstr "Nowa notatka"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Zaimportuj z KNotes"
 
 #: application.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Zaimportuj z katalogu pocztowego"
 
 #: maildirimport.cpp:91
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr ""
+msgstr "Wystąpił błąd przy zapisywaniu do pliku'%1'"
 
 #: main.cpp:72 qml/Main.qml:354
 #, kde-format
@@ -101,7 +101,7 @@ msgstr "Nie można przemianować notatki. Notatka o takiej nazwie już istnieje.
 #: qml/EditPage.qml:564
 #, kde-format
 msgid "undo"
-msgstr ""
+msgstr "cofnij"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -248,7 +248,7 @@ msgstr "Listy"
 #: qml/EditPage.qml:605
 #, kde-format
 msgid "Insert"
-msgstr "staw"
+msgstr "Wstaw"
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -300,13 +300,13 @@ msgstr "Szybki szkic"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Zaimportuj z katalogu pocztowego"
 
 #: qml/ImportMaildirDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Zaimportuj z KNotes"
 
 #: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
 #, kde-format
@@ -315,18 +315,16 @@ msgid "Name:"
 msgstr "Nazwa:"
 
 #: qml/ImportMaildirDialog.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Image Location:"
+#, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr "Położenie obrazu:"
+msgstr "Położenie katalogu pocztowego:"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "Zaimportuj"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
@@ -362,25 +360,23 @@ msgstr "Utwórz notatnik"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
-msgstr ""
+msgstr "Zaimportuj"
 
 #: qml/Main.qml:291
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
-msgstr ""
+msgstr "Uszereguj listę notatek"
 
 #: qml/Main.qml:297
-#, fuzzy, kde-format
-#| msgid "Sort by Name"
+#, kde-format
 msgid "by Name"
-msgstr "Uszereguj wg nazwy"
+msgstr "wg nazwy"
 
 #: qml/Main.qml:311
-#, fuzzy, kde-format
-#| msgid "Sort by Date"
+#, kde-format
 msgid "by Date"
-msgstr "Uszereguj wg daty"
+msgstr "wg daty"
 
 #: qml/Main.qml:338
 #, kde-format
@@ -488,12 +484,13 @@ msgid "Delete Notebook"
 msgstr "Usuń notatnik"
 
 #: qml/NotebookDeleteDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the Notebook <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
 "the content of <b>%2</b> definitively."
-msgstr "Czy na pewno usunąć notatnik <b>%1</b>?"
+msgstr ""
+"Czy na pewno usunąć notatnik <b>%1</b>? Usunie to treść <b>%2</b> "
+"bezpowrotnie."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -547,12 +544,12 @@ msgid "Delete Note"
 msgstr "Usuń notatkę"
 
 #: qml/NotesPage.qml:202
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
-msgstr "Czy na pewno usunąć notatkę <b>%1</b>?"
+msgstr ""
+"Czy na pewno usunąć notatkę <b>%1</b>? Usunie to plik <b>%2</b> bezpowrotnie."
 
 #: qml/NotesPage.qml:316
 #, kde-format
@@ -715,22 +712,20 @@ msgstr "Rozpocznij tworząc swój pierwszy notatnik!"
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
-msgstr ""
+msgstr "Ogólne"
 
 #: settings/MarkNoteGeneralPage.qml:19
 #, kde-format
 msgid "General theme"
-msgstr ""
+msgstr "Ogólny wygląd"
 
 #: settings/MarkNoteGeneralPage.qml:26
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Zestaw barw"
 
 #: settings/MarkNoteGeneralPage.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Editor Settings"
+#, kde-format
 msgid "Editor Settings"
 msgstr "Ustawienia edytora"
 
@@ -762,19 +757,16 @@ msgstr "Rozmiar czcionki:"
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
-msgstr ""
+msgstr "Ogólne"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:menu"
-#| msgid "Quit Marknote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About MarkNote"
-msgstr "Zakończ Marknote"
+msgstr "O MarkNote"
 
 #: settings/MarkNoteSettings.qml:27
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "O KDE"
@@ -802,13 +794,12 @@ msgstr "Kolumna za"
 #: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
-msgstr ""
+msgstr "Wiersz"
 
 #: tableactionhelper.cpp:149
-#, fuzzy, kde-format
-#| msgid "Column After"
+#, kde-format
 msgid "Column"
-msgstr "Kolumna za"
+msgstr "Kolumna"
 
 #: tableactionhelper.cpp:155
 #, kde-format

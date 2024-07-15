@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-07-01 11:35+0900\n"
+"PO-Revision-Date: 2024-07-14 17:25+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -790,13 +790,12 @@ msgstr "後方欄"
 #: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
-msgstr ""
+msgstr "列"
 
 #: tableactionhelper.cpp:149
-#, fuzzy, kde-format
-#| msgid "Column After"
+#, kde-format
 msgid "Column"
-msgstr "後方欄"
+msgstr "欄"
 
 #: tableactionhelper.cpp:155
 #, kde-format
