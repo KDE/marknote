@@ -15,7 +15,6 @@ FormCard.FormCardDialog {
     property int rows: rowsSpinBox.value
     property int cols: colsSpinBox.value
 
-    onRowsChanged: print(rows)
     title: i18nc("@title:window", "Insert Table")
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
@@ -50,8 +49,6 @@ FormCard.FormCardDialog {
             property int clickedXPos: 0
             property int clickedYPos: 0
 
-            onClickedXPosChanged: print(clickedXPos, clickedYPos, "clicked")
-
             property bool hovered: true
             property bool clicked: false
 
@@ -83,7 +80,6 @@ FormCard.FormCardDialog {
                         grid.clickedXPos = gridXPos
                         grid.clickedYPos = gridYPos
                         grid.clicked = true
-                        print(gridXPos, gridYPos)
                     }
                     Kirigami.ShadowedRectangle {
                         height: Kirigami.Units.gridUnit
