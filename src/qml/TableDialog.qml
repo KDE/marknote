@@ -95,11 +95,11 @@ FormCard.FormCardDialog {
                         }
 
                         color: if (delegate.gridXPos <= grid.hoveredXPos && delegate.gridYPos <= grid.hoveredYPos && grid.hovered && delegate.gridXPos <= grid.clickedXPos && delegate.gridYPos <= grid.clickedYPos) {
-                                   Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.hoverColor, Kirigami.Theme.alternateBackgroundColor, 0.4)
+                                   Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.hoverColor, Kirigami.Theme.alternateBackgroundColor, 0.35)
                                } else if (delegate.gridXPos <= grid.clickedXPos && delegate.gridYPos <= grid.clickedYPos) {
                                    Kirigami.Theme.hoverColor
                                } else if (delegate.gridXPos <= grid.hoveredXPos && delegate.gridYPos <= grid.hoveredYPos && grid.hovered) {
-                                   Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.hoverColor, Kirigami.Theme.alternateBackgroundColor, 0.8)
+                                   Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.hoverColor, Kirigami.Theme.alternateBackgroundColor, 0.7)
                                } else {
                                    Kirigami.Theme.alternateBackgroundColor
                                }
