@@ -52,6 +52,7 @@ Comment[sv]=Markdown anteckningshanteringsverktyg
 Comment[tr]=Markdown Not Yönetimi Aracı
 Comment[uk]=Інструмент керування нотатками на основі Markdown
 Comment[x-test]=xxMarkdown Note Management Toolxx
+Comment[zh_CN]=Markdown笔记管理工具
 Comment[zh_TW]=Markdown 筆記管理工具
 MimeType=text/markdown
 Version=1.0
