@@ -85,7 +85,8 @@ FormCard.FormCardDialog {
                         height: Kirigami.Units.gridUnit
                         width: Kirigami.Units.gridUnit
                         anchors.centerIn: parent
-                        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+                        Kirigami.Theme.alternateBackgroundColor: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.05)
+
                         corners {
                             topLeftRadius: (delegate.gridXPos === 1 && delegate.gridYPos === 1)? Kirigami.Units.cornerRadius: 0
                             topRightRadius: (delegate.gridXPos === grid.columns && delegate.gridYPos === 1)? Kirigami.Units.cornerRadius: 0
@@ -94,13 +95,13 @@ FormCard.FormCardDialog {
                         }
 
                         color: if (delegate.gridXPos <= grid.hoveredXPos && delegate.gridYPos <= grid.hoveredYPos && grid.hovered && delegate.gridXPos <= grid.clickedXPos && delegate.gridYPos <= grid.clickedYPos) {
-                                   Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.hoverColor, Kirigami.Theme.backgroundColor, 0.4)
+                                   Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.hoverColor, Kirigami.Theme.alternateBackgroundColor, 0.4)
                                } else if (delegate.gridXPos <= grid.clickedXPos && delegate.gridYPos <= grid.clickedYPos) {
                                    Kirigami.Theme.hoverColor
                                } else if (delegate.gridXPos <= grid.hoveredXPos && delegate.gridYPos <= grid.hoveredYPos && grid.hovered) {
-                                   Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.hoverColor, Kirigami.Theme.backgroundColor, 0.8)
+                                   Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.hoverColor, Kirigami.Theme.alternateBackgroundColor, 0.8)
                                } else {
-                                   Kirigami.Theme.backgroundColor
+                                   Kirigami.Theme.alternateBackgroundColor
                                }
                         Behavior on color {
                             ColorAnimation {
