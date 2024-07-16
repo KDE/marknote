@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2024-07-16 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -21,13 +21,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
-msgstr ""
+msgstr "创建笔记本"
 
 #: application.cpp:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
-msgstr ""
+msgstr "新建笔记"
 
 #: application.cpp:59
 #, kde-format
@@ -56,7 +56,7 @@ msgstr ""
 #: main.cpp:74
 #, kde-format
 msgid "Note taking application"
-msgstr ""
+msgstr "笔记编辑程序"
 
 #: main.cpp:76
 #, kde-format
@@ -71,7 +71,7 @@ msgstr ""
 #: main.cpp:78 main.cpp:83
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "维护者"
 
 #: main.cpp:82
 #, kde-format
@@ -82,13 +82,13 @@ msgstr "Carl Schwan"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "你的名字"
 
 #: main.cpp:87
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "你的邮箱"
 
 #: notesmodel.cpp:112
 #, kde-format
@@ -118,25 +118,25 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
-msgstr ""
+msgstr "粗体"
 
 #: qml/EditPage.qml:231
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
-msgstr ""
+msgstr "斜体"
 
 #: qml/EditPage.qml:250
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr ""
+msgstr "下划线"
 
 #: qml/EditPage.qml:264
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
-msgstr ""
+msgstr "删除线"
 
 #: qml/EditPage.qml:282
 #, kde-format
@@ -390,7 +390,7 @@ msgstr "展开侧边栏"
 #: qml/Main.qml:408
 #, kde-format
 msgid "Your Notebooks"
-msgstr ""
+msgstr "你的笔记本"
 
 #: qml/NativeEditMenu.qml:10
 #, kde-format
@@ -474,13 +474,13 @@ msgstr "编辑笔记本"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
-msgstr ""
+msgstr "删除笔记本"
 
 #: qml/NotebookDeleteDialog.qml:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
-msgstr ""
+msgstr "删除笔记本"
 
 #: qml/NotebookDeleteDialog.qml:38
 #, kde-format
@@ -493,7 +493,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
-msgstr ""
+msgstr "创建笔记本"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -505,7 +505,7 @@ msgstr "编辑笔记本"
 #, kde-format
 msgctxt "@title:window"
 msgid "New Note"
-msgstr ""
+msgstr "新建笔记"
 
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
@@ -522,23 +522,23 @@ msgstr "名称："
 #: qml/NotesPage.qml:48
 #, kde-format
 msgid "Add note"
-msgstr ""
+msgstr "添加笔记"
 
 #: qml/NotesPage.qml:132
 #, kde-format
 msgid "Exit Search (%1)"
-msgstr ""
+msgstr "退出搜索 (%1)"
 
 #: qml/NotesPage.qml:132
 #, kde-format
 msgid "Search notes (%1)"
-msgstr ""
+msgstr "搜索笔记(%1)"
 
 #: qml/NotesPage.qml:189
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
-msgstr ""
+msgstr "删除笔记"
 
 #: qml/NotesPage.qml:202
 #, kde-format
@@ -551,13 +551,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
-msgstr ""
+msgstr "重命名笔记"
 
 #: qml/NotesPage.qml:322
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
-msgstr ""
+msgstr "删除笔记"
 
 #: qml/NotesPage.qml:333
 #, kde-format
@@ -613,25 +613,13 @@ msgstr "ODF 文本文档 (*.odt)"
 #: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
-msgstr ""
+msgstr "添加笔记！"
 
 #: qml/TableDialog.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "插入表格"
-
-#: qml/TableDialog.qml:27
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Number of Rows:"
-msgstr "行数："
-
-#: qml/TableDialog.qml:35
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Number of Columns:"
-msgstr "列数："
 
 #: qml/TextFieldContextMenu.qml:225
 #, kde-format
@@ -702,7 +690,7 @@ msgstr "全部选择"
 #: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
-msgstr ""
+msgstr "首先创建您的第一个笔记本！"
 
 #: settings/MarkNoteGeneralPage.qml:16
 #, kde-format
@@ -801,3 +789,11 @@ msgstr ""
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Number of Rows:"
+#~ msgstr "行数："
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Number of Columns:"
+#~ msgstr "列数："

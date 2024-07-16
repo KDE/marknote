@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2024-07-16 00:39+0000\n"
 "PO-Revision-Date: 2024-07-14 12:14+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -630,18 +630,6 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Set inn tabell"
 
-#: qml/TableDialog.qml:27
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Number of Rows:"
-msgstr "Talet på rader:"
-
-#: qml/TableDialog.qml:35
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Number of Columns:"
-msgstr "Talet på kolonnar:"
-
 #: qml/TextFieldContextMenu.qml:225
 #, kde-format
 msgctxt "@action:inmenu"
@@ -811,3 +799,11 @@ msgstr "Kolonne"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celleinnhald"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Number of Rows:"
+#~ msgstr "Talet på rader:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Number of Columns:"
+#~ msgstr "Talet på kolonnar:"

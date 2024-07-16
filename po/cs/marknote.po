@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2024-07-16 00:39+0000\n"
 "PO-Revision-Date: 2024-07-03 10:41+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -625,18 +625,6 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Vložit tabulku"
 
-#: qml/TableDialog.qml:27
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Number of Rows:"
-msgstr "Počet řádků:"
-
-#: qml/TableDialog.qml:35
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Number of Columns:"
-msgstr "Počet sloupců:"
-
 #: qml/TextFieldContextMenu.qml:225
 #, kde-format
 msgctxt "@action:inmenu"
@@ -805,3 +793,11 @@ msgstr "Sloupec"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Obsah buňky"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Number of Rows:"
+#~ msgstr "Počet řádků:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Number of Columns:"
+#~ msgstr "Počet sloupců:"

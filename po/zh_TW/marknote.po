@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2024-07-16 00:39+0000\n"
 "PO-Revision-Date: 2024-07-14 17:25+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -621,18 +621,6 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "插入表格"
 
-#: qml/TableDialog.qml:27
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Number of Rows:"
-msgstr "列數："
-
-#: qml/TableDialog.qml:35
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Number of Columns:"
-msgstr "欄數："
-
 #: qml/TextFieldContextMenu.qml:225
 #, kde-format
 msgctxt "@action:inmenu"
@@ -801,6 +789,14 @@ msgstr "欄"
 #, kde-format
 msgid "Cell Contents"
 msgstr "儲存格內容"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Number of Rows:"
+#~ msgstr "列數："
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Number of Columns:"
+#~ msgstr "欄數："
 
 #~ msgid "Open Command Bar"
 #~ msgstr "開啟命令列"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2024-07-16 00:39+0000\n"
 "PO-Revision-Date: 2024-04-13 01:23-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -637,18 +637,6 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Inserir tabela"
 
-#: qml/TableDialog.qml:27
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Number of Rows:"
-msgstr "Número de linhas:"
-
-#: qml/TableDialog.qml:35
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Number of Columns:"
-msgstr "Número de colunas:"
-
 #: qml/TextFieldContextMenu.qml:225
 #, kde-format
 msgctxt "@action:inmenu"
@@ -825,6 +813,14 @@ msgstr ""
 #, kde-format
 msgid "Cell Contents"
 msgstr ""
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Number of Rows:"
+#~ msgstr "Número de linhas:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Number of Columns:"
+#~ msgstr "Número de colunas:"
 
 #~ msgid "Open Command Bar"
 #~ msgstr "Abrir barra de comandos"
