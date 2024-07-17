@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-16 00:39+0000\n"
+"POT-Creation-Date: 2024-07-17 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -621,67 +621,73 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "插入表格"
 
-#: qml/TextFieldContextMenu.qml:225
+#: qml/TextFieldContextMenu.qml:226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr ""
 
-#: qml/TextFieldContextMenu.qml:240
+#: qml/TextFieldContextMenu.qml:241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "拼写检查"
 
-#: qml/TextFieldContextMenu.qml:255
+#: qml/TextFieldContextMenu.qml:258
+#, kde-format
+msgctxt "@inmenu"
+msgid "Open Link"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:268
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "插入"
 
-#: qml/TextFieldContextMenu.qml:277
+#: qml/TextFieldContextMenu.qml:290
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "移除"
 
-#: qml/TextFieldContextMenu.qml:297
+#: qml/TextFieldContextMenu.qml:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "撤销"
 
-#: qml/TextFieldContextMenu.qml:312
+#: qml/TextFieldContextMenu.qml:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "重做"
 
-#: qml/TextFieldContextMenu.qml:330
+#: qml/TextFieldContextMenu.qml:343
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "剪切"
 
-#: qml/TextFieldContextMenu.qml:345
+#: qml/TextFieldContextMenu.qml:358
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "复制"
 
-#: qml/TextFieldContextMenu.qml:360
+#: qml/TextFieldContextMenu.qml:373
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "粘贴"
 
-#: qml/TextFieldContextMenu.qml:375
+#: qml/TextFieldContextMenu.qml:388
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "删除"
 
-#: qml/TextFieldContextMenu.qml:394
+#: qml/TextFieldContextMenu.qml:407
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"

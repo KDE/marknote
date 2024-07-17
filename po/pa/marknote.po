@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-16 00:39+0000\n"
+"POT-Creation-Date: 2024-07-17 00:39+0000\n"
 "PO-Revision-Date: 2024-07-14 09:48-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Panjabi; Punjabi\n"
@@ -623,67 +623,73 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr ""
 
-#: qml/TextFieldContextMenu.qml:225
+#: qml/TextFieldContextMenu.qml:226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr ""
 
-#: qml/TextFieldContextMenu.qml:240
+#: qml/TextFieldContextMenu.qml:241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr ""
 
-#: qml/TextFieldContextMenu.qml:255
+#: qml/TextFieldContextMenu.qml:258
+#, kde-format
+msgctxt "@inmenu"
+msgid "Open Link"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:268
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr ""
 
-#: qml/TextFieldContextMenu.qml:277
+#: qml/TextFieldContextMenu.qml:290
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
-#: qml/TextFieldContextMenu.qml:297
+#: qml/TextFieldContextMenu.qml:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "ਵਾਪਸ"
 
-#: qml/TextFieldContextMenu.qml:312
+#: qml/TextFieldContextMenu.qml:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "ਪਰਤਾਓ"
 
-#: qml/TextFieldContextMenu.qml:330
+#: qml/TextFieldContextMenu.qml:343
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "ਕੱਟੋ"
 
-#: qml/TextFieldContextMenu.qml:345
+#: qml/TextFieldContextMenu.qml:358
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: qml/TextFieldContextMenu.qml:360
+#: qml/TextFieldContextMenu.qml:373
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "ਚੇਪੋ"
 
-#: qml/TextFieldContextMenu.qml:375
+#: qml/TextFieldContextMenu.qml:388
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "ਹਟਾਓ"
 
-#: qml/TextFieldContextMenu.qml:394
+#: qml/TextFieldContextMenu.qml:407
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"

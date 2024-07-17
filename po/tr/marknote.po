@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-16 00:39+0000\n"
+"POT-Creation-Date: 2024-07-17 00:39+0000\n"
 "PO-Revision-Date: 2024-07-11 14:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -625,67 +625,73 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Tablo Ekle"
 
-#: qml/TextFieldContextMenu.qml:225
+#: qml/TextFieldContextMenu.qml:226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Yok Say"
 
-#: qml/TextFieldContextMenu.qml:240
+#: qml/TextFieldContextMenu.qml:241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Yazım Denetimi"
 
-#: qml/TextFieldContextMenu.qml:255
+#: qml/TextFieldContextMenu.qml:258
+#, kde-format
+msgctxt "@inmenu"
+msgid "Open Link"
+msgstr ""
+
+#: qml/TextFieldContextMenu.qml:268
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "Ekle"
 
-#: qml/TextFieldContextMenu.qml:277
+#: qml/TextFieldContextMenu.qml:290
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: qml/TextFieldContextMenu.qml:297
+#: qml/TextFieldContextMenu.qml:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Geri Al"
 
-#: qml/TextFieldContextMenu.qml:312
+#: qml/TextFieldContextMenu.qml:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Yinele"
 
-#: qml/TextFieldContextMenu.qml:330
+#: qml/TextFieldContextMenu.qml:343
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Kes"
 
-#: qml/TextFieldContextMenu.qml:345
+#: qml/TextFieldContextMenu.qml:358
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopyala"
 
-#: qml/TextFieldContextMenu.qml:360
+#: qml/TextFieldContextMenu.qml:373
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Yapıştır"
 
-#: qml/TextFieldContextMenu.qml:375
+#: qml/TextFieldContextMenu.qml:388
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Sil"
 
-#: qml/TextFieldContextMenu.qml:394
+#: qml/TextFieldContextMenu.qml:407
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
