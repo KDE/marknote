@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-17 00:39+0000\n"
-"PO-Revision-Date: 2024-07-11 08:13+0300\n"
+"PO-Revision-Date: 2024-07-17 09:13+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -640,7 +640,7 @@ msgstr "בדיקת איות"
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
-msgstr ""
+msgstr "פתיחת קישור"
 
 #: qml/TextFieldContextMenu.qml:268
 #, kde-format

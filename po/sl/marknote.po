@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-17 00:39+0000\n"
-"PO-Revision-Date: 2024-07-11 05:53+0200\n"
+"PO-Revision-Date: 2024-07-17 04:41+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -647,7 +647,7 @@ msgstr "Črkuj"
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
-msgstr ""
+msgstr "Odpri povezavo"
 
 #: qml/TextFieldContextMenu.qml:268
 #, kde-format
