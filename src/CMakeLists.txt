@@ -39,7 +39,6 @@ qt_add_qml_module(marknote_static STATIC
         qml/NativeFileMenu.qml
         qml/NativeEditMenu.qml
         qml/GlobalMenuBar.qml
-        qml/ActionFromQAction.qml
 
     SOURCES
         documenthandler.cpp

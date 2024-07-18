@@ -267,38 +267,38 @@ QQC2.Menu {
     QQC2.Menu {
         title: i18nc("@inmenu", "Insert")
 
-        ActionFromQAction {
-            action: tableActionHelper.actionInsertRowAbove
+        Action {
+            fromQAction: tableActionHelper.actionInsertRowAbove
         }
 
-        ActionFromQAction {
-            action: tableActionHelper.actionInsertRowBelow
+        Action {
+            fromQAction: tableActionHelper.actionInsertRowBelow
         }
 
         QQC2.MenuSeparator {}
 
-        ActionFromQAction {
-            action: tableActionHelper.actionInsertColumnBefore
+        Action {
+            fromQAction: tableActionHelper.actionInsertColumnBefore
         }
 
-        ActionFromQAction {
-            action: tableActionHelper.actionInsertColumnAfter
+        Action {
+            fromQAction: tableActionHelper.actionInsertColumnAfter
         }
     }
 
     QQC2.Menu {
         title: i18nc("@inmenu", "Remove")
 
-        ActionFromQAction {
-            action: tableActionHelper.actionRemoveRow
+        Action {
+            fromQAction: tableActionHelper.actionRemoveRow
         }
 
-        ActionFromQAction {
-            action: tableActionHelper.actionRemoveColumn
+        Action {
+            fromQAction: tableActionHelper.actionRemoveColumn
         }
 
-        ActionFromQAction {
-            action: tableActionHelper.actionRemoveCellContents
+        Action {
+            fromQAction: tableActionHelper.actionRemoveCellContents
         }
     }
 

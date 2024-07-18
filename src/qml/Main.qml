@@ -76,9 +76,8 @@ StatetfulApp.StatefulWindow {
     }
 
 
-    StatetfulApp.Action {
-        actionName: 'open_about_page'
-        application: App
+    Kirigami.Action {
+        fromQAction: App.action('open_about_page')
     }
 
     Loader {
@@ -257,32 +256,26 @@ StatetfulApp.StatefulWindow {
                         Controls.Menu {
                             id: optionPopup
 
-                            StatetfulApp.Action {
+                            Kirigami.Action {
                                 id: newNotebookAction
-
-                                actionName: 'add_notebook'
-                                application: App
+                                fromQAction: App.action('add_notebook')
                             }
 
-                            StatetfulApp.Action {
+                            Kirigami.Action {
                                 id: newNoteAction
-
-                                actionName: 'add_note'
-                                application: App
+                                fromQAction: App.action('add_note')
                             }
 
                             Controls.Menu {
                                 title: i18nc("@title:menu", "Import")
                                 icon.name: "kontact-import-wizard"
 
-                                StatetfulApp.Action {
-                                    actionName: 'import_maildir'
-                                    application: App
+                                Kirigami.Action {
+                                    fromQAction: App.action('import_maildir')
                                 }
 
-                                StatetfulApp.Action {
-                                    actionName: 'import_knotes'
-                                    application: App
+                                Kirigami.Action {
+                                    fromQAction: App.action('import_knotes')
                                 }
                             }
 
@@ -321,14 +314,12 @@ StatetfulApp.StatefulWindow {
                             }
 
 
-                            StatetfulApp.Action {
-                                actionName: 'open_kcommand_bar'
-                                application: App
+                            Kirigami.Action {
+                                fromQAction: App.action('open_kcommand_bar')
                             }
 
-                            StatetfulApp.Action {
-                                actionName: 'options_configure'
-                                application: App
+                            Kirigami.Action {
+                                fromQAction: App.action('options_configure')
                             }
 
                             Controls.MenuSeparator {}
@@ -346,10 +337,9 @@ StatetfulApp.StatefulWindow {
                                     onActivated: expandSidebar.clicked()
                                 }
                             }
-
-
                         }
                     }
+
                     Kirigami.Heading {
                         text: i18nc("Application name", "Marknote")
                         horizontalAlignment: Qt.AlignHCenter

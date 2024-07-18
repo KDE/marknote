@@ -13,7 +13,7 @@ project(marknote VERSION ${RELEASE_SERVICE_VERSION})
 include(FeatureSummary)
 
 set(QT_MIN_VERSION 6.6)
-set(KF_MIN_VERSION 6.2)
+set(KF_MIN_VERSION 6.4)
 set(KPIM_MIME_VERSION "6.1.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
