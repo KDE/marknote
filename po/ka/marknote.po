@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-17 00:39+0000\n"
+"POT-Creation-Date: 2024-07-19 00:39+0000\n"
 "PO-Revision-Date: 2024-07-17 05:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -48,7 +48,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "შემოტანა '%1'-ში ჩაწერისას"
 
-#: main.cpp:72 qml/Main.qml:354
+#: main.cpp:72 qml/Main.qml:344
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -345,51 +345,51 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "ბმულის URL:"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:103
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "ახალი შენიშვნის შექმნა შეუძლებელია. ჯერ წიგნაკი უნდა შექმნათ."
 
-#: qml/Main.qml:104
+#: qml/Main.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "წიგნაკის შექმნა"
 
-#: qml/Main.qml:275
+#: qml/Main.qml:270
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "შემოტანა"
 
-#: qml/Main.qml:291
+#: qml/Main.qml:284
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "შენიშვნების სიის დალაგება"
 
-#: qml/Main.qml:297
+#: qml/Main.qml:290
 #, kde-format
 msgid "by Name"
 msgstr "სახელის მიხედვით"
 
-#: qml/Main.qml:311
+#: qml/Main.qml:304
 #, kde-format
 msgid "by Date"
 msgstr "თარიღის მიხედვით"
 
-#: qml/Main.qml:338
+#: qml/Main.qml:329
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "გვერდითი ზოლის ჩაკეცვა"
 
-#: qml/Main.qml:338
+#: qml/Main.qml:329
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "გვერდითი ზოლის გაფართოება"
 
-#: qml/Main.qml:408
+#: qml/Main.qml:398
 #, kde-format
 msgid "Your Notebooks"
 msgstr "თქვენი წიგნაკები"

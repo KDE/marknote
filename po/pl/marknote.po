@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-17 00:39+0000\n"
+"POT-Creation-Date: 2024-07-19 00:39+0000\n"
 "PO-Revision-Date: 2024-07-14 13:17+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -48,7 +48,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Wystąpił błąd przy zapisywaniu do pliku'%1'"
 
-#: main.cpp:72 qml/Main.qml:354
+#: main.cpp:72 qml/Main.qml:344
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -344,51 +344,51 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "Adres URL odnośnika:"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:103
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "Nie można utworzyć nowej notatki. Najpierw musisz utworzyć notatnik."
 
-#: qml/Main.qml:104
+#: qml/Main.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Utwórz notatnik"
 
-#: qml/Main.qml:275
+#: qml/Main.qml:270
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Zaimportuj"
 
-#: qml/Main.qml:291
+#: qml/Main.qml:284
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Uszereguj listę notatek"
 
-#: qml/Main.qml:297
+#: qml/Main.qml:290
 #, kde-format
 msgid "by Name"
 msgstr "wg nazwy"
 
-#: qml/Main.qml:311
+#: qml/Main.qml:304
 #, kde-format
 msgid "by Date"
 msgstr "wg daty"
 
-#: qml/Main.qml:338
+#: qml/Main.qml:329
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Zwiń pasek boczny"
 
-#: qml/Main.qml:338
+#: qml/Main.qml:329
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Rozwiń pasek boczny"
 
-#: qml/Main.qml:408
+#: qml/Main.qml:398
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Twoje notatniki"

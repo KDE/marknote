@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-17 00:39+0000\n"
+"POT-Creation-Date: 2024-07-19 00:39+0000\n"
 "PO-Revision-Date: 2024-04-13 01:23-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -48,7 +48,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr ""
 
-#: main.cpp:72 qml/Main.qml:354
+#: main.cpp:72 qml/Main.qml:344
 #, fuzzy, kde-format
 #| msgid "MarkNote"
 msgctxt "Application name"
@@ -349,7 +349,7 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "Texto da URL:"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:103
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
@@ -357,47 +357,47 @@ msgstr ""
 "Não foi possível criar uma nota, primeiro você precisa criar um bloco de "
 "notas."
 
-#: qml/Main.qml:104
+#: qml/Main.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Criar bloco de notas"
 
-#: qml/Main.qml:275
+#: qml/Main.qml:270
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr ""
 
-#: qml/Main.qml:291
+#: qml/Main.qml:284
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr ""
 
-#: qml/Main.qml:297
+#: qml/Main.qml:290
 #, fuzzy, kde-format
 #| msgid "Sort by Name"
 msgid "by Name"
 msgstr "Ordenar por nome"
 
-#: qml/Main.qml:311
+#: qml/Main.qml:304
 #, fuzzy, kde-format
 #| msgid "Sort by Date"
 msgid "by Date"
 msgstr "Ordenar por data"
 
-#: qml/Main.qml:338
+#: qml/Main.qml:329
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Recolher barra lateral"
 
-#: qml/Main.qml:338
+#: qml/Main.qml:329
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Expandir barra lateral"
 
-#: qml/Main.qml:408
+#: qml/Main.qml:398
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Seus blocos de notas"

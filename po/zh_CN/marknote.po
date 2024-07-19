@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-17 00:39+0000\n"
+"POT-Creation-Date: 2024-07-19 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -47,7 +47,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr ""
 
-#: main.cpp:72 qml/Main.qml:354
+#: main.cpp:72 qml/Main.qml:344
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -343,51 +343,51 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr ""
 
-#: qml/Main.qml:104
+#: qml/Main.qml:103
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "无法创建新的笔记，您需要先创建笔记本。"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "创建笔记本"
 
-#: qml/Main.qml:275
+#: qml/Main.qml:270
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr ""
 
-#: qml/Main.qml:291
+#: qml/Main.qml:284
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr ""
 
-#: qml/Main.qml:297
+#: qml/Main.qml:290
 #, kde-format
 msgid "by Name"
 msgstr ""
 
-#: qml/Main.qml:311
+#: qml/Main.qml:304
 #, kde-format
 msgid "by Date"
 msgstr ""
 
-#: qml/Main.qml:338
+#: qml/Main.qml:329
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "折叠侧边栏"
 
-#: qml/Main.qml:338
+#: qml/Main.qml:329
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "展开侧边栏"
 
-#: qml/Main.qml:408
+#: qml/Main.qml:398
 #, kde-format
 msgid "Your Notebooks"
 msgstr "你的笔记本"
@@ -795,11 +795,3 @@ msgstr ""
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Number of Rows:"
-#~ msgstr "行数："
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Number of Columns:"
-#~ msgstr "列数："
