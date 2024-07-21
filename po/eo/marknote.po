@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-19 00:39+0000\n"
-"PO-Revision-Date: 2024-07-12 22:08+0200\n"
+"PO-Revision-Date: 2024-07-20 17:03+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -642,7 +642,7 @@ msgstr "Literumkontrolo"
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
-msgstr ""
+msgstr "Malfermi Ligilon"
 
 #: qml/TextFieldContextMenu.qml:268
 #, kde-format
@@ -800,11 +800,3 @@ msgstr "Kolumno"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Ĉelenhavo"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Number of Rows:"
-#~ msgstr "Nombro da Vicoj:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Number of Columns:"
-#~ msgstr "Nombro da Kolumnoj:"
