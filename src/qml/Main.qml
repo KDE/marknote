@@ -29,6 +29,7 @@ StatetfulApp.StatefulWindow {
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
 
     application: App
+    windowName: 'main'
 
     controlsVisible: false
     onWideScreenChanged: Kirigami.Settings.isMobile? drawer.close() :  (!wideScreen? (drawer.close()) : drawer.open())
