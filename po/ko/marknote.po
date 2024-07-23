@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-19 00:39+0000\n"
+"POT-Creation-Date: 2024-07-23 00:39+0000\n"
 "PO-Revision-Date: 2024-02-10 00:18+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -49,7 +49,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr ""
 
-#: main.cpp:72 qml/Main.qml:344
+#: main.cpp:72 qml/Main.qml:345
 #, fuzzy, kde-format
 #| msgid "Marknote"
 msgctxt "Application name"
@@ -350,53 +350,53 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr ""
 
-#: qml/Main.qml:103
+#: qml/Main.qml:104
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 
-#: qml/Main.qml:103
+#: qml/Main.qml:104
 #, fuzzy, kde-format
 #| msgid "Delete Notebook"
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "공책 삭제"
 
-#: qml/Main.qml:270
+#: qml/Main.qml:271
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr ""
 
-#: qml/Main.qml:284
+#: qml/Main.qml:285
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr ""
 
-#: qml/Main.qml:290
+#: qml/Main.qml:291
 #, fuzzy, kde-format
 #| msgid "Note name:"
 msgid "by Name"
 msgstr "메모 이름:"
 
-#: qml/Main.qml:304
+#: qml/Main.qml:305
 #, kde-format
 msgid "by Date"
 msgstr ""
 
-#: qml/Main.qml:329
+#: qml/Main.qml:330
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr ""
 
-#: qml/Main.qml:329
+#: qml/Main.qml:330
 #, kde-format
 msgid "Expand Sidebar"
 msgstr ""
 
-#: qml/Main.qml:398
+#: qml/Main.qml:399
 #, kde-format
 msgid "Your Notebooks"
 msgstr "내 공책"
