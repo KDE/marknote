@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-23 00:39+0000\n"
-"PO-Revision-Date: 2024-07-17 09:13+0300\n"
+"PO-Revision-Date: 2024-07-23 09:30+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: application.cpp:34
 #, kde-format
@@ -463,7 +463,7 @@ msgstr "חלון"
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
-msgstr "הגדלת למסך מלא"
+msgstr "הגדלה למסך מלא"
 
 #: qml/NotebookContextMenu.qml:16
 #, kde-format
