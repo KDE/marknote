@@ -1134,7 +1134,7 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
         }
 
         const auto text = mimeData->text();
-        if (const QUrl url(text); url.isValid() && url.scheme() == "https"_L1) {
+        if (const QUrl url(text, QUrl::StrictMode); url.isValid() && url.scheme() == "https"_L1) {
             updateLink(url.toString(), QString());
         } else {
             textCursor().insertText(text);
