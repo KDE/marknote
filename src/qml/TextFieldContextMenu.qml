@@ -267,21 +267,21 @@ QQC2.Menu {
     QQC2.Menu {
         title: i18nc("@inmenu", "Insert")
 
-        Action {
+        Kirigami.Action {
             fromQAction: tableActionHelper.actionInsertRowAbove
         }
 
-        Action {
+        Kirigami.Action {
             fromQAction: tableActionHelper.actionInsertRowBelow
         }
 
         QQC2.MenuSeparator {}
 
-        Action {
+        Kirigami.Action {
             fromQAction: tableActionHelper.actionInsertColumnBefore
         }
 
-        Action {
+        Kirigami.Action {
             fromQAction: tableActionHelper.actionInsertColumnAfter
         }
     }
@@ -289,15 +289,15 @@ QQC2.Menu {
     QQC2.Menu {
         title: i18nc("@inmenu", "Remove")
 
-        Action {
+        Kirigami.Action {
             fromQAction: tableActionHelper.actionRemoveRow
         }
 
-        Action {
+        Kirigami.Action {
             fromQAction: tableActionHelper.actionRemoveColumn
         }
 
-        Action {
+        Kirigami.Action {
             fromQAction: tableActionHelper.actionRemoveCellContents
         }
     }
