@@ -31,10 +31,6 @@ using namespace Qt::Literals::StringLiterals;
 
 int main(int argc, char *argv[])
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-#endif
-
     QIcon::setFallbackThemeName(u"breeze"_s);
     QApplication app(argc, argv);
     // Default to org.kde.desktop style unless the user forces another style
