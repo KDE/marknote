@@ -38,8 +38,6 @@ int main(int argc, char *argv[])
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
 
-    KCrash::initialize();
-
 #ifdef WITH_BREEZEICONS_LIB
     BreezeIcons::initIcons();
 #endif
@@ -83,6 +81,7 @@ int main(int argc, char *argv[])
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(about);
+    KCrash::initialize();
 
     ColorSchemer colorScheme;
     if (!MarknoteSettings::self()->colorScheme().isEmpty()) {
