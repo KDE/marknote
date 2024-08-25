@@ -13,3 +13,5 @@ QStringList Config::fontFamilies() const
 {
     return QFontDatabase::families();
 }
+
+#include "moc_config.cpp"

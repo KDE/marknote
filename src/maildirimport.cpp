@@ -98,3 +98,5 @@ void MaildirImport::import(const QUrl &maildir, const QUrl &destinationDir)
         }
     }
 }
+
+#include "moc_maildirimport.cpp"
