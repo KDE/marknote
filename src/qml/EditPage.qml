@@ -87,7 +87,7 @@ Kirigami.Page {
         }
         ToolButton {
             icon.name: "edit-redo"
-            text: i18n("undo")
+            text: i18n("redo")
             display: AbstractButton.IconOnly
             onClicked: textArea.redo()
             enabled: textArea.canRedo
