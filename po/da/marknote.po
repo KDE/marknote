@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-12 00:39+0000\n"
+"POT-Creation-Date: 2024-09-12 00:39+0000\n"
 "PO-Revision-Date: 2024-08-02 20:32+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -96,11 +96,15 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Kunne ikke omdøbe note. En note med det navn eksisterer allerede."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:90 qml/EditPage.qml:551
-#: qml/EditPage.qml:564
+#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
 #, kde-format
 msgid "undo"
 msgstr "fortryd"
+
+#: qml/EditPage.qml:90
+#, kde-format
+msgid "redo"
+msgstr ""
 
 #: qml/EditPage.qml:146
 #, kde-format

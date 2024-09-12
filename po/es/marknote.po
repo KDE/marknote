@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-12 00:39+0000\n"
+"POT-Creation-Date: 2024-09-12 00:39+0000\n"
 "PO-Revision-Date: 2024-07-18 01:25+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -100,11 +100,15 @@ msgstr ""
 "No se puede cambiar el nombre de la nota. Ya existe otra nota con el mismo "
 "nombre."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:90 qml/EditPage.qml:551
-#: qml/EditPage.qml:564
+#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
 #, kde-format
 msgid "undo"
 msgstr "deshacer"
+
+#: qml/EditPage.qml:90
+#, kde-format
+msgid "redo"
+msgstr ""
 
 #: qml/EditPage.qml:146
 #, kde-format
