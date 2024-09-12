@@ -1,0 +1,34 @@
+version = 1
+SPDX-PackageName = "Marknote"
+SPDX-PackageSupplier = "Mathis Brüchert <mbb@kaidan.im>"
+SPDX-PackageDownloadLocation = "https://invent.kde.org/office/marknote"
+
+[[annotations]]
+path = ["README.md", ".gitignore"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Mathis Brüchert <mbb@kaidan.im>"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = ["org.kde.marknote.svg", "logo.png", "android/res/drawable/marknote.png", "icons/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Mathis Brüchert <mbb@kaidan.im>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ".flatpak-manifest.json"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Justin Zobel <justin.zobel@gmail.com>"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+[[annotations]]
+path = "src/autotests/testdata/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "None"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "REUSE.toml"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "None"
+SPDX-License-Identifier = "CC0-1.0"
