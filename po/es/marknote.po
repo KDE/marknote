@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-12 00:39+0000\n"
-"PO-Revision-Date: 2024-07-18 01:25+0200\n"
+"PO-Revision-Date: 2024-09-13 00:56+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: application.cpp:34
 #, kde-format
@@ -108,7 +108,7 @@ msgstr "deshacer"
 #: qml/EditPage.qml:90
 #, kde-format
 msgid "redo"
-msgstr ""
+msgstr "rehacer"
 
 #: qml/EditPage.qml:146
 #, kde-format
