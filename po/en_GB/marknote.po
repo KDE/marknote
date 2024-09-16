@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-12 00:39+0000\n"
-"PO-Revision-Date: 2024-08-03 13:06+0100\n"
+"PO-Revision-Date: 2024-09-15 10:44+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -104,7 +104,7 @@ msgstr "undo"
 #: qml/EditPage.qml:90
 #, kde-format
 msgid "redo"
-msgstr ""
+msgstr "redo"
 
 #: qml/EditPage.qml:146
 #, kde-format
