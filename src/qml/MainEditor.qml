@@ -42,6 +42,7 @@ Kirigami.ApplicationWindow {
                 editorPage.noteName = cliNoteName;
                 editorPage.noteFullPath = cliNoteFullPath;
                 editorPage.singleDocumentMode = true;
+                root.title = editorPage.noteName
             }
         }
     }
