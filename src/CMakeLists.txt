@@ -74,6 +74,7 @@ target_link_libraries(marknote_static PUBLIC
     KF6::ConfigCore
     KF6::ConfigGui
     KF6::CoreAddons
+    KF6::IconThemes
     KF6::ColorScheme
     KF6::XmlGui
     KF6::Crash
@@ -88,13 +89,6 @@ if (TARGET md4c::md4c-html)
 endif()
 
 add_executable(marknote main.cpp)
-
-if(TARGET KF6::BreezeIcons)
-    target_link_libraries(marknote PUBLIC
-        KF6::BreezeIcons
-    )
-    target_compile_definitions(marknote PRIVATE WITH_BREEZEICONS_LIB)
-endif ()
 
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/*-apps-org.kde.marknote.png")
 ecm_add_app_icon(marknote ICONS

@@ -5,6 +5,7 @@
 
 #include <KAboutData>
 #include <KCrash>
+#include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
 #include <QApplication>
@@ -31,16 +32,13 @@ using namespace Qt::Literals::StringLiterals;
 
 int main(int argc, char *argv[])
 {
+    KIconTheme::initTheme();
     QIcon::setFallbackThemeName(u"breeze"_s);
     QApplication app(argc, argv);
     // Default to org.kde.desktop style unless the user forces another style
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
-
-#ifdef WITH_BREEZEICONS_LIB
-    BreezeIcons::initIcons();
-#endif
 
 #ifdef Q_OS_WINDOWS
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {
