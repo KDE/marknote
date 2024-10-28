@@ -15,7 +15,12 @@ class NoteBooksModel : public QAbstractListModel
     Q_PROPERTY(QString storagePath READ storagePath WRITE setStoragePath NOTIFY storagePathChanged)
 
 public:
-    enum Role { Path = Qt::UserRole + 1, Name, Icon, Color };
+    enum Role {
+        Path = Qt::UserRole + 1,
+        Name,
+        Icon,
+        Color,
+    };
     Q_ENUM(Role)
 
     explicit NoteBooksModel(QObject *parent = nullptr);
