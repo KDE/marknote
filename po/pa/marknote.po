@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-12 00:39+0000\n"
+"POT-Creation-Date: 2024-10-29 00:40+0000\n"
 "PO-Revision-Date: 2024-07-14 09:48-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Panjabi; Punjabi\n"
@@ -49,44 +49,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr ""
 
-#: main.cpp:66 qml/Main.qml:345
+#: main.cpp:64 qml/Main.qml:345
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "ਮਾਰਕਨੋਟ"
 
-#: main.cpp:68
+#: main.cpp:66
 #, kde-format
 msgid "Note taking application"
 msgstr ""
 
-#: main.cpp:70
+#: main.cpp:68
 #, kde-format
 msgid "© 2023 Mathis Brüchert"
 msgstr ""
 
-#: main.cpp:71
+#: main.cpp:69
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr ""
 
-#: main.cpp:72 main.cpp:77
+#: main.cpp:70 main.cpp:75
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: main.cpp:76
+#: main.cpp:74
 #, kde-format
 msgid "Carl Schwan"
 msgstr ""
 
-#: main.cpp:81
+#: main.cpp:79
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Aman Alam"
 
-#: main.cpp:81
+#: main.cpp:79
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
