@@ -49,6 +49,7 @@ void NavigationController::setNotebookPath(const QString &notebookPath)
         return;
     }
     m_notebookPath = notebookPath;
+    m_notePath = QString{};
     Q_EMIT notebookPathChanged();
 
     if (m_mobileMode) {
