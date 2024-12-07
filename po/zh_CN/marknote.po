@@ -33,19 +33,19 @@ msgstr "新建笔记"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "从 KNotes 导入"
 
 #: application.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "从 Maildir 导入"
 
 #: maildirimport.cpp:91
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr ""
+msgstr "写入 '%1' 时出错"
 
 #: main.cpp:64 qml/Main.qml:345
 #, kde-format
@@ -99,12 +99,12 @@ msgstr "无法重命名笔记。已经有同名称的笔记。"
 #: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
 #, kde-format
 msgid "undo"
-msgstr ""
+msgstr "撤销"
 
 #: qml/EditPage.qml:90
 #, kde-format
 msgid "redo"
-msgstr ""
+msgstr "重做"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -116,7 +116,7 @@ msgstr "专注模式"
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "退出全屏"
 
 #: qml/EditPage.qml:212
 #, kde-format
@@ -263,7 +263,7 @@ msgstr "图标："
 #, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: qml/ImageDialog.qml:18
 #, kde-format
@@ -303,13 +303,13 @@ msgstr "快速草稿"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "从 Maildir 导入"
 
 #: qml/ImportMaildirDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "从 KNotes 导入"
 
 #: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
 #, kde-format
@@ -321,13 +321,13 @@ msgstr "名称："
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr ""
+msgstr "Maildir 位置："
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "导入"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
@@ -363,23 +363,23 @@ msgstr "创建笔记本"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
-msgstr ""
+msgstr "导入"
 
 #: qml/Main.qml:285
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
-msgstr ""
+msgstr "对笔记列表排序"
 
 #: qml/Main.qml:291
 #, kde-format
 msgid "by Name"
-msgstr ""
+msgstr "按名称"
 
 #: qml/Main.qml:305
 #, kde-format
 msgid "by Date"
-msgstr ""
+msgstr "按日期"
 
 #: qml/Main.qml:330
 #, kde-format
@@ -400,73 +400,73 @@ msgstr "你的笔记本"
 #, kde-format
 msgctxt "@action:menu"
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 #: qml/NativeEditMenu.qml:39
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr ""
+msgstr "撤销"
 
 #: qml/NativeEditMenu.qml:49
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
-msgstr ""
+msgstr "重做"
 
 #: qml/NativeEditMenu.qml:62
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
-msgstr ""
+msgstr "剪切"
 
 #: qml/NativeEditMenu.qml:72
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
-msgstr ""
+msgstr "复制"
 
 #: qml/NativeEditMenu.qml:82
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
-msgstr ""
+msgstr "粘贴"
 
 #: qml/NativeEditMenu.qml:92
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: qml/NativeEditMenu.qml:105
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
-msgstr ""
+msgstr "选择全部"
 
 #: qml/NativeFileMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
-msgstr ""
+msgstr "文件"
 
 #: qml/NativeHelpMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "Help"
-msgstr ""
+msgstr "帮助"
 
 #: qml/NativeWindowMenu.qml:13
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
-msgstr ""
+msgstr "窗口"
 
 #: qml/NativeWindowMenu.qml:21
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
-msgstr ""
+msgstr "进入全屏"
 
 #: qml/NotebookContextMenu.qml:16
 #, kde-format
@@ -491,7 +491,7 @@ msgstr "删除笔记本"
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
 "the content of <b>%2</b> definitively."
-msgstr ""
+msgstr "您确定要删除笔记本 <b> %1 </b>？这将删除 <b>%2</b> 中的内容。"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
@@ -549,7 +549,7 @@ msgstr "删除笔记"
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
-msgstr ""
+msgstr "您确定要删除笔记 <b> %1 </b>？这将删除文件 <b>%2</b>。"
 
 #: qml/NotesPage.qml:316
 #, kde-format
@@ -629,7 +629,7 @@ msgstr "插入表格"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
-msgstr ""
+msgstr "忽略"
 
 #: qml/TextFieldContextMenu.qml:241
 #, kde-format
@@ -641,7 +641,7 @@ msgstr "拼写检查"
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
-msgstr ""
+msgstr "打开链接"
 
 #: qml/TextFieldContextMenu.qml:268
 #, kde-format
@@ -706,34 +706,34 @@ msgstr "首先创建您的第一个笔记本！"
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
-msgstr ""
+msgstr "常规"
 
 #: settings/MarkNoteGeneralPage.qml:19
 #, kde-format
 msgid "General theme"
-msgstr ""
+msgstr "常规主题"
 
 #: settings/MarkNoteGeneralPage.qml:26
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "颜色主题"
 
 #: settings/MarkNoteGeneralPage.qml:40
 #, kde-format
 msgid "Editor Settings"
-msgstr ""
+msgstr "编辑器设置"
 
 #: settings/MarkNoteGeneralPage.qml:45
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr ""
+msgstr "笔记目录："
 
 #: settings/MarkNoteGeneralPage.qml:54
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the notes directory"
-msgstr ""
+msgstr "选择笔记目录"
 
 #: settings/MarkNoteGeneralPage.qml:69
 #, kde-format
@@ -751,19 +751,19 @@ msgstr "字体大小："
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
-msgstr ""
+msgstr "常规"
 
 #: settings/MarkNoteSettings.qml:21
 #, kde-format
 msgctxt "@action:button"
 msgid "About MarkNote"
-msgstr ""
+msgstr "关于 MarkNote"
 
 #: settings/MarkNoteSettings.qml:27
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
-msgstr ""
+msgstr "关于 KDE"
 
 #: tableactionhelper.cpp:118
 #, kde-format
@@ -788,12 +788,12 @@ msgstr "后一列"
 #: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
-msgstr ""
+msgstr "行"
 
 #: tableactionhelper.cpp:149
 #, kde-format
 msgid "Column"
-msgstr ""
+msgstr "列"
 
 #: tableactionhelper.cpp:155
 #, kde-format
