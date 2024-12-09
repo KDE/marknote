@@ -41,19 +41,19 @@ qt_add_qml_module(marknote_static STATIC
         qml/GlobalMenuBar.qml
 
     SOURCES
-        documenthandler.cpp
-        notesmodel.cpp
-        notebooksmodel.cpp
+        documenthandler.cpp documenthandler.h
+        notesmodel.cpp notesmodel.h
+        notebooksmodel.cpp notebooksmodel.h
         nestedlisthelper.cpp
         nestedlisthelper_p.h
-        navigationcontroller.cpp
+        navigationcontroller.cpp navigationcontroller.h
         application.cpp
         application.h
         tableactionhelper.cpp
         tableactionhelper.h
         config.cpp
         config.h
-        colorschemer.cpp
+        colorschemer.cpp colorschemer.h
         foreigntypes.h
         maildirimport.cpp
         maildirimport.h
