@@ -20,6 +20,10 @@
 #include "colorschemer.h"
 #include "config.h"
 
+#if KI18N_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+#include <KLocalizedQmlContext>
+#endif
+
 #ifdef Q_OS_WINDOWS
 #include <Windows.h>
 #endif
@@ -92,7 +96,11 @@ int main(int argc, char *argv[])
     about.processCommandLine(&parser);
 
     QQmlApplicationEngine engine;
+#if KI18N_VERSION < QT_VERSION_CHECK(6, 8, 0)
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+#else
+    engine.rootContext()->setContextObject(new KLocalizedQmlContext(&engine));
+#endif
 
     if (parser.positionalArguments().length() > 0) {
         const auto path = parser.positionalArguments()[0];

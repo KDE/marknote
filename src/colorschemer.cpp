@@ -8,7 +8,11 @@
 
 ColorSchemer::ColorSchemer(QObject *parent)
     : QObject(parent)
+#if KCOLORSCHEME_VERSION < QT_VERSION_CHECK(6, 6, 0)
     , c(new KColorSchemeManager(this))
+#else
+    , c(KColorSchemeManager::instance())
+#endif
 {
 }
 

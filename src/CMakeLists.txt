@@ -81,7 +81,10 @@ target_link_libraries(marknote_static PUBLIC
     KPim6::Mime
     KirigamiAddonsStatefulApp
 )
-
+if(TARGET KF6::I18nQml)
+target_link_libraries(marknote_static PUBLIC
+        KF6::I18nQml)
+endif()
 target_link_libraries(marknote_static PRIVATE settingsplugin)
 
 if (TARGET md4c::md4c-html)

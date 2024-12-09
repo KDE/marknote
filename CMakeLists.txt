@@ -53,8 +53,8 @@ set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required application components and runtime dependency"
 )
-ecm_set_disabled_deprecation_versions(QT 6.7.2
-    KF 6.5.0
+ecm_set_disabled_deprecation_versions(QT 6.8.0
+    KF 6.9.0
 )
 
 find_package(KPim6Mime ${KPIM_MIME_VERSION} CONFIG REQUIRED)
