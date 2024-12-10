@@ -60,7 +60,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onOpenAboutKDEPage(): void {
-            const openDialogWindow = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDE"), {
+            const openDialogWindow = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"), {
                 width: root.width
             }, {
                 width: Kirigami.Units.gridUnit * 30,
