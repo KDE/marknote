@@ -26,7 +26,7 @@ KirigamiSettings.ConfigurationView {
             moduleId: "aboutKDE"
             text: i18nc("@action:button", "About KDE")
             icon.name: "kde"
-            page: () => Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDE")
+            page: () => Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage")
         }
     ]
 }
