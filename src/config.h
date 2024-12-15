@@ -6,7 +6,7 @@
 #include <QtQml>
 #include <marknotesettings.h>
 
-class Config : public QObject
+class ConfigHelper : public QObject
 {
     Q_OBJECT
     QML_NAMED_ELEMENT(ConfigHelper)
@@ -15,7 +15,7 @@ class Config : public QObject
     Q_PROPERTY(QStringList fontFamilies READ fontFamilies CONSTANT)
 
 public:
-    explicit Config(QObject *parent = nullptr);
+    explicit ConfigHelper(QObject *parent = nullptr);
 
     QStringList fontFamilies() const;
 };

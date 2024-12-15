@@ -56,12 +56,11 @@ ecm_add_qml_module(marknote_static
         config.cpp
         config.h
         colorschemer.cpp colorschemer.h
-        foreigntypes.h
         maildirimport.cpp
         maildirimport.h
 )
 
-kconfig_add_kcfg_files(marknote_static GENERATE_MOC marknotesettings.kcfgc)
+kconfig_target_kcfg_file(marknote_static FILE marknotesettings.kcfg CLASS_NAME Config MUTATORS GENERATE_PROPERTIES GENERATE_MOC DEFAULT_VALUE_GETTERS PARENT_IN_CONSTRUCTOR QML_REGISTRATION SINGLETON)
 
 add_subdirectory(settings)
 

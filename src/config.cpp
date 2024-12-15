@@ -4,12 +4,12 @@
 #include "config.h"
 #include <QFontDatabase>
 
-Config::Config(QObject *parent)
+ConfigHelper::ConfigHelper(QObject *parent)
     : QObject(parent)
 {
 }
 
-QStringList Config::fontFamilies() const
+QStringList ConfigHelper::fontFamilies() const
 {
     return QFontDatabase::families();
 }

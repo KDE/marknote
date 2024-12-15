@@ -86,8 +86,8 @@ int main(int argc, char *argv[])
     KCrash::initialize();
 
     ColorSchemer colorScheme;
-    if (!MarknoteSettings::self()->colorScheme().isEmpty()) {
-        colorScheme.apply(MarknoteSettings::self()->colorScheme());
+    if (!Config::self()->colorScheme().isEmpty()) {
+        colorScheme.apply(Config::self()->colorScheme());
     }
 
     QCommandLineParser parser;
@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
     }
 
     QObject::connect(QApplication::instance(), &QCoreApplication::aboutToQuit, QApplication::instance(), [] {
-        MarknoteSettings::self()->save();
+        Config::self()->save();
     });
 
     return app.exec();
