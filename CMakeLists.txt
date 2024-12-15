@@ -33,6 +33,7 @@ include(KDEGitCommitHooks)
 include(ECMAddAppIcon)
 include(ECMAddTests)
 include(ECMDeprecationSettings)
+include(ECMQmlModule)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX MARKNOTE
@@ -66,8 +67,6 @@ set_package_properties(md4c PROPERTIES
     URL "https://github.com/mity/md4c"
     PURPOSE "Improve output of markdown to html conversion"
 )
-
-qt_policy(SET QTP0001 NEW)
 
 add_definitions(-DQT_NO_FOREACH -DQT_NO_KEYWORDS)
 

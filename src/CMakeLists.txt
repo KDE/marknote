@@ -1,8 +1,10 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 
-qt_add_qml_module(marknote_static STATIC
+add_library(marknote_static STATIC)
+ecm_add_qml_module(marknote_static
     URI org.kde.marknote
+    GENERATE_PLUGIN_SOURCE
     QML_FILES
         qml/Main.qml
         qml/MainEditor.qml
