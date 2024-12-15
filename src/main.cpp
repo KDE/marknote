@@ -96,11 +96,7 @@ int main(int argc, char *argv[])
     about.processCommandLine(&parser);
 
     QQmlApplicationEngine engine;
-#if KI18N_VERSION < QT_VERSION_CHECK(6, 8, 0)
-    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-#else
-    engine.rootContext()->setContextObject(new KLocalizedQmlContext(&engine));
-#endif
+    KLocalization::setupLocalizedContext(&engine);
 
     if (parser.positionalArguments().length() > 0) {
         const auto path = parser.positionalArguments()[0];
