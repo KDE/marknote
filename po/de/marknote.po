@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-10 00:40+0000\n"
+"POT-Creation-Date: 2024-12-16 00:43+0000\n"
 "PO-Revision-Date: 2024-08-25 17:48+0200\n"
 "Last-Translator: Alois.spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -62,8 +62,9 @@ msgid "Note taking application"
 msgstr "Notiz-Anwendung"
 
 #: main.cpp:72
-#, kde-format
-msgid "© 2023 Mathis Brüchert"
+#, fuzzy, kde-format
+#| msgid "© 2023 Mathis Brüchert"
+msgid "© 2023-2024 Mathis Brüchert"
 msgstr "Copyright © 2023 Mathis Brüchert"
 
 #: main.cpp:73
