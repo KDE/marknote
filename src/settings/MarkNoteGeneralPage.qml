@@ -81,7 +81,7 @@ FormCard.FormCardPage {
                         if (isInitialising && !enabled) {
                             return;
                         }
-                        Config.editorFont.famliy = currentValue;
+                        Config.editorFont.family = currentValue;
                         Config.save();
                     }
 
