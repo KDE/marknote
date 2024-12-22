@@ -4,7 +4,9 @@
 */
 
 #include <KAboutData>
+#if __has_include("KCrash")
 #include <KCrash>
+#endif
 #include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
@@ -83,7 +85,9 @@ int main(int argc, char *argv[])
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(about);
+#if __has_include("KCrash")
     KCrash::initialize();
+#endif
 
     ColorSchemer colorScheme;
     if (!Config::self()->colorScheme().isEmpty()) {

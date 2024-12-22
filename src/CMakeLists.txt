@@ -78,10 +78,13 @@ target_link_libraries(marknote_static PUBLIC
     KF6::IconThemes
     KF6::ColorScheme
     KF6::XmlGui
-    KF6::Crash
     KPim6::Mime
     KirigamiAddonsStatefulApp
 )
+if (TARGET KF6::Crash)
+   target_link_libraries(marknote_static PRIVATE KF6::Crash)
+endif()
+
 if(TARGET KF6::I18nQml)
 target_link_libraries(marknote_static PUBLIC
         KF6::I18nQml)
