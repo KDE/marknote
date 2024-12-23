@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:43+0000\n"
+"POT-Creation-Date: 2024-12-23 00:40+0000\n"
 "PO-Revision-Date: 2024-12-20 21:53+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -49,44 +49,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "'%1' इति लेखनकाले त्रुटिः अभवत् ।"
 
-#: main.cpp:68 qml/Main.qml:345
+#: main.cpp:70 qml/Main.qml:345
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "मार्कनोट्"
 
-#: main.cpp:70
+#: main.cpp:72
 #, kde-format
 msgid "Note taking application"
 msgstr "आवेदनं गृहीत्वा टिप्पणी"
 
-#: main.cpp:72
+#: main.cpp:74
 #, kde-format
 msgid "© 2023-2024 Mathis Brüchert"
 msgstr "© २०२३-२०२४ माथिस ब्रुचेर्ट"
 
-#: main.cpp:73
+#: main.cpp:75
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "माथिस ब्रुचेर्ट"
 
-#: main.cpp:74 main.cpp:79
+#: main.cpp:76 main.cpp:81
 #, kde-format
 msgid "Maintainer"
 msgstr "परिपालकः"
 
-#: main.cpp:78
+#: main.cpp:80
 #, kde-format
 msgid "Carl Schwan"
 msgstr "कार्ल स्वान्"
 
-#: main.cpp:83
+#: main.cpp:85
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "भवतः नामानि"
 
-#: main.cpp:83
+#: main.cpp:85
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
