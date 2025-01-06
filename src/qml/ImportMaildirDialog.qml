@@ -49,13 +49,13 @@ FormCard.FormCardDialog {
 
         text: i18nc("@label:textbox Notebook name", "Maildir location:")
         description: path.toString()
-        onClicked: root.accepted()
+        onClicked: maildirSelectDialog.open()
         visible: mode === ImportMaildirDialog.Mode.Maildir
 
-        FileDialog {
-            title: i18nc("@title:window", "Select an image")
-            currentFolder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
-            fileMode: FileDialog.OpenFile
+        FolderDialog {
+            id: maildirSelectDialog
+            title: i18nc("@title:window", "Select an Maildir location")
+            currentFolder: directoryInput.path
             onAccepted: directoryInput.path = selectedFolder
         }
     }
