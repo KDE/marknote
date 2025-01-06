@@ -61,7 +61,6 @@ msgstr "Notatverktøy"
 
 #: main.cpp:74
 #, fuzzy, kde-format
-#| msgid "© 2023 Mathis Brüchert"
 msgid "© 2023-2024 Mathis Brüchert"
 msgstr "© 2023 Jonah Brüchert"
 
