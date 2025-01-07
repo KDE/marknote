@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-01-07 00:41+0000\n"
 "PO-Revision-Date: 2024-09-18 09:43+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -272,7 +272,7 @@ msgctxt "@title:window"
 msgid "Insert Image"
 msgstr "Vložit obrázek"
 
-#: qml/ImageDialog.qml:24 qml/ImportMaildirDialog.qml:56
+#: qml/ImageDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
@@ -322,6 +322,12 @@ msgstr "Název:"
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
+msgstr ""
+
+#: qml/ImportMaildirDialog.qml:57
+#, kde-format
+msgctxt "@title:window"
+msgid "Select an Maildir location"
 msgstr ""
 
 #: qml/ImportMaildirDialog.qml:103

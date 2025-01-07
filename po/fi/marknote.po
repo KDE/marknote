@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-01-07 00:41+0000\n"
 "PO-Revision-Date: 2024-10-17 13:24+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -274,7 +274,7 @@ msgctxt "@title:window"
 msgid "Insert Image"
 msgstr "Lisää kuva"
 
-#: qml/ImageDialog.qml:24 qml/ImportMaildirDialog.qml:56
+#: qml/ImageDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
@@ -324,6 +324,14 @@ msgstr "Nimi:"
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
+msgstr "Postikansion sijainti:"
+
+#: qml/ImportMaildirDialog.qml:57
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Notebook name"
+#| msgid "Maildir location:"
+msgctxt "@title:window"
+msgid "Select an Maildir location"
 msgstr "Postikansion sijainti:"
 
 #: qml/ImportMaildirDialog.qml:103
