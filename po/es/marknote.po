@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the marknote package.
 #
 # Automatically generated, 2023.
-# SPDX-FileCopyrightText: 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-07 00:41+0000\n"
-"PO-Revision-Date: 2024-12-16 12:05+0100\n"
+"PO-Revision-Date: 2025-01-07 19:50+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: application.cpp:34
 #, kde-format
@@ -328,12 +328,10 @@ msgid "Maildir location:"
 msgstr "Ubicación de Maildir:"
 
 #: qml/ImportMaildirDialog.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Notebook name"
-#| msgid "Maildir location:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select an Maildir location"
-msgstr "Ubicación de Maildir:"
+msgstr "Seleccionar una ubicación de Maildir"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format

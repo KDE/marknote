@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the marknote package.
-# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-07 00:41+0000\n"
-"PO-Revision-Date: 2024-12-16 21:43+0100\n"
+"PO-Revision-Date: 2025-01-07 19:49+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -324,12 +324,10 @@ msgid "Maildir location:"
 msgstr "Localización de Maildir:"
 
 #: qml/ImportMaildirDialog.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Notebook name"
-#| msgid "Maildir location:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select an Maildir location"
-msgstr "Localización de Maildir:"
+msgstr "Seleccione unha localización de Maildir"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format

@@ -1,15 +1,15 @@
 # Translation of marknote.po to Catalan (Valencian)
-# Copyright (C) 2023-2024 This_file_is_part_of_KDE
+# Copyright (C) 2023-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-07 00:41+0000\n"
-"PO-Revision-Date: 2024-12-16 10:38+0100\n"
+"PO-Revision-Date: 2025-01-07 10:07+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -41,7 +41,7 @@ msgstr "Importa des de KNotes"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr "Importa des del Maildir"
+msgstr "Importa des de Maildir"
 
 #: maildirimport.cpp:91
 #, kde-format
@@ -307,7 +307,7 @@ msgstr "Esbós ràpid"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr "Importeu des del Maildir"
+msgstr "Importeu des de Maildir"
 
 #: qml/ImportMaildirDialog.qml:32
 #, kde-format
@@ -325,15 +325,13 @@ msgstr "Nom:"
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr "Ubicació del Maildir:"
+msgstr "Ubicació de Maildir:"
 
 #: qml/ImportMaildirDialog.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Notebook name"
-#| msgid "Maildir location:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select an Maildir location"
-msgstr "Ubicació del Maildir:"
+msgstr "Seleccioneu una ubicació de Maildir"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
