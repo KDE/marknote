@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the marknote package.
 #
-# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-07 00:41+0000\n"
-"PO-Revision-Date: 2024-12-19 17:39+0900\n"
+"PO-Revision-Date: 2025-01-08 17:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: application.cpp:34
 #, kde-format
@@ -324,12 +324,10 @@ msgid "Maildir location:"
 msgstr "Maildir 位置："
 
 #: qml/ImportMaildirDialog.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Notebook name"
-#| msgid "Maildir location:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select an Maildir location"
-msgstr "Maildir 位置："
+msgstr "選擇一個 Maildir 郵件目錄位置："
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
