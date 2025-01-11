@@ -54,7 +54,7 @@ FormCard.FormCardDialog {
 
         FolderDialog {
             id: maildirSelectDialog
-            title: i18nc("@title:window", "Select an Maildir location")
+            title: i18nc("@title:window", "Select a Maildir location")
             currentFolder: directoryInput.path
             onAccepted: directoryInput.path = selectedFolder
         }
