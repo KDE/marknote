@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-07 00:41+0000\n"
+"POT-Creation-Date: 2025-01-12 00:42+0000\n"
 "PO-Revision-Date: 2025-01-08 15:29+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -324,9 +324,11 @@ msgid "Maildir location:"
 msgstr "Location de Maildir:"
 
 #: qml/ImportMaildirDialog.qml:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Select an Maildir location"
 msgctxt "@title:window"
-msgid "Select an Maildir location"
+msgid "Select a Maildir location"
 msgstr "Selectiona un location de Maildir"
 
 #: qml/ImportMaildirDialog.qml:103
