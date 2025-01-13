@@ -324,12 +324,10 @@ msgid "Maildir location:"
 msgstr "Maildir 位置："
 
 #: qml/ImportMaildirDialog.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Notebook name"
-#| msgid "Maildir location:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select a Maildir location"
-msgstr "Maildir 位置："
+msgstr ""
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
