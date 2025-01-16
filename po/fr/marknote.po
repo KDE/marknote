@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-12 00:42+0000\n"
-"PO-Revision-Date: 2025-01-13 09:41+0100\n"
+"PO-Revision-Date: 2025-01-14 17:55+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -646,7 +646,7 @@ msgstr "Ignorer"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr "Vérification d’orthographe"
+msgstr "Vérification d'orthographe"
 
 #: qml/TextFieldContextMenu.qml:258
 #, kde-format
@@ -738,13 +738,13 @@ msgstr "Configuration de l'éditeur"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr "Répertoire des notes :"
+msgstr "Dossier des notes :"
 
 #: settings/MarkNoteGeneralPage.qml:54
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the notes directory"
-msgstr "Sélectionnez le répertoire de notes"
+msgstr "Sélectionnez le dossier de notes"
 
 #: settings/MarkNoteGeneralPage.qml:69
 #, kde-format
