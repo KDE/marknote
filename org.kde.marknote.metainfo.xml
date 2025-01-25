@@ -255,6 +255,9 @@
       </description>
     </release>
   </releases>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
   <launchable type="desktop-id">org.kde.marknote.desktop</launchable>
   <developer id="org.kde">
     <name translate="no">KDE</name>
