@@ -13,7 +13,7 @@ SPDX-License-Identifier: LGPL-2.0-or-later
   <include>QFontDatabase</include>
   <group name="General">
     <entry name="sortBehaviour" type="String">
-      <default>QStringLiteral("sort-name")</default>
+      <default code="true">QStringLiteral("sort-name")</default>
     </entry>
     <entry name="expandedSidebar" type="Bool">
       <default>true</default>
