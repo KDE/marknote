@@ -579,7 +579,7 @@ Kirigami.Page {
                     Item{
                         Layout.fillWidth: true
                     }
-                    RadioSelector {
+                    Components.RadioSelector {
                         id: categorySelector
 
                         Layout.leftMargin: Kirigami.Units.mediumSpacing

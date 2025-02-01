@@ -30,7 +30,6 @@ ecm_add_qml_module(marknote_static
 
         qml/components/ActionButton.qml
         qml/components/DoubleActionButton.qml
-        qml/components/RadioSelector.qml
         qml/FormIconDelegate.qml
 
         # Native menu
