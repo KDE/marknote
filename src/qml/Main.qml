@@ -12,6 +12,7 @@ import org.kde.marknote
 import org.kde.marknote.settings
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.statefulapp as StatetfulApp
+import org.kde.kirigamiaddons.components as Components
 
 import "components"
 
@@ -391,7 +392,7 @@ StatetfulApp.StatefulWindow {
             }
         }
     }
-    BottomDrawer {
+    Components.BottomDrawer {
         id: bottomDrawer
 
         headerContentItem: RowLayout {

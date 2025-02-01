@@ -305,12 +305,10 @@ Kirigami.ScrollablePage {
             }
         }
 
-        ContextMenu {
+        Components.ConvergentContextMenu {
             id: menu
 
             property Delegates.RoundedItemDelegate delegateItem
-
-            visualParent: parent
 
             Action {
                 text: i18nc("@action:inmenu", "Rename Note")
@@ -399,7 +397,7 @@ Kirigami.ScrollablePage {
                 acceptedButtons: Qt.RightButton
                 onTapped: {
                     menu.delegateItem = delegateItem;
-                    menu.open()
+                    menu.popup()
                 }
             }
 
@@ -471,7 +469,7 @@ Kirigami.ScrollablePage {
                     Layout.margins: Kirigami.Units.smallSpacing
                     onClicked: {
                         menu.delegateItem = delegateItem;
-                        menu.open()
+                        menu.popup()
                     }
                 }
             }

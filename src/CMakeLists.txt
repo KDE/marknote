@@ -11,7 +11,6 @@ ecm_add_qml_module(marknote_static
         qml/NotesPage.qml
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml
-        qml/ContextMenu.qml
 
         # Notebook
         qml/NotebookContextMenu.qml
@@ -30,7 +29,6 @@ ecm_add_qml_module(marknote_static
         qml/TextFieldContextMenu.qml
 
         qml/components/ActionButton.qml
-        qml/components/BottomDrawer.qml
         qml/components/DoubleActionButton.qml
         qml/components/RadioSelector.qml
         qml/FormIconDelegate.qml
