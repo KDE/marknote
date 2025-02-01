@@ -420,6 +420,8 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.leftMargin: Kirigami.Units.smallSpacing
 
+                        // Ensure that we elide as expected, otherwise it cuts off the first half of any long title
+                        autoScroll: false
                         text: name
                         onAccepted: acceptedAction.triggered();
                         visible: true
