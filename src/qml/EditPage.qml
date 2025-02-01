@@ -74,7 +74,7 @@ Kirigami.Page {
 
         ToolButton {
             icon.name: "edit-undo"
-            text: i18n("undo")
+            text: i18n("Undo")
             display: AbstractButton.IconOnly
             Layout.leftMargin: Kirigami.Units.smallSpacing
             onClicked: textArea.undo()
@@ -87,7 +87,7 @@ Kirigami.Page {
         }
         ToolButton {
             icon.name: "edit-redo"
-            text: i18n("redo")
+            text: i18n("Redo")
             display: AbstractButton.IconOnly
             onClicked: textArea.redo()
             enabled: textArea.canRedo
@@ -548,7 +548,7 @@ Kirigami.Page {
                     }
                     ToolButton {
                         icon.name: "edit-undo"
-                        text: i18n("undo")
+                        text: i18n("Undo")
                         display: AbstractButton.IconOnly
                         onClicked: textArea.undo()
                         enabled: textArea.canUndo
@@ -561,7 +561,7 @@ Kirigami.Page {
                     ToolButton {
                         id: undoButton
                         icon.name: "edit-redo"
-                        text: i18n("undo")
+                        text: i18n("Redo")
                         display: AbstractButton.IconOnly
                         onClicked: textArea.redo()
                         enabled: textArea.canRedo
