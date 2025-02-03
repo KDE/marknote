@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:42+0000\n"
+"POT-Creation-Date: 2025-02-03 00:41+0000\n"
 "PO-Revision-Date: 2025-01-13 10:47+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -47,7 +47,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Er deed zich een fout voor bij schrijven naar '%1'"
 
-#: main.cpp:70 qml/Main.qml:345
+#: main.cpp:70 qml/Main.qml:346
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -354,52 +354,52 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "URL-adreskoppeling:"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:105
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 "Een nieuwe notitie aanmaken lukt niet, u moet eerst een notitieboek aanmaken."
 
-#: qml/Main.qml:104
+#: qml/Main.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Notitieboek aanmaken"
 
-#: qml/Main.qml:271
+#: qml/Main.qml:272
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importeren"
 
-#: qml/Main.qml:285
+#: qml/Main.qml:286
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Notitielijst sorteren"
 
-#: qml/Main.qml:291
+#: qml/Main.qml:292
 #, kde-format
 msgid "by Name"
 msgstr "op naam"
 
-#: qml/Main.qml:305
+#: qml/Main.qml:306
 #, kde-format
 msgid "by Date"
 msgstr "op datum"
 
-#: qml/Main.qml:330
+#: qml/Main.qml:331
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Zijbalk invouwen"
 
-#: qml/Main.qml:330
+#: qml/Main.qml:331
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Zijbalk uitvouwen"
 
-#: qml/Main.qml:399
+#: qml/Main.qml:400
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Uw notitieboeken"
@@ -563,70 +563,70 @@ msgstr ""
 "Wilt u werkelijk de notitie <b> %1 </b> wissen? Dit zal het bestand <b>%2</"
 "b> definitief verwijderen."
 
-#: qml/NotesPage.qml:316
+#: qml/NotesPage.qml:314
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Notitie hernoemen"
 
-#: qml/NotesPage.qml:322
+#: qml/NotesPage.qml:320
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Notitie verwijderen"
 
-#: qml/NotesPage.qml:333
+#: qml/NotesPage.qml:331
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Exporteer naar HTML"
 
-#: qml/NotesPage.qml:339
+#: qml/NotesPage.qml:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exporteer naar HTML"
 
-#: qml/NotesPage.qml:340
+#: qml/NotesPage.qml:338
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-bestand (*.html)"
 
-#: qml/NotesPage.qml:346
+#: qml/NotesPage.qml:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Naar PDF exporteren"
 
-#: qml/NotesPage.qml:352
+#: qml/NotesPage.qml:350
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Naar PDF exporteren"
 
-#: qml/NotesPage.qml:353
+#: qml/NotesPage.qml:351
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-bestand (*.pdf)"
 
-#: qml/NotesPage.qml:359
+#: qml/NotesPage.qml:357
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Naar ODT exporteren"
 
-#: qml/NotesPage.qml:365
+#: qml/NotesPage.qml:363
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Naar ODT exporteren"
 
-#: qml/NotesPage.qml:366
+#: qml/NotesPage.qml:364
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-tekstdocument (*.odt)"
 
-#: qml/NotesPage.qml:496
+#: qml/NotesPage.qml:494
 #, kde-format
 msgid "Add a note!"
 msgstr "Een notitie toevoegen!"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:42+0000\n"
+"POT-Creation-Date: 2025-02-03 00:41+0000\n"
 "PO-Revision-Date: 2024-09-22 16:36+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -48,7 +48,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Det oppstod ein feil ved lagring til «%1»"
 
-#: main.cpp:70 qml/Main.qml:345
+#: main.cpp:70 qml/Main.qml:346
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -358,53 +358,53 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "Lenkjeadresse:"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:105
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "Kan ikkje laga nytt notat. Du må først leggja til ei notatbok."
 
-#: qml/Main.qml:104
+#: qml/Main.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Ny notatbok"
 
-#: qml/Main.qml:271
+#: qml/Main.qml:272
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importer"
 
-#: qml/Main.qml:285
+#: qml/Main.qml:286
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Sorter notatlista"
 
 # Brukt i undermeny og bør ha stor forbokstav.
-#: qml/Main.qml:291
+#: qml/Main.qml:292
 #, kde-format
 msgid "by Name"
 msgstr "Etter namn"
 
 # Brukt i undermeny og bør ha stor forbokstav.
-#: qml/Main.qml:305
+#: qml/Main.qml:306
 #, kde-format
 msgid "by Date"
 msgstr "Etter dato"
 
-#: qml/Main.qml:330
+#: qml/Main.qml:331
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Fald saman sidestolpe"
 
-#: qml/Main.qml:330
+#: qml/Main.qml:331
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Utvid sidestolpe"
 
-#: qml/Main.qml:399
+#: qml/Main.qml:400
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Notatbøkene dine"
@@ -568,70 +568,70 @@ msgstr ""
 "Er du sikker på at du vil sletta notatet <b>%1</b>? Dette vil sletta fila <b>"
 "%2</b> for alltid."
 
-#: qml/NotesPage.qml:316
+#: qml/NotesPage.qml:314
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Endra notatnamn"
 
-#: qml/NotesPage.qml:322
+#: qml/NotesPage.qml:320
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Slett notat"
 
-#: qml/NotesPage.qml:333
+#: qml/NotesPage.qml:331
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Eksporter til HTML"
 
-#: qml/NotesPage.qml:339
+#: qml/NotesPage.qml:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Eksporter til HTML"
 
-#: qml/NotesPage.qml:340
+#: qml/NotesPage.qml:338
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-fil (*.html)"
 
-#: qml/NotesPage.qml:346
+#: qml/NotesPage.qml:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Eksporterer til PDF"
 
-#: qml/NotesPage.qml:352
+#: qml/NotesPage.qml:350
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Eksporterer til PDF"
 
-#: qml/NotesPage.qml:353
+#: qml/NotesPage.qml:351
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-fil (*.pdf)"
 
-#: qml/NotesPage.qml:359
+#: qml/NotesPage.qml:357
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Eksporter til ODT"
 
-#: qml/NotesPage.qml:365
+#: qml/NotesPage.qml:363
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Eksporter til ODT"
 
-#: qml/NotesPage.qml:366
+#: qml/NotesPage.qml:364
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-tekstdokument (*.odt)"
 
-#: qml/NotesPage.qml:496
+#: qml/NotesPage.qml:494
 #, kde-format
 msgid "Add a note!"
 msgstr "Legg til notat!"
