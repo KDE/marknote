@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2024-04-13 01:23-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -99,14 +99,14 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Não foi possível renomear essa nota. Já existe uma com o mesmo nome."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
 #, kde-format
-msgid "undo"
+msgid "Undo"
 msgstr ""
 
-#: qml/EditPage.qml:90
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
 #, kde-format
-msgid "redo"
+msgid "Redo"
 msgstr ""
 
 #: qml/EditPage.qml:146
@@ -639,7 +639,7 @@ msgstr "Exportar como ODT"
 msgid "ODF Text Document (*.odt)"
 msgstr "Documento de texto ODF (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Adicionar uma nota!"

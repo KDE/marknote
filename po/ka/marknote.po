@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2025-01-12 05:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -98,14 +98,18 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "შენიშვნის სახელის გადარქმევა ჩავარდა. შენიშვნა იგივე სახელით უკვე არსებობს."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
-msgstr "გაუქმება"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
+msgstr "დაბრუნება"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
 msgstr "გამეორება"
 
 #: qml/EditPage.qml:146
@@ -626,7 +630,7 @@ msgstr "გატანა ODT-ში"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF ტექსტური დოკუმენტი (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "დაამატეთ შენიშვნა!"
@@ -811,6 +815,12 @@ msgstr "სვეტი"
 #, kde-format
 msgid "Cell Contents"
 msgstr "უჯრედის შემცველობა"
+
+#~ msgid "undo"
+#~ msgstr "გაუქმება"
+
+#~ msgid "redo"
+#~ msgstr "გამეორება"
 
 #~ msgctxt "@label:textbox"
 #~ msgid "Number of Rows:"

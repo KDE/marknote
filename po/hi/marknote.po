@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 17:36+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -97,14 +97,18 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "नोट का नाम बदलने में असमर्थ. उसी नाम से एक नोट पहले से मौजूद है."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
 msgstr "पूर्ववत"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
 msgstr "फिर से करना"
 
 #: qml/EditPage.qml:146
@@ -627,7 +631,7 @@ msgstr "ODT में निर्यात करें"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF पाठ दस्तावेज़ (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "एक नोट जोड़े!"
@@ -812,3 +816,9 @@ msgstr "स्तंभ"
 #, kde-format
 msgid "Cell Contents"
 msgstr "सेल सामग्री"
+
+#~ msgid "undo"
+#~ msgstr "पूर्ववत"
+
+#~ msgid "redo"
+#~ msgstr "फिर से करना"

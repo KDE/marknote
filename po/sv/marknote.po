@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2025-01-12 08:46+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -98,15 +98,19 @@ msgstr ""
 "Kunde inte byta namn på anteckningen. En anteckning med samma namn finns "
 "redan."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
-msgstr "ångra"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
+msgstr "Ångra"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
-msgstr "gör om"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
+msgstr "Gör om"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -627,7 +631,7 @@ msgstr "Exportera till ODT"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-textdokument (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Lägg till en anteckning."
@@ -812,6 +816,12 @@ msgstr "Kolumn"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Cellinnehåll"
+
+#~ msgid "undo"
+#~ msgstr "ångra"
+
+#~ msgid "redo"
+#~ msgstr "gör om"
 
 #~ msgctxt "@label:textbox"
 #~ msgid "Number of Rows:"

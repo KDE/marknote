@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 19:37+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -96,14 +96,18 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "노트의 이름을 바꿀 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
 msgstr "실행 취소"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
 msgstr "다시 실행"
 
 #: qml/EditPage.qml:146
@@ -623,7 +627,7 @@ msgstr "ODT로 내보내기"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF 텍스트 문서 (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "새 노트 추가!"
@@ -808,6 +812,12 @@ msgstr "칸"
 #, kde-format
 msgid "Cell Contents"
 msgstr "셀 내용"
+
+#~ msgid "undo"
+#~ msgstr "실행 취소"
+
+#~ msgid "redo"
+#~ msgstr "다시 실행"
 
 #, fuzzy
 #~| msgid "Marknote"

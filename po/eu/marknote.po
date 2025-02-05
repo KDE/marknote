@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2025-01-12 08:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -99,15 +99,19 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Ezin du oharra berrizendatu. Izen bera duen ohar bat dago."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
-msgstr "desegin"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
+msgstr "Desegin"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
-msgstr "berregin"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
+msgstr "Berregin"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -627,7 +631,7 @@ msgstr "Esportatu ODT gisa"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF testu dokumentua (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Gehitu ohar bat!"
@@ -812,6 +816,12 @@ msgstr "Zutabea"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Gelaxkaren edukia"
+
+#~ msgid "undo"
+#~ msgstr "desegin"
+
+#~ msgid "redo"
+#~ msgstr "berregin"
 
 #~ msgid "Open Command Bar"
 #~ msgstr "Ireki komando-barra"

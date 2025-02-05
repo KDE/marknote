@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2025-01-14 17:55+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -95,15 +95,19 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "Impossible de renommer une note. Une note existe déjà avec le même nom."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
-msgstr "annuler"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
+msgstr "Annuler"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
-msgstr "répéter"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
+msgstr "Refaire"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -625,7 +629,7 @@ msgstr "Exporter vers le format « ODT »"
 msgid "ODF Text Document (*.odt)"
 msgstr "Document de texte « ODF » (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Ajoutez une note !"
@@ -810,6 +814,12 @@ msgstr "Colonne"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contenu des cellules"
+
+#~ msgid "undo"
+#~ msgstr "annuler"
+
+#~ msgid "redo"
+#~ msgstr "répéter"
 
 #~ msgctxt "@label:textbox"
 #~ msgid "Number of Rows:"

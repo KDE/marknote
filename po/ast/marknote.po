@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2024-03-27 22:39+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -96,14 +96,14 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
 #, kde-format
-msgid "undo"
+msgid "Undo"
 msgstr ""
 
-#: qml/EditPage.qml:90
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
 #, kde-format
-msgid "redo"
+msgid "Redo"
 msgstr ""
 
 #: qml/EditPage.qml:146
@@ -620,7 +620,7 @@ msgstr ""
 msgid "ODF Text Document (*.odt)"
 msgstr ""
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2025-01-18 12:07+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -97,15 +97,19 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Nie można przemianować notatki. Notatka o takiej nazwie już istnieje."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
-msgstr "cofnij"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
+msgstr "Cofnij"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
-msgstr "przywróć"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
+msgstr "Przywróć"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -624,7 +628,7 @@ msgstr "Wyeksportuj do ODT"
 msgid "ODF Text Document (*.odt)"
 msgstr "Dokument tekstowy ODF (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Dodaj notatkę!"
@@ -809,6 +813,12 @@ msgstr "Kolumna"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Zawartość komórki"
+
+#~ msgid "undo"
+#~ msgstr "cofnij"
+
+#~ msgid "redo"
+#~ msgstr "przywróć"
 
 #~ msgctxt "@label:textbox"
 #~ msgid "Number of Rows:"

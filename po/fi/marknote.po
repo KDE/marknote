@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2024-10-17 13:24+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -99,15 +99,19 @@ msgstr ""
 "Muistiinpanon nimeä ei voida muuttaa. Samanniminen muistiinpano on jo "
 "olemassa."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
-msgstr "kumoa"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
+msgstr "Kumoa"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
-msgstr "tee uudelleen"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
+msgstr "Tee uudelleen"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -629,7 +633,7 @@ msgstr "Vie ODT:ksi"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-tekstitiedosto (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Lisää muistiinpano!"
@@ -814,6 +818,12 @@ msgstr "Sarake"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Solun sisältö"
+
+#~ msgid "undo"
+#~ msgstr "kumoa"
+
+#~ msgid "redo"
+#~ msgstr "tee uudelleen"
 
 #, fuzzy
 #~| msgid "Marknote"

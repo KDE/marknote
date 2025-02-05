@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2024-08-25 17:48+0200\n"
 "Last-Translator: Alois.spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -102,15 +102,19 @@ msgstr ""
 "Notiz kann nicht umbenannt werden. Es existiert bereits eine Notiz mit "
 "demselben Namen."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
-msgstr ""
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
+msgstr "Rückgängig"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
-msgstr ""
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
+msgstr "Wiederherstellen"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -631,7 +635,7 @@ msgstr "Als ODT exportieren"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-Textdokument (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Eine Notiz hinzufügen."

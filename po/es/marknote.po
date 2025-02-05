@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2025-01-12 13:09+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -100,15 +100,19 @@ msgstr ""
 "No se puede cambiar el nombre de la nota. Ya existe otra nota con el mismo "
 "nombre."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
-msgstr "deshacer"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
+msgstr "Deshacer"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
-msgstr "rehacer"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
+msgstr "Rehacer"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -629,7 +633,7 @@ msgstr "Exportar a ODT"
 msgid "ODF Text Document (*.odt)"
 msgstr "Documento de texto ODF (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Añada una nota"
@@ -814,6 +818,12 @@ msgstr "Columna"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contenido de la celda"
+
+#~ msgid "undo"
+#~ msgstr "deshacer"
+
+#~ msgid "redo"
+#~ msgstr "rehacer"
 
 #~ msgctxt "@label:textbox"
 #~ msgid "Number of Rows:"

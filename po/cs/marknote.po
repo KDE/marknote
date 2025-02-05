@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2024-09-18 09:43+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -97,15 +97,19 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
-msgstr "vrátit zpět"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
+msgstr "Zpět"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
-msgstr "znovu"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
+msgstr "Znovu"
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -625,7 +629,7 @@ msgstr "Exportovat do ODT"
 msgid "ODF Text Document (*.odt)"
 msgstr "Textový dokument ODF (*.odf)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Přidat poznámku."
@@ -810,3 +814,9 @@ msgstr "Sloupec"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Obsah buňky"
+
+#~ msgid "undo"
+#~ msgstr "vrátit zpět"
+
+#~ msgid "redo"
+#~ msgstr "znovu"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-03 00:41+0000\n"
+"POT-Creation-Date: 2025-02-05 00:42+0000\n"
 "PO-Revision-Date: 2025-01-24 22:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -96,14 +96,18 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "無法重新命名筆記。已經有另一個筆記使用該名稱。"
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551 qml/EditPage.qml:564
-#, kde-format
-msgid "undo"
+#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Undo"
+msgid "Undo"
 msgstr "復原"
 
-#: qml/EditPage.qml:90
-#, kde-format
-msgid "redo"
+#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgid "Redo"
 msgstr "重做"
 
 #: qml/EditPage.qml:146
@@ -620,7 +624,7 @@ msgstr "匯出為 ODT"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF 文字文件 (*.odt)"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "新增筆記！"
@@ -805,6 +809,12 @@ msgstr "欄"
 #, kde-format
 msgid "Cell Contents"
 msgstr "儲存格內容"
+
+#~ msgid "undo"
+#~ msgstr "復原"
+
+#~ msgid "redo"
+#~ msgstr "重做"
 
 #~ msgctxt "@label:textbox"
 #~ msgid "Number of Rows:"
