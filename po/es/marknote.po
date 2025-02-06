@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-05 00:42+0000\n"
-"PO-Revision-Date: 2025-01-12 13:09+0100\n"
+"PO-Revision-Date: 2025-02-05 02:23+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: application.cpp:34
 #, kde-format
@@ -101,16 +101,12 @@ msgstr ""
 "nombre."
 
 #: qml/EditPage.qml:77 qml/EditPage.qml:551
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Undo"
+#, kde-format
 msgid "Undo"
 msgstr "Deshacer"
 
 #: qml/EditPage.qml:90 qml/EditPage.qml:564
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Redo"
+#, kde-format
 msgid "Redo"
 msgstr "Rehacer"
 

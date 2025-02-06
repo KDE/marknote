@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-05 00:42+0000\n"
-"PO-Revision-Date: 2025-01-12 09:57+0100\n"
+"PO-Revision-Date: 2025-02-05 13:17+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -101,16 +101,12 @@ msgstr ""
 "nom."
 
 #: qml/EditPage.qml:77 qml/EditPage.qml:551
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Undo"
+#, kde-format
 msgid "Undo"
 msgstr "Desfés"
 
 #: qml/EditPage.qml:90 qml/EditPage.qml:564
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Redo"
+#, kde-format
 msgid "Redo"
 msgstr "Refés"
 
@@ -817,9 +813,3 @@ msgstr "Columna"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contingut de la cel·la"
-
-#~ msgid "undo"
-#~ msgstr "desfera"
-
-#~ msgid "redo"
-#~ msgstr "refera"
