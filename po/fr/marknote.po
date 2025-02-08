@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-05 00:42+0000\n"
-"PO-Revision-Date: 2025-01-14 17:55+0100\n"
+"PO-Revision-Date: 2025-02-06 10:06+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -96,16 +96,12 @@ msgstr ""
 "Impossible de renommer une note. Une note existe déjà avec le même nom."
 
 #: qml/EditPage.qml:77 qml/EditPage.qml:551
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Undo"
+#, kde-format
 msgid "Undo"
 msgstr "Annuler"
 
 #: qml/EditPage.qml:90 qml/EditPage.qml:564
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Redo"
+#, kde-format
 msgid "Redo"
 msgstr "Refaire"
 
