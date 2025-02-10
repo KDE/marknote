@@ -820,10 +820,3 @@ msgstr "Kolonne"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celleinnhald"
-
-# Hjelpeboble for «Angra»-knappen og bør derfor ha stor A.
-#~ msgid "undo"
-#~ msgstr "Angra"
-
-#~ msgid "redo"
-#~ msgstr "Gjer om"
