@@ -59,10 +59,9 @@ msgid "Note taking application"
 msgstr "Aplikace poznámek"
 
 #: main.cpp:74
-#, fuzzy, kde-format
-#| msgid "© 2023 Mathis Brüchert"
+#, kde-format
 msgid "© 2023-2024 Mathis Brüchert"
-msgstr "© 2023 Mathis Brüchert"
+msgstr ""
 
 #: main.cpp:75
 #, kde-format
@@ -98,16 +97,12 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 
 #: qml/EditPage.qml:77 qml/EditPage.qml:551
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Undo"
+#, kde-format
 msgid "Undo"
 msgstr "Zpět"
 
 #: qml/EditPage.qml:90 qml/EditPage.qml:564
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Redo"
+#, kde-format
 msgid "Redo"
 msgstr "Znovu"
 
@@ -814,9 +809,3 @@ msgstr "Sloupec"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Obsah buňky"
-
-#~ msgid "undo"
-#~ msgstr "vrátit zpět"
-
-#~ msgid "redo"
-#~ msgstr "znovu"
