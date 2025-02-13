@@ -97,18 +97,14 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr "无法重命名笔记。已经有同名称的笔记。"
 
 #: qml/EditPage.qml:77 qml/EditPage.qml:551
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Undo"
+#, kde-format
 msgid "Undo"
-msgstr "撤销"
+msgstr ""
 
 #: qml/EditPage.qml:90 qml/EditPage.qml:564
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Redo"
+#, kde-format
 msgid "Redo"
-msgstr "重做"
+msgstr ""
 
 #: qml/EditPage.qml:146
 #, kde-format
@@ -809,9 +805,3 @@ msgstr "列"
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"
-
-#~ msgid "undo"
-#~ msgstr "撤销"
-
-#~ msgid "redo"
-#~ msgstr "重做"
