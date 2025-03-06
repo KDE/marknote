@@ -24,6 +24,7 @@
   <name xml:lang="it">Marknote</name>
   <name xml:lang="ka">Marknote</name>
   <name xml:lang="ko">Marknote</name>
+  <name xml:lang="lv">Marknote</name>
   <name xml:lang="nl">Marknote</name>
   <name xml:lang="nn">Marknote</name>
   <name xml:lang="pa">ਮਾਰਕਨੋਟ</name>
@@ -55,6 +56,7 @@
   <summary xml:lang="it">Scrivi i tuoi pensieri</summary>
   <summary xml:lang="ka">ჩაიწერეთ თქვენი იდეები</summary>
   <summary xml:lang="ko">내 생각 기록하기</summary>
+  <summary xml:lang="lv">Pierakstiet savas domas</summary>
   <summary xml:lang="nl">Schrijf uw gedachten op</summary>
   <summary xml:lang="nn">Skriv ned tankane dine</summary>
   <summary xml:lang="pa">ਆਪਣੇ ਵਿਚਾਰ ਲਿਖੋ</summary>
@@ -87,6 +89,7 @@
     <p xml:lang="it">Marknote ti consente di creare note con testo formattato e di organizzarle facilmente in taccuini. Puoi personalizzare i tuoi taccuini scegliendo un'icona e un colore principale per ciascuno, rendendo più semplice distinguerli e tenere gli appunti a portata di mano. Le tue note vengono salvate come file Markdown nella cartella Documenti, semplificando l'utilizzo delle tue note all'esterno di Marknote e all'interno dell'applicazione.</p>
     <p xml:lang="ka">Marknote საშუალებას გაძლევთ, შექმნათ მდიდარი ტექსტის მქონე შენიშვნები და ისინი ბლოკნოტებში იოლად დაანაწილოთ. თქვენი ბლოკნოტები შეგიძლიათ, მოირგოთ, მათთვის სათითაოდ ხატულის და მახვილის ფერის არჩევით, რითიც მათ შორის სწორის არჩევას გააიოლებთ. თქვენი შენიშვნები შენახულია Markdown-ის ფაილების სახით თქვენი დოკუმენტების საქაღალდეში, რითიც გაგიიოლებთ შენიშვნების პოვნას როგორც პროგრამის შიგნით, ისე გარეთ.</p>
     <p xml:lang="ko">Marknote를 사용하면 서식 있는 텍스트 노트를 작성하고 공책 단위로 관리할 수 있습니다. 각각 노트별 아이콘과 강조색을 선택하여 개인화할 수 있습니다. 또한 노트별 쉬운 구분과 손쉬운 식별이 가능합니다. 내 문서 폴더 아래에 마크다운 형식으로 저장되며, Marknote 앱 내부뿐만 아니라 외부에서도 쉽게 사용할 수 있습니다.</p>
+    <p xml:lang="lv">„Marknote“ ļauj izveidot piezīmes formatētā tekstā un tās viegli sakārtot piezīmju grāmatiņās. Savas piezīmju grāmatiņas varat personalizēt, katrai izvēloties ikonu un akcenta krāsu. Tas atvieglo to atšķiršanu un ļaus piezīmēm vienmēr būt ātri atrodamām. Programma piezīmes saglabās kā „markdown“ datnes dokumentu mapē, tāpēc tām varēsit viegli piekļūt gan no „Marknote“, gan citām programmām.</p>
     <p xml:lang="nl">Marknote laat u opgemaakte tekst notities maken en ze gemakkelijk organiseren in notitieboeken. U kunt uw notitieboeken personaliseren door een pictogram te kiezen en een accentueringskleur voor elkeen, waarmee het gemakkelijk is ze te onderscheiden en uw notities binnen handbereik te houden. Uw notities worden bewaard als Markdown-bestanden in uw map Documenten, waarmee het gemakkelijk is om uw notities buiten Marknote te gebruiken evenals in de toepassing.</p>
     <p xml:lang="nn">Marknote lèt deg skriv tekstnotat med formatering og organisera dei i notatbøker. Du kan personalisera notatbøkene ved å velja ikon og farge, slik at du lettare kan skilja dei frå kvarandre og finna fram. Notata vert lagra som vanlege Markdown-filer i «Dokument»-mappa, så du har enkel tilgang til dei òg frå andre program.</p>
     <p xml:lang="pl">Marknote umożliwia tworzenie sformatowanych notatek i łatwe zarządzanie nimi w notatnikach. Możesz dostosować swoje notatniki, wybierając im ikony i barwy akcentujące, co czyni je łatwo rozróżnialnymi, a notatki są wtedy zawsze pod ręką. Twoje notatki są zapisywane jako pliki Markdown w twoim katalogu dokumentów, czyniąc łatwym ich używanie poza Marknote, jak i w nim samym.</p>
