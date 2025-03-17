@@ -18,21 +18,7 @@ Kirigami.ScrollablePage {
 
     objectName: "NotesPage"
     property bool wideScreen: applicationWindow().width >= 600
-
-    Item {
-        id: windowItem
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        property color windowBackground: Kirigami.Theme.backgroundColor
-    }
-    Item {
-        id: viewItem
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-        property color viewBackground: Kirigami.Theme.backgroundColor
-    }
-    property color backgroundColor: Kirigami.ColorUtils.linearInterpolation(windowItem.windowBackground, viewItem.viewBackground, 0.6)
-
+    property color backgroundColor: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.alternateBackgroundColor, 0.6)
     background: Rectangle {color: root.backgroundColor}
 
     Components.FloatingButton {
