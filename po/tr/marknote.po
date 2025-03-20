@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-05 00:42+0000\n"
+"POT-Creation-Date: 2025-03-20 00:42+0000\n"
 "PO-Revision-Date: 2025-02-05 11:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -111,7 +111,7 @@ msgstr "Yinele"
 msgid "Focus Mode"
 msgstr "Odak Kipi"
 
-#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:169
+#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:155
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -531,28 +531,28 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Ad:"
 
-#: qml/NotesPage.qml:48
+#: qml/NotesPage.qml:34
 #, kde-format
 msgid "Add note"
 msgstr "Not ekle"
 
-#: qml/NotesPage.qml:132
+#: qml/NotesPage.qml:118
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Aramadan çık (%1)"
 
-#: qml/NotesPage.qml:132
+#: qml/NotesPage.qml:118
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Notları ara (%1)"
 
-#: qml/NotesPage.qml:189
+#: qml/NotesPage.qml:175
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Notu Sil"
 
-#: qml/NotesPage.qml:202
+#: qml/NotesPage.qml:188
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -561,70 +561,70 @@ msgstr ""
 "<b>%1</b> notunu silmek istediğinizden emin misiniz? Bu, <b>%2</b> dosyasını "
 "kalıcı olarak siler."
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:300
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Notu Yeniden Adlandır"
 
-#: qml/NotesPage.qml:320
+#: qml/NotesPage.qml:306
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Notu Sil"
 
-#: qml/NotesPage.qml:331
+#: qml/NotesPage.qml:317
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "HTML Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:323
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "HTML Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:338
+#: qml/NotesPage.qml:324
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML dosyası (*.html)"
 
-#: qml/NotesPage.qml:344
+#: qml/NotesPage.qml:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "PDF Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:336
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "PDF Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:351
+#: qml/NotesPage.qml:337
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF dosyası (*.pdf)"
 
-#: qml/NotesPage.qml:357
+#: qml/NotesPage.qml:343
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "ODT Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:363
+#: qml/NotesPage.qml:349
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "ODT Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:364
+#: qml/NotesPage.qml:350
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF metin belgesi (*.odt)"
 
-#: qml/NotesPage.qml:496
+#: qml/NotesPage.qml:482
 #, kde-format
 msgid "Add a note!"
 msgstr "Bir not ekle!"

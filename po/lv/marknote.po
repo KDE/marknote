@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-05 00:42+0000\n"
+"POT-Creation-Date: 2025-03-20 00:42+0000\n"
 "PO-Revision-Date: 2025-03-04 19:20+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -112,7 +112,7 @@ msgstr "Atatsaukt"
 msgid "Focus Mode"
 msgstr "Fokusēšanās režīms"
 
-#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:169
+#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:155
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -533,28 +533,28 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Nosaukums:"
 
-#: qml/NotesPage.qml:48
+#: qml/NotesPage.qml:34
 #, kde-format
 msgid "Add note"
 msgstr "Pievienot piezīmi"
 
-#: qml/NotesPage.qml:132
+#: qml/NotesPage.qml:118
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Iziet no meklēšanas (%1)"
 
-#: qml/NotesPage.qml:132
+#: qml/NotesPage.qml:118
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Meklēt piezīmes (%1)"
 
-#: qml/NotesPage.qml:189
+#: qml/NotesPage.qml:175
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Dzēst piezīmi"
 
-#: qml/NotesPage.qml:202
+#: qml/NotesPage.qml:188
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -563,70 +563,70 @@ msgstr ""
 "Vai tiešām vēlaties dzēst piezīmi <b> %1 </b>? Šī darbība neatgriezeniski "
 "dzēsīs datni <b>%2</b>."
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:300
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Pārdēvēt piezīmi"
 
-#: qml/NotesPage.qml:320
+#: qml/NotesPage.qml:306
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Dzēst piezīmi"
 
-#: qml/NotesPage.qml:331
+#: qml/NotesPage.qml:317
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Eksportēt uz HTML"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:323
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Eksportēt uz HTML"
 
-#: qml/NotesPage.qml:338
+#: qml/NotesPage.qml:324
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML datne (*.html)"
 
-#: qml/NotesPage.qml:344
+#: qml/NotesPage.qml:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Eksportēt uz PDF"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:336
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Eksportēt uz PDF"
 
-#: qml/NotesPage.qml:351
+#: qml/NotesPage.qml:337
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF datne (*.pdf)"
 
-#: qml/NotesPage.qml:357
+#: qml/NotesPage.qml:343
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Eksportēt uz ODT"
 
-#: qml/NotesPage.qml:363
+#: qml/NotesPage.qml:349
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Eksportēt uz ODT"
 
-#: qml/NotesPage.qml:364
+#: qml/NotesPage.qml:350
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF teksta dokuments (*.odt)"
 
-#: qml/NotesPage.qml:496
+#: qml/NotesPage.qml:482
 #, kde-format
 msgid "Add a note!"
 msgstr "Pievienojiet piezīmi!"
