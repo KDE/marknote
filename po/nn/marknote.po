@@ -100,15 +100,11 @@ msgstr ""
 
 #: qml/EditPage.qml:77 qml/EditPage.qml:551
 #, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Undo"
 msgid "Undo"
 msgstr "Angra"
 
 #: qml/EditPage.qml:90 qml/EditPage.qml:564
 #, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Redo"
 msgid "Redo"
 msgstr "Gjer om"
 
@@ -331,8 +327,6 @@ msgstr "Maildir-adresse:"
 
 #: qml/ImportMaildirDialog.qml:57
 #, fuzzy, kde-format
-#| msgctxt "@label:textbox Notebook name"
-#| msgid "Maildir location:"
 msgctxt "@title:window"
 msgid "Select a Maildir location"
 msgstr "Maildir-adresse:"
