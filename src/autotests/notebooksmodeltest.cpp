@@ -25,6 +25,8 @@ private Q_SLOTS:
         model.setStoragePath(dir);
 
         auto tester = new QAbstractItemModelTester(&model, QAbstractItemModelTester::FailureReportingMode::QtTest);
+        tester->setUseFetchMore(false);
+
         QCOMPARE(model.rowCount({}), 0);
 
         // Add
