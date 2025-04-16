@@ -20,8 +20,8 @@ StatetfulApp.StatefulWindow {
     id: root
     property int minWideScreenWidth: 800
     property int normalColumnWidth: Kirigami.Units.gridUnit * 15
-    property double maximalColumWidthPercentage: 0.3
-    property int minimalColumnWidth: minWideScreenWidth * maximalColumWidthPercentage
+    property double maximalColumWidthPercentage: 0.45
+    property int minimalColumnWidth: (minWideScreenWidth * maximalColumWidthPercentage) - (Kirigami.Units.gridUnit * 5)
 
     property bool wideScreen: applicationWindow().width >= minWideScreenWidth && !Config.fillWindow
     property bool columnModeDelayed: false
