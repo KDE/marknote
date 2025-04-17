@@ -678,7 +678,7 @@ Kirigami.Page {
             topPadding: 0
 
             // To eliminate text overlap by the textFormatGroup we introduce extra padding
-            property int additionalPadding: Kirigami.Units.gridUnit * 4
+            readonly property int additionalPadding: Kirigami.Units.gridUnit * 4
             bottomPadding: wideScreen? additionalPadding : (mobileToolBarContainer.hidden ? 0 : mobileToolBarContainer.height)
 
             Behavior on bottomPadding {
