@@ -677,7 +677,9 @@ Kirigami.Page {
             rightPadding: 0
             topPadding: 0
 
-            bottomPadding: wideScreen? 0 : (mobileToolBarContainer.hidden ? 0 : mobileToolBarContainer.height)
+            // To eliminate text overlap by the textFormatGroup we introduce extra padding
+            property int additionalPadding: Kirigami.Units.gridUnit * 4
+            bottomPadding: wideScreen? additionalPadding : (mobileToolBarContainer.hidden ? 0 : mobileToolBarContainer.height)
 
             Behavior on bottomPadding {
                 NumberAnimation {
