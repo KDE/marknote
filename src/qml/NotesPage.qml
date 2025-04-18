@@ -4,12 +4,14 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Templates as T
 import QtQuick.Dialogs
 import org.kde.kitemmodels
 import org.kde.marknote
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as Components
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import "components"
 
@@ -171,6 +173,8 @@ Kirigami.ScrollablePage {
         property url fileUrl
         property string noteName
 
+        width: Math.min(parent.width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 26)
+        bottomPadding: Kirigami.Units.gridUnit
         dialogType: Components.MessageDialog.Warning
         title: i18nc("@title:window", "Delete Note")
         onRejected: close()
@@ -182,6 +186,55 @@ Kirigami.ScrollablePage {
             close();
         }
         standardButtons: Dialog.Ok | Dialog.Cancel
+
+        footer: GridLayout {
+            id: customGridLayoutFooter
+            columns: removeDialog._mobileLayout ? 1 : 1 + buttonRepeater.count + 1
+            rowSpacing: Kirigami.Units.mediumSpacing
+            columnSpacing: Kirigami.Units.mediumSpacing
+
+            FormCard.FormCheckDelegate {
+                id: checkbox
+                visible: false // needs a config property to save a state, so disable it for now
+                text: i18ndc("kirigami-addons6", "@label:checkbox", "Do not show again")
+                background: null
+                Layout.alignment: Qt.AlignVCenter
+            }
+            Item {
+                visible: !checkbox.visible
+                Layout.fillWidth: true
+            }
+
+            Repeater {
+                id: buttonRepeater
+                model: dialogButtonBox.contentModel
+            }
+
+            T.DialogButtonBox {
+                id: dialogButtonBox
+                standardButtons: removeDialog.standardButtons
+
+                // this aligns buttons to the left of the dialog box. Unlike "Layout.alignment: Qt.AlignRight", it just works
+                Layout.leftMargin: -(Kirigami.Units.gridUnit * 5)
+
+                contentItem: Item {}
+
+                onAccepted: removeDialog.accepted()
+                onDiscarded: removeDialog.discarded()
+                onApplied: removeDialog.applied()
+                onHelpRequested: removeDialog.helpRequested()
+                onRejected: removeDialog.rejected()
+
+                delegate: Button {
+                    property int index: buttonRepeater.model.children.indexOf(this)
+                    Kirigami.MnemonicData.controlType: Kirigami.MnemonicData.DialogButton
+                    Layout.fillWidth: removeDialog._mobileLayout
+                    Layout.leftMargin: removeDialog._mobileLayout ? Kirigami.Units.mediumSpacing * 2 : (index === 0 ? Kirigami.Units.mediumSpacing : 0)
+                    Layout.rightMargin: removeDialog._mobileLayout ? Kirigami.Units.largeSpacing * 2 : (index === buttonRepeater.count - 1 ? Kirigami.Units.mediumSpacing : 0)
+                    Layout.bottomMargin: removeDialog._mobileLayout && index !== buttonRepeater.count - 1 ? 0 : Kirigami.Units.mediumSpacing * 2
+                }
+            }
+        }
 
         Label {
             Layout.fillWidth: true
