@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 00:42+0000\n"
+"POT-Creation-Date: 2025-04-19 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Focus Mode"
 msgstr "专注模式"
 
-#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:155
+#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:157
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -486,13 +486,19 @@ msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "删除笔记本"
 
-#: qml/NotebookDeleteDialog.qml:31
+#: qml/NotebookDeleteDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "删除笔记本"
 
-#: qml/NotebookDeleteDialog.qml:38
+#: qml/NotebookDeleteDialog.qml:46 qml/NotesPage.qml:199
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Do not show again"
+msgstr ""
+
+#: qml/NotebookDeleteDialog.qml:88
 #, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
@@ -529,98 +535,98 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "名称："
 
-#: qml/NotesPage.qml:34
+#: qml/NotesPage.qml:36
 #, kde-format
 msgid "Add note"
 msgstr "添加笔记"
 
-#: qml/NotesPage.qml:118
+#: qml/NotesPage.qml:120
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "退出搜索 (%1)"
 
-#: qml/NotesPage.qml:118
+#: qml/NotesPage.qml:120
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "搜索笔记(%1)"
 
-#: qml/NotesPage.qml:175
+#: qml/NotesPage.qml:179
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "删除笔记"
 
-#: qml/NotesPage.qml:188
+#: qml/NotesPage.qml:241
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr "您确定要删除笔记 <b> %1 </b>？这将删除文件 <b>%2</b>。"
 
-#: qml/NotesPage.qml:300
+#: qml/NotesPage.qml:353
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "重命名笔记"
 
-#: qml/NotesPage.qml:306
+#: qml/NotesPage.qml:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "删除笔记"
 
-#: qml/NotesPage.qml:317
+#: qml/NotesPage.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "导出为 HTML"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "导出为 HTML"
 
-#: qml/NotesPage.qml:324
+#: qml/NotesPage.qml:377
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML 文件 (*.html)"
 
-#: qml/NotesPage.qml:330
+#: qml/NotesPage.qml:383
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "导出为 PDF"
 
-#: qml/NotesPage.qml:336
+#: qml/NotesPage.qml:389
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "导出为 PDF"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:390
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF 文件 (*.pdf)"
 
-#: qml/NotesPage.qml:343
+#: qml/NotesPage.qml:396
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "导出为 ODT"
 
-#: qml/NotesPage.qml:349
+#: qml/NotesPage.qml:402
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "导出为 ODT"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:403
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF 文本文档 (*.odt)"
 
-#: qml/NotesPage.qml:482
+#: qml/NotesPage.qml:535
 #, kde-format
 msgid "Add a note!"
 msgstr "添加笔记！"

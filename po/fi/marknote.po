@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 00:42+0000\n"
+"POT-Creation-Date: 2025-04-19 00:42+0000\n"
 "PO-Revision-Date: 2025-02-14 19:39+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -113,7 +113,7 @@ msgstr "Tee uudelleen"
 msgid "Focus Mode"
 msgstr "Keskittymistila"
 
-#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:155
+#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:157
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -488,13 +488,19 @@ msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Poista muistikirja"
 
-#: qml/NotebookDeleteDialog.qml:31
+#: qml/NotebookDeleteDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Poista muistikirja"
 
-#: qml/NotebookDeleteDialog.qml:38
+#: qml/NotebookDeleteDialog.qml:46 qml/NotesPage.qml:199
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Do not show again"
+msgstr ""
+
+#: qml/NotebookDeleteDialog.qml:88
 #, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
@@ -533,28 +539,28 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Nimi:"
 
-#: qml/NotesPage.qml:34
+#: qml/NotesPage.qml:36
 #, kde-format
 msgid "Add note"
 msgstr "Lisää muistiinpano"
 
-#: qml/NotesPage.qml:118
+#: qml/NotesPage.qml:120
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Poistu hausta (%1)"
 
-#: qml/NotesPage.qml:118
+#: qml/NotesPage.qml:120
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Etsi muistiinpanoista (%1)"
 
-#: qml/NotesPage.qml:175
+#: qml/NotesPage.qml:179
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Poista muistiinpano"
 
-#: qml/NotesPage.qml:188
+#: qml/NotesPage.qml:241
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -563,70 +569,70 @@ msgstr ""
 "Haluatko varmasti poistaa muistiinpanon <b>%1</b>? Tämä poistaa tiedoston <b>"
 "%2</b> pysyvästi."
 
-#: qml/NotesPage.qml:300
+#: qml/NotesPage.qml:353
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Muuta muistiinpanon nimeä"
 
-#: qml/NotesPage.qml:306
+#: qml/NotesPage.qml:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Poista muistiinpano"
 
-#: qml/NotesPage.qml:317
+#: qml/NotesPage.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Vie HTML:ksi"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Vie HTML:ksi"
 
-#: qml/NotesPage.qml:324
+#: qml/NotesPage.qml:377
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-tiedosto (*.html)"
 
-#: qml/NotesPage.qml:330
+#: qml/NotesPage.qml:383
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Vie PDF:ksi"
 
-#: qml/NotesPage.qml:336
+#: qml/NotesPage.qml:389
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Vie PDF:ksi"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:390
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-tiedosto (*.pdf)"
 
-#: qml/NotesPage.qml:343
+#: qml/NotesPage.qml:396
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Vie ODT:ksi"
 
-#: qml/NotesPage.qml:349
+#: qml/NotesPage.qml:402
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Vie ODT:ksi"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:403
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-tekstitiedosto (*.odt)"
 
-#: qml/NotesPage.qml:482
+#: qml/NotesPage.qml:535
 #, kde-format
 msgid "Add a note!"
 msgstr "Lisää muistiinpano!"

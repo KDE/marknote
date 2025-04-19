@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 00:42+0000\n"
+"POT-Creation-Date: 2025-04-19 00:42+0000\n"
 "PO-Revision-Date: 2025-02-05 13:17+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -115,7 +115,7 @@ msgstr "Refés"
 msgid "Focus Mode"
 msgstr "Mode del focus"
 
-#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:155
+#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:157
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -490,13 +490,19 @@ msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Suprimeix el bloc de notes"
 
-#: qml/NotebookDeleteDialog.qml:31
+#: qml/NotebookDeleteDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Supressió de bloc de notes"
 
-#: qml/NotebookDeleteDialog.qml:38
+#: qml/NotebookDeleteDialog.qml:46 qml/NotesPage.qml:199
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Do not show again"
+msgstr ""
+
+#: qml/NotebookDeleteDialog.qml:88
 #, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
@@ -535,28 +541,28 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Nom:"
 
-#: qml/NotesPage.qml:34
+#: qml/NotesPage.qml:36
 #, kde-format
 msgid "Add note"
 msgstr "Afegeix una nota"
 
-#: qml/NotesPage.qml:118
+#: qml/NotesPage.qml:120
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Surt de la cerca (%1)"
 
-#: qml/NotesPage.qml:118
+#: qml/NotesPage.qml:120
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Cerca notes (%1)"
 
-#: qml/NotesPage.qml:175
+#: qml/NotesPage.qml:179
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Supressió de nota"
 
-#: qml/NotesPage.qml:188
+#: qml/NotesPage.qml:241
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -565,70 +571,70 @@ msgstr ""
 "Segur que voleu suprimir la nota <b>%1</b>? Això suprimirà de manera "
 "permanent el fitxer <b>%2</b>."
 
-#: qml/NotesPage.qml:300
+#: qml/NotesPage.qml:353
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Reanomena la nota"
 
-#: qml/NotesPage.qml:306
+#: qml/NotesPage.qml:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Suprimeix la nota"
 
-#: qml/NotesPage.qml:317
+#: qml/NotesPage.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Exporta a HTML"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exporta a HTML"
 
-#: qml/NotesPage.qml:324
+#: qml/NotesPage.qml:377
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Fitxer HTML (*.html)"
 
-#: qml/NotesPage.qml:330
+#: qml/NotesPage.qml:383
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Exporta a PDF"
 
-#: qml/NotesPage.qml:336
+#: qml/NotesPage.qml:389
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exporta a PDF"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:390
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Fitxer PDF (*.pdf)"
 
-#: qml/NotesPage.qml:343
+#: qml/NotesPage.qml:396
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Exporta a ODT"
 
-#: qml/NotesPage.qml:349
+#: qml/NotesPage.qml:402
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exporta a ODT"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:403
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Document de text ODF (*.odt)"
 
-#: qml/NotesPage.qml:482
+#: qml/NotesPage.qml:535
 #, kde-format
 msgid "Add a note!"
 msgstr "Afegeix una nota!"
