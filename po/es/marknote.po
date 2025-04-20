@@ -1,5 +1,5 @@
 # Spanish translations for marknote.po package.
-# Copyright (C) 2023 This file is copyright:
+# Copyright (C) 2023-2025 This file is copyright:
 # This file is distributed under the same license as the marknote package.
 #
 # Automatically generated, 2023.
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:42+0000\n"
-"PO-Revision-Date: 2025-02-05 02:23+0100\n"
+"PO-Revision-Date: 2025-04-19 20:06+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: application.cpp:34
 #, kde-format
@@ -501,7 +501,7 @@ msgstr "Borrar bloc de notas"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Do not show again"
-msgstr ""
+msgstr "No volver a mostrar"
 
 #: qml/NotebookDeleteDialog.qml:88
 #, kde-format
@@ -820,87 +820,3 @@ msgstr "Columna"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contenido de la celda"
-
-#~ msgid "undo"
-#~ msgstr "deshacer"
-
-#~ msgid "redo"
-#~ msgstr "rehacer"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Number of Rows:"
-#~ msgstr "Número de filas:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Number of Columns:"
-#~ msgstr "Número de columnas:"
-
-#~ msgid "Open Command Bar"
-#~ msgstr "Abrir barra de órdenes"
-
-#~ msgid "About %1"
-#~ msgstr "Acerca de %1"
-
-#~ msgid "About KDE"
-#~ msgstr "Acerca de KDE"
-
-#~ msgid "No results found"
-#~ msgstr "No se han encontrado coincidencias"
-
-#~ msgctxt "@action:menu"
-#~ msgid "Quit Marknote"
-#~ msgstr "Salir de Marknote"
-
-#~ msgid "Reset"
-#~ msgstr "Restablecer"
-
-#~ msgid "New Note (%1)"
-#~ msgstr "Nueva nota (%1)"
-
-#~ msgid "Add"
-#~ msgstr "Añadir"
-
-#~ msgid "Add Notebook"
-#~ msgstr "Añadir bloc de notas"
-
-#~ msgid "Notebook name"
-#~ msgstr "Nombre del bloc de notas"
-
-#~ msgctxt "@action:button"
-#~ msgid "highlight"
-#~ msgstr "Resaltado"
-
-#~ msgctxt "@item:inmenu disc list style"
-#~ msgid "Disc"
-#~ msgstr "Disco"
-
-#~ msgctxt "@item:inmenu circle list style"
-#~ msgid "Circle"
-#~ msgstr "Círculo"
-
-#~ msgctxt "@item:inmenu square list style"
-#~ msgid "Square"
-#~ msgstr "Cuadrado"
-
-#~ msgctxt "@item:inmenu numbered lists"
-#~ msgid "123"
-#~ msgstr "123"
-
-#~ msgctxt "@item:inmenu lowercase abc lists"
-#~ msgid "abc"
-#~ msgstr "abc"
-
-#~ msgctxt "@item:inmenu uppercase abc lists"
-#~ msgid "ABC"
-#~ msgstr "ABC"
-
-#~ msgctxt "@item:inmenu lower case roman numerals"
-#~ msgid "i ii iii"
-#~ msgstr "i ii iii"
-
-#~ msgctxt "@item:inmenu upper case roman numerals"
-#~ msgid "I II III"
-#~ msgstr "I II III"
-
-#~ msgid "Heading %1"
-#~ msgstr "Cabecera %1"
