@@ -506,8 +506,7 @@ Kirigami.Page {
                     clip: true
                     Layout.margins: Kirigami.Units.mediumSpacing
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    implicitHeight: undoButton.height
+                    implicitHeight: undoButton.height + Kirigami.Units.smallSpacing
                     currentIndex: categorySelector.selectedIndex
                     interactive: false
                     Item {
