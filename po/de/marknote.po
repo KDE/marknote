@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:42+0000\n"
+"POT-Creation-Date: 2025-04-22 00:41+0000\n"
 "PO-Revision-Date: 2024-08-25 17:48+0200\n"
 "Last-Translator: Alois.spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -102,14 +102,14 @@ msgstr ""
 "Notiz kann nicht umbenannt werden. Es existiert bereits eine Notiz mit "
 "demselben Namen."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#: qml/EditPage.qml:77 qml/EditPage.qml:550
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Undo"
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#: qml/EditPage.qml:90 qml/EditPage.qml:563
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Redo"
@@ -248,17 +248,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Unterabsatz"
 
-#: qml/EditPage.qml:597
+#: qml/EditPage.qml:596
 #, kde-format
 msgid "Format"
 msgstr "Format"
 
-#: qml/EditPage.qml:601
+#: qml/EditPage.qml:600
 #, kde-format
 msgid "Lists"
 msgstr "Listen"
 
-#: qml/EditPage.qml:605
+#: qml/EditPage.qml:604
 #, kde-format
 msgid "Insert"
 msgstr "Einfügen"

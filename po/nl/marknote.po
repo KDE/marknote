@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:42+0000\n"
+"POT-Creation-Date: 2025-04-22 00:41+0000\n"
 "PO-Revision-Date: 2025-04-19 16:19+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -97,12 +97,12 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "Notitie hernoemen lukt niet. er bestaat al een notitie met dezelfde naam."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#: qml/EditPage.qml:77 qml/EditPage.qml:550
 #, kde-format
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#: qml/EditPage.qml:90 qml/EditPage.qml:563
 #, kde-format
 msgid "Redo"
 msgstr "Opnieuw doen"
@@ -239,17 +239,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Subparagraaf"
 
-#: qml/EditPage.qml:597
+#: qml/EditPage.qml:596
 #, kde-format
 msgid "Format"
 msgstr "Opmaak"
 
-#: qml/EditPage.qml:601
+#: qml/EditPage.qml:600
 #, kde-format
 msgid "Lists"
 msgstr "Lijsten"
 
-#: qml/EditPage.qml:605
+#: qml/EditPage.qml:604
 #, kde-format
 msgid "Insert"
 msgstr "Invoegen"

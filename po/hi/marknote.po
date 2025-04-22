@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:42+0000\n"
+"POT-Creation-Date: 2025-04-22 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 17:36+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -97,14 +97,14 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "नोट का नाम बदलने में असमर्थ. उसी नाम से एक नोट पहले से मौजूद है."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#: qml/EditPage.qml:77 qml/EditPage.qml:550
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Undo"
 msgid "Undo"
 msgstr "पूर्ववत"
 
-#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#: qml/EditPage.qml:90 qml/EditPage.qml:563
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Redo"
@@ -243,17 +243,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "उप अनुच्छेद"
 
-#: qml/EditPage.qml:597
+#: qml/EditPage.qml:596
 #, kde-format
 msgid "Format"
 msgstr "प्रारूप"
 
-#: qml/EditPage.qml:601
+#: qml/EditPage.qml:600
 #, kde-format
 msgid "Lists"
 msgstr "सूचियों"
 
-#: qml/EditPage.qml:605
+#: qml/EditPage.qml:604
 #, kde-format
 msgid "Insert"
 msgstr "डालना"

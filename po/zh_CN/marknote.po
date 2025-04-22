@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:42+0000\n"
+"POT-Creation-Date: 2025-04-22 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -96,12 +96,12 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "无法重命名笔记。已经有同名称的笔记。"
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#: qml/EditPage.qml:77 qml/EditPage.qml:550
 #, kde-format
 msgid "Undo"
 msgstr ""
 
-#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#: qml/EditPage.qml:90 qml/EditPage.qml:563
 #, kde-format
 msgid "Redo"
 msgstr ""
@@ -238,17 +238,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "子段落"
 
-#: qml/EditPage.qml:597
+#: qml/EditPage.qml:596
 #, kde-format
 msgid "Format"
 msgstr "格式"
 
-#: qml/EditPage.qml:601
+#: qml/EditPage.qml:600
 #, kde-format
 msgid "Lists"
 msgstr "列表"
 
-#: qml/EditPage.qml:605
+#: qml/EditPage.qml:604
 #, kde-format
 msgid "Insert"
 msgstr "插入"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:42+0000\n"
-"PO-Revision-Date: 2025-04-07 00:05+0200\n"
+"POT-Creation-Date: 2025-04-22 00:41+0000\n"
+"PO-Revision-Date: 2025-04-22 01:28+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: application.cpp:34
 #, kde-format
@@ -96,12 +96,12 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "노트의 이름을 바꿀 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:551
+#: qml/EditPage.qml:77 qml/EditPage.qml:550
 #, kde-format
 msgid "Undo"
 msgstr "실행 취소"
 
-#: qml/EditPage.qml:90 qml/EditPage.qml:564
+#: qml/EditPage.qml:90 qml/EditPage.qml:563
 #, kde-format
 msgid "Redo"
 msgstr "다시 실행"
@@ -238,17 +238,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "하위 문단"
 
-#: qml/EditPage.qml:597
+#: qml/EditPage.qml:596
 #, kde-format
 msgid "Format"
 msgstr "형식"
 
-#: qml/EditPage.qml:601
+#: qml/EditPage.qml:600
 #, kde-format
 msgid "Lists"
 msgstr "목록"
 
-#: qml/EditPage.qml:605
+#: qml/EditPage.qml:604
 #, kde-format
 msgid "Insert"
 msgstr "삽입"
@@ -496,7 +496,7 @@ msgstr "공책 삭제"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Do not show again"
-msgstr ""
+msgstr "다시 보지 않기"
 
 #: qml/NotebookDeleteDialog.qml:88
 #, kde-format
