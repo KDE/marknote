@@ -1,7 +1,7 @@
 # Translation for marknote.po to Euskara/Basque (eu).
 # Copyright (C) 2023-2025 This file is copyright:
 # This file is distributed under the same license as the marknote package.
-# KDE euskaratzeko proiektuko arduraduna <xaba@ni.eus>.
+# KDE euskaratzeko proiektuaren arduraduna <xaba@ni.eus>.
 #
 # Translators:
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Iñigo Salvador Azurmendi <xalba@ni.eus>
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-22 00:41+0000\n"
-"PO-Revision-Date: 2025-02-08 01:09+0100\n"
+"PO-Revision-Date: 2025-04-22 11:12+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: application.cpp:34
 #, kde-format
@@ -499,7 +499,7 @@ msgstr "Ezabatu koadernoa"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Do not show again"
-msgstr ""
+msgstr "Ez erakutsi berriz"
 
 #: qml/NotebookDeleteDialog.qml:88
 #, kde-format
