@@ -496,7 +496,7 @@ msgstr "Smazat poznámkový blok"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Do not show again"
-msgstr ""
+msgstr "Znovu nezobrazovat"
 
 #: qml/NotebookDeleteDialog.qml:88
 #, kde-format
