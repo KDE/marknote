@@ -35,6 +35,14 @@ DocumentHandler::DocumentHandler(QObject *parent)
     , m_cursorPosition(-1)
     , m_selectionStart(0)
     , m_selectionEnd(0)
+    , m_lastFontFamily(fontFamily())
+    , m_lastAlignment(alignment())
+    , m_lastBold(bold())
+    , m_lastItalic(italic())
+    , m_lastUnderline(underline())
+    , m_lastStrikethrough(strikethrough())
+    , m_lastFontSize(fontSize())
+    , m_lastTextColor(textColor())
 {
 }
 
@@ -256,7 +264,7 @@ void DocumentHandler::setStrikethrough(bool strikethrough)
     QTextCharFormat format;
     format.setFontStrikeOut(strikethrough);
     mergeFormatOnWordOrSelection(format);
-    Q_EMIT underlineChanged();
+    Q_EMIT strikethroughChanged();
 }
 
 int DocumentHandler::fontSize() const
@@ -473,13 +481,39 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
 
 void DocumentHandler::reset()
 {
-    Q_EMIT fontFamilyChanged();
-    Q_EMIT alignmentChanged();
-    Q_EMIT boldChanged();
-    Q_EMIT italicChanged();
-    Q_EMIT underlineChanged();
-    Q_EMIT fontSizeChanged();
-    Q_EMIT textColorChanged();
+    if (fontFamily() != m_lastFontFamily) {
+        Q_EMIT fontFamilyChanged();
+    }
+    if (alignment() != m_lastAlignment) {
+        Q_EMIT alignmentChanged();
+    }
+    if (bold() != m_lastBold) {
+        Q_EMIT boldChanged();
+    }
+    if (italic() != m_lastItalic) {
+        Q_EMIT italicChanged();
+    }
+    if (underline() != m_lastUnderline) {
+        Q_EMIT underlineChanged();
+    }
+    if (strikethrough() != m_lastStrikethrough) {
+        Q_EMIT strikethroughChanged();
+    }
+    if (fontSize() != m_lastFontSize) {
+        Q_EMIT fontSizeChanged();
+    }
+    if (textColor() != m_lastTextColor) {
+        Q_EMIT textColorChanged();
+    }
+
+    m_lastFontFamily = fontFamily();
+    m_lastAlignment = alignment();
+    m_lastBold = bold();
+    m_lastItalic = italic();
+    m_lastUnderline = underline();
+    m_lastStrikethrough = strikethrough();
+    m_lastFontSize = fontSize();
+    m_lastTextColor = textColor();
 }
 
 QTextCursor DocumentHandler::textCursor() const

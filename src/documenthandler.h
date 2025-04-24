@@ -212,6 +212,16 @@ private:
     NestedListHelper m_nestedListHelper;
     QString m_frontMatter;
     QString m_activeLink;
+
+    // Cache data to dismiss redundant UI calls.
+    QString m_lastFontFamily;
+    Qt::Alignment m_lastAlignment;
+    bool m_lastBold;
+    bool m_lastItalic;
+    bool m_lastUnderline;
+    bool m_lastStrikethrough;
+    int m_lastFontSize;
+    QColor m_lastTextColor;
 };
 
 #endif // DOCUMENTHANDLER_H
