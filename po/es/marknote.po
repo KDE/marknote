@@ -1,15 +1,15 @@
 # Spanish translations for marknote.po package.
 # Copyright (C) 2023-2025 This file is copyright:
 # This file is distributed under the same license as the marknote package.
-#
 # Automatically generated, 2023.
+#
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-22 00:41+0000\n"
-"PO-Revision-Date: 2025-04-19 20:06+0100\n"
+"PO-Revision-Date: 2025-05-14 17:17+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: application.cpp:34
 #, kde-format
@@ -113,7 +113,7 @@ msgstr "Rehacer"
 #: qml/EditPage.qml:146
 #, kde-format
 msgid "Focus Mode"
-msgstr "Modo del foco"
+msgstr "Modo de concentración"
 
 #: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:157
 #: qml/WelcomePage.qml:29
