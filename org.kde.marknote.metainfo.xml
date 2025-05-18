@@ -6,6 +6,7 @@
 <component type="desktop-application">
   <id>org.kde.marknote</id>
   <name>Marknote</name>
+  <name xml:lang="ar">دفتر مارك</name>
   <name xml:lang="ca">Marknote</name>
   <name xml:lang="ca-valencia">MarkNote</name>
   <name xml:lang="cs">Marknote</name>
@@ -38,6 +39,7 @@
   <name xml:lang="x-test">xxMarknotexx</name>
   <name xml:lang="zh-TW">Marknote</name>
   <summary>Write down your thoughts</summary>
+  <summary xml:lang="ar">اكتب أفكارك</summary>
   <summary xml:lang="ca">Escriviu les vostres idees</summary>
   <summary xml:lang="ca-valencia">Escriviu les vostres idees</summary>
   <summary xml:lang="cs">Zapište své myšlenky</summary>
@@ -72,6 +74,7 @@
   <summary xml:lang="zh-TW">寫下您所想</summary>
   <description>
     <p>Marknote lets you create rich text notes and easily organise them into notebooks. You can personalise your notebooks by choosing an icon and accent color for each one, making it easy to distinguish between them and keep your notes at your fingertips. Your notes are saved as Markdown files in your Documents folder, making it easy to use your notes outside of Marknote as well as inside the app.</p>
+    <p xml:lang="ar">يتيح لك تطبيق دفتر مارك إنشاء ملاحظات نصية غنية وتنظيمها بسهولة في دفاتر ملاحظات. يمكنك تخصيص دفاتر ملاحظاتك عن طريق اختيار أيقونة ولون مميز لكل منها، مما يسهل التمييز بينها والاحتفاظ بملاحظاتك في متناول يدك. تُحفظ ملاحظاتك كملفات مارك داون في مجلد المستندات الخاص بك، مما يسهل استخدام ملاحظاتك خارج تطبيق دفتر مارك وكذلك داخل التطبيق.</p>
     <p xml:lang="ca">El Marknote us permet crear notes de text enriquit i organitzar-les fàcilment en quaderns. Podreu personalitzar els quaderns triant una icona i un color d'accent per a cadascun, fent que sigui fàcil distingir-los i mantenir les notes al vostre abast. Les notes es desen com a fitxers Markdown a la carpeta Documents, fent que sigui fàcil utilitzar les notes fora del Marknote, així com dins de l'aplicació.</p>
     <p xml:lang="ca-valencia">MarkNote us permet crear notes de text enriquit i organitzar-les amb facilitat en quaderns. Podreu personalitzar els quaderns triant una icona i un color d'accent per a cadascun, fent que siga fàcil distingir-los i mantindre les notes al vostre abast. Les notes es guarden com a fitxers en Markdown a la carpeta Documents, fent que siga fàcil utilitzar les notes fora de MarkNote, així com dins de l'aplicació.</p>
     <p xml:lang="da">Marknote lader dig oprette formateret noter og organisere dem i notesbøger. Du kan personliggøre dine notesbøger ved at hjælpe et ikon og en accentfarve til hver af dem, så det er nemt at skelne mellem dem og holde dine noter lige ved hånden. Dine noter gemmes som Markdown-filer i din Dokumenter-mappe, som gør det nemt at bruge noterne uden for Marknote såvel som inde i appen.</p>
