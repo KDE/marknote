@@ -131,7 +131,7 @@
       <description>
         <p>
             On small phone screens, you want as much space as possible to write and read
-            your notes. MarkNote now lets you hide the editor toolbar on mobile, so you can
+            your notes. Marknote now lets you hide the editor toolbar on mobile, so you can
             focus on the important stuff while having the formatting options just a tap
             away.
         </p>
@@ -152,7 +152,7 @@
         </p>
         <p>
             To make it easier to switch from your current notes application to
-            MarkNote, MarkNote now offers several import options. for now you
+            Marknote, Marknote now offers several import options. For now you
             can import your notes from KNotes and maildir.
         </p>
       </description>
@@ -196,10 +196,10 @@
         </p>
         <p>
             Aside from being able to edit text, it's now possible to also create
-            sketches directly from MarkNote.
+            sketches directly from Marknote.
         </p>
         <p>
-            Finally we took care of ensuring MarkNote was fully usable when used
+            Finally we took care of ensuring Marknote was fully usable when used
             with Plasma Mobile.
         </p>
       </description>

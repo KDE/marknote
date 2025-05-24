@@ -18,7 +18,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "aboutMarkNote"
-            text: i18nc("@action:button", "About MarkNote")
+            text: i18nc("@action:button", "About Marknote")
             icon.name: "help-about"
             page: () => Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage")
         },

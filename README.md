@@ -1,4 +1,4 @@
-#  <img src="https://invent.kde.org/mbruchert/marknote/-/raw/master/logo.png">  MarkNote
+#  <img src="https://invent.kde.org/mbruchert/marknote/-/raw/master/logo.png">  Marknote
 
 Write down your thoughts.
 
