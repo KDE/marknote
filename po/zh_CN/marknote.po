@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-22 00:41+0000\n"
+"POT-Creation-Date: 2025-05-25 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -766,9 +766,11 @@ msgid "General"
 msgstr "常规"
 
 #: settings/MarkNoteSettings.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "About MarkNote"
 msgctxt "@action:button"
-msgid "About MarkNote"
+msgid "About Marknote"
 msgstr "关于 MarkNote"
 
 #: settings/MarkNoteSettings.qml:27

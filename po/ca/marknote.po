@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-22 00:41+0000\n"
+"POT-Creation-Date: 2025-05-25 00:43+0000\n"
 "PO-Revision-Date: 2025-04-19 11:16+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -774,9 +774,11 @@ msgid "General"
 msgstr "General"
 
 #: settings/MarkNoteSettings.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "About MarkNote"
 msgctxt "@action:button"
-msgid "About MarkNote"
+msgid "About Marknote"
 msgstr "Quant al MarkNote"
 
 #: settings/MarkNoteSettings.qml:27
