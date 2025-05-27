@@ -766,12 +766,10 @@ msgid "General"
 msgstr "常规"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "About MarkNote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
-msgstr "关于 MarkNote"
+msgstr ""
 
 #: settings/MarkNoteSettings.qml:27
 #, kde-format
