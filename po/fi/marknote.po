@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-25 00:43+0000\n"
-"PO-Revision-Date: 2025-02-14 19:39+0200\n"
+"PO-Revision-Date: 2025-05-27 23:33+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -498,7 +498,7 @@ msgstr "Poista muistikirja"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Do not show again"
-msgstr ""
+msgstr "Älä näytä enää"
 
 #: qml/NotebookDeleteDialog.qml:88
 #, kde-format
@@ -772,9 +772,7 @@ msgid "General"
 msgstr "Perusasetukset"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "About MarkNote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
 msgstr "Tietoa Marknotesta"
