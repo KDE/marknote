@@ -1,0 +1,819 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the marknote package.
+#
+# SPDX-FileCopyrightText: 2025 Mariya Shikunova <maremarie@altlinux.org>
+msgid ""
+msgstr ""
+"Project-Id-Version: marknote\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-25 00:43+0000\n"
+"PO-Revision-Date: 2025-06-04 16:22+0300\n"
+"Last-Translator: Mariya Shikunova <maremarie@altlinux.org>\n"
+"Language-Team: Basealt Translation Team\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 24.12.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: application.cpp:34
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "New Notebook"
+msgstr "Создать записную книжку"
+
+#: application.cpp:43
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "New Note"
+msgstr "Создать заметку"
+
+#: application.cpp:59
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Import from KNotes"
+msgstr "Импорт из KNotes"
+
+#: application.cpp:66
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Import from Maildir"
+msgstr "Импорт из Maildir"
+
+#: maildirimport.cpp:91
+#, kde-format
+msgctxt "@status"
+msgid "An error occurred while writing to '%1'"
+msgstr "Произошла ошибка записи в «%1»"
+
+#: main.cpp:70 qml/Main.qml:346
+#, kde-format
+msgctxt "Application name"
+msgid "Marknote"
+msgstr "Marknote"
+
+#: main.cpp:72
+#, kde-format
+msgid "Note taking application"
+msgstr "Приложение для создания заметок"
+
+#: main.cpp:74
+#, kde-format
+msgid "© 2023-2024 Mathis Brüchert"
+msgstr "© 2023-2024 Mathis Brüchert"
+
+#: main.cpp:75
+#, kde-format
+msgid "Mathis Brüchert"
+msgstr "Mathis Brüchert"
+
+#: main.cpp:76 main.cpp:81
+#, kde-format
+msgid "Maintainer"
+msgstr "Сопровождающий"
+
+#: main.cpp:80
+#, kde-format
+msgid "Carl Schwan"
+msgstr "Carl Schwan"
+
+#: main.cpp:85
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Мария Шикунова"
+
+#: main.cpp:85
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "maremarie@altlinux.org"
+
+#: notesmodel.cpp:112
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to rename note. A note already exists with the same name."
+msgstr ""
+"Не удалось переименовать заметку. Заметка с таким именем уже существует."
+
+#: qml/EditPage.qml:77 qml/EditPage.qml:550
+#, kde-format
+msgid "Undo"
+msgstr "Отменить"
+
+#: qml/EditPage.qml:90 qml/EditPage.qml:563
+#, kde-format
+msgid "Redo"
+msgstr "Повторить"
+
+#: qml/EditPage.qml:146
+#, kde-format
+msgid "Focus Mode"
+msgstr "Режим фокуса"
+
+#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:157
+#: qml/WelcomePage.qml:29
+#, kde-format
+msgctxt "@action:menu"
+msgid "Exit Full Screen"
+msgstr "Выйти из полноэкранного режима"
+
+#: qml/EditPage.qml:212
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "Жирный"
+
+#: qml/EditPage.qml:231
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "Курсив"
+
+#: qml/EditPage.qml:250
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr "Подчёркнутый"
+
+#: qml/EditPage.qml:264
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "Зачёркнутый"
+
+#: qml/EditPage.qml:282
+#, kde-format
+msgctxt "@action:button"
+msgid "Increase List Level"
+msgstr "Повысить уровень в списке"
+
+#: qml/EditPage.qml:293
+#, kde-format
+msgctxt "@action:button"
+msgid "Decrease List Level"
+msgstr "Понизить уровень в списке"
+
+#: qml/EditPage.qml:335
+#, kde-format
+msgctxt "@item:inmenu no list style"
+msgid "No list"
+msgstr "Не список"
+
+#: qml/EditPage.qml:336
+#, kde-format
+msgctxt "@item:inmenu unordered style"
+msgid "Unordered list"
+msgstr "Неупорядоченный список"
+
+#: qml/EditPage.qml:337
+#, kde-format
+msgctxt "@item:inmenu ordered style"
+msgid "Ordered list"
+msgstr "Упорядоченный список"
+
+#: qml/EditPage.qml:347
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert checkbox"
+msgstr "Вставить поле с флажком"
+
+#: qml/EditPage.qml:362
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert link"
+msgstr "Вставить ссылку"
+
+#: qml/EditPage.qml:378
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert image"
+msgstr "Вставить изображение"
+
+#: qml/EditPage.qml:391
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert table"
+msgstr "Вставить таблицу"
+
+#: qml/EditPage.qml:411
+#, kde-format
+msgctxt "@item:inmenu no heading"
+msgid "Basic text"
+msgstr "Основной текст"
+
+#: qml/EditPage.qml:412
+#, kde-format
+msgctxt "@item:inmenu heading level 1 (largest)"
+msgid "Title"
+msgstr "Заголовок"
+
+#: qml/EditPage.qml:413
+#, kde-format
+msgctxt "@item:inmenu heading level 2"
+msgid "Subtitle"
+msgstr "Подзаголовок"
+
+#: qml/EditPage.qml:414
+#, kde-format
+msgctxt "@item:inmenu heading level 3"
+msgid "Section"
+msgstr "Раздел"
+
+#: qml/EditPage.qml:415
+#, kde-format
+msgctxt "@item:inmenu heading level 4"
+msgid "Subsection"
+msgstr "Подраздел"
+
+#: qml/EditPage.qml:416
+#, kde-format
+msgctxt "@item:inmenu heading level 5"
+msgid "Paragraph"
+msgstr "Параграф"
+
+#: qml/EditPage.qml:417
+#, kde-format
+msgctxt "@item:inmenu heading level 6 (smallest)"
+msgid "Subparagraph"
+msgstr "Подпараграф"
+
+#: qml/EditPage.qml:596
+#, kde-format
+msgid "Format"
+msgstr "Формат"
+
+#: qml/EditPage.qml:600
+#, kde-format
+msgid "Lists"
+msgstr "Списки"
+
+#: qml/EditPage.qml:604
+#, kde-format
+msgid "Insert"
+msgstr "Вставка"
+
+#: qml/FormIconDelegate.qml:17
+#, kde-format
+msgctxt "@action:button"
+msgid "Icon"
+msgstr "Значок"
+
+#: qml/GlobalMenuBar.qml:18
+#, kde-format
+msgctxt "@action:menu"
+msgid "Settings"
+msgstr "Настройка"
+
+#: qml/ImageDialog.qml:18
+#, kde-format
+msgctxt "@title:window"
+msgid "Insert Image"
+msgstr "Вставка изображения"
+
+#: qml/ImageDialog.qml:24
+#, kde-format
+msgctxt "@title:window"
+msgid "Select an image"
+msgstr "Выбрать изображение"
+
+#: qml/ImageDialog.qml:27
+#, kde-format
+msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "Файлы изображений (*.jpg *.jpeg *.png *.svg *.webp)"
+
+#: qml/ImageDialog.qml:27
+#, kde-format
+msgid "All files (*)"
+msgstr "Все файлы (*)"
+
+#: qml/ImageDialog.qml:42
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Image Location:"
+msgstr "Местоположение изображения:"
+
+#: qml/ImageDialog.qml:53
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Quick Sketch"
+msgstr "Быстрый рисунок"
+
+#: qml/ImportMaildirDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "Import from Maildir"
+msgstr "Импорт из Maildir"
+
+#: qml/ImportMaildirDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "Import from KNotes"
+msgstr "Импорт из KNotes"
+
+#: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
+#, kde-format
+msgctxt "@label:textbox Notebook name"
+msgid "Name:"
+msgstr "Название:"
+
+#: qml/ImportMaildirDialog.qml:50
+#, kde-format
+msgctxt "@label:textbox Notebook name"
+msgid "Maildir location:"
+msgstr "Местоположение Maildir:"
+
+#: qml/ImportMaildirDialog.qml:57
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Maildir location"
+msgstr "Укажите местоположение Maildir"
+
+#: qml/ImportMaildirDialog.qml:103
+#, kde-format
+msgctxt "@action:button"
+msgid "Import"
+msgstr "Импорт"
+
+#: qml/LinkDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Insert Link"
+msgstr "Вставить ссылку"
+
+#: qml/LinkDialog.qml:23
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Link Text:"
+msgstr "Текст ссылки:"
+
+#: qml/LinkDialog.qml:31
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Link URL:"
+msgstr "URL-адрес ссылки:"
+
+#: qml/Main.qml:105
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create a new note, you need to create a notebook first."
+msgstr ""
+"Не удалось создать новую заметку, необходимо сначала создать записную книжку."
+
+#: qml/Main.qml:105
+#, kde-format
+msgctxt "@action:button"
+msgid "Create Notebook"
+msgstr "Создать записную книжку"
+
+#: qml/Main.qml:272
+#, kde-format
+msgctxt "@title:menu"
+msgid "Import"
+msgstr "Импорт"
+
+#: qml/Main.qml:286
+#, kde-format
+msgctxt "@title:menu"
+msgid "Sort Notes List"
+msgstr "Сортировать список заметок"
+
+#: qml/Main.qml:292
+#, kde-format
+msgid "by Name"
+msgstr "по названию"
+
+#: qml/Main.qml:306
+#, kde-format
+msgid "by Date"
+msgstr "по дате"
+
+#: qml/Main.qml:331
+#, kde-format
+msgid "Collapse Sidebar"
+msgstr "Свернуть боковую панель"
+
+#: qml/Main.qml:331
+#, kde-format
+msgid "Expand Sidebar"
+msgstr "Развернуть боковую панель"
+
+#: qml/Main.qml:400
+#, kde-format
+msgid "Your Notebooks"
+msgstr "Созданные записные книжки"
+
+#: qml/NativeEditMenu.qml:10
+#, kde-format
+msgctxt "@action:menu"
+msgid "Edit"
+msgstr "Правка"
+
+#: qml/NativeEditMenu.qml:39
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Undo"
+msgstr "Отменить"
+
+#: qml/NativeEditMenu.qml:49
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Redo"
+msgstr "Повторить"
+
+#: qml/NativeEditMenu.qml:62
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Cut"
+msgstr "Вырезать"
+
+#: qml/NativeEditMenu.qml:72
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Copy"
+msgstr "Копировать"
+
+#: qml/NativeEditMenu.qml:82
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Paste"
+msgstr "Вставить"
+
+#: qml/NativeEditMenu.qml:92
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Delete"
+msgstr "Удалить"
+
+#: qml/NativeEditMenu.qml:105
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Select All"
+msgstr "Выбрать всё"
+
+#: qml/NativeFileMenu.qml:11
+#, kde-format
+msgctxt "@action:menu"
+msgid "File"
+msgstr "Файл"
+
+#: qml/NativeHelpMenu.qml:11
+#, kde-format
+msgctxt "@action:menu"
+msgid "Help"
+msgstr "Справка"
+
+#: qml/NativeWindowMenu.qml:13
+#, kde-format
+msgctxt "@action:menu"
+msgid "Window"
+msgstr "Окно"
+
+#: qml/NativeWindowMenu.qml:21
+#, kde-format
+msgctxt "@action:menu"
+msgid "Enter Full Screen"
+msgstr "Войти в полноэкранный режим"
+
+#: qml/NotebookContextMenu.qml:16
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Edit Notebook"
+msgstr "Изменить записную книжку"
+
+#: qml/NotebookContextMenu.qml:33 qml/NotebookDeleteAction.qml:15
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Delete Notebook"
+msgstr "Удалить записную книжку"
+
+#: qml/NotebookDeleteDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Notebook"
+msgstr "Удалить записную книжку"
+
+#: qml/NotebookDeleteDialog.qml:46 qml/NotesPage.qml:199
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Do not show again"
+msgstr "Больше не показывать"
+
+#: qml/NotebookDeleteDialog.qml:88
+#, kde-format
+msgid ""
+"Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
+"the content of <b>%2</b> definitively."
+msgstr ""
+"Удалить записную книжку <b> %1 </b>? Также будет полностью удалено "
+"содержимое <b>%2</b>."
+
+#: qml/NotebookMetadataDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "New Notebook"
+msgstr "Новая записная книжка"
+
+#: qml/NotebookMetadataDialog.qml:32
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Notebook"
+msgstr "Изменить записную книжку"
+
+#: qml/NoteMetadataDialog.qml:27
+#, kde-format
+msgctxt "@title:window"
+msgid "New Note"
+msgstr "Новая заметка"
+
+#: qml/NoteMetadataDialog.qml:27
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Note"
+msgstr "Правка заметки"
+
+#: qml/NoteMetadataDialog.qml:58
+#, kde-format
+msgctxt "@label:textbox Note name"
+msgid "Name:"
+msgstr "Название:"
+
+#: qml/NotesPage.qml:36
+#, kde-format
+msgid "Add note"
+msgstr "Добавить заметку"
+
+#: qml/NotesPage.qml:120
+#, kde-format
+msgid "Exit Search (%1)"
+msgstr "Выйти из поиска (%1)"
+
+#: qml/NotesPage.qml:120
+#, kde-format
+msgid "Search notes (%1)"
+msgstr "Поиск заметок (%1)"
+
+#: qml/NotesPage.qml:179
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Note"
+msgstr "Удаление заметки"
+
+#: qml/NotesPage.qml:241
+#, kde-format
+msgid ""
+"Are you sure you want to delete the note <b> %1 </b>? This will delete the "
+"file <b>%2</b> definitively."
+msgstr ""
+"Удалить заметку <b> %1 </b>? Также будет полностью удалён файл <b>%2</b>."
+
+#: qml/NotesPage.qml:353
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Rename Note"
+msgstr "Переименовать заметку"
+
+#: qml/NotesPage.qml:359
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Delete Note"
+msgstr "Удалить заметку"
+
+#: qml/NotesPage.qml:370
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Export to HTML"
+msgstr "Экспорт в HTML"
+
+#: qml/NotesPage.qml:376
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "Экспорт в HTML"
+
+#: qml/NotesPage.qml:377
+#, kde-format
+msgid "HTML file (*.html)"
+msgstr "HTML-файл (*.html)"
+
+#: qml/NotesPage.qml:383
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Export to PDF"
+msgstr "Экспорт в PDF"
+
+#: qml/NotesPage.qml:389
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "Экспорт в PDF"
+
+#: qml/NotesPage.qml:390
+#, kde-format
+msgid "PDF file (*.pdf)"
+msgstr "PDF-файл (*.pdf)"
+
+#: qml/NotesPage.qml:396
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Export to ODT"
+msgstr "Экспорт в ODT"
+
+#: qml/NotesPage.qml:402
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to ODT"
+msgstr "Экспорт в ODT"
+
+#: qml/NotesPage.qml:403
+#, kde-format
+msgid "ODF Text Document (*.odt)"
+msgstr "Текстовый документ ODF (*.odt)"
+
+#: qml/NotesPage.qml:535
+#, kde-format
+msgid "Add a note!"
+msgstr "Добавьте заметку!"
+
+#: qml/TableDialog.qml:18
+#, kde-format
+msgctxt "@title:window"
+msgid "Insert Table"
+msgstr "Вставить таблицу"
+
+#: qml/TextFieldContextMenu.qml:226
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Игнорировать"
+
+#: qml/TextFieldContextMenu.qml:241
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Проверка орфографии"
+
+#: qml/TextFieldContextMenu.qml:258
+#, kde-format
+msgctxt "@inmenu"
+msgid "Open Link"
+msgstr "Открыть ссылку"
+
+#: qml/TextFieldContextMenu.qml:268
+#, kde-format
+msgctxt "@inmenu"
+msgid "Insert"
+msgstr "Вставить"
+
+#: qml/TextFieldContextMenu.qml:290
+#, kde-format
+msgctxt "@inmenu"
+msgid "Remove"
+msgstr "Удалить"
+
+#: qml/TextFieldContextMenu.qml:310
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Отменить"
+
+#: qml/TextFieldContextMenu.qml:325
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Повторить"
+
+#: qml/TextFieldContextMenu.qml:343
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Вырезать"
+
+#: qml/TextFieldContextMenu.qml:358
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Копировать"
+
+#: qml/TextFieldContextMenu.qml:373
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Вставить"
+
+#: qml/TextFieldContextMenu.qml:388
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Удалить"
+
+#: qml/TextFieldContextMenu.qml:407
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Выбрать всё"
+
+#: qml/WelcomePage.qml:22
+#, kde-format
+msgid "Start by creating your first notebook!"
+msgstr "Создайте свою первую записную книжку!"
+
+#: settings/MarkNoteGeneralPage.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "General"
+msgstr "Общие"
+
+#: settings/MarkNoteGeneralPage.qml:19
+#, kde-format
+msgid "General theme"
+msgstr "Общая тема"
+
+#: settings/MarkNoteGeneralPage.qml:26
+#, kde-format
+msgid "Color theme"
+msgstr "Цветовая тема"
+
+#: settings/MarkNoteGeneralPage.qml:40
+#, kde-format
+msgid "Editor Settings"
+msgstr "Настройка редактора"
+
+#: settings/MarkNoteGeneralPage.qml:45
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Notes Directory:"
+msgstr "Каталог заметок:"
+
+#: settings/MarkNoteGeneralPage.qml:54
+#, kde-format
+msgctxt "@title:window"
+msgid "Select the notes directory"
+msgstr "Выбор каталога заметок"
+
+#: settings/MarkNoteGeneralPage.qml:69
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Font family:"
+msgstr "Гарнитура шрифта:"
+
+#: settings/MarkNoteGeneralPage.qml:110
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Font size:"
+msgstr "Размер шрифта:"
+
+#: settings/MarkNoteSettings.qml:15
+#, kde-format
+msgctxt "@action:button"
+msgid "General"
+msgstr "Общие"
+
+#: settings/MarkNoteSettings.qml:21
+#, kde-format
+msgctxt "@action:button"
+msgid "About Marknote"
+msgstr "О Marknote"
+
+#: settings/MarkNoteSettings.qml:27
+#, kde-format
+msgctxt "@action:button"
+msgid "About KDE"
+msgstr "О KDE"
+
+#: tableactionhelper.cpp:118
+#, kde-format
+msgid "Row Below"
+msgstr "Строку ниже"
+
+#: tableactionhelper.cpp:124
+#, kde-format
+msgid "Row Above"
+msgstr "Строку выше"
+
+#: tableactionhelper.cpp:130
+#, kde-format
+msgid "Column Before"
+msgstr "Столбец слева"
+
+#: tableactionhelper.cpp:137
+#, kde-format
+msgid "Column After"
+msgstr "Столбец справа"
+
+#: tableactionhelper.cpp:143
+#, kde-format
+msgid "Row"
+msgstr "Строка"
+
+#: tableactionhelper.cpp:149
+#, kde-format
+msgid "Column"
+msgstr "Столбец"
+
+#: tableactionhelper.cpp:155
+#, kde-format
+msgid "Cell Contents"
+msgstr "Содержимое ячейки"
