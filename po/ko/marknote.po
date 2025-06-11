@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-25 00:43+0000\n"
-"PO-Revision-Date: 2025-04-22 01:28+0200\n"
+"PO-Revision-Date: 2025-06-10 22:44+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -767,12 +767,10 @@ msgid "General"
 msgstr "일반"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "About MarkNote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
-msgstr "MarkNote 정보"
+msgstr "Marknote 정보"
 
 #: settings/MarkNoteSettings.qml:27
 #, kde-format
