@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-25 00:43+0000\n"
-"PO-Revision-Date: 2025-03-04 19:20+0200\n"
+"PO-Revision-Date: 2025-07-02 17:34+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: application.cpp:34
 #, kde-format
@@ -498,7 +498,7 @@ msgstr "Dzēst piezīmju grāmatiņu"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Do not show again"
-msgstr ""
+msgstr "Vairs nerādīt"
 
 #: qml/NotebookDeleteDialog.qml:88
 #, kde-format
@@ -772,12 +772,10 @@ msgid "General"
 msgstr "Pamata"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "About MarkNote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
-msgstr "Par „MarkNote“"
+msgstr "Par „Marknote“"
 
 #: settings/MarkNoteSettings.qml:27
 #, kde-format
