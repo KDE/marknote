@@ -1,23 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the marknote package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# A S Alam <aalam@punlinux.org>, 2024.
+# SPDX-FileCopyrightText: 2024, 2025 A S Alam <aalam@punlinux.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-25 00:43+0000\n"
-"PO-Revision-Date: 2024-07-14 09:48-0500\n"
+"PO-Revision-Date: 2025-09-15 10:25-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
-"Language-Team: Panjabi; Punjabi\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Gtranslator 46.1\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: application.cpp:34
 #, kde-format
@@ -58,7 +56,7 @@ msgstr "ਮਾਰਕਨੋਟ"
 #: main.cpp:72
 #, kde-format
 msgid "Note taking application"
-msgstr ""
+msgstr "ਨੋਟ ਲੈਣ ਵਾਲੀ ਐਪਲੀਕੇਸ਼ਨ"
 
 #: main.cpp:74
 #, kde-format
@@ -73,7 +71,7 @@ msgstr ""
 #: main.cpp:76 main.cpp:81
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "ਪਰਬੰਧਕ"
 
 #: main.cpp:80
 #, kde-format
@@ -90,7 +88,7 @@ msgstr "Aman Alam"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "aalam@punlinux.org"
 
 #: notesmodel.cpp:112
 #, kde-format
@@ -99,54 +97,50 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr "ਨੋਟ ਦਾ ਨਾਂ ਬਦਲਣ ਲਈ ਅਸਮਰੱਥ ਹੈ। ਉਸੇ ਨਾਂ ਨਾਲ ਨੋਟ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
 #: qml/EditPage.qml:77 qml/EditPage.qml:550
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Undo"
+#, kde-format
 msgid "Undo"
 msgstr "ਵਾਪਸ"
 
 #: qml/EditPage.qml:90 qml/EditPage.qml:563
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Redo"
+#, kde-format
 msgid "Redo"
 msgstr "ਪਰਤਾਓ"
 
 #: qml/EditPage.qml:146
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "ਫੋਕਸ ਢੰਗ"
 
 #: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:157
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "ਪੂਰੀ ਸਕਰੀਨ ਤੋਂ ਬਾਹਰ ਆਓ"
 
 #: qml/EditPage.qml:212
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
-msgstr ""
+msgstr "ਗੂੜੇ"
 
 #: qml/EditPage.qml:231
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
-msgstr ""
+msgstr "ਤਿਰਛੇ"
 
 #: qml/EditPage.qml:250
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr ""
+msgstr "ਹੇਠਾਂ ਲਾਈਨ"
 
 #: qml/EditPage.qml:264
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
-msgstr ""
+msgstr "ਵਿੰਨ੍ਹੋ"
 
 #: qml/EditPage.qml:282
 #, kde-format
@@ -164,7 +158,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
-msgstr ""
+msgstr "ਕੋਈ ਸੂਚੀ ਨਹੀਂ"
 
 #: qml/EditPage.qml:336
 #, kde-format
@@ -176,7 +170,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
-msgstr ""
+msgstr "ਲੜੀਬੱਧ ਸੂਚੀ"
 
 #: qml/EditPage.qml:347
 #, kde-format
@@ -188,31 +182,31 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
-msgstr ""
+msgstr "ਲਿੰਕ ਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
 
 #: qml/EditPage.qml:378
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
-msgstr ""
+msgstr "ਚਿੱਤਰ ਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
 
 #: qml/EditPage.qml:391
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr ""
+msgstr "ਸਾਰਣੀ ਸ਼ਾਮਲ ਕਰੋ"
 
 #: qml/EditPage.qml:411
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
-msgstr ""
+msgstr "ਮੂਲ ਲਿਖਤ"
 
 #: qml/EditPage.qml:412
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
-msgstr ""
+msgstr "ਟਾਈਟਲ"
 
 #: qml/EditPage.qml:413
 #, kde-format
@@ -224,7 +218,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
-msgstr ""
+msgstr "ਭਾਗ"
 
 #: qml/EditPage.qml:415
 #, kde-format
@@ -236,7 +230,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
-msgstr ""
+msgstr "ਪ੍ਹੈਰਾਗਰਾਫ਼"
 
 #: qml/EditPage.qml:417
 #, kde-format
@@ -247,23 +241,23 @@ msgstr ""
 #: qml/EditPage.qml:596
 #, kde-format
 msgid "Format"
-msgstr ""
+msgstr "ਫਾਰਮੈਟ"
 
 #: qml/EditPage.qml:600
 #, kde-format
 msgid "Lists"
-msgstr ""
+msgstr "ਸੂਚੀ"
 
 #: qml/EditPage.qml:604
 #, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "ਸ਼ਾਮਲ"
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
 msgctxt "@action:button"
 msgid "Icon"
-msgstr ""
+msgstr "ਆਈਕਾਨ"
 
 #: qml/GlobalMenuBar.qml:18
 #, kde-format
@@ -275,13 +269,13 @@ msgstr "ਸੈਟਿੰਗਾਂ"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "ਚਿੱਤਰ ਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
 
 #: qml/ImageDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "ਚਿੱਤਰ ਨੂੰ ਚੁਣੋ"
 
 #: qml/ImageDialog.qml:27
 #, kde-format
@@ -297,7 +291,7 @@ msgstr "ਸਭ ਫਾਇਲਾਂ (*)"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
-msgstr ""
+msgstr "ਚਿੱਤਰ ਦਾ ਟਿਕਾਣਾ:"
 
 #: qml/ImageDialog.qml:53
 #, kde-format
@@ -345,19 +339,19 @@ msgstr "ਇੰਪੋਰਟ ਕਰੋ"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "ਲਿੰਕ ਸ਼ਾਮਲ ਕਰੋ"
 
 #: qml/LinkDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "ਲਿੰਕ ਲਿਖਤ:"
 
 #: qml/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "ਲਿੰਕ URL:"
 
 #: qml/Main.qml:105
 #, kde-format
@@ -484,25 +478,25 @@ msgstr "ਪੂਰੀ ਸਕਰੀਨ ਉੱਤੇ ਜਾਓ"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit Notebook"
-msgstr ""
+msgstr "ਨੋਟਬੁੱਕ ਨੂੰ ਸੋਧੋ"
 
 #: qml/NotebookContextMenu.qml:33 qml/NotebookDeleteAction.qml:15
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
-msgstr ""
+msgstr "ਨੋਟਬੁੱਕ ਨੂੰ ਹਟਾਓ"
 
 #: qml/NotebookDeleteDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
-msgstr ""
+msgstr "ਨੋਟਬੁੱਕ ਨੂੰ ਹਟਾਓ"
 
 #: qml/NotebookDeleteDialog.qml:46 qml/NotesPage.qml:199
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Do not show again"
-msgstr ""
+msgstr "ਇਹ ਮੁੜ ਨਾ ਵੇਖਾਓ"
 
 #: qml/NotebookDeleteDialog.qml:88
 #, kde-format
@@ -560,7 +554,7 @@ msgstr "ਖੋਜ ਨੋਟਿਸ (%1)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
-msgstr ""
+msgstr "ਨੋਟ ਨੂੰ ਹਟਾਓ"
 
 #: qml/NotesPage.qml:241
 #, kde-format
@@ -596,7 +590,7 @@ msgstr ""
 #: qml/NotesPage.qml:377
 #, kde-format
 msgid "HTML file (*.html)"
-msgstr ""
+msgstr "HTML ਫ਼ਾਇਲ (*.html)"
 
 #: qml/NotesPage.qml:383
 #, kde-format
@@ -613,7 +607,7 @@ msgstr ""
 #: qml/NotesPage.qml:390
 #, kde-format
 msgid "PDF file (*.pdf)"
-msgstr ""
+msgstr "PDF ਫ਼ਾਇਲ (*.pdf)"
 
 #: qml/NotesPage.qml:396
 #, kde-format
@@ -630,42 +624,42 @@ msgstr ""
 #: qml/NotesPage.qml:403
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "ODF ਲਿਖਤ ਦਸਤਾਵੇਜ਼ (*.odt)"
 
 #: qml/NotesPage.qml:535
 #, kde-format
 msgid "Add a note!"
-msgstr ""
+msgstr "ਨੋਟ ਨੂੰ ਜੋੜੋ!"
 
 #: qml/TableDialog.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr ""
+msgstr "ਸਾਰਣੀ ਸ਼ਾਮਲ ਕਰੋ"
 
 #: qml/TextFieldContextMenu.qml:226
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
-msgstr ""
+msgstr "ਅਣਡਿੱਠ"
 
 #: qml/TextFieldContextMenu.qml:241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr ""
+msgstr "ਸ਼ਬਦ-ਜੋੜ ਦੀ ਜਾਂਚ"
 
 #: qml/TextFieldContextMenu.qml:258
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
-msgstr ""
+msgstr "ਲਿੰਕ ਨੂੰ ਖੋਲ੍ਹੋ"
 
 #: qml/TextFieldContextMenu.qml:268
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
-msgstr ""
+msgstr "ਸ਼ਾਮਲ"
 
 #: qml/TextFieldContextMenu.qml:290
 #, kde-format
@@ -745,25 +739,25 @@ msgstr "ਐਡੀਟਰ ਸੈਟਿੰਗਾਂ"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr ""
+msgstr "ਨੋਟਿਸ ਡਾਇਰੈਕਟਰੀ:"
 
 #: settings/MarkNoteGeneralPage.qml:54
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the notes directory"
-msgstr ""
+msgstr "ਨੋਟਿਸ ਡਾਇਰੈਕਟਰੀ ਨੂੰ ਚੁਣੋ"
 
 #: settings/MarkNoteGeneralPage.qml:69
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "ਫ਼ੋਂਟ ਵਰਗ:"
 
 #: settings/MarkNoteGeneralPage.qml:110
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "ਫ਼ੋਂਟ ਦਾ ਆਕਾਰ:"
 
 #: settings/MarkNoteSettings.qml:15
 #, kde-format
@@ -772,9 +766,7 @@ msgid "General"
 msgstr "ਆਮ"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "About MarkNote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
 msgstr "ਮਾਰਕ-ਨੋਟ ਬਾਰੇ"
