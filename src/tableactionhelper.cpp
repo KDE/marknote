@@ -10,7 +10,6 @@
 using namespace Qt::StringLiterals;
 
 #include <KLocalizedString>
-#include <QAction>
 #include <QIcon>
 
 #include <QPointer>
