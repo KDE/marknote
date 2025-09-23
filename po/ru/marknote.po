@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-25 00:43+0000\n"
+"POT-Creation-Date: 2025-09-23 00:42+0000\n"
 "PO-Revision-Date: 2025-06-04 16:22+0300\n"
 "Last-Translator: Mariya Shikunova <maremarie@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -783,37 +783,37 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "О KDE"
 
-#: tableactionhelper.cpp:118
+#: tableactionhelper.cpp:117
 #, kde-format
 msgid "Row Below"
 msgstr "Строку ниже"
 
-#: tableactionhelper.cpp:124
+#: tableactionhelper.cpp:123
 #, kde-format
 msgid "Row Above"
 msgstr "Строку выше"
 
-#: tableactionhelper.cpp:130
+#: tableactionhelper.cpp:129
 #, kde-format
 msgid "Column Before"
 msgstr "Столбец слева"
 
-#: tableactionhelper.cpp:137
+#: tableactionhelper.cpp:136
 #, kde-format
 msgid "Column After"
 msgstr "Столбец справа"
 
-#: tableactionhelper.cpp:143
+#: tableactionhelper.cpp:142
 #, kde-format
 msgid "Row"
 msgstr "Строка"
 
-#: tableactionhelper.cpp:149
+#: tableactionhelper.cpp:148
 #, kde-format
 msgid "Column"
 msgstr "Столбец"
 
-#: tableactionhelper.cpp:155
+#: tableactionhelper.cpp:154
 #, kde-format
 msgid "Cell Contents"
 msgstr "Содержимое ячейки"

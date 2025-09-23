@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-25 00:43+0000\n"
+"POT-Creation-Date: 2025-09-23 00:42+0000\n"
 "PO-Revision-Date: 2025-09-04 14:59+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -781,37 +781,37 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE Hakkında"
 
-#: tableactionhelper.cpp:118
+#: tableactionhelper.cpp:117
 #, kde-format
 msgid "Row Below"
 msgstr "Alttaki Satır"
 
-#: tableactionhelper.cpp:124
+#: tableactionhelper.cpp:123
 #, kde-format
 msgid "Row Above"
 msgstr "Üstteki Satır"
 
-#: tableactionhelper.cpp:130
+#: tableactionhelper.cpp:129
 #, kde-format
 msgid "Column Before"
 msgstr "Önceki Sütun"
 
-#: tableactionhelper.cpp:137
+#: tableactionhelper.cpp:136
 #, kde-format
 msgid "Column After"
 msgstr "Sonraki Sütun"
 
-#: tableactionhelper.cpp:143
+#: tableactionhelper.cpp:142
 #, kde-format
 msgid "Row"
 msgstr "Satır"
 
-#: tableactionhelper.cpp:149
+#: tableactionhelper.cpp:148
 #, kde-format
 msgid "Column"
 msgstr "Sütun"
 
-#: tableactionhelper.cpp:155
+#: tableactionhelper.cpp:154
 #, kde-format
 msgid "Cell Contents"
 msgstr "Hücre İçeriği"

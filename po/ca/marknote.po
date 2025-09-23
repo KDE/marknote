@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-25 00:43+0000\n"
+"POT-Creation-Date: 2025-09-23 00:42+0000\n"
 "PO-Revision-Date: 2025-05-25 11:13+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -785,37 +785,37 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Quant a KDE"
 
-#: tableactionhelper.cpp:118
+#: tableactionhelper.cpp:117
 #, kde-format
 msgid "Row Below"
 msgstr "Fila a baix"
 
-#: tableactionhelper.cpp:124
+#: tableactionhelper.cpp:123
 #, kde-format
 msgid "Row Above"
 msgstr "Fila a dalt"
 
-#: tableactionhelper.cpp:130
+#: tableactionhelper.cpp:129
 #, kde-format
 msgid "Column Before"
 msgstr "Columna abans"
 
-#: tableactionhelper.cpp:137
+#: tableactionhelper.cpp:136
 #, kde-format
 msgid "Column After"
 msgstr "Columna després"
 
-#: tableactionhelper.cpp:143
+#: tableactionhelper.cpp:142
 #, kde-format
 msgid "Row"
 msgstr "Fila"
 
-#: tableactionhelper.cpp:149
+#: tableactionhelper.cpp:148
 #, kde-format
 msgid "Column"
 msgstr "Columna"
 
-#: tableactionhelper.cpp:155
+#: tableactionhelper.cpp:154
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contingut de la cel·la"
