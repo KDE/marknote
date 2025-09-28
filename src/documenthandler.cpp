@@ -792,8 +792,6 @@ void DocumentHandler::insertImage(const QUrl &url)
 
 void DocumentHandler::insertTable(int rows, int columns)
 {
-    QString htmlText;
-
     QTextCursor cursor = textCursor();
     QTextTableFormat tableFormat;
     tableFormat.setBorder(1);

@@ -15,7 +15,7 @@ class App : public AbstractKirigamiApplication
     QML_SINGLETON
 
 public:
-    App(QObject *parent = nullptr);
+    explicit App(QObject *parent = nullptr);
     ~App() override = default;
 
     Q_INVOKABLE [[nodiscard]] static QString iconName(const QIcon &icon);

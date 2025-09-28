@@ -61,5 +61,5 @@ public:
     Q_INVOKABLE QString nameForIndex(int index) const;
 
 private:
-    KColorSchemeManager *c;
+    KColorSchemeManager *const c;
 };
