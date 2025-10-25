@@ -60,10 +60,9 @@ msgid "Note taking application"
 msgstr "Notiz-Anwendung"
 
 #: main.cpp:74
-#, fuzzy, kde-format
-#| msgid "© 2023 Mathis Brüchert"
+#, kde-format
 msgid "© 2023-2024 Mathis Brüchert"
-msgstr "Copyright © 2023 Mathis Brüchert"
+msgstr "© 2023–2024 Mathis Brüchert"
 
 #: main.cpp:75
 #, kde-format
