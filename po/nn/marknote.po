@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-23 00:42+0000\n"
-"PO-Revision-Date: 2024-09-22 16:36+0200\n"
+"PO-Revision-Date: 2025-10-26 13:33+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.08.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -60,9 +60,9 @@ msgid "Note taking application"
 msgstr "Notatverktøy"
 
 #: main.cpp:74
-#, fuzzy, kde-format
+#, kde-format
 msgid "© 2023-2024 Mathis Brüchert"
-msgstr "© 2023 Jonah Brüchert"
+msgstr "© 2023–2024 Jonah Brüchert"
 
 #: main.cpp:75
 #, kde-format
@@ -99,12 +99,12 @@ msgstr ""
 "Klarte ikkje endra notatnamn. Det finst alt eit notat med dette namnet."
 
 #: qml/EditPage.qml:77 qml/EditPage.qml:550
-#, fuzzy, kde-format
+#, kde-format
 msgid "Undo"
 msgstr "Angra"
 
 #: qml/EditPage.qml:90 qml/EditPage.qml:563
-#, fuzzy, kde-format
+#, kde-format
 msgid "Redo"
 msgstr "Gjer om"
 
@@ -326,10 +326,10 @@ msgid "Maildir location:"
 msgstr "Maildir-adresse:"
 
 #: qml/ImportMaildirDialog.qml:57
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Select a Maildir location"
-msgstr "Maildir-adresse:"
+msgstr "Vel Maildir-plassering"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
@@ -500,7 +500,7 @@ msgstr "Slett notatbok"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Do not show again"
-msgstr ""
+msgstr "Ikkje vis igjen"
 
 #: qml/NotebookDeleteDialog.qml:88
 #, kde-format
@@ -773,11 +773,8 @@ msgctxt "@action:button"
 msgid "General"
 msgstr "Generelt"
 
-# Elles vert programmet omtala med liten n.
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "About MarkNote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
 msgstr "Om Marknote"
