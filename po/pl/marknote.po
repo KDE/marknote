@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-23 00:42+0000\n"
-"PO-Revision-Date: 2025-02-08 18:02+0100\n"
+"PO-Revision-Date: 2025-11-08 09:36+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
-"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language-Team: pl\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: application.cpp:34
 #, kde-format
@@ -496,7 +497,7 @@ msgstr "Usuń notatnik"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Do not show again"
-msgstr ""
+msgstr "Nie pokazuj ponownie"
 
 #: qml/NotebookDeleteDialog.qml:88
 #, kde-format
@@ -769,12 +770,10 @@ msgid "General"
 msgstr "Ogólne"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "About MarkNote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
-msgstr "O MarkNote"
+msgstr "O Marknote"
 
 #: settings/MarkNoteSettings.qml:27
 #, kde-format
