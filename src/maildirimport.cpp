@@ -5,6 +5,7 @@
 
 #include <QDir>
 #include <QFileInfo>
+#include <QSharedPointer>
 #include <QUrl>
 
 #include <KLocalizedString>
@@ -78,12 +79,12 @@ void MaildirImport::import(const QUrl &maildir, const QUrl &destinationDir)
                 }
 
                 const auto mailData = KMime::CRLFtoLF(mimeFile.readAll());
-                auto msg = KMime::Message::Ptr(new KMime::Message);
+                auto msg = QSharedPointer<KMime::Message>::create();
                 msg->setContent(mailData);
                 msg->parse();
 
-                const auto subject = msg->subject()->asUnicodeString();
-                const auto content = msg->decodedContent();
+                const auto subject = msg->subject(KMime::CreatePolicy::Create)->asUnicodeString();
+                const auto content = msg->decodedBody();
 
                 QFile markdownFile(destinationDir.toLocalFile() + u'/' + cleanFileName(subject) + u".md"_s);
                 if (!markdownFile.open(QIODevice::WriteOnly)) {
