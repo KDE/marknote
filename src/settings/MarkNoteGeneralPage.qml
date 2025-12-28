@@ -77,7 +77,7 @@ FormCard.FormCardPage {
                     Layout.fillWidth: true
                     model: ConfigHelper.fontFamilies
                     enabled: !Config.isEditorFontImmutable
-                    onCurrentIndexChanged: {
+                    onActivated: {
                         if (isInitialising && !enabled) {
                             return;
                         }
