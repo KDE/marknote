@@ -85,7 +85,7 @@ Components.MessageDialog {
 
     Controls.Label {
         Layout.fillWidth: true
-        text: i18n("Are you sure you want to delete the Notebook <b> %1 </b>? This will delete the content of <b>%2</b> definitively.", removeDialog.name, removeDialog.model.storagePath + '/' + removeDialog.name)
+        text: i18n("Are you sure you want to delete the Notebook <b>%1</b>? This will delete the content of <b>%2</b> definitively.", removeDialog.name, removeDialog.model.storagePath + '/' + removeDialog.name)
         wrapMode: Text.WordWrap
     }
 }
