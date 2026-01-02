@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-28 00:43+0000\n"
+"POT-Creation-Date: 2026-01-02 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -499,10 +499,13 @@ msgid "Do not show again"
 msgstr ""
 
 #: qml/NotebookDeleteDialog.qml:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Are you sure you want to delete the Notebook <b> %1 </b>? This will "
+#| "delete the content of <b>%2</b> definitively."
 msgid ""
-"Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
-"the content of <b>%2</b> definitively."
+"Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
+"content of <b>%2</b> definitively."
 msgstr "您确定要删除笔记本 <b> %1 </b>？这将删除 <b>%2</b> 中的内容。"
 
 #: qml/NotebookMetadataDialog.qml:32

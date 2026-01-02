@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-28 00:43+0000\n"
+"POT-Creation-Date: 2026-01-02 00:44+0000\n"
 "PO-Revision-Date: 2024-03-27 22:39+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -501,8 +501,8 @@ msgstr ""
 #: qml/NotebookDeleteDialog.qml:88
 #, kde-format
 msgid ""
-"Are you sure you want to delete the Notebook <b> %1 </b>? This will delete "
-"the content of <b>%2</b> definitively."
+"Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
+"content of <b>%2</b> definitively."
 msgstr ""
 
 #: qml/NotebookMetadataDialog.qml:32
