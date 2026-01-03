@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-02 00:44+0000\n"
-"PO-Revision-Date: 2025-05-25 10:16+0300\n"
+"PO-Revision-Date: 2026-01-02 08:45+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: application.cpp:34
 #, kde-format
@@ -500,15 +500,12 @@ msgid "Do not show again"
 msgstr "לא להציג שוב"
 
 #: qml/NotebookDeleteDialog.qml:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the Notebook <b> %1 </b>? This will "
-#| "delete the content of <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."
 msgstr ""
-"למחוק את המחברת <b> %1 </b>? הפעולה הזאת תמחק את התוכן של <b>%2</b> לצמיתות."
+"למחוק את המחברת <b>%1</b>? הפעולה הזאת תמחק את התוכן של <b>%2</b> לצמיתות."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
