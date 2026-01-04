@@ -1,15 +1,15 @@
 # Translation of marknote.po to Catalan (Valencian)
-# Copyright (C) 2023-2025 This_file_is_part_of_KDE
+# Copyright (C) 2023-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-02 00:44+0000\n"
-"PO-Revision-Date: 2025-05-25 11:13+0200\n"
+"PO-Revision-Date: 2026-01-02 08:54+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: application.cpp:34
 #, kde-format
@@ -47,7 +47,7 @@ msgstr "Importa des de Maildir"
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr "S'ha produït un error en escriure a «%1»"
+msgstr "S'ha produït un error mentre s'escrivia a «%1»"
 
 #: main.cpp:70 qml/Main.qml:346
 #, kde-format
@@ -503,16 +503,13 @@ msgid "Do not show again"
 msgstr "No ho tornes a mostrar"
 
 #: qml/NotebookDeleteDialog.qml:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the Notebook <b> %1 </b>? This will "
-#| "delete the content of <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."
 msgstr ""
-"Segur que voleu suprimir el bloc de notes <b> %1 </b>? Açò suprimirà de "
-"manera permanent el contingut de <b>%2</b>."
+"Segur que voleu suprimir el bloc de notes <b>%1</b>? Açò suprimirà de manera "
+"permanent el contingut de <b>%2</b>."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
