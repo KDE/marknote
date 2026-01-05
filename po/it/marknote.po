@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-02 00:44+0000\n"
-"PO-Revision-Date: 2025-05-26 16:02+0200\n"
+"PO-Revision-Date: 2026-01-02 14:56+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: application.cpp:34
 #, kde-format
@@ -500,10 +500,7 @@ msgid "Do not show again"
 msgstr "Non mostrare di nuovo"
 
 #: qml/NotebookDeleteDialog.qml:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the Notebook <b> %1 </b>? This will "
-#| "delete the content of <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."

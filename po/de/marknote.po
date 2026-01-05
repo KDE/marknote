@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the marknote package.
 # SPDX-FileCopyrightText: 2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2024 Alois.spitzbart <spitz234@hotmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-02 00:44+0000\n"
-"PO-Revision-Date: 2024-08-25 17:48+0200\n"
-"Last-Translator: Alois.spitzbart <spitz234@hotmail.com>\n"
+"PO-Revision-Date: 2026-01-01 19:56+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: application.cpp:34
 #, kde-format
@@ -34,19 +35,19 @@ msgstr "Neue Notiz"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Von KNotes importieren"
 
 #: application.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Von Maildir importieren"
 
 #: maildirimport.cpp:92
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr ""
+msgstr "Beim Schreiben nach „%1“ ist ein Fehler aufgetreten"
 
 #: main.cpp:70 qml/Main.qml:346
 #, kde-format
@@ -100,16 +101,12 @@ msgstr ""
 "demselben Namen."
 
 #: qml/EditPage.qml:77 qml/EditPage.qml:550
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Undo"
+#, kde-format
 msgid "Undo"
 msgstr "Rückgängig"
 
 #: qml/EditPage.qml:90 qml/EditPage.qml:563
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Redo"
+#, kde-format
 msgid "Redo"
 msgstr "Wiederherstellen"
 
@@ -153,7 +150,7 @@ msgstr "Durchgestrichen"
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr "Listenebene vergrößern"
+msgstr "Listenebene erhöhen"
 
 #: qml/EditPage.qml:293
 #, kde-format
@@ -310,13 +307,13 @@ msgstr "Schnelle Skizze"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Von Maildir importieren"
 
 #: qml/ImportMaildirDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Von KNotes importieren"
 
 #: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:39
 #, kde-format
@@ -328,19 +325,19 @@ msgstr "Name:"
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr ""
+msgstr "Maildir-Speicherort:"
 
 #: qml/ImportMaildirDialog.qml:57
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Maildir location"
-msgstr ""
+msgstr "Einen Maildir-Speicherort auswählen"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "Importieren"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
@@ -378,24 +375,23 @@ msgstr "Notizbuch erstellen"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
-msgstr ""
+msgstr "Importieren"
 
 #: qml/Main.qml:286
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
-msgstr ""
+msgstr "Notizenliste sortieren"
 
 #: qml/Main.qml:292
-#, fuzzy, kde-format
-#| msgid "Note Name:"
+#, kde-format
 msgid "by Name"
-msgstr "Name der Notiz:"
+msgstr "nach Namen"
 
 #: qml/Main.qml:306
 #, kde-format
 msgid "by Date"
-msgstr ""
+msgstr "nach Datum"
 
 #: qml/Main.qml:331
 #, kde-format
@@ -506,7 +502,7 @@ msgstr "Notizbuch löschen"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Do not show again"
-msgstr ""
+msgstr "Nicht erneut anzeigen"
 
 #: qml/NotebookDeleteDialog.qml:88
 #, fuzzy, kde-format
@@ -568,12 +564,13 @@ msgid "Delete Note"
 msgstr "Notiz löschen"
 
 #: qml/NotesPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
-msgstr "Möchten Sie die Notiz <b>%1</b> wirklich löschen?"
+msgstr ""
+"Möchten Sie die Notiz <b>%1</b> wirklich löschen? Das wird die Datei <b>%2</"
+"b> endgültig löschen."
 
 #: qml/NotesPage.qml:353
 #, kde-format
@@ -665,7 +662,7 @@ msgstr "Rechtschreibprüfung"
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
-msgstr ""
+msgstr "Verknüpfung öffnen"
 
 #: qml/TextFieldContextMenu.qml:268
 #, kde-format
@@ -730,17 +727,17 @@ msgstr "Beginnen Sie, indem Sie Ihr erstes Notizbuch erstellen."
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 #: settings/MarkNoteGeneralPage.qml:19
 #, kde-format
 msgid "General theme"
-msgstr ""
+msgstr "Allgemeines Design"
 
 #: settings/MarkNoteGeneralPage.qml:26
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Farbschema"
 
 #: settings/MarkNoteGeneralPage.qml:40
 #, kde-format
@@ -775,14 +772,13 @@ msgstr "Schriftgröße:"
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 #: settings/MarkNoteSettings.qml:21
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
-msgstr "Marknote"
+msgstr "Über Marknote"
 
 #: settings/MarkNoteSettings.qml:27
 #, kde-format
@@ -813,12 +809,12 @@ msgstr "Spalte danach"
 #: tableactionhelper.cpp:142
 #, kde-format
 msgid "Row"
-msgstr ""
+msgstr "Zeile"
 
 #: tableactionhelper.cpp:148
 #, kde-format
 msgid "Column"
-msgstr ""
+msgstr "Spalte"
 
 #: tableactionhelper.cpp:154
 #, kde-format
