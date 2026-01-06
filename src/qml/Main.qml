@@ -159,7 +159,7 @@ StatetfulApp.StatefulWindow {
         }
     }
 
-    function openBottomDrawer() {
+    function openBottomDrawer(): void {
         bottomDrawer.open()
     }
 
@@ -199,9 +199,11 @@ StatetfulApp.StatefulWindow {
 
     globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
+
         Component.onCompleted: if(Config.fillWindow === true || Kirigami.Settings.isMobile === true) {
-                               drawer.close()
-                               }
+           drawer.close()
+        }
+
         NoteBooksModel {
             id: noteBooksModel
 
@@ -396,10 +398,14 @@ StatetfulApp.StatefulWindow {
         id: bottomDrawer
 
         headerContentItem: RowLayout {
+            spacing: Kirigami.Units.smallSpacing
+
             Kirigami.Heading {
                 text: i18n("Your Notebooks")
             }
+
             Item { Layout.fillWidth: true }
+
             Controls.ToolButton {
                 icon.name: "list-add"
                 onClicked: {
@@ -408,6 +414,7 @@ StatetfulApp.StatefulWindow {
                 }
             }
         }
+
         drawerContentItem: ColumnLayout {
             Repeater {
                 model: noteBooksModel
