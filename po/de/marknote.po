@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-02 00:44+0000\n"
-"PO-Revision-Date: 2026-01-01 19:56+0100\n"
+"PO-Revision-Date: 2026-01-04 13:09+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -505,12 +505,13 @@ msgid "Do not show again"
 msgstr "Nicht erneut anzeigen"
 
 #: qml/NotebookDeleteDialog.qml:88
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to delete the note <b> %1 </b>?"
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."
-msgstr "Möchten Sie die Notiz <b>%1</b> wirklich löschen?"
+msgstr ""
+"Möchten Sie das Notizbuch <b>%1</b> wirklich löschen? Das wird den Inhalt "
+"von <b>%2</b> endgültig löschen."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
