@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
 "PO-Revision-Date: 2026-01-03 09:51+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -45,7 +45,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Une erreur est survenue lors de l'écriture vers « %1 »"
 
-#: main.cpp:70 qml/Main.qml:346
+#: main.cpp:70 qml/Main.qml:348
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -366,39 +366,39 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Créer un cahier de notes"
 
-#: qml/Main.qml:272
+#: qml/Main.qml:274
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importer"
 
-#: qml/Main.qml:286
+#: qml/Main.qml:288
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Trier la liste des notes"
 
-#: qml/Main.qml:292
+#: qml/Main.qml:294
 #, kde-format
 msgid "by Name"
 msgstr "Par nom"
 
-#: qml/Main.qml:306
+#: qml/Main.qml:308
 #, kde-format
 msgid "by Date"
 msgstr "Par date"
 
-#: qml/Main.qml:331
+#: qml/Main.qml:333
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Réduire la barre latérale"
 
-#: qml/Main.qml:331
+#: qml/Main.qml:333
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Développer la barre latérale"
 
-#: qml/Main.qml:400
+#: qml/Main.qml:404
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vos carnets de notes"

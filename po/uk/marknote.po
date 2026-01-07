@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
 "PO-Revision-Date: 2026-01-02 09:24+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -48,7 +48,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Під час спроби записати дані до «%1» сталася помилка"
 
-#: main.cpp:70 qml/Main.qml:346
+#: main.cpp:70 qml/Main.qml:348
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -366,39 +366,39 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Створити записник"
 
-#: qml/Main.qml:272
+#: qml/Main.qml:274
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Імпортувати"
 
-#: qml/Main.qml:286
+#: qml/Main.qml:288
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Упорядкування списку нотаток"
 
-#: qml/Main.qml:292
+#: qml/Main.qml:294
 #, kde-format
 msgid "by Name"
 msgstr "за назвою"
 
-#: qml/Main.qml:306
+#: qml/Main.qml:308
 #, kde-format
 msgid "by Date"
 msgstr "за датою"
 
-#: qml/Main.qml:331
+#: qml/Main.qml:333
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Згорнути бічну панель"
 
-#: qml/Main.qml:331
+#: qml/Main.qml:333
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Розгорнути бічну панель"
 
-#: qml/Main.qml:400
+#: qml/Main.qml:404
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Додати записники"

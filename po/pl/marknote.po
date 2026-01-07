@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
 "PO-Revision-Date: 2025-11-08 09:36+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -48,7 +48,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Wystąpił błąd przy zapisywaniu do pliku'%1'"
 
-#: main.cpp:70 qml/Main.qml:346
+#: main.cpp:70 qml/Main.qml:348
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -366,39 +366,39 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Utwórz notatnik"
 
-#: qml/Main.qml:272
+#: qml/Main.qml:274
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Zaimportuj"
 
-#: qml/Main.qml:286
+#: qml/Main.qml:288
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Uszereguj listę notatek"
 
-#: qml/Main.qml:292
+#: qml/Main.qml:294
 #, kde-format
 msgid "by Name"
 msgstr "wg nazwy"
 
-#: qml/Main.qml:306
+#: qml/Main.qml:308
 #, kde-format
 msgid "by Date"
 msgstr "wg daty"
 
-#: qml/Main.qml:331
+#: qml/Main.qml:333
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Zwiń pasek boczny"
 
-#: qml/Main.qml:331
+#: qml/Main.qml:333
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Rozwiń pasek boczny"
 
-#: qml/Main.qml:400
+#: qml/Main.qml:404
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Twoje notatniki"

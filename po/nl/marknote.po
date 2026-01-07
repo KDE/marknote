@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
 "PO-Revision-Date: 2026-01-02 15:20+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -47,7 +47,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Er deed zich een fout voor bij schrijven naar '%1'"
 
-#: main.cpp:70 qml/Main.qml:346
+#: main.cpp:70 qml/Main.qml:348
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -367,39 +367,39 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Notitieboek aanmaken"
 
-#: qml/Main.qml:272
+#: qml/Main.qml:274
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importeren"
 
-#: qml/Main.qml:286
+#: qml/Main.qml:288
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Notitielijst sorteren"
 
-#: qml/Main.qml:292
+#: qml/Main.qml:294
 #, kde-format
 msgid "by Name"
 msgstr "op naam"
 
-#: qml/Main.qml:306
+#: qml/Main.qml:308
 #, kde-format
 msgid "by Date"
 msgstr "op datum"
 
-#: qml/Main.qml:331
+#: qml/Main.qml:333
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Zijbalk invouwen"
 
-#: qml/Main.qml:331
+#: qml/Main.qml:333
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Zijbalk uitvouwen"
 
-#: qml/Main.qml:400
+#: qml/Main.qml:404
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Uw notitieboeken"
