@@ -150,6 +150,10 @@ Kirigami.Page {
             onClicked: {
                 Config.fillWindow = !Config.fillWindow
             }
+            Shortcut {
+                sequence: "Ctrl+R"
+                onActivated: Config.fillWindow = !Config.fillWindow
+            }
             ToolTip.text: text
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
