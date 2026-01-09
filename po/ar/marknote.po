@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the marknote package.
-# SPDX-FileCopyrightText: 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-07 00:44+0000\n"
-"PO-Revision-Date: 2025-05-27 18:14+0400\n"
+"PO-Revision-Date: 2026-01-07 19:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -500,15 +500,12 @@ msgid "Do not show again"
 msgstr "لا تعرض مجدّدًا"
 
 #: qml/NotebookDeleteDialog.qml:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the Notebook <b> %1 </b>? This will "
-#| "delete the content of <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."
 msgstr ""
-"هل أنت متأكد من رغبتك في حذف دفتر الملاحظات <b> %1 </b>؟ سيؤدي هذا إلى حذف "
+"هل أنت متأكد من رغبتك في حذف دفتر الملاحظات <b>%1</b>؟ سيؤدي هذا إلى حذف "
 "محتوى <b>%2</b> نهائيًا."
 
 #: qml/NotebookMetadataDialog.qml:32
