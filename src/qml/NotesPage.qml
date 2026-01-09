@@ -238,6 +238,7 @@ Kirigami.ScrollablePage {
 
         Label {
             Layout.fillWidth: true
+            Layout.topMargin: (-Kirigami.Units.gridUnit) + Kirigami.Units.smallSpacing
             text: i18n("Are you sure you want to delete the note <b> %1 </b>? This will delete the file <b>%2</b> definitively.", removeDialog.noteName, removeDialog.notePath)
             wrapMode: Text.WordWrap
         }
