@@ -55,6 +55,8 @@ ecm_add_qml_module(marknote_static
         colorschemer.cpp colorschemer.h
         maildirimport.cpp
         maildirimport.h
+        sketchhistory.cpp
+        sketchhistory.h
 )
 
 kconfig_target_kcfg_file(marknote_static FILE marknotesettings.kcfg CLASS_NAME Config MUTATORS GENERATE_PROPERTIES GENERATE_MOC DEFAULT_VALUE_GETTERS PARENT_IN_CONSTRUCTOR QML_REGISTRATION SINGLETON)

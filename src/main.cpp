@@ -21,6 +21,7 @@
 #include "../marknote-version.h"
 #include "colorschemer.h"
 #include "config.h"
+#include "sketchhistory.h"
 
 #if KI18N_VERSION >= QT_VERSION_CHECK(6, 8, 0)
 #include <KLocalizedQmlContext>
@@ -116,6 +117,8 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }
+
+    qRegisterMetaType<Stroke>("Stroke");
 
     QObject::connect(QApplication::instance(), &QCoreApplication::aboutToQuit, QApplication::instance(), [] {
         Config::self()->save();
