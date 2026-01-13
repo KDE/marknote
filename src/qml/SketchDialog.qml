@@ -210,7 +210,7 @@ Controls.Dialog {
                         width: height
                         Kirigami.ShadowedRectangle {
                             anchors.centerIn: parent
-                            color: "black"
+                            color: Kirigami.Theme.textColor
                             radius: 200
                             width: widthDelegate.strokeWidth * 2
                             height: width
