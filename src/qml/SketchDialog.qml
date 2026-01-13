@@ -133,7 +133,6 @@ Controls.Dialog {
                     ListElement { color: "#95cf92" }
                     ListElement { color: "#369acc" }
                     ListElement { color: "#9656a2" }
-
                 }
                 Controls.ToolButton {
                     id: delegate
