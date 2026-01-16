@@ -501,14 +501,14 @@ msgstr "Znovu nezobrazovat"
 #: qml/NotebookDeleteDialog.qml:88
 #, fuzzy, kde-format
 #| msgid ""
-#| "Are you sure you want to delete the Notebook <b> %1 </b>? This will "
-#| "delete the content of <b>%2</b> definitively."
+#| "Are you sure you want to delete the note <b> %1 </b>? This will delete "
+#| "the file <b>%2</b> definitively."
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."
 msgstr ""
-"Opravdu si přejete smazat poznámkový blok <b> %1 </b>? Tím dojde k trvalému "
-"smazání obsahu <b>%2</b>."
+"Opravdu si přejete smazat poznámku <b> %1 </b>? Tím dojde k trvalému smazání "
+"souboru <b>%2</b>."
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
