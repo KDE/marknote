@@ -32,7 +32,6 @@ StatetfulApp.StatefulWindow {
     application: App
     windowName: 'main'
 
-    controlsVisible: false
     onWideScreenChanged: Kirigami.Settings.isMobile? drawer.close() :  (!wideScreen? (drawer.close()) : drawer.open())
     pageStack {
         globalToolBar {
@@ -250,6 +249,7 @@ StatetfulApp.StatefulWindow {
                         icon.name: "application-menu"
                         onClicked: optionPopup.popup()
                         x: Config.expandedSidebar ? Kirigami.Units.smallSpacing : drawer.normalWidth / 2 - width / 2
+                        anchors.verticalCenter: parent.verticalCenter
 
                         Behavior on x {
                             NumberAnimation {
@@ -349,6 +349,7 @@ StatetfulApp.StatefulWindow {
                         horizontalAlignment: Qt.AlignHCenter
                         opacity: Config.expandedSidebar ? 1 : 0
                         width: parent.width
+                        anchors.verticalCenter: parent.verticalCenter
                         x: 0
                         y: Kirigami.Units.smallSpacing
                         Behavior on opacity {
@@ -362,6 +363,7 @@ StatetfulApp.StatefulWindow {
                         icon.name: "sidebar-collapse-left"
                         onClicked: expandSidebar.clicked()
                         x: drawer.width - width - Kirigami.Units.smallSpacing
+                        anchors.verticalCenter: parent.verticalCenter
                         opacity: Config.expandedSidebar ? 1 : 0
                         enabled: Config.expandedSidebar
                         Behavior on opacity {
