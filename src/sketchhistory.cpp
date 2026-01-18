@@ -84,6 +84,10 @@ void HistoryController::undoStroke()
 
 Stroke HistoryController::redoStroke()
 {
+    // history can't be empty when on redoStroke
+    if (history.empty()) {
+        return Stroke {};
+    }
     // as return type is fixed, here we can't make redundant availability check, so make sure to call this only after checking
     if (at0th) {
         at0th = false;
