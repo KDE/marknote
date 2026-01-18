@@ -256,6 +256,7 @@ StatetfulApp.StatefulWindow {
                         }
 
                         x: Config.expandedSidebar ? Kirigami.Units.smallSpacing : drawer.normalWidth / 2 - width / 2
+                        display: Controls.AbstractButton.IconOnly
                         text: i18nc("@action:button", "Show Menu")
                         icon.name: "application-menu-symbolic"
                         anchors.verticalCenter: parent.verticalCenter
