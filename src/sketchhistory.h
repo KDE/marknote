@@ -1,4 +1,5 @@
-// Created by siddharth on 1/10/26.
+// SPDX-FileCopyrightText: Siddharth Chopra <contact.sid.chopra@gmail.com>
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #ifndef MARKNOTE_SKETCHUNDO_H
 #define MARKNOTE_SKETCHUNDO_H
@@ -34,13 +35,13 @@ class HistoryController : public QObject
     std::deque<Stroke>::iterator current = history.end();
     bool at0th = false;
 
-    void add_stroke(QList<QVector2D> &points, QString &color, float &width, bool &isEraser);
+    void add_stroke(const QList<QVector2D> &points, const QString &color, float &width, bool &isEraser);
 
 public:
     HistoryController() = default;
-    bool isUndoAvailable();
-    bool isRedoAvailable();
-    Q_INVOKABLE void submitStroke(QList<QVector2D> points, QString color, float width, bool isEraser);
+    bool isUndoAvailable() const;
+    bool isRedoAvailable() const;
+    Q_INVOKABLE void submitStroke(const QList<QVector2D> &points, const QString &color, float width, bool isEraser);
     Q_INVOKABLE void undoStroke();
     Q_INVOKABLE Stroke redoStroke();
     Q_INVOKABLE void reset();

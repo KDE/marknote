@@ -1,7 +1,9 @@
-// Created by siddharth on 1/10/26.
+// SPDX-FileCopyrightText: Siddharth Chopra <contact.sid.chopra@gmail.com>
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 #include "sketchhistory.h"
 
-bool HistoryController::isUndoAvailable()
+bool HistoryController::isUndoAvailable() const
 {
     if (history.size() == 0) {
         return false;
@@ -9,13 +11,10 @@ bool HistoryController::isUndoAvailable()
     if (at0th) {
         return false;
     }
-    if (current < history.end() && current >= history.begin()) {
-        return true;
-    }
-    return false;
+    return current < history.end() && current >= history.begin();
 }
 
-bool HistoryController::isRedoAvailable()
+bool HistoryController::isRedoAvailable() const
 {
     if (at0th) {
         return true;
@@ -26,23 +25,21 @@ bool HistoryController::isRedoAvailable()
     if (current == history.end() - 1) {
         return false;
     }
-    if (current < history.end() - 1 && current >= history.begin()) {
-        return true;
-    }
-    return false;
+    return current < history.end() - 1 && current >= history.begin();
 }
 
-void HistoryController::add_stroke(QList<QVector2D> &points, QString &color, float &width, bool &isEraser)
+void HistoryController::add_stroke(const QList<QVector2D> &points, const QString &color, float &width, bool &isEraser)
 {
-    Stroke stroke;
-    stroke.points = points;
-    stroke.color = color;
-    stroke.width = width;
-    stroke.isEraser = isEraser;
+    Stroke stroke{
+        .points = points,
+        .color = color,
+        .width = width,
+        .isEraser = isEraser,
+    };
     history.push_back(stroke);
 }
 
-void HistoryController::submitStroke(QList<QVector2D> points, QString color, float width, bool isEraser)
+void HistoryController::submitStroke(const QList<QVector2D> &points, const QString &color, float width, bool isEraser)
 {
     if (at0th) {
         history.clear();

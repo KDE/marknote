@@ -51,7 +51,7 @@ Controls.Dialog {
         }); // stroke object that contains points, color, width
         property bool repaintRequired: false;
 
-        function undo() {
+        function undo(): void {
             if (mousePressed) {
                 return;
             }
@@ -63,7 +63,7 @@ Controls.Dialog {
             }
         }
 
-        function redo() {
+        function redo(): void {
             if (mousePressed) {
                 return;
             }
@@ -81,7 +81,7 @@ Controls.Dialog {
             }
         }
 
-        function makeStroke() {
+        function makeStroke(): void {
             if (mousePressed) {
                 return;
             }
@@ -183,7 +183,7 @@ Controls.Dialog {
                 background.visible: true
                 enabled: history.undoAvailable;
                 display: Controls.AbstractButton.IconOnly
-                icon.name: "edit-undo"
+                icon.name: "edit-undo-symbolic"
                 onClicked: canvas.undo()
             }
 
@@ -195,7 +195,7 @@ Controls.Dialog {
                 background.visible: true
                 enabled: history.redoAvailable;
                 display: Controls.AbstractButton.IconOnly
-                icon.name: "edit-redo"
+                icon.name: "edit-redo-symbolic"
                 onClicked: canvas.redo()
             }
 
