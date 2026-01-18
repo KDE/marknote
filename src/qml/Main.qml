@@ -246,10 +246,32 @@ StatetfulApp.StatefulWindow {
                 contentItem: Item {
                     Controls.ToolButton {
                         id: menuButton
-                        icon.name: "application-menu"
-                        onClicked: optionPopup.popup()
+
+                        function openMenu(): void {
+                            if (!menuItem.visible) {
+                                menuItem.open();
+                            } else {
+                                menuItem.dismiss()
+                            }
+                        }
+
                         x: Config.expandedSidebar ? Kirigami.Units.smallSpacing : drawer.normalWidth / 2 - width / 2
+                        text: i18nc("@action:button", "Show Menu")
+                        icon.name: "application-menu-symbolic"
                         anchors.verticalCenter: parent.verticalCenter
+                        down: pressed || menuItem.visible
+
+                        onPressed: openMenu()
+
+                        Keys.onReturnPressed: openMenu()
+                        Keys.onEnterPressed: openMenu()
+
+                        Accessible.role: Accessible.ButtonMenu
+                        Accessible.onPressAction: openMenu()
+
+                        Controls.ToolTip.visible: hovered && !menuItem.visible
+                        Controls.ToolTip.text: text
+                        Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                         Behavior on x {
                             NumberAnimation {
@@ -257,8 +279,13 @@ StatetfulApp.StatefulWindow {
                                 easing.type: Easing.InOutQuart
                             }
                         }
-                        Controls.Menu {
+
+                        property Controls.Menu menuItem: Controls.Menu {
                             id: optionPopup
+
+                            y: menuButton.height
+
+                            onClosed: menuButton.toggle()
 
                             Kirigami.Action {
                                 id: newNotebookAction
