@@ -8,6 +8,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as Components
 import QtQuick.Templates as T
+import org.kde.marknote
 
 import "components"
 
@@ -40,33 +41,117 @@ Controls.Dialog {
         property color color: "black"
         property int strokeWidth: 2
         property bool erase: eraserButton.checked
+        property bool mousePressed: false;
+        property var drawing: []; // array of stroke objects
+        property var currentStroke: ({
+            points: [],
+            color: "",
+            width: 0,
+            isEraser: false
+        }); // stroke object that contains points, color, width
+        property bool repaintRequired: false;
+
+        function undo(): void {
+            if (mousePressed) {
+                return;
+            }
+            if (history.undoAvailable){
+                history.undoStroke();
+                drawing.pop();
+                canvas.repaintRequired = true;
+                canvas.requestPaint();
+            }
+        }
+
+        function redo(): void {
+            if (mousePressed) {
+                return;
+            }
+            if (history.redoAvailable) {
+                let cppStroke = history.redoStroke();
+                let jsStroke = {
+                    points: cppStroke.points,
+                    color: cppStroke.color.toString(),
+                    width: cppStroke.width,
+                    isEraser: cppStroke.isEraser
+                }
+                drawing.push(jsStroke);
+                canvas.repaintRequired = true;
+                canvas.requestPaint();
+            }
+        }
+
+        function makeStroke(): void {
+            if (mousePressed) {
+                return;
+            }
+            history.submitStroke(currentStroke.points, currentStroke.color, currentStroke.width, currentStroke.isEraser);
+            drawing.push(currentStroke);
+        }
+
+        HistoryController {
+            id: history
+        }
 
         onPaint: {
             var ctx = getContext('2d')
-            if (canvas.erase === true) {
-                ctx.globalCompositeOperation = 'destination-out'
-            } else {
-                ctx.globalCompositeOperation = "source-over"
-
+            if (!repaintRequired) {
+                if (canvas.erase === true) {
+                    ctx.globalCompositeOperation = 'destination-out'
+                }
+                else {
+                    ctx.globalCompositeOperation = 'source-over'
+                }
+                ctx.lineWidth = canvas.strokeWidth
+                ctx.strokeStyle = canvas.color
+                ctx.lineCap = "round"
+                ctx.beginPath()
+                ctx.moveTo(lastX, lastY)
+                currentStroke.points.push(Qt.vector2d(lastX, lastY))
+                lastX = area.mouseX
+                lastY = area.mouseY
+                ctx.lineTo(lastX, lastY)
+                ctx.stroke()
             }
-            ctx.lineWidth = canvas.strokeWidth
-            ctx.strokeStyle = canvas.color
-            ctx.lineCap = "round"
-            ctx.beginPath()
-            ctx.moveTo(lastX, lastY)
-            lastX = area.mouseX
-            lastY = area.mouseY
-            ctx.lineTo(lastX, lastY)
-            ctx.stroke()
+            else{
+                ctx.reset();
+                ctx.lineCap = "round"
+                for (const stroke of drawing){
+                    ctx.globalCompositeOperation = stroke.isEraser === true ? 'destination-out' : 'source-over';
+                    ctx.lineWidth = stroke.width
+                    ctx.strokeStyle = stroke.color
+                    for (let i=0; i<stroke.points.length-1; i++){
+                        ctx.beginPath();
+                        ctx.moveTo(stroke.points[i].x, stroke.points[i].y);
+                        ctx.lineTo(stroke.points[i+1].x, stroke.points[i+1].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
         }
+
         MouseArea {
             id: area
             anchors.fill: parent
             onPressed: {
+                canvas.mousePressed = true;
                 canvas.lastX = mouseX
                 canvas.lastY = mouseY
+                canvas.currentStroke = {
+                    points: [],
+                    color: canvas.color.toString(),
+                    width: canvas.strokeWidth,
+                    isEraser: canvas.erase
+                }
+            }
+            onReleased: {
+                canvas.mousePressed = false;
+                canvas.currentStroke.points.push(Qt.vector2d(canvas.lastX, canvas.lastY));
+                canvas.makeStroke();
             }
             onPositionChanged: {
+                canvas.repaintRequired = false;
                 canvas.requestPaint()
             }
         }
@@ -88,6 +173,30 @@ Controls.Dialog {
 
             Controls.ButtonGroup {
                 buttons: colorLayout.children
+            }
+
+            Controls.ToolButton {
+                id: undoButton
+                implicitHeight: Kirigami.Units.gridUnit * 2
+                autoExclusive: false
+                checkable: false
+                background.visible: true
+                enabled: history.undoAvailable;
+                display: Controls.AbstractButton.IconOnly
+                icon.name: "edit-undo-symbolic"
+                onClicked: canvas.undo()
+            }
+
+            Controls.ToolButton {
+                id: redoButton
+                implicitHeight: Kirigami.Units.gridUnit * 2
+                autoExclusive: false
+                checkable: false
+                background.visible: true
+                enabled: history.redoAvailable;
+                display: Controls.AbstractButton.IconOnly
+                icon.name: "edit-redo-symbolic"
+                onClicked: canvas.redo()
             }
 
             Controls.ToolButton {
@@ -260,5 +369,12 @@ Controls.Dialog {
                 }
             }
         }
+    }
+
+    onClosed: {
+        history.reset();
+        canvas.drawing = [];
+        canvas.repaintRequired = true;
+        canvas.requestPaint();
     }
 }
