@@ -110,7 +110,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             Shortcut {
                 id: cancelShortcut
-                sequence: StandardKey.Cancel
+                sequences: [StandardKey.Cancel]
                 onActivated: if (search.visible) {searchButton.clicked()}
             }
             onTextChanged: filterModel.setFilterFixedString(search.text )
