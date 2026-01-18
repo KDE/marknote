@@ -129,6 +129,19 @@
     <binary>marknote</binary>
   </provides>
   <releases>
+    <release version="1.4.0" date="2026-01-19">
+      <description>
+        <p>
+          This release contains a large number of bug fixes and small improvements.
+        </p>
+        <ul>
+          <li>You can now undo and redo changes in the quick sketch dialog</li>
+          <li>You can now drag and drop images</li>
+          <li>The main view no longer disappears when resizing sidebars</li>
+          <li>Issues with delete dialogs have been fixed</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.3.0" date="2024-06-28">
       <url>https://blogs.kde.org/2024/06/28/marknote-1.3/</url>
       <description>
