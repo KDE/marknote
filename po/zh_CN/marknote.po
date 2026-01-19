@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:44+0000\n"
+"POT-Creation-Date: 2026-01-19 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -47,44 +47,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "写入 '%1' 时出错"
 
-#: main.cpp:70 qml/Main.qml:348
+#: main.cpp:71 qml/Main.qml:376
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr ""
 
-#: main.cpp:72
+#: main.cpp:73
 #, kde-format
 msgid "Note taking application"
 msgstr "笔记编辑程序"
 
-#: main.cpp:74
+#: main.cpp:75
 #, kde-format
 msgid "© 2023-2024 Mathis Brüchert"
 msgstr ""
 
-#: main.cpp:75
+#: main.cpp:76
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr ""
 
-#: main.cpp:76 main.cpp:81
+#: main.cpp:77 main.cpp:82
 #, kde-format
 msgid "Maintainer"
 msgstr "维护者"
 
-#: main.cpp:80
+#: main.cpp:81
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:85
+#: main.cpp:86
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "你的名字"
 
-#: main.cpp:85
+#: main.cpp:86
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -96,12 +96,12 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "无法重命名笔记。已经有同名称的笔记。"
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:550
+#: qml/EditPage.qml:77 qml/EditPage.qml:554
 #, kde-format
 msgid "Undo"
 msgstr ""
 
-#: qml/EditPage.qml:90 qml/EditPage.qml:563
+#: qml/EditPage.qml:90 qml/EditPage.qml:567
 #, kde-format
 msgid "Redo"
 msgstr ""
@@ -111,144 +111,144 @@ msgstr ""
 msgid "Focus Mode"
 msgstr "专注模式"
 
-#: qml/EditPage.qml:161 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:157
+#: qml/EditPage.qml:165 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "退出全屏"
 
-#: qml/EditPage.qml:212
+#: qml/EditPage.qml:216
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "粗体"
 
-#: qml/EditPage.qml:231
+#: qml/EditPage.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "斜体"
 
-#: qml/EditPage.qml:250
+#: qml/EditPage.qml:254
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "下划线"
 
-#: qml/EditPage.qml:264
+#: qml/EditPage.qml:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "删除线"
 
-#: qml/EditPage.qml:282
+#: qml/EditPage.qml:286
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "增加列表级别"
 
-#: qml/EditPage.qml:293
+#: qml/EditPage.qml:297
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "降低列表级别"
 
-#: qml/EditPage.qml:335
+#: qml/EditPage.qml:339
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "无列表"
 
-#: qml/EditPage.qml:336
+#: qml/EditPage.qml:340
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "无序列表"
 
-#: qml/EditPage.qml:337
+#: qml/EditPage.qml:341
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "顺序列表"
 
-#: qml/EditPage.qml:347
+#: qml/EditPage.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "插入复选框"
 
-#: qml/EditPage.qml:362
+#: qml/EditPage.qml:366
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "插入链接"
 
-#: qml/EditPage.qml:378
+#: qml/EditPage.qml:382
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "插入图像"
 
-#: qml/EditPage.qml:391
+#: qml/EditPage.qml:395
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "插入表格"
 
-#: qml/EditPage.qml:411
+#: qml/EditPage.qml:415
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "基本文字"
 
-#: qml/EditPage.qml:412
+#: qml/EditPage.qml:416
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "标题"
 
-#: qml/EditPage.qml:413
+#: qml/EditPage.qml:417
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "副标题"
 
-#: qml/EditPage.qml:414
+#: qml/EditPage.qml:418
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "章节"
 
-#: qml/EditPage.qml:415
+#: qml/EditPage.qml:419
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "小节"
 
-#: qml/EditPage.qml:416
+#: qml/EditPage.qml:420
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "段落"
 
-#: qml/EditPage.qml:417
+#: qml/EditPage.qml:421
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "子段落"
 
-#: qml/EditPage.qml:596
+#: qml/EditPage.qml:600
 #, kde-format
 msgid "Format"
 msgstr "格式"
 
-#: qml/EditPage.qml:600
+#: qml/EditPage.qml:604
 #, kde-format
 msgid "Lists"
 msgstr "列表"
 
-#: qml/EditPage.qml:604
+#: qml/EditPage.qml:608
 #, kde-format
 msgid "Insert"
 msgstr "插入"
@@ -353,51 +353,57 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr ""
 
-#: qml/Main.qml:105
+#: qml/Main.qml:104
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "无法创建新的笔记，您需要先创建笔记本。"
 
-#: qml/Main.qml:105
+#: qml/Main.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "创建笔记本"
 
-#: qml/Main.qml:274
+#: qml/Main.qml:260
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr ""
+
+#: qml/Main.qml:302
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "导入"
 
-#: qml/Main.qml:288
+#: qml/Main.qml:316
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "对笔记列表排序"
 
-#: qml/Main.qml:294
+#: qml/Main.qml:322
 #, kde-format
 msgid "by Name"
 msgstr "按名称"
 
-#: qml/Main.qml:308
+#: qml/Main.qml:336
 #, kde-format
 msgid "by Date"
 msgstr "按日期"
 
-#: qml/Main.qml:333
+#: qml/Main.qml:361
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "折叠侧边栏"
 
-#: qml/Main.qml:333
+#: qml/Main.qml:361
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "展开侧边栏"
 
-#: qml/Main.qml:404
+#: qml/Main.qml:434
 #, kde-format
 msgid "Your Notebooks"
 msgstr "你的笔记本"
@@ -486,19 +492,13 @@ msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "删除笔记本"
 
-#: qml/NotebookDeleteDialog.qml:32
+#: qml/NotebookDeleteDialog.qml:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "删除笔记本"
 
-#: qml/NotebookDeleteDialog.qml:46 qml/NotesPage.qml:199
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Do not show again"
-msgstr ""
-
-#: qml/NotebookDeleteDialog.qml:88
+#: qml/NotebookDeleteDialog.qml:38
 #, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
@@ -535,98 +535,98 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "名称："
 
-#: qml/NotesPage.qml:36
+#: qml/NotesPage.qml:37
 #, kde-format
 msgid "Add note"
 msgstr "添加笔记"
 
-#: qml/NotesPage.qml:120
+#: qml/NotesPage.qml:121
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "退出搜索 (%1)"
 
-#: qml/NotesPage.qml:120
+#: qml/NotesPage.qml:121
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "搜索笔记(%1)"
 
-#: qml/NotesPage.qml:179
+#: qml/NotesPage.qml:180
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "删除笔记"
 
-#: qml/NotesPage.qml:241
+#: qml/NotesPage.qml:190
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr "您确定要删除笔记 <b> %1 </b>？这将删除文件 <b>%2</b>。"
 
-#: qml/NotesPage.qml:353
+#: qml/NotesPage.qml:300
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "重命名笔记"
 
-#: qml/NotesPage.qml:359
+#: qml/NotesPage.qml:306
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "删除笔记"
 
-#: qml/NotesPage.qml:370
+#: qml/NotesPage.qml:317
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "导出为 HTML"
 
-#: qml/NotesPage.qml:376
+#: qml/NotesPage.qml:323
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "导出为 HTML"
 
-#: qml/NotesPage.qml:377
+#: qml/NotesPage.qml:324
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML 文件 (*.html)"
 
-#: qml/NotesPage.qml:383
+#: qml/NotesPage.qml:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "导出为 PDF"
 
-#: qml/NotesPage.qml:389
+#: qml/NotesPage.qml:336
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "导出为 PDF"
 
-#: qml/NotesPage.qml:390
+#: qml/NotesPage.qml:337
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF 文件 (*.pdf)"
 
-#: qml/NotesPage.qml:396
+#: qml/NotesPage.qml:343
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "导出为 ODT"
 
-#: qml/NotesPage.qml:402
+#: qml/NotesPage.qml:349
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "导出为 ODT"
 
-#: qml/NotesPage.qml:403
+#: qml/NotesPage.qml:350
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF 文本文档 (*.odt)"
 
-#: qml/NotesPage.qml:535
+#: qml/NotesPage.qml:482
 #, kde-format
 msgid "Add a note!"
 msgstr "添加笔记！"
