@@ -747,69 +747,93 @@ Kirigami.Page {
                 selectionEnd: textArea.selectionEnd
             }
 
-            DocumentHandler {
-                id: document
+            DropArea {
+                id: imageDropArea
+                anchors.fill: parent
+                keys: ["text/uri-list"]
 
-                document: textArea.textDocument
-                textArea: textArea
-                cursorPosition: textArea.cursorPosition
-                selectionStart: textArea.selectionStart
-                selectionEnd: textArea.selectionEnd
-                // textColor: TODO
-                onLoaded: (text) => {
-                    textArea.text = text
-                }
-                onError: (message) => {
-                    console.error("Error message from document handler", message)
-                }
-
-                onCopy: textArea.copy();
-                onCut: textArea.cut();
-                onUndo: textArea.undo();
-                onRedo: textArea.redo();
-
-                Component.onCompleted: {
-                    if (root.noteFullPath.toString().length > 0) {
-                        document.load(root.noteFullPath);
-                        root.saved = true;
-                        root.oldPath = root.noteFullPath;
-                        textArea.forceActiveFocus();
+                onEntered: (drag) => {
+                    if (drag.hasUrls || drag.hasText) {
+                        drag.acceptProposedAction()
                     }
                 }
 
-                Component.onDestruction: {
-                    if (!saved && root.noteFullPath.toString().length > 0) {
-                        document.saveAs(root.noteFullPath);
+                onDropped: (drop) => {
+                    if (drop.hasUrls) {
+                        const path = drop.urls[0].toString();
+                        const isImage = /\.(png|jpg|jpeg|svg|webp|avif)$/i.test(path);
+
+                        if (isImage) {
+                            document.insertImage(path);
+                        } else {
+                            console.warn("Dropped URL is not a supported image format:", path);
+                        }
                     }
                 }
 
-                onCheckableChanged: {
-                    root.checkbox = document.checkable;
-                }
+                DocumentHandler {
+                    id: document
 
-                onMoveCursor: (position) => {
-                    textArea.cursorPosition = position;
-                }
-                onSelectCursor: (start, end) => {
-                    textArea.select(start, end);
-                }
-
-                onCursorPositionChanged: {
-                    root.listIndent = document.canIndentList;
-                    root.listDedent = document.canDedentList;
-                    root.checkbox = document.checkable;
-
-                    if (document.currentListStyle === 0) {
-                        root.listStyle = 0;
-                    } else if (document.currentListStyle === 1) {
-                        root.listStyle = 1;
-                    } else if (document.currentListStyle === 4) {
-                        root.listStyle = 2;
+                    document: textArea.textDocument
+                    textArea: textArea
+                    cursorPosition: textArea.cursorPosition
+                    selectionStart: textArea.selectionStart
+                    selectionEnd: textArea.selectionEnd
+                    // textColor: TODO
+                    onLoaded: (text) => {
+                        textArea.text = text
                     }
-                    root.heading = document.currentHeadingLevel
+                    onError: (message) => {
+                        console.error("Error message from document handler", message)
+                    }
+
+                    onCopy: textArea.copy();
+                    onCut: textArea.cut();
+                    onUndo: textArea.undo();
+                    onRedo: textArea.redo();
+
+                    Component.onCompleted: {
+                        if (root.noteFullPath.toString().length > 0) {
+                            document.load(root.noteFullPath);
+                            root.saved = true;
+                            root.oldPath = root.noteFullPath;
+                            textArea.forceActiveFocus();
+                        }
+                    }
+
+                    Component.onDestruction: {
+                        if (!saved && root.noteFullPath.toString().length > 0) {
+                            document.saveAs(root.noteFullPath);
+                        }
+                    }
+
+                    onCheckableChanged: {
+                        root.checkbox = document.checkable;
+                    }
+
+                    onMoveCursor: (position) => {
+                        textArea.cursorPosition = position;
+                    }
+                    onSelectCursor: (start, end) => {
+                        textArea.select(start, end);
+                    }
+
+                    onCursorPositionChanged: {
+                        root.listIndent = document.canIndentList;
+                        root.listDedent = document.canDedentList;
+                        root.checkbox = document.checkable;
+
+                        if (document.currentListStyle === 0) {
+                            root.listStyle = 0;
+                        } else if (document.currentListStyle === 1) {
+                            root.listStyle = 1;
+                        } else if (document.currentListStyle === 4) {
+                            root.listStyle = 2;
+                        }
+                        root.heading = document.currentHeadingLevel
+                    }
                 }
             }
-
 
             TapHandler {
                 acceptedButtons: Qt.RightButton
