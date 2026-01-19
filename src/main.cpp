@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
                      QStringLiteral(MARKNOTE_VERSION_STRING),
                      i18n("Note taking application"),
                      KAboutLicense::GPL_V2,
-                     i18n("© 2023-2024 Mathis Brüchert"));
+                     i18n("© 2023-2026 Mathis Brüchert"));
     about.addAuthor(i18n("Mathis Brüchert"),
                     i18n("Maintainer"),
                     QStringLiteral("mbb@kaidan.im"),
