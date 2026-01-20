@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
-"PO-Revision-Date: 2026-01-02 09:24+0200\n"
+"POT-Creation-Date: 2026-01-20 00:43+0000\n"
+"PO-Revision-Date: 2026-01-19 08:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -60,8 +60,9 @@ msgid "Note taking application"
 msgstr "Програма для роботи з нотатками"
 
 #: main.cpp:75
-#, kde-format
-msgid "© 2023-2024 Mathis Brüchert"
+#, fuzzy, kde-format
+#| msgid "© 2023-2024 Mathis Brüchert"
+msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© Mathis Brüchert, 2023–2024"
 
 #: main.cpp:76
@@ -370,7 +371,7 @@ msgstr "Створити записник"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr ""
+msgstr "Показати меню"
 
 #: qml/Main.qml:302
 #, kde-format
