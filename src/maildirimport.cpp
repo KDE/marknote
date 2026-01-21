@@ -83,7 +83,11 @@ void MaildirImport::import(const QUrl &maildir, const QUrl &destinationDir)
                 msg->setContent(mailData);
                 msg->parse();
 
+#if KMIME_VERSION >= QT_VERSION_CHECK(6, 6, 44)
                 const auto subject = msg->subject(KMime::CreatePolicy::Create)->asUnicodeString();
+#else
+                const auto subject = msg->subject(true)->asUnicodeString();
+#endif
                 const auto content = msg->decodedBody();
 
                 QFile markdownFile(destinationDir.toLocalFile() + u'/' + cleanFileName(subject) + u".md"_s);
