@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 # SPDX-License-Identifier: BSD-3-Clause
 
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.20)
 
 # TODO move to release service
 set(RELEASE_SERVICE_VERSION_MAJOR "1")
-set(RELEASE_SERVICE_VERSION_MINOR "3")
+set(RELEASE_SERVICE_VERSION_MINOR "4")
 set(RELEASE_SERVICE_VERSION "1.4.0")
 
 project(marknote VERSION ${RELEASE_SERVICE_VERSION})
