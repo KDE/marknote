@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 00:43+0000\n"
-"PO-Revision-Date: 2026-01-19 06:55+0200\n"
+"PO-Revision-Date: 2026-01-20 07:50+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -60,10 +60,9 @@ msgid "Note taking application"
 msgstr "יישום לכתיבת פתקיות"
 
 #: main.cpp:75
-#, fuzzy, kde-format
-#| msgid "© 2023-2024 Mathis Brüchert"
+#, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
-msgstr "© 2023-‏2024 מתיס בריכרט"
+msgstr "© 2023-‏2026 מתיס בריכרט"
 
 #: main.cpp:76
 #, kde-format
