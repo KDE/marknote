@@ -370,7 +370,7 @@ msgstr "Vytvořit poznámkový blok"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr ""
+msgstr "Zobrazovat nabídku"
 
 #: qml/Main.qml:302
 #, kde-format
