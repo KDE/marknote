@@ -80,9 +80,6 @@ target_link_libraries(marknote_static PUBLIC
     KPim6::Mime
     KirigamiAddonsStatefulApp
 )
-if (TARGET KF6::Crash)
-   target_link_libraries(marknote_static PRIVATE KF6::Crash)
-endif()
 
 if(TARGET KF6::I18nQml)
 target_link_libraries(marknote_static PUBLIC
@@ -115,6 +112,9 @@ endif()
 
 
 target_link_libraries(marknote PRIVATE marknote_static marknote_staticplugin)
+if (TARGET KF6::Crash)
+   target_link_libraries(marknote PRIVATE KF6::Crash)
+endif()
 if (NOT ANDROID)
     target_link_libraries(marknote PRIVATE Qt::Widgets)
 endif()
