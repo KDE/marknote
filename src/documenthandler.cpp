@@ -520,14 +520,19 @@ QTextCursor DocumentHandler::textCursor() const
 {
     QTextDocument *doc = textDocument();
     if (!doc)
-        return QTextCursor();
+        return {};
 
-    QTextCursor cursor = QTextCursor(doc);
+    QTextCursor cursor(doc);
+    int lastValidPos = qMax(0, doc->characterCount() - 1);
+    int safePos = qBound(0, m_cursorPosition, lastValidPos);
+    cursor.setPosition(safePos);
+
     if (m_selectionStart != m_selectionEnd) {
-        cursor.setPosition(m_selectionStart);
-        cursor.setPosition(m_selectionEnd, QTextCursor::KeepAnchor);
-    } else {
-        cursor.setPosition(m_cursorPosition);
+        int safeStart = qBound(0, m_selectionStart, lastValidPos);
+        int safeEnd = qBound(0, m_selectionEnd, lastValidPos);
+
+        cursor.setPosition(safeStart);
+        cursor.setPosition(safeEnd, QTextCursor::KeepAnchor);
     }
     return cursor;
 }
