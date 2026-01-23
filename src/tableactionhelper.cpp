@@ -13,7 +13,6 @@ using namespace Qt::StringLiterals;
 #include <QIcon>
 
 #include <QPointer>
-#include <QTextEdit>
 #include <QTextTable>
 
 void TableActionHelper::_k_slotRemoveCellContents()
