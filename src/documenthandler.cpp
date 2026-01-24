@@ -1,6 +1,7 @@
 ﻿// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
 // SPDX-FileCopyrightText: 2015-2024 Laurent Montel <montel@kde.org>
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
+// SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 // SPDX-License-Identifier: BSD-3-Clause AND LGPL-2.0-or-later
 
 #include "documenthandler.h"
