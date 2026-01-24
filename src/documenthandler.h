@@ -8,11 +8,11 @@
 
 #include "nestedlisthelper_p.h"
 #include <QFont>
+#include <QHash>
 #include <QObject>
 #include <QQuickTextDocument>
 #include <QTextCursor>
 #include <QUrl>
-#include <QHash>
 
 class QTextDocument;
 
