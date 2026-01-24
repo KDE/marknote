@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: BSD-3-Clause AND LGPL-2.0-or-later
 
 #include "documenthandler.h"
+#include "asyncimageprovider.h"
 
 #include <KColorScheme>
 #include <KLocalizedString>
@@ -11,6 +12,7 @@
 
 #include <QAbstractTextDocumentLayout>
 #include <QClipboard>
+#include <QCryptographicHash>
 #include <QDesktopServices>
 #include <QFile>
 #include <QFileInfo>
@@ -18,6 +20,7 @@
 #include <QMimeData>
 #include <QPalette>
 #include <QQmlFile>
+#include <QRegularExpression>
 #include <QTextBlock>
 #include <QTextCharFormat>
 #include <QTextDocument>
