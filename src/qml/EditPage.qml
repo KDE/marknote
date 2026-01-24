@@ -58,7 +58,6 @@ Kirigami.Page {
 
     Component.onCompleted: {
         init = true;
-        loadNote();
     }
 
     onNoteFullPathChanged: () => {
