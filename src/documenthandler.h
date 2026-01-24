@@ -12,6 +12,7 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 #include <QUrl>
+#include <QHash>
 
 class QTextDocument;
 
@@ -172,6 +173,7 @@ protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
 private:
+    QString processImage(const QUrl &url);
     void reset();
     QTextCursor textCursor() const;
     void selectLinkText(QTextCursor *cursor) const;
@@ -206,6 +208,7 @@ private:
      * New images are compared to the list and not added as resource if already present.
      */
     QStringList m_imageNames;
+    QHash<QString, QString> m_imagePathLookup;
 
     QFont m_font;
     QUrl m_fileUrl;
