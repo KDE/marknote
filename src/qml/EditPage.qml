@@ -208,7 +208,7 @@ Kirigami.Page {
             ToolButton {
                 id: boldButton
                 Shortcut {
-                    sequence: "Ctrl+B"
+                    sequence: StandardKey.Bold
                     onActivated: boldButton.clicked()
                 }
                 icon.name: "format-text-bold"
@@ -227,7 +227,7 @@ Kirigami.Page {
             ToolButton {
                 id: italicButton
                 Shortcut {
-                    sequence: "Ctrl+I"
+                    sequence: StandardKey.Italic
                     onActivated: italicButton.clicked()
                 }
                 icon.name: "format-text-italic"
@@ -236,7 +236,7 @@ Kirigami.Page {
                 checkable: true
                 checked: document.italic
                 onClicked: {
-                    document.italic = checked;
+                    document.italic = !document.italic;
                 }
 
                 ToolTip.text: text
@@ -246,7 +246,7 @@ Kirigami.Page {
             ToolButton {
                 id: underlineButton
                 Shortcut {
-                    sequence: "Ctrl+U"
+                    sequence: StandardKey.Underline
                     onActivated: underlineButton.clicked()
                 }
                 icon.name: "format-text-underline"
@@ -255,7 +255,7 @@ Kirigami.Page {
                 checkable: true
                 checked: document.underline
                 onClicked: {
-                    document.underline = checked;
+                    document.underline = !document.underline;
                 }
 
                 ToolTip.text: text
@@ -269,7 +269,7 @@ Kirigami.Page {
                 checkable: true
                 checked: document.strikethrough
                 onClicked: {
-                    document.strikethrough = checked;
+                    document.strikethrough = !document.strikethrough;
                 }
 
                 ToolTip.text: text
