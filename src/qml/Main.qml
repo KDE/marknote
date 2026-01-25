@@ -1,55 +1,49 @@
 /*
-    SPDX-License-Identifier: GPL-2.0-or-later
-    SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
-*/
+ *   SPDX-License-Identifier: GPL-2.0-or-later
+ *   SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
+ */
 
 import QtCore
 import QtQuick
-import org.kde.kirigami as Kirigami
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
 import org.kde.marknote
 import org.kde.marknote.settings
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.statefulapp as StatetfulApp
 import org.kde.kirigamiaddons.components as Components
-
 import "components"
 
 StatetfulApp.StatefulWindow {
     id: root
+
     property int minWideScreenWidth: 800
     property int normalColumnWidth: Kirigami.Units.gridUnit * 15
     property double maximalColumWidthPercentage: 0.45
     property int minimalColumnWidth: (minWideScreenWidth * maximalColumWidthPercentage) - (Kirigami.Units.gridUnit * 5)
-
     property bool wideScreen: applicationWindow().width >= minWideScreenWidth && !Config.fillWindow
     property bool columnModeDelayed: false
+    property int currentWidth: normalColumnWidth
 
     minimumWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 22
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
-
     application: App
     windowName: 'main'
 
-    onWideScreenChanged: Kirigami.Settings.isMobile? drawer.close() :  (!wideScreen? (drawer.close()) : drawer.open())
+    onWideScreenChanged: Kirigami.Settings.isMobile ? drawer.close() : (!wideScreen ? (drawer.close()) : drawer.open())
+    onWidthChanged: pageStack.defaultColumnWidth = Math.max(Math.min(root.width * maximalColumWidthPercentage, pageStack.defaultColumnWidth), minimalColumnWidth)
+    onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
+
     pageStack {
         globalToolBar {
-            style: Kirigami.Settings.isMobile? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
+            style: Kirigami.Settings.isMobile ? Kirigami.ApplicationHeaderStyle.Titles : Kirigami.ApplicationHeaderStyle.Auto
             showNavigationButtons: Config.fillWindow ? Kirigami.ApplicationHeaderStyle.None : Kirigami.ApplicationHeaderStyle.ShowBackButton
         }
-
         columnView {
             columnResizeMode: (width >= minWideScreenWidth && !columnModeDelayed) && pageStack.depth >= 2 ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
         }
     }
-
-    // resizing the columns
-    onWidthChanged: pageStack.defaultColumnWidth = Math.max(Math.min(root.width * maximalColumWidthPercentage, pageStack.defaultColumnWidth), minimalColumnWidth )
-
-    property int currentWidth: normalColumnWidth
-
-    onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
 
     MouseArea {
         id: collumnResizeArea
@@ -57,7 +51,7 @@ StatetfulApp.StatefulWindow {
         anchors.bottom: parent.bottom
         parent: applicationWindow().overlay
         visible: pageStack.columnView.columnResizeMode !== Kirigami.ColumnView.SingleColumn
-        x: pageStack.defaultColumnWidth - width/2 + root.x + applicationWindow().globalDrawer.width
+        x: pageStack.defaultColumnWidth - width / 2 + root.x + applicationWindow().globalDrawer.width
         width: Kirigami.Units.smallSpacing * 2
         z: root.z + 1
         cursorShape: Qt.SplitHCursor
@@ -71,11 +65,25 @@ StatetfulApp.StatefulWindow {
                 return;
             } else {
                 const tmpWidth = Math.round(root.currentWidth - (_lastX - mouse.x));
-                if (tmpWidth > minimalColumnWidth && tmpWidth < applicationWindow().width * maximalColumWidthPercentage ) root.currentWidth = tmpWidth;
+                if (tmpWidth > minimalColumnWidth && tmpWidth < applicationWindow().width * maximalColumWidthPercentage)
+                    root.currentWidth = tmpWidth;
             }
         }
     }
 
+    Connections {
+        target: typeof KRunner !== "undefined" ? KRunner : null
+
+        function onNotebookSelected(path) {
+            root.raise()
+            root.requestActivate()
+            NavigationController.notebookPath = path
+            pageStack.clear()
+            root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
+            root.pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"));
+            bottomDrawer.close()
+        }
+    }
 
     Kirigami.Action {
         fromQAction: App.action('open_about_page')
@@ -101,9 +109,11 @@ StatetfulApp.StatefulWindow {
 
         function onNewNote(): void {
             if (NavigationController.notebookPath.length === 0) {
-                root.showPassiveNotification(i18nc("@info:status", "Unable to create a new note, you need to create a notebook first."), "long", i18nc("@action:button", "Create Notebook"), () => {
-                    newNotebookAction.trigger();
-                });
+                root.showPassiveNotification(
+                    i18nc("@info:status", "Unable to create a new note, you need to create a notebook first."),
+                                             "long",
+                                             i18nc("@action:button", "Create Notebook"),
+                                             () => { newNotebookAction.trigger(); });
                 return;
             }
         }
@@ -141,19 +151,25 @@ StatetfulApp.StatefulWindow {
 
     MarkNoteSettings {
         id: settingsView
-
         window: root
     }
 
     Component.onCompleted: {
         Config.fillWindow = false;
-        Kirigami.Settings.isMobile? drawer.close() :  (!wideScreen? (drawer.close()) : drawer.open())
+
+        // Safety check for KRunner
+        if (typeof KRunner !== "undefined") {
+            KRunner.model = noteBooksModel;
+        }
+
+        Kirigami.Settings.isMobile ? drawer.close() : (!wideScreen ? (drawer.close()) : drawer.open());
         NavigationController.mobileMode = Kirigami.Settings.isMobile;
-            if (noteBooksModel.rowCount() !== 0) {
+
+        if (noteBooksModel.rowCount() !== 0) {
             NavigationController.notebookPath = noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path);
         } else {
             pageStack.push(Qt.createComponent("org.kde.marknote", "WelcomePage"), {
-                model : noteBooksModel,
+                model: noteBooksModel,
             });
         }
     }
@@ -164,7 +180,6 @@ StatetfulApp.StatefulWindow {
 
     Connections {
         target: Kirigami.Settings
-
         function onIsMobileChanged(): void {
             NavigationController.mobileMode = Kirigami.Settings.isMobile;
         }
@@ -199,15 +214,11 @@ StatetfulApp.StatefulWindow {
     globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
 
-        Component.onCompleted: if(Config.fillWindow === true || Kirigami.Settings.isMobile === true) {
-           drawer.close()
-        }
+        Component.onCompleted: if (Config.fillWindow === true || Kirigami.Settings.isMobile === true) { drawer.close() }
 
         NoteBooksModel {
             id: noteBooksModel
-
             storagePath: Config.storage
-
             onNoteBookRenamed: (oldName, newName, path) => {
                 if (NavigationController.notebookName === oldName) {
                     NavigationController.notebookPath = path;
@@ -216,10 +227,10 @@ StatetfulApp.StatefulWindow {
         }
 
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        modal: Kirigami.Settings.isMobile ? true : false
+        modal: Kirigami.Settings.isMobile
         property double expandedWidth: 13 * Kirigami.Units.gridUnit
         property double normalWidth: 80
-        width:  Config.expandedSidebar ?  expandedWidth : normalWidth
+        width: Config.expandedSidebar ? expandedWidth : normalWidth
         leftPadding: 0
         rightPadding: 0
         topPadding: 0
@@ -233,7 +244,6 @@ StatetfulApp.StatefulWindow {
         }
 
         contentItem: ColumnLayout {
-//            visible: !Config.fillWindow
             spacing: 0
 
             Controls.ToolBar {
@@ -242,10 +252,15 @@ StatetfulApp.StatefulWindow {
                 leftPadding: 0
                 rightPadding: 0
 
-
                 contentItem: Item {
                     Controls.ToolButton {
                         id: menuButton
+                        x: Config.expandedSidebar ? Kirigami.Units.smallSpacing : (drawer.normalWidth / 2) - (width / 2)
+                        display: Controls.AbstractButton.IconOnly
+                        text: i18nc("@action:button", "Show Menu")
+                        icon.name: "application-menu-symbolic"
+                        anchors.verticalCenter: parent.verticalCenter
+                        down: pressed || menuItem.visible
 
                         function openMenu(): void {
                             if (!menuItem.visible) {
@@ -255,18 +270,9 @@ StatetfulApp.StatefulWindow {
                             }
                         }
 
-                        x: Config.expandedSidebar ? Kirigami.Units.smallSpacing : drawer.normalWidth / 2 - width / 2
-                        display: Controls.AbstractButton.IconOnly
-                        text: i18nc("@action:button", "Show Menu")
-                        icon.name: "application-menu-symbolic"
-                        anchors.verticalCenter: parent.verticalCenter
-                        down: pressed || menuItem.visible
-
                         onPressed: openMenu()
-
                         Keys.onReturnPressed: openMenu()
                         Keys.onEnterPressed: openMenu()
-
                         Accessible.role: Accessible.ButtonMenu
                         Accessible.onPressAction: openMenu()
 
@@ -283,9 +289,7 @@ StatetfulApp.StatefulWindow {
 
                         property Controls.Menu menuItem: Controls.Menu {
                             id: optionPopup
-
                             y: menuButton.height
-
                             onClosed: menuButton.toggle()
 
                             Kirigami.Action {
@@ -301,17 +305,12 @@ StatetfulApp.StatefulWindow {
                             Controls.Menu {
                                 title: i18nc("@title:menu", "Import")
                                 icon.name: "kontact-import-wizard"
-
-                                Kirigami.Action {
-                                    fromQAction: App.action('import_maildir')
-                                }
-
-                                Kirigami.Action {
-                                    fromQAction: App.action('import_knotes')
-                                }
+                                Kirigami.Action { fromQAction: App.action('import_maildir') }
+                                Kirigami.Action { fromQAction: App.action('import_knotes') }
                             }
 
                             Controls.MenuSeparator {}
+
                             Controls.Menu {
                                 title: i18nc("@title:menu", "Sort Notes List")
                                 icon.name: "view-sort"
@@ -327,7 +326,6 @@ StatetfulApp.StatefulWindow {
                                         Config.save();
                                     }
                                     checked: Config.sortBehaviour == "sort-name"
-
                                 }
 
                                 Controls.MenuItem {
@@ -341,19 +339,11 @@ StatetfulApp.StatefulWindow {
                                         Config.save();
                                     }
                                     checked: Config.sortBehaviour == "sort-date"
-
                                 }
                             }
 
-
-                            Kirigami.Action {
-                                fromQAction: App.action('open_kcommand_bar')
-                            }
-
-                            Kirigami.Action {
-                                fromQAction: App.action('options_configure')
-                            }
-
+                            Kirigami.Action { fromQAction: App.action('open_kcommand_bar') }
+                            Kirigami.Action { fromQAction: App.action('options_configure') }
                             Controls.MenuSeparator {}
 
                             Controls.MenuItem {
@@ -378,8 +368,6 @@ StatetfulApp.StatefulWindow {
                         opacity: Config.expandedSidebar ? 1 : 0
                         width: parent.width
                         anchors.verticalCenter: parent.verticalCenter
-                        x: 0
-                        y: Kirigami.Units.smallSpacing
                         Behavior on opacity {
                             NumberAnimation {
                                 duration: Kirigami.Units.shortDuration * 2
@@ -387,6 +375,7 @@ StatetfulApp.StatefulWindow {
                             }
                         }
                     }
+
                     Controls.ToolButton {
                         icon.name: "sidebar-collapse-left"
                         onClicked: expandSidebar.clicked()
@@ -400,22 +389,18 @@ StatetfulApp.StatefulWindow {
                                 easing.type: Easing.InOutQuart
                             }
                         }
-
                     }
-
                 }
             }
 
             Controls.ScrollView {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-
                 Controls.ScrollBar.vertical.interactive: false
 
                 ListView {
                     spacing: 0
                     clip: true
-
                     model: noteBooksModel
                     delegate: NotebookDelegate {
                         model: noteBooksModel
@@ -424,18 +409,14 @@ StatetfulApp.StatefulWindow {
             }
         }
     }
+
     Components.BottomDrawer {
         id: bottomDrawer
 
         headerContentItem: RowLayout {
             spacing: Kirigami.Units.smallSpacing
-
-            Kirigami.Heading {
-                text: i18n("Your Notebooks")
-            }
-
+            Kirigami.Heading { text: i18n("Your Notebooks") }
             Item { Layout.fillWidth: true }
-
             Controls.ToolButton {
                 icon.name: "list-add"
                 onClicked: {
@@ -450,12 +431,11 @@ StatetfulApp.StatefulWindow {
                 model: noteBooksModel
                 delegate: Delegates.RoundedItemDelegate {
                     id: drawerDelegateItem
-
                     required property int index
-                    required property string name;
-                    required property string path;
-                    required property string iconName;
-                    required property string color;
+                    required property string name
+                    required property string path
+                    required property string iconName
+                    required property string color
 
                     Layout.fillWidth: true
 
@@ -463,17 +443,17 @@ StatetfulApp.StatefulWindow {
                         Kirigami.Icon {
                             isMask: true
                             source: iconName
-                            implicitHeight:Kirigami.Units.gridUnit * 1.2
+                            implicitHeight: Kirigami.Units.gridUnit * 1.2
                         }
-                        Controls.Label { text: name}
-                        Item { Layout.fillWidth: true}
+                        Controls.Label { text: name }
+                        Item { Layout.fillWidth: true }
                         Controls.ToolButton {
                             display: Controls.AbstractButton.IconOnly
                             action: NotebookDeleteAction {
                                 path: drawerDelegateItem.path
                                 name: drawerDelegateItem.name
                                 model: noteBooksModel
-                           }
+                            }
                         }
                     }
 
@@ -486,7 +466,7 @@ StatetfulApp.StatefulWindow {
                     }
                 }
             }
-            Item { height: Kirigami.Units.largeSpacing * 3}
+            Item { height: Kirigami.Units.largeSpacing * 3 }
         }
     }
 }

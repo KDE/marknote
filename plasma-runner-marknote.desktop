@@ -1,0 +1,21 @@
+// SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
+// SPDX-License-Identifier: CC0-1.0
+
+[Desktop Entry]
+Name=Marknote
+Comment=Search for notebooks
+X-KDE-ServiceTypes=Plasma/Runner
+Type=Service
+Icon=org.kde.marknote
+X-Plasma-API=DBus
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-Name=Marknote
+X-KDE-PluginInfo-Author=Valentyn Bondarenko
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-License=GPLv2
+X-Plasma-DBusRunner-Service=org.kde.marknote
+X-Plasma-DBusRunner-Path=/NotebookRunner
+X-Plasma-Request-Actions-Once=true
+X-Plasma-Runner-Min-Letter-Count=1
+X-Plasma-Runner-Syntaxes=:q:
+X-Plasma-Runner-Syntax-Descriptions=Search for notebooks

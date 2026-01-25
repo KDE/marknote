@@ -41,7 +41,11 @@ ecm_setup_version(${PROJECT_VERSION}
 )
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg)
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Kirigami I18n Config CoreAddons IconThemes ColorScheme XmlGui)
+find_package(Qt6 ${QT_MIN_VERSION} OPTIONAL_COMPONENTS DBus)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
+    Kirigami I18n Config CoreAddons IconThemes ColorScheme XmlGui)
+find_package(KF6WindowSystem ${KF_MIN_VERSION} QUIET)
+find_package(KF6Runner ${KF_MIN_VERSION} QUIET)
 if (NOT ANDROID)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
     find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Crash)
@@ -78,6 +82,10 @@ ki18n_install(po)
 install(PROGRAMS org.kde.marknote.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.marknote.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES org.kde.marknote.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
+
+if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
+    install(FILES plasma-runner-marknote.desktop DESTINATION ${KDE_INSTALL_DATAROOTDIR}/krunner/dbusplugins)
+endif()
 
 ecm_qt_install_logging_categories(
     EXPORT MARKNOTE

@@ -16,12 +16,19 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 #include <QQuickWindow>
-#include <QUrl>
+#if !defined(Q_OS_ANDROID)
+#include <QDBusConnection>
+#include <QDBusError>
+#endif
 
 #include "../marknote-version.h"
 #include "colorschemer.h"
 #include "config.h"
 #include "sketchhistory.h"
+#include <QUrl>
+#ifdef HAVE_KRUNNER
+#include "runner.h"
+#endif
 
 #if KI18N_VERSION >= QT_VERSION_CHECK(6, 8, 0)
 #include <KLocalizedQmlContext>
@@ -102,6 +109,22 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     KLocalization::setupLocalizedContext(&engine);
+
+#ifdef HAVE_KRUNNER
+    qmlRegisterType<Runner>("org.kde.marknote", 1, 0, "Runner");
+
+    Runner *runner = new Runner(&app);
+    qmlRegisterSingletonInstance<Runner>("org.kde.marknote", 1, 0, "KRunner", runner);
+
+#if !defined(Q_OS_ANDROID)
+    if (QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.marknote"))) {
+        QDBusConnection::sessionBus().registerObject(QStringLiteral("/NotebookRunner"),
+                                                     QStringLiteral("org.kde.krunner1"),
+                                                     runner,
+                                                     QDBusConnection::ExportAllContents);
+    }
+#endif
+#endif
 
     if (parser.positionalArguments().length() > 0) {
         const auto path = parser.positionalArguments()[0];
