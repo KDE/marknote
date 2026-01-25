@@ -672,6 +672,16 @@ Kirigami.Page {
     contentItem: ScrollView {
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
+        bottomPadding: wideScreen ? 0 : (mobileToolBarContainer.hidden ? 0 : mobileToolBarContainer.height)
+
+        // Animate scroll bar between wide and mobile screens transitions
+        Behavior on bottomPadding {
+            NumberAnimation {
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.OutInQuart
+            }
+        }
+
         T.TextArea {
             id: textArea
 
@@ -680,15 +690,12 @@ Kirigami.Page {
             rightPadding: 0
             topPadding: 0
 
-            // To eliminate text overlap by the textFormatGroup we introduce extra padding
-            readonly property int additionalPadding: Kirigami.Units.gridUnit * 4
-            bottomPadding: wideScreen? additionalPadding : (mobileToolBarContainer.hidden ? 0 : mobileToolBarContainer.height)
+            bottomPadding: wideScreen ? (toolBar.height + Kirigami.Units.largeSpacing * 2) : 0
 
             Behavior on bottomPadding {
                 NumberAnimation {
-
-                    duration: Kirigami.Units.shortDuration * 2
-                    easing.type: Easing.InOutQuart
+                    duration: Kirigami.Units.longDuration
+                    easing.type: Easing.OutInQuart
                 }
             }
 
