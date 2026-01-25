@@ -518,7 +518,10 @@ Kirigami.Page {
                         RowLayout {
                             width: swipeView.width
                             height: swipeView.height
-                            Loader { sourceComponent: textFormatGroup }
+                            Loader {
+                                sourceComponent: textFormatGroup
+                                active: !root.wideScreen // Only active on mobile
+                            }
                             Item { Layout.fillWidth: true }
                             Loader { sourceComponent: headingGroup }
                         }
@@ -646,7 +649,10 @@ Kirigami.Page {
         }
 
         contentItem: RowLayout {
-            Loader { sourceComponent: textFormatGroup }
+            Loader {
+                sourceComponent: textFormatGroup
+                active: root.wideScreen // Only active on desktop
+            }
             Kirigami.Separator {
                 Layout.fillHeight: true
                 Layout.margins: 0
