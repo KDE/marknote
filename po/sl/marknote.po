@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-23 00:44+0000\n"
+"POT-Creation-Date: 2026-01-25 00:44+0000\n"
 "PO-Revision-Date: 2026-01-20 07:10+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -101,159 +101,159 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Opombe ni mogoče preimenovati. Opomba z istim imenom že obstaja."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:554
+#: qml/EditPage.qml:76 qml/EditPage.qml:553
 #, kde-format
 msgid "Undo"
 msgstr "Razveljavi"
 
-#: qml/EditPage.qml:90 qml/EditPage.qml:567
+#: qml/EditPage.qml:89 qml/EditPage.qml:566
 #, kde-format
 msgid "Redo"
 msgstr "Uveljavi"
 
-#: qml/EditPage.qml:146
+#: qml/EditPage.qml:145
 #, kde-format
 msgid "Focus Mode"
 msgstr "Način osredotočenja"
 
-#: qml/EditPage.qml:165 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
+#: qml/EditPage.qml:164 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Izhod iz celotnega zaslona"
 
-#: qml/EditPage.qml:216
+#: qml/EditPage.qml:215
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Krepko"
 
-#: qml/EditPage.qml:235
+#: qml/EditPage.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Ležeče"
 
-#: qml/EditPage.qml:254
+#: qml/EditPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Podčrtaj"
 
-#: qml/EditPage.qml:268
+#: qml/EditPage.qml:267
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Prečrtano"
 
-#: qml/EditPage.qml:286
+#: qml/EditPage.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Povečaj raven seznama"
 
-#: qml/EditPage.qml:297
+#: qml/EditPage.qml:296
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Zmanjšaj raven seznama"
 
-#: qml/EditPage.qml:339
+#: qml/EditPage.qml:338
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Ni seznama"
 
-#: qml/EditPage.qml:340
+#: qml/EditPage.qml:339
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Neoštevilčen seznam"
 
-#: qml/EditPage.qml:341
+#: qml/EditPage.qml:340
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Oštevilčen seznam"
 
-#: qml/EditPage.qml:351
+#: qml/EditPage.qml:350
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Vstavi potrditveno polje"
 
-#: qml/EditPage.qml:366
+#: qml/EditPage.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Vstavi povezavo"
 
-#: qml/EditPage.qml:382
+#: qml/EditPage.qml:381
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Vstavi sliko"
 
-#: qml/EditPage.qml:395
+#: qml/EditPage.qml:394
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Vstavi tabelo"
 
-#: qml/EditPage.qml:415
+#: qml/EditPage.qml:414
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Osnovno besedilo"
 
-#: qml/EditPage.qml:416
+#: qml/EditPage.qml:415
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Naslov"
 
-#: qml/EditPage.qml:417
+#: qml/EditPage.qml:416
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Podnaslov"
 
-#: qml/EditPage.qml:418
+#: qml/EditPage.qml:417
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Razdelek"
 
-#: qml/EditPage.qml:419
+#: qml/EditPage.qml:418
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Podrazdelek"
 
-#: qml/EditPage.qml:420
+#: qml/EditPage.qml:419
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Odstavek"
 
-#: qml/EditPage.qml:421
+#: qml/EditPage.qml:420
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Pododstavek"
 
-#: qml/EditPage.qml:600
+#: qml/EditPage.qml:599
 #, kde-format
 msgid "Format"
 msgstr "Oblika"
 
-#: qml/EditPage.qml:604
+#: qml/EditPage.qml:603
 #, kde-format
 msgid "Lists"
 msgstr "Seznami"
 
-#: qml/EditPage.qml:608
+#: qml/EditPage.qml:607
 #, kde-format
 msgid "Insert"
 msgstr "Vstavi"

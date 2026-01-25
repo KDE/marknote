@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-23 00:44+0000\n"
+"POT-Creation-Date: 2026-01-25 00:44+0000\n"
 "PO-Revision-Date: 2025-06-10 22:44+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -97,159 +97,159 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "노트의 이름을 바꿀 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
 
-#: qml/EditPage.qml:77 qml/EditPage.qml:554
+#: qml/EditPage.qml:76 qml/EditPage.qml:553
 #, kde-format
 msgid "Undo"
 msgstr "실행 취소"
 
-#: qml/EditPage.qml:90 qml/EditPage.qml:567
+#: qml/EditPage.qml:89 qml/EditPage.qml:566
 #, kde-format
 msgid "Redo"
 msgstr "다시 실행"
 
-#: qml/EditPage.qml:146
+#: qml/EditPage.qml:145
 #, kde-format
 msgid "Focus Mode"
 msgstr "초점 모드"
 
-#: qml/EditPage.qml:165 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
+#: qml/EditPage.qml:164 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "전체 화면 나가기"
 
-#: qml/EditPage.qml:216
+#: qml/EditPage.qml:215
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "굵게"
 
-#: qml/EditPage.qml:235
+#: qml/EditPage.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "이탤릭"
 
-#: qml/EditPage.qml:254
+#: qml/EditPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "밑줄"
 
-#: qml/EditPage.qml:268
+#: qml/EditPage.qml:267
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "취소선"
 
-#: qml/EditPage.qml:286
+#: qml/EditPage.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "목록 단계 증가"
 
-#: qml/EditPage.qml:297
+#: qml/EditPage.qml:296
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "목록 단계 감소"
 
-#: qml/EditPage.qml:339
+#: qml/EditPage.qml:338
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "목록 없음"
 
-#: qml/EditPage.qml:340
+#: qml/EditPage.qml:339
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "순서 없는 목록"
 
-#: qml/EditPage.qml:341
+#: qml/EditPage.qml:340
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "정렬된 목록"
 
-#: qml/EditPage.qml:351
+#: qml/EditPage.qml:350
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "체크 상자 삽입"
 
-#: qml/EditPage.qml:366
+#: qml/EditPage.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "링크 삽입"
 
-#: qml/EditPage.qml:382
+#: qml/EditPage.qml:381
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "그림 삽입"
 
-#: qml/EditPage.qml:395
+#: qml/EditPage.qml:394
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "표 삽입"
 
-#: qml/EditPage.qml:415
+#: qml/EditPage.qml:414
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "일반 텍스트"
 
-#: qml/EditPage.qml:416
+#: qml/EditPage.qml:415
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "제목"
 
-#: qml/EditPage.qml:417
+#: qml/EditPage.qml:416
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "부제목"
 
-#: qml/EditPage.qml:418
+#: qml/EditPage.qml:417
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "장"
 
-#: qml/EditPage.qml:419
+#: qml/EditPage.qml:418
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "절"
 
-#: qml/EditPage.qml:420
+#: qml/EditPage.qml:419
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "문단"
 
-#: qml/EditPage.qml:421
+#: qml/EditPage.qml:420
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "하위 문단"
 
-#: qml/EditPage.qml:600
+#: qml/EditPage.qml:599
 #, kde-format
 msgid "Format"
 msgstr "형식"
 
-#: qml/EditPage.qml:604
+#: qml/EditPage.qml:603
 #, kde-format
 msgid "Lists"
 msgstr "목록"
 
-#: qml/EditPage.qml:608
+#: qml/EditPage.qml:607
 #, kde-format
 msgid "Insert"
 msgstr "삽입"
