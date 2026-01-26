@@ -19,6 +19,7 @@
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QMimeData>
+#include <QMimeDatabase>
 #include <QPalette>
 #include <QQmlFile>
 #include <QRegularExpression>
@@ -821,6 +822,13 @@ void DocumentHandler::insertImage(const QUrl &url)
     if (!url.isLocalFile())
         return;
 
+    QMimeDatabase db;
+    const QMimeType mimeType = db.mimeTypeForFile(url.toLocalFile());
+
+    if (!mimeType.name().startsWith(u"image/"_s)) {
+        qWarning() << "Ignored non-image file:" << url.toLocalFile();
+        return;
+    }
     const QString proxyUrl = processImage(url);
 
     QTextCursor cursor = textCursor();

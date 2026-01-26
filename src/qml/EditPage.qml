@@ -762,23 +762,28 @@ Kirigami.Page {
             DropArea {
                 id: imageDropArea
                 anchors.fill: parent
-                keys: ["text/uri-list"]
 
                 onEntered: (drag) => {
-                    if (drag.hasUrls || drag.hasText) {
+                    let compatible = false;
+                    for (let i = 0; i < drag.formats.length; i++) {
+                        const fmt = drag.formats[i].toString();
+                        // Allow text/uri-list as some file managers use this format
+                        if (fmt.indexOf("image/") === 0 || fmt === "text/uri-list") {
+                            compatible = true;
+                            break;
+                        }
+                    }
+
+                    if (compatible) {
                         drag.acceptProposedAction()
                     }
                 }
 
                 onDropped: (drop) => {
                     if (drop.hasUrls) {
-                        const path = drop.urls[0].toString();
-                        const isImage = /\.(png|jpg|jpeg|svg|webp|avif)$/i.test(path);
-
-                        if (isImage) {
+                        for (let i = 0; i < drop.urls.length; i++) {
+                            const path = drop.urls[i].toString();
                             document.insertImage(path);
-                        } else {
-                            console.warn("Dropped URL is not a supported image format:", path);
                         }
                     }
                 }
