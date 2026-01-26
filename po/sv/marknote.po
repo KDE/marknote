@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-25 00:44+0000\n"
+"POT-Creation-Date: 2026-01-26 00:43+0000\n"
 "PO-Revision-Date: 2025-05-31 11:41+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -47,45 +47,45 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Ett fel uppstod vid skrivning till '%1'"
 
-#: main.cpp:71 qml/Main.qml:376
+#: main.cpp:86 qml/Main.qml:366
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:73
+#: main.cpp:88
 #, kde-format
 msgid "Note taking application"
 msgstr "Anteckningsprogram"
 
-#: main.cpp:75
+#: main.cpp:90
 #, fuzzy, kde-format
 #| msgid "© 2023-2024 Mathis Brüchert"
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2024 Mathis Brüchert"
 
-#: main.cpp:76
+#: main.cpp:91
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:77 main.cpp:82
+#: main.cpp:92 main.cpp:97
 #, kde-format
 msgid "Maintainer"
 msgstr "Underhållsansvarig"
 
-#: main.cpp:81
+#: main.cpp:96
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:86
+#: main.cpp:101
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:86
+#: main.cpp:101
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -99,12 +99,12 @@ msgstr ""
 "Kunde inte byta namn på anteckningen. En anteckning med samma namn finns "
 "redan."
 
-#: qml/EditPage.qml:76 qml/EditPage.qml:553
+#: qml/EditPage.qml:76 qml/EditPage.qml:556
 #, kde-format
 msgid "Undo"
 msgstr "Ångra"
 
-#: qml/EditPage.qml:89 qml/EditPage.qml:566
+#: qml/EditPage.qml:89 qml/EditPage.qml:569
 #, kde-format
 msgid "Redo"
 msgstr "Gör om"
@@ -241,17 +241,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Delstycke"
 
-#: qml/EditPage.qml:599
+#: qml/EditPage.qml:602
 #, kde-format
 msgid "Format"
 msgstr "Format"
 
-#: qml/EditPage.qml:603
+#: qml/EditPage.qml:606
 #, kde-format
 msgid "Lists"
 msgstr "Listor"
 
-#: qml/EditPage.qml:607
+#: qml/EditPage.qml:610
 #, kde-format
 msgid "Insert"
 msgstr "Infoga"
@@ -356,14 +356,14 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "Länkwebbadress:"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:113
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 "Kan inte skapa en ny anteckning, ett anteckningsbok måste skapas först."
 
-#: qml/Main.qml:104
+#: qml/Main.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
@@ -375,39 +375,39 @@ msgctxt "@action:button"
 msgid "Show Menu"
 msgstr ""
 
-#: qml/Main.qml:302
+#: qml/Main.qml:306
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importera"
 
-#: qml/Main.qml:316
+#: qml/Main.qml:315
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Sortera anteckningslista"
 
-#: qml/Main.qml:322
+#: qml/Main.qml:321
 #, kde-format
 msgid "by Name"
 msgstr "enligt namn"
 
-#: qml/Main.qml:336
+#: qml/Main.qml:334
 #, kde-format
 msgid "by Date"
 msgstr "enligt datum"
 
-#: qml/Main.qml:361
+#: qml/Main.qml:351
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Dra ihop sidorad"
 
-#: qml/Main.qml:361
+#: qml/Main.qml:351
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Expandera sidorad"
 
-#: qml/Main.qml:434
+#: qml/Main.qml:418
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Dina anteckningsböcker"
@@ -788,37 +788,37 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Om KDE"
 
-#: tableactionhelper.cpp:117
+#: tableactionhelper.cpp:116
 #, kde-format
 msgid "Row Below"
 msgstr "Rad nedanför"
 
-#: tableactionhelper.cpp:123
+#: tableactionhelper.cpp:122
 #, kde-format
 msgid "Row Above"
 msgstr "Rad ovanför"
 
-#: tableactionhelper.cpp:129
+#: tableactionhelper.cpp:128
 #, kde-format
 msgid "Column Before"
 msgstr "Kolumn före"
 
-#: tableactionhelper.cpp:136
+#: tableactionhelper.cpp:135
 #, kde-format
 msgid "Column After"
 msgstr "Kolumn efter"
 
-#: tableactionhelper.cpp:142
+#: tableactionhelper.cpp:141
 #, kde-format
 msgid "Row"
 msgstr "Rad"
 
-#: tableactionhelper.cpp:148
+#: tableactionhelper.cpp:147
 #, kde-format
 msgid "Column"
 msgstr "Kolumn"
 
-#: tableactionhelper.cpp:154
+#: tableactionhelper.cpp:153
 #, kde-format
 msgid "Cell Contents"
 msgstr "Cellinnehåll"

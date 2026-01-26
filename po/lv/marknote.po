@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-25 00:44+0000\n"
+"POT-Creation-Date: 2026-01-26 00:43+0000\n"
 "PO-Revision-Date: 2025-07-02 17:34+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -48,45 +48,45 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Kļūda, rakstot uz „%1“"
 
-#: main.cpp:71 qml/Main.qml:376
+#: main.cpp:86 qml/Main.qml:366
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:73
+#: main.cpp:88
 #, kde-format
 msgid "Note taking application"
 msgstr "Piezīmju programma"
 
-#: main.cpp:75
+#: main.cpp:90
 #, fuzzy, kde-format
 #| msgid "© 2023-2024 Mathis Brüchert"
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023—2024 Mathis Brüchert"
 
-#: main.cpp:76
+#: main.cpp:91
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:77 main.cpp:82
+#: main.cpp:92 main.cpp:97
 #, kde-format
 msgid "Maintainer"
 msgstr "Uzturētājs"
 
-#: main.cpp:81
+#: main.cpp:96
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:86
+#: main.cpp:101
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Toms Trasūns"
 
-#: main.cpp:86
+#: main.cpp:101
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -98,12 +98,12 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Neizdodas piezīmi pārdēvēt Piezīme ar šādu nosaukumu jau pastāv."
 
-#: qml/EditPage.qml:76 qml/EditPage.qml:553
+#: qml/EditPage.qml:76 qml/EditPage.qml:556
 #, kde-format
 msgid "Undo"
 msgstr "Atsaukt"
 
-#: qml/EditPage.qml:89 qml/EditPage.qml:566
+#: qml/EditPage.qml:89 qml/EditPage.qml:569
 #, kde-format
 msgid "Redo"
 msgstr "Atatsaukt"
@@ -240,17 +240,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Daļa"
 
-#: qml/EditPage.qml:599
+#: qml/EditPage.qml:602
 #, kde-format
 msgid "Format"
 msgstr "Formāts"
 
-#: qml/EditPage.qml:603
+#: qml/EditPage.qml:606
 #, kde-format
 msgid "Lists"
 msgstr "Saraksts"
 
-#: qml/EditPage.qml:607
+#: qml/EditPage.qml:610
 #, kde-format
 msgid "Insert"
 msgstr "Ievietot"
@@ -355,14 +355,14 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "Saites URL:"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:113
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 "Neizdodas pievienot jaunu piezīmi. Vispirms ir jāizveido piezīmju grāmata."
 
-#: qml/Main.qml:104
+#: qml/Main.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
@@ -374,39 +374,39 @@ msgctxt "@action:button"
 msgid "Show Menu"
 msgstr ""
 
-#: qml/Main.qml:302
+#: qml/Main.qml:306
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importēt"
 
-#: qml/Main.qml:316
+#: qml/Main.qml:315
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Kārtot piezīmju sarakstu"
 
-#: qml/Main.qml:322
+#: qml/Main.qml:321
 #, kde-format
 msgid "by Name"
 msgstr "pēc nosaukuma"
 
-#: qml/Main.qml:336
+#: qml/Main.qml:334
 #, kde-format
 msgid "by Date"
 msgstr "pēc datuma"
 
-#: qml/Main.qml:361
+#: qml/Main.qml:351
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Sakļaut sānu joslu"
 
-#: qml/Main.qml:361
+#: qml/Main.qml:351
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Izvērst sānu joslu"
 
-#: qml/Main.qml:434
+#: qml/Main.qml:418
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Jūsu piezīmju grāmatiņas"
@@ -787,37 +787,37 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Par KDE"
 
-#: tableactionhelper.cpp:117
+#: tableactionhelper.cpp:116
 #, kde-format
 msgid "Row Below"
 msgstr "Rinda zem"
 
-#: tableactionhelper.cpp:123
+#: tableactionhelper.cpp:122
 #, kde-format
 msgid "Row Above"
 msgstr "Rinda virs"
 
-#: tableactionhelper.cpp:129
+#: tableactionhelper.cpp:128
 #, kde-format
 msgid "Column Before"
 msgstr "Kolonna pirms"
 
-#: tableactionhelper.cpp:136
+#: tableactionhelper.cpp:135
 #, kde-format
 msgid "Column After"
 msgstr "Kolonna pēc"
 
-#: tableactionhelper.cpp:142
+#: tableactionhelper.cpp:141
 #, kde-format
 msgid "Row"
 msgstr "Rinda"
 
-#: tableactionhelper.cpp:148
+#: tableactionhelper.cpp:147
 #, kde-format
 msgid "Column"
 msgstr "Kolonna"
 
-#: tableactionhelper.cpp:154
+#: tableactionhelper.cpp:153
 #, kde-format
 msgid "Cell Contents"
 msgstr "Šūnu saturs"

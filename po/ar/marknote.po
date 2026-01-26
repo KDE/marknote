@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-25 00:44+0000\n"
+"POT-Creation-Date: 2026-01-26 00:43+0000\n"
 "PO-Revision-Date: 2026-01-24 11:50+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -48,44 +48,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "حدث خطأ أثناء الكتابة إلى '%1'"
 
-#: main.cpp:71 qml/Main.qml:376
+#: main.cpp:86 qml/Main.qml:366
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "دفتر مارك"
 
-#: main.cpp:73
+#: main.cpp:88
 #, kde-format
 msgid "Note taking application"
 msgstr "تطبيق كتابة ملاحظات"
 
-#: main.cpp:75
+#: main.cpp:90
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2026 ماتيس بروشيرت"
 
-#: main.cpp:76
+#: main.cpp:91
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "ماتيس بروشيرت"
 
-#: main.cpp:77 main.cpp:82
+#: main.cpp:92 main.cpp:97
 #, kde-format
 msgid "Maintainer"
 msgstr "الصائن"
 
-#: main.cpp:81
+#: main.cpp:96
 #, kde-format
 msgid "Carl Schwan"
 msgstr "كارل شوان"
 
-#: main.cpp:86
+#: main.cpp:101
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "زايد السعيدي"
 
-#: main.cpp:86
+#: main.cpp:101
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -97,12 +97,12 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "تعذر إعادة تسمية الملاحظة. الملف أو المجلد موجودان فعلاً بنفس الاسم."
 
-#: qml/EditPage.qml:76 qml/EditPage.qml:553
+#: qml/EditPage.qml:76 qml/EditPage.qml:556
 #, kde-format
 msgid "Undo"
 msgstr "تراجع"
 
-#: qml/EditPage.qml:89 qml/EditPage.qml:566
+#: qml/EditPage.qml:89 qml/EditPage.qml:569
 #, kde-format
 msgid "Redo"
 msgstr "كرّر"
@@ -239,17 +239,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "الفقرة الفرعية"
 
-#: qml/EditPage.qml:599
+#: qml/EditPage.qml:602
 #, kde-format
 msgid "Format"
 msgstr "التنسيق"
 
-#: qml/EditPage.qml:603
+#: qml/EditPage.qml:606
 #, kde-format
 msgid "Lists"
 msgstr "القوائم"
 
-#: qml/EditPage.qml:607
+#: qml/EditPage.qml:610
 #, kde-format
 msgid "Insert"
 msgstr "أدرج"
@@ -354,13 +354,13 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "مسار الرّابط:"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:113
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "غير قادر على إنشاء ملاحظة جديدة، يجب عليك إنشاء دفتر ملاحظات أولاً."
 
-#: qml/Main.qml:104
+#: qml/Main.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
@@ -372,39 +372,39 @@ msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "أظهر القائمة"
 
-#: qml/Main.qml:302
+#: qml/Main.qml:306
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "استورد"
 
-#: qml/Main.qml:316
+#: qml/Main.qml:315
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "افرز قائمة الملاحظات"
 
-#: qml/Main.qml:322
+#: qml/Main.qml:321
 #, kde-format
 msgid "by Name"
 msgstr "بالاسم"
 
-#: qml/Main.qml:336
+#: qml/Main.qml:334
 #, kde-format
 msgid "by Date"
 msgstr "بالتّاريخ"
 
-#: qml/Main.qml:361
+#: qml/Main.qml:351
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr " اطوِ الشريط الجانبي"
 
-#: qml/Main.qml:361
+#: qml/Main.qml:351
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "وسع الشريط الجانبي"
 
-#: qml/Main.qml:434
+#: qml/Main.qml:418
 #, kde-format
 msgid "Your Notebooks"
 msgstr "دفاترك"
@@ -782,37 +782,37 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "عن كِيدِي"
 
-#: tableactionhelper.cpp:117
+#: tableactionhelper.cpp:116
 #, kde-format
 msgid "Row Below"
 msgstr "صفًّا بعده"
 
-#: tableactionhelper.cpp:123
+#: tableactionhelper.cpp:122
 #, kde-format
 msgid "Row Above"
 msgstr "صفًّا قبله"
 
-#: tableactionhelper.cpp:129
+#: tableactionhelper.cpp:128
 #, kde-format
 msgid "Column Before"
 msgstr "عمودًا قبله"
 
-#: tableactionhelper.cpp:136
+#: tableactionhelper.cpp:135
 #, kde-format
 msgid "Column After"
 msgstr "عمودًا بعده"
 
-#: tableactionhelper.cpp:142
+#: tableactionhelper.cpp:141
 #, kde-format
 msgid "Row"
 msgstr "صف"
 
-#: tableactionhelper.cpp:148
+#: tableactionhelper.cpp:147
 #, kde-format
 msgid "Column"
 msgstr "عمود"
 
-#: tableactionhelper.cpp:154
+#: tableactionhelper.cpp:153
 #, kde-format
 msgid "Cell Contents"
 msgstr "محتويات الخليّة"
