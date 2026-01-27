@@ -447,19 +447,9 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
     QTextDocument *doc = textDocument();
     if (!doc)
         return;
-
-    QFile file(fileUrl.toLocalFile());
-    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
-        Q_EMIT error(tr("Cannot save: ") + file.errorString() + u' ' + fileUrl.toLocalFile());
-        return;
-    }
-
     const QString markdown = doc->toMarkdown();
-
-    // PERFORMANCE WIN: String Builder for Saving
     QString finalOutput;
     finalOutput.reserve(markdown.length());
-
     static const QRegularExpression linkRegex(u"\\]\\(image://marknote/([a-f0-9]+)[^)]*\\)"_s);
     QRegularExpressionMatchIterator i = linkRegex.globalMatch(markdown);
 
@@ -469,7 +459,6 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
         QRegularExpressionMatch match = i.next();
         QString hash = match.captured(1);
 
-        // Append text before the link
         finalOutput.append(QStringView(markdown).mid(lastPos, match.capturedStart() - lastPos));
 
         if (m_imagePathLookup.contains(hash)) {
@@ -477,23 +466,45 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
             QString replacement = u"]("_s + originalPath + u")"_s;
             finalOutput.append(replacement);
         } else {
-            // Should not happen, but keep original if hash not found
             finalOutput.append(match.captured());
         }
 
         lastPos = match.capturedEnd();
     }
-
-    // Append remaining text
     finalOutput.append(QStringView(markdown).mid(lastPos));
+    QFile fileCheck(fileUrl.toLocalFile());
+    if (fileCheck.exists() && fileCheck.open(QFile::ReadOnly)) {
+        const QByteArray existingContent = fileCheck.readAll();
+        fileCheck.close();
+
+        if (existingContent == finalOutput.toUtf8()) {
+            if (fileUrl != m_fileUrl) {
+                m_fileUrl = fileUrl;
+                Q_EMIT fileUrlChanged();
+            }
+            doc->setModified(false);
+            return;
+        }
+    }
+
+    // We only reach here if the content is actually different.
+    QFile file(fileUrl.toLocalFile());
+    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
+        Q_EMIT error(tr("Cannot save: ") + file.errorString() + u' ' + fileUrl.toLocalFile());
+        return;
+    }
 
     file.write(finalOutput.toUtf8());
     file.close();
 
-    if (fileUrl == m_fileUrl)
+    if (fileUrl == m_fileUrl) {
+        doc->setModified(false);
         return;
+    }
+
     m_fileUrl = fileUrl;
     Q_EMIT fileUrlChanged();
+    doc->setModified(false);
 }
 
 void DocumentHandler::reset()
