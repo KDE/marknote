@@ -52,6 +52,8 @@ class DocumentHandler : public QObject
 
     Q_PROPERTY(bool modified READ modified WRITE setModified NOTIFY modifiedChanged)
 
+    Q_PROPERTY(bool sourceMode READ isSourceMode WRITE setSourceMode NOTIFY sourceModeChanged)
+
 public:
     explicit DocumentHandler(QObject *parent = nullptr);
 
@@ -113,6 +115,9 @@ public:
     bool modified() const;
     void setModified(bool m);
 
+    bool isSourceMode() const;
+    void setSourceMode(bool mode);
+
     Q_INVOKABLE QString currentLinkUrl() const;
     Q_INVOKABLE QString currentLinkText() const;
     Q_INVOKABLE [[nodiscard]] QString anchorAt(const QPointF &p) const;
@@ -159,6 +164,7 @@ Q_SIGNALS:
     void error(const QString &message);
 
     void modifiedChanged();
+    void sourceModeChanged();
 
     void focusUp();
     void focusDown();
@@ -201,6 +207,8 @@ private:
     int m_cursorPosition;
     int m_selectionStart;
     int m_selectionEnd;
+
+    bool m_sourceMode;
 
     /**
      * The names of embedded images.

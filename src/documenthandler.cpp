@@ -580,6 +580,17 @@ void DocumentHandler::setModified(bool m)
         m_document->textDocument()->setModified(m);
 }
 
+bool DocumentHandler::isSourceMode() const
+{
+    qInfo() << "Hello";
+    return m_sourceMode;
+}
+
+void DocumentHandler::setSourceMode(bool mode)
+{
+    m_sourceMode = mode;
+}
+
 bool DocumentHandler::canIndentList() const
 {
     return m_nestedListHelper.canIndent(textCursor()) && textCursor().blockFormat().headingLevel() == 0;
