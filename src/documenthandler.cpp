@@ -897,6 +897,48 @@ void DocumentHandler::insertTable(int rows, int columns)
     return;
 }
 
+void DocumentHandler::copyWholeNote()
+{
+    QTextDocument *doc = textDocument();
+    if (!doc) {
+        return;
+    }
+
+    const QString content = doc->toMarkdown();
+
+    QMimeData *mime = new QMimeData();
+    mime->setText(content);
+
+    const QString html = doc->toHtml();
+    mime->setHtml(html);
+    mime->setData(QStringLiteral("text/markdown"), content.toUtf8());
+    mime->setData(QStringLiteral("text/plain"), content.toUtf8());
+
+    QGuiApplication::clipboard()->setMimeData(mime);
+}
+
+void DocumentHandler::pasteFromClipboard()
+{
+    const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData();
+    if (!mimeData) {
+        return;
+    }
+
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+
+    if (mimeData->hasHtml()) {
+        cursor.insertHtml(mimeData->html());
+    } else if (mimeData->hasFormat(QStringLiteral("text/markdown"))) {
+        const QByteArray md = mimeData->data(QStringLiteral("text/markdown"));
+        cursor.insertText(QString::fromUtf8(md));
+    } else if (mimeData->hasText()) {
+        cursor.insertText(mimeData->text());
+    }
+
+    cursor.endEditBlock();
+}
+
 void DocumentHandler::setCheckable(bool add)
 {
     QTextBlockFormat fmt;
@@ -1229,13 +1271,29 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
         copy();
         return true;
     } else if (KStandardShortcut::paste().contains(key)) {
-        const auto mimeData = QGuiApplication::clipboard()->mimeData(QClipboard::Clipboard);
+        const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData(QClipboard::Clipboard);
+        if (!mimeData) {
+            return true;
+        }
+
         if (const auto urls = mimeData->urls(); urls.size() == 1 && urls.front().scheme() == "https"_L1) {
             updateLink(urls.front().toString(), QString());
             return true;
         }
 
-        const auto text = mimeData->text();
+        // Prefer rich HTML if available
+        if (mimeData->hasHtml()) {
+            textCursor().insertHtml(mimeData->html());
+            return true;
+        }
+
+        if (mimeData->hasFormat(QStringLiteral("text/markdown"))) {
+            const QByteArray md = mimeData->data(QStringLiteral("text/markdown"));
+            textCursor().insertText(QString::fromUtf8(md));
+            return true;
+        }
+
+        const QString text = mimeData->text();
         if (const QUrl url(text, QUrl::StrictMode); url.isValid() && url.scheme() == "https"_L1) {
             updateLink(url.toString(), QString());
             return true;
@@ -1296,9 +1354,21 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
         //    }
         //    return true;
     } else if (KStandardShortcut::pasteSelection().contains(key)) {
-        QString text = QGuiApplication::clipboard()->text(QClipboard::Selection);
-        if (!text.isEmpty()) {
-            textCursor().insertText(text); // TODO: check if this is html? (MiB)
+        const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData(QClipboard::Selection);
+        if (mimeData) {
+            QTextCursor cursor = textCursor();
+            cursor.beginEditBlock();
+            // Prefer rich HTML if available
+            if (mimeData->hasHtml()) {
+                cursor.insertHtml(mimeData->html());
+            } else if (mimeData->hasFormat(QStringLiteral("text/markdown"))) {
+                const QByteArray md = mimeData->data(QStringLiteral("text/markdown"));
+                cursor.insertText(QString::fromUtf8(md));
+            } else if (mimeData->hasText()) {
+                cursor.insertText(mimeData->text());
+            }
+
+            cursor.endEditBlock();
         }
         return true;
     } else if (event == QKeySequence::DeleteEndOfLine) {
