@@ -79,8 +79,8 @@ Kirigami.Page {
             selectByMouse: true
             selectedTextColor: Kirigami.Theme.highlightedTextColor
             selectionColor: Kirigami.Theme.highlightColor
-            textFormat: document.sourceMode
-            // textFormat: TextEdit.PlainText
+            textFormat: document.sourceMode ? TextEdit.PlainText : TextEdit.MarkdownText
+            // textFormat: TextEdit.MarkdownText
             textMargin: wideScreen ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
             topPadding: 0
             wrapMode: TextEdit.Wrap

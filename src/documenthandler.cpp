@@ -366,73 +366,78 @@ void DocumentHandler::load(const QUrl &fileUrl)
 
     const QString content = QString::fromUtf8(file.readAll());
 
-    // PERFORMANCE WIN: String Builder Pattern
-    // Instead of replace() inside a loop (O(N^2)), we build the new string
-    // (O(N)).
-    QString processedContent;
-    processedContent.reserve(content.length() + (content.length() / 5));
+    if (!isSourceMode()) {
+        // PERFORMANCE WIN: String Builder Pattern
+        // Instead of replace() inside a loop (O(N^2)), we build the new string
+        // (O(N)).
+        QString processedContent;
+        processedContent.reserve(content.length() + (content.length() / 5));
 
-    m_imagePathLookup.clear();
+        m_imagePathLookup.clear();
 
-    if (QTextDocument *doc = textDocument()) {
-        doc->setUndoRedoEnabled(false);
-        doc->setBaseUrl(QUrl(fileUrl).adjusted(QUrl::RemoveFilename));
+        if (QTextDocument *doc = textDocument()) {
+            doc->setUndoRedoEnabled(false);
+            doc->setBaseUrl(QUrl(fileUrl).adjusted(QUrl::RemoveFilename));
 
-        static const QRegularExpression imgRegex(u"!\\[.*?\\]\\(([^)]+)\\)"_s, QRegularExpression::DotMatchesEverythingOption);
+            static const QRegularExpression imgRegex(u"!\\[.*?\\]\\(([^)]+)\\)"_s, QRegularExpression::DotMatchesEverythingOption);
 
-        QRegularExpressionMatchIterator i = imgRegex.globalMatch(content);
+            QRegularExpressionMatchIterator i = imgRegex.globalMatch(content);
 
-        int lastPos = 0; // Track where we are in the original string
+            int lastPos = 0; // Track where we are in the original string
 
-        while (i.hasNext()) {
-            QRegularExpressionMatch match = i.next();
+            while (i.hasNext()) {
+                QRegularExpressionMatch match = i.next();
 
-            // OPTIMIZATION: Zero-Copy View
-            QStringView originalPathView = match.capturedView(1);
-            originalPathView = originalPathView.trimmed();
+                // OPTIMIZATION: Zero-Copy View
+                QStringView originalPathView = match.capturedView(1);
+                originalPathView = originalPathView.trimmed();
 
-            int quoteIndex = originalPathView.indexOf(u" \"");
-            if (quoteIndex == -1)
-                quoteIndex = originalPathView.indexOf(u" '");
-            if (quoteIndex != -1)
-                originalPathView = originalPathView.left(quoteIndex).trimmed();
+                int quoteIndex = originalPathView.indexOf(u" \"");
+                if (quoteIndex == -1)
+                    quoteIndex = originalPathView.indexOf(u" '");
+                if (quoteIndex != -1)
+                    originalPathView = originalPathView.left(quoteIndex).trimmed();
 
-            if (originalPathView.startsWith(u'<') && originalPathView.endsWith(u'>')) {
-                originalPathView = originalPathView.mid(1, originalPathView.length() - 2);
+                if (originalPathView.startsWith(u'<') && originalPathView.endsWith(u'>')) {
+                    originalPathView = originalPathView.mid(1, originalPathView.length() - 2);
+                }
+
+                // Append text before the image
+                processedContent.append(QStringView(content).mid(lastPos, match.capturedStart() - lastPos));
+
+                // Process Image
+                // FIX: Use doc->baseUrl() directly to avoid scope errors
+                QUrl absoluteUrl = doc->baseUrl().resolved(QUrl(originalPathView.toString()));
+                QString proxyUrl = processImage(absoluteUrl);
+
+                processedContent.append(u"<br />"_s);
+
+                // Append HTML (Inline construction to avoid temp objects)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+                processedContent.append(u"<img style=\"max-width: 100%\" src=\""_s);
+#else
+                processedContent.append(u"<img width=\"500\" src=\""_s);
+#endif
+                processedContent.append(proxyUrl);
+                processedContent.append(u"\" />"_s);
+
+                processedContent.append(u"<br />"_s);
+
+                lastPos = match.capturedEnd();
             }
 
-            // Append text before the image
-            processedContent.append(QStringView(content).mid(lastPos, match.capturedStart() - lastPos));
+            // Append remaining text
+            processedContent.append(QStringView(content).mid(lastPos));
 
-            // Process Image
-            // FIX: Use doc->baseUrl() directly to avoid scope errors
-            QUrl absoluteUrl = doc->baseUrl().resolved(QUrl(originalPathView.toString()));
-            QString proxyUrl = processImage(absoluteUrl);
+            Q_EMIT loaded(processedContent, Qt::MarkdownText);
 
-            processedContent.append(u"<br />"_s);
-
-// Append HTML (Inline construction to avoid temp objects)
-#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
-            processedContent.append(u"<img style=\"max-width: 100%\" src=\""_s);
-#else
-            processedContent.append(u"<img width=\"500\" src=\""_s);
-#endif
-            processedContent.append(proxyUrl);
-            processedContent.append(u"\" />"_s);
-
-            processedContent.append(u"<br />"_s);
-
-            lastPos = match.capturedEnd();
+            doc->setModified(false);
+            doc->clearUndoRedoStacks();
+            doc->setUndoRedoEnabled(true);
         }
 
-        // Append remaining text
-        processedContent.append(QStringView(content).mid(lastPos));
-
-        Q_EMIT loaded(processedContent, Qt::MarkdownText);
-
-        doc->setModified(false);
-        doc->clearUndoRedoStacks();
-        doc->setUndoRedoEnabled(true);
+    } else {
+        Q_EMIT loaded(content, Qt::PlainText);
     }
 
     fixupTable(textDocument()->rootFrame());
@@ -454,14 +459,19 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
         return;
     }
 
-    const QString markdown = doc->toMarkdown();
+    QString output;
+    if (isSourceMode()) {
+        output = doc->toPlainText();
+    } else {
+        output = doc->toMarkdown();
+    }
+    qDebug() << output << " THIS IS THE OUTPUT";
 
     // PERFORMANCE WIN: String Builder for Saving
     QString finalOutput;
-    finalOutput.reserve(markdown.length());
-
+    finalOutput.reserve(output.length());
     static const QRegularExpression linkRegex(u"\\]\\(image://marknote/([a-f0-9]+)[^)]*\\)"_s);
-    QRegularExpressionMatchIterator i = linkRegex.globalMatch(markdown);
+    QRegularExpressionMatchIterator i = linkRegex.globalMatch(output);
 
     int lastPos = 0;
 
@@ -470,7 +480,7 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
         QString hash = match.captured(1);
 
         // Append text before the link
-        finalOutput.append(QStringView(markdown).mid(lastPos, match.capturedStart() - lastPos));
+        finalOutput.append(QStringView(output).mid(lastPos, match.capturedStart() - lastPos));
 
         if (m_imagePathLookup.contains(hash)) {
             QString originalPath = m_imagePathLookup.value(hash);
@@ -485,7 +495,7 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
     }
 
     // Append remaining text
-    finalOutput.append(QStringView(markdown).mid(lastPos));
+    finalOutput.append(QStringView(output).mid(lastPos));
 
     file.write(finalOutput.toUtf8());
     file.close();
@@ -843,21 +853,29 @@ void DocumentHandler::insertImage(const QUrl &url)
     const QString proxyUrl = processImage(url);
 
     QTextCursor cursor = textCursor();
-    cursor.insertHtml(u"<br />"_s);
+    if (!isSourceMode()) {
+        cursor.insertHtml(u"<br />"_s);
 
-    while (canDedentList()) {
-        m_nestedListHelper.handleOnIndentLess(cursor);
-    }
-
+        while (canDedentList()) {
+            m_nestedListHelper.handleOnIndentLess(cursor);
+        }
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
-    const QString html = u"<img style=\"max-width: 100%\" src=\""_s + proxyUrl + u"\" />"_s;
+        const QString html = u"<img style=\"max-width: 100%\" src=\""_s + proxyUrl + u"\" />"_s;
 #else
-    const QString html = u"<img width=\"500\" src=\""_s + proxyUrl + u"\" />"_s;
+        const QString html = u"<img width=\"500\" src=\""_s + proxyUrl + u"\" />"_s;
 #endif
 
-    cursor.insertHtml(html);
-
-    cursor.insertHtml(u"<br />"_s);
+        cursor.insertHtml(html);
+        cursor.insertHtml(u"<br />"_s);
+    } else {
+        cursor.insertText(QString(u"\n"));
+        while (canDedentList()) {
+            m_nestedListHelper.handleOnIndentLess(cursor);
+        }
+        const QString img = u"![image](" + proxyUrl + u")";
+        cursor.insertText(img);
+        cursor.insertText(QString(u"\n"));
+    }
 }
 
 void DocumentHandler::insertTable(int rows, int columns)
@@ -1034,6 +1052,10 @@ bool DocumentHandler::evaluateListSupport(QKeyEvent *event)
 
 void DocumentHandler::slotKeyPressed(int key)
 {
+    if (isSourceMode()) {
+        return;
+    }
+
     if (key == Qt::Key_Space) {
         const auto blockText = textCursor().block().text();
 

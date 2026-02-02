@@ -208,9 +208,9 @@ private:
     int m_selectionStart;
     int m_selectionEnd;
 
-    bool m_sourceMode;
+    bool m_sourceMode = false; // DEBUG: change this later
 
-    /**
+    /**c
      * The names of embedded images.
      * Used to easily obtain the names of the images.
      * New images are compared to the list and not added as resource if already present.
