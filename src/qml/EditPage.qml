@@ -80,7 +80,6 @@ Kirigami.Page {
             selectedTextColor: Kirigami.Theme.highlightedTextColor
             selectionColor: Kirigami.Theme.highlightColor
             textFormat: document.sourceMode ? TextEdit.PlainText : TextEdit.MarkdownText
-            // textFormat: TextEdit.MarkdownText
             textMargin: wideScreen ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
             topPadding: 0
             wrapMode: TextEdit.Wrap
@@ -289,6 +288,27 @@ Kirigami.Page {
             visible: wideScreen
             width: fillWindowButton.width
         }
+
+        RowLayout {
+            spacing: 5
+
+            Label {
+                opacity: toggleSwitch.checked ? 0.5 : 1.0
+                text: "Source"
+            }
+            Switch {
+                id: toggleSwitch
+                checked: true
+                onToggled: {
+                    document.sourceMode = !document.sourceMode;
+                }
+            }
+            Label {
+                opacity: toggleSwitch.checked ? 1.0 : 0.5
+                text: "Preview"
+            }
+        }
+
         ToolButton {
             id: fillWindowButton
 

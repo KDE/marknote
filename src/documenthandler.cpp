@@ -598,7 +598,11 @@ bool DocumentHandler::isSourceMode() const
 
 void DocumentHandler::setSourceMode(bool mode)
 {
+    if (m_sourceMode == mode) {
+        return;
+    }
     m_sourceMode = mode;
+    Q_EMIT sourceModeChanged();
 }
 
 bool DocumentHandler::canIndentList() const
