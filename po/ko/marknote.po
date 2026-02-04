@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the marknote package.
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-26 00:43+0000\n"
-"PO-Revision-Date: 2025-06-10 22:44+0200\n"
+"PO-Revision-Date: 2026-02-03 23:43+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: application.cpp:34
 #, kde-format
@@ -59,10 +59,9 @@ msgid "Note taking application"
 msgstr "메모 작성 프로그램"
 
 #: main.cpp:90
-#, fuzzy, kde-format
-#| msgid "© 2023-2024 Mathis Brüchert"
+#, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
-msgstr "© 2023-2024 Mathis Brüchert"
+msgstr "© 2023-2026 Mathis Brüchert"
 
 #: main.cpp:91
 #, kde-format
@@ -370,7 +369,7 @@ msgstr "공책 만들기"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr ""
+msgstr "메뉴 표시"
 
 #: qml/Main.qml:306
 #, kde-format
@@ -500,10 +499,7 @@ msgid "Delete Notebook"
 msgstr "공책 삭제"
 
 #: qml/NotebookDeleteDialog.qml:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the Notebook <b> %1 </b>? This will "
-#| "delete the content of <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."
