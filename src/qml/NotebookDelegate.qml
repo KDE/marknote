@@ -138,7 +138,13 @@ Delegates.RoundedItemDelegate {
 
     Layout.fillWidth: true
 
-    Controls.ToolTip.text: text
-    Controls.ToolTip.visible: hovered
-    Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+    Controls.ToolTip {
+        id: myToolTip
+        text: root.text
+        visible: root.hovered && label.truncated
+        delay: Kirigami.Units.toolTipDelay
+
+        x: root.width + Kirigami.Units.smallSpacing
+        y: (root.height - height) / 2
+    }
 }
