@@ -30,6 +30,11 @@ NotesModel::NotesModel(QObject *parent)
 
         updateColor();
     });
+    connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, [this](const QString &path) {
+        if (path == m_path) {
+            updateEntries();
+        }
+    });
 }
 
 void NotesModel::updateEntries()
@@ -159,6 +164,7 @@ void NotesModel::setPath(const QString &newPath)
         return;
 
     if (!m_path.isEmpty()) {
+        m_watcher.removePath(m_path);
         m_watcher.removePath(m_path + u'/' + QStringLiteral(".directory"));
     }
     m_path = newPath;
@@ -168,6 +174,7 @@ void NotesModel::setPath(const QString &newPath)
     updateColor();
 
     if (!m_path.isEmpty()) {
+        m_watcher.addPath(m_path);
         m_watcher.addPath(m_path + u'/' + QStringLiteral(".directory"));
     }
 }
@@ -181,7 +188,9 @@ void NotesModel::updateColor()
         m_color = QStringLiteral("#00000000");
     }
 
-    Q_EMIT dataChanged(index(0, 0), index(rowCount({}) - 1, 0), {Role::Color});
+    if (rowCount(QModelIndex()) > 0) {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount(QModelIndex()) - 1, 0), {Role::Color});
+    }
 }
 
 static void cleanupImageInDocument(QTextDocument &doc, bool setHeight = false)

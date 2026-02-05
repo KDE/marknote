@@ -39,6 +39,7 @@ public:
     Q_INVOKABLE QString addNoteBook(const QString &name, const QString &icon, const QString &color);
     Q_INVOKABLE void editNoteBook(const QString &path, const QString &name, const QString &icon, const QString &color);
     Q_INVOKABLE void deleteNoteBook(const QString &path);
+    Q_INVOKABLE void moveNote(const QString &notePath, const QString &notebookPath);
 
     Q_INVOKABLE QString iconNameForPath(const QString &path) const;
     Q_INVOKABLE QString colorForPath(const QString &path) const;

@@ -401,6 +401,39 @@ Kirigami.ScrollablePage {
                 }
             }
 
+            DragHandler {
+                id: dragHandler
+                target: null
+                grabPermissions: PointerHandler.CanTakeOverFromAnything
+                onActiveChanged: if (active) {
+                    delegateItem.grabToImage(function(result) {
+                        delegateItem.Drag.imageSource = result.url;
+                    });
+                }
+            }
+
+            Drag.active: dragHandler.active
+            Drag.dragType: Drag.Automatic
+            Drag.hotSpot.x: width / 2
+            Drag.hotSpot.y: height / 2
+            Drag.proposedAction: Qt.MoveAction
+            Drag.supportedActions: Qt.MoveAction
+            Drag.mimeData: {
+                "application/x-marknote-note": fileUrl.toString(),
+                "text/uri-list": fileUrl.toString()
+            }
+
+            opacity: dragHandler.active ? 0.5 : 1
+
+            property string dragImageUrl: ""
+            Drag.imageSource: dragImageUrl
+
+            onPressed: {
+                delegateItem.grabToImage(function(result) {
+                    dragImageUrl = result.url;
+                });
+            }
+
             contentItem: RowLayout{
                 spacing: Kirigami.Units.smallSpacing
 

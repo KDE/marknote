@@ -137,6 +137,20 @@ void NoteBooksModel::deleteNoteBook(const QString &path)
     endRemoveRows();
 }
 
+void NoteBooksModel::moveNote(const QString &notePath, const QString &notebookPath)
+{
+    const QString fileName = QFileInfo(notePath).fileName();
+    const QString newPath = notebookPath + QDir::separator() + fileName;
+
+    if (QFile::exists(newPath)) {
+        return;
+    }
+
+    if (!QFile::rename(notePath, newPath)) {
+        qWarning() << "Failed to rename file from" << notePath << "to" << newPath;
+    }
+}
+
 QString NoteBooksModel::iconNameForPath(const QString &path) const
 {
     const auto idx = indexForPath(path);

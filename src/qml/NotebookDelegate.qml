@@ -22,8 +22,54 @@ Delegates.RoundedItemDelegate {
 
     icon.name: iconName
     text: name
-    highlighted: NavigationController.notebookPath === path
+    highlighted: NavigationController.notebookPath === path || isDropTarget
+    property bool isDropTarget: false
     activeFocusOnTab: true
+
+    DropArea {
+        anchors.fill: parent
+        anchors.margins: -Kirigami.Units.gridUnit * 1.5
+        z: 99
+        keys: ["application/x-marknote-note"]
+
+        onEntered: (drag) => {
+            isDropTarget = true;
+            drag.accept(Qt.MoveAction);
+        }
+
+        onPositionChanged: (drag) => {
+            drag.accept(Qt.MoveAction);
+        }
+
+        onExited: {
+            isDropTarget = false;
+        }
+
+        onDropped: (drop) => {
+            if (drop.keys.indexOf("application/x-marknote-note") !== -1) {
+                var notePath = drop.getDataAsString("application/x-marknote-note");
+                if (notePath.startsWith("file:///")) {
+                    notePath = notePath.substring(8);
+                } else if (notePath.startsWith("file://")) {
+                    notePath = notePath.substring(7);
+                }
+                model.moveNote(notePath, path);
+                drop.acceptProposedAction();
+            } else if (drop.keys.indexOf("text/uri-list") !== -1) {
+                const uriList = drop.getDataAsString("text/uri-list");
+                const uri = uriList.split("\n")[0].trim();
+                var notePath = uri;
+                if (notePath.startsWith("file:///")) {
+                    notePath = notePath.substring(8);
+                } else if (notePath.startsWith("file://")) {
+                    notePath = notePath.substring(7);
+                }
+                model.moveNote(notePath, path);
+                drop.acceptProposedAction();
+            }
+            isDropTarget = false;
+        }
+    }
 
     Behavior on implicitHeight {
         NumberAnimation {
