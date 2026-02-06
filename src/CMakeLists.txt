@@ -47,6 +47,7 @@ ecm_add_qml_module(marknote_static
         colorschemer.cpp colorschemer.h
         maildirimport.cpp maildirimport.h
         sketchhistory.cpp sketchhistory.h
+        tocmodel.cpp tocmodel.h
 )
 
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/marknote_staticplugin_autogen/include)

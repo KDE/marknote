@@ -32,7 +32,7 @@ Kirigami.Page {
     property bool singleDocumentMode: false
 
     leftPadding: 0
-    rightPadding: 0
+    rightPadding: Kirigami.Settings.isMobile ? 0 : (tocDrawer.width * tocDrawer.position)
     topPadding: 0
     bottomPadding: 0
 
@@ -215,6 +215,20 @@ Kirigami.Page {
             checkable: true
             checked: true
             onClicked: applicationWindow().showNormal()
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        ToolButton {
+            icon.name: "view-list-details"
+            text: i18nc("@action:button", "Table of Content")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: tocDrawer.opened
+            onClicked: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
+            visible: true
 
             ToolTip.text: text
             ToolTip.visible: hovered
@@ -679,6 +693,94 @@ Kirigami.Page {
                         onClicked: mobileToolBarContainer.hidden = true
 
                     }
+                }
+            }
+        }
+    }
+
+    TocModel {
+        id: tocModel
+        document: textArea.textDocument
+    }
+
+    Kirigami.OverlayDrawer {
+        id: tocDrawer
+        edge: Qt.RightEdge
+        modal: false
+        handleVisible: false
+
+        width: Kirigami.Units.gridUnit * 15
+        
+        parent: applicationWindow().overlay
+
+        topMargin: (typeof pageStack !== "undefined" && pageStack.globalToolBar) ? pageStack.globalToolBar.height : (applicationWindow().header ? applicationWindow().header.height : 0)
+        bottomMargin: toolBar.visible ? (toolBar.height + Kirigami.Units.largeSpacing * 2) : (mobileToolBarContainer.visible && !mobileToolBarContainer.hidden ? mobileToolBarContainer.height : 0)
+
+        height: parent.height - topMargin - bottomMargin
+
+        Component.onCompleted: tocDrawer.close()
+
+        contentItem: ColumnLayout {
+            spacing: Kirigami.Units.smallSpacing
+
+            RowLayout {
+                Layout.fillWidth: true
+                Layout.margins: Kirigami.Units.smallSpacing
+
+                Kirigami.Heading {
+                    text: i18nc("@title:window", "Table of Contents")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    type: Kirigami.Heading.Type.Primary
+                }
+
+                ToolButton {
+                    icon.name: "dialog-close"
+                    text: i18nc("@action:button", "Close")
+                    display: AbstractButton.IconOnly
+                    onClicked: tocDrawer.close()
+
+                    ToolTip.text: text
+                    ToolTip.visible: hovered
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+            }
+
+            ListView {
+                id: tocListView
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                model: tocModel
+                clip: true
+
+                delegate: ItemDelegate {
+                    id: tocDelegate
+                    width: ListView.view.width
+
+                    required property string title
+                    required property int level
+                    required property int index
+                    required property int cursorPosition
+
+                    text: title
+                    leftPadding: (level - 1) * Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+                    highlighted: ListView.isCurrentItem
+
+                    onClicked: {
+                        ListView.view.currentIndex = index
+                        textArea.cursorPosition = cursorPosition
+                        textArea.forceActiveFocus()
+                        if (Kirigami.Settings.isMobile) {
+                            tocDrawer.close()
+                        }
+                    }
+                }
+
+                Kirigami.PlaceholderMessage {
+                    anchors.centerIn: parent
+                    icon.name: "format-list-unordered"
+                    visible: tocListView.count === 0
+                    text: i18n("No headers found")
                 }
             }
         }
