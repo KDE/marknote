@@ -8,10 +8,17 @@
 
 #include <KConfigGroup>
 #include <KDesktopFile>
+#include <QFileSystemWatcher>
 
 NoteBooksModel::NoteBooksModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, [this](const QString &path) {
+        const auto idx = indexForPath(path);
+        if (idx.isValid()) {
+            Q_EMIT dataChanged(idx, idx, {Role::NoteCount});
+        }
+    });
 }
 
 int NoteBooksModel::rowCount(const QModelIndex &index) const
@@ -45,6 +52,11 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
             return QStringLiteral("#00000000");
         }
     }
+    case Role::NoteCount: {
+        const QDir dir(entry.filePath());
+        const auto entries = dir.entryList(QStringList() << QStringLiteral("*.md"), QDir::Files);
+        return entries.count();
+    }
     case Role::Name:
     case Qt::DisplayRole:
         return m_directory->entryList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row());
@@ -60,6 +72,7 @@ QHash<int, QByteArray> NoteBooksModel::roleNames() const
         {Role::Path, "path"},
         {Role::Name, "name"},
         {Role::Color, "color"},
+        {Role::NoteCount, "noteCount"},
     };
 }
 
@@ -69,6 +82,7 @@ QString NoteBooksModel::addNoteBook(const QString &name, const QString &icon, co
 
     beginResetModel();
     m_directory->mkdir(name);
+    m_watcher.addPath(m_directory->path() % u'/' % name);
     const QString dotDirectory = m_directory->path() % u'/' % name % u'/' % QStringLiteral(".directory");
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
     auto desktopEntry = desktopFile.group(QStringLiteral("Desktop Entry"));
@@ -119,6 +133,7 @@ void NoteBooksModel::deleteNoteBook(const QString &path)
     QDir directory(path);
     // TODO(carl): Move to trash instead
     directory.removeRecursively();
+    m_watcher.removePath(path);
     endRemoveRows();
 }
 
@@ -170,7 +185,23 @@ void NoteBooksModel::setStoragePath(const QString &storagePath)
     m_directory = QDir(m_storagePath);
     m_directory->mkpath(QStringLiteral("."));
     endResetModel();
+    updateWatches();
     Q_EMIT storagePathChanged();
+}
+
+void NoteBooksModel::updateWatches()
+{
+    m_watcher.removePaths(m_watcher.files());
+    m_watcher.removePaths(m_watcher.directories());
+
+    if (!m_directory) {
+        return;
+    }
+
+    const auto entries = m_directory->entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot);
+    for (const auto &entry : entries) {
+        m_watcher.addPath(entry.filePath());
+    }
 }
 
 #include "moc_notebooksmodel.cpp"

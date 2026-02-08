@@ -17,6 +17,7 @@ Delegates.RoundedItemDelegate {
     required property string path
     required property string iconName
     required property string color
+    required property int noteCount
     required property var model
 
     icon.name: iconName
@@ -61,7 +62,9 @@ Delegates.RoundedItemDelegate {
         Controls.Label {
             id: label
             text: root.name
-            width: Math.min(parent.width, implicitWidth)
+            width: Config.expandedSidebar
+            ? parent.width - x - (menuButton.width + countLabel.implicitWidth + Kirigami.Units.largeSpacing * 2)
+            : Math.min(parent.width, implicitWidth)
             elide: Text.ElideRight
             y: Config.expandedSidebar ? parent.implicitHeight / 2 - height / 2 : icon.height + icon. y + Kirigami.Units.smallSpacing
             x: Config.expandedSidebar ? icon.width + Kirigami.Units.largeSpacing * 2 : (80 - Kirigami.Units.largeSpacing * 2) / 2 - Math.min((80 - Kirigami.Units.largeSpacing * 2), implicitWidth) / 2
@@ -79,6 +82,7 @@ Delegates.RoundedItemDelegate {
             }
         }
         Controls.ToolButton {
+            id: menuButton
             x: parent.width - width - Kirigami.Units.smallSpacing
             y: parent.height / 2 - height / 2
             icon.name: "overflow-menu"
@@ -98,6 +102,70 @@ Delegates.RoundedItemDelegate {
                     duration: mainAnim.duration
                     easing.type: mainAnim.easing.type
                 }
+            }
+        }
+
+        Controls.Label {
+            id: countLabel
+
+            visible: Config.expandedSidebar
+            opacity: visible ? true : false
+
+            text: root.noteCount
+            font.pixelSize: Kirigami.Units.gridUnit / 1.5
+            color: root.highlighted ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: menuButton.left
+            anchors.rightMargin: Kirigami.Units.smallSpacing
+
+            Behavior on opacity {
+                NumberAnimation {
+                    duration: mainAnim.duration
+                    easing.type: mainAnim.easing.type
+                }
+            }
+        }
+
+        Rectangle {
+            id: badge
+
+            visible: !Config.expandedSidebar && root.noteCount > 0
+            opacity: visible ? true : false
+
+            readonly property int badgeHeight: Math.round(Kirigami.Units.gridUnit * 0.8)
+            readonly property int badgePadding: Kirigami.Units.smallSpacing
+            readonly property int badgeMaxWidth: icon.width
+
+            height: badgeHeight
+            width: Math.min(badgeMaxWidth, Math.max(badgeHeight, textBadge.implicitWidth + badgePadding * 2))
+            radius: height / 2
+
+            anchors.verticalCenter: icon.top
+            anchors.horizontalCenter: icon.right
+
+            anchors.verticalCenterOffset: Kirigami.Units.smallSpacing / 2
+            anchors.horizontalCenterOffset: -Kirigami.Units.smallSpacing / 2
+
+            color: root.highlighted
+                   ? root.background.Kirigami.Theme.highlightColor
+                     : Kirigami.Theme.alternateBackgroundColor
+            Behavior on opacity {
+                NumberAnimation {
+                    duration: mainAnim.duration
+                    easing.type: mainAnim.easing.type
+                }
+            }
+
+            Text {
+                id: textBadge
+                text: root.noteCount
+                anchors.centerIn: parent
+                color: Kirigami.Theme.textColor
+                font.pixelSize: Math.round(Kirigami.Units.gridUnit * 0.6)
+                width: parent.width - badge.badgePadding * 2
+                elide: Text.ElideRight
+                horizontalAlignment: Text.AlignHCenter
             }
         }
     }

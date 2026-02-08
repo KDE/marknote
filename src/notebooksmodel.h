@@ -6,6 +6,7 @@
 
 #include <QAbstractListModel>
 #include <QDir>
+#include <QFileSystemWatcher>
 #include <QQmlEngine>
 
 class NoteBooksModel : public QAbstractListModel
@@ -20,6 +21,7 @@ public:
         Name,
         Icon,
         Color,
+        NoteCount,
     };
     Q_ENUM(Role)
 
@@ -48,7 +50,9 @@ Q_SIGNALS:
 private:
     QModelIndex indexForPath(const QString &path) const;
     std::optional<QDir> m_directory;
+    QFileSystemWatcher m_watcher;
     QString m_storagePath;
+    void updateWatches();
 };
 
 #endif // NoteBooksModel_H
