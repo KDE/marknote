@@ -1399,4 +1399,92 @@ void DocumentHandler::deleteWordForward()
     deleteWord(textCursor(), QTextCursor::WordRight);
 }
 
+int DocumentHandler::searchMatchCount() const
+{
+    return m_searchMatches.size();
+}
+
+int DocumentHandler::searchCurrentMatch() const
+{
+    return m_searchCurrentMatch;
+}
+
+int DocumentHandler::findText(const QString &searchTerm)
+{
+    if (!m_document || searchTerm.isEmpty()) {
+        clearSearch();
+        return 0;
+    }
+
+    m_searchTerm = searchTerm;
+    m_searchMatches.clear();
+    m_searchCurrentMatch = -1;
+
+    QTextDocument *doc = textDocument();
+    if (!doc) {
+        return 0;
+    }
+
+    QTextCursor cursor(doc);
+    cursor.movePosition(QTextCursor::Start);
+
+    while (true) {
+        cursor = doc->find(searchTerm, cursor);
+        if (cursor.isNull()) {
+            break;
+        }
+        m_searchMatches.append(cursor);
+    }
+
+    if (!m_searchMatches.isEmpty()) {
+        m_searchCurrentMatch = 0;
+        QTextCursor firstMatch = m_searchMatches.at(0);
+        setCursorPosition(firstMatch.position());
+        selectCursor(firstMatch.selectionStart(), firstMatch.selectionEnd());
+    }
+
+    Q_EMIT searchMatchCountChanged();
+    Q_EMIT searchCurrentMatchChanged();
+
+    return m_searchMatches.size();
+}
+
+void DocumentHandler::findNext()
+{
+    if (m_searchMatches.isEmpty()) {
+        return;
+    }
+
+    m_searchCurrentMatch = (m_searchCurrentMatch + 1) % m_searchMatches.size();
+    QTextCursor match = m_searchMatches.at(m_searchCurrentMatch);
+    setCursorPosition(match.position());
+    selectCursor(match.selectionStart(), match.selectionEnd());
+
+    Q_EMIT searchCurrentMatchChanged();
+}
+
+void DocumentHandler::findPrevious()
+{
+    if (m_searchMatches.isEmpty()) {
+        return;
+    }
+
+    m_searchCurrentMatch = (m_searchCurrentMatch - 1 + m_searchMatches.size()) % m_searchMatches.size();
+    QTextCursor match = m_searchMatches.at(m_searchCurrentMatch);
+    setCursorPosition(match.position());
+    selectCursor(match.selectionStart(), match.selectionEnd());
+
+    Q_EMIT searchCurrentMatchChanged();
+}
+
+void DocumentHandler::clearSearch()
+{
+    m_searchTerm.clear();
+    m_searchMatches.clear();
+    m_searchCurrentMatch = -1;
+
+    Q_EMIT searchMatchCountChanged();
+    Q_EMIT searchCurrentMatchChanged();
+}
+
 #include "moc_documenthandler.cpp"

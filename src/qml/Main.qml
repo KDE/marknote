@@ -25,6 +25,7 @@ StatetfulApp.StatefulWindow {
     property bool wideScreen: applicationWindow().width >= minWideScreenWidth && !Config.fillWindow
     property bool columnModeDelayed: false
     property int currentWidth: normalColumnWidth
+    property var currentDocument: null
 
     minimumWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 22
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
