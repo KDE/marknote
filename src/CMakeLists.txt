@@ -50,6 +50,10 @@ ecm_add_qml_module(marknote_static
         sketchhistory.cpp sketchhistory.h
 )
 
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/marknote_staticplugin_autogen/include)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/marknote_static_autogen/include)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/settings/settings_autogen/include)
+
 kconfig_target_kcfg_file(marknote_static
     FILE marknotesettings.kcfg
     CLASS_NAME Config

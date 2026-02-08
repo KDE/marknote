@@ -35,6 +35,10 @@ include(ECMAddTests)
 include(ECMDeprecationSettings)
 include(ECMQmlModule)
 
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_options(-Wno-unused-parameter)
+endif()
+
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX MARKNOTE
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/marknote-version.h
