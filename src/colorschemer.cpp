@@ -27,7 +27,19 @@ QAbstractItemModel *ColorSchemer::model() const
 
 void ColorSchemer::apply(int idx)
 {
-    c->activateScheme(c->model()->index(idx, 0));
+    if (idx < 0) {
+        return;
+    }
+
+    auto model = c->model();
+    if (!model) {
+        return;
+    }
+
+    QModelIndex sourceIndex = model->index(idx, 0);
+    if (sourceIndex.isValid()) {
+        c->activateScheme(sourceIndex);
+    }
 }
 
 void ColorSchemer::apply(const QString &name)

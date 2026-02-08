@@ -62,40 +62,23 @@ FormCard.FormCardPage {
 
         FormCard.FormDelegateSeparator {}
 
-        FormCard.AbstractFormDelegate {
-            background: null
-            contentItem: ColumnLayout {
-                QQC2.Label {
-                    text: i18nc("@label:spinbox", "Font family:")
-                    Layout.fillWidth: true
-                }
+        FormCard.FormCard {
+            FormCard.FormComboBoxDelegate {
+                id: fontFamilyComboBox
+                text: i18nc("@label:spinbox", "Font family:")
+                enabled: !Config.isEditorFontImmutable
 
-                QQC2.ComboBox {
-                    id: fontFamilyComboBox
+                model: appFontList
 
-                    property bool isInitialising: true
-                    Layout.fillWidth: true
-                    model: ConfigHelper.fontFamilies
-                    enabled: !Config.isEditorFontImmutable
-                    onActivated: {
-                        if (isInitialising && !enabled) {
-                            return;
-                        }
-                        Config.editorFont.family = currentValue;
-                        Config.save();
-                    }
+                Component.onCompleted: currentIndex = indexOfValue(Config.editorFont.family)
 
-                    Component.onCompleted: {
-                        currentIndex = indexOfValue(Config.editorFont.family)
-                        isInitialising = false
-                    }
+                onActivated: (index) => {
+                    if (index < 0) return;
 
-                    Connections {
-                        target: Config
-                        function onEditorFontChanged() {
-                            fontFamilyComboBox.currentIndex = fontFamilyComboBox.indexOfValue(Config.editorFont.family)
-                        }
-                    }
+                    var tempFont = Config.editorFont;
+                    tempFont.family = currentValue;
+                    Config.editorFont = tempFont;
+                    Config.save();
                 }
             }
         }
@@ -104,8 +87,8 @@ FormCard.FormCardPage {
 
         FormCard.FormSpinBoxDelegate {
             id: fontSizeSpinbox
-            from: 0
-            to: 25
+            from: 6
+            to: 32
             value: Config.editorFont.pixelSize
             label: i18nc("@label:spinbox", "Font size:")
             enabled: !Config.isEditorFontImmutable

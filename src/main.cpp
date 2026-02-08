@@ -13,6 +13,7 @@
 #ifndef Q_OS_ANDROID
 #include <QApplication>
 #endif
+#include <QFontDatabase>
 #include <QIcon>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -118,6 +119,8 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     KLocalization::setupLocalizedContext(&engine);
 
+    engine.rootContext()->setContextProperty(u"appFontList"_s, QFontDatabase::families());
+
 #ifdef HAVE_KRUNNER
     qmlRegisterType<Runner>("org.kde.marknote", 1, 0, "Runner");
 
@@ -150,10 +153,6 @@ int main(int argc, char *argv[])
     }
 
     qRegisterMetaType<Stroke>("Stroke");
-
-    QObject::connect(QCoreApplication::instance(), &QCoreApplication::aboutToQuit, QCoreApplication::instance(), [] {
-        Config::self()->save();
-    });
 
     return app.exec();
 }
