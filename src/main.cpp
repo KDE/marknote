@@ -13,6 +13,8 @@
 #ifndef Q_OS_ANDROID
 #include <QApplication>
 #endif
+#include <QCommandLineParser>
+#include <QFile>
 #include <QFontDatabase>
 #include <QIcon>
 #include <QQmlApplicationEngine>
@@ -27,9 +29,9 @@
 
 #include "../marknote-version.h"
 #include "colorschemer.h"
-#include "config.h"
 #include "sketchhistory.h"
 #include <QUrl>
+#include <marknotesettings.h>
 #ifdef HAVE_KRUNNER
 #include "runner.h"
 #endif

@@ -44,7 +44,6 @@ ecm_add_qml_module(marknote_static
         navigationcontroller.cpp navigationcontroller.h
         application.cpp application.h
         tableactionhelper.cpp tableactionhelper.h
-        config.cpp config.h
         colorschemer.cpp colorschemer.h
         maildirimport.cpp maildirimport.h
         sketchhistory.cpp sketchhistory.h
