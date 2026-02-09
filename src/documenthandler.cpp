@@ -1238,10 +1238,10 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
         const auto text = mimeData->text();
         if (const QUrl url(text, QUrl::StrictMode); url.isValid() && url.scheme() == "https"_L1) {
             updateLink(url.toString(), QString());
-        } else {
-            textCursor().insertText(text);
+            return true;
         }
-        return true;
+        // i return false here to let the QML TextArea's native handler take over it for ctrl+v pasting(fix: causing the text to be pasted twice).
+        return false;
     } else if (KStandardShortcut::cut().contains(key)) {
         cut();
         return true;
