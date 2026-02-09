@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-26 00:43+0000\n"
+"POT-Creation-Date: 2026-02-09 00:43+0000\n"
 "PO-Revision-Date: 2026-02-03 23:43+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -47,44 +47,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "'%1'에 쓰는 중 오류 발생"
 
-#: main.cpp:86 qml/Main.qml:366
+#: main.cpp:87 qml/Main.qml:367
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:88
+#: main.cpp:89
 #, kde-format
 msgid "Note taking application"
 msgstr "메모 작성 프로그램"
 
-#: main.cpp:90
+#: main.cpp:91
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
 
-#: main.cpp:91
+#: main.cpp:92
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:92 main.cpp:97
+#: main.cpp:93 main.cpp:98
 #, kde-format
 msgid "Maintainer"
 msgstr "관리자"
 
-#: main.cpp:96
+#: main.cpp:97
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:101
+#: main.cpp:102
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "박신조"
 
-#: main.cpp:101
+#: main.cpp:102
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -96,162 +96,206 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "노트의 이름을 바꿀 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
 
-#: qml/EditPage.qml:76 qml/EditPage.qml:556
+#: qml/EditPage.qml:86 qml/EditPage.qml:578
 #, kde-format
 msgid "Undo"
 msgstr "실행 취소"
 
-#: qml/EditPage.qml:89 qml/EditPage.qml:569
+#: qml/EditPage.qml:99 qml/EditPage.qml:591
 #, kde-format
 msgid "Redo"
 msgstr "다시 실행"
 
-#: qml/EditPage.qml:145
+#: qml/EditPage.qml:155
 #, kde-format
 msgid "Focus Mode"
 msgstr "초점 모드"
 
-#: qml/EditPage.qml:164 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
+#: qml/EditPage.qml:173
+#, fuzzy, kde-format
+#| msgid "Search notes (%1)"
+msgctxt "@action:button"
+msgid "Search Note"
+msgstr "노트 검색(%1)"
+
+#: qml/EditPage.qml:178
+#, fuzzy, kde-format
+#| msgid "Search notes (%1)"
+msgctxt "@info:tooltip"
+msgid "Search in Note"
+msgstr "노트 검색(%1)"
+
+#: qml/EditPage.qml:186 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "전체 화면 나가기"
 
-#: qml/EditPage.qml:215
+#: qml/EditPage.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "굵게"
 
-#: qml/EditPage.qml:234
+#: qml/EditPage.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "이탤릭"
 
-#: qml/EditPage.qml:253
+#: qml/EditPage.qml:275
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "밑줄"
 
-#: qml/EditPage.qml:267
+#: qml/EditPage.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "취소선"
 
-#: qml/EditPage.qml:285
+#: qml/EditPage.qml:307
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "목록 단계 증가"
 
-#: qml/EditPage.qml:296
+#: qml/EditPage.qml:318
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "목록 단계 감소"
 
-#: qml/EditPage.qml:338
+#: qml/EditPage.qml:360
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "목록 없음"
 
-#: qml/EditPage.qml:339
+#: qml/EditPage.qml:361
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "순서 없는 목록"
 
-#: qml/EditPage.qml:340
+#: qml/EditPage.qml:362
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "정렬된 목록"
 
-#: qml/EditPage.qml:350
+#: qml/EditPage.qml:372
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "체크 상자 삽입"
 
-#: qml/EditPage.qml:365
+#: qml/EditPage.qml:387
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "링크 삽입"
 
-#: qml/EditPage.qml:381
+#: qml/EditPage.qml:403
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "그림 삽입"
 
-#: qml/EditPage.qml:394
+#: qml/EditPage.qml:416
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "표 삽입"
 
-#: qml/EditPage.qml:414
+#: qml/EditPage.qml:436
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "일반 텍스트"
 
-#: qml/EditPage.qml:415
+#: qml/EditPage.qml:437
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "제목"
 
-#: qml/EditPage.qml:416
+#: qml/EditPage.qml:438
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "부제목"
 
-#: qml/EditPage.qml:417
+#: qml/EditPage.qml:439
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "장"
 
-#: qml/EditPage.qml:418
+#: qml/EditPage.qml:440
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "절"
 
-#: qml/EditPage.qml:419
+#: qml/EditPage.qml:441
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "문단"
 
-#: qml/EditPage.qml:420
+#: qml/EditPage.qml:442
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "하위 문단"
 
-#: qml/EditPage.qml:602
+#: qml/EditPage.qml:624
 #, kde-format
 msgid "Format"
 msgstr "형식"
 
-#: qml/EditPage.qml:606
+#: qml/EditPage.qml:628
 #, kde-format
 msgid "Lists"
 msgstr "목록"
 
-#: qml/EditPage.qml:610
+#: qml/EditPage.qml:632
 #, kde-format
 msgid "Insert"
 msgstr "삽입"
+
+#: qml/EditPage.qml:711
+#, kde-format
+msgid "Find text..."
+msgstr ""
+
+#: qml/EditPage.qml:734
+#, kde-format
+msgid "Previous"
+msgstr ""
+
+#: qml/EditPage.qml:750
+#, kde-format
+msgid "Next"
+msgstr ""
+
+#: qml/EditPage.qml:767
+#, kde-format
+msgid "No matches"
+msgstr ""
+
+#: qml/EditPage.qml:769
+#, kde-format
+msgid "%1/%2"
+msgstr ""
+
+#: qml/EditPage.qml:776
+#, kde-format
+msgid "Close"
+msgstr ""
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -353,57 +397,57 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "링크 URL:"
 
-#: qml/Main.qml:113
+#: qml/Main.qml:114
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "새 노트를 만들 수 없습니다. 공책을 먼저 생성하십시오."
 
-#: qml/Main.qml:115
+#: qml/Main.qml:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "공책 만들기"
 
-#: qml/Main.qml:260
+#: qml/Main.qml:261
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "메뉴 표시"
 
-#: qml/Main.qml:306
+#: qml/Main.qml:307
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "가져오기"
 
-#: qml/Main.qml:315
+#: qml/Main.qml:316
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "노트 목록 정렬"
 
-#: qml/Main.qml:321
+#: qml/Main.qml:322
 #, kde-format
 msgid "by Name"
 msgstr "이름순"
 
-#: qml/Main.qml:334
+#: qml/Main.qml:335
 #, kde-format
 msgid "by Date"
 msgstr "날짜순"
 
-#: qml/Main.qml:351
+#: qml/Main.qml:352
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "사이드바 접기"
 
-#: qml/Main.qml:351
+#: qml/Main.qml:352
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "사이드바 펼치기"
 
-#: qml/Main.qml:418
+#: qml/Main.qml:419
 #, kde-format
 msgid "Your Notebooks"
 msgstr "내 공책"
@@ -748,13 +792,13 @@ msgctxt "@title:window"
 msgid "Select the notes directory"
 msgstr "노트 디렉터리 선택"
 
-#: settings/MarkNoteGeneralPage.qml:69
+#: settings/MarkNoteGeneralPage.qml:68
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "글꼴 종류:"
 
-#: settings/MarkNoteGeneralPage.qml:110
+#: settings/MarkNoteGeneralPage.qml:93
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"

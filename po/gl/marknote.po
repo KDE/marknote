@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-26 00:43+0000\n"
+"POT-Creation-Date: 2026-02-09 00:43+0000\n"
 "PO-Revision-Date: 2025-05-26 08:44+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -47,45 +47,45 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Produciuse un erro ao escribir en «%1»."
 
-#: main.cpp:86 qml/Main.qml:366
+#: main.cpp:87 qml/Main.qml:367
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:88
+#: main.cpp:89
 #, kde-format
 msgid "Note taking application"
 msgstr "Aplicación de notas"
 
-#: main.cpp:90
+#: main.cpp:91
 #, fuzzy, kde-format
 #| msgid "© 2023-2024 Mathis Brüchert"
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2024 Mathis Brüchert"
 
-#: main.cpp:91
+#: main.cpp:92
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:92 main.cpp:97
+#: main.cpp:93 main.cpp:98
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantemento."
 
-#: main.cpp:96
+#: main.cpp:97
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:101
+#: main.cpp:102
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Adrian Chaves (Gallaecio)"
 
-#: main.cpp:101
+#: main.cpp:102
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -97,162 +97,206 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Non pode renomearse a nota. Xa existe unha nota co mesmo nome."
 
-#: qml/EditPage.qml:76 qml/EditPage.qml:556
+#: qml/EditPage.qml:86 qml/EditPage.qml:578
 #, kde-format
 msgid "Undo"
 msgstr "Desfacer"
 
-#: qml/EditPage.qml:89 qml/EditPage.qml:569
+#: qml/EditPage.qml:99 qml/EditPage.qml:591
 #, kde-format
 msgid "Redo"
 msgstr "Refacer"
 
-#: qml/EditPage.qml:145
+#: qml/EditPage.qml:155
 #, kde-format
 msgid "Focus Mode"
 msgstr "Modo de foco"
 
-#: qml/EditPage.qml:164 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
+#: qml/EditPage.qml:173
+#, fuzzy, kde-format
+#| msgid "Search notes (%1)"
+msgctxt "@action:button"
+msgid "Search Note"
+msgstr "Buscar nas notas (%1)"
+
+#: qml/EditPage.qml:178
+#, fuzzy, kde-format
+#| msgid "Search notes (%1)"
+msgctxt "@info:tooltip"
+msgid "Search in Note"
+msgstr "Buscar nas notas (%1)"
+
+#: qml/EditPage.qml:186 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Saír da pantalla completa"
 
-#: qml/EditPage.qml:215
+#: qml/EditPage.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Grosa"
 
-#: qml/EditPage.qml:234
+#: qml/EditPage.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Cursiva"
 
-#: qml/EditPage.qml:253
+#: qml/EditPage.qml:275
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Subliñar"
 
-#: qml/EditPage.qml:267
+#: qml/EditPage.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Riscar"
 
-#: qml/EditPage.qml:285
+#: qml/EditPage.qml:307
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Aumentar o nivel da lista"
 
-#: qml/EditPage.qml:296
+#: qml/EditPage.qml:318
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Diminuír o nivel da lista"
 
-#: qml/EditPage.qml:338
+#: qml/EditPage.qml:360
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Sen lista"
 
-#: qml/EditPage.qml:339
+#: qml/EditPage.qml:361
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Lista desordenada"
 
-#: qml/EditPage.qml:340
+#: qml/EditPage.qml:362
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Lista ordenada"
 
-#: qml/EditPage.qml:350
+#: qml/EditPage.qml:372
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Inserir unha caixa para marcar"
 
-#: qml/EditPage.qml:365
+#: qml/EditPage.qml:387
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Inserir unha ligazón"
 
-#: qml/EditPage.qml:381
+#: qml/EditPage.qml:403
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Inserir unha imaxe"
 
-#: qml/EditPage.qml:394
+#: qml/EditPage.qml:416
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Inserir unha táboa"
 
-#: qml/EditPage.qml:414
+#: qml/EditPage.qml:436
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Texto básico"
 
-#: qml/EditPage.qml:415
+#: qml/EditPage.qml:437
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Título"
 
-#: qml/EditPage.qml:416
+#: qml/EditPage.qml:438
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Subtítulo"
 
-#: qml/EditPage.qml:417
+#: qml/EditPage.qml:439
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Sección"
 
-#: qml/EditPage.qml:418
+#: qml/EditPage.qml:440
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Subsección"
 
-#: qml/EditPage.qml:419
+#: qml/EditPage.qml:441
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Parágrafo"
 
-#: qml/EditPage.qml:420
+#: qml/EditPage.qml:442
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Subparágrafo"
 
-#: qml/EditPage.qml:602
+#: qml/EditPage.qml:624
 #, kde-format
 msgid "Format"
 msgstr "Formato"
 
-#: qml/EditPage.qml:606
+#: qml/EditPage.qml:628
 #, kde-format
 msgid "Lists"
 msgstr "Listas"
 
-#: qml/EditPage.qml:610
+#: qml/EditPage.qml:632
 #, kde-format
 msgid "Insert"
 msgstr "Inserir"
+
+#: qml/EditPage.qml:711
+#, kde-format
+msgid "Find text..."
+msgstr ""
+
+#: qml/EditPage.qml:734
+#, kde-format
+msgid "Previous"
+msgstr ""
+
+#: qml/EditPage.qml:750
+#, kde-format
+msgid "Next"
+msgstr ""
+
+#: qml/EditPage.qml:767
+#, kde-format
+msgid "No matches"
+msgstr ""
+
+#: qml/EditPage.qml:769
+#, kde-format
+msgid "%1/%2"
+msgstr ""
+
+#: qml/EditPage.qml:776
+#, kde-format
+msgid "Close"
+msgstr ""
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -354,57 +398,57 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "URL da ligazón:"
 
-#: qml/Main.qml:113
+#: qml/Main.qml:114
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "Non é posíbel crear unha nova nota, primeiro ten que crear un caderno."
 
-#: qml/Main.qml:115
+#: qml/Main.qml:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Crear un caderno"
 
-#: qml/Main.qml:260
+#: qml/Main.qml:261
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr ""
 
-#: qml/Main.qml:306
+#: qml/Main.qml:307
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importar"
 
-#: qml/Main.qml:315
+#: qml/Main.qml:316
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Ordenar a lista de notas"
 
-#: qml/Main.qml:321
+#: qml/Main.qml:322
 #, kde-format
 msgid "by Name"
 msgstr "por nome"
 
-#: qml/Main.qml:334
+#: qml/Main.qml:335
 #, kde-format
 msgid "by Date"
 msgstr "por data"
 
-#: qml/Main.qml:351
+#: qml/Main.qml:352
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Pregar a barra lateral"
 
-#: qml/Main.qml:351
+#: qml/Main.qml:352
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Expandir a barra lateral"
 
-#: qml/Main.qml:418
+#: qml/Main.qml:419
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Cadernos"
@@ -755,13 +799,13 @@ msgctxt "@title:window"
 msgid "Select the notes directory"
 msgstr "Seleccione o cartafol de notas"
 
-#: settings/MarkNoteGeneralPage.qml:69
+#: settings/MarkNoteGeneralPage.qml:68
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "Familia da fonte:"
 
-#: settings/MarkNoteGeneralPage.qml:110
+#: settings/MarkNoteGeneralPage.qml:93
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
