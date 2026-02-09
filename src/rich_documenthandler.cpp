@@ -4,7 +4,7 @@
 // SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 // SPDX-License-Identifier: BSD-3-Clause AND LGPL-2.0-or-later
 
-#include "documenthandler.h"
+#include "rich_documenthandler.h"
 #include "asyncimageprovider.h"
 
 #include <KColorScheme>
@@ -33,7 +33,7 @@ using namespace Qt::StringLiterals;
 
 constexpr int textMargin = 20;
 
-DocumentHandler::DocumentHandler(QObject *parent)
+RichDocumentHandler::RichDocumentHandler(QObject *parent)
     : QObject(parent)
     , m_document(nullptr)
     , m_textArea(nullptr)
@@ -51,12 +51,12 @@ DocumentHandler::DocumentHandler(QObject *parent)
 {
 }
 
-QQuickItem *DocumentHandler::textArea() const
+QQuickItem *RichDocumentHandler::textArea() const
 {
     return m_textArea;
 }
 
-void DocumentHandler::setTextArea(QQuickItem *textArea)
+void RichDocumentHandler::setTextArea(QQuickItem *textArea)
 {
     if (textArea == m_textArea)
         return;
@@ -69,7 +69,7 @@ void DocumentHandler::setTextArea(QQuickItem *textArea)
     Q_EMIT textAreaChanged();
 }
 
-bool DocumentHandler::eventFilter(QObject *object, QEvent *event)
+bool RichDocumentHandler::eventFilter(QObject *object, QEvent *event)
 {
     if (object == m_textArea && event->type() == QEvent::KeyPress) {
         return !processKeyEvent(static_cast<QKeyEvent *>(event));
@@ -94,12 +94,12 @@ bool DocumentHandler::eventFilter(QObject *object, QEvent *event)
     return false;
 }
 
-QQuickTextDocument *DocumentHandler::document() const
+QQuickTextDocument *RichDocumentHandler::document() const
 {
     return m_document;
 }
 
-void DocumentHandler::setDocument(QQuickTextDocument *document)
+void RichDocumentHandler::setDocument(QQuickTextDocument *document)
 {
     if (document == m_document)
         return;
@@ -108,17 +108,17 @@ void DocumentHandler::setDocument(QQuickTextDocument *document)
         m_document->textDocument()->disconnect(this);
     m_document = document;
     if (m_document)
-        connect(m_document->textDocument(), &QTextDocument::modificationChanged, this, &DocumentHandler::modifiedChanged);
+        connect(m_document->textDocument(), &QTextDocument::modificationChanged, this, &RichDocumentHandler::modifiedChanged);
 
     Q_EMIT documentChanged();
 }
 
-int DocumentHandler::cursorPosition() const
+int RichDocumentHandler::cursorPosition() const
 {
     return m_cursorPosition;
 }
 
-void DocumentHandler::setCursorPosition(int position)
+void RichDocumentHandler::setCursorPosition(int position)
 {
     if (position == m_cursorPosition)
         return;
@@ -129,12 +129,12 @@ void DocumentHandler::setCursorPosition(int position)
     Q_EMIT cursorPositionChanged();
 }
 
-int DocumentHandler::selectionStart() const
+int RichDocumentHandler::selectionStart() const
 {
     return m_selectionStart;
 }
 
-void DocumentHandler::setSelectionStart(int position)
+void RichDocumentHandler::setSelectionStart(int position)
 {
     if (position == m_selectionStart)
         return;
@@ -143,12 +143,12 @@ void DocumentHandler::setSelectionStart(int position)
     Q_EMIT selectionStartChanged();
 }
 
-int DocumentHandler::selectionEnd() const
+int RichDocumentHandler::selectionEnd() const
 {
     return m_selectionEnd;
 }
 
-void DocumentHandler::setSelectionEnd(int position)
+void RichDocumentHandler::setSelectionEnd(int position)
 {
     if (position == m_selectionEnd)
         return;
@@ -157,7 +157,7 @@ void DocumentHandler::setSelectionEnd(int position)
     Q_EMIT selectionEndChanged();
 }
 
-QString DocumentHandler::fontFamily() const
+QString RichDocumentHandler::fontFamily() const
 {
     QTextCursor cursor = textCursor();
     if (cursor.isNull())
@@ -166,7 +166,7 @@ QString DocumentHandler::fontFamily() const
     return format.font().family();
 }
 
-void DocumentHandler::setFontFamily(const QString &family)
+void RichDocumentHandler::setFontFamily(const QString &family)
 {
     QTextCharFormat format;
     format.setFontFamilies({family});
@@ -174,7 +174,7 @@ void DocumentHandler::setFontFamily(const QString &family)
     Q_EMIT fontFamilyChanged();
 }
 
-QColor DocumentHandler::textColor() const
+QColor RichDocumentHandler::textColor() const
 {
     QTextCursor cursor = textCursor();
     if (cursor.isNull())
@@ -183,7 +183,7 @@ QColor DocumentHandler::textColor() const
     return format.foreground().color();
 }
 
-void DocumentHandler::setTextColor(const QColor &color)
+void RichDocumentHandler::setTextColor(const QColor &color)
 {
     QTextCharFormat format;
     format.setForeground(QBrush(color));
@@ -191,7 +191,7 @@ void DocumentHandler::setTextColor(const QColor &color)
     Q_EMIT textColorChanged();
 }
 
-Qt::Alignment DocumentHandler::alignment() const
+Qt::Alignment RichDocumentHandler::alignment() const
 {
     QTextCursor cursor = textCursor();
     if (cursor.isNull())
@@ -199,7 +199,7 @@ Qt::Alignment DocumentHandler::alignment() const
     return textCursor().blockFormat().alignment();
 }
 
-void DocumentHandler::setAlignment(Qt::Alignment alignment)
+void RichDocumentHandler::setAlignment(Qt::Alignment alignment)
 {
     QTextBlockFormat format;
     format.setAlignment(alignment);
@@ -208,7 +208,7 @@ void DocumentHandler::setAlignment(Qt::Alignment alignment)
     Q_EMIT alignmentChanged();
 }
 
-bool DocumentHandler::bold() const
+bool RichDocumentHandler::bold() const
 {
     QTextCursor cursor = textCursor();
     if (cursor.isNull())
@@ -216,7 +216,7 @@ bool DocumentHandler::bold() const
     return textCursor().charFormat().fontWeight() == QFont::Bold;
 }
 
-void DocumentHandler::setBold(bool bold)
+void RichDocumentHandler::setBold(bool bold)
 {
     QTextCharFormat format;
     format.setFontWeight(bold ? QFont::Bold : QFont::Normal);
@@ -224,7 +224,7 @@ void DocumentHandler::setBold(bool bold)
     Q_EMIT boldChanged();
 }
 
-bool DocumentHandler::italic() const
+bool RichDocumentHandler::italic() const
 {
     QTextCursor cursor = textCursor();
     if (cursor.isNull())
@@ -232,7 +232,7 @@ bool DocumentHandler::italic() const
     return textCursor().charFormat().fontItalic();
 }
 
-void DocumentHandler::setItalic(bool italic)
+void RichDocumentHandler::setItalic(bool italic)
 {
     QTextCharFormat format;
     format.setFontItalic(italic);
@@ -240,7 +240,7 @@ void DocumentHandler::setItalic(bool italic)
     Q_EMIT italicChanged();
 }
 
-bool DocumentHandler::underline() const
+bool RichDocumentHandler::underline() const
 {
     QTextCursor cursor = textCursor();
     if (cursor.isNull())
@@ -248,7 +248,7 @@ bool DocumentHandler::underline() const
     return textCursor().charFormat().fontUnderline();
 }
 
-void DocumentHandler::setUnderline(bool underline)
+void RichDocumentHandler::setUnderline(bool underline)
 {
     QTextCharFormat format;
     format.setFontUnderline(underline);
@@ -256,7 +256,7 @@ void DocumentHandler::setUnderline(bool underline)
     Q_EMIT underlineChanged();
 }
 
-bool DocumentHandler::strikethrough() const
+bool RichDocumentHandler::strikethrough() const
 {
     QTextCursor cursor = textCursor();
     if (cursor.isNull())
@@ -264,7 +264,7 @@ bool DocumentHandler::strikethrough() const
     return textCursor().charFormat().fontStrikeOut();
 }
 
-void DocumentHandler::setStrikethrough(bool strikethrough)
+void RichDocumentHandler::setStrikethrough(bool strikethrough)
 {
     QTextCharFormat format;
     format.setFontStrikeOut(strikethrough);
@@ -272,7 +272,7 @@ void DocumentHandler::setStrikethrough(bool strikethrough)
     Q_EMIT strikethroughChanged();
 }
 
-int DocumentHandler::fontSize() const
+int RichDocumentHandler::fontSize() const
 {
     QTextCursor cursor = textCursor();
     if (cursor.isNull())
@@ -281,7 +281,7 @@ int DocumentHandler::fontSize() const
     return format.font().pointSize();
 }
 
-void DocumentHandler::setFontSize(int size)
+void RichDocumentHandler::setFontSize(int size)
 {
     if (size <= 0)
         return;
@@ -302,7 +302,7 @@ void DocumentHandler::setFontSize(int size)
     Q_EMIT fontSizeChanged();
 }
 
-QString DocumentHandler::fileName() const
+QString RichDocumentHandler::fileName() const
 {
     const QString filePath = QQmlFile::urlToLocalFileOrQrc(m_fileUrl);
     const QString fileName = QFileInfo(filePath).fileName();
@@ -311,12 +311,12 @@ QString DocumentHandler::fileName() const
     return fileName;
 }
 
-QString DocumentHandler::fileType() const
+QString RichDocumentHandler::fileType() const
 {
     return QFileInfo(fileName()).suffix();
 }
 
-QUrl DocumentHandler::fileUrl() const
+QUrl RichDocumentHandler::fileUrl() const
 {
     return m_fileUrl;
 }
@@ -349,7 +349,7 @@ static void fixupTable(QTextFrame *frame)
     }
 }
 
-void DocumentHandler::load(const QUrl &fileUrl)
+void RichDocumentHandler::load(const QUrl &fileUrl)
 {
     if (fileUrl == m_fileUrl)
         return;
@@ -366,78 +366,73 @@ void DocumentHandler::load(const QUrl &fileUrl)
 
     const QString content = QString::fromUtf8(file.readAll());
 
-    if (!isSourceMode()) {
-        // PERFORMANCE WIN: String Builder Pattern
-        // Instead of replace() inside a loop (O(N^2)), we build the new string
-        // (O(N)).
-        QString processedContent;
-        processedContent.reserve(content.length() + (content.length() / 5));
+    // PERFORMANCE WIN: String Builder Pattern
+    // Instead of replace() inside a loop (O(N^2)), we build the new string
+    // (O(N)).
+    QString processedContent;
+    processedContent.reserve(content.length() + (content.length() / 5));
 
-        m_imagePathLookup.clear();
+    m_imagePathLookup.clear();
 
-        if (QTextDocument *doc = textDocument()) {
-            doc->setUndoRedoEnabled(false);
-            doc->setBaseUrl(QUrl(fileUrl).adjusted(QUrl::RemoveFilename));
+    if (QTextDocument *doc = textDocument()) {
+        doc->setUndoRedoEnabled(false);
+        doc->setBaseUrl(QUrl(fileUrl).adjusted(QUrl::RemoveFilename));
 
-            static const QRegularExpression imgRegex(u"!\\[.*?\\]\\(([^)]+)\\)"_s, QRegularExpression::DotMatchesEverythingOption);
+        static const QRegularExpression imgRegex(u"!\\[.*?\\]\\(([^)]+)\\)"_s, QRegularExpression::DotMatchesEverythingOption);
 
-            QRegularExpressionMatchIterator i = imgRegex.globalMatch(content);
+        QRegularExpressionMatchIterator i = imgRegex.globalMatch(content);
 
-            int lastPos = 0; // Track where we are in the original string
+        int lastPos = 0; // Track where we are in the original string
 
-            while (i.hasNext()) {
-                QRegularExpressionMatch match = i.next();
+        while (i.hasNext()) {
+            QRegularExpressionMatch match = i.next();
 
-                // OPTIMIZATION: Zero-Copy View
-                QStringView originalPathView = match.capturedView(1);
-                originalPathView = originalPathView.trimmed();
+            // OPTIMIZATION: Zero-Copy View
+            QStringView originalPathView = match.capturedView(1);
+            originalPathView = originalPathView.trimmed();
 
-                int quoteIndex = originalPathView.indexOf(u" \"");
-                if (quoteIndex == -1)
-                    quoteIndex = originalPathView.indexOf(u" '");
-                if (quoteIndex != -1)
-                    originalPathView = originalPathView.left(quoteIndex).trimmed();
+            int quoteIndex = originalPathView.indexOf(u" \"");
+            if (quoteIndex == -1)
+                quoteIndex = originalPathView.indexOf(u" '");
+            if (quoteIndex != -1)
+                originalPathView = originalPathView.left(quoteIndex).trimmed();
 
-                if (originalPathView.startsWith(u'<') && originalPathView.endsWith(u'>')) {
-                    originalPathView = originalPathView.mid(1, originalPathView.length() - 2);
-                }
-
-                // Append text before the image
-                processedContent.append(QStringView(content).mid(lastPos, match.capturedStart() - lastPos));
-
-                // Process Image
-                // FIX: Use doc->baseUrl() directly to avoid scope errors
-                QUrl absoluteUrl = doc->baseUrl().resolved(QUrl(originalPathView.toString()));
-                QString proxyUrl = processImage(absoluteUrl);
-
-                processedContent.append(u"<br />"_s);
-
-                // Append HTML (Inline construction to avoid temp objects)
-#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
-                processedContent.append(u"<img style=\"max-width: 100%\" src=\""_s);
-#else
-                processedContent.append(u"<img width=\"500\" src=\""_s);
-#endif
-                processedContent.append(proxyUrl);
-                processedContent.append(u"\" />"_s);
-
-                processedContent.append(u"<br />"_s);
-
-                lastPos = match.capturedEnd();
+            if (originalPathView.startsWith(u'<') && originalPathView.endsWith(u'>')) {
+                originalPathView = originalPathView.mid(1, originalPathView.length() - 2);
             }
 
-            // Append remaining text
-            processedContent.append(QStringView(content).mid(lastPos));
+            // Append text before the image
+            processedContent.append(QStringView(content).mid(lastPos, match.capturedStart() - lastPos));
 
-            Q_EMIT loaded(processedContent, Qt::MarkdownText);
+            // Process Image
+            // FIX: Use doc->baseUrl() directly to avoid scope errors
+            QUrl absoluteUrl = doc->baseUrl().resolved(QUrl(originalPathView.toString()));
+            QString proxyUrl = processImage(absoluteUrl);
 
-            doc->setModified(false);
-            doc->clearUndoRedoStacks();
-            doc->setUndoRedoEnabled(true);
+            processedContent.append(u"<br />"_s);
+
+            // Append HTML (Inline construction to avoid temp objects)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+            processedContent.append(u"<img style=\"max-width: 100%\" src=\""_s);
+#else
+            processedContent.append(u"<img width=\"500\" src=\""_s);
+#endif
+            processedContent.append(proxyUrl);
+            processedContent.append(u"\" />"_s);
+
+            processedContent.append(u"<br />"_s);
+
+            lastPos = match.capturedEnd();
         }
 
-    } else {
-        Q_EMIT loaded(content, Qt::PlainText);
+        // Append remaining text
+        processedContent.append(QStringView(content).mid(lastPos));
+
+        Q_EMIT loaded(processedContent, Qt::MarkdownText);
+
+        doc->setModified(false);
+        doc->clearUndoRedoStacks();
+        doc->setUndoRedoEnabled(true);
     }
 
     fixupTable(textDocument()->rootFrame());
@@ -447,7 +442,7 @@ void DocumentHandler::load(const QUrl &fileUrl)
     reset();
 }
 
-void DocumentHandler::saveAs(const QUrl &fileUrl)
+void RichDocumentHandler::saveAs(const QUrl &fileUrl)
 {
     QTextDocument *doc = textDocument();
     if (!doc)
@@ -459,19 +454,14 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
         return;
     }
 
-    QString output;
-    if (isSourceMode()) {
-        output = doc->toPlainText();
-    } else {
-        output = doc->toMarkdown();
-    }
-    qDebug() << output << " THIS IS THE OUTPUT";
+    const QString markdown = doc->toMarkdown();
 
     // PERFORMANCE WIN: String Builder for Saving
     QString finalOutput;
-    finalOutput.reserve(output.length());
+    finalOutput.reserve(markdown.length());
+
     static const QRegularExpression linkRegex(u"\\]\\(image://marknote/([a-f0-9]+)[^)]*\\)"_s);
-    QRegularExpressionMatchIterator i = linkRegex.globalMatch(output);
+    QRegularExpressionMatchIterator i = linkRegex.globalMatch(markdown);
 
     int lastPos = 0;
 
@@ -480,7 +470,7 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
         QString hash = match.captured(1);
 
         // Append text before the link
-        finalOutput.append(QStringView(output).mid(lastPos, match.capturedStart() - lastPos));
+        finalOutput.append(QStringView(markdown).mid(lastPos, match.capturedStart() - lastPos));
 
         if (m_imagePathLookup.contains(hash)) {
             QString originalPath = m_imagePathLookup.value(hash);
@@ -495,7 +485,7 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
     }
 
     // Append remaining text
-    finalOutput.append(QStringView(output).mid(lastPos));
+    finalOutput.append(QStringView(markdown).mid(lastPos));
 
     file.write(finalOutput.toUtf8());
     file.close();
@@ -506,7 +496,7 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
     Q_EMIT fileUrlChanged();
 }
 
-void DocumentHandler::reset()
+void RichDocumentHandler::reset()
 {
     if (fontFamily() != m_lastFontFamily) {
         Q_EMIT fontFamilyChanged();
@@ -543,7 +533,7 @@ void DocumentHandler::reset()
     m_lastTextColor = textColor();
 }
 
-QTextCursor DocumentHandler::textCursor() const
+QTextCursor RichDocumentHandler::textCursor() const
 {
     QTextDocument *doc = textDocument();
     if (!doc)
@@ -564,14 +554,14 @@ QTextCursor DocumentHandler::textCursor() const
     return cursor;
 }
 
-QTextDocument *DocumentHandler::textDocument() const
+QTextDocument *RichDocumentHandler::textDocument() const
 {
     if (!m_document)
         return nullptr;
     return m_document->textDocument();
 }
 
-void DocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
+void RichDocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
 {
     QTextCursor cursor = textCursor();
     if (!cursor.hasSelection())
@@ -579,43 +569,28 @@ void DocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &format
     cursor.mergeCharFormat(format);
 }
 
-bool DocumentHandler::modified() const
+bool RichDocumentHandler::modified() const
 {
     return m_document && m_document->textDocument()->isModified();
 }
 
-void DocumentHandler::setModified(bool m)
+void RichDocumentHandler::setModified(bool m)
 {
     if (m_document)
         m_document->textDocument()->setModified(m);
 }
 
-bool DocumentHandler::isSourceMode() const
-{
-    qInfo() << "Hello";
-    return m_sourceMode;
-}
-
-void DocumentHandler::setSourceMode(bool mode)
-{
-    if (m_sourceMode == mode) {
-        return;
-    }
-    m_sourceMode = mode;
-    Q_EMIT sourceModeChanged();
-}
-
-bool DocumentHandler::canIndentList() const
+bool RichDocumentHandler::canIndentList() const
 {
     return m_nestedListHelper.canIndent(textCursor()) && textCursor().blockFormat().headingLevel() == 0;
 }
 
-bool DocumentHandler::canDedentList() const
+bool RichDocumentHandler::canDedentList() const
 {
     return m_nestedListHelper.canDedent(textCursor()) && textCursor().blockFormat().headingLevel() == 0;
 }
 
-int DocumentHandler::currentListStyle() const
+int RichDocumentHandler::currentListStyle() const
 {
     if (!textCursor().currentList()) {
         return 0;
@@ -624,27 +599,27 @@ int DocumentHandler::currentListStyle() const
     return -textCursor().currentList()->format().style();
 }
 
-int DocumentHandler::currentHeadingLevel() const
+int RichDocumentHandler::currentHeadingLevel() const
 {
     return textCursor().blockFormat().headingLevel();
 }
 
-void DocumentHandler::indentListMore()
+void RichDocumentHandler::indentListMore()
 {
     m_nestedListHelper.handleOnIndentMore(textCursor());
 }
 
-void DocumentHandler::indentListLess()
+void RichDocumentHandler::indentListLess()
 {
     m_nestedListHelper.handleOnIndentLess(textCursor());
 }
 
-void DocumentHandler::setListStyle(int styleIndex)
+void RichDocumentHandler::setListStyle(int styleIndex)
 {
     m_nestedListHelper.handleOnBulletType(-styleIndex, textCursor());
 }
 
-void DocumentHandler::setHeadingLevel(int level)
+void RichDocumentHandler::setHeadingLevel(int level)
 {
     const int boundedLevel = qBound(0, 6, level);
     // Apparently, 5 is maximum for FontSizeAdjustment; otherwise level=1 and
@@ -686,24 +661,24 @@ void DocumentHandler::setHeadingLevel(int level)
     // richTextComposer()->activateRichText();
 }
 
-QString DocumentHandler::currentLinkUrl() const
+QString RichDocumentHandler::currentLinkUrl() const
 {
     return textCursor().charFormat().anchorHref();
 }
 
-QString DocumentHandler::currentLinkText() const
+QString RichDocumentHandler::currentLinkText() const
 {
     QTextCursor cursor = textCursor();
     selectLinkText(&cursor);
     return cursor.selectedText();
 }
 
-QString DocumentHandler::anchorAt(const QPointF &p) const
+QString RichDocumentHandler::anchorAt(const QPointF &p) const
 {
     return m_document->textDocument()->documentLayout()->anchorAt(p);
 }
 
-void DocumentHandler::selectLinkText(QTextCursor *cursor) const
+void RichDocumentHandler::selectLinkText(QTextCursor *cursor) const
 {
     // If the cursor is on a link, select the text of the link.
     if (cursor->charFormat().isAnchor()) {
@@ -745,7 +720,7 @@ void DocumentHandler::selectLinkText(QTextCursor *cursor) const
     }
 }
 
-void DocumentHandler::updateLink(const QString &linkUrl, const QString &linkText)
+void RichDocumentHandler::updateLink(const QString &linkUrl, const QString &linkText)
 {
     auto cursor = textCursor();
     selectLinkText(&cursor);
@@ -796,13 +771,13 @@ void DocumentHandler::updateLink(const QString &linkUrl, const QString &linkText
     cursor.endEditBlock();
 }
 
-void DocumentHandler::regenerateColorScheme()
+void RichDocumentHandler::regenerateColorScheme()
 {
     mLinkColor = KColorScheme(QPalette::Active, KColorScheme::View).foreground(KColorScheme::LinkText).color();
     // TODO update existing link
 }
 
-QColor DocumentHandler::linkColor()
+QColor RichDocumentHandler::linkColor()
 {
     if (mLinkColor.isValid()) {
         return mLinkColor;
@@ -811,7 +786,7 @@ QColor DocumentHandler::linkColor()
     return mLinkColor;
 }
 
-QString DocumentHandler::processImage(const QUrl &originalUrl)
+QString RichDocumentHandler::processImage(const QUrl &originalUrl)
 {
     if (auto engine = qmlEngine(this)) {
         if (!engine->imageProvider(u"marknote"_s)) {
@@ -842,7 +817,7 @@ QString DocumentHandler::processImage(const QUrl &originalUrl)
     return providerUrl;
 }
 
-void DocumentHandler::insertImage(const QUrl &url)
+void RichDocumentHandler::insertImage(const QUrl &url)
 {
     if (!url.isLocalFile())
         return;
@@ -857,32 +832,23 @@ void DocumentHandler::insertImage(const QUrl &url)
     const QString proxyUrl = processImage(url);
 
     QTextCursor cursor = textCursor();
-    if (!isSourceMode()) {
-        cursor.insertHtml(u"<br />"_s);
 
-        while (canDedentList()) {
-            m_nestedListHelper.handleOnIndentLess(cursor);
-        }
+    cursor.insertHtml(u"<br />"_s);
+
+    while (canDedentList()) {
+        m_nestedListHelper.handleOnIndentLess(cursor);
+    }
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
-        const QString html = u"<img style=\"max-width: 100%\" src=\""_s + proxyUrl + u"\" />"_s;
+    const QString html = u"<img style=\"max-width: 100%\" src=\""_s + proxyUrl + u"\" />"_s;
 #else
-        const QString html = u"<img width=\"500\" src=\""_s + proxyUrl + u"\" />"_s;
+    const QString html = u"<img width=\"500\" src=\""_s + proxyUrl + u"\" />"_s;
 #endif
 
-        cursor.insertHtml(html);
-        cursor.insertHtml(u"<br />"_s);
-    } else {
-        cursor.insertText(QString(u"\n"));
-        while (canDedentList()) {
-            m_nestedListHelper.handleOnIndentLess(cursor);
-        }
-        const QString img = u"![image](" + proxyUrl + u")";
-        cursor.insertText(img);
-        cursor.insertText(QString(u"\n"));
-    }
+    cursor.insertHtml(html);
+    cursor.insertHtml(u"<br />"_s);
 }
 
-void DocumentHandler::insertTable(int rows, int columns)
+void RichDocumentHandler::insertTable(int rows, int columns)
 {
     QTextCursor cursor = textCursor();
     QTextTableFormat tableFormat;
@@ -919,7 +885,7 @@ void DocumentHandler::insertTable(int rows, int columns)
     return;
 }
 
-void DocumentHandler::setCheckable(bool add)
+void RichDocumentHandler::setCheckable(bool add)
 {
     QTextBlockFormat fmt;
     fmt.setMarker(add ? QTextBlockFormat::MarkerType::Unchecked : QTextBlockFormat::MarkerType::NoMarker);
@@ -941,13 +907,13 @@ void DocumentHandler::setCheckable(bool add)
     Q_EMIT checkableChanged();
 }
 
-bool DocumentHandler::checkable() const
+bool RichDocumentHandler::checkable() const
 {
     return textCursor().blockFormat().marker() == QTextBlockFormat::MarkerType::Unchecked
         || textCursor().blockFormat().marker() == QTextBlockFormat::MarkerType::Checked;
 }
 
-bool DocumentHandler::evaluateReturnKeySupport(QKeyEvent *event)
+bool RichDocumentHandler::evaluateReturnKeySupport(QKeyEvent *event)
 {
     if (event->key() != Qt::Key_Return) {
         return evaluateListSupport(event);
@@ -1003,7 +969,7 @@ bool DocumentHandler::evaluateReturnKeySupport(QKeyEvent *event)
     }
 }
 
-bool DocumentHandler::evaluateListSupport(QKeyEvent *event)
+bool RichDocumentHandler::evaluateListSupport(QKeyEvent *event)
 {
     bool handled = false;
     if (textCursor().currentList()) {
@@ -1054,12 +1020,8 @@ bool DocumentHandler::evaluateListSupport(QKeyEvent *event)
     return true;
 }
 
-void DocumentHandler::slotKeyPressed(int key)
+void RichDocumentHandler::slotKeyPressed(int key)
 {
-    if (isSourceMode()) {
-        return;
-    }
-
     if (key == Qt::Key_Space) {
         const auto blockText = textCursor().block().text();
 
@@ -1198,7 +1160,7 @@ void DocumentHandler::slotKeyPressed(int key)
     }
 }
 
-bool DocumentHandler::processKeyEvent(QKeyEvent *e)
+bool RichDocumentHandler::processKeyEvent(QKeyEvent *e)
 {
     if (e->key() == Qt::Key_Up && e->modifiers() != Qt::ShiftModifier && textCursor().block().position() == 0
         && textCursor().block().layout()->lineForTextPosition(textCursor().position()).lineNumber() == 0) {
@@ -1247,7 +1209,7 @@ bool DocumentHandler::processKeyEvent(QKeyEvent *e)
     return evaluateReturnKeySupport(e);
 }
 
-bool DocumentHandler::handleShortcut(QKeyEvent *event)
+bool RichDocumentHandler::handleShortcut(QKeyEvent *event)
 {
     const QKeySequence key = event->modifiers() | (Qt::Key)event->key();
 
@@ -1343,7 +1305,7 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
     return false;
 }
 
-void DocumentHandler::moveCursorBeginUpDown(bool moveUp)
+void RichDocumentHandler::moveCursorBeginUpDown(bool moveUp)
 {
     QTextCursor cursor = textCursor();
     QTextCursor move = cursor;
@@ -1355,7 +1317,7 @@ void DocumentHandler::moveCursorBeginUpDown(bool moveUp)
     setCursorPosition(move.position());
 }
 
-void DocumentHandler::moveLineUpDown(bool moveUp)
+void RichDocumentHandler::moveLineUpDown(bool moveUp)
 {
     QTextCursor cursor = textCursor();
     QTextCursor move = cursor;
@@ -1415,14 +1377,14 @@ static void deleteWord(QTextCursor cursor, QTextCursor::MoveOperation op)
     cursor.removeSelectedText();
 }
 
-void DocumentHandler::deleteWordBack()
+void RichDocumentHandler::deleteWordBack()
 {
     deleteWord(textCursor(), QTextCursor::PreviousWord);
 }
 
-void DocumentHandler::deleteWordForward()
+void RichDocumentHandler::deleteWordForward()
 {
     deleteWord(textCursor(), QTextCursor::WordRight);
 }
 
-#include "moc_documenthandler.cpp"
+#include "moc_rich_documenthandler.cpp"

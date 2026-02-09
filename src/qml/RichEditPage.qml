@@ -49,7 +49,7 @@ Kirigami.Page {
     Layout.fillWidth: true
     bottomPadding: 0
     leftPadding: 0
-    objectName: "EditPage"
+    objectName: "RichEditPage"
     rightPadding: 0
     topPadding: 0
 
@@ -79,7 +79,7 @@ Kirigami.Page {
             selectByMouse: true
             selectedTextColor: Kirigami.Theme.highlightedTextColor
             selectionColor: Kirigami.Theme.highlightColor
-            textFormat: document.sourceMode ? TextEdit.PlainText : TextEdit.MarkdownText
+            textFormat: TextEdit.MarkdownText
             textMargin: wideScreen ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
             topPadding: 0
             wrapMode: TextEdit.Wrap
@@ -143,7 +143,7 @@ Kirigami.Page {
                     }
                 }
 
-                DocumentHandler {
+                RichDocumentHandler {
                     id: document
 
                     cursorPosition: textArea.cursorPosition
@@ -300,7 +300,7 @@ Kirigami.Page {
                 id: toggleSwitch
                 checked: true
                 onToggled: {
-                    document.sourceMode = !document.sourceMode;
+                    NavigationController.sourceMode = !NavigationController.sourceMode
                 }
             }
             Label {

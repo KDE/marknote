@@ -116,4 +116,15 @@ QUrl NavigationController::noteFullPath() const
     return QUrl::fromLocalFile(m_notebookPath + u'/' + m_notePath);
 }
 
+bool NavigationController::sourceMode() const
+{
+    return m_sourceMode;
+}
+
+void NavigationController::setSourceMode(bool sourceMode)
+{
+    m_sourceMode = sourceMode;
+    Q_EMIT sourceModeChanged();
+}
+
 #include "moc_navigationcontroller.cpp"
