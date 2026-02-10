@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-09 00:43+0000\n"
-"PO-Revision-Date: 2026-01-20 06:17+0200\n"
+"POT-Creation-Date: 2026-02-10 00:44+0000\n"
+"PO-Revision-Date: 2026-02-09 08:04+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -48,44 +48,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Під час спроби записати дані до «%1» сталася помилка"
 
-#: main.cpp:87 qml/Main.qml:367
+#: main.cpp:89 qml/Main.qml:367
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:89
+#: main.cpp:91
 #, kde-format
 msgid "Note taking application"
 msgstr "Програма для роботи з нотатками"
 
-#: main.cpp:91
+#: main.cpp:93
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© Mathis Brüchert, 2023–2026"
 
-#: main.cpp:92
+#: main.cpp:94
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:93 main.cpp:98
+#: main.cpp:95 main.cpp:100
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: main.cpp:97
+#: main.cpp:99
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:102
+#: main.cpp:104
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Юрій Чорноіван"
 
-#: main.cpp:102
+#: main.cpp:104
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -113,18 +113,16 @@ msgid "Focus Mode"
 msgstr "Режим фокусування"
 
 #: qml/EditPage.qml:173
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr "Шукати нотатки (%1)"
+msgstr "Шукати нотатки"
 
 #: qml/EditPage.qml:178
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr "Шукати нотатки (%1)"
+msgstr "Шукати у нотатці"
 
 #: qml/EditPage.qml:186 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
@@ -271,32 +269,32 @@ msgstr "Вставити"
 #: qml/EditPage.qml:711
 #, kde-format
 msgid "Find text..."
-msgstr ""
+msgstr "Знайти текст…"
 
 #: qml/EditPage.qml:734
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "Назад"
 
 #: qml/EditPage.qml:750
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "Далі"
 
 #: qml/EditPage.qml:767
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Немає відповідників"
 
 #: qml/EditPage.qml:769
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1 з %2"
 
 #: qml/EditPage.qml:776
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format

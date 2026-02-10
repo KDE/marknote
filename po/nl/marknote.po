@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-09 00:43+0000\n"
-"PO-Revision-Date: 2026-01-20 14:06+0100\n"
+"POT-Creation-Date: 2026-02-10 00:44+0000\n"
+"PO-Revision-Date: 2026-02-09 11:02+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: application.cpp:34
 #, kde-format
@@ -47,44 +47,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Er deed zich een fout voor bij schrijven naar '%1'"
 
-#: main.cpp:87 qml/Main.qml:367
+#: main.cpp:89 qml/Main.qml:367
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:89
+#: main.cpp:91
 #, kde-format
 msgid "Note taking application"
 msgstr "Toepassing voor maken van notities"
 
-#: main.cpp:91
+#: main.cpp:93
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
 
-#: main.cpp:92
+#: main.cpp:94
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:93 main.cpp:98
+#: main.cpp:95 main.cpp:100
 #, kde-format
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: main.cpp:97
+#: main.cpp:99
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:102
+#: main.cpp:104
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Freek de Kruijf - 2023"
 
-#: main.cpp:102
+#: main.cpp:104
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -113,18 +113,16 @@ msgid "Focus Mode"
 msgstr "Focusmodus"
 
 #: qml/EditPage.qml:173
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr "Notities zoeken (%1)"
+msgstr "Notitie zoeken"
 
 #: qml/EditPage.qml:178
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr "Notities zoeken (%1)"
+msgstr "In notitie zoeken"
 
 #: qml/EditPage.qml:186 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
@@ -271,32 +269,32 @@ msgstr "Invoegen"
 #: qml/EditPage.qml:711
 #, kde-format
 msgid "Find text..."
-msgstr ""
+msgstr "Tekst zoeken..."
 
 #: qml/EditPage.qml:734
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "Vorige"
 
 #: qml/EditPage.qml:750
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 #: qml/EditPage.qml:767
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Geen overeenkomsten"
 
 #: qml/EditPage.qml:769
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:776
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format

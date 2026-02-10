@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-09 00:43+0000\n"
-"PO-Revision-Date: 2026-01-20 07:10+0100\n"
+"POT-Creation-Date: 2026-02-10 00:44+0000\n"
+"PO-Revision-Date: 2026-02-09 07:09+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -52,44 +52,44 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Med pisanjem v '%1' je prišlo do napake"
 
-#: main.cpp:87 qml/Main.qml:367
+#: main.cpp:89 qml/Main.qml:367
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:89
+#: main.cpp:91
 #, kde-format
 msgid "Note taking application"
 msgstr "Program za beleženje"
 
-#: main.cpp:91
+#: main.cpp:93
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
 
-#: main.cpp:92
+#: main.cpp:94
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:93 main.cpp:98
+#: main.cpp:95 main.cpp:100
 #, kde-format
 msgid "Maintainer"
 msgstr "Vzdrževalec"
 
-#: main.cpp:97
+#: main.cpp:99
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:102
+#: main.cpp:104
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Martin Srebotnjak"
 
-#: main.cpp:102
+#: main.cpp:104
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -117,18 +117,16 @@ msgid "Focus Mode"
 msgstr "Način osredotočenja"
 
 #: qml/EditPage.qml:173
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr "Išči po zabeležkah (%1)"
+msgstr "Išči zabeležko"
 
 #: qml/EditPage.qml:178
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr "Išči po zabeležkah (%1)"
+msgstr "Išči v zabeležki"
 
 #: qml/EditPage.qml:186 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
@@ -275,32 +273,32 @@ msgstr "Vstavi"
 #: qml/EditPage.qml:711
 #, kde-format
 msgid "Find text..."
-msgstr ""
+msgstr "Najdi besedilo..."
 
 #: qml/EditPage.qml:734
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "Prejšnji"
 
 #: qml/EditPage.qml:750
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "Naslednji"
 
 #: qml/EditPage.qml:767
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Ni zadetkov"
 
 #: qml/EditPage.qml:769
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:776
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Zapri"
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
