@@ -27,8 +27,8 @@ Kirigami.Page {
     property string oldPath: ''
     property bool saved: true
     property bool singleDocumentMode: false
-    // readonly property bool wideScreen: width >= toolBar.width + Kirigami.Units.largeSpacing * 2
-    readonly property bool wideScreen: true
+    // set to 800 - same as minWideScreenWidth defined in main.qml
+    readonly property bool wideScreen: width >= 800
 
     function loadNote(): void {
         if (root.oldPath.length > 0 && !saved) {
@@ -90,9 +90,6 @@ Kirigami.Page {
                 }
             }
 
-            // Keys.onPressed: event => {
-            //     lastKey = event.key;
-            // }
             onPressAndHold: {
                 if (Kirigami.Settings.tabletMode && selectByMouse) {
                     forceActiveFocus();
@@ -101,11 +98,6 @@ Kirigami.Page {
                 }
             }
             onTextChanged: {
-                // if (lastKey !== -1) {
-                //     let key = lastKey;
-                //     lastKey = -1;
-                //     document.slotKeyPressed(key);
-                // }
                 root.saved = false;
                 saveTimer.restart();
             }
@@ -215,7 +207,7 @@ Kirigami.Page {
             enabled: textArea.canUndo
             icon.name: "edit-undo"
             text: i18n("Undo")
-            visible: wideScreen
+            visible: pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
 
             onClicked: textArea.undo()
         }
@@ -227,7 +219,7 @@ Kirigami.Page {
             enabled: textArea.canRedo
             icon.name: "edit-redo"
             text: i18n("Redo")
-            visible: wideScreen
+            visible: pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
 
             onClicked: textArea.redo()
         }
@@ -248,6 +240,13 @@ Kirigami.Page {
                 }
             }
         }
+
+        Item {
+            // for spacing
+            width: mobileUndoButton.width * 2 + Kirigami.Units.largeSpacing
+            visible: pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
+        }
+
         Kirigami.Heading {
             Layout.leftMargin: Kirigami.Units.mediumSpacing
             Layout.rightMargin: Kirigami.Units.mediumSpacing
@@ -264,23 +263,43 @@ Kirigami.Page {
             width: fillWindowButton.width
         }
 
-        RowLayout {
-            spacing: 5
+        ToolButton {
+            id: mobileUndoButton
+            Layout.leftMargin: Kirigami.Units.smallSpacing
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            display: AbstractButton.IconOnly
+            enabled: textArea.canUndo
+            icon.name: "edit-undo"
+            text: i18n("Undo")
+            visible: pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
 
-            Label {
-                opacity: toggleSwitch.checked ? 0.5 : 1.0
-                text: "Source"
-            }
-            Switch {
-                id: toggleSwitch
-                checked: false
-                onToggled: {
-                    NavigationController.sourceMode = !NavigationController.sourceMode
-                }
-            }
-            Label {
-                opacity: toggleSwitch.checked ? 1.0 : 0.5
-                text: "Preview"
+            onClicked: textArea.undo()
+        }
+        ToolButton {
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            display: AbstractButton.IconOnly
+            enabled: textArea.canRedo
+            icon.name: "edit-redo"
+            text: i18n("Redo")
+            visible: pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
+
+            onClicked: textArea.redo()
+        }
+
+        Button{
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+            ToolTip.text: i18n("Edit in source mode")
+            ToolTip.visible: hovered
+            display: AbstractButton.TextOnly
+            text: i18n("Preview")
+            padding: 0
+
+            onClicked: {
+                NavigationController.sourceMode = !NavigationController.sourceMode
             }
         }
 

@@ -70,6 +70,7 @@ public:
     void setModified(bool m);
 
     Q_INVOKABLE [[nodiscard]] QString anchorAt(const QPointF &p) const;
+    Q_INVOKABLE void clearUndoRedoStacks();
 
 public Q_SLOTS:
     void load(const QUrl &fileUrl);

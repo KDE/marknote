@@ -1387,4 +1387,11 @@ void RichDocumentHandler::deleteWordForward()
     deleteWord(textCursor(), QTextCursor::WordRight);
 }
 
+void RichDocumentHandler::clearUndoRedoStacks()
+{
+    if (QTextDocument *doc = textDocument()) {
+        doc->clearUndoRedoStacks();
+    }
+}
+
 #include "moc_rich_documenthandler.cpp"

@@ -121,6 +121,8 @@ public:
     Q_INVOKABLE void insertTable(int rows, int columns);
     Q_INVOKABLE void slotKeyPressed(int key);
 
+    Q_INVOKABLE void clearUndoRedoStacks();
+
 public Q_SLOTS:
     void load(const QUrl &fileUrl);
     void saveAs(const QUrl &fileUrl);

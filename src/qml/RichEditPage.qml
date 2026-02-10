@@ -29,7 +29,7 @@ Kirigami.Page {
     property string oldPath: ''
     property bool saved: true
     property bool singleDocumentMode: false
-    readonly property bool wideScreen: width >= toolBar.width + Kirigami.Units.largeSpacing * 2
+    readonly property bool wideScreen: (width >= toolBar.width + Kirigami.Units.largeSpacing * 2) && pageStack.columnView.columnResizeMode !== Kirigami.ColumnView.SingleColumn
 
     function loadNote(): void {
         if (root.oldPath.length > 0 && !saved) {
@@ -292,21 +292,19 @@ Kirigami.Page {
         RowLayout {
             spacing: 5
 
-            Label {
-                opacity: toggleSwitch.checked ? 0.5 : 1.0
-                text: "Source"
-            }
-            Switch {
-                id: toggleSwitch
-                checked: true
-                onToggled: {
+            Button{
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+                ToolTip.text: i18n("Edit in source mode")
+                ToolTip.visible: hovered
+                display: AbstractButton.TextOnly
+                text: i18n("Source")
+                padding: 0
+
+                onClicked: {
                     NavigationController.sourceMode = !NavigationController.sourceMode
                 }
             }
-            Label {
-                opacity: toggleSwitch.checked ? 1.0 : 0.5
-                text: "Preview"
-            }
+
         }
 
         ToolButton {
@@ -772,6 +770,7 @@ Kirigami.Page {
                         Layout.topMargin: Kirigami.Units.mediumSpacing
                     }
                     ToolButton {
+                        id: undoButton
                         ToolTip.delay: Kirigami.Units.toolTipDelay
                         //                        Layout.topMargin: Kirigami.Units.smallSpacing
                         //                        Layout.bottomMargin: Kirigami.Units.smallSpacing
@@ -785,7 +784,6 @@ Kirigami.Page {
                         onClicked: textArea.undo()
                     }
                     ToolButton {
-                        id: undoButton
 
                         ToolTip.delay: Kirigami.Units.toolTipDelay
                         //                        Layout.topMargin: Kirigami.Units.smallSpacing

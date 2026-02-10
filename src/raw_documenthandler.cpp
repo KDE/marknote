@@ -226,13 +226,16 @@ void RawDocumentHandler::load(const QUrl &fileUrl)
     if (!file.open(QFile::ReadOnly))
         return;
 
-    const QString content = QString::fromUtf8(file.readAll());
-
-    Q_EMIT loaded(content, Qt::PlainText);
-
     if (QTextDocument *doc = textDocument()) {
+        doc->setUndoRedoEnabled(false);
+
+        const QString content = QString::fromUtf8(file.readAll());
+
+        Q_EMIT loaded(content, Qt::PlainText);
+
         doc->setModified(false);
         doc->clearUndoRedoStacks();
+        doc->setUndoRedoEnabled(true);
     }
 
     QTextCursor cursor = textCursor();
@@ -340,6 +343,13 @@ void RawDocumentHandler::deleteWordBack()
 void RawDocumentHandler::deleteWordForward()
 {
     deleteWord(textCursor(), QTextCursor::WordRight);
+}
+
+void RawDocumentHandler::clearUndoRedoStacks()
+{
+    if (QTextDocument *doc = textDocument()) {
+        doc->clearUndoRedoStacks();
+    }
 }
 
 #include "moc_raw_documenthandler.cpp"

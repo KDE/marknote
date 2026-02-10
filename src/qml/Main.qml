@@ -211,7 +211,7 @@ StatetfulApp.StatefulWindow {
         }
 
         function onSourceModeChanged(): void {
-            // when this is called, then navigate to raw edit page with same note path
+            // when this is called, then navigate to raw/rich edit page with same note path
             if (NavigationController.notebookPath.length > 0 && NavigationController.notePath.length > 0) {
                 if (root.pageStack.items[0].objectName === "NotesPage" && root.pageStack.depth == 2){
                     console.log(root.pageStack.items[1].objectName)
