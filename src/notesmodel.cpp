@@ -116,6 +116,38 @@ void NotesModel::renameNote(const QUrl &path, const QString &name)
     updateEntries();
 }
 
+void NotesModel::duplicateNote(const QUrl &path)
+{
+    const QString originalFilePath = path.toLocalFile();
+    if (!QFile::exists(originalFilePath)) {
+        Q_EMIT errorOccured(tr("Original note file does not exist."));
+        return;
+    }
+
+    const QFileInfo originalInfo(originalFilePath);
+    const QDir dir = originalInfo.absoluteDir();
+
+    const QString suffix = originalInfo.suffix();
+
+    const QString copyBase = originalInfo.completeBaseName() % QLatin1String(" Copy");
+    QString finalFileName = copyBase + u'.' + suffix;
+
+    // Here counter is effectively the note copy number (e.g., Note Copy 1, Note Copy 2, Note Copy 3 etc.)
+    int counter = 1;
+    while (dir.exists(finalFileName)) {
+        finalFileName = copyBase + u' ' + QString::number(counter) + u'.' + suffix;
+        counter++;
+    }
+
+    QString finalFilePath = dir.filePath(finalFileName);
+
+    if (QFile::copy(originalFilePath, finalFilePath)) {
+        updateEntries();
+    } else {
+        Q_EMIT errorOccured(tr("Failed to copy the note file."));
+    }
+}
+
 QString NotesModel::path() const
 {
     return m_path;

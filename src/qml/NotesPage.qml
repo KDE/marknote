@@ -303,6 +303,14 @@ Kirigami.ScrollablePage {
             }
 
             Action {
+                text: i18nc("@action:inmenu", "Duplicate Note")
+                icon.name: "edit-duplicate-symbolic"
+                onTriggered: {
+                    notesModel.duplicateNote(menu.delegateItem.fileUrl)
+                }
+            }
+
+            Action {
                 text: i18nc("@action:inmenu", "Delete Note")
                 icon.name: "delete"
                 onTriggered: {
