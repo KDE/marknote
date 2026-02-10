@@ -256,6 +256,13 @@ Kirigami.Page {
 
             onClicked: textArea.redo()
         }
+
+        Item {
+            // for spacing
+            width: Kirigami.Units.largeSpacing*5
+            visible: pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
+        }
+
         Item {
             Layout.fillWidth: true
         }
@@ -294,11 +301,15 @@ Kirigami.Page {
 
             Button{
                 ToolTip.delay: Kirigami.Units.toolTipDelay
-                ToolTip.text: i18n("Edit in source mode")
+                ToolTip.text: i18n("Switch editor to source mode")
                 ToolTip.visible: hovered
-                display: AbstractButton.TextOnly
-                text: i18n("Source")
+                icon.name: "code-context-symbolic"
+                checkable: true
+                checked: false
+                text: i18n("Source View")
                 padding: 0
+                flat: true
+                spacing: Kirigami.Units.mediumSpacing
 
                 onClicked: {
                     NavigationController.sourceMode = !NavigationController.sourceMode

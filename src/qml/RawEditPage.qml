@@ -243,7 +243,7 @@ Kirigami.Page {
 
         Item {
             // for spacing
-            width: mobileUndoButton.width * 2 + Kirigami.Units.largeSpacing
+            width: mobileUndoButton.width * 2 + Kirigami.Units.largeSpacing*6
             visible: pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
         }
 
@@ -292,11 +292,15 @@ Kirigami.Page {
 
         Button{
             ToolTip.delay: Kirigami.Units.toolTipDelay
-            ToolTip.text: i18n("Edit in source mode")
+            ToolTip.text: i18n("Switch editor to preview mode")
             ToolTip.visible: hovered
-            display: AbstractButton.TextOnly
-            text: i18n("Preview")
+            icon.name: "code-context-symbolic"
+            checkable: true
+            checked: true
+            text: i18n("Source View")
             padding: 0
+            flat: true
+            spacing: Kirigami.Units.smallSpacing
 
             onClicked: {
                 NavigationController.sourceMode = !NavigationController.sourceMode
