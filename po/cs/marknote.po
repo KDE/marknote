@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:44+0000\n"
+"POT-Creation-Date: 2026-02-11 00:45+0000\n"
 "PO-Revision-Date: 2025-12-02 11:29+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -276,27 +276,27 @@ msgstr ""
 #: qml/EditPage.qml:734
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "Předchozí"
 
 #: qml/EditPage.qml:750
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "Následující"
 
 #: qml/EditPage.qml:767
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Žádné shody"
 
 #: qml/EditPage.qml:769
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:776
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -622,63 +622,71 @@ msgid "Rename Note"
 msgstr "Přejmenovat poznámku"
 
 #: qml/NotesPage.qml:306
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Note"
+msgctxt "@action:inmenu"
+msgid "Duplicate Note"
+msgstr "Smazat poznámku"
+
+#: qml/NotesPage.qml:314
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Smazat poznámku"
 
-#: qml/NotesPage.qml:317
+#: qml/NotesPage.qml:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Exportovat do HTML"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:331
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exportovat do HTML"
 
-#: qml/NotesPage.qml:324
+#: qml/NotesPage.qml:332
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Soubor HTML (*.html)"
 
-#: qml/NotesPage.qml:330
+#: qml/NotesPage.qml:338
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Exportovat do PDF"
 
-#: qml/NotesPage.qml:336
+#: qml/NotesPage.qml:344
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exportovat do PDF"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:345
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Soubor PDF (*.pdf)"
 
-#: qml/NotesPage.qml:343
+#: qml/NotesPage.qml:351
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Exportovat do ODT"
 
-#: qml/NotesPage.qml:349
+#: qml/NotesPage.qml:357
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exportovat do ODT"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:358
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Textový dokument ODF (*.odf)"
 
-#: qml/NotesPage.qml:482
+#: qml/NotesPage.qml:490
 #, kde-format
 msgid "Add a note!"
 msgstr "Přidat poznámku."

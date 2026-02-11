@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:44+0000\n"
+"POT-Creation-Date: 2026-02-11 00:45+0000\n"
 "PO-Revision-Date: 2025-05-27 17:01+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -622,63 +622,71 @@ msgid "Rename Note"
 msgstr "Endurnefna glósu"
 
 #: qml/NotesPage.qml:306
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Note"
+msgctxt "@action:inmenu"
+msgid "Duplicate Note"
+msgstr "Eyða glósu"
+
+#: qml/NotesPage.qml:314
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Eyða glósu"
 
-#: qml/NotesPage.qml:317
+#: qml/NotesPage.qml:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Flytja út sem HTML"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:331
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Flytja út sem HTML"
 
-#: qml/NotesPage.qml:324
+#: qml/NotesPage.qml:332
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-skrá (*.html)"
 
-#: qml/NotesPage.qml:330
+#: qml/NotesPage.qml:338
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Flytja út sem PDF"
 
-#: qml/NotesPage.qml:336
+#: qml/NotesPage.qml:344
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Flytja út sem PDF"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:345
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-skrá (*.pdf)"
 
-#: qml/NotesPage.qml:343
+#: qml/NotesPage.qml:351
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Flytja út sem ODT"
 
-#: qml/NotesPage.qml:349
+#: qml/NotesPage.qml:357
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Flytja út sem ODT"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:358
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-textaskjal (*.)"
 
-#: qml/NotesPage.qml:482
+#: qml/NotesPage.qml:490
 #, kde-format
 msgid "Add a note!"
 msgstr "Bættu við glósu!"

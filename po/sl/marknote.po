@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:44+0000\n"
+"POT-Creation-Date: 2026-02-11 00:45+0000\n"
 "PO-Revision-Date: 2026-02-09 07:09+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -622,63 +622,71 @@ msgid "Rename Note"
 msgstr "Preimenuj zabeležko"
 
 #: qml/NotesPage.qml:306
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Note"
+msgctxt "@action:inmenu"
+msgid "Duplicate Note"
+msgstr "Izbriši zabeležko"
+
+#: qml/NotesPage.qml:314
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Izbriši zabeležko"
 
-#: qml/NotesPage.qml:317
+#: qml/NotesPage.qml:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Izvozi v HTML"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:331
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Izvozi v HTML"
 
-#: qml/NotesPage.qml:324
+#: qml/NotesPage.qml:332
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Datoteka HTML (*.html)"
 
-#: qml/NotesPage.qml:330
+#: qml/NotesPage.qml:338
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Izvozi v PDF"
 
-#: qml/NotesPage.qml:336
+#: qml/NotesPage.qml:344
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Izvozi v PDF"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:345
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Datoteka PDF (*.pdf)"
 
-#: qml/NotesPage.qml:343
+#: qml/NotesPage.qml:351
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Izvozi v ODT"
 
-#: qml/NotesPage.qml:349
+#: qml/NotesPage.qml:357
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Izvozi v ODT"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:358
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Besedilni dokument ODT (*.odt)"
 
-#: qml/NotesPage.qml:482
+#: qml/NotesPage.qml:490
 #, kde-format
 msgid "Add a note!"
 msgstr "Dodaj zabeležko!"
