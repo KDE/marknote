@@ -101,7 +101,7 @@ Kirigami.Page {
             Layout.leftMargin: Kirigami.Units.smallSpacing
             onClicked: textArea.undo()
             enabled: textArea.canUndo
-            visible: wideScreen
+            visible: !root.singleDocumentMode && !mobileToolbarLayout.visible
 
             ToolTip.text: text
             ToolTip.visible: hovered
@@ -113,7 +113,7 @@ Kirigami.Page {
             display: AbstractButton.IconOnly
             onClicked: textArea.redo()
             enabled: textArea.canRedo
-            visible: wideScreen
+            visible: !root.singleDocumentMode && !mobileToolbarLayout.visible
 
             ToolTip.text: text
             ToolTip.visible: hovered
@@ -177,7 +177,7 @@ Kirigami.Page {
                 }
             }
             onColumnWidthChanged: pageStack.defaultColumnWidth = columnWidth
-            visible: wideScreen && !root.singleDocumentMode
+            visible: !root.singleDocumentMode && !Kirigami.Settings.isMobile
             icon.name: "view-fullscreen"
             text: i18n("Focus Mode")
             display: AbstractButton.IconOnly
@@ -199,7 +199,7 @@ Kirigami.Page {
             icon.name: "search"
             text: i18nc("@action:button", "Search Note")
             display: AbstractButton.IconOnly
-            visible: wideScreen
+            visible: true
             onClicked: root.openSearch()
 
             ToolTip.text: i18nc("@info:tooltip", "Search in Note")
@@ -953,12 +953,12 @@ Kirigami.Page {
         T.TextArea {
             id: textArea
 
-            textMargin: wideScreen? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
+            textMargin: !Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit
+
             leftPadding: 0
             rightPadding: 0
             topPadding: 0
-
-            bottomPadding: wideScreen ? (toolBar.height + Kirigami.Units.largeSpacing * 2) : 0
+            bottomPadding: !Kirigami.Settings.isMobile ? (toolBar.height + Kirigami.Units.largeSpacing * 2) : Kirigami.Units.smallSpacing
 
             Behavior on bottomPadding {
                 NumberAnimation {
