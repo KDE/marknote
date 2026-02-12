@@ -10,6 +10,8 @@ Marknote supports a wide range of formating options usefully for taking every da
 
 <a href='https://flathub.org/apps/details/org.kde.marknote'><img width='190px' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
 
+[![Snap Store Link](https://snapcraft.io/en/light/install.svg)](https://snapcraft.io/marknote)
+
 ## Build Instructions
 
 ### flatpak builder (with kde sdk)
