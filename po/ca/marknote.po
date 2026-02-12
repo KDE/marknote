@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:45+0000\n"
-"PO-Revision-Date: 2026-02-09 11:09+0100\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"PO-Revision-Date: 2026-02-11 09:07+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: application.cpp:34
 #, kde-format
@@ -100,204 +100,244 @@ msgstr ""
 "No s'ha pogut canviar el nom de la nota. Ja existeix una nota amb el mateix "
 "nom."
 
-#: qml/EditPage.qml:86 qml/EditPage.qml:578
+#: qml/EditPage.qml:99 qml/EditPage.qml:619
 #, kde-format
 msgid "Undo"
 msgstr "Desfés"
 
-#: qml/EditPage.qml:99 qml/EditPage.qml:591
+#: qml/EditPage.qml:112 qml/EditPage.qml:632
 #, kde-format
 msgid "Redo"
 msgstr "Refés"
 
-#: qml/EditPage.qml:155
+#: qml/EditPage.qml:157
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:button"
+msgid "Copy Note"
+msgstr "Copia"
+
+#: qml/EditPage.qml:182
 #, kde-format
 msgid "Focus Mode"
 msgstr "Mode del focus"
 
-#: qml/EditPage.qml:173
+#: qml/EditPage.qml:200
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Cerca una nota"
 
-#: qml/EditPage.qml:178
+#: qml/EditPage.qml:205
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Cerca a la nota"
 
-#: qml/EditPage.qml:186 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
+#: qml/EditPage.qml:213 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Surt de pantalla completa"
 
-#: qml/EditPage.qml:237
+#: qml/EditPage.qml:226
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgctxt "@action:button"
+msgid "Table of Content"
+msgstr "Contingut de la cel·la"
+
+#: qml/EditPage.qml:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Negreta"
 
-#: qml/EditPage.qml:256
+#: qml/EditPage.qml:297
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Cursiva"
 
-#: qml/EditPage.qml:275
+#: qml/EditPage.qml:316
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Subratllat"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:330
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Barrat"
 
-#: qml/EditPage.qml:307
+#: qml/EditPage.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Incrementa el nivell de la llista"
 
-#: qml/EditPage.qml:318
+#: qml/EditPage.qml:359
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Disminueix el nivell de la llista"
 
-#: qml/EditPage.qml:360
+#: qml/EditPage.qml:401
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Sense llista"
 
-#: qml/EditPage.qml:361
+#: qml/EditPage.qml:402
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Llista sense ordenar"
 
-#: qml/EditPage.qml:362
+#: qml/EditPage.qml:403
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Llista ordenada"
 
-#: qml/EditPage.qml:372
+#: qml/EditPage.qml:413
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Insereix una casella de selecció"
 
-#: qml/EditPage.qml:387
+#: qml/EditPage.qml:428
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Insereix un enllaç"
 
-#: qml/EditPage.qml:403
+#: qml/EditPage.qml:444
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Insereix una imatge"
 
-#: qml/EditPage.qml:416
+#: qml/EditPage.qml:457
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Insereix una taula"
 
-#: qml/EditPage.qml:436
+#: qml/EditPage.qml:477
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Text bàsic"
 
-#: qml/EditPage.qml:437
+#: qml/EditPage.qml:478
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Títol"
 
-#: qml/EditPage.qml:438
+#: qml/EditPage.qml:479
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Subtítol"
 
-#: qml/EditPage.qml:439
+#: qml/EditPage.qml:480
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Secció"
 
-#: qml/EditPage.qml:440
+#: qml/EditPage.qml:481
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Subsecció"
 
-#: qml/EditPage.qml:441
+#: qml/EditPage.qml:482
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paràgraf"
 
-#: qml/EditPage.qml:442
+#: qml/EditPage.qml:483
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Subparàgraf"
 
-#: qml/EditPage.qml:624
+#: qml/EditPage.qml:665
 #, kde-format
 msgid "Format"
 msgstr "Format"
 
-#: qml/EditPage.qml:628
+#: qml/EditPage.qml:669
 #, kde-format
 msgid "Lists"
 msgstr "Llistes"
 
-#: qml/EditPage.qml:632
+#: qml/EditPage.qml:673
 #, kde-format
 msgid "Insert"
 msgstr "Insereix"
 
-#: qml/EditPage.qml:711
+#: qml/EditPage.qml:731
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgctxt "@title:window"
+msgid "Table of Contents"
+msgstr "Contingut de la cel·la"
+
+#: qml/EditPage.qml:739
+#, fuzzy, kde-format
+#| msgid "Close"
+msgctxt "@action:button"
+msgid "Close"
+msgstr "Tanca"
+
+#: qml/EditPage.qml:783
+#, kde-format
+msgid "No headers found"
+msgstr ""
+
+#: qml/EditPage.qml:845
 #, kde-format
 msgid "Find text..."
 msgstr "Cerca el text..."
 
-#: qml/EditPage.qml:734
+#: qml/EditPage.qml:868
 #, kde-format
 msgid "Previous"
 msgstr "Anterior"
 
-#: qml/EditPage.qml:750
+#: qml/EditPage.qml:884
 #, kde-format
 msgid "Next"
 msgstr "Següent"
 
-#: qml/EditPage.qml:767
+#: qml/EditPage.qml:901
 #, kde-format
 msgid "No matches"
 msgstr "Sense coincidències"
 
-#: qml/EditPage.qml:769
+#: qml/EditPage.qml:903
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:776
+#: qml/EditPage.qml:910
 #, kde-format
 msgid "Close"
 msgstr "Tanca"
+
+#: qml/EditPage.qml:928
+#, kde-format
+msgctxt "@info:status"
+msgid "The note has been copied to the clipboard."
+msgstr ""
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -490,13 +530,13 @@ msgctxt "text editing menu action"
 msgid "Paste"
 msgstr "Enganxa"
 
-#: qml/NativeEditMenu.qml:92
+#: qml/NativeEditMenu.qml:97
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
 msgstr "Suprimeix"
 
-#: qml/NativeEditMenu.qml:105
+#: qml/NativeEditMenu.qml:110
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
@@ -620,12 +660,10 @@ msgid "Rename Note"
 msgstr "Reanomena la nota"
 
 #: qml/NotesPage.qml:306
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate Note"
-msgstr "Suprimeix la nota"
+msgstr "Duplica la nota"
 
 #: qml/NotesPage.qml:314
 #, kde-format
@@ -695,73 +733,73 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Inserció d'una taula"
 
-#: qml/TextFieldContextMenu.qml:226
+#: qml/TextFieldContextMenu.qml:227
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: qml/TextFieldContextMenu.qml:241
+#: qml/TextFieldContextMenu.qml:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Verificació de l'ortografia"
 
-#: qml/TextFieldContextMenu.qml:258
+#: qml/TextFieldContextMenu.qml:259
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
 msgstr "Obre l'enllaç"
 
-#: qml/TextFieldContextMenu.qml:268
+#: qml/TextFieldContextMenu.qml:269
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "Insereix"
 
-#: qml/TextFieldContextMenu.qml:290
+#: qml/TextFieldContextMenu.qml:291
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "Elimina"
 
-#: qml/TextFieldContextMenu.qml:310
+#: qml/TextFieldContextMenu.qml:311
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Desfés"
 
-#: qml/TextFieldContextMenu.qml:325
+#: qml/TextFieldContextMenu.qml:326
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Refés"
 
-#: qml/TextFieldContextMenu.qml:343
+#: qml/TextFieldContextMenu.qml:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Retalla"
 
-#: qml/TextFieldContextMenu.qml:358
+#: qml/TextFieldContextMenu.qml:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Copia"
 
-#: qml/TextFieldContextMenu.qml:373
+#: qml/TextFieldContextMenu.qml:374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Enganxa"
 
-#: qml/TextFieldContextMenu.qml:388
+#: qml/TextFieldContextMenu.qml:393
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Suprimeix"
 
-#: qml/TextFieldContextMenu.qml:407
+#: qml/TextFieldContextMenu.qml:412
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
