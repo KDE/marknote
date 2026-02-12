@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:45+0000\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
 "PO-Revision-Date: 2026-01-03 11:21+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -100,205 +100,245 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Ezin du oharra berrizendatu. Izen bera duen ohar bat dago."
 
-#: qml/EditPage.qml:86 qml/EditPage.qml:578
+#: qml/EditPage.qml:99 qml/EditPage.qml:619
 #, kde-format
 msgid "Undo"
 msgstr "Desegin"
 
-#: qml/EditPage.qml:99 qml/EditPage.qml:591
+#: qml/EditPage.qml:112 qml/EditPage.qml:632
 #, kde-format
 msgid "Redo"
 msgstr "Berregin"
 
-#: qml/EditPage.qml:155
+#: qml/EditPage.qml:157
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:button"
+msgid "Copy Note"
+msgstr "Kopiatu"
+
+#: qml/EditPage.qml:182
 #, kde-format
 msgid "Focus Mode"
 msgstr "Fokuaren modua"
 
-#: qml/EditPage.qml:173
+#: qml/EditPage.qml:200
 #, fuzzy, kde-format
 #| msgid "Search notes (%1)"
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Bilatu oharrak (%1)"
 
-#: qml/EditPage.qml:178
+#: qml/EditPage.qml:205
 #, fuzzy, kde-format
 #| msgid "Search notes (%1)"
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Bilatu oharrak (%1)"
 
-#: qml/EditPage.qml:186 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
+#: qml/EditPage.qml:213 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Irten pantaila-betetik"
 
-#: qml/EditPage.qml:237
+#: qml/EditPage.qml:226
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgctxt "@action:button"
+msgid "Table of Content"
+msgstr "Gelaxkaren edukia"
+
+#: qml/EditPage.qml:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Lodia"
 
-#: qml/EditPage.qml:256
+#: qml/EditPage.qml:297
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Etzana"
 
-#: qml/EditPage.qml:275
+#: qml/EditPage.qml:316
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Azpimarra"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:330
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Marratua"
 
-#: qml/EditPage.qml:307
+#: qml/EditPage.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Handiagotu zerrenda-maila"
 
-#: qml/EditPage.qml:318
+#: qml/EditPage.qml:359
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Txikiagotu zerrenda-maila"
 
-#: qml/EditPage.qml:360
+#: qml/EditPage.qml:401
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Zerrenda ez"
 
-#: qml/EditPage.qml:361
+#: qml/EditPage.qml:402
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Zerrenda ez-ordenatua"
 
-#: qml/EditPage.qml:362
+#: qml/EditPage.qml:403
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Zerrenda ordenatua"
 
-#: qml/EditPage.qml:372
+#: qml/EditPage.qml:413
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Txertatu hautapen-laukia"
 
-#: qml/EditPage.qml:387
+#: qml/EditPage.qml:428
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Txertatu esteka"
 
-#: qml/EditPage.qml:403
+#: qml/EditPage.qml:444
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Txertatu irudia"
 
-#: qml/EditPage.qml:416
+#: qml/EditPage.qml:457
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Txertatu taula"
 
-#: qml/EditPage.qml:436
+#: qml/EditPage.qml:477
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Oinarrizko testua"
 
-#: qml/EditPage.qml:437
+#: qml/EditPage.qml:478
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Titulua"
 
-#: qml/EditPage.qml:438
+#: qml/EditPage.qml:479
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Azpititulua"
 
-#: qml/EditPage.qml:439
+#: qml/EditPage.qml:480
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Atala"
 
-#: qml/EditPage.qml:440
+#: qml/EditPage.qml:481
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Azpiatala"
 
-#: qml/EditPage.qml:441
+#: qml/EditPage.qml:482
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragrafoa"
 
-#: qml/EditPage.qml:442
+#: qml/EditPage.qml:483
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Azpiparagrafoa"
 
-#: qml/EditPage.qml:624
+#: qml/EditPage.qml:665
 #, kde-format
 msgid "Format"
 msgstr "Formatua"
 
-#: qml/EditPage.qml:628
+#: qml/EditPage.qml:669
 #, kde-format
 msgid "Lists"
 msgstr "Zerrendak"
 
-#: qml/EditPage.qml:632
+#: qml/EditPage.qml:673
 #, kde-format
 msgid "Insert"
 msgstr "Txertatu"
 
-#: qml/EditPage.qml:711
+#: qml/EditPage.qml:731
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgctxt "@title:window"
+msgid "Table of Contents"
+msgstr "Gelaxkaren edukia"
+
+#: qml/EditPage.qml:739
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr ""
+
+#: qml/EditPage.qml:783
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgid "No headers found"
+msgstr "Ez da emaitzarik aurkitu"
+
+#: qml/EditPage.qml:845
 #, kde-format
 msgid "Find text..."
 msgstr ""
 
-#: qml/EditPage.qml:734
+#: qml/EditPage.qml:868
 #, kde-format
 msgid "Previous"
 msgstr ""
 
-#: qml/EditPage.qml:750
+#: qml/EditPage.qml:884
 #, kde-format
 msgid "Next"
 msgstr ""
 
-#: qml/EditPage.qml:767
+#: qml/EditPage.qml:901
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: qml/EditPage.qml:769
+#: qml/EditPage.qml:903
 #, kde-format
 msgid "%1/%2"
 msgstr ""
 
-#: qml/EditPage.qml:776
+#: qml/EditPage.qml:910
 #, kde-format
 msgid "Close"
+msgstr ""
+
+#: qml/EditPage.qml:928
+#, kde-format
+msgctxt "@info:status"
+msgid "The note has been copied to the clipboard."
 msgstr ""
 
 #: qml/FormIconDelegate.qml:17
@@ -492,13 +532,13 @@ msgctxt "text editing menu action"
 msgid "Paste"
 msgstr "Itsatsi"
 
-#: qml/NativeEditMenu.qml:92
+#: qml/NativeEditMenu.qml:97
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: qml/NativeEditMenu.qml:105
+#: qml/NativeEditMenu.qml:110
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
@@ -697,73 +737,73 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Txertatu taula"
 
-#: qml/TextFieldContextMenu.qml:226
+#: qml/TextFieldContextMenu.qml:227
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Ezikusi"
 
-#: qml/TextFieldContextMenu.qml:241
+#: qml/TextFieldContextMenu.qml:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Ortografia-azterketa"
 
-#: qml/TextFieldContextMenu.qml:258
+#: qml/TextFieldContextMenu.qml:259
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
 msgstr "Ireki esteka"
 
-#: qml/TextFieldContextMenu.qml:268
+#: qml/TextFieldContextMenu.qml:269
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "Txertatu"
 
-#: qml/TextFieldContextMenu.qml:290
+#: qml/TextFieldContextMenu.qml:291
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "Kendu"
 
-#: qml/TextFieldContextMenu.qml:310
+#: qml/TextFieldContextMenu.qml:311
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Desegin"
 
-#: qml/TextFieldContextMenu.qml:325
+#: qml/TextFieldContextMenu.qml:326
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Berregin"
 
-#: qml/TextFieldContextMenu.qml:343
+#: qml/TextFieldContextMenu.qml:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Ebaki"
 
-#: qml/TextFieldContextMenu.qml:358
+#: qml/TextFieldContextMenu.qml:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopiatu"
 
-#: qml/TextFieldContextMenu.qml:373
+#: qml/TextFieldContextMenu.qml:374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Itsatsi"
 
-#: qml/TextFieldContextMenu.qml:388
+#: qml/TextFieldContextMenu.qml:393
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: qml/TextFieldContextMenu.qml:407
+#: qml/TextFieldContextMenu.qml:412
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
@@ -890,9 +930,6 @@ msgstr "Gelaxkaren edukia"
 
 #~ msgid "About KDE"
 #~ msgstr "KDEri buruz"
-
-#~ msgid "No results found"
-#~ msgstr "Ez da emaitzarik aurkitu"
 
 #, fuzzy
 #~| msgid "Marknote"
