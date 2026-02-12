@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 Gary Wang <opensource@blumia.net>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+import QtCore
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
@@ -41,22 +42,17 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormCard {
-        FormCard.FormButtonDelegate {
-            text: i18nc("@label:textbox", "Notes Directory:")
+        FormCard.FormFolderDelegate {
+            id: notesFolderDelegate
+            label: i18nc("@label:textbox", "Notes Directory:")
             enabled: !Config.isStorageImmutable
-            description: Config.storage
-            onClicked: folderDialog.open();
 
-            FolderDialog {
-                id: folderDialog
+            currentFolder: Config.storage || StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
 
-                currentFolder: 'file://' + Config.storage
-                title: i18nc("@title:window", "Select the notes directory")
-                onAccepted: {
-                    Config.storage = selectedFolder.toString().replace('file://', '');
-                    console.log(Config.storage);
-                    Config.save();
-                }
+            onAccepted: {
+                Config.storage = selectedFolder.toString().replace("file://", "");
+                console.log(Config.storage);
+                Config.save();
             }
         }
 
