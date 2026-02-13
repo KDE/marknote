@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-13 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -801,46 +801,40 @@ msgstr "全部选择"
 msgid "Start by creating your first notebook!"
 msgstr "首先创建您的第一个笔记本！"
 
-#: settings/MarkNoteGeneralPage.qml:16
+#: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "常规"
 
-#: settings/MarkNoteGeneralPage.qml:19
+#: settings/MarkNoteGeneralPage.qml:20
 #, kde-format
 msgid "General theme"
 msgstr "常规主题"
 
-#: settings/MarkNoteGeneralPage.qml:26
+#: settings/MarkNoteGeneralPage.qml:27
 #, kde-format
 msgid "Color theme"
 msgstr "颜色主题"
 
-#: settings/MarkNoteGeneralPage.qml:40
+#: settings/MarkNoteGeneralPage.qml:41
 #, kde-format
 msgid "Editor Settings"
 msgstr "编辑器设置"
 
-#: settings/MarkNoteGeneralPage.qml:45
+#: settings/MarkNoteGeneralPage.qml:47
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
 msgstr "笔记目录："
 
-#: settings/MarkNoteGeneralPage.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Select the notes directory"
-msgstr "选择笔记目录"
-
-#: settings/MarkNoteGeneralPage.qml:68
+#: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "字体:"
 
-#: settings/MarkNoteGeneralPage.qml:93
+#: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
@@ -898,3 +892,7 @@ msgstr "列"
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select the notes directory"
+#~ msgstr "选择笔记目录"

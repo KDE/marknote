@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-13 00:44+0000\n"
 "PO-Revision-Date: 2024-08-02 20:32+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -820,46 +820,40 @@ msgstr "Vælg alle"
 msgid "Start by creating your first notebook!"
 msgstr "Start ved at oprette din første notesbog!"
 
-#: settings/MarkNoteGeneralPage.qml:16
+#: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Generelt"
 
-#: settings/MarkNoteGeneralPage.qml:19
+#: settings/MarkNoteGeneralPage.qml:20
 #, kde-format
 msgid "General theme"
 msgstr "Generelt tema"
 
-#: settings/MarkNoteGeneralPage.qml:26
+#: settings/MarkNoteGeneralPage.qml:27
 #, kde-format
 msgid "Color theme"
 msgstr "Farvetema"
 
-#: settings/MarkNoteGeneralPage.qml:40
+#: settings/MarkNoteGeneralPage.qml:41
 #, kde-format
 msgid "Editor Settings"
 msgstr "Redigeringsindstillinger"
 
-#: settings/MarkNoteGeneralPage.qml:45
+#: settings/MarkNoteGeneralPage.qml:47
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
 msgstr "Notesmappe:"
 
-#: settings/MarkNoteGeneralPage.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Select the notes directory"
-msgstr "Vælg notesmappen"
-
-#: settings/MarkNoteGeneralPage.qml:68
+#: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "Skrifttypefamilie:"
 
-#: settings/MarkNoteGeneralPage.qml:93
+#: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
@@ -919,6 +913,10 @@ msgstr "Kolonne"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celleindhold"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select the notes directory"
+#~ msgstr "Vælg notesmappen"
 
 #~ msgid "undo"
 #~ msgstr "fortryd"

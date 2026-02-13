@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
-"PO-Revision-Date: 2026-02-11 11:17+0200\n"
+"POT-Creation-Date: 2026-02-13 00:44+0000\n"
+"PO-Revision-Date: 2026-02-12 12:24+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -108,12 +108,10 @@ msgid "Redo"
 msgstr "Повторити"
 
 #: qml/EditPage.qml:157
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Note"
-msgstr "Копіювати"
+msgstr "Копіювати нотатку"
 
 #: qml/EditPage.qml:182
 #, kde-format
@@ -140,11 +138,10 @@ msgid "Exit Full Screen"
 msgstr "Вийти з повноекранного режиму"
 
 #: qml/EditPage.qml:226
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr "Вміст комірки"
+msgstr "Зміст"
 
 #: qml/EditPage.qml:278
 #, kde-format
@@ -282,24 +279,21 @@ msgid "Insert"
 msgstr "Вставити"
 
 #: qml/EditPage.qml:731
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "Вміст комірки"
+msgstr "Зміст"
 
 #: qml/EditPage.qml:739
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Закрити"
 
 #: qml/EditPage.qml:783
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgid "No headers found"
-msgstr "Нічого не знайдено"
+msgstr "Заголовків не знайдено"
 
 #: qml/EditPage.qml:845
 #, kde-format
@@ -335,7 +329,7 @@ msgstr "Закрити"
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "Нотатку було скопійовано до буфера обміну даними."
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -808,46 +802,40 @@ msgstr "Позначити все"
 msgid "Start by creating your first notebook!"
 msgstr "Розпочніть зі створення вашого першого записника!"
 
-#: settings/MarkNoteGeneralPage.qml:16
+#: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Загальне"
 
-#: settings/MarkNoteGeneralPage.qml:19
+#: settings/MarkNoteGeneralPage.qml:20
 #, kde-format
 msgid "General theme"
 msgstr "Загальна тема"
 
-#: settings/MarkNoteGeneralPage.qml:26
+#: settings/MarkNoteGeneralPage.qml:27
 #, kde-format
 msgid "Color theme"
 msgstr "Тема кольорів"
 
-#: settings/MarkNoteGeneralPage.qml:40
+#: settings/MarkNoteGeneralPage.qml:41
 #, kde-format
 msgid "Editor Settings"
 msgstr "Параметри редактора"
 
-#: settings/MarkNoteGeneralPage.qml:45
+#: settings/MarkNoteGeneralPage.qml:47
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
 msgstr "Каталог нотаток:"
 
-#: settings/MarkNoteGeneralPage.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Select the notes directory"
-msgstr "Виберіть каталог нотаток"
-
-#: settings/MarkNoteGeneralPage.qml:68
+#: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "Гарнітура шрифту:"
 
-#: settings/MarkNoteGeneralPage.qml:93
+#: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
@@ -905,6 +893,10 @@ msgstr "Стовпчик"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Вміст комірки"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select the notes directory"
+#~ msgstr "Виберіть каталог нотаток"
 
 #~ msgctxt "@label:checkbox"
 #~ msgid "Do not show again"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
-"PO-Revision-Date: 2026-02-10 19:09+0300\n"
+"POT-Creation-Date: 2026-02-13 00:44+0000\n"
+"PO-Revision-Date: 2026-02-12 21:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Poedit 3.8\n"
 
 #: application.cpp:34
 #, kde-format
@@ -107,12 +107,10 @@ msgid "Redo"
 msgstr "Yinele"
 
 #: qml/EditPage.qml:157
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Note"
-msgstr "Kopyala"
+msgstr "Notu Kopyala"
 
 #: qml/EditPage.qml:182
 #, kde-format
@@ -139,11 +137,10 @@ msgid "Exit Full Screen"
 msgstr "Tam Ekrandan Çık"
 
 #: qml/EditPage.qml:226
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr "Hücre İçeriği"
+msgstr "İçindekiler"
 
 #: qml/EditPage.qml:278
 #, kde-format
@@ -281,15 +278,13 @@ msgid "Insert"
 msgstr "Ekle"
 
 #: qml/EditPage.qml:731
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "Hücre İçeriği"
+msgstr "İçindekiler"
 
 #: qml/EditPage.qml:739
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Kapat"
@@ -297,7 +292,7 @@ msgstr "Kapat"
 #: qml/EditPage.qml:783
 #, kde-format
 msgid "No headers found"
-msgstr ""
+msgstr "Bulunan başlık yok"
 
 #: qml/EditPage.qml:845
 #, kde-format
@@ -333,7 +328,7 @@ msgstr "Kapat"
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "Not panoya kopyalandı."
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -806,46 +801,40 @@ msgstr "Tümünü Seç"
 msgid "Start by creating your first notebook!"
 msgstr "İlk defterini oluşturarak başla!"
 
-#: settings/MarkNoteGeneralPage.qml:16
+#: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Genel"
 
-#: settings/MarkNoteGeneralPage.qml:19
+#: settings/MarkNoteGeneralPage.qml:20
 #, kde-format
 msgid "General theme"
 msgstr "Genel tema"
 
-#: settings/MarkNoteGeneralPage.qml:26
+#: settings/MarkNoteGeneralPage.qml:27
 #, kde-format
 msgid "Color theme"
 msgstr "Renk teması"
 
-#: settings/MarkNoteGeneralPage.qml:40
+#: settings/MarkNoteGeneralPage.qml:41
 #, kde-format
 msgid "Editor Settings"
 msgstr "Düzenleyici Ayarları"
 
-#: settings/MarkNoteGeneralPage.qml:45
+#: settings/MarkNoteGeneralPage.qml:47
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
 msgstr "Notlar dizini:"
 
-#: settings/MarkNoteGeneralPage.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Select the notes directory"
-msgstr "Notlar Dizinini Seç"
-
-#: settings/MarkNoteGeneralPage.qml:68
+#: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "Yazıtipi ailesi:"
 
-#: settings/MarkNoteGeneralPage.qml:93
+#: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
@@ -903,3 +892,7 @@ msgstr "Sütun"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Hücre İçeriği"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select the notes directory"
+#~ msgstr "Notlar Dizinini Seç"

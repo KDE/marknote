@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
-"PO-Revision-Date: 2026-02-11 12:25+0100\n"
+"POT-Creation-Date: 2026-02-13 00:44+0000\n"
+"PO-Revision-Date: 2026-02-12 13:17+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -108,12 +108,10 @@ msgid "Redo"
 msgstr "Opnieuw doen"
 
 #: qml/EditPage.qml:157
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Note"
-msgstr "Kopiëren"
+msgstr "Notitie kopiëren"
 
 #: qml/EditPage.qml:182
 #, kde-format
@@ -140,11 +138,10 @@ msgid "Exit Full Screen"
 msgstr "Volledig scherm verlaten"
 
 #: qml/EditPage.qml:226
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr "Celinhoud"
+msgstr "Inhoudsopgave"
 
 #: qml/EditPage.qml:278
 #, kde-format
@@ -282,24 +279,21 @@ msgid "Insert"
 msgstr "Invoegen"
 
 #: qml/EditPage.qml:731
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "Celinhoud"
+msgstr "Inhoudsopgave"
 
 #: qml/EditPage.qml:739
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Sluiten"
 
 #: qml/EditPage.qml:783
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgid "No headers found"
-msgstr "Geen resultaten gevonden"
+msgstr "Geen koppen gevonden"
 
 #: qml/EditPage.qml:845
 #, kde-format
@@ -335,7 +329,7 @@ msgstr "Sluiten"
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "De notitie is gekopieerd naar het klembord."
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -809,46 +803,40 @@ msgstr "Alles selecteren"
 msgid "Start by creating your first notebook!"
 msgstr "Begin met het maken van uw eerste notitieboek!"
 
-#: settings/MarkNoteGeneralPage.qml:16
+#: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Algemeen"
 
-#: settings/MarkNoteGeneralPage.qml:19
+#: settings/MarkNoteGeneralPage.qml:20
 #, kde-format
 msgid "General theme"
 msgstr "Algemeen thema"
 
-#: settings/MarkNoteGeneralPage.qml:26
+#: settings/MarkNoteGeneralPage.qml:27
 #, kde-format
 msgid "Color theme"
 msgstr "Kleurenthema"
 
-#: settings/MarkNoteGeneralPage.qml:40
+#: settings/MarkNoteGeneralPage.qml:41
 #, kde-format
 msgid "Editor Settings"
 msgstr "Editor-instellingen"
 
-#: settings/MarkNoteGeneralPage.qml:45
+#: settings/MarkNoteGeneralPage.qml:47
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
 msgstr "Map voor notities:"
 
-#: settings/MarkNoteGeneralPage.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Select the notes directory"
-msgstr "De map voor notities selecteren"
-
-#: settings/MarkNoteGeneralPage.qml:68
+#: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "Lettertypefamilie:"
 
-#: settings/MarkNoteGeneralPage.qml:93
+#: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
@@ -906,6 +894,10 @@ msgstr "Kolom"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celinhoud"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select the notes directory"
+#~ msgstr "De map voor notities selecteren"
 
 #~ msgctxt "@label:checkbox"
 #~ msgid "Do not show again"

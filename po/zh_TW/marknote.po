@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
-"PO-Revision-Date: 2026-01-23 05:03+0900\n"
+"POT-Creation-Date: 2026-02-13 00:44+0000\n"
+"PO-Revision-Date: 2026-02-12 16:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.11.70\n"
+"X-Generator: Lokalize 26.03.70\n"
 
 #: application.cpp:34
 #, kde-format
@@ -107,12 +107,10 @@ msgid "Redo"
 msgstr "重做"
 
 #: qml/EditPage.qml:157
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Note"
-msgstr "複製"
+msgstr "複製筆記"
 
 #: qml/EditPage.qml:182
 #, kde-format
@@ -120,18 +118,16 @@ msgid "Focus Mode"
 msgstr "專注模式"
 
 #: qml/EditPage.qml:200
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr "搜尋筆記 (%1)"
+msgstr "搜尋筆記"
 
 #: qml/EditPage.qml:205
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr "搜尋筆記 (%1)"
+msgstr "在筆記中搜尋"
 
 #: qml/EditPage.qml:213 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
@@ -141,11 +137,10 @@ msgid "Exit Full Screen"
 msgstr "離開全螢幕"
 
 #: qml/EditPage.qml:226
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr "儲存格內容"
+msgstr "目錄"
 
 #: qml/EditPage.qml:278
 #, kde-format
@@ -283,59 +278,57 @@ msgid "Insert"
 msgstr "插入"
 
 #: qml/EditPage.qml:731
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "儲存格內容"
+msgstr "目錄"
 
 #: qml/EditPage.qml:739
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: qml/EditPage.qml:783
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgid "No headers found"
-msgstr "找不到結果"
+msgstr "找不到標頭"
 
 #: qml/EditPage.qml:845
 #, kde-format
 msgid "Find text..."
-msgstr ""
+msgstr "尋找文字…"
 
 #: qml/EditPage.qml:868
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "上一個"
 
 #: qml/EditPage.qml:884
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "下一個"
 
 #: qml/EditPage.qml:901
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "無相符項目"
 
 #: qml/EditPage.qml:903
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:910
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: qml/EditPage.qml:928
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "筆記已複製到剪貼簿。"
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -654,12 +647,10 @@ msgid "Rename Note"
 msgstr "重新命名筆記"
 
 #: qml/NotesPage.qml:306
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate Note"
-msgstr "刪除筆記"
+msgstr "建立筆記複本"
 
 #: qml/NotesPage.qml:314
 #, kde-format
@@ -806,46 +797,40 @@ msgstr "全部選取"
 msgid "Start by creating your first notebook!"
 msgstr "從建立您的第一本筆記本開始吧！"
 
-#: settings/MarkNoteGeneralPage.qml:16
+#: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "一般"
 
-#: settings/MarkNoteGeneralPage.qml:19
+#: settings/MarkNoteGeneralPage.qml:20
 #, kde-format
 msgid "General theme"
 msgstr "一般主題"
 
-#: settings/MarkNoteGeneralPage.qml:26
+#: settings/MarkNoteGeneralPage.qml:27
 #, kde-format
 msgid "Color theme"
 msgstr "顏色主題"
 
-#: settings/MarkNoteGeneralPage.qml:40
+#: settings/MarkNoteGeneralPage.qml:41
 #, kde-format
 msgid "Editor Settings"
 msgstr "編輯器設定"
 
-#: settings/MarkNoteGeneralPage.qml:45
+#: settings/MarkNoteGeneralPage.qml:47
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
 msgstr "筆記目錄："
 
-#: settings/MarkNoteGeneralPage.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Select the notes directory"
-msgstr "選擇筆記的目錄"
-
-#: settings/MarkNoteGeneralPage.qml:68
+#: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "字型家族："
 
-#: settings/MarkNoteGeneralPage.qml:93
+#: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
@@ -903,6 +888,10 @@ msgstr "欄"
 #, kde-format
 msgid "Cell Contents"
 msgstr "儲存格內容"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select the notes directory"
+#~ msgstr "選擇筆記的目錄"
 
 #~ msgctxt "@label:checkbox"
 #~ msgid "Do not show again"

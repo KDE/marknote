@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
-"PO-Revision-Date: 2026-02-11 09:07+0100\n"
+"POT-Creation-Date: 2026-02-13 00:44+0000\n"
+"PO-Revision-Date: 2026-02-12 10:17+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -111,12 +111,10 @@ msgid "Redo"
 msgstr "Refés"
 
 #: qml/EditPage.qml:157
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Note"
-msgstr "Copia"
+msgstr "Copia la nota"
 
 #: qml/EditPage.qml:182
 #, kde-format
@@ -143,11 +141,10 @@ msgid "Exit Full Screen"
 msgstr "Ix de pantalla completa"
 
 #: qml/EditPage.qml:226
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr "Contingut de la cel·la"
+msgstr "Taula de contingut"
 
 #: qml/EditPage.qml:278
 #, kde-format
@@ -285,15 +282,13 @@ msgid "Insert"
 msgstr "Inserix"
 
 #: qml/EditPage.qml:731
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "Contingut de la cel·la"
+msgstr "Taula de contingut"
 
 #: qml/EditPage.qml:739
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Tanca"
@@ -301,7 +296,7 @@ msgstr "Tanca"
 #: qml/EditPage.qml:783
 #, kde-format
 msgid "No headers found"
-msgstr ""
+msgstr "No s'ha trobat cap capçalera"
 
 #: qml/EditPage.qml:845
 #, kde-format
@@ -337,7 +332,7 @@ msgstr "Tanca"
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "La nota s'ha copiat a dins del porta-retalls."
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -810,46 +805,40 @@ msgstr "Selecciona-ho tot"
 msgid "Start by creating your first notebook!"
 msgstr "Comenceu creant el primer bloc de notes!"
 
-#: settings/MarkNoteGeneralPage.qml:16
+#: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "General"
 
-#: settings/MarkNoteGeneralPage.qml:19
+#: settings/MarkNoteGeneralPage.qml:20
 #, kde-format
 msgid "General theme"
 msgstr "Tema general"
 
-#: settings/MarkNoteGeneralPage.qml:26
+#: settings/MarkNoteGeneralPage.qml:27
 #, kde-format
 msgid "Color theme"
 msgstr "Tema de color"
 
-#: settings/MarkNoteGeneralPage.qml:40
+#: settings/MarkNoteGeneralPage.qml:41
 #, kde-format
 msgid "Editor Settings"
 msgstr "Configureu l'editor"
 
-#: settings/MarkNoteGeneralPage.qml:45
+#: settings/MarkNoteGeneralPage.qml:47
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
 msgstr "Directori de notes:"
 
-#: settings/MarkNoteGeneralPage.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Select the notes directory"
-msgstr "Trieu el directori de notes"
-
-#: settings/MarkNoteGeneralPage.qml:68
+#: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "Família de la lletra:"
 
-#: settings/MarkNoteGeneralPage.qml:93
+#: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
@@ -907,3 +896,7 @@ msgstr "Columna"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contingut de la cel·la"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select the notes directory"
+#~ msgstr "Trieu el directori de notes"
