@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-13 00:44+0000\n"
-"PO-Revision-Date: 2026-01-20 07:50+0200\n"
+"PO-Revision-Date: 2026-02-12 10:30+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -108,12 +108,10 @@ msgid "Redo"
 msgstr "ביצוע מחדש"
 
 #: qml/EditPage.qml:157
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Note"
-msgstr "העתקה"
+msgstr "העתקת פתקית"
 
 #: qml/EditPage.qml:182
 #, kde-format
@@ -121,18 +119,16 @@ msgid "Focus Mode"
 msgstr "מצב מיקוד"
 
 #: qml/EditPage.qml:200
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr "חיפוש בפתקיות (%1)"
+msgstr "חיפוש פתקית"
 
 #: qml/EditPage.qml:205
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr "חיפוש בפתקיות (%1)"
+msgstr "חיפוש בפתקית"
 
 #: qml/EditPage.qml:213 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
@@ -142,11 +138,10 @@ msgid "Exit Full Screen"
 msgstr "יציאה ממסך מלא"
 
 #: qml/EditPage.qml:226
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr "תוכן התא"
+msgstr "תוכן עניינים"
 
 #: qml/EditPage.qml:278
 #, kde-format
@@ -284,59 +279,57 @@ msgid "Insert"
 msgstr "הוספה"
 
 #: qml/EditPage.qml:731
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "תוכן התא"
+msgstr "תוכן העניינים"
 
 #: qml/EditPage.qml:739
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "סגירה"
 
 #: qml/EditPage.qml:783
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgid "No headers found"
-msgstr "לא נמצאו תוצאות"
+msgstr "לא נמצאו כותרות"
 
 #: qml/EditPage.qml:845
 #, kde-format
 msgid "Find text..."
-msgstr ""
+msgstr "איתור טקסט…"
 
 #: qml/EditPage.qml:868
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "הקודם"
 
 #: qml/EditPage.qml:884
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "הבא"
 
 #: qml/EditPage.qml:901
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "אין תוצאות"
 
 #: qml/EditPage.qml:903
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:910
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "סגירה"
 
 #: qml/EditPage.qml:928
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "הפתקית הועתקה ללוח הגזירים."
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -657,12 +650,10 @@ msgid "Rename Note"
 msgstr "שינוי שם לפתקית"
 
 #: qml/NotesPage.qml:306
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate Note"
-msgstr "מחיקת פתקית"
+msgstr "שכפול פתקית"
 
 #: qml/NotesPage.qml:314
 #, kde-format

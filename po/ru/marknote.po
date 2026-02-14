@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-13 00:44+0000\n"
-"PO-Revision-Date: 2026-01-31 11:25+0300\n"
-"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-02-13 22:12+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
@@ -110,12 +110,10 @@ msgid "Redo"
 msgstr "Повторить"
 
 #: qml/EditPage.qml:157
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Note"
-msgstr "Копировать"
+msgstr "Копировать заметку"
 
 #: qml/EditPage.qml:182
 #, kde-format
@@ -123,18 +121,16 @@ msgid "Focus Mode"
 msgstr "Режим фокуса"
 
 #: qml/EditPage.qml:200
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr "Поиск заметок (%1)"
+msgstr "Поиск заметок"
 
 #: qml/EditPage.qml:205
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr "Поиск заметок (%1)"
+msgstr "Поиск в заметке"
 
 #: qml/EditPage.qml:213 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
@@ -144,11 +140,10 @@ msgid "Exit Full Screen"
 msgstr "Выйти из полноэкранного режима"
 
 #: qml/EditPage.qml:226
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr "Содержимое ячейки"
+msgstr "Содержание"
 
 #: qml/EditPage.qml:278
 #, kde-format
@@ -286,58 +281,57 @@ msgid "Insert"
 msgstr "Вставка"
 
 #: qml/EditPage.qml:731
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "Содержимое ячейки"
+msgstr "Содержание"
 
 #: qml/EditPage.qml:739
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: qml/EditPage.qml:783
 #, kde-format
 msgid "No headers found"
-msgstr ""
+msgstr "Заголовки не найдены"
 
 #: qml/EditPage.qml:845
 #, kde-format
 msgid "Find text..."
-msgstr ""
+msgstr "Найти текст…"
 
 #: qml/EditPage.qml:868
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "Назад"
 
 #: qml/EditPage.qml:884
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "Далее"
 
 #: qml/EditPage.qml:901
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Совпадений не найдено"
 
 #: qml/EditPage.qml:903
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:910
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: qml/EditPage.qml:928
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "Заметка скопирована в буфер обмена."
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -660,12 +654,10 @@ msgid "Rename Note"
 msgstr "Переименовать заметку"
 
 #: qml/NotesPage.qml:306
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate Note"
-msgstr "Удалить заметку"
+msgstr "Создать копию заметки"
 
 #: qml/NotesPage.qml:314
 #, kde-format

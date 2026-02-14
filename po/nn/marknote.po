@@ -908,7 +908,3 @@ msgstr "Kolonne"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celleinnhald"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select the notes directory"
-#~ msgstr "Vel notatmappe"

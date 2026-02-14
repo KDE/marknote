@@ -107,12 +107,10 @@ msgid "Redo"
 msgstr ""
 
 #: qml/EditPage.qml:157
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Note"
-msgstr "复制"
+msgstr ""
 
 #: qml/EditPage.qml:182
 #, kde-format
@@ -139,11 +137,10 @@ msgid "Exit Full Screen"
 msgstr "退出全屏"
 
 #: qml/EditPage.qml:226
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr "单元格内容"
+msgstr ""
 
 #: qml/EditPage.qml:278
 #, kde-format
@@ -281,11 +278,10 @@ msgid "Insert"
 msgstr "插入"
 
 #: qml/EditPage.qml:731
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "单元格内容"
+msgstr ""
 
 #: qml/EditPage.qml:739
 #, kde-format
@@ -892,7 +888,3 @@ msgstr "列"
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select the notes directory"
-#~ msgstr "选择笔记目录"
