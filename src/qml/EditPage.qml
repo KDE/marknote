@@ -44,11 +44,29 @@ Kirigami.Page {
     property bool init: false
 
     function openSearch(): void {
-        if (searchBar !== undefined) {
-            searchBar.visible = true;
-            if (searchField !== undefined) {
-                searchField.forceActiveFocus();
-                searchField.selectAll();
+        if (searchBar) {
+            searchBar.isSearchOpen = true;
+
+            if (searchField) {
+                // Ensure focus happens slightly after
+                // the state change triggers the layout update
+                Qt.callLater(function() {
+                    searchField.forceActiveFocus();
+                    searchField.selectAll();
+                });
+            }
+        }
+    }
+
+    function closeSearch(): void {
+        if (searchBar) {
+            searchBar.isSearchOpen = false;
+            textArea.deselect();
+
+            if (textArea) {
+                Qt.callLater(function() {
+                    textArea.forceActiveFocus();
+                });
             }
         }
     }
@@ -200,7 +218,19 @@ Kirigami.Page {
             text: i18nc("@action:button", "Search Note")
             display: AbstractButton.IconOnly
             visible: true
-            onClicked: root.openSearch()
+            checkable: true
+            checked: searchBar.isSearchOpen
+            onClicked:
+            {
+                if(searchBar.isSearchOpen === true)
+                {
+                    root.closeSearch()
+                }
+                else
+                {
+                    root.openSearch()
+                }
+            }
 
             ToolTip.text: i18nc("@info:tooltip", "Search in Note")
             ToolTip.visible: hovered
@@ -832,9 +862,26 @@ Kirigami.Page {
 	    ToolBar {
             id: searchBar
 
+            property bool isSearchOpen: false
+
+            visible: isSearchOpen || opacity > 0
+            opacity: isSearchOpen ? 1.0 : 0.0
+            Behavior on opacity {
+                NumberAnimation { duration: Kirigami.Units.shortDuration * 2}
+            }
+
+            Layout.preferredHeight: isSearchOpen ? implicitHeight : 0
+            Behavior on Layout.preferredHeight {
+                NumberAnimation {
+                    duration: Kirigami.Units.shortDuration * 2
+                    easing.type: Easing.InOutQuad
+                }
+            }
+
+            clip: true
+
             Layout.fillWidth: true
 
-            visible: false
             contentItem: RowLayout {
                 id: searchBarLayout
                 spacing: Kirigami.Units.smallSpacing
@@ -848,13 +895,15 @@ Kirigami.Page {
                             document.findText(text);
                         } else {
                             document.clearSearch();
+                            textArea.deselect();
                         }
                     }
                     Keys.onShortcutOverride: (event)=> event.accepted = (event.key === Qt.Key_Escape)
                     Keys.onReturnPressed: document.findNext()
                     Keys.onEscapePressed: {
                         searchField.text = "";
-                        searchBar.visible = false;
+                        searchBar.isSearchOpen = false;
+                        textArea.deselect();
                         textArea.forceActiveFocus();
                     }
                 }
@@ -898,11 +947,12 @@ Kirigami.Page {
                 Label {
                     text: {
                         if (document.searchMatchCount === 0) {
+                            textArea.deselect();
                             return i18n("No matches");
                         }
                         return i18n("%1/%2", document.searchCurrentMatch + 1, document.searchMatchCount);
                     }
-                    Layout.minimumWidth: Kirigami.Units.gridUnit * 3
+                    Layout.minimumWidth: Kirigami.Units.gridUnit * 4
                 }
 
                 ToolButton {
@@ -910,9 +960,7 @@ Kirigami.Page {
                     text: i18n("Close")
                     display: AbstractButton.IconOnly
                     onClicked: {
-                        document.clearSearch();
-                        searchBar.visible = false;
-                        textArea.forceActiveFocus();
+                        root.closeSearch()
                     }
 
                     ToolTip.text: text
@@ -1000,7 +1048,17 @@ Kirigami.Page {
 
             Shortcut {
                 sequence: "Ctrl+E"
-                onActivated: root.openSearch()
+                onActivated:
+                {
+                    if(searchBar.isSearchOpen === true)
+                    {
+                        root.closeSearch()
+                    }
+                    else
+                    {
+                        root.openSearch()
+                    }
+                }
             }
 
             onTextChanged: {
