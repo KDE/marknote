@@ -150,7 +150,7 @@ TableActionHelper::TableActionHelper(QObject *parent)
         _k_slotRemoveColumn();
     });
 
-    actionRemoveCellContents = new QAction(i18n("Cell Contents"), this);
+    actionRemoveCellContents = new QAction(QIcon::fromTheme(u"deletecell-symbolic"_s), i18n("Cell Contents"), this);
     actionRemoveCellContents->setObjectName("remove_cell_contents"_L1);
     connect(actionRemoveCellContents, &QAction::triggered, this, [this]() {
         _k_slotRemoveCellContents();
