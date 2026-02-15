@@ -299,7 +299,13 @@ Kirigami.ScrollablePage {
             Action {
                 text: i18nc("@action:inmenu", "Rename Note")
                 icon.name: "document-edit"
-                onTriggered: menu.delegateItem.renameField.enabled = !menu.delegateItem.renameField.enabled
+                onTriggered:
+                {
+                    menu.delegateItem.renameField.enabled = !menu.delegateItem.renameField.enabled
+
+                    if(menu.delegateItem.renameField.enabled === true)
+                        menu.delegateItem.renameField.forceActiveFocus()
+                }
             }
 
             Action {
