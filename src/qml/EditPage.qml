@@ -525,6 +525,9 @@ Kirigami.Page {
         visible: !wideScreen
         scale: mobileToolBarContainer.hidden? 1 : 0
 
+        property int defaultSpacing: Kirigami.Units.largeSpacing * 2
+        property ScrollBar verticalScrollBar: contentScroll.ScrollBar.vertical
+
         Behavior on scale {
             NumberAnimation {
 
@@ -536,9 +539,10 @@ Kirigami.Page {
         anchors {
             bottom: parent.bottom
             right: parent.right
-            rightMargin: Kirigami.Units.gridUnit
-            bottomMargin: Kirigami.Units.gridUnit
-
+            rightMargin: verticalScrollBar.visible ?
+                         defaultSpacing + verticalScrollBar.width  :
+                         defaultSpacing
+            bottomMargin: defaultSpacing
         }
 
         onClicked: mobileToolBarContainer.hidden = false
@@ -984,6 +988,7 @@ Kirigami.Page {
     }
 
     contentItem: ScrollView {
+        id: contentScroll
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         Layout.fillWidth: true
         Layout.fillHeight: true
