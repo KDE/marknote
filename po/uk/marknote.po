@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-13 00:44+0000\n"
+"POT-Creation-Date: 2026-02-16 00:46+0000\n"
 "PO-Revision-Date: 2026-02-12 12:24+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -97,235 +97,235 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Не вдалося перейменувати нотатку. Нотатка з такою назвою вже існує."
 
-#: qml/EditPage.qml:99 qml/EditPage.qml:619
+#: qml/EditPage.qml:117 qml/EditPage.qml:649
 #, kde-format
 msgid "Undo"
 msgstr "Скасувати"
 
-#: qml/EditPage.qml:112 qml/EditPage.qml:632
+#: qml/EditPage.qml:130 qml/EditPage.qml:662
 #, kde-format
 msgid "Redo"
 msgstr "Повторити"
 
-#: qml/EditPage.qml:157
+#: qml/EditPage.qml:175
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Note"
 msgstr "Копіювати нотатку"
 
-#: qml/EditPage.qml:182
+#: qml/EditPage.qml:200
 #, kde-format
 msgid "Focus Mode"
 msgstr "Режим фокусування"
 
-#: qml/EditPage.qml:200
+#: qml/EditPage.qml:218
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Шукати нотатки"
 
-#: qml/EditPage.qml:205
+#: qml/EditPage.qml:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Шукати у нотатці"
 
-#: qml/EditPage.qml:213 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
+#: qml/EditPage.qml:243 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Вийти з повноекранного режиму"
 
-#: qml/EditPage.qml:226
+#: qml/EditPage.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
 msgstr "Зміст"
 
-#: qml/EditPage.qml:278
+#: qml/EditPage.qml:308
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Жирний"
 
-#: qml/EditPage.qml:297
+#: qml/EditPage.qml:327
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Курсив"
 
-#: qml/EditPage.qml:316
+#: qml/EditPage.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Підкреслити"
 
-#: qml/EditPage.qml:330
+#: qml/EditPage.qml:360
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Перекреслення"
 
-#: qml/EditPage.qml:348
+#: qml/EditPage.qml:378
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Підвищити рівень у списку"
 
-#: qml/EditPage.qml:359
+#: qml/EditPage.qml:389
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Знизити рівень у списку"
 
-#: qml/EditPage.qml:401
+#: qml/EditPage.qml:431
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Не є списком"
 
-#: qml/EditPage.qml:402
+#: qml/EditPage.qml:432
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Невпорядкований список"
 
-#: qml/EditPage.qml:403
+#: qml/EditPage.qml:433
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Впорядкований список"
 
-#: qml/EditPage.qml:413
+#: qml/EditPage.qml:443
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Вставити поле для позначки"
 
-#: qml/EditPage.qml:428
+#: qml/EditPage.qml:458
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Вставити посилання"
 
-#: qml/EditPage.qml:444
+#: qml/EditPage.qml:474
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Вставити зображення"
 
-#: qml/EditPage.qml:457
+#: qml/EditPage.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Вставити таблицю"
 
-#: qml/EditPage.qml:477
+#: qml/EditPage.qml:507
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Основний текст"
 
-#: qml/EditPage.qml:478
+#: qml/EditPage.qml:508
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Заголовок"
 
-#: qml/EditPage.qml:479
+#: qml/EditPage.qml:509
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Підзаголовок"
 
-#: qml/EditPage.qml:480
+#: qml/EditPage.qml:510
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Розділ"
 
-#: qml/EditPage.qml:481
+#: qml/EditPage.qml:511
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Підрозділ"
 
-#: qml/EditPage.qml:482
+#: qml/EditPage.qml:512
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Абзац"
 
-#: qml/EditPage.qml:483
+#: qml/EditPage.qml:513
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Підпараграф"
 
-#: qml/EditPage.qml:665
+#: qml/EditPage.qml:695
 #, kde-format
 msgid "Format"
 msgstr "Формат"
 
-#: qml/EditPage.qml:669
+#: qml/EditPage.qml:699
 #, kde-format
 msgid "Lists"
 msgstr "Списки"
 
-#: qml/EditPage.qml:673
+#: qml/EditPage.qml:703
 #, kde-format
 msgid "Insert"
 msgstr "Вставити"
 
-#: qml/EditPage.qml:731
+#: qml/EditPage.qml:761
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "Зміст"
 
-#: qml/EditPage.qml:739
+#: qml/EditPage.qml:769
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Закрити"
 
-#: qml/EditPage.qml:783
+#: qml/EditPage.qml:813
 #, kde-format
 msgid "No headers found"
 msgstr "Заголовків не знайдено"
 
-#: qml/EditPage.qml:845
+#: qml/EditPage.qml:892
 #, kde-format
 msgid "Find text..."
 msgstr "Знайти текст…"
 
-#: qml/EditPage.qml:868
+#: qml/EditPage.qml:917
 #, kde-format
 msgid "Previous"
 msgstr "Назад"
 
-#: qml/EditPage.qml:884
+#: qml/EditPage.qml:933
 #, kde-format
 msgid "Next"
 msgstr "Далі"
 
-#: qml/EditPage.qml:901
+#: qml/EditPage.qml:951
 #, kde-format
 msgid "No matches"
 msgstr "Немає відповідників"
 
-#: qml/EditPage.qml:903
+#: qml/EditPage.qml:953
 #, kde-format
 msgid "%1/%2"
 msgstr "%1 з %2"
 
-#: qml/EditPage.qml:910
+#: qml/EditPage.qml:960
 #, kde-format
 msgid "Close"
 msgstr "Закрити"
 
-#: qml/EditPage.qml:928
+#: qml/EditPage.qml:976
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -651,70 +651,70 @@ msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Перейменувати нотатку"
 
-#: qml/NotesPage.qml:306
+#: qml/NotesPage.qml:312
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate Note"
 msgstr "Здублювати нотатку"
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:320
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Вилучити нотатку"
 
-#: qml/NotesPage.qml:325
+#: qml/NotesPage.qml:331
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Експортувати до HTML"
 
-#: qml/NotesPage.qml:331
+#: qml/NotesPage.qml:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Експортування до HTML"
 
-#: qml/NotesPage.qml:332
+#: qml/NotesPage.qml:338
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "файл HTML (*.html)"
 
-#: qml/NotesPage.qml:338
+#: qml/NotesPage.qml:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Експортувати до PDF"
 
-#: qml/NotesPage.qml:344
+#: qml/NotesPage.qml:350
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Експортування до PDF"
 
-#: qml/NotesPage.qml:345
+#: qml/NotesPage.qml:351
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "файл PDF (*.pdf)"
 
-#: qml/NotesPage.qml:351
+#: qml/NotesPage.qml:357
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Експортувати в ODT"
 
-#: qml/NotesPage.qml:357
+#: qml/NotesPage.qml:363
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Експортувати в ODT"
 
-#: qml/NotesPage.qml:358
+#: qml/NotesPage.qml:364
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "текстовий документ ODF (*.odt)"
 
-#: qml/NotesPage.qml:490
+#: qml/NotesPage.qml:496
 #, kde-format
 msgid "Add a note!"
 msgstr "Додайте нотатку!"
