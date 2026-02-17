@@ -205,8 +205,15 @@ void NoteBooksModel::setStoragePath(const QString &storagePath)
 
 void NoteBooksModel::updateWatches()
 {
-    m_watcher.removePaths(m_watcher.files());
-    m_watcher.removePaths(m_watcher.directories());
+    const QStringList files = m_watcher.files();
+    if (!files.isEmpty()) {
+        m_watcher.removePaths(files);
+    }
+
+    const QStringList dirs = m_watcher.directories();
+    if (!dirs.isEmpty()) {
+        m_watcher.removePaths(dirs);
+    }
 
     if (!m_directory) {
         return;
