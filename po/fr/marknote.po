@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-16 00:46+0000\n"
+"POT-Creation-Date: 2026-02-17 00:45+0000\n"
 "PO-Revision-Date: 2026-01-21 08:56+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -88,19 +88,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xavier.besnard@kde.org"
 
-#: notesmodel.cpp:112
+#: notesmodel.cpp:117
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "Impossible de renommer une note. Une note existe déjà avec le même nom."
 
-#: qml/EditPage.qml:117 qml/EditPage.qml:649
+#: qml/EditPage.qml:117 qml/EditPage.qml:653
 #, kde-format
 msgid "Undo"
 msgstr "Annuler"
 
-#: qml/EditPage.qml:130 qml/EditPage.qml:662
+#: qml/EditPage.qml:130 qml/EditPage.qml:666
 #, kde-format
 msgid "Redo"
 msgstr "Refaire"
@@ -266,71 +266,71 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Sous-paragraphe"
 
-#: qml/EditPage.qml:695
+#: qml/EditPage.qml:699
 #, kde-format
 msgid "Format"
 msgstr "Formater"
 
-#: qml/EditPage.qml:699
+#: qml/EditPage.qml:703
 #, kde-format
 msgid "Lists"
 msgstr "Listes"
 
-#: qml/EditPage.qml:703
+#: qml/EditPage.qml:707
 #, kde-format
 msgid "Insert"
 msgstr "Insérer"
 
-#: qml/EditPage.qml:761
+#: qml/EditPage.qml:765
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "Contenu des cellules"
 
-#: qml/EditPage.qml:769
+#: qml/EditPage.qml:773
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:813
+#: qml/EditPage.qml:817
 #, fuzzy, kde-format
 #| msgid "No results found"
 msgid "No headers found"
 msgstr "Aucun résultat trouvé"
 
-#: qml/EditPage.qml:892
+#: qml/EditPage.qml:896
 #, kde-format
 msgid "Find text..."
 msgstr ""
 
-#: qml/EditPage.qml:917
+#: qml/EditPage.qml:921
 #, kde-format
 msgid "Previous"
 msgstr ""
 
-#: qml/EditPage.qml:933
+#: qml/EditPage.qml:937
 #, kde-format
 msgid "Next"
 msgstr ""
 
-#: qml/EditPage.qml:951
+#: qml/EditPage.qml:955
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: qml/EditPage.qml:953
+#: qml/EditPage.qml:957
 #, kde-format
 msgid "%1/%2"
 msgstr ""
 
-#: qml/EditPage.qml:960
+#: qml/EditPage.qml:964
 #, kde-format
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:976
+#: qml/EditPage.qml:980
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -723,7 +723,7 @@ msgstr "Exporter vers le format « ODT »"
 msgid "ODF Text Document (*.odt)"
 msgstr "Document de texte « ODF » (*.odt)"
 
-#: qml/NotesPage.qml:496
+#: qml/NotesPage.qml:529
 #, kde-format
 msgid "Add a note!"
 msgstr "Ajoutez une note !"
