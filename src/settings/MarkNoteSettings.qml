@@ -13,19 +13,19 @@ KirigamiSettings.ConfigurationView {
         KirigamiSettings.ConfigurationModule {
             moduleId: "general"
             text: i18nc("@action:button", "General")
-            icon.name: "org.kde.marknote"
+            icon.name: "folder-notes-symbolic"
             page: () => Qt.createComponent("org.kde.marknote.settings", "MarkNoteGeneralPage")
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "aboutMarkNote"
             text: i18nc("@action:button", "About Marknote")
-            icon.name: "help-about"
+            icon.name: "help-about-symbolic"
             page: () => Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage")
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "aboutKDE"
             text: i18nc("@action:button", "About KDE")
-            icon.name: "kde"
+            icon.name: "kde-symbolic"
             page: () => Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage")
         }
     ]
