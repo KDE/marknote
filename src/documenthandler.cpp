@@ -1345,14 +1345,6 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
         cursor.movePosition(QTextCursor::EndOfLine);
         moveCursor(cursor.position());
         return true;
-        //} else if (searchSupport() && KStandardShortcut::find().contains(key)) {
-        //    Q_EMIT findText();
-        //    return true;
-        //} else if (searchSupport() && KStandardShortcut::replace().contains(key)) {
-        //    if (!isReadOnly()) {
-        //        Q_EMIT replaceText();
-        //    }
-        //    return true;
     } else if (KStandardShortcut::pasteSelection().contains(key)) {
         const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData(QClipboard::Selection);
         if (mimeData) {
