@@ -1146,7 +1146,9 @@ Kirigami.Page {
                             root.oldPath = root.noteFullPath;
                             textArea.forceActiveFocus();
                         }
-                        applicationWindow().currentDocument = document;
+                        if (applicationWindow().currentDocument === document) {
+                            applicationWindow().currentDocument = null;
+                        }
                     }
 
                     Component.onDestruction: {
