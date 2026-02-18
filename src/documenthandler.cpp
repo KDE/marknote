@@ -1363,17 +1363,6 @@ bool DocumentHandler::handleShortcut(QKeyEvent *event)
             cursor.endEditBlock();
         }
         return true;
-    } else if (event == QKeySequence::DeleteEndOfLine) {
-        QTextCursor cursor = textCursor();
-        QTextBlock block = cursor.block();
-        if (cursor.position() == block.position() + block.length() - 2) {
-            cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor);
-        } else {
-            cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
-        }
-        cursor.removeSelectedText();
-        moveCursor(cursor.position());
-        return true;
     }
 
     return false;
