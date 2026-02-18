@@ -265,9 +265,9 @@
       <description>
         <p>
             We improved the notes management with the ability to choose a custom
-            folder where to store your notes amd made it possible to
+            folder where to store your notes and made it possible to
             change the sorting of notes from alphabetically to by date. The
-            sidebar is now collapsable and we added a focus mode where
+            sidebar is now collapsible and we added a focus mode where
             everything but the text editor is displayed.
         </p>
         <p xml:lang="ar">حُسنت إدارة الملاحظات مع القدرة على اختيار مجلد مخصص لتخزين ملاحظاتك وأُتيح تغيير فرز الملاحظات من أبجدي إلى حسب التاريخ. أصبح الشريط الجانبي قابلاً للطي وأُضيف وضع التركيز حيث يُعرض المحرر النصي فقط.</p>
@@ -318,7 +318,7 @@
     </release>
     <release version="1.1.1" date="2024-04-01">
       <description>
-        <p>Fix an imporant bug</p>
+        <p>Fix an important bug</p>
         <p xml:lang="ar">إصلاح علة مهمة</p>
         <p xml:lang="he">תוקנה תקלה חשובה</p>
         <p xml:lang="ka">გასწორდა აუცილებელი შეცდომა</p>
