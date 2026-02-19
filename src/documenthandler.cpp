@@ -14,6 +14,7 @@
 #include <QAbstractTextDocumentLayout>
 #include <QClipboard>
 #include <QCryptographicHash>
+#include <QCursor>
 #include <QDesktopServices>
 #include <QFile>
 #include <QFileInfo>
@@ -63,8 +64,10 @@ void DocumentHandler::setTextArea(QQuickItem *textArea)
 
     m_textArea = textArea;
 
-    if (m_textArea)
+    if (m_textArea) {
+        m_textArea->setAcceptHoverEvents(true);
         m_textArea->installEventFilter(this);
+    }
 
     Q_EMIT textAreaChanged();
 }
@@ -82,6 +85,7 @@ bool DocumentHandler::eventFilter(QObject *object, QEvent *event)
         object == m_textArea && event->type() == QEvent::MouseButtonPress && me->modifiers() == Qt::ControlModifier) {
         m_activeLink = m_document->textDocument()->documentLayout()->anchorAt(me->position());
     }
+
     if (auto me = static_cast<QMouseEvent *>(event);
         object == m_textArea && event->type() == QEvent::MouseButtonRelease && me->modifiers() == Qt::ControlModifier) {
         const auto link = m_document->textDocument()->documentLayout()->anchorAt(me->position());
@@ -91,6 +95,7 @@ bool DocumentHandler::eventFilter(QObject *object, QEvent *event)
         }
         m_activeLink.clear();
     }
+
     return false;
 }
 
@@ -1536,6 +1541,27 @@ void DocumentHandler::clearSearch()
 
     Q_EMIT searchMatchCountChanged();
     Q_EMIT searchCurrentMatchChanged();
+}
+
+void DocumentHandler::slotMouseMovedWithControl(QPointF position)
+{
+    // change cursor to a pointer when hovering over a link
+    if (m_document && m_textArea) {
+        const auto link = m_document->textDocument()->documentLayout()->anchorAt(position);
+
+        if (!link.isEmpty()) {
+            m_textArea->setCursor(Qt::PointingHandCursor);
+        } else {
+            m_textArea->setCursor(Qt::IBeamCursor);
+        }
+    }
+}
+
+void DocumentHandler::slotMouseMovedWithControlReleased()
+{
+    if (m_textArea) {
+        m_textArea->setCursor(Qt::IBeamCursor);
+    }
 }
 
 #include "moc_documenthandler.cpp"

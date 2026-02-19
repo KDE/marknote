@@ -133,6 +133,8 @@ public:
     Q_INVOKABLE void pasteFromClipboard();
 
     Q_INVOKABLE void slotKeyPressed(int key);
+    Q_INVOKABLE void slotMouseMovedWithControl(QPointF position);
+    Q_INVOKABLE void slotMouseMovedWithControlReleased();
 
 public Q_SLOTS:
     void load(const QUrl &fileUrl);

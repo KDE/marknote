@@ -1019,6 +1019,21 @@ Kirigami.Page {
                 }
             }
 
+            HoverHandler {
+                id: controlHoverHandler 
+                acceptedModifiers: Qt.ControlModifier
+
+                onPointChanged: () => {
+                    document.slotMouseMovedWithControl(controlHoverHandler.point.position)
+                }
+
+                onHoveredChanged: () => {
+                    if (!controlHoverHandler.hovered) {
+                        document.slotMouseMovedWithControlReleased()
+                    }
+                }
+            }
+
             font: Config.editorFont
 
             implicitWidth: Math.max(contentWidth + leftPadding + rightPadding,
