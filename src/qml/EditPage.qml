@@ -993,8 +993,7 @@ Kirigami.Page {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        bottomPadding: wideScreen ? 0 : (mobileToolBarContainer.hidden ? 0 : mobileToolBarContainer.height)
-
+        bottomPadding: wideScreen ? 0 : mobileToolBarContainer.height
         // Animate scroll bar between wide and mobile screens transitions
         Behavior on bottomPadding {
             NumberAnimation {
@@ -1011,7 +1010,7 @@ Kirigami.Page {
             leftPadding: 0
             rightPadding: 0
             topPadding: 0
-            bottomPadding: !Kirigami.Settings.isMobile ? (toolBar.height + Kirigami.Units.largeSpacing * 2) : Kirigami.Units.smallSpacing
+            bottomPadding: wideScreen ? toolBar.height + Kirigami.Units.largeSpacing : 0
 
             Behavior on bottomPadding {
                 NumberAnimation {
