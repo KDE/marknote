@@ -83,8 +83,11 @@ Delegates.RoundedItemDelegate {
     function updateColor(): void {
         if (color !== '#ffffff' && color !== '#00000000') {
             root.background.Kirigami.Theme.highlightColor = color;
-        } else if (root.background.Kirigami.Theme.highlightColor !== applicationWindow().Kirigami.Theme.highlightColor) {
-            root.background.Kirigami.Theme.highlightColor = applicationWindow().Kirigami.Theme.highlightColor;
+        } else {
+            const win = Controls.ApplicationWindow.window;
+            if (win && root.background.Kirigami.Theme.highlightColor !== win.Kirigami.Theme.highlightColor) {
+                root.background.Kirigami.Theme.highlightColor = win.Kirigami.Theme.highlightColor;
+            }
         }
     }
 

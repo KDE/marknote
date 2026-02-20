@@ -3,12 +3,13 @@
 
 import QtQuick
 import QtQuick.Window
+import QtQuick.Controls
 import Qt.labs.platform as Labs
 import org.kde.kirigamiaddons.statefulapp.labs as StatefulAppLabs
 import org.kde.marknote
 
 Labs.Menu {
-    property Window _window: applicationWindow()
+    property Window _window: ApplicationWindow.window
 
     title: i18nc("@action:menu", "Window")
 

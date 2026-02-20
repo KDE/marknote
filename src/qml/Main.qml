@@ -22,7 +22,7 @@ StatetfulApp.StatefulWindow {
     property int normalColumnWidth: Kirigami.Units.gridUnit * 15
     property double maximalColumWidthPercentage: 0.45
     property int minimalColumnWidth: (minWideScreenWidth * maximalColumWidthPercentage) - (Kirigami.Units.gridUnit * 5)
-    property bool wideScreen: applicationWindow().width >= minWideScreenWidth && !Config.fillWindow
+    property bool wideScreen: root.width >= minWideScreenWidth && !Config.fillWindow
     property bool columnModeDelayed: false
     property int currentWidth: normalColumnWidth
     property var currentDocument: null
@@ -50,9 +50,9 @@ StatetfulApp.StatefulWindow {
         id: collumnResizeArea
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        parent: applicationWindow().overlay
+        parent: root.overlay
         visible: pageStack.columnView.columnResizeMode !== Kirigami.ColumnView.SingleColumn
-        x: pageStack.defaultColumnWidth - width / 2 + root.x + applicationWindow().globalDrawer.width
+        x: pageStack.defaultColumnWidth - width / 2 + root.x + root.globalDrawer.width // Changed here
         width: Kirigami.Units.smallSpacing * 2
         z: root.z + 1
         cursorShape: Qt.SplitHCursor
@@ -66,7 +66,7 @@ StatetfulApp.StatefulWindow {
                 return;
             } else {
                 const tmpWidth = Math.round(root.currentWidth - (_lastX - mouse.x));
-                if (tmpWidth > minimalColumnWidth && tmpWidth < applicationWindow().width * maximalColumWidthPercentage)
+                if (tmpWidth > minimalColumnWidth && tmpWidth < root.width * maximalColumWidthPercentage) // Changed here
                     root.currentWidth = tmpWidth;
             }
         }
