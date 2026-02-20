@@ -1104,17 +1104,19 @@ bool DocumentHandler::evaluateListSupport(QKeyEvent *event)
 
 void DocumentHandler::slotKeyPressed(int key)
 {
+    // Fetch the cursor once to avoid redundant calls
+    auto cursor = textCursor();
+
     if (key == Qt::Key_Space) {
-        const auto blockText = textCursor().block().text();
+        const auto fullBlockText = cursor.block().text();
 
         // Automatic block transformation to header
-        if (blockText.startsWith(u'#')) {
+        if (fullBlockText.startsWith(u'#')) {
             int i = 0;
-            while (blockText.length() > i && i < 6 && blockText[i] == u'#') {
+            while (fullBlockText.length() > i && i < 6 && fullBlockText[i] == u'#') {
                 i++;
             }
 
-            auto cursor = textCursor();
             cursor.beginEditBlock();
             setHeadingLevel(i);
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, i + 1);
@@ -1123,8 +1125,7 @@ void DocumentHandler::slotKeyPressed(int key)
         }
 
         // Automatic block transformation to list
-        if (blockText.startsWith(u"* ") || blockText.startsWith(u"- ")) {
-            auto cursor = textCursor();
+        if (fullBlockText.startsWith(u"* ") || fullBlockText.startsWith(u"- ")) {
             cursor.beginEditBlock();
             setListStyle(1);
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 2);
@@ -1134,19 +1135,20 @@ void DocumentHandler::slotKeyPressed(int key)
     }
 
     if (key != Qt::Key_Return) {
-        auto cursor = textCursor();
-        const auto blockText = cursor.block().text().left(cursor.positionInBlock() - 1);
+        // Safe length calculation to prevent negative string sizes
+        const int textLen = qMax(0, cursor.positionInBlock() - 1);
+        const auto textBeforeCursor = cursor.block().text().left(textLen);
 
-        auto transform = [this, &cursor, &blockText](const QString &symbol, const QTextCharFormat &format) {
-            const auto firstSymbolsInBlock = blockText.indexOf(symbol);
+        auto transform = [this, &cursor, &textBeforeCursor](const QString &symbol, const QTextCharFormat &format) {
+            const auto firstSymbolsInBlock = textBeforeCursor.indexOf(symbol);
             const auto symbolSize = symbol.length();
 
-            if (symbolSize == 1 && blockText.indexOf(symbol + symbol) == firstSymbolsInBlock) {
+            if (symbolSize == 1 && textBeforeCursor.indexOf(symbol + symbol) == firstSymbolsInBlock) {
                 // Prefer matching with either **text** or __text__ instead of just **text* or __text_
                 return;
             }
 
-            if (firstSymbolsInBlock == -1 || !blockText.endsWith(symbol) || (firstSymbolsInBlock + symbolSize + 2 >= cursor.positionInBlock())) {
+            if (firstSymbolsInBlock == -1 || !textBeforeCursor.endsWith(symbol) || (firstSymbolsInBlock + symbolSize + 2 >= cursor.positionInBlock())) {
                 return;
             }
 
@@ -1157,7 +1159,7 @@ void DocumentHandler::slotKeyPressed(int key)
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, symbolSize);
             cursor.deleteChar();
 
-            // select the text and bold it
+            // select the text and apply formatting
             const auto selectionSize = cursor.positionInBlock() - (firstSymbolsInBlock + symbolSize);
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, selectionSize);
 
@@ -1168,7 +1170,7 @@ void DocumentHandler::slotKeyPressed(int key)
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, symbolSize);
             cursor.deleteChar();
 
-            // move back to initial position and font weight
+            // move back to initial position and reset font format
             cursor.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, selectionSize);
 
             QTextCharFormat normalFormat;
@@ -1204,20 +1206,19 @@ void DocumentHandler::slotKeyPressed(int key)
     }
 
     // Match the behavior of office suites: newline after header switches to normal text
-    if ((key == Qt::Key_Return) && (textCursor().blockFormat().headingLevel() > 0) && (textCursor().atBlockEnd())) {
+    if ((key == Qt::Key_Return) && (cursor.blockFormat().headingLevel() > 0) && (cursor.atBlockEnd())) {
         // it should be undoable together with actual "return" keypress
-        textCursor().joinPreviousEditBlock();
+        cursor.joinPreviousEditBlock();
         setHeadingLevel(0);
-        textCursor().endEditBlock();
+        cursor.endEditBlock();
         Q_EMIT cursorPositionChanged();
     }
 
-    if (textCursor().currentList()) {
+    if (cursor.currentList()) {
         if ((key != Qt::Key_Backspace) && (key != Qt::Key_Return)) {
             return;
         }
 
-        auto cursor = textCursor();
         QTextBlock currentBlock = cursor.block();
         if (cursor.currentList()->count() == cursor.currentList()->itemNumber(currentBlock) + 1) {
             if (cursor.currentList()->count() > 1 && cursor.currentList()->itemNumber(currentBlock)) {
@@ -1226,19 +1227,19 @@ void DocumentHandler::slotKeyPressed(int key)
                     QTextBlockFormat bfmt;
                     bfmt.setTopMargin(textMargin);
                     bfmt.setBottomMargin(0);
-                    textCursor().setBlockFormat(bfmt);
-                    textCursor().endEditBlock();
+                    cursor.setBlockFormat(bfmt);
+                    cursor.endEditBlock();
                     return;
                 }
             }
         }
 
         cursor.joinPreviousEditBlock();
-        QTextBlockFormat bfmt = textCursor().block().blockFormat();
+        QTextBlockFormat bfmt = cursor.block().blockFormat();
         bfmt.setTopMargin(cursor.block().previous().textList() == nullptr ? textMargin : 0);
         bfmt.setBottomMargin(0);
-        textCursor().setBlockFormat(bfmt);
-        textCursor().endEditBlock();
+        cursor.setBlockFormat(bfmt);
+        cursor.endEditBlock();
     }
 }
 
