@@ -929,6 +929,29 @@ void DocumentHandler::pasteFromClipboard()
         return;
     }
 
+    if (mimeData->hasUrls()) {
+        bool pastedImage = false;
+        const QList<QUrl> urls = mimeData->urls();
+
+        for (const QUrl &url : urls) {
+            if (url.isLocalFile()) {
+                QMimeDatabase db;
+                const QMimeType mimeType = db.mimeTypeForFile(url.toLocalFile());
+
+                if (mimeType.name().startsWith(u"image/"_s)) {
+                    insertImage(url);
+                    pastedImage = true;
+                }
+            }
+        }
+
+        // If we successfully intercepted and pasted image(s), stop here
+        // so we don't duplicate them as raw text strings.
+        if (pastedImage) {
+            return;
+        }
+    }
+
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
 

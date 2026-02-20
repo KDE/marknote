@@ -1062,6 +1062,13 @@ Kirigami.Page {
 
             property int lastKey: -1
             Keys.onPressed: (event) => {
+                if (event.matches(StandardKey.Paste)) {
+                    if (document && typeof document.pasteFromClipboard === 'function') {
+                        document.pasteFromClipboard();
+                        event.accepted = true;
+                        return;
+                    }
+                }
                 lastKey = event.key
             }
 
