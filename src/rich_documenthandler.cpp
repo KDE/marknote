@@ -14,6 +14,7 @@
 #include <QAbstractTextDocumentLayout>
 #include <QClipboard>
 #include <QCryptographicHash>
+#include <QCursor>
 #include <QDesktopServices>
 #include <QFile>
 #include <QFileInfo>
@@ -63,9 +64,10 @@ void RichDocumentHandler::setTextArea(QQuickItem *textArea)
 
     m_textArea = textArea;
 
-    if (m_textArea)
+    if (m_textArea) {
+        m_textArea->setAcceptHoverEvents(true);
         m_textArea->installEventFilter(this);
-
+    }
     Q_EMIT textAreaChanged();
 }
 
@@ -91,6 +93,7 @@ bool RichDocumentHandler::eventFilter(QObject *object, QEvent *event)
         }
         m_activeLink.clear();
     }
+
     return false;
 }
 
@@ -411,7 +414,7 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
 
             processedContent.append(u"<br />"_s);
 
-            // Append HTML (Inline construction to avoid temp objects)
+// Append HTML (Inline construction to avoid temp objects)
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
             processedContent.append(u"<img style=\"max-width: 100%\" src=\""_s);
 #else
@@ -486,14 +489,39 @@ void RichDocumentHandler::saveAs(const QUrl &fileUrl)
 
     // Append remaining text
     finalOutput.append(QStringView(markdown).mid(lastPos));
+    QFile fileCheck(fileUrl.toLocalFile());
+    if (fileCheck.exists() && fileCheck.open(QFile::ReadOnly)) {
+        const QByteArray existingContent = fileCheck.readAll();
+        fileCheck.close();
+
+        if (existingContent == finalOutput.toUtf8()) {
+            if (fileUrl != m_fileUrl) {
+                m_fileUrl = fileUrl;
+                Q_EMIT fileUrlChanged();
+            }
+            doc->setModified(false);
+            return;
+        }
+    }
+
+    // We only reach here if the content is actually different.
+    QFile file(fileUrl.toLocalFile());
+    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
+        Q_EMIT error(tr("Cannot save: ") + file.errorString() + u' ' + fileUrl.toLocalFile());
+        return;
+    }
 
     file.write(finalOutput.toUtf8());
     file.close();
 
-    if (fileUrl == m_fileUrl)
+    if (fileUrl == m_fileUrl) {
+        doc->setModified(false);
         return;
+    }
+
     m_fileUrl = fileUrl;
     Q_EMIT fileUrlChanged();
+    doc->setModified(false);
 }
 
 void RichDocumentHandler::reset()
@@ -885,6 +913,71 @@ void RichDocumentHandler::insertTable(int rows, int columns)
     return;
 }
 
+void RichDocumentHandler::copyWholeNote()
+{
+    QTextDocument *doc = textDocument();
+    if (!doc) {
+        return;
+    }
+
+    const QString content = doc->toMarkdown();
+
+    QMimeData *mime = new QMimeData();
+    mime->setText(content);
+
+    const QString html = doc->toHtml();
+    mime->setHtml(html);
+    mime->setData(QStringLiteral("text/markdown"), content.toUtf8());
+    mime->setData(QStringLiteral("text/plain"), content.toUtf8());
+
+    QGuiApplication::clipboard()->setMimeData(mime);
+}
+
+void RichDocumentHandler::pasteFromClipboard()
+{
+    const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData();
+    if (!mimeData) {
+        return;
+    }
+
+    if (mimeData->hasUrls()) {
+        bool pastedImage = false;
+        const QList<QUrl> urls = mimeData->urls();
+
+        for (const QUrl &url : urls) {
+            if (url.isLocalFile()) {
+                QMimeDatabase db;
+                const QMimeType mimeType = db.mimeTypeForFile(url.toLocalFile());
+
+                if (mimeType.name().startsWith(u"image/"_s)) {
+                    insertImage(url);
+                    pastedImage = true;
+                }
+            }
+        }
+
+        // If we successfully intercepted and pasted image(s), stop here
+        // so we don't duplicate them as raw text strings.
+        if (pastedImage) {
+            return;
+        }
+    }
+
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+
+    if (mimeData->hasHtml()) {
+        cursor.insertHtml(mimeData->html());
+    } else if (mimeData->hasFormat(QStringLiteral("text/markdown"))) {
+        const QByteArray md = mimeData->data(QStringLiteral("text/markdown"));
+        cursor.insertText(QString::fromUtf8(md));
+    } else if (mimeData->hasText()) {
+        cursor.insertText(mimeData->text());
+    }
+
+    cursor.endEditBlock();
+}
+
 void RichDocumentHandler::setCheckable(bool add)
 {
     QTextBlockFormat fmt;
@@ -1022,17 +1115,19 @@ bool RichDocumentHandler::evaluateListSupport(QKeyEvent *event)
 
 void RichDocumentHandler::slotKeyPressed(int key)
 {
+    // Fetch the cursor once to avoid redundant calls
+    auto cursor = textCursor();
+
     if (key == Qt::Key_Space) {
-        const auto blockText = textCursor().block().text();
+        const auto fullBlockText = cursor.block().text();
 
         // Automatic block transformation to header
-        if (blockText.startsWith(u'#')) {
+        if (fullBlockText.startsWith(u'#')) {
             int i = 0;
-            while (blockText.length() > i && i < 6 && blockText[i] == u'#') {
+            while (fullBlockText.length() > i && i < 6 && fullBlockText[i] == u'#') {
                 i++;
             }
 
-            auto cursor = textCursor();
             cursor.beginEditBlock();
             setHeadingLevel(i);
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, i + 1);
@@ -1041,8 +1136,7 @@ void RichDocumentHandler::slotKeyPressed(int key)
         }
 
         // Automatic block transformation to list
-        if (blockText.startsWith(u"* ") || blockText.startsWith(u"- ")) {
-            auto cursor = textCursor();
+        if (fullBlockText.startsWith(u"* ") || fullBlockText.startsWith(u"- ")) {
             cursor.beginEditBlock();
             setListStyle(1);
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 2);
@@ -1052,19 +1146,20 @@ void RichDocumentHandler::slotKeyPressed(int key)
     }
 
     if (key != Qt::Key_Return) {
-        auto cursor = textCursor();
-        const auto blockText = cursor.block().text().left(cursor.positionInBlock() - 1);
+        // Safe length calculation to prevent negative string sizes
+        const int textLen = qMax(0, cursor.positionInBlock() - 1);
+        const auto textBeforeCursor = cursor.block().text().left(textLen);
 
-        auto transform = [this, &cursor, &blockText](const QString &symbol, const QTextCharFormat &format) {
-            const auto firstSymbolsInBlock = blockText.indexOf(symbol);
+        auto transform = [this, &cursor, &textBeforeCursor](const QString &symbol, const QTextCharFormat &format) {
+            const auto firstSymbolsInBlock = textBeforeCursor.indexOf(symbol);
             const auto symbolSize = symbol.length();
 
-            if (symbolSize == 1 && blockText.indexOf(symbol + symbol) == firstSymbolsInBlock) {
+            if (symbolSize == 1 && textBeforeCursor.indexOf(symbol + symbol) == firstSymbolsInBlock) {
                 // Prefer matching with either **text** or __text__ instead of just **text* or __text_
                 return;
             }
 
-            if (firstSymbolsInBlock == -1 || !blockText.endsWith(symbol) || (firstSymbolsInBlock + symbolSize + 2 >= cursor.positionInBlock())) {
+            if (firstSymbolsInBlock == -1 || !textBeforeCursor.endsWith(symbol) || (firstSymbolsInBlock + symbolSize + 2 >= cursor.positionInBlock())) {
                 return;
             }
 
@@ -1075,7 +1170,7 @@ void RichDocumentHandler::slotKeyPressed(int key)
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, symbolSize);
             cursor.deleteChar();
 
-            // select the text and bold it
+            // select the text and apply formatting
             const auto selectionSize = cursor.positionInBlock() - (firstSymbolsInBlock + symbolSize);
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, selectionSize);
 
@@ -1086,7 +1181,7 @@ void RichDocumentHandler::slotKeyPressed(int key)
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, symbolSize);
             cursor.deleteChar();
 
-            // move back to initial position and font weight
+            // move back to initial position and reset font format
             cursor.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, selectionSize);
 
             QTextCharFormat normalFormat;
@@ -1122,20 +1217,19 @@ void RichDocumentHandler::slotKeyPressed(int key)
     }
 
     // Match the behavior of office suites: newline after header switches to normal text
-    if ((key == Qt::Key_Return) && (textCursor().blockFormat().headingLevel() > 0) && (textCursor().atBlockEnd())) {
+    if ((key == Qt::Key_Return) && (cursor.blockFormat().headingLevel() > 0) && (cursor.atBlockEnd())) {
         // it should be undoable together with actual "return" keypress
-        textCursor().joinPreviousEditBlock();
+        cursor.joinPreviousEditBlock();
         setHeadingLevel(0);
-        textCursor().endEditBlock();
+        cursor.endEditBlock();
         Q_EMIT cursorPositionChanged();
     }
 
-    if (textCursor().currentList()) {
+    if (cursor.currentList()) {
         if ((key != Qt::Key_Backspace) && (key != Qt::Key_Return)) {
             return;
         }
 
-        auto cursor = textCursor();
         QTextBlock currentBlock = cursor.block();
         if (cursor.currentList()->count() == cursor.currentList()->itemNumber(currentBlock) + 1) {
             if (cursor.currentList()->count() > 1 && cursor.currentList()->itemNumber(currentBlock)) {
@@ -1144,19 +1238,19 @@ void RichDocumentHandler::slotKeyPressed(int key)
                     QTextBlockFormat bfmt;
                     bfmt.setTopMargin(textMargin);
                     bfmt.setBottomMargin(0);
-                    textCursor().setBlockFormat(bfmt);
-                    textCursor().endEditBlock();
+                    cursor.setBlockFormat(bfmt);
+                    cursor.endEditBlock();
                     return;
                 }
             }
         }
 
         cursor.joinPreviousEditBlock();
-        QTextBlockFormat bfmt = textCursor().block().blockFormat();
+        QTextBlockFormat bfmt = cursor.block().blockFormat();
         bfmt.setTopMargin(cursor.block().previous().textList() == nullptr ? textMargin : 0);
         bfmt.setBottomMargin(0);
-        textCursor().setBlockFormat(bfmt);
-        textCursor().endEditBlock();
+        cursor.setBlockFormat(bfmt);
+        cursor.endEditBlock();
     }
 }
 
@@ -1217,19 +1311,35 @@ bool RichDocumentHandler::handleShortcut(QKeyEvent *event)
         copy();
         return true;
     } else if (KStandardShortcut::paste().contains(key)) {
-        const auto mimeData = QGuiApplication::clipboard()->mimeData(QClipboard::Clipboard);
+        const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData(QClipboard::Clipboard);
+        if (!mimeData) {
+            return true;
+        }
+
         if (const auto urls = mimeData->urls(); urls.size() == 1 && urls.front().scheme() == "https"_L1) {
             updateLink(urls.front().toString(), QString());
             return true;
         }
 
-        const auto text = mimeData->text();
+        // Prefer rich HTML if available
+        if (mimeData->hasHtml()) {
+            textCursor().insertHtml(mimeData->html());
+            return true;
+        }
+
+        if (mimeData->hasFormat(QStringLiteral("text/markdown"))) {
+            const QByteArray md = mimeData->data(QStringLiteral("text/markdown"));
+            textCursor().insertText(QString::fromUtf8(md));
+            return true;
+        }
+
+        const QString text = mimeData->text();
         if (const QUrl url(text, QUrl::StrictMode); url.isValid() && url.scheme() == "https"_L1) {
             updateLink(url.toString(), QString());
-        } else {
-            textCursor().insertText(text);
+            return true;
         }
-        return true;
+        // i return false here to let the QML TextArea's native handler take over it for ctrl+v pasting(fix: causing the text to be pasted twice).
+        return false;
     } else if (KStandardShortcut::cut().contains(key)) {
         cut();
         return true;
@@ -1275,30 +1385,24 @@ bool RichDocumentHandler::handleShortcut(QKeyEvent *event)
         cursor.movePosition(QTextCursor::EndOfLine);
         moveCursor(cursor.position());
         return true;
-        //} else if (searchSupport() && KStandardShortcut::find().contains(key)) {
-        //    Q_EMIT findText();
-        //    return true;
-        //} else if (searchSupport() && KStandardShortcut::replace().contains(key)) {
-        //    if (!isReadOnly()) {
-        //        Q_EMIT replaceText();
-        //    }
-        //    return true;
+
     } else if (KStandardShortcut::pasteSelection().contains(key)) {
-        QString text = QGuiApplication::clipboard()->text(QClipboard::Selection);
-        if (!text.isEmpty()) {
-            textCursor().insertText(text); // TODO: check if this is html? (MiB)
+        const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData(QClipboard::Selection);
+        if (mimeData) {
+            QTextCursor cursor = textCursor();
+            cursor.beginEditBlock();
+            // Prefer rich HTML if available
+            if (mimeData->hasHtml()) {
+                cursor.insertHtml(mimeData->html());
+            } else if (mimeData->hasFormat(QStringLiteral("text/markdown"))) {
+                const QByteArray md = mimeData->data(QStringLiteral("text/markdown"));
+                cursor.insertText(QString::fromUtf8(md));
+            } else if (mimeData->hasText()) {
+                cursor.insertText(mimeData->text());
+            }
+
+            cursor.endEditBlock();
         }
-        return true;
-    } else if (event == QKeySequence::DeleteEndOfLine) {
-        QTextCursor cursor = textCursor();
-        QTextBlock block = cursor.block();
-        if (cursor.position() == block.position() + block.length() - 2) {
-            cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor);
-        } else {
-            cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
-        }
-        cursor.removeSelectedText();
-        moveCursor(cursor.position());
         return true;
     }
 
@@ -1391,6 +1495,115 @@ void RichDocumentHandler::clearUndoRedoStacks()
 {
     if (QTextDocument *doc = textDocument()) {
         doc->clearUndoRedoStacks();
+    }
+}
+
+int RichDocumentHandler::searchMatchCount() const
+{
+    return m_searchMatches.size();
+}
+
+int RichDocumentHandler::searchCurrentMatch() const
+{
+    return m_searchCurrentMatch;
+}
+
+int RichDocumentHandler::findText(const QString &searchTerm)
+{
+    if (!m_document || searchTerm.isEmpty()) {
+        clearSearch();
+        return 0;
+    }
+
+    m_searchTerm = searchTerm;
+    m_searchMatches.clear();
+    m_searchCurrentMatch = -1;
+
+    QTextDocument *doc = textDocument();
+    if (!doc) {
+        return 0;
+    }
+
+    QTextCursor cursor(doc);
+    cursor.movePosition(QTextCursor::Start);
+
+    while (true) {
+        cursor = doc->find(searchTerm, cursor);
+        if (cursor.isNull()) {
+            break;
+        }
+        m_searchMatches.append(cursor);
+    }
+
+    if (!m_searchMatches.isEmpty()) {
+        m_searchCurrentMatch = 0;
+        QTextCursor firstMatch = m_searchMatches.at(0);
+        setCursorPosition(firstMatch.position());
+        selectCursor(firstMatch.selectionStart(), firstMatch.selectionEnd());
+    }
+
+    Q_EMIT searchMatchCountChanged();
+    Q_EMIT searchCurrentMatchChanged();
+
+    return m_searchMatches.size();
+}
+
+void RichDocumentHandler::findNext()
+{
+    if (m_searchMatches.isEmpty()) {
+        return;
+    }
+
+    m_searchCurrentMatch = (m_searchCurrentMatch + 1) % m_searchMatches.size();
+    QTextCursor match = m_searchMatches.at(m_searchCurrentMatch);
+    setCursorPosition(match.position());
+    selectCursor(match.selectionStart(), match.selectionEnd());
+
+    Q_EMIT searchCurrentMatchChanged();
+}
+
+void RichDocumentHandler::findPrevious()
+{
+    if (m_searchMatches.isEmpty()) {
+        return;
+    }
+
+    m_searchCurrentMatch = (m_searchCurrentMatch - 1 + m_searchMatches.size()) % m_searchMatches.size();
+    QTextCursor match = m_searchMatches.at(m_searchCurrentMatch);
+    setCursorPosition(match.position());
+    selectCursor(match.selectionStart(), match.selectionEnd());
+
+    Q_EMIT searchCurrentMatchChanged();
+}
+
+void RichDocumentHandler::clearSearch()
+{
+    m_searchTerm.clear();
+    m_searchMatches.clear();
+    m_searchCurrentMatch = -1;
+
+    Q_EMIT searchMatchCountChanged();
+    Q_EMIT searchCurrentMatchChanged();
+}
+
+void RichDocumentHandler::slotMouseMovedWithControl(QPointF position)
+{
+    // change cursor to a pointer when hovering over a link
+    if (m_document && m_textArea) {
+        const auto link = m_document->textDocument()->documentLayout()->anchorAt(position);
+
+        if (!link.isEmpty()) {
+            m_textArea->setCursor(Qt::PointingHandCursor);
+        } else {
+            m_textArea->setCursor(Qt::IBeamCursor);
+        }
+    }
+}
+
+void RichDocumentHandler::slotMouseMovedWithControlReleased()
+{
+    if (m_textArea) {
+        m_textArea->setCursor(Qt::IBeamCursor);
     }
 }
 

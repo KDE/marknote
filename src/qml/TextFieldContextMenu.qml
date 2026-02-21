@@ -24,6 +24,7 @@ QQC2.Menu {
     property bool persistentSelectionSetting
     required property TableActionHelper tableActionHelper
     property url currentLink
+    property var document
 
     // assuming that Instantiator::active is bound to target.Kirigami.SpellCheck.enabled
     property Instantiator/*<Sonnet.SpellcheckHighlighter>*/ spellcheckHighlighterInstantiator
@@ -378,7 +379,11 @@ QQC2.Menu {
         onTriggered: {
             root.deselectWhenMenuClosed = false;
             root.runOnMenuClose = () => {
-                root.target.paste();
+                if (root.document && root.document.pasteFromClipboard) {
+                    root.document.pasteFromClipboard();
+                } else {
+                    root.target.paste();
+                }
             };
         }
     }

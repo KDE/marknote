@@ -46,11 +46,15 @@ ecm_add_qml_module(marknote_static
         navigationcontroller.cpp navigationcontroller.h
         application.cpp application.h
         tableactionhelper.cpp tableactionhelper.h
-        config.cpp config.h
         colorschemer.cpp colorschemer.h
         maildirimport.cpp maildirimport.h
         sketchhistory.cpp sketchhistory.h
+        tocmodel.cpp tocmodel.h
 )
+
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/marknote_staticplugin_autogen/include)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/marknote_static_autogen/include)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/settings/settings_autogen/include)
 
 kconfig_target_kcfg_file(marknote_static
     FILE marknotesettings.kcfg

@@ -51,6 +51,8 @@ class RichDocumentHandler : public QObject
     Q_PROPERTY(QUrl fileUrl READ fileUrl NOTIFY fileUrlChanged)
 
     Q_PROPERTY(bool modified READ modified WRITE setModified NOTIFY modifiedChanged)
+    Q_PROPERTY(int searchMatchCount READ searchMatchCount NOTIFY searchMatchCountChanged)
+    Q_PROPERTY(int searchCurrentMatch READ searchCurrentMatch NOTIFY searchCurrentMatchChanged)
 
 public:
     explicit RichDocumentHandler(QObject *parent = nullptr);
@@ -113,13 +115,26 @@ public:
     bool modified() const;
     void setModified(bool m);
 
+    int searchMatchCount() const;
+    int searchCurrentMatch() const;
+
     Q_INVOKABLE QString currentLinkUrl() const;
     Q_INVOKABLE QString currentLinkText() const;
     Q_INVOKABLE [[nodiscard]] QString anchorAt(const QPointF &p) const;
     Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
     Q_INVOKABLE void insertImage(const QUrl &imagePath);
     Q_INVOKABLE void insertTable(int rows, int columns);
+    Q_INVOKABLE int findText(const QString &searchTerm);
+    Q_INVOKABLE void findNext();
+    Q_INVOKABLE void findPrevious();
+    Q_INVOKABLE void clearSearch();
+
+    Q_INVOKABLE void copyWholeNote();
+    Q_INVOKABLE void pasteFromClipboard();
+
     Q_INVOKABLE void slotKeyPressed(int key);
+    Q_INVOKABLE void slotMouseMovedWithControl(QPointF position);
+    Q_INVOKABLE void slotMouseMovedWithControlReleased();
 
     Q_INVOKABLE void clearUndoRedoStacks();
 
@@ -161,6 +176,8 @@ Q_SIGNALS:
     void error(const QString &message);
 
     void modifiedChanged();
+    void searchMatchCountChanged();
+    void searchCurrentMatchChanged();
 
     void focusUp();
     void focusDown();
@@ -217,6 +234,9 @@ private:
     NestedListHelper m_nestedListHelper;
     QString m_frontMatter;
     QString m_activeLink;
+    QString m_searchTerm;
+    int m_searchCurrentMatch = -1;
+    QList<QTextCursor> m_searchMatches;
 
     // Cache data to dismiss redundant UI calls.
     QString m_lastFontFamily;

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-26 00:43+0000\n"
+"POT-Creation-Date: 2026-02-17 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 17:36+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -47,216 +47,299 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "'%1' पर लिखते समय एक त्रुटि हुई"
 
-#: main.cpp:86 qml/Main.qml:366
+#: main.cpp:89 qml/Main.qml:367
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "मार्कनोट"
 
-#: main.cpp:88
+#: main.cpp:91
 #, kde-format
 msgid "Note taking application"
 msgstr "नोट लेने का अनुप्रयोग"
 
-#: main.cpp:90
+#: main.cpp:93
 #, fuzzy, kde-format
 #| msgid "© 2023 Mathis Brüchert"
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023 मैथिस ब्रुचर्ट"
 
-#: main.cpp:91
+#: main.cpp:94
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "मैथिस ब्रुचर्ट"
 
-#: main.cpp:92 main.cpp:97
+#: main.cpp:95 main.cpp:100
 #, kde-format
 msgid "Maintainer"
 msgstr "मेंटेनर"
 
-#: main.cpp:96
+#: main.cpp:99
 #, kde-format
 msgid "Carl Schwan"
 msgstr "कार्ल स्वान"
 
-#: main.cpp:101
+#: main.cpp:104
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "तुम्हारे नाम"
 
-#: main.cpp:101
+#: main.cpp:104
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "आपके ईमेल"
 
-#: notesmodel.cpp:112
+#: notesmodel.cpp:117
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "नोट का नाम बदलने में असमर्थ. उसी नाम से एक नोट पहले से मौजूद है."
 
-#: qml/EditPage.qml:76 qml/EditPage.qml:556
+#: qml/EditPage.qml:117 qml/EditPage.qml:653
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Undo"
 msgid "Undo"
 msgstr "पूर्ववत"
 
-#: qml/EditPage.qml:89 qml/EditPage.qml:569
+#: qml/EditPage.qml:130 qml/EditPage.qml:666
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Redo"
 msgid "Redo"
 msgstr "फिर से करना"
 
-#: qml/EditPage.qml:145
+#: qml/EditPage.qml:175
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:button"
+msgid "Copy Note"
+msgstr "प्रतिलिपि"
+
+#: qml/EditPage.qml:200
 #, kde-format
 msgid "Focus Mode"
 msgstr "फोकस मोड"
 
-#: qml/EditPage.qml:164 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
+#: qml/EditPage.qml:218
+#, fuzzy, kde-format
+#| msgid "Search notes (%1)"
+msgctxt "@action:button"
+msgid "Search Note"
+msgstr "खोज नोट्स (%1)"
+
+#: qml/EditPage.qml:235
+#, fuzzy, kde-format
+#| msgid "Search notes (%1)"
+msgctxt "@info:tooltip"
+msgid "Search in Note"
+msgstr "खोज नोट्स (%1)"
+
+#: qml/EditPage.qml:243 qml/NativeWindowMenu.qml:21 qml/NotesPage.qml:158
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "पूर्ण स्क्रीन से बाहर निकलें"
 
-#: qml/EditPage.qml:215
+#: qml/EditPage.qml:256
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgctxt "@action:button"
+msgid "Table of Content"
+msgstr "सेल सामग्री"
+
+#: qml/EditPage.qml:308
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "बोल्ड"
 
-#: qml/EditPage.qml:234
+#: qml/EditPage.qml:327
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "तिरछा"
 
-#: qml/EditPage.qml:253
+#: qml/EditPage.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "रेखांकन"
 
-#: qml/EditPage.qml:267
+#: qml/EditPage.qml:360
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "स्ट्राइकथ्रू"
 
-#: qml/EditPage.qml:285
+#: qml/EditPage.qml:378
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "सूची स्तर बढ़ाएँ"
 
-#: qml/EditPage.qml:296
+#: qml/EditPage.qml:389
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "सूची स्तर घटाएँ"
 
-#: qml/EditPage.qml:338
+#: qml/EditPage.qml:431
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "कोई सूची नहीं"
 
-#: qml/EditPage.qml:339
+#: qml/EditPage.qml:432
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "अव्यवस्थित सूची"
 
-#: qml/EditPage.qml:340
+#: qml/EditPage.qml:433
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "आदेशित सूची"
 
-#: qml/EditPage.qml:350
+#: qml/EditPage.qml:443
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "चेकबॉक्स डालें"
 
-#: qml/EditPage.qml:365
+#: qml/EditPage.qml:458
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "लिंक डालें"
 
-#: qml/EditPage.qml:381
+#: qml/EditPage.qml:474
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "चित्र डालें"
 
-#: qml/EditPage.qml:394
+#: qml/EditPage.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "टेबल इंसर्ट करें"
 
-#: qml/EditPage.qml:414
+#: qml/EditPage.qml:507
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "मूल पाठ"
 
-#: qml/EditPage.qml:415
+#: qml/EditPage.qml:508
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "शीर्षक"
 
-#: qml/EditPage.qml:416
+#: qml/EditPage.qml:509
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "उपशीर्षक"
 
-#: qml/EditPage.qml:417
+#: qml/EditPage.qml:510
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "अनुभाग"
 
-#: qml/EditPage.qml:418
+#: qml/EditPage.qml:511
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "उपधारा"
 
-#: qml/EditPage.qml:419
+#: qml/EditPage.qml:512
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "अनुच्छेद"
 
-#: qml/EditPage.qml:420
+#: qml/EditPage.qml:513
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "उप अनुच्छेद"
 
-#: qml/EditPage.qml:602
+#: qml/EditPage.qml:699
 #, kde-format
 msgid "Format"
 msgstr "प्रारूप"
 
-#: qml/EditPage.qml:606
+#: qml/EditPage.qml:703
 #, kde-format
 msgid "Lists"
 msgstr "सूचियों"
 
-#: qml/EditPage.qml:610
+#: qml/EditPage.qml:707
 #, kde-format
 msgid "Insert"
 msgstr "डालना"
+
+#: qml/EditPage.qml:765
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgctxt "@title:window"
+msgid "Table of Contents"
+msgstr "सेल सामग्री"
+
+#: qml/EditPage.qml:773
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr ""
+
+#: qml/EditPage.qml:817
+#, kde-format
+msgid "No headers found"
+msgstr ""
+
+#: qml/EditPage.qml:896
+#, kde-format
+msgid "Find text..."
+msgstr ""
+
+#: qml/EditPage.qml:921
+#, kde-format
+msgid "Previous"
+msgstr ""
+
+#: qml/EditPage.qml:937
+#, kde-format
+msgid "Next"
+msgstr ""
+
+#: qml/EditPage.qml:955
+#, kde-format
+msgid "No matches"
+msgstr ""
+
+#: qml/EditPage.qml:957
+#, kde-format
+msgid "%1/%2"
+msgstr ""
+
+#: qml/EditPage.qml:964
+#, kde-format
+msgid "Close"
+msgstr ""
+
+#: qml/EditPage.qml:980
+#, kde-format
+msgctxt "@info:status"
+msgid "The note has been copied to the clipboard."
+msgstr ""
 
 #: qml/FormIconDelegate.qml:17
 #, kde-format
@@ -360,57 +443,57 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "लिंक यूआरएल:"
 
-#: qml/Main.qml:113
+#: qml/Main.qml:114
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "नया नोट बनाने में असमर्थ, आपको पहले एक नोटबुक बनानी होगी."
 
-#: qml/Main.qml:115
+#: qml/Main.qml:116
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "नोटबुक बनाएं"
 
-#: qml/Main.qml:260
+#: qml/Main.qml:261
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr ""
 
-#: qml/Main.qml:306
+#: qml/Main.qml:307
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "आयात"
 
-#: qml/Main.qml:315
+#: qml/Main.qml:316
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "नोट्स सूची को क्रमबद्ध करें"
 
-#: qml/Main.qml:321
+#: qml/Main.qml:322
 #, kde-format
 msgid "by Name"
 msgstr "नाम से"
 
-#: qml/Main.qml:334
+#: qml/Main.qml:335
 #, kde-format
 msgid "by Date"
 msgstr "दिनांक के अनुसार"
 
-#: qml/Main.qml:351
+#: qml/Main.qml:352
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "साइडबार संक्षिप्त करें"
 
-#: qml/Main.qml:351
+#: qml/Main.qml:352
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "साइडबार विस्तृत करें"
 
-#: qml/Main.qml:418
+#: qml/Main.qml:419
 #, kde-format
 msgid "Your Notebooks"
 msgstr "आपकी नोटबुक"
@@ -451,13 +534,13 @@ msgctxt "text editing menu action"
 msgid "Paste"
 msgstr "पेस्ट करें"
 
-#: qml/NativeEditMenu.qml:92
+#: qml/NativeEditMenu.qml:97
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
 msgstr "मिटाना"
 
-#: qml/NativeEditMenu.qml:105
+#: qml/NativeEditMenu.qml:110
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
@@ -583,64 +666,72 @@ msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "नोट का नाम बदलें"
 
-#: qml/NotesPage.qml:306
+#: qml/NotesPage.qml:312
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete Note"
+msgctxt "@action:inmenu"
+msgid "Duplicate Note"
+msgstr "नोट हटाएं"
+
+#: qml/NotesPage.qml:320
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "नोट हटाएं"
 
-#: qml/NotesPage.qml:317
+#: qml/NotesPage.qml:331
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "HTML में निर्यात करें"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "HTML में निर्यात करें"
 
-#: qml/NotesPage.qml:324
+#: qml/NotesPage.qml:338
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML फ़ाइल (*.html)"
 
-#: qml/NotesPage.qml:330
+#: qml/NotesPage.qml:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "पीडीएफ में निर्यात करें"
 
-#: qml/NotesPage.qml:336
+#: qml/NotesPage.qml:350
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "पीडीएफ में निर्यात करें"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:351
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "पीडीएफ फाइल (*.pdf)"
 
-#: qml/NotesPage.qml:343
+#: qml/NotesPage.qml:357
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "ODT में निर्यात करें"
 
-#: qml/NotesPage.qml:349
+#: qml/NotesPage.qml:363
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "ODT में निर्यात करें"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:364
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF पाठ दस्तावेज़ (*.odt)"
 
-#: qml/NotesPage.qml:482
+#: qml/NotesPage.qml:529
 #, kde-format
 msgid "Add a note!"
 msgstr "एक नोट जोड़े!"
@@ -651,73 +742,73 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "टेबल इंसर्ट करें"
 
-#: qml/TextFieldContextMenu.qml:226
+#: qml/TextFieldContextMenu.qml:227
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "अनदेखा करना"
 
-#: qml/TextFieldContextMenu.qml:241
+#: qml/TextFieldContextMenu.qml:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "वर्तनी की जाँच"
 
-#: qml/TextFieldContextMenu.qml:258
+#: qml/TextFieldContextMenu.qml:259
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
 msgstr "खुला लिंक"
 
-#: qml/TextFieldContextMenu.qml:268
+#: qml/TextFieldContextMenu.qml:269
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "डालना"
 
-#: qml/TextFieldContextMenu.qml:290
+#: qml/TextFieldContextMenu.qml:291
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "निकालना"
 
-#: qml/TextFieldContextMenu.qml:310
+#: qml/TextFieldContextMenu.qml:311
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "पूर्ववत"
 
-#: qml/TextFieldContextMenu.qml:325
+#: qml/TextFieldContextMenu.qml:326
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "फिर से करना"
 
-#: qml/TextFieldContextMenu.qml:343
+#: qml/TextFieldContextMenu.qml:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "काटना"
 
-#: qml/TextFieldContextMenu.qml:358
+#: qml/TextFieldContextMenu.qml:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "प्रतिलिपि"
 
-#: qml/TextFieldContextMenu.qml:373
+#: qml/TextFieldContextMenu.qml:374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "पेस्ट करें"
 
-#: qml/TextFieldContextMenu.qml:388
+#: qml/TextFieldContextMenu.qml:393
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "मिटाना"
 
-#: qml/TextFieldContextMenu.qml:407
+#: qml/TextFieldContextMenu.qml:412
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
@@ -728,46 +819,40 @@ msgstr "सबका चयन करें"
 msgid "Start by creating your first notebook!"
 msgstr "अपनी पहली नोटबुक बनाकर शुरुआत करें!"
 
-#: settings/MarkNoteGeneralPage.qml:16
+#: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "सामान्य"
 
-#: settings/MarkNoteGeneralPage.qml:19
+#: settings/MarkNoteGeneralPage.qml:20
 #, kde-format
 msgid "General theme"
 msgstr "सामान्य विषय"
 
-#: settings/MarkNoteGeneralPage.qml:26
+#: settings/MarkNoteGeneralPage.qml:27
 #, kde-format
 msgid "Color theme"
 msgstr "रंग थीम"
 
-#: settings/MarkNoteGeneralPage.qml:40
+#: settings/MarkNoteGeneralPage.qml:41
 #, kde-format
 msgid "Editor Settings"
 msgstr "संपादक सेटिंग्स"
 
-#: settings/MarkNoteGeneralPage.qml:45
+#: settings/MarkNoteGeneralPage.qml:47
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
 msgstr "नोट्स निर्देशिका:"
 
-#: settings/MarkNoteGeneralPage.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Select the notes directory"
-msgstr "नोट्स निर्देशिका का चयन करें"
-
-#: settings/MarkNoteGeneralPage.qml:69
+#: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "फुहारा परिवार:"
 
-#: settings/MarkNoteGeneralPage.qml:110
+#: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
@@ -827,6 +912,10 @@ msgstr "स्तंभ"
 #, kde-format
 msgid "Cell Contents"
 msgstr "सेल सामग्री"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select the notes directory"
+#~ msgstr "नोट्स निर्देशिका का चयन करें"
 
 #~ msgid "undo"
 #~ msgstr "पूर्ववत"

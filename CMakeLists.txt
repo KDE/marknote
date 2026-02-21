@@ -35,6 +35,10 @@ include(ECMAddTests)
 include(ECMDeprecationSettings)
 include(ECMQmlModule)
 
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_options(-Wno-unused-parameter)
+endif()
+
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX MARKNOTE
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/marknote-version.h
@@ -55,7 +59,7 @@ if (BUILD_TESTING)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 endif()
 
-find_package(KF6KirigamiAddons 1.7.0 REQUIRED)
+find_package(KF6KirigamiAddons 1.9.0 REQUIRED)
 set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required application components and runtime dependency"

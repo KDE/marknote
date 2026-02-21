@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 Gary Wang <opensource@blumia.net>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+import QtCore
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
@@ -41,61 +42,39 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormCard {
-        FormCard.FormButtonDelegate {
-            text: i18nc("@label:textbox", "Notes Directory:")
+        FormCard.FormFolderDelegate {
+            id: notesFolderDelegate
+            label: i18nc("@label:textbox", "Notes Directory:")
             enabled: !Config.isStorageImmutable
-            description: Config.storage
-            onClicked: folderDialog.open();
 
-            FolderDialog {
-                id: folderDialog
+            currentFolder: Config.storage || StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
 
-                currentFolder: 'file://' + Config.storage
-                title: i18nc("@title:window", "Select the notes directory")
-                onAccepted: {
-                    Config.storage = selectedFolder.toString().replace('file://', '');
-                    console.log(Config.storage);
-                    Config.save();
-                }
+            onAccepted: {
+                Config.storage = selectedFolder.toString().replace("file://", "");
+                console.log(Config.storage);
+                Config.save();
             }
         }
 
         FormCard.FormDelegateSeparator {}
 
-        FormCard.AbstractFormDelegate {
-            background: null
-            contentItem: ColumnLayout {
-                QQC2.Label {
-                    text: i18nc("@label:spinbox", "Font family:")
-                    Layout.fillWidth: true
-                }
+        FormCard.FormCard {
+            FormCard.FormComboBoxDelegate {
+                id: fontFamilyComboBox
+                text: i18nc("@label:spinbox", "Font family:")
+                enabled: !Config.isEditorFontImmutable
 
-                QQC2.ComboBox {
-                    id: fontFamilyComboBox
+                model: appFontList
 
-                    property bool isInitialising: true
-                    Layout.fillWidth: true
-                    model: ConfigHelper.fontFamilies
-                    enabled: !Config.isEditorFontImmutable
-                    onActivated: {
-                        if (isInitialising && !enabled) {
-                            return;
-                        }
-                        Config.editorFont.family = currentValue;
-                        Config.save();
-                    }
+                Component.onCompleted: currentIndex = indexOfValue(Config.editorFont.family)
 
-                    Component.onCompleted: {
-                        currentIndex = indexOfValue(Config.editorFont.family)
-                        isInitialising = false
-                    }
+                onActivated: (index) => {
+                    if (index < 0) return;
 
-                    Connections {
-                        target: Config
-                        function onEditorFontChanged() {
-                            fontFamilyComboBox.currentIndex = fontFamilyComboBox.indexOfValue(Config.editorFont.family)
-                        }
-                    }
+                    var tempFont = Config.editorFont;
+                    tempFont.family = currentValue;
+                    Config.editorFont = tempFont;
+                    Config.save();
                 }
             }
         }
@@ -104,8 +83,8 @@ FormCard.FormCardPage {
 
         FormCard.FormSpinBoxDelegate {
             id: fontSizeSpinbox
-            from: 0
-            to: 25
+            from: 6
+            to: 32
             value: Config.editorFont.pixelSize
             label: i18nc("@label:spinbox", "Font size:")
             enabled: !Config.isEditorFontImmutable

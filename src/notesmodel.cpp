@@ -30,6 +30,11 @@ NotesModel::NotesModel(QObject *parent)
 
         updateColor();
     });
+    connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, [this](const QString &path) {
+        if (path == m_path) {
+            updateEntries();
+        }
+    });
 }
 
 void NotesModel::updateEntries()
@@ -116,6 +121,38 @@ void NotesModel::renameNote(const QUrl &path, const QString &name)
     updateEntries();
 }
 
+void NotesModel::duplicateNote(const QUrl &path)
+{
+    const QString originalFilePath = path.toLocalFile();
+    if (!QFile::exists(originalFilePath)) {
+        Q_EMIT errorOccured(tr("Original note file does not exist."));
+        return;
+    }
+
+    const QFileInfo originalInfo(originalFilePath);
+    const QDir dir = originalInfo.absoluteDir();
+
+    const QString suffix = originalInfo.suffix();
+
+    const QString copyBase = originalInfo.completeBaseName() % QLatin1String(" Copy");
+    QString finalFileName = copyBase + u'.' + suffix;
+
+    // Here counter is effectively the note copy number (e.g., Note Copy 1, Note Copy 2, Note Copy 3 etc.)
+    int counter = 1;
+    while (dir.exists(finalFileName)) {
+        finalFileName = copyBase + u' ' + QString::number(counter) + u'.' + suffix;
+        counter++;
+    }
+
+    QString finalFilePath = dir.filePath(finalFileName);
+
+    if (QFile::copy(originalFilePath, finalFilePath)) {
+        updateEntries();
+    } else {
+        Q_EMIT errorOccured(tr("Failed to copy the note file."));
+    }
+}
+
 QString NotesModel::path() const
 {
     return m_path;
@@ -127,6 +164,7 @@ void NotesModel::setPath(const QString &newPath)
         return;
 
     if (!m_path.isEmpty()) {
+        m_watcher.removePath(m_path);
         m_watcher.removePath(m_path + u'/' + QStringLiteral(".directory"));
     }
     m_path = newPath;
@@ -136,6 +174,7 @@ void NotesModel::setPath(const QString &newPath)
     updateColor();
 
     if (!m_path.isEmpty()) {
+        m_watcher.addPath(m_path);
         m_watcher.addPath(m_path + u'/' + QStringLiteral(".directory"));
     }
 }
@@ -149,7 +188,9 @@ void NotesModel::updateColor()
         m_color = QStringLiteral("#00000000");
     }
 
-    Q_EMIT dataChanged(index(0, 0), index(rowCount({}) - 1, 0), {Role::Color});
+    if (rowCount(QModelIndex()) > 0) {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount(QModelIndex()) - 1, 0), {Role::Color});
+    }
 }
 
 static void cleanupImageInDocument(QTextDocument &doc, bool setHeight = false)

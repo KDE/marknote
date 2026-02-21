@@ -56,6 +56,9 @@ FormCard.FormCardDialog {
         id: nameInput
 
         label: i18nc("@label:textbox Note name", "Name:")
+        validator: RegularExpressionValidator {
+            regularExpression: /^[^./\\][^/\\]*$/
+        }
         onTextChanged: {
             root.footer.standardButton(Controls.Dialog.Save)
             root.standardButton(Controls.Dialog.Save).enabled = text.length > 0

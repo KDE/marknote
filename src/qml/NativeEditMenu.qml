@@ -82,7 +82,12 @@ Labs.Menu {
             text: i18nc("text editing menu action", "Paste")
             shortcut: StandardKey.Paste
             onTriggered: {
-                editMenu.field.paste()
+                // Prefer rich paste
+                if (_window.currentDocument && typeof _window.currentDocument.pasteFromClipboard === 'function') {
+                    _window.currentDocument.pasteFromClipboard()
+                } else {
+                    editMenu.field.paste()
+                }
                 editMenu.close()
             }
         },
