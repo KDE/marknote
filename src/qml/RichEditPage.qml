@@ -89,16 +89,20 @@ Kirigami.Page {
         loadNote();
     }
     onVisibleChanged: {
+        if (!ApplicationWindow.window) {
+            return;
+        }
+
         if (visible) {
-            applicationWindow().currentDocument = document
-        } else if (applicationWindow().currentDocument === document) {
-            applicationWindow().currentDocument = null
+            ApplicationWindow.window.currentDocument = document
+        } else if (ApplicationWindow.window.currentDocument === document) {
+            ApplicationWindow.window.currentDocument = null
         }
     }
 
     Component.onDestruction: {
-        if (applicationWindow().currentDocument === document) {
-            applicationWindow().currentDocument = null
+        if (ApplicationWindow.window !== null && ApplicationWindow.window.currentDocument === document) {
+            ApplicationWindow.window.currentDocument = null
         }
     }
 
@@ -154,10 +158,12 @@ Kirigami.Page {
             color: Kirigami.Theme.textColor
             Behavior on scale {
                 NumberAnimation {
+
                     duration: Kirigami.Units.shortDuration * 2
                     easing.type: Easing.InOutQuart
                 }
             }
+
         }
         Kirigami.Heading {
             text: root.noteName
@@ -266,13 +272,27 @@ Kirigami.Page {
 
 
         ToolButton {
-            visible: applicationWindow().visibility === Window.FullScreen
+            visible: ApplicationWindow.window.visibility === Window.FullScreen
             icon.name: "window-restore-symbolic"
             text: i18nc("@action:menu", "Exit Full Screen")
             display: AbstractButton.IconOnly
             checkable: true
             checked: true
-            onClicked: applicationWindow().showNormal()
+            onClicked: ApplicationWindow.window.showNormal()
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        ToolButton {
+            icon.name: "view-list-details"
+            text: i18nc("@action:button", "Table of Content")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: tocDrawer.opened
+            onClicked: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
+            visible: true
 
             ToolTip.text: text
             ToolTip.visible: hovered
@@ -280,32 +300,19 @@ Kirigami.Page {
         }
     }
 
-    ToolButton {
-        icon.name: "view-list-details"
-        text: i18nc("@action:button", "Table of Content")
-        display: AbstractButton.IconOnly
-        checkable: true
-        checked: tocDrawer.opened
-        onClicked: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
-        visible: true
-
-        ToolTip.text: text
-        ToolTip.visible: hovered
-        ToolTip.delay: Kirigami.Units.toolTipDelay
-    }
-
-
     LinkDialog {
         id: linkDialog
+        implicitWidth: Kirigami.Units.gridUnit * 20
 
-        parent: applicationWindow().overlay
+        parent: ApplicationWindow.window.overlay
         onAccepted: document.updateLink(linkUrl, linkText)
     }
 
     ImageDialog {
         id: imageDialog
+        implicitWidth: Kirigami.Units.gridUnit * 20
 
-        parent: applicationWindow().overlay
+        parent: ApplicationWindow.window.overlay
         onAccepted: {
             if (imagePath.toString().length > 0) {
                 document.insertImage(imagePath)
@@ -317,7 +324,9 @@ Kirigami.Page {
 
     TableDialog {
         id: tableDialog
-        parent: applicationWindow().overlay
+        implicitWidth: Kirigami.Units.gridUnit * 20
+
+        parent: ApplicationWindow.window.overlay
         onAccepted: document.insertTable(rows, cols)
     }
 
@@ -775,10 +784,10 @@ Kirigami.Page {
         handleVisible: false
 
         width: Kirigami.Units.gridUnit * 15
+        
+        parent: ApplicationWindow.window.overlay
 
-        parent: applicationWindow().overlay
-
-        topMargin: (typeof pageStack !== "undefined" && pageStack.globalToolBar) ? pageStack.globalToolBar.height : (applicationWindow().header ? applicationWindow().header.height : 0)
+        topMargin: (typeof pageStack !== "undefined" && pageStack.globalToolBar) ? pageStack.globalToolBar.height : (ApplicationWindow.window.header ? ApplicationWindow.window.header.height : 0)
         bottomMargin: toolBar.visible ? (toolBar.height + Kirigami.Units.largeSpacing * 2) : (mobileToolBarContainer.visible && !mobileToolBarContainer.hidden ? mobileToolBarContainer.height : 0)
 
         height: parent.height - topMargin - bottomMargin
@@ -894,7 +903,7 @@ Kirigami.Page {
     header: ColumnLayout {
         spacing: 0
 
-        ToolBar {
+	    ToolBar {
             id: searchBar
 
             property bool isSearchOpen: false
@@ -1018,7 +1027,6 @@ Kirigami.Page {
         }
     }
 
-
     contentItem: ScrollView {
         id: contentScroll
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
@@ -1055,7 +1063,7 @@ Kirigami.Page {
             }
 
             HoverHandler {
-                id: controlHoverHandler
+                id: controlHoverHandler 
                 acceptedModifiers: Qt.ControlModifier
 
                 onPointChanged: () => {
@@ -1202,20 +1210,19 @@ Kirigami.Page {
                             root.oldPath = root.noteFullPath;
                             textArea.forceActiveFocus();
                         }
-                        if (applicationWindow().currentDocument === document) {
-                            applicationWindow().currentDocument = null;
+                        if (ApplicationWindow.window !== null && ApplicationWindow.window.currentDocument === document) {
+                            ApplicationWindow.window.currentDocument = null;
                         }
-
                     }
 
                     Component.onDestruction: {
                         if (!saved && root.noteFullPath.toString().length > 0) {
                             document.saveAs(root.noteFullPath);
                         }
-                        if (applicationWindow().currentDocument === document) {
-                            applicationWindow().currentDocument = null;
+                        // Safely check if the window still exists first!
+                        if (ApplicationWindow.window !== null && ApplicationWindow.window.currentDocument === document) {
+                            ApplicationWindow.window.currentDocument = null;
                         }
-
                     }
 
                     onCheckableChanged: {

@@ -64,7 +64,7 @@ public:
 
 Q_SIGNALS:
     void pathChanged();
-    void errorOccured(const QString &errorMessage);
+    void errorOccurred(const QString &errorMessage);
 
 private:
     void updateColor();

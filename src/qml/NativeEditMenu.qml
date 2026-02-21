@@ -4,12 +4,13 @@
 import Qt.labs.platform as Labs
 import QtQuick
 import QtQuick.Window
+import QtQuick.Controls
 
 Labs.Menu {
     id: editMenu
     title: i18nc("@action:menu", "Edit")
 
-    property Window _window: applicationWindow()
+    property Window _window: ApplicationWindow.window
 
     property Connections _textInputConnection: Connections {
         target: _window

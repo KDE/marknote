@@ -259,7 +259,7 @@ Kirigami.ScrollablePage {
                 id: notesModel
                 path: NavigationController.notebookPath
 
-                onErrorOccured: (errorMessage) => {
+                onErrorOccurred: (errorMessage) => {
                     applicationWindow().showPassiveNotification(errorMessage, "long");
                 }
 
