@@ -114,7 +114,7 @@ void NotesModel::renameNote(const QUrl &path, const QString &name)
 {
     QString newPath = m_path + u'/' + name + QStringLiteral(".md");
     if (QFile::exists(newPath)) {
-        Q_EMIT errorOccured(i18nc("@info:status", "Unable to rename note. A note already exists with the same name."));
+        Q_EMIT errorOccurred(i18nc("@info:status", "Unable to rename note. A note already exists with the same name."));
         return;
     }
     QFile::rename(path.toLocalFile(), newPath);
@@ -125,7 +125,7 @@ void NotesModel::duplicateNote(const QUrl &path)
 {
     const QString originalFilePath = path.toLocalFile();
     if (!QFile::exists(originalFilePath)) {
-        Q_EMIT errorOccured(tr("Original note file does not exist."));
+        Q_EMIT errorOccurred(tr("Original note file does not exist."));
         return;
     }
 
@@ -149,7 +149,7 @@ void NotesModel::duplicateNote(const QUrl &path)
     if (QFile::copy(originalFilePath, finalFilePath)) {
         updateEntries();
     } else {
-        Q_EMIT errorOccured(tr("Failed to copy the note file."));
+        Q_EMIT errorOccurred(tr("Failed to copy the note file."));
     }
 }
 
