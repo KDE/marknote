@@ -48,7 +48,7 @@ FormCard.FormCardDialog {
         Layout.fillWidth: true
     }
 
-    FormIconDelegate {
+    FormCard.FormIconDelegate {
         id: iconButton
     }
 

@@ -65,7 +65,7 @@ FormCard.FormCardDialog {
         visible: mode === ImportMaildirDialog.Mode.Maildir
     }
 
-    FormIconDelegate {
+    FormCard.FormIconDelegate {
         id: iconButton
     }
 
