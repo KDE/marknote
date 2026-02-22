@@ -29,7 +29,6 @@ ecm_add_qml_module(marknote_static
         # Components
         qml/components/ActionButton.qml
         qml/components/DoubleActionButton.qml
-        qml/FormIconDelegate.qml
         # Native menu
         qml/NativeHelpMenu.qml
         qml/NativeWindowMenu.qml
