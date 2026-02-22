@@ -328,6 +328,14 @@ Kirigami.ScrollablePage {
             }
 
             Action {
+                text: i18nc("@action:inmenu", "Copy Note")
+                icon.name: "edit-copy"
+                onTriggered: {
+                    notesModel.copyWholeNote(menu.delegateItem.fileUrl)
+                }
+            }
+
+            Action {
                 text: i18nc("@action:inmenu", "Export to HTML")
                 icon.name: "text-html"
                 onTriggered: {

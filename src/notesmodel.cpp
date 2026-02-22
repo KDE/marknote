@@ -5,8 +5,10 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KLocalizedString>
+#include <QClipboard>
 #include <QDebug>
 #include <QFile>
+#include <QMimeData>
 #include <QPdfWriter>
 #include <QStandardPaths>
 #include <QTextBlock>
@@ -151,6 +153,27 @@ void NotesModel::duplicateNote(const QUrl &path)
     } else {
         Q_EMIT errorOccurred(tr("Failed to copy the note file."));
     }
+}
+
+void NotesModel::copyWholeNote(const QUrl &path)
+{
+    QFile file(path.toLocalFile());
+    if (!file.open(QFile::ReadOnly))
+        return;
+
+    const QString markdown = QString::fromUtf8(file.readAll());
+
+    QTextDocument doc;
+    doc.setMarkdown(markdown);
+    const QString html = doc.toHtml();
+
+    QMimeData *mime = new QMimeData();
+    mime->setText(markdown);
+    mime->setHtml(html);
+    mime->setData(QStringLiteral("text/markdown"), markdown.toUtf8());
+    mime->setData(QStringLiteral("text/plain"), markdown.toUtf8());
+
+    QGuiApplication::clipboard()->setMimeData(mime);
 }
 
 QString NotesModel::path() const

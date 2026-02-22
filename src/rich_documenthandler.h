@@ -129,7 +129,6 @@ public:
     Q_INVOKABLE void findPrevious();
     Q_INVOKABLE void clearSearch();
 
-    Q_INVOKABLE void copyWholeNote();
     Q_INVOKABLE void pasteFromClipboard();
 
     Q_INVOKABLE void slotKeyPressed(int key);

@@ -452,10 +452,6 @@ void RichDocumentHandler::saveAs(const QUrl &fileUrl)
         return;
 
     QFile file(fileUrl.toLocalFile());
-    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
-        Q_EMIT error(tr("Cannot save: ") + file.errorString() + u' ' + fileUrl.toLocalFile());
-        return;
-    }
 
     const QString markdown = doc->toMarkdown();
 
@@ -505,7 +501,6 @@ void RichDocumentHandler::saveAs(const QUrl &fileUrl)
     }
 
     // We only reach here if the content is actually different.
-    QFile file(fileUrl.toLocalFile());
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
         Q_EMIT error(tr("Cannot save: ") + file.errorString() + u' ' + fileUrl.toLocalFile());
         return;
@@ -911,26 +906,6 @@ void RichDocumentHandler::insertTable(int rows, int columns)
         }
     }
     return;
-}
-
-void RichDocumentHandler::copyWholeNote()
-{
-    QTextDocument *doc = textDocument();
-    if (!doc) {
-        return;
-    }
-
-    const QString content = doc->toMarkdown();
-
-    QMimeData *mime = new QMimeData();
-    mime->setText(content);
-
-    const QString html = doc->toHtml();
-    mime->setHtml(html);
-    mime->setData(QStringLiteral("text/markdown"), content.toUtf8());
-    mime->setData(QStringLiteral("text/plain"), content.toUtf8());
-
-    QGuiApplication::clipboard()->setMimeData(mime);
 }
 
 void RichDocumentHandler::pasteFromClipboard()

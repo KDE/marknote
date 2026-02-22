@@ -179,42 +179,6 @@ Kirigami.Page {
             visible: wideScreen
         }
 
-        RowLayout {
-            spacing: 5
-
-            Button{
-                ToolTip.delay: Kirigami.Units.toolTipDelay
-                ToolTip.text: i18n("Switch editor to source mode")
-                ToolTip.visible: hovered
-                icon.name: "code-context-symbolic"
-                checkable: true
-                checked: false
-                text: i18n("Source View")
-                padding: 0
-                flat: true
-                spacing: Kirigami.Units.mediumSpacing
-
-                onClicked: {
-                    NavigationController.sourceMode = !NavigationController.sourceMode
-                }
-            }
-
-        }
-
-        ToolButton {
-            id: copyNoteButton
-            icon.name: "edit-copy"
-            text: i18nc("@action:button", "Copy Note")
-            display: AbstractButton.IconOnly
-            onClicked: {
-                document.copyWholeNote();
-                copyMessage.visible = true;
-                copyMessageTimer.restart();
-            }
-            ToolTip.text: text!root.singleDocumentMode && !mobileToolbarLayout.visible
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
         ToolButton {
             id: fillWindowButton
             property int columnWidth: Config.fillWindow? 0 : Kirigami.Units.gridUnit * 15
@@ -298,6 +262,26 @@ Kirigami.Page {
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
+
+        Button{
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+            ToolTip.text: i18n("Switch editor to source mode")
+            ToolTip.visible: hovered
+            icon.name: "code-context-symbolic"
+            checkable: true
+            checked: false
+            text: i18n("Source View")
+            padding: 0
+            flat: true
+            spacing: Kirigami.Units.mediumSpacing
+
+            onClicked: {
+                NavigationController.sourceMode = !NavigationController.sourceMode
+            }
+        }
+
+
+
     }
 
     LinkDialog {
@@ -1182,7 +1166,7 @@ Kirigami.Page {
                     }
                 }
 
-                DocumentHandler {
+                RichDocumentHandler {
                     id: document
 
                     document: textArea.textDocument
