@@ -35,40 +35,21 @@ using namespace Qt::StringLiterals;
 constexpr int textMargin = 20;
 
 RichDocumentHandler::RichDocumentHandler(QObject *parent)
-    : QObject(parent)
-    , m_document(nullptr)
-    , m_textArea(nullptr)
-    , m_cursorPosition(-1)
-    , m_selectionStart(0)
-    , m_selectionEnd(0)
-    , m_lastFontFamily(fontFamily())
-    , m_lastAlignment(alignment())
-    , m_lastBold(bold())
-    , m_lastItalic(italic())
-    , m_lastUnderline(underline())
-    , m_lastStrikethrough(strikethrough())
-    , m_lastFontSize(fontSize())
-    , m_lastTextColor(textColor())
+    : DocumentHandler(parent)
 {
-}
-
-QQuickItem *RichDocumentHandler::textArea() const
-{
-    return m_textArea;
-}
-
-void RichDocumentHandler::setTextArea(QQuickItem *textArea)
-{
-    if (textArea == m_textArea)
-        return;
-
-    m_textArea = textArea;
-
-    if (m_textArea) {
-        m_textArea->setAcceptHoverEvents(true);
-        m_textArea->installEventFilter(this);
-    }
-    Q_EMIT textAreaChanged();
+    m_document = nullptr;
+    m_textArea = nullptr;
+    m_cursorPosition = -1;
+    m_selectionStart = 0;
+    m_selectionEnd = 0;
+    m_lastFontFamily = fontFamily();
+    m_lastFontSize = fontSize();
+    m_lastTextColor = textColor();
+    m_lastAlignment = alignment();
+    m_lastBold = bold();
+    m_lastItalic = italic();
+    m_lastStrikethrough = strikethrough();
+    m_lastUnderline = underline();
 }
 
 bool RichDocumentHandler::eventFilter(QObject *object, QEvent *event)
@@ -95,103 +76,6 @@ bool RichDocumentHandler::eventFilter(QObject *object, QEvent *event)
     }
 
     return false;
-}
-
-QQuickTextDocument *RichDocumentHandler::document() const
-{
-    return m_document;
-}
-
-void RichDocumentHandler::setDocument(QQuickTextDocument *document)
-{
-    if (document == m_document)
-        return;
-
-    if (m_document)
-        m_document->textDocument()->disconnect(this);
-    m_document = document;
-    if (m_document)
-        connect(m_document->textDocument(), &QTextDocument::modificationChanged, this, &RichDocumentHandler::modifiedChanged);
-
-    Q_EMIT documentChanged();
-}
-
-int RichDocumentHandler::cursorPosition() const
-{
-    return m_cursorPosition;
-}
-
-void RichDocumentHandler::setCursorPosition(int position)
-{
-    if (position == m_cursorPosition)
-        return;
-
-    m_cursorPosition = position;
-    reset();
-
-    Q_EMIT cursorPositionChanged();
-}
-
-int RichDocumentHandler::selectionStart() const
-{
-    return m_selectionStart;
-}
-
-void RichDocumentHandler::setSelectionStart(int position)
-{
-    if (position == m_selectionStart)
-        return;
-
-    m_selectionStart = position;
-    Q_EMIT selectionStartChanged();
-}
-
-int RichDocumentHandler::selectionEnd() const
-{
-    return m_selectionEnd;
-}
-
-void RichDocumentHandler::setSelectionEnd(int position)
-{
-    if (position == m_selectionEnd)
-        return;
-
-    m_selectionEnd = position;
-    Q_EMIT selectionEndChanged();
-}
-
-QString RichDocumentHandler::fontFamily() const
-{
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return QString();
-    QTextCharFormat format = cursor.charFormat();
-    return format.font().family();
-}
-
-void RichDocumentHandler::setFontFamily(const QString &family)
-{
-    QTextCharFormat format;
-    format.setFontFamilies({family});
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT fontFamilyChanged();
-}
-
-QColor RichDocumentHandler::textColor() const
-{
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return QColor(Qt::black);
-    QTextCharFormat format = cursor.charFormat();
-    return format.foreground().color();
-}
-
-void RichDocumentHandler::setTextColor(const QColor &color)
-{
-    QTextCharFormat format;
-    format.setForeground(QBrush(color));
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT textColorChanged();
 }
 
 Qt::Alignment RichDocumentHandler::alignment() const
@@ -273,55 +157,6 @@ void RichDocumentHandler::setStrikethrough(bool strikethrough)
     format.setFontStrikeOut(strikethrough);
     mergeFormatOnWordOrSelection(format);
     Q_EMIT strikethroughChanged();
-}
-
-int RichDocumentHandler::fontSize() const
-{
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return 0;
-    QTextCharFormat format = cursor.charFormat();
-    return format.font().pointSize();
-}
-
-void RichDocumentHandler::setFontSize(int size)
-{
-    if (size <= 0)
-        return;
-
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return;
-
-    if (!cursor.hasSelection())
-        cursor.select(QTextCursor::WordUnderCursor);
-
-    if (cursor.charFormat().property(QTextFormat::FontPointSize).toInt() == size)
-        return;
-
-    QTextCharFormat format;
-    format.setFontPointSize(size);
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT fontSizeChanged();
-}
-
-QString RichDocumentHandler::fileName() const
-{
-    const QString filePath = QQmlFile::urlToLocalFileOrQrc(m_fileUrl);
-    const QString fileName = QFileInfo(filePath).fileName();
-    if (fileName.isEmpty())
-        return QStringLiteral("untitled.txt");
-    return fileName;
-}
-
-QString RichDocumentHandler::fileType() const
-{
-    return QFileInfo(fileName()).suffix();
-}
-
-QUrl RichDocumentHandler::fileUrl() const
-{
-    return m_fileUrl;
 }
 
 static void fixupTable(QTextFrame *frame)
@@ -556,53 +391,6 @@ void RichDocumentHandler::reset()
     m_lastTextColor = textColor();
 }
 
-QTextCursor RichDocumentHandler::textCursor() const
-{
-    QTextDocument *doc = textDocument();
-    if (!doc)
-        return {};
-
-    QTextCursor cursor(doc);
-    int lastValidPos = qMax(0, doc->characterCount() - 1);
-    int safePos = qBound(0, m_cursorPosition, lastValidPos);
-    cursor.setPosition(safePos);
-
-    if (m_selectionStart != m_selectionEnd) {
-        int safeStart = qBound(0, m_selectionStart, lastValidPos);
-        int safeEnd = qBound(0, m_selectionEnd, lastValidPos);
-
-        cursor.setPosition(safeStart);
-        cursor.setPosition(safeEnd, QTextCursor::KeepAnchor);
-    }
-    return cursor;
-}
-
-QTextDocument *RichDocumentHandler::textDocument() const
-{
-    if (!m_document)
-        return nullptr;
-    return m_document->textDocument();
-}
-
-void RichDocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
-{
-    QTextCursor cursor = textCursor();
-    if (!cursor.hasSelection())
-        cursor.select(QTextCursor::WordUnderCursor);
-    cursor.mergeCharFormat(format);
-}
-
-bool RichDocumentHandler::modified() const
-{
-    return m_document && m_document->textDocument()->isModified();
-}
-
-void RichDocumentHandler::setModified(bool m)
-{
-    if (m_document)
-        m_document->textDocument()->setModified(m);
-}
-
 bool RichDocumentHandler::canIndentList() const
 {
     return m_nestedListHelper.canIndent(textCursor()) && textCursor().blockFormat().headingLevel() == 0;
@@ -694,11 +482,6 @@ QString RichDocumentHandler::currentLinkText() const
     QTextCursor cursor = textCursor();
     selectLinkText(&cursor);
     return cursor.selectedText();
-}
-
-QString RichDocumentHandler::anchorAt(const QPointF &p) const
-{
-    return m_document->textDocument()->documentLayout()->anchorAt(p);
 }
 
 void RichDocumentHandler::selectLinkText(QTextCursor *cursor) const
@@ -794,12 +577,6 @@ void RichDocumentHandler::updateLink(const QString &linkUrl, const QString &link
     cursor.endEditBlock();
 }
 
-void RichDocumentHandler::regenerateColorScheme()
-{
-    mLinkColor = KColorScheme(QPalette::Active, KColorScheme::View).foreground(KColorScheme::LinkText).color();
-    // TODO update existing link
-}
-
 QColor RichDocumentHandler::linkColor()
 {
     if (mLinkColor.isValid()) {
@@ -807,6 +584,12 @@ QColor RichDocumentHandler::linkColor()
     }
     regenerateColorScheme();
     return mLinkColor;
+}
+
+void RichDocumentHandler::regenerateColorScheme()
+{
+    mLinkColor = KColorScheme(QPalette::Active, KColorScheme::View).foreground(KColorScheme::LinkText).color();
+    // TODO update existing link
 }
 
 QString RichDocumentHandler::processImage(const QUrl &originalUrl)
@@ -1447,139 +1230,6 @@ void RichDocumentHandler::moveLineUpDown(bool moveUp)
     move.endEditBlock();
 
     setCursorPosition(move.position());
-}
-
-static void deleteWord(QTextCursor cursor, QTextCursor::MoveOperation op)
-{
-    cursor.clearSelection();
-    cursor.movePosition(op, QTextCursor::KeepAnchor);
-    cursor.removeSelectedText();
-}
-
-void RichDocumentHandler::deleteWordBack()
-{
-    deleteWord(textCursor(), QTextCursor::PreviousWord);
-}
-
-void RichDocumentHandler::deleteWordForward()
-{
-    deleteWord(textCursor(), QTextCursor::WordRight);
-}
-
-void RichDocumentHandler::clearUndoRedoStacks()
-{
-    if (QTextDocument *doc = textDocument()) {
-        doc->clearUndoRedoStacks();
-    }
-}
-
-int RichDocumentHandler::searchMatchCount() const
-{
-    return m_searchMatches.size();
-}
-
-int RichDocumentHandler::searchCurrentMatch() const
-{
-    return m_searchCurrentMatch;
-}
-
-int RichDocumentHandler::findText(const QString &searchTerm)
-{
-    if (!m_document || searchTerm.isEmpty()) {
-        clearSearch();
-        return 0;
-    }
-
-    m_searchTerm = searchTerm;
-    m_searchMatches.clear();
-    m_searchCurrentMatch = -1;
-
-    QTextDocument *doc = textDocument();
-    if (!doc) {
-        return 0;
-    }
-
-    QTextCursor cursor(doc);
-    cursor.movePosition(QTextCursor::Start);
-
-    while (true) {
-        cursor = doc->find(searchTerm, cursor);
-        if (cursor.isNull()) {
-            break;
-        }
-        m_searchMatches.append(cursor);
-    }
-
-    if (!m_searchMatches.isEmpty()) {
-        m_searchCurrentMatch = 0;
-        QTextCursor firstMatch = m_searchMatches.at(0);
-        setCursorPosition(firstMatch.position());
-        selectCursor(firstMatch.selectionStart(), firstMatch.selectionEnd());
-    }
-
-    Q_EMIT searchMatchCountChanged();
-    Q_EMIT searchCurrentMatchChanged();
-
-    return m_searchMatches.size();
-}
-
-void RichDocumentHandler::findNext()
-{
-    if (m_searchMatches.isEmpty()) {
-        return;
-    }
-
-    m_searchCurrentMatch = (m_searchCurrentMatch + 1) % m_searchMatches.size();
-    QTextCursor match = m_searchMatches.at(m_searchCurrentMatch);
-    setCursorPosition(match.position());
-    selectCursor(match.selectionStart(), match.selectionEnd());
-
-    Q_EMIT searchCurrentMatchChanged();
-}
-
-void RichDocumentHandler::findPrevious()
-{
-    if (m_searchMatches.isEmpty()) {
-        return;
-    }
-
-    m_searchCurrentMatch = (m_searchCurrentMatch - 1 + m_searchMatches.size()) % m_searchMatches.size();
-    QTextCursor match = m_searchMatches.at(m_searchCurrentMatch);
-    setCursorPosition(match.position());
-    selectCursor(match.selectionStart(), match.selectionEnd());
-
-    Q_EMIT searchCurrentMatchChanged();
-}
-
-void RichDocumentHandler::clearSearch()
-{
-    m_searchTerm.clear();
-    m_searchMatches.clear();
-    m_searchCurrentMatch = -1;
-
-    Q_EMIT searchMatchCountChanged();
-    Q_EMIT searchCurrentMatchChanged();
-}
-
-void RichDocumentHandler::slotMouseMovedWithControl(QPointF position)
-{
-    // change cursor to a pointer when hovering over a link
-    if (m_document && m_textArea) {
-        const auto link = m_document->textDocument()->documentLayout()->anchorAt(position);
-
-        if (!link.isEmpty()) {
-            m_textArea->setCursor(Qt::PointingHandCursor);
-        } else {
-            m_textArea->setCursor(Qt::IBeamCursor);
-        }
-    }
-}
-
-void RichDocumentHandler::slotMouseMovedWithControlReleased()
-{
-    if (m_textArea) {
-        m_textArea->setCursor(Qt::IBeamCursor);
-    }
 }
 
 #include "moc_rich_documenthandler.cpp"

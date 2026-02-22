@@ -37,6 +37,7 @@ ecm_add_qml_module(marknote_static
         qml/NativeEditMenu.qml
         qml/GlobalMenuBar.qml
     SOURCES
+        documenthandler.cpp documenthandler.h
         rich_documenthandler.cpp rich_documenthandler.h
         raw_documenthandler.cpp raw_documenthandler.h
         notesmodel.cpp notesmodel.h
