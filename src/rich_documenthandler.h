@@ -17,14 +17,6 @@ class RichDocumentHandler : public DocumentHandler
     Q_OBJECT
     QML_ELEMENT
 
-    // Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
-    // Q_PROPERTY(QQuickItem *textArea READ textArea WRITE setTextArea NOTIFY textAreaChanged)
-    // Q_PROPERTY(int cursorPosition READ cursorPosition WRITE setCursorPosition NOTIFY cursorPositionChanged)
-    // Q_PROPERTY(int selectionStart READ selectionStart WRITE setSelectionStart NOTIFY selectionStartChanged)
-    // Q_PROPERTY(int selectionEnd READ selectionEnd WRITE setSelectionEnd NOTIFY selectionEndChanged)
-    //
-    // Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
-    // Q_PROPERTY(QString fontFamily READ fontFamily WRITE setFontFamily NOTIFY fontFamilyChanged)
     Q_PROPERTY(Qt::Alignment alignment READ alignment WRITE setAlignment NOTIFY alignmentChanged)
 
     Q_PROPERTY(bool bold READ bold WRITE setBold NOTIFY boldChanged)
@@ -38,10 +30,6 @@ class RichDocumentHandler : public DocumentHandler
     Q_PROPERTY(int currentListStyle READ currentListStyle NOTIFY cursorPositionChanged)
     Q_PROPERTY(int currentHeadingLevel READ currentHeadingLevel NOTIFY cursorPositionChanged)
 
-    // Q_PROPERTY(bool list READ list WRITE setList NOTIFY listChanged)
-
-    // Q_PROPERTY(int fontSize READ fontSize WRITE setFontSize NOTIFY fontSizeChanged)
-
     Q_PROPERTY(QString fileName READ fileName NOTIFY fileUrlChanged)
     Q_PROPERTY(QString fileType READ fileType NOTIFY fileUrlChanged)
     Q_PROPERTY(QUrl fileUrl READ fileUrl NOTIFY fileUrlChanged)
@@ -52,27 +40,6 @@ class RichDocumentHandler : public DocumentHandler
 
 public:
     explicit RichDocumentHandler(QObject *parent = nullptr);
-
-    // QQuickTextDocument *document() const;
-    // void setDocument(QQuickTextDocument *document);
-    //
-    // QQuickItem *textArea() const;
-    // void setTextArea(QQuickItem *textArea);
-    //
-    // int cursorPosition() const;
-    // void setCursorPosition(int position);
-    //
-    // int selectionStart() const;
-    // void setSelectionStart(int position);
-    //
-    // int selectionEnd() const;
-    // void setSelectionEnd(int position);
-    //
-    // QString fontFamily() const;
-    // void setFontFamily(const QString &family);
-    //
-    // QColor textColor() const;
-    // void setTextColor(const QColor &color);
 
     Qt::Alignment alignment() const;
     void setAlignment(Qt::Alignment alignment);
@@ -98,40 +65,16 @@ public:
 
     int currentHeadingLevel() const;
 
-    // bool list() const;
-    // void setList(bool list);
-
-    // int fontSize() const;
-    // void setFontSize(int size);
-
-    // QString fileName() const;
-    // QString fileType() const;
-    // QUrl fileUrl() const;
-
-    // bool modified() const;
-    // void setModified(bool m);
-
-    // int searchMatchCount() const;
-    // int searchCurrentMatch() const;
-
     Q_INVOKABLE QString currentLinkUrl() const;
     Q_INVOKABLE QString currentLinkText() const;
-    // Q_INVOKABLE [[nodiscard]] QString anchorAt(const QPointF &p) const;
+
     Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
     Q_INVOKABLE void insertImage(const QUrl &imagePath);
     Q_INVOKABLE void insertTable(int rows, int columns);
-    // Q_INVOKABLE int findText(const QString &searchTerm);
-    // Q_INVOKABLE void findNext();
-    // Q_INVOKABLE void findPrevious();
-    // Q_INVOKABLE void clearSearch();
 
     Q_INVOKABLE void pasteFromClipboard() override;
 
     Q_INVOKABLE void slotKeyPressed(int key);
-    // Q_INVOKABLE void slotMouseMovedWithControl(QPointF position);
-    // Q_INVOKABLE void slotMouseMovedWithControlReleased();
-
-    // Q_INVOKABLE void clearUndoRedoStacks();
 
 public Q_SLOTS:
     void load(const QUrl &fileUrl) override;
@@ -144,14 +87,7 @@ public Q_SLOTS:
     void setHeadingLevel(int level);
 
 Q_SIGNALS:
-    // void documentChanged();
-    // void textAreaChanged();
-    // void cursorPositionChanged();
-    // void selectionStartChanged();
-    // void selectionEndChanged();
-    //
-    // void fontFamilyChanged();
-    // void textColorChanged();
+
     void alignmentChanged();
 
     void boldChanged();
@@ -160,38 +96,13 @@ Q_SIGNALS:
     void checkableChanged();
     void strikethroughChanged();
 
-    // void listChanged();
-
-    // void fontSizeChanged();
-
-    // void textChanged();
-    // void fileUrlChanged();
-    //
-    // void loaded(const QString &text, int format);
-    // void error(const QString &message);
-
-    // void modifiedChanged();
-    // void searchMatchCountChanged();
-    // void searchCurrentMatchChanged();
-
-    // void focusUp();
-    // void focusDown();
-    // void copy();
-    // void cut();
-    // void undo();
-    // void redo();
-    // void moveCursor(int position);
-    // void selectCursor(int start, int end);
-
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
 private:
     QString processImage(const QUrl &url);
     void reset() override;
-    // QTextCursor textCursor() const;
     void selectLinkText(QTextCursor *cursor) const;
-    // QTextDocument *textDocument() const;
     QColor linkColor();
     bool evaluateReturnKeySupport(QKeyEvent *event);
     bool evaluateListSupport(QKeyEvent *event);
@@ -202,18 +113,9 @@ private:
     void moveLineUpDown(bool moveUp);
     void moveCursorBeginUpDown(bool moveUp);
 
-    // void deleteWordBack();
-    // void deleteWordForward();
-
     void regenerateColorScheme();
 
-    // QQuickTextDocument *m_document;
-    // QQuickItem *m_textArea;
     QColor mLinkColor;
-
-    // int m_cursorPosition;
-    // int m_selectionStart;
-    // int m_selectionEnd;
 
     /**c
      * The names of embedded images.
@@ -223,24 +125,14 @@ private:
     QStringList m_imageNames;
     QHash<QString, QString> m_imagePathLookup;
 
-    // QFont m_font;
-    // QUrl m_fileUrl;
     NestedListHelper m_nestedListHelper;
     QString m_frontMatter;
     QString m_activeLink;
 
-    // QString m_searchTerm;
-    // int m_searchCurrentMatch = -1;
-    // QList<QTextCursor> m_searchMatches;
-
-    // Cache data to dismiss redundant UI calls.
-    // QString m_lastFontFamily;
-    // Qt::Alignment m_lastAlignment;
     bool m_lastBold;
     bool m_lastItalic;
     bool m_lastUnderline;
     bool m_lastStrikethrough;
-    // QColor m_lastTextColor;
 };
 
 #endif // RICHDOCUMENTHANDLER_H
