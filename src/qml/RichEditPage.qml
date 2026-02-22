@@ -32,7 +32,7 @@ Kirigami.Page {
     property bool singleDocumentMode: false
 
     leftPadding: 0
-    rightPadding: Kirigami.Settings.isMobile ? 0 : (tocDrawer.width * tocDrawer.position)
+    rightPadding: Kirigami.Settings.isMobile ? 0 : (tocDrawer.opened ? tocDrawer.width * tocDrawer.position : 0)
     topPadding: 0
     bottomPadding: 0
 
@@ -143,6 +143,21 @@ Kirigami.Page {
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
 
+        ToolButton {
+            icon.name: "view-list-details"
+            text: i18nc("@action:button", "Table of Content")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: tocDrawer.opened
+            onClicked: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
+            visible: true
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+
         Item {
             // for spacing
             width: Kirigami.Units.largeSpacing*5
@@ -180,6 +195,31 @@ Kirigami.Page {
         }
 
         ToolButton {
+            icon.name: "search"
+            text: i18nc("@action:button", "Search Note")
+            display: AbstractButton.IconOnly
+            visible: true
+            checkable: true
+            checked: searchBar.isSearchOpen
+            onClicked:
+            {
+                if(searchBar.isSearchOpen === true)
+                {
+                    root.closeSearch()
+                }
+                else
+                {
+                    root.openSearch()
+                }
+            }
+
+            ToolTip.text: i18nc("@info:tooltip", "Search in Note")
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+
+        ToolButton {
             id: fillWindowButton
             property int columnWidth: Config.fillWindow? 0 : Kirigami.Units.gridUnit * 15
 
@@ -210,30 +250,6 @@ Kirigami.Page {
             }
         }
 
-        ToolButton {
-            icon.name: "search"
-            text: i18nc("@action:button", "Search Note")
-            display: AbstractButton.IconOnly
-            visible: true
-            checkable: true
-            checked: searchBar.isSearchOpen
-            onClicked:
-            {
-                if(searchBar.isSearchOpen === true)
-                {
-                    root.closeSearch()
-                }
-                else
-                {
-                    root.openSearch()
-                }
-            }
-
-            ToolTip.text: i18nc("@info:tooltip", "Search in Note")
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
 
         ToolButton {
             visible: ApplicationWindow.window.visibility === Window.FullScreen
@@ -249,19 +265,6 @@ Kirigami.Page {
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
 
-        ToolButton {
-            icon.name: "view-list-details"
-            text: i18nc("@action:button", "Table of Content")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: tocDrawer.opened
-            onClicked: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
-            visible: true
-
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
 
         Button{
             ToolTip.delay: Kirigami.Units.toolTipDelay
