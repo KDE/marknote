@@ -85,6 +85,7 @@ add_subdirectory(src)
 ki18n_install(po)
 
 install(PROGRAMS org.kde.marknote.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES marknote.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 install(FILES org.kde.marknote.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES org.kde.marknote.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 
