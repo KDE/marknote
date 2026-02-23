@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-21 00:45+0000\n"
+"POT-Creation-Date: 2026-02-23 00:45+0000\n"
 "PO-Revision-Date: 2026-02-12 16:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -329,12 +329,6 @@ msgstr "關閉"
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
 msgstr "筆記已複製到剪貼簿。"
-
-#: qml/FormIconDelegate.qml:17
-#, kde-format
-msgctxt "@action:button"
-msgid "Icon"
-msgstr "圖示"
 
 #: qml/GlobalMenuBar.qml:18
 #, kde-format
@@ -888,6 +882,10 @@ msgstr "欄"
 #, kde-format
 msgid "Cell Contents"
 msgstr "儲存格內容"
+
+#~ msgctxt "@action:button"
+#~ msgid "Icon"
+#~ msgstr "圖示"
 
 #~ msgctxt "@title:window"
 #~ msgid "Select the notes directory"

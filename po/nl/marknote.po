@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-21 00:45+0000\n"
+"POT-Creation-Date: 2026-02-23 00:45+0000\n"
 "PO-Revision-Date: 2026-02-12 13:17+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -330,12 +330,6 @@ msgstr "Sluiten"
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
 msgstr "De notitie is gekopieerd naar het klembord."
-
-#: qml/FormIconDelegate.qml:17
-#, kde-format
-msgctxt "@action:button"
-msgid "Icon"
-msgstr "Pictogram"
 
 #: qml/GlobalMenuBar.qml:18
 #, kde-format
@@ -894,6 +888,10 @@ msgstr "Kolom"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celinhoud"
+
+#~ msgctxt "@action:button"
+#~ msgid "Icon"
+#~ msgstr "Pictogram"
 
 #~ msgctxt "@title:window"
 #~ msgid "Select the notes directory"
