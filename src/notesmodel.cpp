@@ -239,15 +239,15 @@ static void cleanupImageInDocument(QTextDocument &doc, bool setHeight = false)
     }
 }
 
-void NotesModel::exportToPdf(const QUrl &path, const QUrl &destination)
+bool NotesModel::exportToPdf(const QUrl &path, const QUrl &destination)
 {
     if (!QFile::exists(path.toLocalFile())) {
-        return;
+        return false;
     }
 
     QFile file(path.toLocalFile());
     if (!file.open(QFile::ReadOnly)) {
-        return;
+        return false;
     }
 
     QByteArray data = file.readAll();
@@ -259,17 +259,18 @@ void NotesModel::exportToPdf(const QUrl &path, const QUrl &destination)
 
     cleanupImageInDocument(doc);
     doc.print(&writer);
+    return true;
 }
 
-void NotesModel::exportToHtml(const QUrl &path, const QUrl &destination)
+bool NotesModel::exportToHtml(const QUrl &path, const QUrl &destination)
 {
     if (!QFile::exists(path.toLocalFile())) {
-        return;
+        return false;
     }
 
     QFile file(path.toLocalFile());
     if (!file.open(QFile::ReadOnly)) {
-        return;
+        return false;
     }
 
     QByteArray data = file.readAll();
@@ -294,7 +295,7 @@ void NotesModel::exportToHtml(const QUrl &path, const QUrl &destination)
 
     QFile exportFile(destination.toLocalFile());
     if (!exportFile.open(QFile::WriteOnly)) {
-        return;
+        return false;
     }
 
     QByteArray content = R"(
@@ -342,17 +343,18 @@ img {
 )";
 
     exportFile.write(content);
+    return true;
 }
 
-void NotesModel::exportToOdt(const QUrl &path, const QUrl &destination)
+bool NotesModel::exportToOdt(const QUrl &path, const QUrl &destination)
 {
     if (!QFile::exists(path.toLocalFile())) {
-        return;
+        return false;
     }
 
     QFile file(path.toLocalFile());
     if (!file.open(QFile::ReadOnly)) {
-        return;
+        return false;
     }
 
     QByteArray data = file.readAll();
@@ -363,6 +365,7 @@ void NotesModel::exportToOdt(const QUrl &path, const QUrl &destination)
 
     QTextDocumentWriter writer(destination.toLocalFile(), "odf");
     writer.write(&doc);
+    return true;
 }
 
 #include "moc_notesmodel.cpp"

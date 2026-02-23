@@ -47,17 +47,20 @@ public:
     /// Export a note to HTML.
     /// \param path The path of the note to export.
     /// \param destination The destination of the note to export.
-    Q_INVOKABLE void exportToHtml(const QUrl &path, const QUrl &destination);
+    /// \return whether export was successful.
+    Q_INVOKABLE bool exportToHtml(const QUrl &path, const QUrl &destination);
 
     /// Export a note to PDF.
     /// \param path The path of the note to export.
     /// \param destination The destination of the note to export.
-    Q_INVOKABLE void exportToPdf(const QUrl &path, const QUrl &destination);
+    /// \return whether export was successful.
+    Q_INVOKABLE bool exportToPdf(const QUrl &path, const QUrl &destination);
 
     /// Export a note to ODT.
     /// \param path The path of the note to export.
     /// \param destination The destination of the note to export.
-    Q_INVOKABLE void exportToOdt(const QUrl &path, const QUrl &destination);
+    /// \return whether export was successful.
+    Q_INVOKABLE bool exportToOdt(const QUrl &path, const QUrl &destination);
 
     QString path() const;
     void setPath(const QString &newPath);
