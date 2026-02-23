@@ -373,11 +373,13 @@
             sidebar is now collapsible and we added a focus mode where
             everything but the text editor is displayed.
         </p>
+        <p xml:lang="ar">حُسنت إدارة الملاحظات مع القدرة على اختيار مجلد مخصص لتخزين ملاحظاتك وأُتيح تغيير فرز الملاحظات من أبجدي إلى حسب التاريخ. أصبح الشريط الجانبي قابلاً للطي وأُضيف وضع التركيز حيث يُعرض المحرر النصي فقط.</p>
         <p xml:lang="ca">Hem millorat la gestió de les notes amb la capacitat d'escollir una carpeta personalitzada on emmagatzemar-les i permetre canviar l'ordenació de les notes alfabèticament a fer-ho per data. La barra lateral ara es pot reduir i hem afegit un mode d'enfocament on es mostra només l'editor de text.</p>
         <p xml:lang="ca-valencia">Hem millorat la gestió de les notes amb la capacitat d'escollir una carpeta personalitzada on emmagatzemar-les i permetre canviar l'ordenació de les notes alfabèticament a fer-ho per data. La barra lateral ara es pot reduir i hem afegit un mode d'enfocament on es mostra només l'editor de text.</p>
         <p xml:lang="ia">Nos meliorava le gestion de notas con le habilitate a seliger un dossier personalisate ubi immagazinar tu notas e facer lo possibile cambiar le ordine de notas ex alphabetically a per data. Le barra lateral es nunc plicabile e nos addeva un modo de focalisar ubi toto preter le editor de texto es monstrate.</p>
         <p xml:lang="ka">ჩვენ გავაუმჯობესეთ შენიშვნების მართვა შესაძლებლობით, აირჩიოთ სასურველი საქაღალდე თქვენი შენიშვნების დასალაგებლად და შესაძლებელი გავხადეთ, შენიშვნების ანბანის მაგიერ თარიღით დაალაგოთ. გვერდითი პანელი ახლა აკეცვადია და ჩვენ დავამატეთ ფოკუსის რეჟიმი, სადაც ყველაფერია ნაჩვენები ტექსტური რედაქტორის გარდა.</p>
         <p xml:lang="pt-BR">Aprimoramos o gerenciamento de notas com a possibilidade de escolher uma pasta personalizada para armazená-las e também possibilitamos alterar a ordem de classificação das notas de alfabética para por data. A barra lateral agora pode ser recolhida e adicionamos um modo de foco, no qual tudo, exceto o editor de texto, é exibido.</p>
+        <p xml:lang="ru">Улучшено управление заметками: добавлена возможность выбора пользовательской папки для их хранения, а также изменения сортировки с алфавитной на сортировку по дате. Боковую панель теперь можно скрывать, а в режиме фокусировки отображается только текстовый редактор.</p>
         <p xml:lang="sl">Izboljšali smo upravljanje zapiskov z možnostjo izbire mape po meri za shranjevanje zapiskov in omogočili spremembo razvrščanja zapiskov iz abecednega v datumsko. Stranska vrstica je zdaj zložljiva in dodali smo način fokusa, kjer je prikazano vse razen urejevalnika besedila.</p>
         <p xml:lang="tr">Not yönetimini, notlarınızı saklamak için özel bir klasör seçme özelliğiyle geliştirdik ve notların sıralamasını abeceselden tarihe göre değiştirme olanağı sağladık. Kenar çubuğu artık daraltılabilir ve metin düzenleyici dışındaki her şeyin görüntülendiği bir odak kipi ekledik.</p>
         <p xml:lang="uk">Ми покращили керування нотатками, додавши можливість вибору нетипової теки для зберігання нотаток, а також змінили впорядкування нотаток з алфавітного на упорядкування за датами. Бічна панель тепер згортається, і ми додали режим фокусування, в якому буде показано все, крім текстового редактора.</p>
@@ -451,12 +453,14 @@
     <release version="1.1.1" date="2024-04-01">
       <description>
         <p>Fix an important bug</p>
+        <p xml:lang="ar">إصلاح علة مهمة</p>
         <p xml:lang="ca">Correcció d'un error important</p>
         <p xml:lang="ca-valencia">Correcció d'un error important</p>
         <p xml:lang="he">תוקנה תקלה חשובה</p>
         <p xml:lang="ia">Corrige un falta importante</p>
         <p xml:lang="ka">გასწორდა მნიშვნელოვანი შეცდომა</p>
         <p xml:lang="pt-BR">Correção de um bug importante</p>
+        <p xml:lang="ru">Исправлена важная ошибка.</p>
         <p xml:lang="sl">Poprava pomembne napake</p>
         <p xml:lang="tr">Önemli bir hatayı düzelt</p>
         <p xml:lang="uk">Виправлено важливу ваду</p>
