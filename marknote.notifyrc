@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2026 Stephan Seitz <stephan.seitz@fau.de>
+[Global]
+IconName=org.kde.marknote
+DesktopEntry=org.kde.marknote
+Name=Marknote
+
+[Event/exportSuccessful]
+Name=Export successful
+Action=Sound|Popup
+Sound=ocean/stereo/outcome-success.oga
+
+[Event/exportFailed]
+Name=Export failed
+Action=Sound|Popup
+Sound=ocean/stereo/outcome-failure.oga
+
