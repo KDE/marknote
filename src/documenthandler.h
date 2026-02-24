@@ -211,6 +211,8 @@ private:
 
     void regenerateColorScheme();
 
+    [[nodiscard]] bool isCodeBlock(const QTextBlock &block) const;
+
     QQuickTextDocument *m_document;
     QQuickItem *m_textArea;
     QColor mLinkColor;
