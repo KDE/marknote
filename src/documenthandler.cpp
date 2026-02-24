@@ -1277,15 +1277,43 @@ void DocumentHandler::slotKeyPressed(int key)
         QTextCharFormat strikethroughFormat;
         strikethroughFormat.setFontStrikeOut(true);
         transform(u"~~"_s, strikethroughFormat);
-    }
 
-    // Match the behavior of office suites: newline after header switches to normal text
-    if ((key == Qt::Key_Return) && (cursor.blockFormat().headingLevel() > 0) && (cursor.atBlockEnd())) {
-        // it should be undoable together with actual "return" keypress
-        cursor.joinPreviousEditBlock();
-        setHeadingLevel(0);
-        cursor.endEditBlock();
-        Q_EMIT cursorPositionChanged();
+        // links
+        // Auto-convert Markdown links [text](url)
+        const auto textUpToCursor = cursor.block().text().left(cursor.positionInBlock());
+        static const QRegularExpression linkRegex(u"\\[([^\\]]+)\\]\\(([^\\)]+)\\)$"_s);
+        QRegularExpressionMatch match = linkRegex.match(textUpToCursor);
+
+        if (match.hasMatch()) {
+            const QString linkText = match.captured(1);
+            const QString linkUrl = match.captured(2);
+            const int matchLength = match.capturedLength();
+
+            cursor.beginEditBlock();
+
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, matchLength);
+            cursor.removeSelectedText();
+
+            QTextCharFormat linkFormat = cursor.charFormat();
+            linkFormat.setAnchor(true);
+            linkFormat.setAnchorHref(linkUrl);
+            linkFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);
+            linkFormat.setUnderlineColor(linkColor());
+            linkFormat.setForeground(linkColor());
+
+            cursor.insertText(linkText, linkFormat);
+
+            QTextCharFormat resetFormat = cursor.charFormat();
+            resetFormat.setAnchor(false);
+            resetFormat.setAnchorHref(QString());
+            resetFormat.setUnderlineStyle(QTextCharFormat::NoUnderline);
+            resetFormat.clearForeground();
+
+            cursor.setCharFormat(resetFormat);
+
+            cursor.endEditBlock();
+            Q_EMIT cursorPositionChanged();
+        }
     }
 
     if (key == Qt::Key_Return) {
@@ -1338,6 +1366,46 @@ void DocumentHandler::slotKeyPressed(int key)
             if (leadingSpacesCount > 0) {
                 cursor.insertText(QString(leadingSpacesCount, u' '));
                 return;
+            }
+        }
+
+        // Clear heading and sticky hyperlink formatting on the new line
+        if (cursor.atBlockEnd()) {
+            bool formatChanged = false;
+
+            if (cursor.blockFormat().headingLevel() > 0 || cursor.charFormat().isAnchor()) {
+                cursor.joinPreviousEditBlock();
+
+                // Clear heading formatting
+                if (cursor.blockFormat().headingLevel() > 0) {
+                    setHeadingLevel(0);
+                    formatChanged = true;
+                }
+
+                // Clear sticky hyperlink formatting
+                if (cursor.charFormat().isAnchor()) {
+                    QTextCharFormat resetFormat = cursor.charFormat();
+                    resetFormat.setAnchor(false);
+                    resetFormat.setAnchorHref(QString());
+                    resetFormat.setUnderlineStyle(QTextCharFormat::NoUnderline);
+                    resetFormat.clearForeground();
+
+                    cursor.setBlockCharFormat(resetFormat);
+
+                    QTextCursor selectCursor = cursor;
+                    selectCursor.select(QTextCursor::BlockUnderCursor);
+                    selectCursor.setCharFormat(resetFormat);
+
+                    cursor.setCharFormat(resetFormat);
+                    formatChanged = true;
+                }
+
+                cursor.endEditBlock();
+            }
+
+            if (formatChanged) {
+                Q_EMIT cursorPositionChanged();
+                reset();
             }
         }
     }
