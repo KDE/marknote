@@ -1002,6 +1002,30 @@ bool DocumentHandler::evaluateReturnKeySupport(QKeyEvent *event)
     }
 
     QTextCursor cursor = textCursor();
+
+    int quoteLevel = cursor.blockFormat().intProperty(QTextFormat::BlockQuoteLevel);
+    if (quoteLevel > 0) {
+        // If pressing Enter on an empty line (unless it's not a list), exit the blockquote
+        if (cursor.block().text().trimmed().isEmpty() && !cursor.currentList()) {
+            cursor.beginEditBlock();
+            QTextBlockFormat bfmt = cursor.blockFormat();
+
+            // Decrease the level by 1 to gracefully exit nested quotes
+            int newLevel = qMax(0, quoteLevel - 1);
+            bfmt.setProperty(QTextFormat::BlockQuoteLevel, newLevel);
+            bfmt.setIndent(newLevel);
+            cursor.setBlockFormat(bfmt);
+
+            cursor.endEditBlock();
+
+            // Eat the event so we just drop the formatting without adding a new line
+            return false;
+        }
+
+        // For non-empty lines, just let the list handler and native Qt layout handle it
+        return evaluateListSupport(event);
+    }
+
     const int oldPos = cursor.position();
     const int blockPos = cursor.block().position();
 
@@ -1138,6 +1162,21 @@ void DocumentHandler::slotKeyPressed(int key)
         if (fullBlockText.startsWith(u"* ") || fullBlockText.startsWith(u"- ")) {
             cursor.beginEditBlock();
             setListStyle(1);
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 2);
+            cursor.deleteChar();
+            cursor.endEditBlock();
+        }
+
+        // Automatic block transformation to blockquote
+        if (fullBlockText.startsWith(u"> ")) {
+            cursor.beginEditBlock();
+            QTextBlockFormat bfmt = cursor.blockFormat();
+
+            bfmt.setProperty(QTextFormat::BlockQuoteLevel, 1);
+            bfmt.setIndent(1);
+
+            cursor.setBlockFormat(bfmt);
+
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 2);
             cursor.deleteChar();
             cursor.endEditBlock();
