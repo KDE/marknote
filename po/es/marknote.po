@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-23 00:45+0000\n"
+"POT-Creation-Date: 2026-02-24 00:45+0000\n"
 "PO-Revision-Date: 2026-02-12 11:10+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -133,7 +133,7 @@ msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Buscar en nota"
 
-#: qml/EditPage.qml:247 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:158
+#: qml/EditPage.qml:247 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:159
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -613,28 +613,28 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Nombre:"
 
-#: qml/NotesPage.qml:37
+#: qml/NotesPage.qml:38
 #, kde-format
 msgid "Add note"
 msgstr "Añadir nota"
 
-#: qml/NotesPage.qml:121
+#: qml/NotesPage.qml:122
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Salir de la búsqueda (%1)"
 
-#: qml/NotesPage.qml:121
+#: qml/NotesPage.qml:122
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Buscar notas (%1)"
 
-#: qml/NotesPage.qml:180
+#: qml/NotesPage.qml:181
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Borrar nota"
 
-#: qml/NotesPage.qml:190
+#: qml/NotesPage.qml:191
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -643,76 +643,104 @@ msgstr ""
 "¿Seguro que quiere borrar la nota <b>%1</b>? Esto borrará el archivo <b>%2</"
 "b> de forma definitiva."
 
-#: qml/NotesPage.qml:300
+#: qml/NotesPage.qml:327 qml/NotesPage.qml:363
+#, fuzzy, kde-format
+#| msgctxt "Application name"
+#| msgid "Marknote"
+msgctxt "@title:window"
+msgid "Marknote"
+msgstr "Marknote"
+
+#: qml/NotesPage.qml:328
+#, kde-format
+msgctxt "@info"
+msgid "Export of \"%1\" was successful."
+msgstr ""
+
+#: qml/NotesPage.qml:346
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Link"
+msgctxt "@action:notifaction"
+msgid "Open File"
+msgstr "Abrir enlace"
+
+#: qml/NotesPage.qml:364
+#, kde-format
+msgctxt "@info"
+msgid "Export of \"%1\" failed."
+msgstr ""
+
+#: qml/NotesPage.qml:376
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Cambiar nombre de nota"
 
-#: qml/NotesPage.qml:312
+#: qml/NotesPage.qml:388
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate Note"
 msgstr "Duplicar nota"
 
-#: qml/NotesPage.qml:320
+#: qml/NotesPage.qml:396
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Borrar nota"
 
-#: qml/NotesPage.qml:331
+#: qml/NotesPage.qml:407
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Exportar a HTML"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:413
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exportar a HTML"
 
-#: qml/NotesPage.qml:338
+#: qml/NotesPage.qml:414
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Archivo HTML (*.html)"
 
-#: qml/NotesPage.qml:344
+#: qml/NotesPage.qml:420
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Exportar a PDF"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:426
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exportar a PDF"
 
-#: qml/NotesPage.qml:351
+#: qml/NotesPage.qml:427
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Archivo PDF (*.pdf)"
 
-#: qml/NotesPage.qml:357
+#: qml/NotesPage.qml:433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Exportar a ODT"
 
-#: qml/NotesPage.qml:363
+#: qml/NotesPage.qml:439
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exportar a ODT"
 
-#: qml/NotesPage.qml:364
+#: qml/NotesPage.qml:440
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Documento de texto ODF (*.odt)"
 
-#: qml/NotesPage.qml:529
+#: qml/NotesPage.qml:605
 #, kde-format
 msgid "Add a note!"
 msgstr "Añada una nota"
