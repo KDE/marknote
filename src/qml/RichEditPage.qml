@@ -12,286 +12,197 @@ import "components"
 import org.kde.kirigamiaddons.components as Components
 import org.kde.marknote
 
-Kirigami.Page {
-    id: root
-
-    Layout.fillWidth: true
-
+EditPage {
+    id: richEditPage
 
     objectName: "RichEditPage"
 
-    readonly property bool wideScreen: (width >= toolBar.width + Kirigami.Units.largeSpacing * 2) && pageStack.columnView.columnResizeMode !== Kirigami.ColumnView.SingleColumn
+    mobileToolBarHidden: mobileToolBarContainer.hidden
+    mobileToolBarHeight: mobileToolBarContainer.height
 
-    property bool saved: true
-    property string oldPath: ''
-    property bool listIndent: true
-    property bool listDedent: true
-    property bool checkbox: false
-    property int listStyle
-    property int heading
-    property bool singleDocumentMode: false
+    headerItems: Component {
 
-    leftPadding: 0
-    rightPadding: Kirigami.Settings.isMobile ? 0 : (tocDrawer.opened ? tocDrawer.width * tocDrawer.position : 0)
-    topPadding: 0
-    bottomPadding: 0
+        RowLayout{
 
-    // Only overwrite these values in MainEditor
-    property string noteName: NavigationController.noteName
-    property string noteFullPath: NavigationController.noteFullPath
-    property alias document: document
+            ToolButton {
+                icon.name: "edit-undo"
+                text: i18n("Undo")
+                display: AbstractButton.IconOnly
+                Layout.leftMargin: Kirigami.Units.smallSpacing
+                onClicked: textArea.undo()
+                enabled: textArea.canUndo
+                visible: wideScreen && !singleDocumentMode && !mobileToolbarLayout.visible
 
-    property bool init: false
-
-    function openSearch(): void {
-        if (searchBar) {
-            searchBar.isSearchOpen = true;
-
-            if (searchField) {
-                // Ensure focus happens slightly after
-                // the state change triggers the layout update
-                Qt.callLater(function() {
-                    searchField.forceActiveFocus();
-                    searchField.selectAll();
-                });
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
             }
-        }
-    }
 
-    function closeSearch(): void {
-        if (searchBar) {
-            searchBar.isSearchOpen = false;
-            textArea.deselect();
+            ToolButton {
+                icon.name: "edit-redo"
+                text: i18n("Redo")
+                display: AbstractButton.IconOnly
+                onClicked: textArea.redo()
+                enabled: textArea.canRedo
+                visible: wideScreen && !singleDocumentMode && !mobileToolbarLayout.visible
 
-            if (textArea) {
-                Qt.callLater(function() {
-                    textArea.forceActiveFocus();
-                });
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
             }
-        }
-    }
 
-    function loadNote(): void {
-        if (root.oldPath.length > 0 && !saved) {
-            document.saveAs(root.oldPath);
-        }
-        if (root.noteFullPath.toString().length > 0) {
-            document.load(root.noteFullPath);
-            root.saved = true;
-        }
-        root.oldPath = root.noteFullPath;
+            ToolButton {
+                icon.name: "view-list-details"
+                text: i18nc("@action:button", "Table of Content")
+                display: AbstractButton.IconOnly
+                checkable: true
+                checked: tocDrawer.opened
+                onClicked: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
+                visible: true
 
-        textArea.forceActiveFocus();
-    }
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
 
-    Component.onCompleted: {
-        init = true;
-        loadNote();
-    }
-    onVisibleChanged: {
-        if (!ApplicationWindow.window) {
-            return;
-        }
+            Item {
+                // for spacing
+                width: Kirigami.Units.largeSpacing*5
+                visible: pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
+            }
 
-        if (visible) {
-            ApplicationWindow.window.currentDocument = document
-        } else if (ApplicationWindow.window.currentDocument === document) {
-            ApplicationWindow.window.currentDocument = null
-        }
-    }
+            Item { Layout.fillWidth: true }
+            Rectangle {
+                height: 5
+                width: height
+                radius: 2.5
+                scale: saved ? 0 : 1
+                color: Kirigami.Theme.textColor
+                Behavior on scale {
+                    NumberAnimation {
 
-    Component.onDestruction: {
-        if (ApplicationWindow.window !== null && ApplicationWindow.window.currentDocument === document) {
-            ApplicationWindow.window.currentDocument = null
-        }
-    }
-
-    onNoteFullPathChanged: () => {
-        if (!init) {
-            return;
-        }
-        loadNote();
-    }
-
-    titleDelegate: RowLayout {
-        visible: root.noteName
-        Layout.fillWidth: true
-
-        ToolButton {
-            icon.name: "edit-undo"
-            text: i18n("Undo")
-            display: AbstractButton.IconOnly
-            Layout.leftMargin: Kirigami.Units.smallSpacing
-            onClicked: textArea.undo()
-            enabled: textArea.canUndo
-            visible: wideScreen && !root.singleDocumentMode && !mobileToolbarLayout.visible
-
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-        ToolButton {
-            icon.name: "edit-redo"
-            text: i18n("Redo")
-            display: AbstractButton.IconOnly
-            onClicked: textArea.redo()
-            enabled: textArea.canRedo
-            visible: wideScreen && !root.singleDocumentMode && !mobileToolbarLayout.visible
-
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        ToolButton {
-            icon.name: "view-list-details"
-            text: i18nc("@action:button", "Table of Content")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: tocDrawer.opened
-            onClicked: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
-            visible: true
-
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-
-        Item {
-            // for spacing
-            width: Kirigami.Units.largeSpacing*5
-            visible: pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
-        }
-
-        Item { Layout.fillWidth: true }
-        Rectangle {
-            height: 5
-            width: height
-            radius: 2.5
-            scale: root.saved ? 0 : 1
-            color: Kirigami.Theme.textColor
-            Behavior on scale {
-                NumberAnimation {
-
-                    duration: Kirigami.Units.shortDuration * 2
-                    easing.type: Easing.InOutQuart
+                        duration: Kirigami.Units.shortDuration * 2
+                        easing.type: Easing.InOutQuart
+                    }
                 }
+
             }
 
-        }
-        Kirigami.Heading {
-            text: root.noteName
-            Layout.rightMargin: Kirigami.Units.mediumSpacing
-            Layout.leftMargin: Kirigami.Units.mediumSpacing
+            Kirigami.Heading {
+                text: noteName
+                Layout.rightMargin: Kirigami.Units.mediumSpacing
+                Layout.leftMargin: Kirigami.Units.mediumSpacing
+            }
 
-        }
-        Item{ width: 5 }
+            Item{ width: 5 }
 
-        Item { Layout.fillWidth: true }
-        Item {
-            width: fillWindowButton.width
-            visible: wideScreen
-        }
+            Item { Layout.fillWidth: true }
+            Item {
+                width: fillWindowButton.width
+                visible: wideScreen
+            }
 
-        ToolButton {
-            icon.name: "search"
-            text: i18nc("@action:button", "Search Note")
-            display: AbstractButton.IconOnly
-            visible: true
-            checkable: true
-            checked: searchBar.isSearchOpen
-            onClicked:
-            {
-                if(searchBar.isSearchOpen === true)
+
+            ToolButton {
+                icon.name: "search"
+                text: i18nc("@action:button", "Search Note")
+                display: AbstractButton.IconOnly
+                visible: true
+                checkable: true
+                checked: searchBar.isSearchOpen
+                onClicked:
                 {
-                    root.closeSearch()
+                    if(searchBar.isSearchOpen === true)
+                    {
+                        closeSearch()
+                    }
+                    else
+                    {
+                        openSearch()
+                    }
                 }
-                else
-                {
-                    root.openSearch()
+
+                ToolTip.text: i18nc("@info:tooltip", "Search in Note")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+
+
+            ToolButton {
+                id: fillWindowButton
+                property int columnWidth: Config.fillWindow? 0 : Kirigami.Units.gridUnit * 15
+
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                checkable: true
+                checked: Config.fillWindow
+                display: AbstractButton.IconOnly
+                icon.name: "view-fullscreen"
+                text: i18n("Focus Mode")
+                visible: wideScreen && !singleDocumentMode && !Kirigami.Settings.isMobile
+
+                Behavior on columnWidth {
+                    NumberAnimation {
+                        duration: Kirigami.Units.shortDuration * 2
+                        easing.type: Easing.InOutQuart
+                    }
+                }
+                onColumnWidthChanged: pageStack.defaultColumnWidth = columnWidth
+
+                onClicked: {
+                    Config.fillWindow = !Config.fillWindow
+                }
+                Shortcut {
+                    sequence: "Ctrl+R"
+                    onActivated: Config.fillWindow = !Config.fillWindow
                 }
             }
 
-            ToolTip.text: i18nc("@info:tooltip", "Search in Note")
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
+
+            ToolButton {
+                visible: richEditPage.Window.window.visibility === Window.FullScreen
+                icon.name: "window-restore-symbolic"
+                text: i18nc("@action:menu", "Exit Full Screen")
+                display: AbstractButton.IconOnly
+                checkable: true
+                checked: true
+                onClicked: richEditPage.Window.window.showNormal()
+
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
 
 
-        ToolButton {
-            id: fillWindowButton
-            property int columnWidth: Config.fillWindow? 0 : Kirigami.Units.gridUnit * 15
+            Button{
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+                ToolTip.text: i18n("Switch editor to source mode")
+                ToolTip.visible: hovered
+                icon.name: "code-context-symbolic"
+                checkable: true
+                checked: false
+                text: i18n("Source View")
+                padding: 0
+                flat: true
+                spacing: Kirigami.Units.mediumSpacing
 
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            checkable: true
-            checked: Config.fillWindow
-            display: AbstractButton.IconOnly
-            icon.name: "view-fullscreen"
-            text: i18n("Focus Mode")
-            visible: wideScreen && !root.singleDocumentMode && !Kirigami.Settings.isMobile
-
-            Behavior on columnWidth {
-                NumberAnimation {
-                    duration: Kirigami.Units.shortDuration * 2
-                    easing.type: Easing.InOutQuart
+                onClicked: {
+                    NavigationController.sourceMode = !NavigationController.sourceMode
                 }
             }
-            onColumnWidthChanged: pageStack.defaultColumnWidth = columnWidth
 
-            onClicked: {
-                Config.fillWindow = !Config.fillWindow
-            }
-            Shortcut {
-                sequence: "Ctrl+R"
-                onActivated: Config.fillWindow = !Config.fillWindow
-            }
         }
-
-
-        ToolButton {
-            visible: ApplicationWindow.window.visibility === Window.FullScreen
-            icon.name: "window-restore-symbolic"
-            text: i18nc("@action:menu", "Exit Full Screen")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: true
-            onClicked: ApplicationWindow.window.showNormal()
-
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-
-        Button{
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-            ToolTip.text: i18n("Switch editor to source mode")
-            ToolTip.visible: hovered
-            icon.name: "code-context-symbolic"
-            checkable: true
-            checked: false
-            text: i18n("Source View")
-            padding: 0
-            flat: true
-            spacing: Kirigami.Units.mediumSpacing
-
-            onClicked: {
-                NavigationController.sourceMode = !NavigationController.sourceMode
-            }
-        }
-
 
 
     }
+
 
     LinkDialog {
         id: linkDialog
         implicitWidth: Kirigami.Units.gridUnit * 20
 
-        parent: ApplicationWindow.window.overlay
+        parent: appwindow.window.overlay
         onAccepted: document.updateLink(linkUrl, linkText)
     }
 
@@ -299,23 +210,24 @@ Kirigami.Page {
         id: imageDialog
         implicitWidth: Kirigami.Units.gridUnit * 20
 
-        parent: ApplicationWindow.window.overlay
+        parent: appwindow.window.overlay
         onAccepted: {
             if (imagePath.toString().length > 0) {
                 document.insertImage(imagePath)
                 imagePath = '';
             }
         }
-        notePath: root.noteFullPath
+        notePath: noteFullPath
     }
 
     TableDialog {
         id: tableDialog
         implicitWidth: Kirigami.Units.gridUnit * 20
 
-        parent: ApplicationWindow.window.overlay
+        parent: appwindow.window.overlay
         onAccepted: document.insertTable(rows, cols)
     }
+
 
     Component {
         id: textFormatGroup
@@ -333,7 +245,9 @@ Kirigami.Page {
                 text: i18nc("@action:button", "Bold")
                 display: AbstractButton.IconOnly
                 checkable: true
-                checked: document.bold
+
+                checked: document.bold ?? false
+
                 onClicked: {
                     document.bold = !document.bold
                 }
@@ -352,7 +266,7 @@ Kirigami.Page {
                 text: i18nc("@action:button", "Italic")
                 display: AbstractButton.IconOnly
                 checkable: true
-                checked: document.italic
+                checked: document.italic ?? false
                 onClicked: {
                     document.italic = !document.italic;
                 }
@@ -371,7 +285,7 @@ Kirigami.Page {
                 text: i18nc("@action:button", "Underline")
                 display: AbstractButton.IconOnly
                 checkable: true
-                checked: document.underline
+                checked: document.underline ?? false
                 onClicked: {
                     document.underline = !document.underline;
                 }
@@ -385,7 +299,7 @@ Kirigami.Page {
                 text: i18nc("@action:button", "Strikethrough")
                 display: AbstractButton.IconOnly
                 checkable: true
-                checked: document.strikethrough
+                checked: document.strikethrough ?? false
                 onClicked: {
                     document.strikethrough = !document.strikethrough;
                 }
@@ -448,7 +362,7 @@ Kirigami.Page {
             onActivated: (index) => {
                 document.setListStyle(currentValue);
             }
-            currentIndex: root.listStyle
+            currentIndex: root.listStyle ?? 0
             enabled: indentAction.enabled || dedentAction.enabled
             textRole: "text"
             valueRole: "value"
@@ -472,7 +386,7 @@ Kirigami.Page {
                 onClicked: {
                     document.checkable = !document.checkable;
                 }
-                checked: root.checkbox
+                checked: checkbox
                 ToolTip.text: text
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -528,7 +442,7 @@ Kirigami.Page {
         id: headingGroup
         ComboBox {
             id: headingLevelComboBox
-            currentIndex: root.heading
+            currentIndex: root.heading ?? 0
 
             model: [
                 i18nc("@item:inmenu no heading", "Basic text"),
@@ -548,7 +462,7 @@ Kirigami.Page {
 
     Components.FloatingButton {
         icon.name: "document-edit"
-        parent: root.overlay
+        parent: richEditPage.overlay
         visible: !wideScreen
         scale: mobileToolBarContainer.hidden? 1 : 0
 
@@ -588,7 +502,7 @@ Kirigami.Page {
         }
 
         z: 600000
-        parent: root.overlay
+        parent: richEditPage.overlay
 
         Behavior on y {
             NumberAnimation {
@@ -624,51 +538,53 @@ Kirigami.Page {
             ColumnLayout {
                 id: mobileToolbarLayout
 
-
                 anchors.fill: parent
 
                 RowLayout {
                     SwipeView {
-                    id: swipeView
-                    clip: true
-                    Layout.margins: Kirigami.Units.mediumSpacing
-                    Layout.fillWidth: true
-                    implicitHeight: undoButton.height + Kirigami.Units.smallSpacing
-                    currentIndex: categorySelector.selectedIndex
-                    interactive: false
-                    Item {
-                        id: firstPage
+                        id: swipeView
+                        clip: true
+                        Layout.margins: Kirigami.Units.mediumSpacing
+                        Layout.fillWidth: true
+                        implicitHeight: undoButton.height + Kirigami.Units.smallSpacing
+                        currentIndex: categorySelector.selectedIndex
+                        interactive: false
+                        
+                        Item {
+                            id: firstPage
 
-                        RowLayout {
-                            width: swipeView.width
-                            height: swipeView.height
-                            Loader {
-                                sourceComponent: textFormatGroup
-                                active: !root.wideScreen // Only active on mobile
+                            RowLayout {
+                                width: swipeView.width
+                                height: swipeView.height
+                                Loader {
+                                    sourceComponent: textFormatGroup
+                                    active: !wideScreen // Only active on mobile
+                                }
+                                Item { Layout.fillWidth: true }
+                                Loader { sourceComponent: headingGroup }
                             }
-                            Item { Layout.fillWidth: true }
-                            Loader { sourceComponent: headingGroup }
                         }
-                    }
-                    Item {
-                        id: secondPage
-                        RowLayout {
-                            height: swipeView.height
-                            width: swipeView.width
-                            Loader { sourceComponent: listFormatGroup }
-                            Item { Layout.fillWidth: true }
-                            Loader { sourceComponent: listStyleGroup }
-                        }                    }
-                    Item {
-                        id: thirdPage
-                        RowLayout {
-                            height: swipeView.height
-                            width: swipeView.width
-                            Loader { sourceComponent: insertGroup }
+                        Item {
+                            id: secondPage
+                            RowLayout {
+                                height: swipeView.height
+                                width: swipeView.width
+                                Loader { sourceComponent: listFormatGroup }
+                                Item { Layout.fillWidth: true }
+                                Loader { sourceComponent: listStyleGroup }
+                            }
                         }
-                    }
+                        
+                        Item {
+                            id: thirdPage
+                            RowLayout {
+                                height: swipeView.height
+                                width: swipeView.width
+                                Loader { sourceComponent: insertGroup }
+                            }
+                        }
 
-                }
+                    }
 
                     Kirigami.Separator {
                         Layout.fillHeight: true
@@ -681,8 +597,6 @@ Kirigami.Page {
                         display: AbstractButton.IconOnly
                         onClicked: textArea.undo()
                         enabled: textArea.canUndo
-//                        Layout.topMargin: Kirigami.Units.smallSpacing
-//                        Layout.bottomMargin: Kirigami.Units.smallSpacing
                         ToolTip.text: text
                         ToolTip.visible: hovered
                         ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -694,8 +608,6 @@ Kirigami.Page {
                         display: AbstractButton.IconOnly
                         onClicked: textArea.redo()
                         enabled: textArea.canRedo
-//                        Layout.topMargin: Kirigami.Units.smallSpacing
-//                        Layout.bottomMargin: Kirigami.Units.smallSpacing
 
                         ToolTip.text: text
                         ToolTip.visible: hovered
@@ -703,11 +615,12 @@ Kirigami.Page {
                     }
 
                 }
+
                 RowLayout {
                     Layout.fillWidth: true
-                    Item{
-                        Layout.fillWidth: true
-                    }
+
+                    Item{ Layout.fillWidth: true }
+
                     Components.RadioSelector {
                         id: categorySelector
 
@@ -724,21 +637,23 @@ Kirigami.Page {
                         actions: [
                            Kirigami.Action {
                                text: i18n("Format")
-    //                           icon.name: "format-border-style"
+                                //icon.name: "format-border-style"
                            },
                            Kirigami.Action {
                                text: i18n("Lists")
-    //                           icon.name: "media-playlist-append"
+                                //icon.name: "media-playlist-append"
                            },
                            Kirigami.Action {
                                text: i18n("Insert")
-    //                           icon.name: "kdenlive-add-text-clip"
+                                // icon.name: "kdenlive-add-text-clip"
                             }
                        ]
                     }
+
                     Item{
                         Layout.fillWidth: true
                     }
+
                     ToolButton {
                         icon.name: "arrow-down"
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
@@ -772,9 +687,9 @@ Kirigami.Page {
 
         width: Kirigami.Units.gridUnit * 15
         
-        parent: ApplicationWindow.window.overlay
+        parent: appwindow.window.overlay
 
-        topMargin: (typeof pageStack !== "undefined" && pageStack.globalToolBar) ? pageStack.globalToolBar.height : (ApplicationWindow.window.header ? ApplicationWindow.window.header.height : 0)
+        topMargin: (typeof pageStack !== "undefined" && pageStack.globalToolBar) ? pageStack.globalToolBar.height : (richEditPage.Window.window.header ? richEditPage.Window.window.header.height : 0)
         bottomMargin: toolBar.visible ? (toolBar.height + Kirigami.Units.largeSpacing * 2) : (mobileToolBarContainer.visible && !mobileToolBarContainer.hidden ? mobileToolBarContainer.height : 0)
 
         height: parent.height - topMargin - bottomMargin
@@ -852,7 +767,7 @@ Kirigami.Page {
 
         visible: wideScreen
         z: 600000
-        parent: root.overlay
+        parent: richEditPage.overlay
 
         anchors {
             bottom: parent.bottom
@@ -863,7 +778,7 @@ Kirigami.Page {
         contentItem: RowLayout {
             Loader {
                 sourceComponent: textFormatGroup
-                active: root.wideScreen // Only active on desktop
+                active: wideScreen // Only active on desktop
             }
             Kirigami.Separator {
                 Layout.fillHeight: true
@@ -883,391 +798,7 @@ Kirigami.Page {
             Loader { sourceComponent: headingGroup }
         }
     }
-
-    Kirigami.Theme.inherit: false
-    Kirigami.Theme.colorSet: Kirigami.Theme.View
-
-    header: ColumnLayout {
-        spacing: 0
-
-	    ToolBar {
-            id: searchBar
-
-            property bool isSearchOpen: false
-
-            visible: isSearchOpen || opacity > 0
-            opacity: isSearchOpen ? 1.0 : 0.0
-            Behavior on opacity {
-                NumberAnimation { duration: Kirigami.Units.shortDuration * 2}
-            }
-
-            Layout.preferredHeight: isSearchOpen ? implicitHeight : 0
-            Behavior on Layout.preferredHeight {
-                NumberAnimation {
-                    duration: Kirigami.Units.shortDuration * 2
-                    easing.type: Easing.InOutQuad
-                }
-            }
-
-            clip: true
-
-            Layout.fillWidth: true
-
-            contentItem: RowLayout {
-                id: searchBarLayout
-                spacing: Kirigami.Units.smallSpacing
-
-                Kirigami.SearchField {
-                    id: searchField
-                    Layout.fillWidth: true
-                    placeholderText: i18n("Find text...")
-                    onTextChanged: {
-                        if (text.length > 0) {
-                            document.findText(text);
-                        } else {
-                            document.clearSearch();
-                            textArea.deselect();
-                        }
-                    }
-                    Keys.onShortcutOverride: (event)=> event.accepted = (event.key === Qt.Key_Escape)
-                    Keys.onReturnPressed: document.findNext()
-                    Keys.onEscapePressed: {
-                        searchField.text = "";
-                        searchBar.isSearchOpen = false;
-                        textArea.deselect();
-                        textArea.forceActiveFocus();
-                    }
-                }
-
-                Kirigami.Separator {
-                    Layout.fillHeight: true
-                }
-
-                ToolButton {
-                    icon.name: "go-up"
-                    text: i18n("Previous")
-                    display: AbstractButton.IconOnly
-                    onClicked: document.findPrevious()
-                    enabled: document.searchMatchCount > 0
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                    Shortcut {
-                        sequence: StandardKey.FindPrevious
-                        onActivated: document.findPrevious()
-                    }
-                }
-
-                ToolButton {
-                    icon.name: "go-down"
-                    text: i18n("Next")
-                    display: AbstractButton.IconOnly
-                    onClicked: document.findNext()
-                    enabled: document.searchMatchCount > 0
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                    Shortcut {
-                        sequence: StandardKey.FindNext
-                        onActivated: document.findNext()
-                    }
-                }
-
-                Label {
-                    text: {
-                        if (document.searchMatchCount === 0) {
-                            textArea.deselect();
-                            return i18n("No matches");
-                        }
-                        return i18n("%1/%2", document.searchCurrentMatch + 1, document.searchMatchCount);
-                    }
-                    Layout.minimumWidth: Kirigami.Units.gridUnit * 4
-                }
-
-                ToolButton {
-                    icon.name: "dialog-close"
-                    text: i18n("Close")
-                    display: AbstractButton.IconOnly
-                    onClicked: {
-                        root.closeSearch()
-                    }
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
-            }
-        }
-
-        Kirigami.InlineMessage {
-            id: copyMessage
-
-            text: i18nc("@info:status", "The note has been copied to the clipboard.")
-            position: Kirigami.InlineMessage.Position.Header
-            type: Kirigami.MessageType.Positive
-            visible: false
-            showCloseButton: true
-
-            Layout.fillWidth: true
-        }
-    }
-
-    contentItem: ScrollView {
-        id: contentScroll
-        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-
-        bottomPadding: wideScreen ? 0 : (mobileToolBarContainer.hidden ? 0 : mobileToolBarContainer.height)
-
-        // Animate scroll bar between wide and mobile screens transitions
-        Behavior on bottomPadding {
-            NumberAnimation {
-                duration: Kirigami.Units.longDuration
-                easing.type: Easing.OutInQuart
-            }
-        }
-
-        T.TextArea {
-            id: textArea
-
-            textMargin: wideScreen? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
-            leftPadding: 0
-            rightPadding: 0
-            topPadding: 0
-
-            readonly property int additionalPadding: Kirigami.Units.gridUnit * 4
-
-            bottomPadding: wideScreen ? additionalPadding : (mobileToolBarContainer.hidden ? 0 : mobileToolBarContainer.height)
-
-            Behavior on bottomPadding {
-                NumberAnimation {
-                    duration: Kirigami.Units.longDuration
-                    easing.type: Easing.OutInQuart
-                }
-            }
-
-            HoverHandler {
-                id: controlHoverHandler 
-                acceptedModifiers: Qt.ControlModifier
-
-                onPointChanged: () => {
-                    document.slotMouseMovedWithControl(controlHoverHandler.point.position)
-                }
-
-                onHoveredChanged: () => {
-                    if (!controlHoverHandler.hovered) {
-                        document.slotMouseMovedWithControlReleased()
-                    }
-                }
-            }
-
-            font: Config.editorFont
-
-            implicitWidth: Math.max(contentWidth + leftPadding + rightPadding,
-                                    implicitBackgroundWidth + leftInset + rightInset)
-            implicitHeight: Math.max(contentHeight + topPadding + bottomPadding,
-                                     implicitBackgroundHeight + topInset + bottomInset)
-
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            Kirigami.Theme.inherit: background == null
-
-            color: Kirigami.Theme.textColor
-            selectionColor: Kirigami.Theme.highlightColor
-            selectedTextColor: Kirigami.Theme.highlightedTextColor
-            placeholderTextColor: Kirigami.Theme.disabledTextColor
-
-            selectByMouse: true
-            background: null
-
-            onPressAndHold: {
-                if (Kirigami.Settings.tabletMode && selectByMouse) {
-                    forceActiveFocus();
-                    cursorPosition = positionAt(event.x, event.y);
-                    selectWord();
-                }
-            }
-
-            property int lastKey: -1
-            Keys.onPressed: (event) => {
-                if (event.matches(StandardKey.Paste)) {
-                    if (document && typeof document.pasteFromClipboard === 'function') {
-                        document.pasteFromClipboard();
-                        event.accepted = true;
-                        return;
-                    }
-                }
-                lastKey = event.key
-            }
-
-            Shortcut {
-                sequence: "Ctrl+E"
-                onActivated:
-                {
-                    if(searchBar.isSearchOpen === true)
-                    {
-                        root.closeSearch()
-                    }
-                    else
-                    {
-                        root.openSearch()
-                    }
-                }
-            }
-
-            onTextChanged: {
-                if (lastKey !== -1) {
-                    let key = lastKey;
-                    lastKey = -1;
-                    document.slotKeyPressed(key);
-                }
-                root.saved = false;
-                saveTimer.restart()
-            }
-            persistentSelection: true
-            height: parent.height
-            textFormat: TextEdit.MarkdownText
-            wrapMode: TextEdit.Wrap
-
-            TableActionHelper {
-                id: tableHelper
-
-                document: textArea.textDocument
-                cursorPosition: textArea.cursorPosition
-                selectionStart: textArea.selectionStart
-                selectionEnd: textArea.selectionEnd
-            }
-
-            DropArea {
-                id: imageDropArea
-                anchors.fill: parent
-
-                onEntered: (drag) => {
-                    let compatible = false;
-                    for (let i = 0; i < drag.formats.length; i++) {
-                        const fmt = drag.formats[i].toString();
-                        // Allow text/uri-list as some file managers use this format
-                        if (fmt.indexOf("image/") === 0 || fmt === "text/uri-list") {
-                            compatible = true;
-                            break;
-                        }
-                    }
-
-                    if (compatible) {
-                        drag.acceptProposedAction()
-                    }
-                }
-
-                onDropped: (drop) => {
-                    if (drop.hasUrls) {
-                        for (let i = 0; i < drop.urls.length; i++) {
-                            const path = drop.urls[i].toString();
-                            document.insertImage(path);
-                        }
-                    }
-                }
-
-                RichDocumentHandler {
-                    id: document
-
-                    document: textArea.textDocument
-                    textArea: textArea
-                    cursorPosition: textArea.cursorPosition
-                    selectionStart: textArea.selectionStart
-                    selectionEnd: textArea.selectionEnd
-                    // textColor: TODO
-                    onLoaded: (text) => {
-                        textArea.text = text
-                    }
-                    onError: (message) => {
-                        console.error("Error message from document handler", message)
-                    }
-
-                    onCopy: textArea.copy();
-                    onCut: textArea.cut();
-                    onUndo: textArea.undo();
-                    onRedo: textArea.redo();
-
-                    Component.onCompleted: {
-                        if (root.noteFullPath.toString().length > 0) {
-                            document.load(root.noteFullPath);
-                            root.saved = true;
-                            root.oldPath = root.noteFullPath;
-                            textArea.forceActiveFocus();
-                        }
-                        if (ApplicationWindow.window !== null && ApplicationWindow.window.currentDocument === document) {
-                            ApplicationWindow.window.currentDocument = null;
-                        }
-                    }
-
-                    Component.onDestruction: {
-                        if (!saved && root.noteFullPath.toString().length > 0) {
-                            document.saveAs(root.noteFullPath);
-                        }
-                        // Safely check if the window still exists first!
-                        if (ApplicationWindow.window !== null && ApplicationWindow.window.currentDocument === document) {
-                            ApplicationWindow.window.currentDocument = null;
-                        }
-                    }
-
-                    onCheckableChanged: {
-                        root.checkbox = document.checkable;
-                    }
-
-                    onMoveCursor: (position) => {
-                        textArea.cursorPosition = position;
-                    }
-                    onSelectCursor: (start, end) => {
-                        textArea.select(start, end);
-                    }
-
-                    onCursorPositionChanged: {
-                        root.listIndent = document.canIndentList;
-                        root.listDedent = document.canDedentList;
-                        root.checkbox = document.checkable;
-
-                        if (document.currentListStyle === 0) {
-                            root.listStyle = 0;
-                        } else if (document.currentListStyle === 1) {
-                            root.listStyle = 1;
-                        } else if (document.currentListStyle === 4) {
-                            root.listStyle = 2;
-                        }
-                        root.heading = document.currentHeadingLevel
-                    }
-                }
-            }
-
-            TapHandler {
-                acceptedButtons: Qt.RightButton
-                // unfortunately, taphandler's pressed event only triggers when the press is lifted
-                // we need to use the longpress signal since it triggers when the button is first pressed
-                longPressThreshold: 0.001 // https://invent.kde.org/qt/qt/qtdeclarative/-/commit/8f6809681ec82da783ae8dcd76fa2c209b28fde6
-                onLongPressed: {
-                    textFieldContextMenu.currentLink = document.anchorAt(point.position);
-                    textFieldContextMenu.targetClick(
-                        point,
-                        textArea,
-                        /*spellcheckHighlighterInstantiator*/ null,
-                        /*mousePosition*/ null,
-                    );
-                }
-            }
-
-            Timer {
-                id: saveTimer
-
-                repeat: false
-                interval: 1000
-                onTriggered: if (root.noteFullPath.toString().length > 0) {
-                    document.saveAs(root.noteFullPath);
-                    saved = true;
-                }
-            }
-        }
-    }
+         
 
     Timer {
         id: copyMessageTimer
@@ -1276,9 +807,5 @@ Kirigami.Page {
         onTriggered: copyMessage.visible = false
     }
 
-    TextFieldContextMenu {
-        id: textFieldContextMenu
-        tableActionHelper: tableHelper
-        document: document
-    }
 }
+

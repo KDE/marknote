@@ -272,7 +272,6 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
         doc->clearUndoRedoStacks();
         doc->setUndoRedoEnabled(true);
     }
-
     fixupTable(textDocument()->rootFrame());
     QTextCursor cursor = textCursor();
     cursor.movePosition(QTextCursor::End);

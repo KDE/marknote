@@ -332,6 +332,7 @@ Kirigami.ScrollablePage {
                 icon.name: "edit-copy"
                 onTriggered: {
                     notesModel.copyWholeNote(menu.delegateItem.fileUrl)
+                    copyMessage.visible = true
                 }
             }
 
@@ -538,6 +539,7 @@ Kirigami.ScrollablePage {
             helpfulAction: newNoteAction
         }
     }
+
 
 
 }

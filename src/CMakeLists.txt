@@ -20,6 +20,7 @@ ecm_add_qml_module(marknote_static
         qml/NotebookDeleteDialog.qml
         qml/ImportMaildirDialog.qml
         # Editor
+        qml/EditPage.qml
         qml/RichEditPage.qml
         qml/RawEditPage.qml
         qml/LinkDialog.qml

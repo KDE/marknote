@@ -215,13 +215,11 @@ StatetfulApp.StatefulWindow {
             // when this is called, then navigate to raw/rich edit page with same note path
             if (NavigationController.notebookPath.length > 0 && NavigationController.notePath.length > 0) {
                 if (root.pageStack.items[0].objectName === "NotesPage" && root.pageStack.depth == 2){
-                    console.log(root.pageStack.items[1].objectName)
                     if (root.pageStack.items[1].objectName === "RichEditPage"){
                         root.pageStack.pop();
                         root.pageStack.push(Qt.createComponent("org.kde.marknote", "RawEditPage"));
                     }
                     else if (root.pageStack.items[1].objectName === "RawEditPage"){
-                        console.log("ajhkajdabdnadandb")
                         root.pageStack.pop();
                         root.pageStack.push(Qt.createComponent("org.kde.marknote", "RichEditPage"));
                     }
