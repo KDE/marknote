@@ -9,6 +9,7 @@ import QtQuick.Templates as T
 import QtQuick.Dialogs
 import org.kde.kitemmodels
 import org.kde.marknote
+import org.kde.notification
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as Components
@@ -280,14 +281,89 @@ Kirigami.ScrollablePage {
 
             property string name
             property string path
+            property string exportPath
 
             fileMode: FileDialog.SaveFile
-            onAccepted: if (selectedFile.toString().endsWith('.html')) {
-                notesModel.exportToHtml(path, selectedFile);
-            } else if (selectedFile.toString().endsWith('.pdf')) {
-                notesModel.exportToPdf(path, selectedFile);
-            } else if (selectedFile.toString().endsWith('.odt')) {
-                notesModel.exportToOdt(path, selectedFile);
+            onAccepted: {
+                var success = false;
+                fileDialog.exportPath = selectedFile
+                if (selectedFile.toString().endsWith('.html')) {
+                    success = notesModel.exportToHtml(path, selectedFile);
+                } else if (selectedFile.toString().endsWith('.pdf')) {
+                    success = notesModel.exportToPdf(path, selectedFile);
+                } else if (selectedFile.toString().endsWith('.odt')) {
+                    success = notesModel.exportToOdt(path, selectedFile);
+                }
+                var notification = null;
+                if (success) {
+                    notification = exportSuccessNotificationComponent.createObject(this, {
+                        "name": fileDialog.name,
+                        "path": fileDialog.exportPath
+                    });
+                } else {
+                    notification = exportFailedNotificationComponent.createObject(this, {
+                        "name": fileDialog.name
+                    });
+                }
+
+                if (notification !== null) {
+                    notification.sendEvent();
+                } else {
+                    console.error("Failed to dynamically create the notification component.");
+                }
+            }
+
+            Component {
+                id: exportSuccessNotificationComponent
+
+                Notification {
+                    id: exportSuccessNotification
+
+                    required property string path
+                    required property string name
+
+                    componentName: "marknote"
+                    eventId: "exportSuccessful"
+                    title: i18nc("@title:window", "Marknote")
+                    text: i18nc("@info", "Export of \"%1\" was successful.", exportSuccessNotification.name);
+                    iconName: {
+                        const ext = exportSuccessNotification.path.split('.').pop().toLowerCase();
+
+                        switch (ext) {
+                            case "pdf":
+                                return "application-pdf";
+                            case "html":
+                            case "htm":
+                                return "text-html";
+                            case "odt":
+                                return "application-vnd.oasis.opendocument.text";
+                            default:
+                                return "document-export";
+                        }
+                    }
+                    actions: [
+                        NotificationAction {
+                            label: i18nc("@action:notifaction","Open File")
+                            onActivated: Qt.openUrlExternally(exportSuccessNotification.path)
+                        }
+                    ]
+                }
+            }
+
+            Component {
+                id: exportFailedNotificationComponent
+
+                Notification {
+                    id: exportFailedNotification
+
+                    required property string name
+
+                    componentName: "marknote"
+                    eventId: "exportFailed"
+                    title: i18nc("@title:window", "Marknote")
+                    text: i18nc("@info", "Export of \"%1\" failed.", exportFailedNotification.name);
+                    iconName: "error"
+                }
             }
         }
 

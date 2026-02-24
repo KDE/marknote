@@ -46,7 +46,7 @@ ecm_setup_version(${PROJECT_VERSION}
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg)
 find_package(Qt6 ${QT_MIN_VERSION} OPTIONAL_COMPONENTS DBus)
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Kirigami I18n Config CoreAddons IconThemes ColorScheme)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Kirigami I18n Config CoreAddons IconThemes ColorScheme Notifications)
 
 find_package(KF6WindowSystem ${KF_MIN_VERSION} QUIET)
 find_package(KF6Runner ${KF_MIN_VERSION} QUIET)
@@ -85,6 +85,7 @@ add_subdirectory(src)
 ki18n_install(po)
 
 install(PROGRAMS org.kde.marknote.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES marknote.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 install(FILES org.kde.marknote.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES org.kde.marknote.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 

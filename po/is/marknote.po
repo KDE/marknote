@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-23 00:45+0000\n"
+"POT-Creation-Date: 2026-02-24 00:45+0000\n"
 "PO-Revision-Date: 2025-05-27 17:01+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -134,7 +134,7 @@ msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Leita í glósum (%1)"
 
-#: qml/EditPage.qml:247 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:158
+#: qml/EditPage.qml:247 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:159
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -618,28 +618,28 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Heiti:"
 
-#: qml/NotesPage.qml:37
+#: qml/NotesPage.qml:38
 #, kde-format
 msgid "Add note"
 msgstr "Bæta við glósu"
 
-#: qml/NotesPage.qml:121
+#: qml/NotesPage.qml:122
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Hætta í leit (%1)"
 
-#: qml/NotesPage.qml:121
+#: qml/NotesPage.qml:122
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Leita í glósum (%1)"
 
-#: qml/NotesPage.qml:180
+#: qml/NotesPage.qml:181
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Eyða glósu"
 
-#: qml/NotesPage.qml:190
+#: qml/NotesPage.qml:191
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -648,13 +648,41 @@ msgstr ""
 "Viltu örugglega eyða glósunni <b> %1 </b>? Þá verður skránni <b>%2</b> eytt "
 "varanlega."
 
-#: qml/NotesPage.qml:300
+#: qml/NotesPage.qml:327 qml/NotesPage.qml:363
+#, fuzzy, kde-format
+#| msgctxt "Application name"
+#| msgid "Marknote"
+msgctxt "@title:window"
+msgid "Marknote"
+msgstr "Marknote"
+
+#: qml/NotesPage.qml:328
+#, kde-format
+msgctxt "@info"
+msgid "Export of \"%1\" was successful."
+msgstr ""
+
+#: qml/NotesPage.qml:346
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Link"
+msgctxt "@action:notifaction"
+msgid "Open File"
+msgstr "Opna tengil"
+
+#: qml/NotesPage.qml:364
+#, kde-format
+msgctxt "@info"
+msgid "Export of \"%1\" failed."
+msgstr ""
+
+#: qml/NotesPage.qml:376
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Endurnefna glósu"
 
-#: qml/NotesPage.qml:312
+#: qml/NotesPage.qml:388
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Delete Note"
@@ -662,64 +690,64 @@ msgctxt "@action:inmenu"
 msgid "Duplicate Note"
 msgstr "Eyða glósu"
 
-#: qml/NotesPage.qml:320
+#: qml/NotesPage.qml:396
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Eyða glósu"
 
-#: qml/NotesPage.qml:331
+#: qml/NotesPage.qml:407
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Flytja út sem HTML"
 
-#: qml/NotesPage.qml:337
+#: qml/NotesPage.qml:413
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Flytja út sem HTML"
 
-#: qml/NotesPage.qml:338
+#: qml/NotesPage.qml:414
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-skrá (*.html)"
 
-#: qml/NotesPage.qml:344
+#: qml/NotesPage.qml:420
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Flytja út sem PDF"
 
-#: qml/NotesPage.qml:350
+#: qml/NotesPage.qml:426
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Flytja út sem PDF"
 
-#: qml/NotesPage.qml:351
+#: qml/NotesPage.qml:427
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-skrá (*.pdf)"
 
-#: qml/NotesPage.qml:357
+#: qml/NotesPage.qml:433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Flytja út sem ODT"
 
-#: qml/NotesPage.qml:363
+#: qml/NotesPage.qml:439
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Flytja út sem ODT"
 
-#: qml/NotesPage.qml:364
+#: qml/NotesPage.qml:440
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-textaskjal (*.)"
 
-#: qml/NotesPage.qml:529
+#: qml/NotesPage.qml:605
 #, kde-format
 msgid "Add a note!"
 msgstr "Bættu við glósu!"
