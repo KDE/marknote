@@ -18,7 +18,7 @@ Controls.Dialog {
     property string notePath
     property alias imagePath: saveButton.imagePath
 
-    parent: applicationWindow().overlay
+    parent: Controls.ApplicationWindow.window ? Controls.ApplicationWindow.window.overlay : null
     modal: true
 
     width: Math.min(900, parent.width)
@@ -29,7 +29,7 @@ Controls.Dialog {
     bottomPadding: 1
     topPadding: 0
 
-    anchors.centerIn: applicationWindow().overlay
+    anchors.centerIn: Controls.ApplicationWindow.window ? Controls.ApplicationWindow.window.overlay : null
 
     background: Components.DialogRoundedBackground {}
 
@@ -171,9 +171,7 @@ Controls.Dialog {
         contentItem: RowLayout {
             id: colorLayout
 
-            Controls.ButtonGroup {
-                buttons: colorLayout.children
-            }
+            Controls.ButtonGroup { id: colorGroup }
 
             Controls.ToolButton {
                 id: undoButton
@@ -201,6 +199,7 @@ Controls.Dialog {
 
             Controls.ToolButton {
                 id: eraserButton
+                Controls.ButtonGroup.group: colorGroup
                 implicitHeight: Kirigami.Units.gridUnit * 2
                 autoExclusive: true
                 checkable: true
@@ -245,6 +244,8 @@ Controls.Dialog {
                 }
                 Controls.ToolButton {
                     id: delegate
+                    Controls.ButtonGroup.group: colorGroup
+
                     implicitHeight: Kirigami.Units.gridUnit * 2
                     autoExclusive: true
                     checkable: true
@@ -296,9 +297,7 @@ Controls.Dialog {
         contentItem: ColumnLayout {
             id: widthLayout
 
-            Controls.ButtonGroup {
-                buttons: widthLayout.children
-            }
+            Controls.ButtonGroup { id: widthGroup }
 
             Repeater {
                 model: ListModel {
@@ -310,6 +309,8 @@ Controls.Dialog {
                 }
                 Controls.ToolButton {
                     id: widthDelegate
+                    Controls.ButtonGroup.group: widthGroup
+
                     implicitHeight: Kirigami.Units.gridUnit * 2
                     autoExclusive: true
                     checkable: true
@@ -362,7 +363,7 @@ Controls.Dialog {
                 text: "Save"
                 icon.name: "answer-correct"
                 onClicked:{
-                    var notepath = root.notePath.slice(7, -3)/*.replace(" ", "_")*/
+                    var notepath = root.notePath.slice(7, -3)
                     imagePath = notepath + Math.random() * 1000 +".png"
                     print(canvas.save(imagePath))
                     root.close()
