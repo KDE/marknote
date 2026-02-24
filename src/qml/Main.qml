@@ -81,7 +81,7 @@ StatetfulApp.StatefulWindow {
             NavigationController.notebookPath = path
             pageStack.clear()
             root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
-            root.pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"));
+            root.pageStack.push(Qt.createComponent("org.kde.marknote", "RichEditPage"));
             bottomDrawer.close()
         }
     }
@@ -199,16 +199,32 @@ StatetfulApp.StatefulWindow {
 
         function onNotePathChanged(): void {
             if (NavigationController.notePath.length > 0) {
-                if (!root.pageStack.items[1] || root.pageStack.items[1].objectName !== "EditPage") {
+                if (!root.pageStack.items[1] || root.pageStack.items[1].objectName !== "RichEditPage") {
                     root.pageStack.clear();
                     root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
-                    root.pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"));
+                    root.pageStack.push(Qt.createComponent("org.kde.marknote", "RichEditPage"));
                 } else {
                     root.pageStack.currentIndex = root.pageStack.depth - 1;
                 }
             } else {
                 root.pageStack.clear();
                 root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
+            }
+        }
+
+        function onSourceModeChanged(): void {
+            // when this is called, then navigate to raw/rich edit page with same note path
+            if (NavigationController.notebookPath.length > 0 && NavigationController.notePath.length > 0) {
+                if (root.pageStack.items[0].objectName === "NotesPage" && root.pageStack.depth == 2){
+                    if (root.pageStack.items[1].objectName === "RichEditPage"){
+                        root.pageStack.pop();
+                        root.pageStack.push(Qt.createComponent("org.kde.marknote", "RawEditPage"));
+                    }
+                    else if (root.pageStack.items[1].objectName === "RawEditPage"){
+                        root.pageStack.pop();
+                        root.pageStack.push(Qt.createComponent("org.kde.marknote", "RichEditPage"));
+                    }
+                }
             }
         }
     }

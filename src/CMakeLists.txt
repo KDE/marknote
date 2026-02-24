@@ -21,6 +21,8 @@ ecm_add_qml_module(marknote_static
         qml/ImportMaildirDialog.qml
         # Editor
         qml/EditPage.qml
+        qml/RichEditPage.qml
+        qml/RawEditPage.qml
         qml/LinkDialog.qml
         qml/ImageDialog.qml
         qml/TableDialog.qml
@@ -37,6 +39,8 @@ ecm_add_qml_module(marknote_static
         qml/GlobalMenuBar.qml
     SOURCES
         documenthandler.cpp documenthandler.h
+        rich_documenthandler.cpp rich_documenthandler.h
+        raw_documenthandler.cpp raw_documenthandler.h
         notesmodel.cpp notesmodel.h
         notebooksmodel.cpp notebooksmodel.h
         nestedlisthelper.cpp nestedlisthelper_p.h

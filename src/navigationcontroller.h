@@ -30,6 +30,8 @@ class NavigationController : public QObject
     /// This property holds whether we are in mobile mode.
     Q_PROPERTY(bool mobileMode READ mobileMode WRITE setMobileMode NOTIFY mobileModeChanged)
 
+    Q_PROPERTY(bool sourceMode READ sourceMode WRITE setSourceMode NOTIFY sourceModeChanged)
+
 public:
     explicit NavigationController(QObject *parent = nullptr);
 
@@ -47,15 +49,20 @@ public:
     bool mobileMode() const;
     void setMobileMode(bool mobileMode);
 
+    bool sourceMode() const;
+    void setSourceMode(bool sourceMode);
+
 Q_SIGNALS:
     void notebookPathChanged();
     void notebookIconNameChanged();
     void notebookColorChanged();
     void notePathChanged();
     void mobileModeChanged();
+    void sourceModeChanged();
 
 private:
     QString m_notebookPath;
     QString m_notePath;
     bool m_mobileMode;
+    bool m_sourceMode = false;
 };
