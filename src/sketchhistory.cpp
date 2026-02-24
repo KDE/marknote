@@ -104,3 +104,4 @@ void HistoryController::reset()
     Q_EMIT undoAvailableChanged();
     Q_EMIT redoAvailableChanged();
 }
+#include "moc_sketchhistory.cpp"

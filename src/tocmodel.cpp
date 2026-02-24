@@ -126,3 +126,5 @@ void TocModel::updateModel()
         endResetModel();
     }
 }
+
+#include "moc_tocmodel.cpp"
