@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-24 00:45+0000\n"
+"POT-Creation-Date: 2026-02-25 00:47+0000\n"
 "PO-Revision-Date: 2026-02-12 16:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -47,7 +47,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "寫入「%1」時發生錯誤"
 
-#: main.cpp:89 qml/Main.qml:367
+#: main.cpp:89 qml/Main.qml:368
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -436,45 +436,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "建立筆記本"
 
-#: qml/Main.qml:261
+#: qml/Main.qml:262
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "顯示選單"
 
-#: qml/Main.qml:307
+#: qml/Main.qml:308
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "匯入"
 
-#: qml/Main.qml:316
+#: qml/Main.qml:317
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "排序筆記列表"
 
-#: qml/Main.qml:322
+#: qml/Main.qml:323
 #, kde-format
 msgid "by Name"
 msgstr "以名稱"
 
-#: qml/Main.qml:335
+#: qml/Main.qml:336
 #, kde-format
 msgid "by Date"
 msgstr "以日期"
 
-#: qml/Main.qml:352
+#: qml/Main.qml:353
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "收合側邊欄"
 
-#: qml/Main.qml:352
+#: qml/Main.qml:353
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "展開側邊欄"
 
-#: qml/Main.qml:419
+#: qml/Main.qml:420
 #, kde-format
 msgid "Your Notebooks"
 msgstr "您的筆記本"
@@ -858,19 +858,19 @@ msgctxt "@label:spinbox"
 msgid "Font size:"
 msgstr "字型大小："
 
-#: settings/MarkNoteSettings.qml:15
+#: settings/MarkNoteSettings.qml:17
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
 msgstr "一般"
 
-#: settings/MarkNoteSettings.qml:21
+#: settings/MarkNoteSettings.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
 msgstr "關於 Marknote"
 
-#: settings/MarkNoteSettings.qml:27
+#: settings/MarkNoteSettings.qml:32
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"

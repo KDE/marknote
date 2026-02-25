@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-24 00:45+0000\n"
-"PO-Revision-Date: 2026-02-13 11:58+0100\n"
+"POT-Creation-Date: 2026-02-25 00:47+0000\n"
+"PO-Revision-Date: 2026-02-24 07:26+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -52,7 +52,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Med pisanjem v '%1' je prišlo do napake"
 
-#: main.cpp:89 qml/Main.qml:367
+#: main.cpp:89 qml/Main.qml:368
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -442,45 +442,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Ustvari beležnico"
 
-#: qml/Main.qml:261
+#: qml/Main.qml:262
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Prikaži meni"
 
-#: qml/Main.qml:307
+#: qml/Main.qml:308
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Uvozi"
 
-#: qml/Main.qml:316
+#: qml/Main.qml:317
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Razvrsti seznam zabeležk"
 
-#: qml/Main.qml:322
+#: qml/Main.qml:323
 #, kde-format
 msgid "by Name"
 msgstr "po imenu"
 
-#: qml/Main.qml:335
+#: qml/Main.qml:336
 #, kde-format
 msgid "by Date"
 msgstr "po datumu"
 
-#: qml/Main.qml:352
+#: qml/Main.qml:353
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Strni stransko vrstico"
 
-#: qml/Main.qml:352
+#: qml/Main.qml:353
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Razširi stransko vrstico"
 
-#: qml/Main.qml:419
+#: qml/Main.qml:420
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vaše beležnice"
@@ -645,9 +645,7 @@ msgstr ""
 "dokončno izbrisali datoteko <b>%2</b>."
 
 #: qml/NotesPage.qml:327 qml/NotesPage.qml:363
-#, fuzzy, kde-format
-#| msgctxt "Application name"
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
@@ -656,21 +654,19 @@ msgstr "Marknote"
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
-msgstr ""
+msgstr "Izvoz datoteke \"%1\" je bil uspešen."
 
 #: qml/NotesPage.qml:346
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr "Odpri povezavo"
+msgstr "Odpri datoteko"
 
 #: qml/NotesPage.qml:364
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
-msgstr ""
+msgstr "Izvoz \"%1\" ni uspel."
 
 #: qml/NotesPage.qml:376
 #, kde-format
@@ -868,19 +864,19 @@ msgctxt "@label:spinbox"
 msgid "Font size:"
 msgstr "Velikost pisave:"
 
-#: settings/MarkNoteSettings.qml:15
+#: settings/MarkNoteSettings.qml:17
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
 msgstr "Splošno"
 
-#: settings/MarkNoteSettings.qml:21
+#: settings/MarkNoteSettings.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
 msgstr "O Marknote"
 
-#: settings/MarkNoteSettings.qml:27
+#: settings/MarkNoteSettings.qml:32
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
