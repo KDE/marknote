@@ -114,47 +114,22 @@ void RawDocumentHandler::reset()
 
 void RawDocumentHandler::pasteFromClipboard()
 {
-    // const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData();
-    // if (!mimeData) {
-    //     return;
-    // }
-    //
-    // if (mimeData->hasUrls()) {
-    //     bool pastedImage = false;
-    //     const QList<QUrl> urls = mimeData->urls();
-    //
-    //     for (const QUrl &url : urls) {
-    //         if (url.isLocalFile()) {
-    //             QMimeDatabase db;
-    //             const QMimeType mimeType = db.mimeTypeForFile(url.toLocalFile());
-    //
-    //             if (mimeType.name().startsWith(u"image/"_s)) {
-    //                 insertImage(url);
-    //                 pastedImage = true;
-    //             }
-    //         }
-    //     }
-    //
-    //     // If we successfully intercepted and pasted image(s), stop here
-    //     // so we don't duplicate them as raw text strings.
-    //     if (pastedImage) {
-    //         return;
-    //     }
-    // }
-    //
-    // QTextCursor cursor = textCursor();
-    // cursor.beginEditBlock();
-    //
-    // if (mimeData->hasHtml()) {
-    //     cursor.insertHtml(mimeData->html());
-    // } else if (mimeData->hasFormat(QStringLiteral("text/markdown"))) {
-    //     const QByteArray md = mimeData->data(QStringLiteral("text/markdown"));
-    //     cursor.insertText(QString::fromUtf8(md));
-    // } else if (mimeData->hasText()) {
-    //     cursor.insertText(mimeData->text());
-    // }
-    //
-    // cursor.endEditBlock();
+    const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData();
+    if (!mimeData) {
+        return;
+    }
+
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+
+    if (mimeData->hasFormat(QStringLiteral("text/markdown"))) {
+        const QByteArray md = mimeData->data(QStringLiteral("text/markdown"));
+        cursor.insertText(QString::fromUtf8(md));
+    } else if (mimeData->hasText()) {
+        cursor.insertText(mimeData->text());
+    }
+
+    cursor.endEditBlock();
 }
 
 #include "moc_raw_documenthandler.cpp"
