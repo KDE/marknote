@@ -113,6 +113,8 @@ private:
     void moveLineUpDown(bool moveUp);
     void moveCursorBeginUpDown(bool moveUp);
 
+    [[nodiscard]] bool isCodeBlock(const QTextBlock &block) const;
+
     void regenerateColorScheme();
 
     QColor mLinkColor;

@@ -770,6 +770,30 @@ bool RichDocumentHandler::evaluateReturnKeySupport(QKeyEvent *event)
     }
 
     QTextCursor cursor = textCursor();
+
+    int quoteLevel = cursor.blockFormat().intProperty(QTextFormat::BlockQuoteLevel);
+    if (quoteLevel > 0) {
+        // If pressing Enter on an empty line (unless it's not a list), exit the blockquote
+        if (cursor.block().text().trimmed().isEmpty() && !cursor.currentList()) {
+            cursor.beginEditBlock();
+            QTextBlockFormat bfmt = cursor.blockFormat();
+
+            // Decrease the level by 1 to gracefully exit nested quotes
+            int newLevel = qMax(0, quoteLevel - 1);
+            bfmt.setProperty(QTextFormat::BlockQuoteLevel, newLevel);
+            bfmt.setIndent(newLevel);
+            cursor.setBlockFormat(bfmt);
+
+            cursor.endEditBlock();
+
+            // Eat the event so we just drop the formatting without adding a new line
+            return false;
+        }
+
+        // For non-empty lines, just let the list handler and native Qt layout handle it
+        return evaluateListSupport(event);
+    }
+
     const int oldPos = cursor.position();
     const int blockPos = cursor.block().position();
 
@@ -870,12 +894,22 @@ bool RichDocumentHandler::evaluateListSupport(QKeyEvent *event)
     return true;
 }
 
+bool RichDocumentHandler::isCodeBlock(const QTextBlock &block) const
+{
+    return block.blockFormat().property(QTextFormat::BlockCodeFence).toBool();
+}
+
 void RichDocumentHandler::slotKeyPressed(int key)
 {
     // Fetch the cursor once to avoid redundant calls
     auto cursor = textCursor();
 
     if (key == Qt::Key_Space) {
+        // if it's a code block, we don't want to keep everything as is
+        if (isCodeBlock(cursor.block())) {
+            return;
+        }
+
         const auto fullBlockText = cursor.block().text();
 
         // Automatic block transformation to header
@@ -899,6 +933,46 @@ void RichDocumentHandler::slotKeyPressed(int key)
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 2);
             cursor.deleteChar();
             cursor.endEditBlock();
+        }
+
+        // Automatic block transformation to blockquote
+        if (fullBlockText.startsWith(u"> ")) {
+            cursor.beginEditBlock();
+            QTextBlockFormat bfmt = cursor.blockFormat();
+
+            bfmt.setProperty(QTextFormat::BlockQuoteLevel, 1);
+            bfmt.setIndent(1);
+
+            cursor.setBlockFormat(bfmt);
+
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 2);
+            cursor.deleteChar();
+            cursor.endEditBlock();
+        }
+
+        // indented code block
+        if (fullBlockText.startsWith(u"    ")) {
+            if (cursor.block().blockNumber() == 0 || cursor.block().previous().text().isEmpty()) {
+                cursor.beginEditBlock();
+
+                cursor.movePosition(QTextCursor::StartOfLine);
+                cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, 4);
+                cursor.removeSelectedText();
+
+                QTextBlockFormat blockFormat{};
+                blockFormat.setProperty(QTextFormat::BlockCodeFence, true);
+
+                QTextCharFormat charFormat{};
+                charFormat.setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
+
+                // Enforce constraints so the rich text engine doesn't override them
+                charFormat.setFontFixedPitch(true);
+                charFormat.setFontStyleHint(QFont::Monospace);
+
+                cursor.setBlockCharFormat(charFormat);
+                cursor.setBlockFormat(blockFormat);
+                cursor.endEditBlock();
+            }
         }
     }
 
@@ -971,15 +1045,137 @@ void RichDocumentHandler::slotKeyPressed(int key)
         QTextCharFormat strikethroughFormat;
         strikethroughFormat.setFontStrikeOut(true);
         transform(u"~~"_s, strikethroughFormat);
+
+        // links
+        // Auto-convert Markdown links [text](url)
+        const auto textUpToCursor = cursor.block().text().left(cursor.positionInBlock());
+        static const QRegularExpression linkRegex(u"\\[([^\\]]+)\\]\\(([^\\)]+)\\)$"_s);
+        QRegularExpressionMatch match = linkRegex.match(textUpToCursor);
+
+        if (match.hasMatch()) {
+            const QString linkText = match.captured(1);
+            const QString linkUrl = match.captured(2);
+            const int matchLength = match.capturedLength();
+
+            cursor.beginEditBlock();
+
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, matchLength);
+            cursor.removeSelectedText();
+
+            QTextCharFormat linkFormat = cursor.charFormat();
+            linkFormat.setAnchor(true);
+            linkFormat.setAnchorHref(linkUrl);
+            linkFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);
+            linkFormat.setUnderlineColor(linkColor());
+            linkFormat.setForeground(linkColor());
+
+            cursor.insertText(linkText, linkFormat);
+
+            QTextCharFormat resetFormat = cursor.charFormat();
+            resetFormat.setAnchor(false);
+            resetFormat.setAnchorHref(QString());
+            resetFormat.setUnderlineStyle(QTextCharFormat::NoUnderline);
+            resetFormat.clearForeground();
+
+            cursor.setCharFormat(resetFormat);
+
+            cursor.endEditBlock();
+            Q_EMIT cursorPositionChanged();
+        }
     }
 
-    // Match the behavior of office suites: newline after header switches to normal text
-    if ((key == Qt::Key_Return) && (cursor.blockFormat().headingLevel() > 0) && (cursor.atBlockEnd())) {
-        // it should be undoable together with actual "return" keypress
-        cursor.joinPreviousEditBlock();
-        setHeadingLevel(0);
-        cursor.endEditBlock();
-        Q_EMIT cursorPositionChanged();
+    if (key == Qt::Key_Return) {
+        // exit code block
+        if (isCodeBlock(cursor.block()) && cursor.block().previous().text().isEmpty() && !isCodeBlock(cursor.block().next())) {
+            cursor.beginEditBlock();
+            cursor.setBlockFormat({});
+            cursor.setBlockCharFormat({});
+            cursor.endEditBlock();
+            return;
+        }
+
+        // insert a code block on detecting a code fence
+        const auto fullBlockText = cursor.block().previous().text();
+        if (fullBlockText.startsWith(u"```")) {
+            cursor.beginEditBlock();
+
+            QTextBlockFormat blockFormat{};
+            blockFormat.setProperty(QTextFormat::BlockCodeFence, true);
+
+            // get language if present
+            const QString language = fullBlockText.mid(3).trimmed();
+            if (!language.isEmpty()) {
+                blockFormat.setProperty(QTextFormat::BlockCodeLanguage, language);
+            }
+
+            QTextCharFormat charFormat{};
+            charFormat.setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
+
+            // Enforce constraints so the rich text engine doesn't override them
+            charFormat.setFontFixedPitch(true);
+            charFormat.setFontStyleHint(QFont::Monospace);
+
+            // delete previous line
+            cursor.movePosition(QTextCursor::Up);
+            cursor.select(QTextCursor::BlockUnderCursor);
+            cursor.removeSelectedText();
+            cursor.deleteChar();
+
+            cursor.insertBlock(blockFormat, charFormat);
+            cursor.endEditBlock();
+
+            return;
+        }
+
+        // copy spaces from previous line
+        if (isCodeBlock(cursor.block()) && !cursor.block().previous().text().isEmpty() && isCodeBlock(cursor.block().previous())) {
+            const auto previousLineText = cursor.block().previous().text();
+            const auto leadingSpacesCount = previousLineText.indexOf(QRegularExpression(u"[^ ]"_s));
+            if (leadingSpacesCount > 0) {
+                cursor.insertText(QString(leadingSpacesCount, u' '));
+                return;
+            }
+        }
+
+        // Clear heading and sticky hyperlink formatting on the new line
+        if (cursor.atBlockEnd()) {
+            bool formatChanged = false;
+
+            if (cursor.blockFormat().headingLevel() > 0 || cursor.charFormat().isAnchor()) {
+                cursor.joinPreviousEditBlock();
+
+                // Clear heading formatting
+                if (cursor.blockFormat().headingLevel() > 0) {
+                    setHeadingLevel(0);
+                    formatChanged = true;
+                }
+
+                // Clear sticky hyperlink formatting
+                if (cursor.charFormat().isAnchor()) {
+                    QTextCharFormat resetFormat = cursor.charFormat();
+                    resetFormat.setAnchor(false);
+                    resetFormat.setAnchorHref(QString());
+                    resetFormat.setUnderlineStyle(QTextCharFormat::NoUnderline);
+                    resetFormat.clearForeground();
+
+                    cursor.setBlockCharFormat(resetFormat);
+
+                    QTextCursor selectCursor = cursor;
+                    selectCursor.select(QTextCursor::BlockUnderCursor);
+                    selectCursor.setCharFormat(resetFormat);
+
+                    cursor.setCharFormat(resetFormat);
+                    formatChanged = true;
+                }
+
+                cursor.endEditBlock();
+            }
+
+            if (formatChanged) {
+                Q_EMIT cursorPositionChanged();
+                reset();
+            }
+        }
     }
 
     if (cursor.currentList()) {
@@ -1018,6 +1214,30 @@ bool RichDocumentHandler::processKeyEvent(QKeyEvent *e)
         textCursor().clearSelection();
         Q_EMIT focusUp();
         return true;
+    }
+
+    // do not handle any other key events above this
+    if (isCodeBlock(textCursor().block())) {
+        if (e->key() == Qt::Key_Return && e->modifiers() == Qt::ShiftModifier) {
+            textCursor().insertBlock(textCursor().blockFormat(), textCursor().charFormat());
+            return false;
+        }
+
+        if (e->key() == Qt::Key_Tab) {
+            textCursor().insertText(u"    "_s);
+            return false;
+        } else if (e->key() == Qt::Key_Backtab) {
+            QTextCursor cursor = textCursor();
+            cursor.movePosition(QTextCursor::StartOfLine);
+            if (textCursor().block().text().startsWith(u"    "_s)) {
+                cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, 4);
+                cursor.removeSelectedText();
+            }
+
+            return false;
+        }
+
+        return evaluateReturnKeySupport(e);
     }
 
     if (textCursor().currentTable() && (e->key() == Qt::Key_Backtab || e->key() == Qt::Key_Tab)) {
