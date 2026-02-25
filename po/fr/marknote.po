@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-24 00:45+0000\n"
+"POT-Creation-Date: 2026-02-25 00:47+0000\n"
 "PO-Revision-Date: 2026-02-13 17:07+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -45,7 +45,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Une erreur est survenue lors de l'écriture vers « %1 »"
 
-#: main.cpp:89 qml/Main.qml:367
+#: main.cpp:89 qml/Main.qml:368
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -437,45 +437,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Créer un cahier de notes"
 
-#: qml/Main.qml:261
+#: qml/Main.qml:262
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Afficher le menu"
 
-#: qml/Main.qml:307
+#: qml/Main.qml:308
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importer"
 
-#: qml/Main.qml:316
+#: qml/Main.qml:317
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Trier la liste des notes"
 
-#: qml/Main.qml:322
+#: qml/Main.qml:323
 #, kde-format
 msgid "by Name"
 msgstr "Par nom"
 
-#: qml/Main.qml:335
+#: qml/Main.qml:336
 #, kde-format
 msgid "by Date"
 msgstr "Par date"
 
-#: qml/Main.qml:352
+#: qml/Main.qml:353
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Réduire la barre latérale"
 
-#: qml/Main.qml:352
+#: qml/Main.qml:353
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Développer la barre latérale"
 
-#: qml/Main.qml:419
+#: qml/Main.qml:420
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vos carnets de notes"
@@ -863,19 +863,19 @@ msgctxt "@label:spinbox"
 msgid "Font size:"
 msgstr "Taille de police :"
 
-#: settings/MarkNoteSettings.qml:15
+#: settings/MarkNoteSettings.qml:17
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
 msgstr "Général"
 
-#: settings/MarkNoteSettings.qml:21
+#: settings/MarkNoteSettings.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
 msgstr "À propos de MarkNote"
 
-#: settings/MarkNoteSettings.qml:27
+#: settings/MarkNoteSettings.qml:32
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-24 00:45+0000\n"
+"POT-Creation-Date: 2026-02-25 00:47+0000\n"
 "PO-Revision-Date: 2026-02-13 17:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -48,7 +48,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "حدث خطأ أثناء الكتابة إلى '%1'"
 
-#: main.cpp:89 qml/Main.qml:367
+#: main.cpp:89 qml/Main.qml:368
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -437,45 +437,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "أنشئ دفتر"
 
-#: qml/Main.qml:261
+#: qml/Main.qml:262
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "أظهر القائمة"
 
-#: qml/Main.qml:307
+#: qml/Main.qml:308
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "استورد"
 
-#: qml/Main.qml:316
+#: qml/Main.qml:317
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "افرز قائمة الملاحظات"
 
-#: qml/Main.qml:322
+#: qml/Main.qml:323
 #, kde-format
 msgid "by Name"
 msgstr "بالاسم"
 
-#: qml/Main.qml:335
+#: qml/Main.qml:336
 #, kde-format
 msgid "by Date"
 msgstr "بالتّاريخ"
 
-#: qml/Main.qml:352
+#: qml/Main.qml:353
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr " اطوِ الشريط الجانبي"
 
-#: qml/Main.qml:352
+#: qml/Main.qml:353
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "وسع الشريط الجانبي"
 
-#: qml/Main.qml:419
+#: qml/Main.qml:420
 #, kde-format
 msgid "Your Notebooks"
 msgstr "دفاترك"
@@ -863,19 +863,19 @@ msgctxt "@label:spinbox"
 msgid "Font size:"
 msgstr "حجم الخطّ:"
 
-#: settings/MarkNoteSettings.qml:15
+#: settings/MarkNoteSettings.qml:17
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
 msgstr "عامّ"
 
-#: settings/MarkNoteSettings.qml:21
+#: settings/MarkNoteSettings.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
 msgstr "عن دفتر مارك"
 
-#: settings/MarkNoteSettings.qml:27
+#: settings/MarkNoteSettings.qml:32
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
