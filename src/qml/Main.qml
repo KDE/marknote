@@ -153,6 +153,7 @@ StatetfulApp.StatefulWindow {
     MarkNoteSettings {
         id: settingsView
         window: root
+        application: App
     }
 
     Component.onCompleted: {

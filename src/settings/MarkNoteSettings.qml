@@ -9,12 +9,17 @@ import QtQuick.Layouts
 KirigamiSettings.ConfigurationView {
     id: root
 
+    required property var application
+
     modules: [
         KirigamiSettings.ConfigurationModule {
             moduleId: "general"
             text: i18nc("@action:button", "General")
             icon.name: "folder-notes-symbolic"
             page: () => Qt.createComponent("org.kde.marknote.settings", "MarkNoteGeneralPage")
+        },
+        KirigamiSettings.ShortcutsConfigurationModule {
+            application: root.application
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "aboutMarkNote"
