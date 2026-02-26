@@ -55,7 +55,7 @@ void App::setupActions()
     actionName = QLatin1String("import_knotes");
     if (KAuthorized::authorizeAction(actionName)) {
         auto action = mainCollection()->addAction(actionName, this, &App::importFromKNotes);
-        action->setIcon(QIcon::fromTheme(QStringLiteral("knotes")));
+        action->setIcon(QIcon::fromTheme(QStringLiteral("knotes-symbolic")));
         action->setText(i18nc("@action:inmenu", "Import from KNotes"));
     }
 
