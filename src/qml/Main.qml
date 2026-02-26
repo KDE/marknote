@@ -31,10 +31,42 @@ StatetfulApp.StatefulWindow {
     minimumHeight: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 20
     application: App
     windowName: 'main'
+    visible: false
 
     onWideScreenChanged: Kirigami.Settings.isMobile ? drawer.close() : (!wideScreen ? (drawer.close()) : drawer.open())
     onWidthChanged: pageStack.defaultColumnWidth = Math.max(Math.min(root.width * maximalColumWidthPercentage, pageStack.defaultColumnWidth), minimalColumnWidth)
     onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
+
+    function safePush(moduleUri, typeName, properties = {}) {
+        let component = Qt.createComponent(moduleUri, typeName, Component.Asynchronous);
+
+        function tryPush() {
+            if (component.status === Component.Ready) {
+                // Search the stack for an existing instance of this page type
+                let alreadyExists = false;
+                for (let i = 0; i < root.pageStack.items.length; i++) {
+                    if (root.pageStack.items[i].objectName === typeName) {
+                        alreadyExists = true;
+                        break;
+                    }
+                }
+
+                // Only create and push if it's not already there
+                if (!alreadyExists) {
+                    let page = component.createObject(pageStack, properties);
+                    if (page) {
+                        root.pageStack.push(page);
+                        if (!root.visible) root.visible = true;
+                    }
+                }
+            } else if (component.status === Component.Error) {
+                console.error("Failed to load " + typeName + ":", component.errorString());
+            }
+        }
+
+        component.statusChanged.connect(tryPush);
+        tryPush();
+    }
 
     pageStack {
         globalToolBar {
@@ -78,10 +110,13 @@ StatetfulApp.StatefulWindow {
         function onNotebookSelected(path) {
             root.raise()
             root.requestActivate()
+
             NavigationController.notebookPath = path
             pageStack.clear()
-            root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
-            root.pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"));
+
+            safePush("org.kde.marknote", "NotesPage");
+            safePush("org.kde.marknote", "EditPage");
+
             bottomDrawer.close()
         }
     }
@@ -158,7 +193,6 @@ StatetfulApp.StatefulWindow {
 
     Component.onCompleted: {
         Config.fillWindow = false;
-
         // Safety check for KRunner
         if (typeof KRunner !== "undefined") {
             KRunner.model = noteBooksModel;
@@ -166,12 +200,11 @@ StatetfulApp.StatefulWindow {
 
         Kirigami.Settings.isMobile ? drawer.close() : (!wideScreen ? (drawer.close()) : drawer.open());
         NavigationController.mobileMode = Kirigami.Settings.isMobile;
-
         if (noteBooksModel.rowCount() !== 0) {
             NavigationController.notebookPath = noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path);
         } else {
-            pageStack.push(Qt.createComponent("org.kde.marknote", "WelcomePage"), {
-                model: noteBooksModel,
+            safePush("org.kde.marknote", "WelcomePage", {
+                model: noteBooksModel
             });
         }
     }
@@ -191,24 +224,21 @@ StatetfulApp.StatefulWindow {
         target: NavigationController
 
         function onNotebookPathChanged(): void {
-            if (!root.pageStack.items[0] || root.pageStack.items[0].objectName !== "NotesPage") {
+            // Only clear and push if we aren't already on the NotesPage
+            if (root.pageStack.depth === 0 || (root.pageStack.items[0] && root.pageStack.items[0].objectName !== "NotesPage")) {
                 root.pageStack.clear();
-                root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
+                safePush("org.kde.marknote", "NotesPage");
             }
         }
 
         function onNotePathChanged(): void {
             if (NavigationController.notePath.length > 0) {
-                if (!root.pageStack.items[1] || root.pageStack.items[1].objectName !== "EditPage") {
-                    root.pageStack.clear();
-                    root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
-                    root.pageStack.push(Qt.createComponent("org.kde.marknote", "EditPage"));
-                } else {
-                    root.pageStack.currentIndex = root.pageStack.depth - 1;
+                const hasEditPage = root.pageStack.items.some(item => item.objectName === "EditPage");
+
+                // If NotesPage is already loading or present, just append the EditPage
+                if (!hasEditPage) {
+                    safePush("org.kde.marknote", "EditPage");
                 }
-            } else {
-                root.pageStack.clear();
-                root.pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
             }
         }
     }
@@ -464,7 +494,9 @@ StatetfulApp.StatefulWindow {
                         Kirigami.Theme.highlightColor = drawerDelegateItem.color
                         NavigationController.notebookPath = drawerDelegateItem.path
                         pageStack.clear()
-                        pageStack.push(Qt.createComponent("org.kde.marknote", "NotesPage"));
+
+                        // Replaced bare createComponent with safePush
+                        safePush("org.kde.marknote", "NotesPage");
                     }
                 }
             }
