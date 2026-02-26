@@ -37,6 +37,7 @@ include(ECMQmlModule)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     add_compile_options(-Wno-unused-parameter)
+    add_compile_options(-Wno-missing-include-dirs)
 endif()
 
 ecm_setup_version(${PROJECT_VERSION}
