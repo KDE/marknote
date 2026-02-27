@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-25 00:47+0000\n"
-"PO-Revision-Date: 2026-02-12 10:30+0200\n"
+"PO-Revision-Date: 2026-02-26 09:08+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -638,9 +638,7 @@ msgstr ""
 "למחוק את הפתקית <b> %1 </b>? הפעולה הזאת תמחק את הקובץ <b>%2</b> לצמיתות."
 
 #: qml/NotesPage.qml:327 qml/NotesPage.qml:363
-#, fuzzy, kde-format
-#| msgctxt "Application name"
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
@@ -649,21 +647,19 @@ msgstr "Marknote"
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
-msgstr ""
+msgstr "הייצוא של „%1” הצליח."
 
 #: qml/NotesPage.qml:346
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr "פתיחת קישור"
+msgstr "פתיחת קובץ"
 
 #: qml/NotesPage.qml:364
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
-msgstr ""
+msgstr "הייצוא של „%1” נכשל."
 
 #: qml/NotesPage.qml:376
 #, kde-format

@@ -647,12 +647,10 @@ msgid "Export of \"%1\" was successful."
 msgstr ""
 
 #: qml/NotesPage.qml:346
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr "打开链接"
+msgstr ""
 
 #: qml/NotesPage.qml:364
 #, kde-format
@@ -908,7 +906,3 @@ msgstr "列"
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"
-
-#~ msgctxt "@action:button"
-#~ msgid "Icon"
-#~ msgstr "图标："
