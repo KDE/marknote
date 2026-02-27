@@ -41,6 +41,7 @@ Name[zh_TW]=Marknote
 
 [Event/exportSuccessful]
 Name=Export successful
+Name[ar]=نجح التصدير
 Name[ca]=Exportació correcta
 Name[ca@valencia]=Exportació correcta
 Name[es]=Exportación correcta
@@ -56,6 +57,7 @@ Sound=ocean/stereo/outcome-success.oga
 
 [Event/exportFailed]
 Name=Export failed
+Name[ar]=فشل التصدير
 Name[ca]=L'exportació ha fallat
 Name[ca@valencia]=L'exportació ha fallat
 Name[es]=Exportación fallida
