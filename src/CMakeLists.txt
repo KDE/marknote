@@ -5,6 +5,13 @@ add_library(marknote_static STATIC)
 
 qt_policy(SET QTP0004 NEW)
 
+option(USE_UNITY_CMAKE_SUPPORT "Use UNITY CMake support" OFF)
+
+if(USE_UNITY_CMAKE_SUPPORT)
+    message(STATUS "UNITY CMake support is enabled")
+    set_target_properties(marknote_static PROPERTIES UNITY_BUILD ON)
+endif()
+
 ecm_add_qml_module(marknote_static
     URI org.kde.marknote
     GENERATE_PLUGIN_SOURCE
@@ -84,6 +91,31 @@ target_link_libraries(marknote_static
         settingsplugin
 )
 
+option(USE_PRECOMPILED_HEADERS "Use precompiled headers" OFF)
+
+if(USE_PRECOMPILED_HEADERS)
+    message(STATUS "PCH is enabled")
+    target_precompile_headers(marknote_static PRIVATE
+        <QObject>
+        <QQmlEngine>
+        <QQuickItem>
+        <QAbstractListModel>
+        <QString>
+        <QList>
+        <QUrl>
+        <KLocalizedString>
+        <QVariant>
+        <QDateTime>
+        <QPointer>
+        <QHash>
+        <QTextDocument>
+        <QTextCursor>
+        <QTextTableCell>
+        <QTextBlock>
+        <QQuickTextDocument>
+    )
+endif()
+
 if (TARGET KF6::I18nQml)
     target_link_libraries(marknote_static PUBLIC KF6::I18nQml)
 endif()
@@ -138,12 +170,8 @@ if (APPLE)
         MACOSX_BUNDLE_COPYRIGHT "2002-2024 The Marknote Developers")
 endif()
 
-target_link_libraries(marknote PRIVATE marknote_static marknote_staticplugin)
 if (TARGET KF6::Crash)
    target_link_libraries(marknote PRIVATE KF6::Crash)
-endif()
-if (NOT ANDROID)
-    target_link_libraries(marknote PRIVATE Qt::Widgets)
 endif()
 
 if (BUILD_TESTING)
