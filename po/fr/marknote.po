@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-25 00:47+0000\n"
-"PO-Revision-Date: 2026-02-13 17:07+0100\n"
+"PO-Revision-Date: 2026-02-26 07:38+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -640,32 +640,28 @@ msgstr ""
 "définitivement le fichier <b>%2</b> ?"
 
 #: qml/NotesPage.qml:327 qml/NotesPage.qml:363
-#, fuzzy, kde-format
-#| msgctxt "Application name"
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
-msgstr "MarkNote"
+msgstr "Marknote"
 
 #: qml/NotesPage.qml:328
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
-msgstr ""
+msgstr "L'exportation de « %1 » est réussie."
 
 #: qml/NotesPage.qml:346
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr "Ouvrir le lien"
+msgstr "Ouvrir un fichier"
 
 #: qml/NotesPage.qml:364
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
-msgstr ""
+msgstr "L'exportation de « %1 » a échoué."
 
 #: qml/NotesPage.qml:376
 #, kde-format
