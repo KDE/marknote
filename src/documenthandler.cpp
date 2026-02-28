@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
+﻿// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
 // SPDX-FileCopyrightText: 2015-2024 Laurent Montel <montel@kde.org>
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
 // SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
@@ -33,6 +33,116 @@
 using namespace Qt::StringLiterals;
 
 constexpr int textMargin = 20;
+
+namespace
+{
+
+const QChar kLinkBoundaryChar(u'\u2060');
+
+QColor normalTextColor()
+{
+    return KColorScheme(QPalette::Active, KColorScheme::View).foreground(KColorScheme::NormalText).color();
+}
+
+QString internalLinkUrlForName(const QString &noteName)
+{
+    if (noteName.isEmpty()) {
+        return {};
+    }
+    QUrl url;
+    url.setScheme(u"marknote"_s);
+    url.setHost(u"note"_s);
+    url.setPath(u'/' + noteName);
+    return url.toString(QUrl::FullyEncoded);
+}
+
+QString internalLinkNameFromUrl(const QUrl &url)
+{
+    if (url.scheme() != "marknote"_L1 || url.host() != "note"_L1) {
+        return {};
+    }
+    const QString path = url.path(QUrl::FullyDecoded);
+    if (path.isEmpty() || path == "/"_L1) {
+        return {};
+    }
+    return path.mid(1);
+}
+
+QString convertWikiLinksToMarkdown(const QString &input)
+{
+    static const QRegularExpression wikiRegex(u"\\[\\[([^\\]\\n]+)\\]\\]"_s);
+    QString output;
+    output.reserve(input.length());
+    int lastPos = 0;
+    auto matches = wikiRegex.globalMatch(input);
+    while (matches.hasNext()) {
+        const auto match = matches.next();
+        output.append(QStringView(input).mid(lastPos, match.capturedStart() - lastPos));
+
+        const QString linkBody = match.captured(1).trimmed();
+        if (linkBody.isEmpty()) {
+            output.append(match.captured());
+            lastPos = match.capturedEnd();
+            continue;
+        }
+
+        QString noteName = linkBody;
+        QString alias;
+        const int pipeIndex = linkBody.indexOf(u'|');
+        if (pipeIndex != -1) {
+            noteName = linkBody.left(pipeIndex).trimmed();
+            alias = linkBody.mid(pipeIndex + 1).trimmed();
+        }
+
+        const QString url = internalLinkUrlForName(noteName);
+        if (url.isEmpty()) {
+            output.append(match.captured());
+            lastPos = match.capturedEnd();
+            continue;
+        }
+
+        const QString linkText = alias.isEmpty() ? noteName : alias;
+        output.append(u"["_s + linkText + u"]("_s + url + u")"_s);
+        lastPos = match.capturedEnd();
+    }
+
+    output.append(QStringView(input).mid(lastPos));
+    return output;
+}
+
+QString convertInternalMarkdownLinksToWiki(const QString &input)
+{
+    static const QRegularExpression internalMarkdownRegex(u"\\[([^\\]]+)\\]\\((marknote:[^)]+)\\)"_s);
+    QString output;
+    output.reserve(input.length());
+    int lastPos = 0;
+    auto matches = internalMarkdownRegex.globalMatch(input);
+    while (matches.hasNext()) {
+        const auto match = matches.next();
+        output.append(QStringView(input).mid(lastPos, match.capturedStart() - lastPos));
+
+        const QString linkText = match.captured(1);
+        const QUrl url(match.captured(2));
+        const QString noteName = internalLinkNameFromUrl(url);
+        if (noteName.isEmpty()) {
+            output.append(match.captured());
+            lastPos = match.capturedEnd();
+            continue;
+        }
+
+        if (linkText == noteName) {
+            output.append(u"[["_s + noteName + u"]]"_s);
+        } else {
+            output.append(u"[["_s + noteName + u"|"_s + linkText + u"]]"_s);
+        }
+        lastPos = match.capturedEnd();
+    }
+
+    output.append(QStringView(input).mid(lastPos));
+    return output;
+}
+
+}
 
 DocumentHandler::DocumentHandler(QObject *parent)
     : QObject(parent)
@@ -90,7 +200,15 @@ bool DocumentHandler::eventFilter(QObject *object, QEvent *event)
         object == m_textArea && event->type() == QEvent::MouseButtonRelease && me->modifiers() == Qt::ControlModifier) {
         const auto link = m_document->textDocument()->documentLayout()->anchorAt(me->position());
         if (!link.isEmpty() && m_activeLink == link) {
-            QDesktopServices::openUrl(QUrl(link));
+            const QUrl url(link);
+            if (url.scheme() == "marknote"_L1) {
+                const QString noteName = internalLinkNameFromUrl(url);
+                if (!noteName.isEmpty()) {
+                    Q_EMIT internalLinkActivated(noteName);
+                    return true;
+                }
+            }
+            QDesktopServices::openUrl(url);
             return true;
         }
         m_activeLink.clear();
@@ -433,6 +551,7 @@ void DocumentHandler::load(const QUrl &fileUrl)
         // Append remaining text
         processedContent.append(QStringView(content).mid(lastPos));
 
+        processedContent = convertWikiLinksToMarkdown(processedContent);
         Q_EMIT loaded(processedContent, Qt::MarkdownText);
 
         doc->setModified(false);
@@ -477,6 +596,8 @@ void DocumentHandler::saveAs(const QUrl &fileUrl)
         lastPos = match.capturedEnd();
     }
     finalOutput.append(QStringView(markdown).mid(lastPos));
+    finalOutput.remove(kLinkBoundaryChar);
+    finalOutput = convertInternalMarkdownLinksToWiki(finalOutput);
     QFile fileCheck(fileUrl.toLocalFile());
     if (fileCheck.exists() && fileCheck.open(QFile::ReadOnly)) {
         const QByteArray existingContent = fileCheck.readAll();
@@ -743,6 +864,15 @@ void DocumentHandler::updateLink(const QString &linkUrl, const QString &linkText
 
     cursor.beginEditBlock();
 
+    QTextDocument defaultTextDocument;
+    const QTextCharFormat defaultCharFormat = defaultTextDocument.begin().charFormat();
+    QTextCharFormat trailingFormat = cursor.charFormat();
+    trailingFormat.setAnchor(false);
+    trailingFormat.setAnchorHref(QString());
+    trailingFormat.setUnderlineStyle(defaultCharFormat.underlineStyle());
+    trailingFormat.setUnderlineColor(defaultCharFormat.underlineColor());
+    trailingFormat.setForeground(normalTextColor());
+
     if (!cursor.hasSelection()) {
         cursor.select(QTextCursor::WordUnderCursor);
     }
@@ -757,8 +887,7 @@ void DocumentHandler::updateLink(const QString &linkUrl, const QString &linkText
         // Workaround for QTBUG-1814:
         // Link formatting does not get applied immediately when setAnchor(true)
         // is called.  So the formatting needs to be applied manually.
-        format.setUnderlineStyle(QTextCharFormat::SingleUnderline);
-        format.setUnderlineColor(linkColor());
+        format.setUnderlineStyle(QTextCharFormat::NoUnderline);
         format.setForeground(linkColor());
     } else {
         // Remove link details
@@ -767,9 +896,6 @@ void DocumentHandler::updateLink(const QString &linkUrl, const QString &linkText
         // Workaround for QTBUG-1814:
         // Link formatting does not get removed immediately when setAnchor(false)
         // is called. So the formatting needs to be applied manually.
-        QTextDocument defaultTextDocument;
-        QTextCharFormat defaultCharFormat = defaultTextDocument.begin().charFormat();
-
         format.setUnderlineStyle(defaultCharFormat.underlineStyle());
         format.setUnderlineColor(defaultCharFormat.underlineColor());
         format.setForeground(defaultCharFormat.foreground());
@@ -783,13 +909,14 @@ void DocumentHandler::updateLink(const QString &linkUrl, const QString &linkText
         _linkText = linkUrl;
     }
     cursor.insertText(_linkText, format);
+    cursor.insertText(QString(kLinkBoundaryChar), trailingFormat);
 
     cursor.endEditBlock();
 }
 
 void DocumentHandler::regenerateColorScheme()
 {
-    mLinkColor = KColorScheme(QPalette::Active, KColorScheme::View).foreground(KColorScheme::LinkText).color();
+    mLinkColor = QGuiApplication::palette().color(QPalette::Link);
     // TODO update existing link
 }
 
@@ -1408,6 +1535,76 @@ void DocumentHandler::slotKeyPressed(int key)
                 reset();
             }
         }
+    }
+
+    if (key == Qt::Key_BracketRight) {
+        auto cursor = textCursor();
+        if (!cursor.isNull()) {
+            const int positionInBlock = cursor.positionInBlock();
+            const QString blockText = cursor.block().text().left(positionInBlock);
+            const int startIndex = blockText.lastIndexOf("[["_L1);
+            if (startIndex != -1 && blockText.endsWith("]]"_L1)) {
+                const int linkLength = blockText.length() - startIndex;
+                const QString linkBody = blockText.mid(startIndex + 2, linkLength - 4).trimmed();
+                if (!linkBody.isEmpty()) {
+                    QString noteName = linkBody;
+                    QString alias;
+                    const int pipeIndex = linkBody.indexOf(u'|');
+                    if (pipeIndex != -1) {
+                        noteName = linkBody.left(pipeIndex).trimmed();
+                        alias = linkBody.mid(pipeIndex + 1).trimmed();
+                    }
+
+                    const QString url = internalLinkUrlForName(noteName);
+                    if (!noteName.isEmpty() && !url.isEmpty()) {
+                        const QString linkText = alias.isEmpty() ? noteName : alias;
+                        const int startPos = cursor.block().position() + startIndex;
+                        const int endPos = cursor.block().position() + blockText.length();
+                        QTextDocument defaultTextDocument;
+                        const QTextCharFormat defaultCharFormat = defaultTextDocument.begin().charFormat();
+                        QTextCharFormat trailingFormat = cursor.charFormat();
+                        trailingFormat.setAnchor(false);
+                        trailingFormat.setAnchorHref(QString());
+                        trailingFormat.setUnderlineStyle(defaultCharFormat.underlineStyle());
+                        trailingFormat.setUnderlineColor(defaultCharFormat.underlineColor());
+                        trailingFormat.setForeground(normalTextColor());
+
+                        cursor.beginEditBlock();
+                        cursor.setPosition(startPos);
+                        cursor.setPosition(endPos, QTextCursor::KeepAnchor);
+                        cursor.removeSelectedText();
+                        cursor.insertText(linkText);
+
+                        cursor.setPosition(startPos);
+                        cursor.setPosition(startPos + linkText.length(), QTextCursor::KeepAnchor);
+
+                        QTextCharFormat format = cursor.charFormat();
+                        format.setAnchor(true);
+                        format.setAnchorHref(url);
+                        format.setUnderlineStyle(QTextCharFormat::NoUnderline);
+                        format.setForeground(linkColor());
+                        cursor.mergeCharFormat(format);
+
+                        cursor.clearSelection();
+                        cursor.setPosition(startPos + linkText.length());
+                        cursor.insertText(QString(kLinkBoundaryChar), trailingFormat);
+                        cursor.endEditBlock();
+
+                        moveCursor(cursor.position());
+                        Q_EMIT cursorPositionChanged();
+                    }
+                }
+            }
+        }
+    }
+
+    // Match the behavior of office suites: newline after header switches to normal text
+    if ((key == Qt::Key_Return) && (textCursor().blockFormat().headingLevel() > 0) && (textCursor().atBlockEnd())) {
+        // it should be undoable together with actual "return" keypress
+        textCursor().joinPreviousEditBlock();
+        setHeadingLevel(0);
+        textCursor().endEditBlock();
+        Q_EMIT cursorPositionChanged();
     }
 
     if (cursor.currentList()) {

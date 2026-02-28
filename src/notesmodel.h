@@ -62,6 +62,8 @@ public:
     /// \return whether export was successful.
     Q_INVOKABLE bool exportToOdt(const QUrl &path, const QUrl &destination);
 
+    Q_INVOKABLE bool noteExists(const QString &noteName) const;
+
     QString path() const;
     void setPath(const QString &newPath);
 

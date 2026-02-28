@@ -25,6 +25,7 @@ QQC2.Menu {
     required property TableActionHelper tableActionHelper
     property url currentLink
     property var document
+    property var internalLinkHandler
 
     // assuming that Instantiator::active is bound to target.Kirigami.SpellCheck.enabled
     property Instantiator/*<Sonnet.SpellcheckHighlighter>*/ spellcheckHighlighterInstantiator
@@ -123,6 +124,13 @@ QQC2.Menu {
     // Show text editing actions which should normally be hidden for password field
     function __showPasswordRestrictedEditingActions(): bool {
         return __showPasswordRestrictedActions() && !target.readOnly;
+    }
+
+    function __isInternalLink(link: url): bool {
+        if (!link) {
+            return false;
+        }
+        return link.toString().startsWith("marknote://note/");
     }
 
     modal: true
@@ -256,9 +264,15 @@ QQC2.Menu {
     QQC2.MenuItem {
         visible: root.currentLink != ""
         action: QQC2.Action {
-            text: i18nc("@inmenu", "Open Link")
+            text: root.__isInternalLink(root.currentLink) ? i18nc("@inmenu", "Open Note") : i18nc("@inmenu", "Open Link")
             icon.name: "document-open"
-            onTriggered: Qt.openUrlExternally(root.currentLink)
+            onTriggered: {
+                if (root.__isInternalLink(root.currentLink) && root.internalLinkHandler) {
+                    root.internalLinkHandler(root.currentLink);
+                } else {
+                    Qt.openUrlExternally(root.currentLink);
+                }
+            }
         }
     }
     QQC2.MenuSeparator {

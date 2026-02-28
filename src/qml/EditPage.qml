@@ -71,6 +71,107 @@ Kirigami.Page {
         }
     }
 
+    NoteBooksModel {
+        id: allNotebooksModel
+        storagePath: Config.storage
+    }
+
+    NotesModel {
+        id: notesSearchModel
+        path: NavigationController.notebookPath
+    }
+
+    function normalizeNoteName(name: string): string {
+        if (!name) {
+            return "";
+        }
+        let normalized = name;
+        if (normalized.endsWith(".md")) {
+            normalized = normalized.slice(0, -3);
+        }
+        return normalized.trim();
+    }
+
+    function ensureNotebookPath(): string {
+        if (NavigationController.notebookPath.length > 0) {
+            return NavigationController.notebookPath;
+        }
+        if (allNotebooksModel.rowCount() === 0) {
+            return "";
+        }
+        const firstIndex = allNotebooksModel.index(0, 0);
+        return allNotebooksModel.data(firstIndex, NoteBooksModel.Path);
+    }
+
+    function findNoteNotebookPath(noteName: string): string {
+        const normalized = normalizeNoteName(noteName);
+        if (!normalized) {
+            return "";
+        }
+        const total = allNotebooksModel.rowCount();
+        for (let i = 0; i < total; i++) {
+            const idx = allNotebooksModel.index(i, 0);
+            const notebookPath = allNotebooksModel.data(idx, NoteBooksModel.Path);
+            if (!notebookPath) {
+                continue;
+            }
+            notesSearchModel.path = notebookPath;
+            if (notesSearchModel.noteExists(normalized)) {
+                return notebookPath;
+            }
+        }
+        return "";
+    }
+
+    function openNoteByName(name: string): void {
+        const normalized = normalizeNoteName(name);
+        if (!normalized) {
+            return;
+        }
+
+        const foundNotebookPath = findNoteNotebookPath(normalized);
+        if (foundNotebookPath.length > 0) {
+            if (NavigationController.notebookPath !== foundNotebookPath) {
+                NavigationController.notebookPath = foundNotebookPath;
+            }
+            NavigationController.notePath = normalized + ".md";
+            return;
+        }
+
+        const targetNotebookPath = ensureNotebookPath();
+        if (!targetNotebookPath.length) {
+            return;
+        }
+        if (NavigationController.notebookPath !== targetNotebookPath) {
+            NavigationController.notebookPath = targetNotebookPath;
+        }
+        notesSearchModel.path = targetNotebookPath;
+        if (!notesSearchModel.noteExists(normalized)) {
+            notesSearchModel.addNote(normalized);
+        }
+        NavigationController.notePath = normalized + ".md";
+    }
+
+    function noteNameFromInternalUrl(url): string {
+        if (!url) {
+            return "";
+        }
+        const urlString = url.toString();
+        const prefix = "marknote://note/";
+        if (!urlString.startsWith(prefix)) {
+            return "";
+        }
+        const encodedName = urlString.substring(prefix.length);
+        return decodeURIComponent(encodedName);
+    }
+
+    function openInternalLinkUrl(url): void {
+        const noteName = noteNameFromInternalUrl(url);
+        if (noteName.length > 0) {
+            openNoteByName(noteName);
+        }
+    }
+
     function loadNote(): void {
         if (root.oldPath.length > 0 && !saved) {
             document.saveAs(root.oldPath);
@@ -1201,6 +1302,10 @@ Kirigami.Page {
                         textArea.select(start, end);
                     }
 
+                    onInternalLinkActivated: (noteName) => {
+                        openNoteByName(noteName);
+                    }
+
                     onCursorPositionChanged: {
                         root.listIndent = document.canIndentList;
                         root.listDedent = document.canDedentList;
@@ -1258,5 +1363,6 @@ Kirigami.Page {
         id: textFieldContextMenu
         tableActionHelper: tableHelper
         document: document
+        internalLinkHandler: openInternalLinkUrl
     }
 }
