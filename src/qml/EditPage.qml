@@ -1,12 +1,15 @@
 // SPDX-FileCopyrightText: 2026 Siddharth Chopra <contact.sid.chopra@gmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 
 import org.kde.kirigami as Kirigami
 import QtQuick.Controls
 import QtQuick.Templates as T
 import QtQuick.Layouts
+import org.kde.ki18n
 
 import "components"
 
@@ -49,12 +52,11 @@ Kirigami.Page {
     property bool mobileToolBarHidden: true
     property real mobileToolBarHeight: 0
 
-    required property Component headerItems
     readonly property alias textArea: textArea
-    property var document: handlerLoader.item
+    required property var document
     readonly property alias contentScroll: contentScroll
     property alias searchBar: searchBar 
-    
+    readonly property Kirigami.PageRow pageStack: (root.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack
 
     function openSearch(): void {
         if (searchBar) {
@@ -86,11 +88,11 @@ Kirigami.Page {
 
     function loadNote(): void {
         if (root.oldPath.length > 0 && !saved) {
-            document.saveAs(root.oldPath);
+            root.document.saveAs(root.oldPath);
         }
         if (root.noteFullPath.toString().length > 0) {
         
-            document.load(root.noteFullPath);
+            root.document.load(root.noteFullPath);
 
             root.saved = true;
         }
@@ -100,113 +102,10 @@ Kirigami.Page {
         textArea.forceActiveFocus();
     }
 
-    titleDelegate: RowLayout{
+    titleDelegate: RowLayout {
         visible: root.noteName
         Layout.fillWidth: true
-
-        Loader{
-            Layout.fillWidth: true
-            sourceComponent: root.headerItems
-        }
-
     }
-
-    Component{
-        id: richDocumentHandler
-
-        RichDocumentHandler {
-            
-            textArea: root.textArea
-            document: root.textArea.textDocument
-            cursorPosition: root.textArea.cursorPosition
-            selectionStart: root.textArea.selectionStart
-            selectionEnd: root.textArea.selectionEnd
-
-
-            onLoaded: (text) => {
-                root.textArea.text = text
-            }
-            onError: (message) => {
-                console.error("Error message from document handler", message)
-            }
-
-            onCopy: root.textArea.copy();
-            onCut: root.textArea.cut();
-            onUndo: root.textArea.undo();
-            onRedo: root.textArea.redo();
-
-
-            onCheckableChanged: {
-                root.checkbox = checkable;
-            }
-
-            onMoveCursor: (position) => {
-                root.textArea.cursorPosition = position;
-            }
-            onSelectCursor: (start, end) => {
-                root.textArea.select(start, end);
-            }
-
-            onCursorPositionChanged: {
-                root.listIndent = canIndentList;
-                root.listDedent = canDedentList;
-                root.checkbox = checkable;
-
-                if (currentListStyle === 0) {
-                    root.listStyle = 0;
-                } else if (currentListStyle === 1) {
-                    root.listStyle = 1;
-                } else if (currentListStyle === 4) {
-                    root.listStyle = 2;
-                }
-                root.heading = currentHeadingLevel
-            }
-
-            onInternalLinkActivated: (noteName) => {
-                openNoteByName(noteName);
-            }
-        }
-    } 
-
-    Component{
-
-        id: rawDocumentHandler
-
-        RawDocumentHandler { 
-
-            cursorPosition: root.textArea.cursorPosition
-            document: root.textArea.textDocument
-            selectionEnd: root.textArea.selectionEnd
-            textArea: root.textArea
-
-            onCopy: root.textArea.copy()
-
-            onCut: root.textArea.cut()
-            onError: message => {
-                console.error("Error message from document handler", message);
-            }
-            // textColor: TODO
-            onLoaded: text => {
-                root.textArea.text = text;
-            }
-            onMoveCursor: position => {
-                root.textArea.cursorPosition = position;
-            }
-            onRedo: root.textArea.redo()
-            onSelectCursor: (start, end) => {
-                root.textArea.select(start, end);
-            }
-            onUndo: root.textArea.undo()
-        }
-    }
-
-
-    Loader {
-        id: handlerLoader
-        sourceComponent: NavigationController.sourceMode ? rawDocumentHandler : richDocumentHandler
-        active: true
-    }
-
 
     header: ColumnLayout {
 
@@ -242,17 +141,17 @@ Kirigami.Page {
                 Kirigami.SearchField {
                     id: searchField
                     Layout.fillWidth: true
-                    placeholderText: i18n("Find text...")
+                    placeholderText: KI18n.i18n("Find text...")
                     onTextChanged: {
                         if (text.length > 0) {
-                            document.findText(text);
+                            root.document.findText(text);
                         } else {
-                            document.clearSearch();
+                            root.document.clearSearch();
                             textArea.deselect();
                         }
                     }
                     Keys.onShortcutOverride: (event)=> event.accepted = (event.key === Qt.Key_Escape)
-                    Keys.onReturnPressed: document.findNext()
+                    Keys.onReturnPressed: root.document.findNext()
                     Keys.onEscapePressed: {
                         searchField.text = "";
                         searchBar.isSearchOpen = false;
@@ -267,50 +166,50 @@ Kirigami.Page {
 
                 ToolButton {
                     icon.name: "go-up"
-                    text: i18n("Previous")
+                    text: KI18n.i18n("Previous")
                     display: AbstractButton.IconOnly
-                    onClicked: document.findPrevious()
-                    enabled: document.searchMatchCount > 0
+                    onClicked: root.document.findPrevious()
+                    enabled: root.document.searchMatchCount > 0
 
                     ToolTip.text: text
                     ToolTip.visible: hovered
                     ToolTip.delay: Kirigami.Units.toolTipDelay
                     Shortcut {
                         sequence: StandardKey.FindPrevious
-                        onActivated: document.findPrevious()
+                        onActivated: root.document.findPrevious()
                     }
                 }
 
                 ToolButton {
                     icon.name: "go-down"
-                    text: i18n("Next")
+                    text: KI18n.i18n("Next")
                     display: AbstractButton.IconOnly
-                    onClicked: document.findNext()
-                    enabled: document.searchMatchCount > 0
+                    onClicked: root.document.findNext()
+                    enabled: root.document.searchMatchCount > 0
 
                     ToolTip.text: text
                     ToolTip.visible: hovered
                     ToolTip.delay: Kirigami.Units.toolTipDelay
                     Shortcut {
                         sequence: StandardKey.FindNext
-                        onActivated: document.findNext()
+                        onActivated: root.document.findNext()
                     }
                 }
 
                 Label {
                     text: {
-                        if (document.searchMatchCount === 0) {
+                        if (root.document.searchMatchCount === 0) {
                             textArea.deselect();
-                            return i18n("No matches");
+                            return KI18n.i18n("No matches");
                         }
-                        return i18n("%1/%2", document.searchCurrentMatch + 1, document.searchMatchCount);
+                        return KI18n.i18n("%1/%2", root.document.searchCurrentMatch + 1, root.document.searchMatchCount);
                     }
                     Layout.minimumWidth: Kirigami.Units.gridUnit * 4
                 }
 
                 ToolButton {
                     icon.name: "dialog-close"
-                    text: i18n("Close")
+                    text: KI18n.i18n("Close")
                     display: AbstractButton.IconOnly
                     onClicked: {
                         root.closeSearch()
@@ -331,7 +230,7 @@ Kirigami.Page {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        bottomPadding: wideScreen || NavigationController.sourceMode ? 0 : (mobileToolBarHidden ? 0 : mobileToolBarHeight)
+        bottomPadding: root.wideScreen || NavigationController.sourceMode ? 0 : (root.mobileToolBarHidden ? 0 : root.mobileToolBarHeight)
 
         Behavior on bottomPadding {
             NumberAnimation {
@@ -343,14 +242,14 @@ Kirigami.Page {
         T.TextArea {
             id: textArea
 
-            textMargin: wideScreen? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
+            textMargin: root.wideScreen? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
             leftPadding: 0
             rightPadding: 0
             topPadding: 0
 
             readonly property int additionalPadding: Kirigami.Units.gridUnit * 4
 
-            bottomPadding: wideScreen || NavigationController.sourceMode ? additionalPadding : (mobileToolBarHidden ? 0 : mobileToolBarHeight)
+            bottomPadding: root.wideScreen || NavigationController.sourceMode ? additionalPadding : (root.mobileToolBarHidden ? 0 : root.mobileToolBarHeight)
 
             Behavior on bottomPadding {
                 NumberAnimation {
@@ -365,12 +264,12 @@ Kirigami.Page {
                 acceptedModifiers: Qt.ControlModifier
 
                 onPointChanged: () => {
-                    document.slotMouseMovedWithControl(controlHoverHandler.point.position)
+                    root.document.slotMouseMovedWithControl(controlHoverHandler.point.position)
                 }
 
                 onHoveredChanged: () => {
                     if (!controlHoverHandler.hovered) {
-                        document.slotMouseMovedWithControlReleased()
+                        root.document.slotMouseMovedWithControlReleased()
                     }
                 }
             }
@@ -397,7 +296,7 @@ Kirigami.Page {
             textFormat: NavigationController.sourceMode ? TextEdit.PlainText : TextEdit.MarkdownText
             wrapMode: TextEdit.Wrap
 
-            onPressAndHold: {
+            onPressAndHold: (event) => {
                 if (Kirigami.Settings.tabletMode && selectByMouse) {
                     forceActiveFocus();
                     cursorPosition = positionAt(event.x, event.y);
@@ -408,8 +307,8 @@ Kirigami.Page {
             property int lastKey: -1
             Keys.onPressed: (event) => {
                 if (event.matches(StandardKey.Paste)) {
-                    if (document && typeof document.pasteFromClipboard === 'function') {
-                        document.pasteFromClipboard();
+                    if (root.document && typeof root.document.pasteFromClipboard === 'function') {
+                        root.document.pasteFromClipboard();
                         event.accepted = true;
                         return;
                     }
@@ -422,7 +321,7 @@ Kirigami.Page {
                     if (lastKey !== -1) {
                         let key = lastKey;
                         lastKey = -1;
-                        document.slotKeyPressed(key);
+                        root.document.slotKeyPressed(key);
                     }
                 }
                 root.saved = false;
@@ -469,7 +368,7 @@ Kirigami.Page {
                     if (drop.hasUrls) {
                         for (let i = 0; i < drop.urls.length; i++) {
                             const path = drop.urls[i].toString();
-                            document.insertImage(path);
+                            root.document.insertImage(path);
                         }
                     }
                 }
@@ -481,7 +380,7 @@ Kirigami.Page {
                 // we need to use the longpress signal since it triggers when the button is first pressed
                 longPressThreshold: 0.001 // https://invent.kde.org/qt/qt/qtdeclarative/-/commit/8f6809681ec82da783ae8dcd76fa2c209b28fde6
                 onLongPressed: {
-                    textFieldContextMenu.currentLink = document.anchorAt(point.position);
+                    textFieldContextMenu.currentLink = root.document.anchorAt(point.position);
                     textFieldContextMenu.targetClick(
                         point,
                         textArea,
@@ -497,8 +396,8 @@ Kirigami.Page {
                 repeat: false
                 interval: 1000
                 onTriggered: if (root.noteFullPath.toString().length > 0) {
-                    document.saveAs(root.noteFullPath);
-                    saved = true;
+                    root.document.saveAs(root.noteFullPath);
+                    root.saved = true;
                 }
             }
 
@@ -509,18 +408,15 @@ Kirigami.Page {
     }
 
     Component.onCompleted: {
-        handlerLoader.active = true
-        if (document){
-            loadNote();
-            init = true;
-        }
+        loadNote();
+        init = true;
     }
 
     onDocumentChanged: {
         if (document && init) {
             loadNote();
             if (ApplicationWindow.window) {
-                ApplicationWindow.window.currentDocument = document;
+                ApplicationWindow.window.currentDocument = root.document;
             }
         }
     }
@@ -533,18 +429,18 @@ Kirigami.Page {
         }
 
         if (visible) {
-            ApplicationWindow.window.currentDocument = document
-        } else if (ApplicationWindow.window.currentDocument === document) {
+            ApplicationWindow.window.currentDocument = root.document
+        } else if (ApplicationWindow.window.currentDocument === root.document) {
             ApplicationWindow.window.currentDocument = null
         }
     }
 
     Component.onDestruction: {
-        if (!saved && noteFullPath.toString().length > 0 && document !== null) {
-            document.saveAs(noteFullPath);
+        if (!saved && noteFullPath.toString().length > 0 && root.document !== null) {
+            root.document.saveAs(noteFullPath);
         }
 
-        if (ApplicationWindow.window !== null && ApplicationWindow.window.currentDocument === document) {
+        if (ApplicationWindow.window !== null && ApplicationWindow.window.currentDocument === root.document) {
             ApplicationWindow.window.currentDocument = null
         }
     }
@@ -569,7 +465,7 @@ Kirigami.Page {
     TextFieldContextMenu {
         id: textFieldContextMenu
         tableActionHelper: tableHelper
-        document: document
+        document: root.document
         internalLinkHandler: openInternalLinkUrl
     }
 }
