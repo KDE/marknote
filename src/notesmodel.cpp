@@ -391,4 +391,18 @@ bool NotesModel::exportToOdt(const QUrl &path, const QUrl &destination)
     return true;
 }
 
+bool NotesModel::noteExists(const QString &noteName) const
+{
+    if (m_path.isEmpty() || noteName.isEmpty()) {
+        return false;
+    }
+
+    QString fileName = noteName;
+    if (!fileName.endsWith(QStringLiteral(".md"))) {
+        fileName += QStringLiteral(".md");
+    }
+
+    return QFile::exists(m_path + u'/' + fileName);
+}
+
 #include "moc_notesmodel.cpp"

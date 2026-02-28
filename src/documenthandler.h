@@ -120,6 +120,7 @@ Q_SIGNALS:
     void redo();
     void moveCursor(int position);
     void selectCursor(int start, int end);
+    void internalLinkActivated(const QString &noteName);
 
 protected:
     virtual void reset() = 0;

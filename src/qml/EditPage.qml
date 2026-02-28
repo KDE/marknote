@@ -112,7 +112,6 @@ Kirigami.Page {
     }
 
     Component{
-        
         id: richDocumentHandler
 
         RichDocumentHandler {
@@ -161,6 +160,10 @@ Kirigami.Page {
                     root.listStyle = 2;
                 }
                 root.heading = currentHeadingLevel
+            }
+
+            onInternalLinkActivated: (noteName) => {
+                openNoteByName(noteName);
             }
         }
     } 
@@ -470,7 +473,6 @@ Kirigami.Page {
                         }
                     }
                 }
-                
             }
 
             TapHandler {
@@ -568,9 +570,6 @@ Kirigami.Page {
         id: textFieldContextMenu
         tableActionHelper: tableHelper
         document: document
+        internalLinkHandler: openInternalLinkUrl
     }
-
-
-
-
 }
