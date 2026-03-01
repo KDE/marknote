@@ -87,6 +87,7 @@ target_link_libraries(marknote_static
         KF6::IconThemes
         KF6::ColorScheme
         KPim6::Mime
+        KirigamiApp
         KirigamiAddonsStatefulApp
         settingsplugin
 )

@@ -1,10 +1,12 @@
 /*
     SPDX-License-Identifier: GPL-2.0-or-later
     SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
+    SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 */
 
 #include <KAboutData>
-#if __has_include("KCrash")
+#include <KirigamiAppDefaults>
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 19, 0) && __has_include("KCrash")
 #include <KCrash>
 #endif
 #include <KIconTheme>
@@ -52,40 +54,22 @@ using namespace Qt::Literals::StringLiterals;
 
 int main(int argc, char *argv[])
 {
-    KIconTheme::initTheme();
-    QIcon::setFallbackThemeName(u"breeze"_s);
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
-    QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
     QApplication app(argc, argv);
 #endif
-    // Default to org.kde.desktop style unless the user forces another style
-    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
-        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
-    }
 
-#ifdef Q_OS_WINDOWS
-    if (AttachConsole(ATTACH_PARENT_PROCESS)) {
-        freopen("CONOUT$", "w", stdout);
-        freopen("CONOUT$", "w", stderr);
-    }
+    KirigamiAppDefaults::apply(&app);
 
-    QApplication::setStyle(QStringLiteral("breeze"));
-    auto font = app.font();
-    font.setPointSize(10);
-    app.setFont(font);
-#endif
-
-#ifdef Q_OS_MACOS
-    QApplication::setStyle(QStringLiteral("breeze"));
+#ifdef WITH_BREEZEICONS_LIB
+    BreezeIcons::initIcons();
 #endif
 
     KLocalizedString::setApplicationDomain("marknote");
+    QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.marknote"_s));
 
-    QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.marknote")));
-
-    KAboutData about(QStringLiteral("marknote"),
+    KAboutData about(u"marknote"_s,
                      i18nc("Application name", "Marknote"),
                      QStringLiteral(MARKNOTE_VERSION_STRING),
                      i18n("Note taking application"),
@@ -93,18 +77,20 @@ int main(int argc, char *argv[])
                      i18n("© 2023-2026 Mathis Brüchert"));
     about.addAuthor(i18n("Mathis Brüchert"),
                     i18n("Maintainer"),
-                    QStringLiteral("mbb@kaidan.im"),
-                    QStringLiteral("https://invent.kde.org/mbruchert"),
-                    QUrl(QStringLiteral("https://gravatar.com/avatar/f9c35f242fe79337bf8746ca9fccc189?size=256.png")));
-    about.addAuthor(i18n("Carl Schwan"),
+                    u"mbb@kaidan.im"_s,
+                    u"https://invent.kde.org/mbruchert"_s,
+                    QUrl(u"https://gravatar.com/avatar/f9c35f242fe79337bf8746ca9fccc189?size=256.png"_s));
+    about.addAuthor(i18n("Carl Schwan"), i18n("Maintainer"), u"carl@carlschwan.eu"_s, u"https://carlschwan.eu"_s, QUrl(u"https://carlschwan.eu/avatar.png"_s));
+    about.addAuthor(i18n("Valentyn Bondarenko"),
                     i18n("Maintainer"),
-                    QStringLiteral("carl@carlschwan.eu"),
-                    QStringLiteral("https://carlschwan.eu"),
-                    QUrl(QStringLiteral("https://carlschwan.eu/avatar.png")));
+                    u"bondarenko@vivaldi.net"_s,
+                    u"https://invent.kde.org/hunterx"_s,
+                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/14675/avatar.png?width=256"_s));
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(about);
-#if __has_include("KCrash")
+
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 19, 0) && __has_include("KCrash")
     KCrash::initialize();
 #endif
 
@@ -121,20 +107,18 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     KLocalization::setupLocalizedContext(&engine);
 
+    qRegisterMetaType<Stroke>("Stroke");
+
     engine.rootContext()->setContextProperty(u"appFontList"_s, QFontDatabase::families());
 
 #ifdef HAVE_KRUNNER
     qmlRegisterType<Runner>("org.kde.marknote", 1, 0, "Runner");
-
     Runner *runner = new Runner(&app);
     qmlRegisterSingletonInstance<Runner>("org.kde.marknote", 1, 0, "KRunner", runner);
 
 #if !defined(Q_OS_ANDROID)
-    if (QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.marknote"))) {
-        QDBusConnection::sessionBus().registerObject(QStringLiteral("/NotebookRunner"),
-                                                     QStringLiteral("org.kde.krunner1"),
-                                                     runner,
-                                                     QDBusConnection::ExportAllContents);
+    if (QDBusConnection::sessionBus().registerService(u"org.kde.marknote"_s)) {
+        QDBusConnection::sessionBus().registerObject(u"/NotebookRunner"_s, u"org.kde.krunner1"_s, runner, QDBusConnection::ExportAllContents);
     }
 #endif
 #endif
@@ -153,8 +137,6 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }
-
-    qRegisterMetaType<Stroke>("Stroke");
 
     return app.exec();
 }
