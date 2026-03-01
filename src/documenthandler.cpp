@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
+// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
 // SPDX-FileCopyrightText: 2015-2024 Laurent Montel <montel@kde.org>
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
 // SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
@@ -446,29 +446,37 @@ QUrl DocumentHandler::fileUrl() const
 
 static void fixupTable(QTextFrame *frame)
 {
-    const auto children = frame->childFrames();
-    for (const auto child : children) {
-        if (auto table = dynamic_cast<QTextTable *>(child)) {
-            QTextTableFormat tableFormat;
-            tableFormat.setBorder(1);
-            const int numberOfColumns(table->columns());
-            QList<QTextLength> constrains;
-            constrains.reserve(numberOfColumns);
-            const QTextLength::Type type = QTextLength::PercentageLength;
-            const qreal length = 100; // 100% of window width
+    if (!frame)
+        return;
 
-            const QTextLength textlength(type, length / numberOfColumns);
-            for (int i = 0; i < numberOfColumns; ++i) {
-                constrains.append(textlength);
+    for (auto child : frame->childFrames()) {
+        if (auto table = dynamic_cast<QTextTable *>(child)) {
+            QTextTableFormat tableFormat = table->format();
+
+            tableFormat.setWidth(QTextLength(QTextLength::PercentageLength, 100));
+            tableFormat.setLeftMargin(1);
+            tableFormat.setRightMargin(1);
+            tableFormat.setBorder(1);
+
+            const int columns = table->columns();
+            QList<QTextLength> constraints;
+            constraints.reserve(columns);
+            const qreal percentage = 100.0 / columns;
+            const QTextLength textlength(QTextLength::PercentageLength, percentage);
+
+            for (int i = 0; i < columns; ++i) {
+                constraints.append(textlength);
             }
-            tableFormat.setColumnWidthConstraints(constrains);
+
+            tableFormat.setColumnWidthConstraints(constraints);
             tableFormat.setAlignment(Qt::AlignLeft);
             tableFormat.setCellPadding(4);
-            tableFormat.setBorder(0.5);
             tableFormat.setBorderCollapse(true);
             tableFormat.setTopMargin(textMargin);
+
             table->setFormat(tableFormat);
         }
+        fixupTable(child);
     }
 }
 
@@ -487,7 +495,34 @@ void DocumentHandler::load(const QUrl &fileUrl)
     if (!file.open(QFile::ReadOnly))
         return;
 
-    const QString content = QString::fromUtf8(file.readAll());
+    const QString rawContent = QString::fromUtf8(file.readAll());
+    QString content;
+    content.reserve(rawContent.size() + rawContent.size() / 10);
+
+    // Table calculation
+    // Matches any cell containing ONLY standard spaces
+    static const QRegularExpression emptyCellRegex(u"\\|[ ]+(?=\\|)"_s);
+
+    const auto lines = QStringView(rawContent).split(u'\n');
+    for (const auto &line : lines) {
+        if (line.trimmed().startsWith(u'|')) {
+            QString fixedLine = line.toString();
+
+            // Compress padded spaces (e.g., `|   |` -> `||`)
+            fixedLine.replace(emptyCellRegex, u"|"_s);
+
+            // Force md4c to allocate the cell by injecting a non-breaking space
+            while (fixedLine.contains(u"||"_s)) {
+                fixedLine.replace(u"||"_s, u"|\u00A0|"_s);
+            }
+            content.append(fixedLine);
+        } else {
+            content.append(line);
+        }
+        content.append(u'\n');
+    }
+    if (!content.isEmpty())
+        content.chop(1);
 
     // PERFORMANCE WIN: String Builder Pattern
     // Instead of replace() inside a loop (O(N^2)), we build the new string
@@ -554,12 +589,18 @@ void DocumentHandler::load(const QUrl &fileUrl)
         processedContent = convertWikiLinksToMarkdown(processedContent);
         Q_EMIT loaded(processedContent, Qt::MarkdownText);
 
-        doc->setModified(false);
-        doc->clearUndoRedoStacks();
-        doc->setUndoRedoEnabled(true);
+        // Force the Markdown parser to finish before calculate table
+        QCoreApplication::processEvents();
+
+        if (QTextDocument *doc = textDocument()) {
+            fixupTable(doc->rootFrame());
+
+            doc->setModified(false);
+            doc->clearUndoRedoStacks();
+            doc->setUndoRedoEnabled(true);
+        }
     }
 
-    fixupTable(textDocument()->rootFrame());
     QTextCursor cursor = textCursor();
     cursor.movePosition(QTextCursor::End);
     moveCursor(cursor.position());
@@ -569,68 +610,98 @@ void DocumentHandler::load(const QUrl &fileUrl)
 void DocumentHandler::saveAs(const QUrl &fileUrl)
 {
     QTextDocument *doc = textDocument();
-    if (!doc)
+
+    if (!doc || !doc->isModified()) {
+        if (fileUrl != m_fileUrl) {
+            m_fileUrl = fileUrl;
+            Q_EMIT fileUrlChanged();
+        }
         return;
-    const QString markdown = doc->toMarkdown();
-    QString finalOutput;
-    finalOutput.reserve(markdown.length());
+    }
+
+    const QString markdown = doc->toMarkdown(QTextDocument::MarkdownDialectGitHub);
+
+    // Compile regexes once in memory
+    static const QRegularExpression leadingSpaceRegex(u"(?<!\\\\)\\|[ ]+"_s);
+    static const QRegularExpression trailingSpaceRegex(u"[ ]+(?=\\|)"_s);
+    static const QRegularExpression separatorRowRegex(u"^[\\|\\-\\:\\s]+$"_s);
+    static const QRegularExpression dashesRegex(u"-+"_s);
     static const QRegularExpression linkRegex(u"\\]\\(image://marknote/([a-f0-9]+)[^)]*\\)"_s);
-    QRegularExpressionMatchIterator i = linkRegex.globalMatch(markdown);
 
+    // Use QStringView to prevent heap allocations
+    QString processedMarkdown;
+    processedMarkdown.reserve(markdown.size()); // Pre-allocate exact memory needed
+
+    const auto lines = QStringView(markdown).split(u'\n');
+    for (const auto &line : lines) {
+        if (line.trimmed().startsWith(u'|')) {
+            QString tableLine = line.toString();
+            tableLine.replace(u"\u00A0"_s, u""_s);
+            tableLine.replace(u"&nbsp;"_s, u""_s);
+            tableLine.replace(leadingSpaceRegex, u"|"_s);
+            tableLine.replace(trailingSpaceRegex, u""_s);
+
+            if (separatorRowRegex.match(tableLine).hasMatch()) {
+                tableLine.replace(dashesRegex, u"-"_s);
+            }
+            processedMarkdown.append(tableLine);
+        } else {
+            // No allocation, just appends the view directly to the output buffer
+            processedMarkdown.append(line);
+        }
+        processedMarkdown.append(u'\n');
+    }
+
+    if (!processedMarkdown.isEmpty()) {
+        processedMarkdown.chop(1); // Remove trailing newline
+    }
+
+    // Image processing
+    QString finalOutput;
+    finalOutput.reserve(processedMarkdown.size());
+
+    QRegularExpressionMatchIterator i = linkRegex.globalMatch(processedMarkdown);
     int lastPos = 0;
-
     while (i.hasNext()) {
         QRegularExpressionMatch match = i.next();
         QString hash = match.captured(1);
 
-        finalOutput.append(QStringView(markdown).mid(lastPos, match.capturedStart() - lastPos));
+        finalOutput.append(QStringView(processedMarkdown).mid(lastPos, match.capturedStart() - lastPos));
 
         if (m_imagePathLookup.contains(hash)) {
-            QString originalPath = m_imagePathLookup.value(hash);
-            QString replacement = u"]("_s + originalPath + u")"_s;
-            finalOutput.append(replacement);
+            finalOutput.append(u"]("_s + m_imagePathLookup.value(hash) + u")"_s);
         } else {
             finalOutput.append(match.captured());
         }
-
         lastPos = match.capturedEnd();
     }
-    finalOutput.append(QStringView(markdown).mid(lastPos));
+
+    finalOutput.append(QStringView(processedMarkdown).mid(lastPos));
     finalOutput.remove(kLinkBoundaryChar);
     finalOutput = convertInternalMarkdownLinksToWiki(finalOutput);
+
     QFile fileCheck(fileUrl.toLocalFile());
     if (fileCheck.exists() && fileCheck.open(QFile::ReadOnly)) {
         const QByteArray existingContent = fileCheck.readAll();
         fileCheck.close();
 
-        if (existingContent == finalOutput.toUtf8()) {
-            if (fileUrl != m_fileUrl) {
-                m_fileUrl = fileUrl;
-                Q_EMIT fileUrlChanged();
-            }
-            doc->setModified(false);
+        QFile file(fileUrl.toLocalFile());
+        if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
+            Q_EMIT error(tr("Cannot save: ") + file.errorString() + u' ' + fileUrl.toLocalFile());
             return;
         }
-    }
 
-    // We only reach here if the content is actually different.
-    QFile file(fileUrl.toLocalFile());
-    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
-        Q_EMIT error(tr("Cannot save: ") + file.errorString() + u' ' + fileUrl.toLocalFile());
-        return;
-    }
+        file.write(finalOutput.toUtf8());
+        file.close();
 
-    file.write(finalOutput.toUtf8());
-    file.close();
+        if (fileUrl != m_fileUrl) {
+            m_fileUrl = fileUrl;
+            Q_EMIT fileUrlChanged();
+        }
 
-    if (fileUrl == m_fileUrl) {
+        // Reset modified state so the next debouncer ticks hit the Early Bailout
         doc->setModified(false);
-        return;
     }
-
-    m_fileUrl = fileUrl;
-    Q_EMIT fileUrlChanged();
-    doc->setModified(false);
 }
 
 void DocumentHandler::reset()
@@ -996,37 +1067,44 @@ void DocumentHandler::insertTable(int rows, int columns)
 {
     QTextCursor cursor = textCursor();
     QTextTableFormat tableFormat;
-    tableFormat.setBorder(1);
-    const int numberOfColumns(columns);
-    QList<QTextLength> constrains;
-    constrains.reserve(numberOfColumns);
-    const QTextLength::Type type = QTextLength::PercentageLength;
-    const int length = 100; // 100% of window width
 
-    const QTextLength textlength(type, length / numberOfColumns);
-    for (int i = 0; i < numberOfColumns; ++i) {
-        constrains.append(textlength);
+    tableFormat.setWidth(QTextLength(QTextLength::PercentageLength, 100));
+    tableFormat.setLeftMargin(1);
+    tableFormat.setRightMargin(1);
+    tableFormat.setBorder(1);
+
+    QList<QTextLength> constraints;
+    constraints.reserve(columns);
+    const qreal percentage = 100.0 / columns;
+    const QTextLength textlength(QTextLength::PercentageLength, percentage);
+
+    for (int i = 0; i < columns; ++i) {
+        constraints.append(textlength);
     }
-    tableFormat.setColumnWidthConstraints(constrains);
+    tableFormat.setColumnWidthConstraints(constraints);
+
     tableFormat.setAlignment(Qt::AlignLeft);
     tableFormat.setCellSpacing(0);
     tableFormat.setCellPadding(4);
     tableFormat.setBorderCollapse(true);
-    tableFormat.setBorder(0.5);
     tableFormat.setTopMargin(20);
 
     Q_ASSERT(cursor.document());
-    QTextTable *table = cursor.insertTable(rows, numberOfColumns, tableFormat);
 
-    // fill table with whitespace
-    for (int i = 0, rows = table->rows(); i < rows; i++) {
-        for (int j = 0, columns = table->columns(); j < columns; j++) {
-            auto cell = table->cellAt(i, j);
-            Q_ASSERT(cell.isValid());
-            cell.firstCursorPosition().insertText(u" "_s);
+    // Create the table (Qt will initially see empty cells)
+    QTextTable *table = cursor.insertTable(rows, columns, tableFormat);
+
+    // Inflate the cells with protective shield space
+    for (int i = 0; i < table->rows(); ++i) {
+        for (int j = 0; j < table->columns(); ++j) {
+            QTextTableCell cell = table->cellAt(i, j);
+            if (cell.isValid()) {
+                // Use Non-Breaking Space
+                cell.firstCursorPosition().insertText(u"\u00A0"_s);
+            }
         }
     }
-    return;
+    table->setFormat(tableFormat);
 }
 
 void DocumentHandler::copyWholeNote()
