@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 00:47+0000\n"
+"POT-Creation-Date: 2026-03-01 00:46+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -47,7 +47,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "写入 '%1' 时出错"
 
-#: main.cpp:89 qml/Main.qml:368
+#: main.cpp:89 qml/Main.qml:399
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -96,235 +96,235 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "无法重命名笔记。已经有同名称的笔记。"
 
-#: qml/EditPage.qml:121 qml/EditPage.qml:661
+#: qml/EditPage.qml:222 qml/EditPage.qml:762
 #, kde-format
 msgid "Undo"
 msgstr ""
 
-#: qml/EditPage.qml:134 qml/EditPage.qml:674
+#: qml/EditPage.qml:235 qml/EditPage.qml:775
 #, kde-format
 msgid "Redo"
 msgstr ""
 
-#: qml/EditPage.qml:179
+#: qml/EditPage.qml:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Note"
 msgstr ""
 
-#: qml/EditPage.qml:204
+#: qml/EditPage.qml:305
 #, kde-format
 msgid "Focus Mode"
 msgstr "专注模式"
 
-#: qml/EditPage.qml:222
+#: qml/EditPage.qml:323
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr ""
 
-#: qml/EditPage.qml:239
+#: qml/EditPage.qml:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr ""
 
-#: qml/EditPage.qml:247 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:159
+#: qml/EditPage.qml:348 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:159
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "退出全屏"
 
-#: qml/EditPage.qml:260
+#: qml/EditPage.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
 msgstr ""
 
-#: qml/EditPage.qml:316
+#: qml/EditPage.qml:417
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "粗体"
 
-#: qml/EditPage.qml:335
+#: qml/EditPage.qml:436
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "斜体"
 
-#: qml/EditPage.qml:354
+#: qml/EditPage.qml:455
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "下划线"
 
-#: qml/EditPage.qml:368
+#: qml/EditPage.qml:469
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "删除线"
 
-#: qml/EditPage.qml:386
+#: qml/EditPage.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "增加列表级别"
 
-#: qml/EditPage.qml:397
+#: qml/EditPage.qml:498
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "降低列表级别"
 
-#: qml/EditPage.qml:439
+#: qml/EditPage.qml:540
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "无列表"
 
-#: qml/EditPage.qml:440
+#: qml/EditPage.qml:541
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "无序列表"
 
-#: qml/EditPage.qml:441
+#: qml/EditPage.qml:542
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "顺序列表"
 
-#: qml/EditPage.qml:451
+#: qml/EditPage.qml:552
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "插入复选框"
 
-#: qml/EditPage.qml:466
+#: qml/EditPage.qml:567
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "插入链接"
 
-#: qml/EditPage.qml:482
+#: qml/EditPage.qml:583
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "插入图像"
 
-#: qml/EditPage.qml:495
+#: qml/EditPage.qml:596
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "插入表格"
 
-#: qml/EditPage.qml:515
+#: qml/EditPage.qml:616
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "基本文字"
 
-#: qml/EditPage.qml:516
+#: qml/EditPage.qml:617
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "标题"
 
-#: qml/EditPage.qml:517
+#: qml/EditPage.qml:618
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "副标题"
 
-#: qml/EditPage.qml:518
+#: qml/EditPage.qml:619
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "章节"
 
-#: qml/EditPage.qml:519
+#: qml/EditPage.qml:620
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "小节"
 
-#: qml/EditPage.qml:520
+#: qml/EditPage.qml:621
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "段落"
 
-#: qml/EditPage.qml:521
+#: qml/EditPage.qml:622
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "子段落"
 
-#: qml/EditPage.qml:707
+#: qml/EditPage.qml:808
 #, kde-format
 msgid "Format"
 msgstr "格式"
 
-#: qml/EditPage.qml:711
+#: qml/EditPage.qml:812
 #, kde-format
 msgid "Lists"
 msgstr "列表"
 
-#: qml/EditPage.qml:715
+#: qml/EditPage.qml:816
 #, kde-format
 msgid "Insert"
 msgstr "插入"
 
-#: qml/EditPage.qml:773
+#: qml/EditPage.qml:874
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr ""
 
-#: qml/EditPage.qml:781
+#: qml/EditPage.qml:882
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:825
+#: qml/EditPage.qml:926
 #, kde-format
 msgid "No headers found"
 msgstr ""
 
-#: qml/EditPage.qml:904
+#: qml/EditPage.qml:1005
 #, kde-format
 msgid "Find text..."
 msgstr ""
 
-#: qml/EditPage.qml:929
+#: qml/EditPage.qml:1030
 #, kde-format
 msgid "Previous"
 msgstr ""
 
-#: qml/EditPage.qml:945
+#: qml/EditPage.qml:1046
 #, kde-format
 msgid "Next"
 msgstr ""
 
-#: qml/EditPage.qml:963
+#: qml/EditPage.qml:1064
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: qml/EditPage.qml:965
+#: qml/EditPage.qml:1066
 #, kde-format
 msgid "%1/%2"
 msgstr ""
 
-#: qml/EditPage.qml:972
+#: qml/EditPage.qml:1073
 #, kde-format
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:988
+#: qml/EditPage.qml:1089
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -424,57 +424,57 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr ""
 
-#: qml/Main.qml:114
+#: qml/Main.qml:150
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "无法创建新的笔记，您需要先创建笔记本。"
 
-#: qml/Main.qml:116
+#: qml/Main.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "创建笔记本"
 
-#: qml/Main.qml:262
+#: qml/Main.qml:293
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr ""
 
-#: qml/Main.qml:308
+#: qml/Main.qml:339
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "导入"
 
-#: qml/Main.qml:317
+#: qml/Main.qml:348
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "对笔记列表排序"
 
-#: qml/Main.qml:323
+#: qml/Main.qml:354
 #, kde-format
 msgid "by Name"
 msgstr "按名称"
 
-#: qml/Main.qml:336
+#: qml/Main.qml:367
 #, kde-format
 msgid "by Date"
 msgstr "按日期"
 
-#: qml/Main.qml:353
+#: qml/Main.qml:384
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "折叠侧边栏"
 
-#: qml/Main.qml:353
+#: qml/Main.qml:384
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "展开侧边栏"
 
-#: qml/Main.qml:420
+#: qml/Main.qml:451
 #, kde-format
 msgid "Your Notebooks"
 msgstr "你的笔记本"
@@ -738,73 +738,81 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "插入表格"
 
-#: qml/TextFieldContextMenu.qml:227
+#: qml/TextFieldContextMenu.qml:235
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "忽略"
 
-#: qml/TextFieldContextMenu.qml:242
+#: qml/TextFieldContextMenu.qml:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "拼写检查"
 
-#: qml/TextFieldContextMenu.qml:259
+#: qml/TextFieldContextMenu.qml:267
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Note"
+msgctxt "@inmenu"
+msgid "Open Note"
+msgstr "新建笔记"
+
+#: qml/TextFieldContextMenu.qml:267
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
 msgstr "打开链接"
 
-#: qml/TextFieldContextMenu.qml:269
+#: qml/TextFieldContextMenu.qml:283
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "插入"
 
-#: qml/TextFieldContextMenu.qml:291
+#: qml/TextFieldContextMenu.qml:305
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "移除"
 
-#: qml/TextFieldContextMenu.qml:311
+#: qml/TextFieldContextMenu.qml:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "撤销"
 
-#: qml/TextFieldContextMenu.qml:326
+#: qml/TextFieldContextMenu.qml:340
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "重做"
 
-#: qml/TextFieldContextMenu.qml:344
+#: qml/TextFieldContextMenu.qml:358
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "剪切"
 
-#: qml/TextFieldContextMenu.qml:359
+#: qml/TextFieldContextMenu.qml:373
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "复制"
 
-#: qml/TextFieldContextMenu.qml:374
+#: qml/TextFieldContextMenu.qml:388
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "粘贴"
 
-#: qml/TextFieldContextMenu.qml:393
+#: qml/TextFieldContextMenu.qml:407
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "删除"
 
-#: qml/TextFieldContextMenu.qml:412
+#: qml/TextFieldContextMenu.qml:426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
