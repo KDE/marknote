@@ -17,10 +17,7 @@ Kirigami.Page {
 
     Layout.fillWidth: true
 
-
     objectName: "EditPage"
-
-    readonly property bool wideScreen: width >= toolBar.width + Kirigami.Units.largeSpacing * 2
 
     property bool saved: true
     property string oldPath: ''
@@ -30,6 +27,9 @@ Kirigami.Page {
     property int listStyle
     property int heading
     property bool singleDocumentMode: false
+
+    readonly property bool isWideScreen: ApplicationWindow.window ? ApplicationWindow.window.wideScreen : false
+    readonly property bool canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2
 
     leftPadding: 0
     rightPadding: Kirigami.Settings.isMobile ? 0 : (tocDrawer.width * tocDrawer.position)
@@ -272,7 +272,7 @@ Kirigami.Page {
         Item { Layout.fillWidth: true }
         Item {
             width: fillWindowButton.width
-            visible: wideScreen
+            visible: root.isWideScreen
         }
         ToolButton {
             id: copyNoteButton
@@ -343,7 +343,7 @@ Kirigami.Page {
         }
 
         ToolButton {
-            visible: ApplicationWindow.window.visibility === Window.FullScreen
+            visible: ApplicationWindow.window ? ApplicationWindow.window.visibility === Window.FullScreen : false
             icon.name: "window-restore-symbolic"
             text: i18nc("@action:menu", "Exit Full Screen")
             display: AbstractButton.IconOnly
@@ -631,7 +631,7 @@ Kirigami.Page {
     Components.FloatingButton {
         icon.name: "document-edit"
         parent: root.overlay
-        visible: !wideScreen
+        visible: !root.canFitToolbar
         scale: mobileToolBarContainer.hidden? 1 : 0
 
         property int defaultSpacing: Kirigami.Units.largeSpacing * 2
@@ -660,7 +660,7 @@ Kirigami.Page {
 
     RowLayout {
         id: mobileToolBarContainer
-        visible: !wideScreen
+        visible: !root.canFitToolbar
         property bool hidden: false
         y: hidden? parent.height : parent.height - mobileToolBar.height
 
@@ -726,7 +726,7 @@ Kirigami.Page {
                             height: swipeView.height
                             Loader {
                                 sourceComponent: textFormatGroup
-                                active: !root.wideScreen // Only active on mobile
+                                active: !root.canFitToolbar // Only active on mobile
                             }
                             Item { Layout.fillWidth: true }
                             Loader { sourceComponent: headingGroup }
@@ -932,7 +932,7 @@ Kirigami.Page {
     Components.FloatingToolBar {
         id: toolBar
 
-        visible: wideScreen
+        visible: root.canFitToolbar
         z: 600000
         parent: root.overlay
 
@@ -945,7 +945,7 @@ Kirigami.Page {
         contentItem: RowLayout {
             Loader {
                 sourceComponent: textFormatGroup
-                active: root.wideScreen // Only active on desktop
+                active: root.canFitToolbar // Only active on desktop
             }
             Kirigami.Separator {
                 Layout.fillHeight: true
@@ -1102,7 +1102,7 @@ Kirigami.Page {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        bottomPadding: wideScreen ? 0 : mobileToolBarContainer.height
+        bottomPadding: root.isWideScreen ? 0 : mobileToolBarContainer.height
         // Animate scroll bar between wide and mobile screens transitions
         Behavior on bottomPadding {
             NumberAnimation {
@@ -1119,7 +1119,7 @@ Kirigami.Page {
             leftPadding: 0
             rightPadding: 0
             topPadding: 0
-            bottomPadding: wideScreen ? toolBar.height + Kirigami.Units.largeSpacing : 0
+            bottomPadding: root.isWideScreen ? toolBar.height + Kirigami.Units.largeSpacing : 0
 
             Behavior on bottomPadding {
                 NumberAnimation {

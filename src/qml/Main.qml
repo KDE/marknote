@@ -19,11 +19,11 @@ import "components"
 StatetfulApp.StatefulWindow {
     id: root
 
-    property int minWideScreenWidth: 800
+    property int minWideScreenWidth: 600
+    property bool isWideScreen: width >= minWideScreenWidth && !Config.fillWindow
     property int normalColumnWidth: Kirigami.Units.gridUnit * 15
     property double maximalColumWidthPercentage: 0.45
-    property int minimalColumnWidth: (minWideScreenWidth * maximalColumWidthPercentage) - (Kirigami.Units.gridUnit * 5)
-    property bool wideScreen: root.width >= minWideScreenWidth && !Config.fillWindow
+    property int minimalColumnWidth: (minWideScreenWidth * maximalColumWidthPercentage) - (Kirigami.Units.gridUnit * 2)
     property bool columnModeDelayed: false
     property int currentWidth: normalColumnWidth
     property var currentDocument: null

@@ -20,8 +20,9 @@ import "components"
 Kirigami.ScrollablePage {
     id: root
 
+    readonly property bool isWideScreen: ApplicationWindow.window ? ApplicationWindow.window.wideScreen : false
+
     objectName: "NotesPage"
-    property bool wideScreen: applicationWindow().width >= 600
     property color backgroundColor: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.alternateBackgroundColor, 0.6)
     background: Rectangle {color: root.backgroundColor}
 
@@ -69,7 +70,7 @@ Kirigami.ScrollablePage {
         Kirigami.Heading {
             id: heading
 
-            visible: wideScreen
+            visible: root.isWideScreen
             text: NavigationController.notebookName
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.largeSpacing
@@ -80,10 +81,10 @@ Kirigami.ScrollablePage {
         ToolButton {
             id: headingButton
 
-            visible: !wideScreen
+            visible: !root.isWideScreen
             Layout.fillWidth: true
             Layout.fillHeight: true
-            onClicked: applicationWindow().openBottomDrawer()
+            onClicked: ApplicationWindow.window.openBottomDrawer()
             contentItem: RowLayout{
                 Item {
                     visible: !Kirigami.Settings.isMobile
@@ -129,13 +130,13 @@ Kirigami.ScrollablePage {
             onClicked:{
                 if (!search.visible){
                     search.visible = true
-                    wideScreen? heading.visible = false : headingButton.visible = false
+                    root.isWideScreen? heading.visible = false : headingButton.visible = false
                     addButton.visible = false
                     searchButton.icon.name = "draw-arrow-back"
                     search.forceActiveFocus()
                 } else {
                     search.visible = false
-                    wideScreen? heading.visible = true : headingButton.visible = true
+                    root.isWideScreen? heading.visible = true : headingButton.visible = true
                     if (!Kirigami.Settings.isMobile) {
                         addButton.visible = true;
                     }
@@ -154,13 +155,13 @@ Kirigami.ScrollablePage {
         }
 
         ToolButton {
-            visible: applicationWindow().visibility === Window.FullScreen && applicationWindow().pageStack.depth !== 2
+            visible: ApplicationWindow.window ? (ApplicationWindow.window.visibility === Window.FullScreen && ApplicationWindow.window.pageStack.depth !== 2) : false
             icon.name: "window-restore-symbolic"
             text: i18nc("@action:menu", "Exit Full Screen")
             display: AbstractButton.IconOnly
             checkable: true
             checked: true
-            onClicked: applicationWindow().showNormal()
+            onClicked: ApplicationWindow.window.showNormal()
 
             ToolTip.text: text
             ToolTip.visible: hovered
@@ -261,7 +262,7 @@ Kirigami.ScrollablePage {
                 path: NavigationController.notebookPath
 
                 onErrorOccurred: (errorMessage) => {
-                    applicationWindow().showPassiveNotification(errorMessage, "long");
+                    ApplicationWindow.window.showPassiveNotification(errorMessage, "long");
                 }
 
                 onModelReset: filterModel.sort(0, filterModel.sortOrder)
@@ -460,8 +461,8 @@ Kirigami.ScrollablePage {
             function updateColor(): void {
                 if (color !== '#ffffff' && color !== '#00000000') {
                     delegateItem.background.Kirigami.Theme.highlightColor = color;
-                } else if (delegateItem.background.Kirigami.Theme.highlightColor !== applicationWindow().Kirigami.Theme.highlightColor) {
-                    delegateItem.background.Kirigami.Theme.highlightColor = applicationWindow().Kirigami.Theme.highlightColor;
+                } else if (delegateItem.background.Kirigami.Theme.highlightColor !== ApplicationWindow.window.Kirigami.Theme.highlightColor) {
+                    delegateItem.background.Kirigami.Theme.highlightColor = ApplicationWindow.window.Kirigami.Theme.highlightColor;
                 }
             }
 
@@ -587,7 +588,7 @@ Kirigami.ScrollablePage {
 
             onClicked: {
                 if (highlighted) {
-                    applicationWindow().pageStack.currentIndex = applicationWindow().pageStack.depth - 1;
+                    ApplicationWindow.window.pageStack.currentIndex = ApplicationWindow.window.pageStack.depth - 1;
                     return;
                 }
                 NavigationController.notePath = path;

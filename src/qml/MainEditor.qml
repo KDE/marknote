@@ -16,7 +16,6 @@ import "components"
 Kirigami.ApplicationWindow {
     id: root
 
-    property bool wideScreen: applicationWindow().width >= 600 && !Config.fillWindow
     property bool columnModeDelayed: false
 
     minimumWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 10 : Kirigami.Units.gridUnit * 22
