@@ -259,21 +259,26 @@ Kirigami.Page {
                     easing.type: Easing.InOutQuart
                 }
             }
-
         }
+
         Kirigami.Heading {
             text: root.noteName
             Layout.rightMargin: Kirigami.Units.mediumSpacing
             Layout.leftMargin: Kirigami.Units.mediumSpacing
 
-        }
-        Item{ width: 5 }
+            Layout.fillWidth: true
+            Layout.maximumWidth: implicitWidth
+            Layout.minimumWidth: 0
 
+            elide: Text.ElideRight
+            wrapMode: Text.NoWrap
+        }
         Item { Layout.fillWidth: true }
         Item {
             width: fillWindowButton.width
             visible: root.isWideScreen
         }
+
         ToolButton {
             id: copyNoteButton
             icon.name: "edit-copy"
