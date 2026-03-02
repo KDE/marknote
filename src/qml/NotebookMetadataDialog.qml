@@ -41,7 +41,12 @@ FormCard.FormCardDialog {
             regularExpression: /^[^./\\][^/\\]*$/
         }
         onAccepted: root.accepted()
-        onTextChanged: root.standardButton(Controls.Dialog.Save).enabled = text.length > 0
+        onTextChanged: {
+            let saveButton = root.standardButton(Controls.Dialog.Save);
+            if (saveButton) {
+                saveButton.enabled = text.length > 0;
+            }
+        }
     }
 
     FormCard.FormDelegateSeparator {
