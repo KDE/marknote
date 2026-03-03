@@ -459,14 +459,17 @@ Kirigami.ScrollablePage {
             property alias renameField: renameField;
 
             function updateColor(): void {
+                if (!delegateItem.background) return;
+
                 if (color !== '#ffffff' && color !== '#00000000') {
                     delegateItem.background.Kirigami.Theme.highlightColor = color;
-                } else if (delegateItem.background.Kirigami.Theme.highlightColor !== ApplicationWindow.window.Kirigami.Theme.highlightColor) {
+                } else if (ApplicationWindow.window) {
                     delegateItem.background.Kirigami.Theme.highlightColor = ApplicationWindow.window.Kirigami.Theme.highlightColor;
                 }
             }
 
             onColorChanged: updateColor();
+            onBackgroundChanged: updateColor();
             Component.onCompleted: updateColor();
 
             TapHandler {

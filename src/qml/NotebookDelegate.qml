@@ -79,19 +79,20 @@ Delegates.RoundedItemDelegate {
         }
     }
 
-
     function updateColor(): void {
+        if (!root.background) {
+            return;
+        }
+
         if (color !== '#ffffff' && color !== '#00000000') {
             root.background.Kirigami.Theme.highlightColor = color;
-        } else {
-            const win = Controls.ApplicationWindow.window;
-            if (win && root.background.Kirigami.Theme.highlightColor !== win.Kirigami.Theme.highlightColor) {
-                root.background.Kirigami.Theme.highlightColor = win.Kirigami.Theme.highlightColor;
-            }
+        } else if (Controls.ApplicationWindow.window) {
+            root.background.Kirigami.Theme.highlightColor = Controls.ApplicationWindow.window.Kirigami.Theme.highlightColor;
         }
     }
 
     onColorChanged: updateColor();
+    onBackgroundChanged: updateColor();
     Component.onCompleted: updateColor();
 
     contentItem: Item{
