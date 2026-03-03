@@ -118,6 +118,10 @@ public:
     int searchMatchCount() const;
     int searchCurrentMatch() const;
 
+    Q_INVOKABLE void updateNoteLink(const QString &noteName, const QString &alias = QString());
+    Q_INVOKABLE QString currentNoteLinkName() const;
+    Q_INVOKABLE QString currentNoteLinkAlias() const;
+
     Q_INVOKABLE QString currentLinkUrl() const;
     Q_INVOKABLE QString currentLinkText() const;
     Q_INVOKABLE [[nodiscard]] QString anchorAt(const QPointF &p) const;

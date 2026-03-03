@@ -384,6 +384,14 @@ Kirigami.Page {
         onAccepted: document.updateLink(linkUrl, linkText)
     }
 
+    NoteLinkDialog {
+        id: noteLinkDialog
+        implicitWidth: Kirigami.Units.gridUnit * 20
+
+        parent: ApplicationWindow.window.overlay
+        onAccepted: document.updateNoteLink(noteName, noteAlias)
+    }
+
     ImageDialog {
         id: imageDialog
         implicitWidth: Kirigami.Units.gridUnit * 20
@@ -575,6 +583,22 @@ Kirigami.Page {
                 linkDialog.linkText = document.currentLinkText();
                 linkDialog.linkUrl = document.currentLinkUrl();
                 linkDialog.open();
+            }
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        ToolButton {
+            id: noteLinkAction
+            icon.name: "text-frame-link-symbolic"
+            text: i18nc("@action:button", "Insert note link")
+            display: AbstractButton.IconOnly
+            onClicked: {
+                noteLinkDialog.noteAlias = document.currentNoteLinkAlias();
+                noteLinkDialog.noteName = document.currentNoteLinkName();
+                noteLinkDialog.open();
             }
 
             ToolTip.text: text

@@ -985,6 +985,24 @@ void DocumentHandler::updateLink(const QString &linkUrl, const QString &linkText
     cursor.endEditBlock();
 }
 
+void DocumentHandler::updateNoteLink(const QString &noteName, const QString &alias)
+{
+    const QString url = internalLinkUrlForName(noteName);
+    const QString linkText = alias.isEmpty() ? noteName : alias;
+
+    updateLink(url, linkText);
+}
+
+QString DocumentHandler::currentNoteLinkName() const
+{
+    return internalLinkNameFromUrl(QUrl(currentLinkUrl()));
+}
+
+QString DocumentHandler::currentNoteLinkAlias() const
+{
+    return currentLinkText();
+}
+
 void DocumentHandler::regenerateColorScheme()
 {
     mLinkColor = QGuiApplication::palette().color(QPalette::Link);
