@@ -39,15 +39,53 @@ NotesModel::NotesModel(QObject *parent)
 
 void NotesModel::updateEntries()
 {
-    beginResetModel();
-    m_entries.clear();
     const auto entries = QDir(m_path).entryInfoList(QDir::Files);
+    QList<QFileInfo> newEntries;
     for (const auto &entry : entries) {
         if (entry.fileName().endsWith(u".md"_s)) {
-            m_entries << entry;
+            newEntries << entry;
         }
     }
-    endResetModel();
+
+    // Fast path: if the model is currently empty or completely cleared, do a full reset
+    if (m_entries.isEmpty() || newEntries.isEmpty()) {
+        beginResetModel();
+        m_entries = newEntries;
+        endResetModel();
+        return;
+    }
+
+    // Handle Removals (iterate backwards to safely remove without shifting indices)
+    for (int i = m_entries.count() - 1; i >= 0; --i) {
+        bool found = false;
+        for (const auto &newEntry : newEntries) {
+            if (m_entries[i].fileName() == newEntry.fileName()) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            beginRemoveRows(QModelIndex(), i, i);
+            m_entries.removeAt(i);
+            endRemoveRows();
+        }
+    }
+
+    // 2. Handle Insertions
+    for (int i = 0; i < newEntries.count(); ++i) {
+        bool found = false;
+        for (int j = 0; j < m_entries.count(); ++j) {
+            if (newEntries[i].fileName() == m_entries[j].fileName()) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            beginInsertRows(QModelIndex(), i, i);
+            m_entries.insert(i, newEntries[i]);
+            endInsertRows();
+        }
+    }
 }
 
 int NotesModel::rowCount(const QModelIndex &index) const

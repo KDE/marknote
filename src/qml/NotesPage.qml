@@ -201,6 +201,60 @@ Kirigami.ScrollablePage {
         }
         currentIndex: -1
 
+        populate: Transition {
+            NumberAnimation {
+                property: "opacity"
+                from: 0.0
+                to: 1.0
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.OutQuart
+            }
+        }
+
+        add: Transition {
+            NumberAnimation {
+                property: "opacity"
+                from: 0.0
+                to: 1.0
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.InOutQuart
+            }
+        }
+
+        addDisplaced: Transition {
+            NumberAnimation {
+                properties: "x,y"
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.InOutQuart
+            }
+        }
+
+        displaced: Transition {
+            NumberAnimation {
+                properties: "x,y"
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.InOutQuart
+            }
+        }
+
+        remove: Transition {
+            NumberAnimation {
+                property: "opacity"
+                from: 1.0
+                to: 0.0
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.InQuart
+            }
+        }
+
+        removeDisplaced: Transition {
+            NumberAnimation {
+                properties: "x,y"
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.InOutQuart
+            }
+        }
+
         Component {
             id: sectionDelegate
             Kirigami.ListSectionHeader {
