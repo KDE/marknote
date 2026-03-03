@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-02 00:45+0000\n"
+"POT-Creation-Date: 2026-03-03 00:46+0000\n"
 "PO-Revision-Date: 2025-10-26 13:33+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -104,17 +104,17 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "Klarte ikkje endra notatnamn. Det finst alt eit notat med dette namnet."
 
-#: qml/EditPage.qml:222 qml/EditPage.qml:762
+#: qml/EditPage.qml:222 qml/EditPage.qml:767
 #, kde-format
 msgid "Undo"
 msgstr "Angra"
 
-#: qml/EditPage.qml:235 qml/EditPage.qml:775
+#: qml/EditPage.qml:235 qml/EditPage.qml:780
 #, kde-format
 msgid "Redo"
 msgstr "Gjer om"
 
-#: qml/EditPage.qml:280
+#: qml/EditPage.qml:285
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Copy"
@@ -122,223 +122,223 @@ msgctxt "@action:button"
 msgid "Copy Note"
 msgstr "Kopier"
 
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:310
 #, kde-format
 msgid "Focus Mode"
 msgstr "Fokusmodus"
 
-#: qml/EditPage.qml:323
+#: qml/EditPage.qml:328
 #, fuzzy, kde-format
 #| msgid "Search notes (%1)"
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Søk i notat (%1)"
 
-#: qml/EditPage.qml:340
+#: qml/EditPage.qml:345
 #, fuzzy, kde-format
 #| msgid "Search notes (%1)"
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Søk i notat (%1)"
 
-#: qml/EditPage.qml:348 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:160
+#: qml/EditPage.qml:353 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:160
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Gå ut av fullskjermsmodus"
 
-#: qml/EditPage.qml:361
+#: qml/EditPage.qml:366
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@action:button"
 msgid "Table of Content"
 msgstr "Celleinnhald"
 
-#: qml/EditPage.qml:417
+#: qml/EditPage.qml:422
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Halvfeit"
 
-#: qml/EditPage.qml:436
+#: qml/EditPage.qml:441
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kursiv"
 
-#: qml/EditPage.qml:455
+#: qml/EditPage.qml:460
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Understreking"
 
-#: qml/EditPage.qml:469
+#: qml/EditPage.qml:474
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Gjennomstreking"
 
-#: qml/EditPage.qml:487
+#: qml/EditPage.qml:492
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Rykk inn listenivå"
 
-#: qml/EditPage.qml:498
+#: qml/EditPage.qml:503
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Rykk ut listenivå"
 
-#: qml/EditPage.qml:540
+#: qml/EditPage.qml:545
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Inga liste"
 
-#: qml/EditPage.qml:541
+#: qml/EditPage.qml:546
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Usortert liste"
 
-#: qml/EditPage.qml:542
+#: qml/EditPage.qml:547
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Sortert liste"
 
-#: qml/EditPage.qml:552
+#: qml/EditPage.qml:557
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Set inn avkryssingsboks"
 
-#: qml/EditPage.qml:567
+#: qml/EditPage.qml:572
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Set inn lenkje"
 
-#: qml/EditPage.qml:583
+#: qml/EditPage.qml:588
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Set inn bilete"
 
-#: qml/EditPage.qml:596
+#: qml/EditPage.qml:601
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Set inn tabell"
 
-#: qml/EditPage.qml:616
+#: qml/EditPage.qml:621
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Enkel tekst"
 
-#: qml/EditPage.qml:617
+#: qml/EditPage.qml:622
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Tittel"
 
-#: qml/EditPage.qml:618
+#: qml/EditPage.qml:623
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Undertittel"
 
-#: qml/EditPage.qml:619
+#: qml/EditPage.qml:624
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Overskrift 1"
 
-#: qml/EditPage.qml:620
+#: qml/EditPage.qml:625
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Overskrift 2"
 
-#: qml/EditPage.qml:621
+#: qml/EditPage.qml:626
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Avsnitt"
 
-#: qml/EditPage.qml:622
+#: qml/EditPage.qml:627
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Underavsnitt"
 
-#: qml/EditPage.qml:808
+#: qml/EditPage.qml:813
 #, kde-format
 msgid "Format"
 msgstr "Format"
 
-#: qml/EditPage.qml:812
+#: qml/EditPage.qml:817
 #, kde-format
 msgid "Lists"
 msgstr "Lister"
 
-#: qml/EditPage.qml:816
+#: qml/EditPage.qml:821
 #, kde-format
 msgid "Insert"
 msgstr "Set inn"
 
-#: qml/EditPage.qml:874
+#: qml/EditPage.qml:879
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "Celleinnhald"
 
-#: qml/EditPage.qml:882
+#: qml/EditPage.qml:887
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:926
+#: qml/EditPage.qml:931
 #, kde-format
 msgid "No headers found"
 msgstr ""
 
-#: qml/EditPage.qml:1005
+#: qml/EditPage.qml:1010
 #, kde-format
 msgid "Find text..."
 msgstr ""
 
-#: qml/EditPage.qml:1030
+#: qml/EditPage.qml:1035
 #, kde-format
 msgid "Previous"
 msgstr ""
 
-#: qml/EditPage.qml:1046
+#: qml/EditPage.qml:1051
 #, kde-format
 msgid "Next"
 msgstr ""
 
-#: qml/EditPage.qml:1064
+#: qml/EditPage.qml:1069
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: qml/EditPage.qml:1066
+#: qml/EditPage.qml:1071
 #, kde-format
 msgid "%1/%2"
 msgstr ""
 
-#: qml/EditPage.qml:1073
+#: qml/EditPage.qml:1078
 #, kde-format
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:1089
+#: qml/EditPage.qml:1094
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."

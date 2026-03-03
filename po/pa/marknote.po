@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-02 00:45+0000\n"
+"POT-Creation-Date: 2026-03-03 00:46+0000\n"
 "PO-Revision-Date: 2025-09-15 10:25-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -101,17 +101,17 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "ਨੋਟ ਦਾ ਨਾਂ ਬਦਲਣ ਲਈ ਅਸਮਰੱਥ ਹੈ। ਉਸੇ ਨਾਂ ਨਾਲ ਨੋਟ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
-#: qml/EditPage.qml:222 qml/EditPage.qml:762
+#: qml/EditPage.qml:222 qml/EditPage.qml:767
 #, kde-format
 msgid "Undo"
 msgstr "ਵਾਪਸ"
 
-#: qml/EditPage.qml:235 qml/EditPage.qml:775
+#: qml/EditPage.qml:235 qml/EditPage.qml:780
 #, kde-format
 msgid "Redo"
 msgstr "ਪਰਤਾਓ"
 
-#: qml/EditPage.qml:280
+#: qml/EditPage.qml:285
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Copy"
@@ -119,223 +119,223 @@ msgctxt "@action:button"
 msgid "Copy Note"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:310
 #, kde-format
 msgid "Focus Mode"
 msgstr "ਫੋਕਸ ਢੰਗ"
 
-#: qml/EditPage.qml:323
+#: qml/EditPage.qml:328
 #, fuzzy, kde-format
 #| msgid "Search notes (%1)"
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "ਖੋਜ ਨੋਟਿਸ (%1)"
 
-#: qml/EditPage.qml:340
+#: qml/EditPage.qml:345
 #, fuzzy, kde-format
 #| msgid "Search notes (%1)"
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "ਖੋਜ ਨੋਟਿਸ (%1)"
 
-#: qml/EditPage.qml:348 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:160
+#: qml/EditPage.qml:353 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:160
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "ਪੂਰੀ ਸਕਰੀਨ ਤੋਂ ਬਾਹਰ ਆਓ"
 
-#: qml/EditPage.qml:361
+#: qml/EditPage.qml:366
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@action:button"
 msgid "Table of Content"
 msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
 
-#: qml/EditPage.qml:417
+#: qml/EditPage.qml:422
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "ਗੂੜੇ"
 
-#: qml/EditPage.qml:436
+#: qml/EditPage.qml:441
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "ਤਿਰਛੇ"
 
-#: qml/EditPage.qml:455
+#: qml/EditPage.qml:460
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "ਹੇਠਾਂ ਲਾਈਨ"
 
-#: qml/EditPage.qml:469
+#: qml/EditPage.qml:474
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "ਵਿੰਨ੍ਹੋ"
 
-#: qml/EditPage.qml:487
+#: qml/EditPage.qml:492
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr ""
 
-#: qml/EditPage.qml:498
+#: qml/EditPage.qml:503
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr ""
 
-#: qml/EditPage.qml:540
+#: qml/EditPage.qml:545
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "ਕੋਈ ਸੂਚੀ ਨਹੀਂ"
 
-#: qml/EditPage.qml:541
+#: qml/EditPage.qml:546
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr ""
 
-#: qml/EditPage.qml:542
+#: qml/EditPage.qml:547
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "ਲੜੀਬੱਧ ਸੂਚੀ"
 
-#: qml/EditPage.qml:552
+#: qml/EditPage.qml:557
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr ""
 
-#: qml/EditPage.qml:567
+#: qml/EditPage.qml:572
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "ਲਿੰਕ ਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: qml/EditPage.qml:583
+#: qml/EditPage.qml:588
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "ਚਿੱਤਰ ਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: qml/EditPage.qml:596
+#: qml/EditPage.qml:601
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "ਸਾਰਣੀ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: qml/EditPage.qml:616
+#: qml/EditPage.qml:621
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "ਮੂਲ ਲਿਖਤ"
 
-#: qml/EditPage.qml:617
+#: qml/EditPage.qml:622
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "ਟਾਈਟਲ"
 
-#: qml/EditPage.qml:618
+#: qml/EditPage.qml:623
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr ""
 
-#: qml/EditPage.qml:619
+#: qml/EditPage.qml:624
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "ਭਾਗ"
 
-#: qml/EditPage.qml:620
+#: qml/EditPage.qml:625
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr ""
 
-#: qml/EditPage.qml:621
+#: qml/EditPage.qml:626
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "ਪ੍ਹੈਰਾਗਰਾਫ਼"
 
-#: qml/EditPage.qml:622
+#: qml/EditPage.qml:627
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr ""
 
-#: qml/EditPage.qml:808
+#: qml/EditPage.qml:813
 #, kde-format
 msgid "Format"
 msgstr "ਫਾਰਮੈਟ"
 
-#: qml/EditPage.qml:812
+#: qml/EditPage.qml:817
 #, kde-format
 msgid "Lists"
 msgstr "ਸੂਚੀ"
 
-#: qml/EditPage.qml:816
+#: qml/EditPage.qml:821
 #, kde-format
 msgid "Insert"
 msgstr "ਸ਼ਾਮਲ"
 
-#: qml/EditPage.qml:874
+#: qml/EditPage.qml:879
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
 
-#: qml/EditPage.qml:882
+#: qml/EditPage.qml:887
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:926
+#: qml/EditPage.qml:931
 #, kde-format
 msgid "No headers found"
 msgstr ""
 
-#: qml/EditPage.qml:1005
+#: qml/EditPage.qml:1010
 #, kde-format
 msgid "Find text..."
 msgstr ""
 
-#: qml/EditPage.qml:1030
+#: qml/EditPage.qml:1035
 #, kde-format
 msgid "Previous"
 msgstr ""
 
-#: qml/EditPage.qml:1046
+#: qml/EditPage.qml:1051
 #, kde-format
 msgid "Next"
 msgstr ""
 
-#: qml/EditPage.qml:1064
+#: qml/EditPage.qml:1069
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: qml/EditPage.qml:1066
+#: qml/EditPage.qml:1071
 #, kde-format
 msgid "%1/%2"
 msgstr ""
 
-#: qml/EditPage.qml:1073
+#: qml/EditPage.qml:1078
 #, kde-format
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:1089
+#: qml/EditPage.qml:1094
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
