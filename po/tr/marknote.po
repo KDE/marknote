@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:46+0000\n"
+"POT-Creation-Date: 2026-03-04 00:45+0000\n"
 "PO-Revision-Date: 2026-03-02 11:40+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -95,18 +95,18 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "emir_sari@icloud.com"
 
-#: notesmodel.cpp:117
+#: notesmodel.cpp:155
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Not yeniden adlandırılamıyor. Aynı adlı bir not halihazırda var."
 
-#: qml/EditPage.qml:222 qml/EditPage.qml:767
+#: qml/EditPage.qml:222 qml/EditPage.qml:791
 #, kde-format
 msgid "Undo"
 msgstr "Geri Al"
 
-#: qml/EditPage.qml:235 qml/EditPage.qml:780
+#: qml/EditPage.qml:235 qml/EditPage.qml:804
 #, kde-format
 msgid "Redo"
 msgstr "Yinele"
@@ -147,189 +147,197 @@ msgctxt "@action:button"
 msgid "Table of Content"
 msgstr "İçindekiler"
 
-#: qml/EditPage.qml:422
+#: qml/EditPage.qml:430
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Kalın"
 
-#: qml/EditPage.qml:441
+#: qml/EditPage.qml:449
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Yatık"
 
-#: qml/EditPage.qml:460
+#: qml/EditPage.qml:468
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Altı çizili"
 
-#: qml/EditPage.qml:474
+#: qml/EditPage.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Üzeri çizili"
 
-#: qml/EditPage.qml:492
+#: qml/EditPage.qml:500
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Liste düzeyini artır"
 
-#: qml/EditPage.qml:503
+#: qml/EditPage.qml:511
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Liste düzeyini azalt"
 
-#: qml/EditPage.qml:545
+#: qml/EditPage.qml:553
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Liste yok"
 
-#: qml/EditPage.qml:546
+#: qml/EditPage.qml:554
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Sırasız liste"
 
-#: qml/EditPage.qml:547
+#: qml/EditPage.qml:555
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Sıralı liste"
 
-#: qml/EditPage.qml:557
+#: qml/EditPage.qml:565
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "İşaret kutusu ekle"
 
-#: qml/EditPage.qml:572
+#: qml/EditPage.qml:580
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Bağlantı ekle"
 
-#: qml/EditPage.qml:588
+#: qml/EditPage.qml:596
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Insert link"
+msgctxt "@action:button"
+msgid "Insert note link"
+msgstr "Bağlantı ekle"
+
+#: qml/EditPage.qml:612
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Görsel ekle"
 
-#: qml/EditPage.qml:601
+#: qml/EditPage.qml:625
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Tablo ekle"
 
-#: qml/EditPage.qml:621
+#: qml/EditPage.qml:645
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Basit metin"
 
-#: qml/EditPage.qml:622
+#: qml/EditPage.qml:646
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Başlık"
 
-#: qml/EditPage.qml:623
+#: qml/EditPage.qml:647
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Alt başlık"
 
-#: qml/EditPage.qml:624
+#: qml/EditPage.qml:648
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Bölüm"
 
-#: qml/EditPage.qml:625
+#: qml/EditPage.qml:649
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Alt bölüm"
 
-#: qml/EditPage.qml:626
+#: qml/EditPage.qml:650
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragraf"
 
-#: qml/EditPage.qml:627
+#: qml/EditPage.qml:651
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Alt paragraf"
 
-#: qml/EditPage.qml:813
+#: qml/EditPage.qml:837
 #, kde-format
 msgid "Format"
 msgstr "Biçim"
 
-#: qml/EditPage.qml:817
+#: qml/EditPage.qml:841
 #, kde-format
 msgid "Lists"
 msgstr "Listeler"
 
-#: qml/EditPage.qml:821
+#: qml/EditPage.qml:845
 #, kde-format
 msgid "Insert"
 msgstr "Ekle"
 
-#: qml/EditPage.qml:879
+#: qml/EditPage.qml:903
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "İçindekiler"
 
-#: qml/EditPage.qml:887
+#: qml/EditPage.qml:911
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Kapat"
 
-#: qml/EditPage.qml:931
+#: qml/EditPage.qml:955
 #, kde-format
 msgid "No headers found"
 msgstr "Bulunan başlık yok"
 
-#: qml/EditPage.qml:1010
+#: qml/EditPage.qml:1034
 #, kde-format
 msgid "Find text..."
 msgstr "Metin bul…"
 
-#: qml/EditPage.qml:1035
+#: qml/EditPage.qml:1059
 #, kde-format
 msgid "Previous"
 msgstr "Önceki"
 
-#: qml/EditPage.qml:1051
+#: qml/EditPage.qml:1075
 #, kde-format
 msgid "Next"
 msgstr "Sonraki"
 
-#: qml/EditPage.qml:1069
+#: qml/EditPage.qml:1093
 #, kde-format
 msgid "No matches"
 msgstr "Eşleşme yok"
 
-#: qml/EditPage.qml:1071
+#: qml/EditPage.qml:1095
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:1078
+#: qml/EditPage.qml:1102
 #, kde-format
 msgid "Close"
 msgstr "Kapat"
 
-#: qml/EditPage.qml:1094
+#: qml/EditPage.qml:1118
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -595,6 +603,42 @@ msgctxt "@title:window"
 msgid "Edit Notebook"
 msgstr "Defteri Düzenle"
 
+#: qml/NoteLinkDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Insert Link"
+msgctxt "@title:window"
+msgid "Insert Note Link"
+msgstr "Bağlantı Ekle"
+
+#: qml/NoteLinkDialog.qml:49
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Notebook name"
+#| msgid "Name:"
+msgctxt "@label:textbox"
+msgid "Note Name:"
+msgstr "Ad:"
+
+#: qml/NoteLinkDialog.qml:51
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The name of the note you want to link to."
+msgstr ""
+
+#: qml/NoteLinkDialog.qml:68
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Link Text:"
+msgctxt "@label:textbox"
+msgid "Display Text:"
+msgstr "Bağlantı metni:"
+
+#: qml/NoteLinkDialog.qml:70
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Optional alternate text to display instead of the note name."
+msgstr ""
+
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
 msgctxt "@title:window"
@@ -643,100 +687,100 @@ msgstr ""
 "<b>%1</b> notunu silmek istediğinizden emin misiniz? Bu, <b>%2</b> dosyasını "
 "kalıcı olarak siler."
 
-#: qml/NotesPage.qml:328 qml/NotesPage.qml:364
+#: qml/NotesPage.qml:382 qml/NotesPage.qml:418
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknot"
 
-#: qml/NotesPage.qml:329
+#: qml/NotesPage.qml:383
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
 msgstr "“%1” dışa aktarımı başarıyla tamamlandı."
 
-#: qml/NotesPage.qml:347
+#: qml/NotesPage.qml:401
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Dosya Aç"
 
-#: qml/NotesPage.qml:365
+#: qml/NotesPage.qml:419
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
 msgstr "“%1” dışa aktarımı gerçekleştirilemedi."
 
-#: qml/NotesPage.qml:377
+#: qml/NotesPage.qml:431
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Notu Yeniden Adlandır"
 
-#: qml/NotesPage.qml:389
+#: qml/NotesPage.qml:443
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate Note"
 msgstr "Notu Çoğalt"
 
-#: qml/NotesPage.qml:397
+#: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Notu Sil"
 
-#: qml/NotesPage.qml:408
+#: qml/NotesPage.qml:462
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "HTML Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:414
+#: qml/NotesPage.qml:468
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "HTML Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:415
+#: qml/NotesPage.qml:469
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML dosyası (*.html)"
 
-#: qml/NotesPage.qml:421
+#: qml/NotesPage.qml:475
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "PDF Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:427
+#: qml/NotesPage.qml:481
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "PDF Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:428
+#: qml/NotesPage.qml:482
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF dosyası (*.pdf)"
 
-#: qml/NotesPage.qml:434
+#: qml/NotesPage.qml:488
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "ODT Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:440
+#: qml/NotesPage.qml:494
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "ODT Olarak Dışa Aktar"
 
-#: qml/NotesPage.qml:441
+#: qml/NotesPage.qml:495
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF metin belgesi (*.odt)"
 
-#: qml/NotesPage.qml:606
+#: qml/NotesPage.qml:663
 #, kde-format
 msgid "Add a note!"
 msgstr "Bir not ekle!"

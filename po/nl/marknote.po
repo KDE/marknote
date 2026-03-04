@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:46+0000\n"
+"POT-Creation-Date: 2026-03-04 00:45+0000\n"
 "PO-Revision-Date: 2026-03-02 23:37+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -95,19 +95,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: notesmodel.cpp:117
+#: notesmodel.cpp:155
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "Notitie hernoemen lukt niet. er bestaat al een notitie met dezelfde naam."
 
-#: qml/EditPage.qml:222 qml/EditPage.qml:767
+#: qml/EditPage.qml:222 qml/EditPage.qml:791
 #, kde-format
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: qml/EditPage.qml:235 qml/EditPage.qml:780
+#: qml/EditPage.qml:235 qml/EditPage.qml:804
 #, kde-format
 msgid "Redo"
 msgstr "Opnieuw doen"
@@ -148,189 +148,197 @@ msgctxt "@action:button"
 msgid "Table of Content"
 msgstr "Inhoudsopgave"
 
-#: qml/EditPage.qml:422
+#: qml/EditPage.qml:430
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Vet"
 
-#: qml/EditPage.qml:441
+#: qml/EditPage.qml:449
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Cursief"
 
-#: qml/EditPage.qml:460
+#: qml/EditPage.qml:468
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Onderstrepen"
 
-#: qml/EditPage.qml:474
+#: qml/EditPage.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Doorstrepen"
 
-#: qml/EditPage.qml:492
+#: qml/EditPage.qml:500
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Lijstniveau verhogen"
 
-#: qml/EditPage.qml:503
+#: qml/EditPage.qml:511
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Lijstniveau verkleinen"
 
-#: qml/EditPage.qml:545
+#: qml/EditPage.qml:553
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Geen lijst"
 
-#: qml/EditPage.qml:546
+#: qml/EditPage.qml:554
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Ongeordende lijst"
 
-#: qml/EditPage.qml:547
+#: qml/EditPage.qml:555
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Geordende lijst"
 
-#: qml/EditPage.qml:557
+#: qml/EditPage.qml:565
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Keuzevakje invoegen"
 
-#: qml/EditPage.qml:572
+#: qml/EditPage.qml:580
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Koppeling invoegen"
 
-#: qml/EditPage.qml:588
+#: qml/EditPage.qml:596
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Insert link"
+msgctxt "@action:button"
+msgid "Insert note link"
+msgstr "Koppeling invoegen"
+
+#: qml/EditPage.qml:612
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Afbeelding invoegen"
 
-#: qml/EditPage.qml:601
+#: qml/EditPage.qml:625
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Tabel invoegen"
 
-#: qml/EditPage.qml:621
+#: qml/EditPage.qml:645
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Basistekst"
 
-#: qml/EditPage.qml:622
+#: qml/EditPage.qml:646
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Titel"
 
-#: qml/EditPage.qml:623
+#: qml/EditPage.qml:647
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Ondertitel"
 
-#: qml/EditPage.qml:624
+#: qml/EditPage.qml:648
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Sectie"
 
-#: qml/EditPage.qml:625
+#: qml/EditPage.qml:649
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Subsectie"
 
-#: qml/EditPage.qml:626
+#: qml/EditPage.qml:650
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragraaf"
 
-#: qml/EditPage.qml:627
+#: qml/EditPage.qml:651
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Subparagraaf"
 
-#: qml/EditPage.qml:813
+#: qml/EditPage.qml:837
 #, kde-format
 msgid "Format"
 msgstr "Opmaak"
 
-#: qml/EditPage.qml:817
+#: qml/EditPage.qml:841
 #, kde-format
 msgid "Lists"
 msgstr "Lijsten"
 
-#: qml/EditPage.qml:821
+#: qml/EditPage.qml:845
 #, kde-format
 msgid "Insert"
 msgstr "Invoegen"
 
-#: qml/EditPage.qml:879
+#: qml/EditPage.qml:903
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "Inhoudsopgave"
 
-#: qml/EditPage.qml:887
+#: qml/EditPage.qml:911
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Sluiten"
 
-#: qml/EditPage.qml:931
+#: qml/EditPage.qml:955
 #, kde-format
 msgid "No headers found"
 msgstr "Geen koppen gevonden"
 
-#: qml/EditPage.qml:1010
+#: qml/EditPage.qml:1034
 #, kde-format
 msgid "Find text..."
 msgstr "Tekst zoeken..."
 
-#: qml/EditPage.qml:1035
+#: qml/EditPage.qml:1059
 #, kde-format
 msgid "Previous"
 msgstr "Vorige"
 
-#: qml/EditPage.qml:1051
+#: qml/EditPage.qml:1075
 #, kde-format
 msgid "Next"
 msgstr "Volgende"
 
-#: qml/EditPage.qml:1069
+#: qml/EditPage.qml:1093
 #, kde-format
 msgid "No matches"
 msgstr "Geen overeenkomsten"
 
-#: qml/EditPage.qml:1071
+#: qml/EditPage.qml:1095
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:1078
+#: qml/EditPage.qml:1102
 #, kde-format
 msgid "Close"
 msgstr "Sluiten"
 
-#: qml/EditPage.qml:1094
+#: qml/EditPage.qml:1118
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -597,6 +605,41 @@ msgctxt "@title:window"
 msgid "Edit Notebook"
 msgstr "Notitieboek bewerken"
 
+#: qml/NoteLinkDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Insert Link"
+msgctxt "@title:window"
+msgid "Insert Note Link"
+msgstr "Koppeling invoegen"
+
+#: qml/NoteLinkDialog.qml:49
+#, fuzzy, kde-format
+#| msgid "Notebook name"
+msgctxt "@label:textbox"
+msgid "Note Name:"
+msgstr "Notitieboeknaam"
+
+#: qml/NoteLinkDialog.qml:51
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "The name of the note you want to link to."
+msgstr ""
+
+#: qml/NoteLinkDialog.qml:68
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Link Text:"
+msgctxt "@label:textbox"
+msgid "Display Text:"
+msgstr "Koppelingstekst:"
+
+#: qml/NoteLinkDialog.qml:70
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Optional alternate text to display instead of the note name."
+msgstr ""
+
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
 msgctxt "@title:window"
@@ -645,100 +688,100 @@ msgstr ""
 "Wilt u werkelijk de notitie <b> %1 </b> wissen? Dit zal het bestand <b>%2</"
 "b> definitief verwijderen."
 
-#: qml/NotesPage.qml:328 qml/NotesPage.qml:364
+#: qml/NotesPage.qml:382 qml/NotesPage.qml:418
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:329
+#: qml/NotesPage.qml:383
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
 msgstr "Exporteren van \"%1\" is gelukt."
 
-#: qml/NotesPage.qml:347
+#: qml/NotesPage.qml:401
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Bestand openen"
 
-#: qml/NotesPage.qml:365
+#: qml/NotesPage.qml:419
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
 msgstr "Exporteren van \"%1\" is mislukt."
 
-#: qml/NotesPage.qml:377
+#: qml/NotesPage.qml:431
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Notitie hernoemen"
 
-#: qml/NotesPage.qml:389
+#: qml/NotesPage.qml:443
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate Note"
 msgstr "Notitie dupliceren"
 
-#: qml/NotesPage.qml:397
+#: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Notitie verwijderen"
 
-#: qml/NotesPage.qml:408
+#: qml/NotesPage.qml:462
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Exporteer naar HTML"
 
-#: qml/NotesPage.qml:414
+#: qml/NotesPage.qml:468
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exporteer naar HTML"
 
-#: qml/NotesPage.qml:415
+#: qml/NotesPage.qml:469
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-bestand (*.html)"
 
-#: qml/NotesPage.qml:421
+#: qml/NotesPage.qml:475
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Naar PDF exporteren"
 
-#: qml/NotesPage.qml:427
+#: qml/NotesPage.qml:481
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Naar PDF exporteren"
 
-#: qml/NotesPage.qml:428
+#: qml/NotesPage.qml:482
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-bestand (*.pdf)"
 
-#: qml/NotesPage.qml:434
+#: qml/NotesPage.qml:488
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Naar ODT exporteren"
 
-#: qml/NotesPage.qml:440
+#: qml/NotesPage.qml:494
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Naar ODT exporteren"
 
-#: qml/NotesPage.qml:441
+#: qml/NotesPage.qml:495
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-tekstdocument (*.odt)"
 
-#: qml/NotesPage.qml:606
+#: qml/NotesPage.qml:663
 #, kde-format
 msgid "Add a note!"
 msgstr "Een notitie toevoegen!"
@@ -974,9 +1017,6 @@ msgstr "Celinhoud"
 
 #~ msgid "Add Notebook"
 #~ msgstr "Notitieboek toevoegen"
-
-#~ msgid "Notebook name"
-#~ msgstr "Notitieboeknaam"
 
 #~ msgctxt "@action:button"
 #~ msgid "highlight"
