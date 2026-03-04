@@ -429,6 +429,27 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
         if (QTextDocument *doc = textDocument()) {
             fixupTable(doc->rootFrame());
 
+            QTextCursor checkCursor(doc);
+            checkCursor.movePosition(QTextCursor::End);
+
+            // If the note ends with a heading, insert a new empty block
+            if (checkCursor.blockFormat().headingLevel() > 0) {
+                checkCursor.insertBlock();
+
+                // Reset Block Structure (Heading Level)
+                QTextBlockFormat bf;
+                bf.setHeadingLevel(0);
+                checkCursor.setBlockFormat(bf);
+
+                QTextCharFormat resetCharFormat;
+                resetCharFormat.setFontWeight(QFont::Normal);
+                resetCharFormat.setProperty(QTextFormat::FontSizeAdjustment, 0);
+
+                // Apply to the block and the current typing position
+                checkCursor.setBlockCharFormat(resetCharFormat);
+                checkCursor.setCharFormat(resetCharFormat);
+            }
+
             doc->setModified(false);
             doc->clearUndoRedoStacks();
             doc->setUndoRedoEnabled(true);
