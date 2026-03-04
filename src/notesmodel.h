@@ -44,6 +44,8 @@ public:
 
     Q_INVOKABLE void duplicateNote(const QUrl &path);
 
+    Q_INVOKABLE void copyWholeNote(const QUrl &path);
+
     /// Export a note to HTML.
     /// \param path The path of the note to export.
     /// \param destination The destination of the note to export.

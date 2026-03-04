@@ -6,26 +6,31 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+pragma ComponentBehavior: Bound
+
 import QtQml.Models
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtQuick.Templates as T
 import org.kde.kirigami as Kirigami
 import org.kde.sonnet as Sonnet
 import org.kde.marknote
+import org.kde.ki18n
 
 QQC2.Menu {
     id: root
 
-    property Item target
+    property T.TextArea target
     property bool deselectWhenMenuClosed: true
     property int restoredCursorPosition: 0
     property int restoredSelectionStart
     property int restoredSelectionEnd
     property bool persistentSelectionSetting
-    required property TableActionHelper tableActionHelper
+    property TableActionHelper tableActionHelper: null
     property url currentLink
     property var document
-    property var internalLinkHandler
+
+    signal internalLinkClicked(link: url)
 
     // assuming that Instantiator::active is bound to target.Kirigami.SpellCheck.enabled
     property Instantiator/*<Sonnet.SpellcheckHighlighter>*/ spellcheckHighlighterInstantiator
@@ -114,18 +119,6 @@ QQC2.Menu {
             && spellcheckHighlighter.wordIsMisspelled;
     }
 
-    // Show actions which should normally be hidden for password field
-    function __showPasswordRestrictedActions(): bool {
-        return target !== null
-            && target.echoMode !== TextInput.PasswordEchoOnEdit
-            && target.echoMode !== TextInput.Password;
-    }
-
-    // Show text editing actions which should normally be hidden for password field
-    function __showPasswordRestrictedEditingActions(): bool {
-        return __showPasswordRestrictedActions() && !target.readOnly;
-    }
-
     function __isInternalLink(link: url): bool {
         if (!link) {
             return false;
@@ -157,7 +150,7 @@ QQC2.Menu {
 
         // run action, and free memory
         try {
-            runOnMenuClose();
+            root.runOnMenuClose();
         } catch (e) {
             console.error(e);
             console.trace();
@@ -202,7 +195,7 @@ QQC2.Menu {
         action: QQC2.Action {
             enabled: false
             text: root.spellcheckHighlighter
-                ? i18nc("@action:inmenu", 'No Suggestions for "%1"')
+                ? KI18n.i18nc("@action:inmenu", 'No Suggestions for "%1"')
                     .arg(root.spellcheckHighlighter.wordUnderMouse)
                 : ""
         }
@@ -216,7 +209,7 @@ QQC2.Menu {
         visible: root.__showSpellcheckActions()
         action: QQC2.Action {
             text: root.spellcheckHighlighter
-                ? i18nc("@action:inmenu", 'Add "%1" to Dictionary')
+                ? KI18n.i18nc("@action:inmenu", 'Add "%1" to Dictionary')
                     .arg(root.spellcheckHighlighter.wordUnderMouse)
                 : ""
 
@@ -232,7 +225,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         visible: root.__showSpellcheckActions()
         action: QQC2.Action {
-            text: i18nc("@action:inmenu", "Ignore")
+            text: KI18n.i18nc("@action:inmenu", "Ignore")
             onTriggered: {
                 root.deselectWhenMenuClosed = false;
                 root.runOnMenuClose = () => {
@@ -247,7 +240,7 @@ QQC2.Menu {
 
         checkable: true
         checked: root.target?.Kirigami.SpellCheck.enabled ?? false
-        text: i18nc("@action:inmenu", "Spell Check")
+        text: KI18n.i18nc("@action:inmenu", "Spell Check")
 
         onToggled: {
             if (root.target) {
@@ -257,18 +250,17 @@ QQC2.Menu {
     }
 
     QQC2.MenuSeparator {
-        visible: root.__hasSpellcheckCapability()
-            && (root.__editable() || root.__showPasswordRestrictedActions())
+        visible: root.__hasSpellcheckCapability() && root.__editable()
     }
 
     QQC2.MenuItem {
-        visible: root.currentLink != ""
+        visible: root.currentLink.toString() !== ""
         action: QQC2.Action {
-            text: root.__isInternalLink(root.currentLink) ? i18nc("@inmenu", "Open Note") : i18nc("@inmenu", "Open Link")
+            text: root.__isInternalLink(root.currentLink) ? KI18n.i18nc("@inmenu", "Open Note") : KI18n.i18nc("@inmenu", "Open Link")
             icon.name: "document-open"
             onTriggered: {
-                if (root.__isInternalLink(root.currentLink) && root.internalLinkHandler) {
-                    root.internalLinkHandler(root.currentLink);
+                if (root.__isInternalLink(root.currentLink)) {
+                    root.internalLinkClicked(root.currentLink);
                 } else {
                     Qt.openUrlExternally(root.currentLink);
                 }
@@ -276,44 +268,46 @@ QQC2.Menu {
         }
     }
     QQC2.MenuSeparator {
-        visible: root.currentLink != ""
+        visible: root.currentLink.toString() !== ""
     }
 
     QQC2.Menu {
-        title: i18nc("@inmenu", "Insert")
+        title: KI18n.i18nc("@inmenu", "Insert")
+        enabled: root.tableActionHelper !== null
 
         Kirigami.Action {
-            fromQAction: tableActionHelper.actionInsertRowAbove
+            fromQAction: root.tableActionHelper?.actionInsertRowAbove ?? null
         }
 
         Kirigami.Action {
-            fromQAction: tableActionHelper.actionInsertRowBelow
+            fromQAction: root.tableActionHelper?.actionInsertRowBelow ?? null
         }
 
         QQC2.MenuSeparator {}
 
         Kirigami.Action {
-            fromQAction: tableActionHelper.actionInsertColumnBefore
+            fromQAction: root.tableActionHelper?.actionInsertColumnBefore ?? null
         }
 
         Kirigami.Action {
-            fromQAction: tableActionHelper.actionInsertColumnAfter
+            fromQAction: root.tableActionHelper?.actionInsertColumnAfter ?? null
         }
     }
 
     QQC2.Menu {
-        title: i18nc("@inmenu", "Remove")
+        title: KI18n.i18nc("@inmenu", "Remove")
+        enabled: root.tableActionHelper !== null
 
         Kirigami.Action {
-            fromQAction: tableActionHelper.actionRemoveRow
+            fromQAction: root.tableActionHelper?.actionRemoveRow ?? null
         }
 
         Kirigami.Action {
-            fromQAction: tableActionHelper.actionRemoveColumn
+            fromQAction: root.tableActionHelper?.actionRemoveColumn ?? null
         }
 
         Kirigami.Action {
-            fromQAction: tableActionHelper.actionRemoveCellContents
+            fromQAction: root.tableActionHelper?.actionRemoveCellContents ?? null
         }
     }
 
@@ -322,10 +316,9 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-undo-symbolic"
-            text: i18nc("@action:inmenu", "Undo")
+            text: KI18n.i18nc("@action:inmenu", "Undo")
             shortcut: StandardKey.Undo
         }
-        visible: root.__showPasswordRestrictedEditingActions()
         enabled: root.target?.canUndo ?? false
         onTriggered: {
             root.deselectWhenMenuClosed = false;
@@ -337,10 +330,9 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-redo-symbolic"
-            text: i18nc("@action:inmenu", "Redo")
+            text: KI18n.i18nc("@action:inmenu", "Redo")
             shortcut: StandardKey.Redo
         }
-        visible: root.__showPasswordRestrictedEditingActions()
         enabled: root.target?.canRedo ?? false
         onTriggered: {
             root.deselectWhenMenuClosed = false;
@@ -349,16 +341,14 @@ QQC2.Menu {
             };
         }
     }
-    QQC2.MenuSeparator {
-        visible: root.__showPasswordRestrictedEditingActions()
-    }
+    QQC2.MenuSeparator {}
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-cut-symbolic"
-            text: i18nc("@action:inmenu", "Cut")
+            text: KI18n.i18nc("@action:inmenu", "Cut")
             shortcut: StandardKey.Cut
         }
-        visible: root.__showPasswordRestrictedEditingActions()
+
         enabled: root.__hasSelectedText()
         onTriggered: {
             root.deselectWhenMenuClosed = false;
@@ -370,10 +360,9 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-copy-symbolic"
-            text: i18nc("@action:inmenu", "Copy")
+            text: KI18n.i18nc("@action:inmenu", "Copy")
             shortcut: StandardKey.Copy
         }
-        visible: root.__showPasswordRestrictedActions()
         enabled: root.__hasSelectedText()
         onTriggered: {
             root.deselectWhenMenuClosed = false;
@@ -385,11 +374,11 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-paste-symbolic"
-            text: i18nc("@action:inmenu", "Paste")
+            text: KI18n.i18nc("@action:inmenu", "Paste")
             shortcut: StandardKey.Paste
         }
         visible: root.__editable()
-        enabled: target?.canPaste ?? false
+        enabled: root.target?.canPaste ?? false
         onTriggered: {
             root.deselectWhenMenuClosed = false;
             root.runOnMenuClose = () => {
@@ -404,7 +393,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-delete-symbolic"
-            text: i18nc("@action:inmenu", "Delete")
+            text: KI18n.i18nc("@action:inmenu", "Delete")
             shortcut: StandardKey.Delete
         }
         visible: root.__editable()
@@ -417,13 +406,12 @@ QQC2.Menu {
         }
     }
     QQC2.MenuSeparator {
-        visible: root.target !== null
-            && (root.__editable() || root.__showPasswordRestrictedActions())
+        visible: root.target !== null && root.__editable()
     }
     QQC2.MenuItem {
         action: QQC2.Action {
             icon.name: "edit-select-all-symbolic"
-            text: i18nc("@action:inmenu", "Select All")
+            text: KI18n.i18nc("@action:inmenu", "Select All")
             shortcut: StandardKey.SelectAll
         }
         visible: root.target !== null

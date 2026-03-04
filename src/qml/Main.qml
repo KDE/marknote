@@ -115,10 +115,8 @@ StatetfulApp.StatefulWindow {
 
             NavigationController.notebookPath = path
             pageStack.clear()
-
             safePush("org.kde.marknote", "NotesPage");
-            safePush("org.kde.marknote", "EditPage");
-
+            safePush("org.kde.marknote", "RichEditPage");
             bottomDrawer.close()
         }
     }
@@ -235,11 +233,30 @@ StatetfulApp.StatefulWindow {
 
         function onNotePathChanged(): void {
             if (NavigationController.notePath.length > 0) {
-                const hasEditPage = root.pageStack.items.some(item => item.objectName === "EditPage");
+                const hasEditPage = root.pageStack.items.some(item => item.objectName === "RichEditPage") || root.pageStack.items.some(item => item.objectName === "RawEditPage");
 
                 // If NotesPage is already loading or present, just append the EditPage
                 if (!hasEditPage) {
-                    safePush("org.kde.marknote", "EditPage");
+                    safePush("org.kde.marknote", "RichEditPage");
+                }
+            }
+        }
+
+        function onSourceModeChanged(): void {
+            // when this is called, then navigate to raw/rich edit page with same note path
+            if (NavigationController.notebookPath.length > 0 && NavigationController.notePath.length > 0) {
+                if (root.pageStack.items[0].objectName === "NotesPage" && root.pageStack.depth === 2){
+                    if (root.pageStack.items[1].objectName === "RichEditPage"){
+                        root.pageStack.pop();
+                        // root.pageStack.clear();
+                        // safePush("org.kde.marknote", "NotesPage")
+			            safePush("org.kde.marknote", "RawEditPage");
+                    } else if (root.pageStack.items[1].objectName === "RawEditPage"){
+                        root.pageStack.pop();
+                        // root.pageStack.clear();
+                        // safePush("org.kde.marknote", "NotesPage")
+			            safePush("org.kde.marknote", "RichEditPage");
+                    }
                 }
             }
         }

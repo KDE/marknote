@@ -32,7 +32,7 @@ Kirigami.ApplicationWindow {
             columnResizeMode: Kirigami.ColumnView.SingleColumn
         }
 
-        initialPage: EditPage {
+        initialPage: RichEditPage {
             id: editorPage
 
             Component.onCompleted: {
