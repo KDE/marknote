@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
+﻿// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
 // SPDX-FileCopyrightText: 2015-2024 Laurent Montel <montel@kde.org>
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
 // SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
@@ -2078,6 +2078,46 @@ void DocumentHandler::clearSearch()
 
     Q_EMIT searchMatchCountChanged();
     Q_EMIT searchCurrentMatchChanged();
+}
+
+void DocumentHandler::replaceCurrent(const QString &replaceText)
+{
+    if (m_searchMatches.isEmpty() || m_searchCurrentMatch < 0 || m_searchCurrentMatch >= m_searchMatches.size()) {
+        return;
+    }
+
+    QTextCursor cursor = m_searchMatches.at(m_searchCurrentMatch);
+    cursor.insertText(replaceText);
+
+    QString currentSearchTerm = m_searchTerm;
+    findText(currentSearchTerm);
+
+    if (m_searchCurrentMatch >= m_searchMatches.size() && !m_searchMatches.isEmpty()) {
+        m_searchCurrentMatch = m_searchMatches.size() - 1;
+    }
+
+    if (!m_searchMatches.isEmpty() && m_searchCurrentMatch < m_searchMatches.size()) {
+        QTextCursor match = m_searchMatches.at(m_searchCurrentMatch);
+        setCursorPosition(match.position());
+        selectCursor(match.selectionStart(), match.selectionEnd());
+    }
+}
+
+int DocumentHandler::replaceAll(const QString &replaceText)
+{
+    if (m_searchMatches.isEmpty()) {
+        return 0;
+    }
+
+    int replacedCount = m_searchMatches.size();
+
+    for (int i = m_searchMatches.size() - 1; i >= 0; --i) {
+        QTextCursor cursor = m_searchMatches.at(i);
+        cursor.insertText(replaceText);
+    }
+
+    clearSearch();
+    return replacedCount;
 }
 
 void DocumentHandler::slotMouseMovedWithControl(QPointF position)

@@ -61,6 +61,7 @@ Kirigami.Page {
     function closeSearch(): void {
         if (searchBar) {
             searchBar.isSearchOpen = false;
+            searchBar.isReplaceVisible = false;
             textArea.deselect();
 
             if (textArea) {
@@ -1005,6 +1006,7 @@ Kirigami.Page {
             id: searchBar
 
             property bool isSearchOpen: false
+            property bool isReplaceVisible: false
 
             visible: isSearchOpen || opacity > 0
             opacity: isSearchOpen ? 1.0 : 0.0
@@ -1024,90 +1026,225 @@ Kirigami.Page {
 
             Layout.fillWidth: true
 
-            contentItem: RowLayout {
-                id: searchBarLayout
-                spacing: Kirigami.Units.smallSpacing
+            contentItem: ColumnLayout {
+                spacing: 0
 
-                Kirigami.SearchField {
-                    id: searchField
+                RowLayout {
+                    id: searchBarLayout
+                    spacing: Kirigami.Units.smallSpacing
+
+                    Kirigami.SearchField {
+                        id: searchField
+                        Layout.fillWidth: true
+                        placeholderText: i18n("Find text...")
+                        onTextChanged: {
+                            if (text.length > 0) {
+                                document.findText(text);
+                            } else {
+                                document.clearSearch();
+                                textArea.deselect();
+                            }
+                        }
+                        Keys.onShortcutOverride: (event)=> event.accepted = (event.key === Qt.Key_Escape)
+                        Keys.onReturnPressed: document.findNext()
+                        Keys.onEscapePressed: {
+                            searchField.text = "";
+                            searchBar.isSearchOpen = false;
+                            searchBar.isReplaceVisible = false;
+                            textArea.deselect();
+                            textArea.forceActiveFocus();
+                        }
+                    }
+
+                    Kirigami.Separator {
+                        Layout.fillHeight: true
+                    }
+
+                    ToolButton {
+                        icon.name: "go-up"
+                        text: i18n("Previous")
+                        display: AbstractButton.IconOnly
+                        onClicked: document.findPrevious()
+                        enabled: document.searchMatchCount > 0
+
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
+                        ToolTip.delay: Kirigami.Units.toolTipDelay
+                        Shortcut {
+                            sequence: StandardKey.FindPrevious
+                            onActivated: document.findPrevious()
+                        }
+                    }
+
+                    ToolButton {
+                        icon.name: "go-down"
+                        text: i18n("Next")
+                        display: AbstractButton.IconOnly
+                        onClicked: document.findNext()
+                        enabled: document.searchMatchCount > 0
+
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
+                        ToolTip.delay: Kirigami.Units.toolTipDelay
+                        Shortcut {
+                            sequence: StandardKey.FindNext
+                            onActivated: document.findNext()
+                        }
+                    }
+
+                    Label {
+                        text: {
+                            if (document.searchMatchCount === 0) {
+                                textArea.deselect();
+                                return i18n("No matches");
+                            }
+                            return i18n("%1/%2", document.searchCurrentMatch + 1, document.searchMatchCount);
+                        }
+                        Layout.minimumWidth: Kirigami.Units.gridUnit * 4
+                    }
+
+                    Kirigami.Separator {
+                        Layout.fillHeight: true
+                    }
+
+                    ToolButton {
+                        id: replaceToggleButton
+                        icon.name: searchBar.isReplaceVisible ? "arrow-up" : "edit-find-replace-symbolic"
+                        text: i18n("Replace")
+                        display: AbstractButton.IconOnly
+                        onClicked: {
+                            searchBar.isReplaceVisible = !searchBar.isReplaceVisible
+                            if (searchBar.isReplaceVisible) {
+                                replaceField.forceActiveFocus()
+                            }
+                        }
+
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
+                        ToolTip.delay: Kirigami.Units.toolTipDelay
+                    }
+
+                    ToolButton {
+                        id: closeButton
+                        icon.name: "dialog-close"
+                        text: i18n("Close")
+                        display: AbstractButton.IconOnly
+                        onClicked: {
+                            root.closeSearch()
+                        }
+
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
+                        ToolTip.delay: Kirigami.Units.toolTipDelay
+                    }
+                }
+
+                // Replace bar
+                RowLayout {
+                    id: replaceBarLayout
+                    spacing: Kirigami.Units.smallSpacing
+                    visible: searchBar.isReplaceVisible
                     Layout.fillWidth: true
-                    placeholderText: i18n("Find text...")
-                    onTextChanged: {
-                        if (text.length > 0) {
-                            document.findText(text);
-                        } else {
-                            document.clearSearch();
+
+                    TextField {
+                        id: replaceField
+                        Layout.fillWidth: true
+                        placeholderText: i18n("Replace with...")
+                        Keys.onShortcutOverride: (event)=> event.accepted = (event.key === Qt.Key_Escape)
+                        Keys.onReturnPressed: {
+                            if (event.modifiers & Qt.ControlModifier) {
+                                document.replaceAll(replaceField.text);
+                            } else {
+                                document.replaceCurrent(replaceField.text);
+                            }
+                        }
+                        Keys.onEscapePressed: {
+                            searchField.text = "";
+                            searchBar.isSearchOpen = false;
+                            searchBar.isReplaceVisible = false;
                             textArea.deselect();
+                            textArea.forceActiveFocus();
                         }
                     }
-                    Keys.onShortcutOverride: (event)=> event.accepted = (event.key === Qt.Key_Escape)
-                    Keys.onReturnPressed: document.findNext()
-                    Keys.onEscapePressed: {
-                        searchField.text = "";
-                        searchBar.isSearchOpen = false;
-                        textArea.deselect();
-                        textArea.forceActiveFocus();
+
+                    Kirigami.Separator {
+                        Layout.fillHeight: true
                     }
-                }
 
-                Kirigami.Separator {
-                    Layout.fillHeight: true
-                }
+                    ToolButton {
+                        icon.name: "document-swap"
+                        text: i18n("Replace")
+                        display: AbstractButton.IconOnly
+                        onClicked: document.replaceCurrent(replaceField.text)
+                        enabled: document.searchMatchCount > 0
 
-                ToolButton {
-                    icon.name: "go-up"
-                    text: i18n("Previous")
-                    display: AbstractButton.IconOnly
-                    onClicked: document.findPrevious()
-                    enabled: document.searchMatchCount > 0
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                    Shortcut {
-                        sequence: StandardKey.FindPrevious
-                        onActivated: document.findPrevious()
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
+                        ToolTip.delay: Kirigami.Units.toolTipDelay
                     }
-                }
 
-                ToolButton {
-                    icon.name: "go-down"
-                    text: i18n("Next")
-                    display: AbstractButton.IconOnly
-                    onClicked: document.findNext()
-                    enabled: document.searchMatchCount > 0
-
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                    Shortcut {
-                        sequence: StandardKey.FindNext
-                        onActivated: document.findNext()
-                    }
-                }
-
-                Label {
-                    text: {
-                        if (document.searchMatchCount === 0) {
-                            textArea.deselect();
-                            return i18n("No matches");
+                    ToolButton {
+                        icon.name: "view-refresh"
+                        text: i18n("Replace All")
+                        display: AbstractButton.IconOnly
+                        onClicked: {
+                            const count = document.replaceAll(replaceField.text);
+                            replaceMessage.text = i18ncp("@info:status", "Replaced %1 occurrence", "Replaced %1 occurrences", count);
+                            replaceMessage.visible = true;
                         }
-                        return i18n("%1/%2", document.searchCurrentMatch + 1, document.searchMatchCount);
+                        enabled: document.searchMatchCount > 0
+
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
+                        ToolTip.delay: Kirigami.Units.toolTipDelay
                     }
-                    Layout.minimumWidth: Kirigami.Units.gridUnit * 4
+
+                    Label {
+                        text: {
+                            if (document.searchMatchCount === 0) {
+                                return i18n("No matches");
+                            }
+                            return i18n("%1/%2", document.searchCurrentMatch + 1, document.searchMatchCount);
+                        }
+                        Layout.minimumWidth: Kirigami.Units.gridUnit * 4
+                    }
+
+                    Kirigami.Separator {
+                        Layout.fillHeight: true
+                    }
+
+                    // Spacer to align with replace toggle button
+                    Item {
+                        Layout.preferredWidth: replaceToggleButton.width
+                    }
+
+                    Item {
+                        Layout.preferredWidth: closeButton.width
+                    }
                 }
+            }
+        }
 
-                ToolButton {
-                    icon.name: "dialog-close"
-                    text: i18n("Close")
-                    display: AbstractButton.IconOnly
-                    onClicked: {
-                        root.closeSearch()
-                    }
+        Kirigami.InlineMessage {
+            id: replaceMessage
 
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
+            type: Kirigami.MessageType.Positive
+            position: Kirigami.InlineMessage.Position.Header
+            showCloseButton: true
+
+            Layout.fillWidth: true
+
+            visible: false
+
+            Timer {
+                id: replaceMessageTimer
+                interval: 3000
+                onTriggered: replaceMessage.visible = false
+            }
+
+            onVisibleChanged: {
+                if (visible) {
+                    replaceMessageTimer.restart();
                 }
             }
         }
@@ -1221,6 +1358,18 @@ Kirigami.Page {
                     else
                     {
                         root.openSearch()
+                    }
+                }
+            }
+
+            Shortcut {
+                sequence: StandardKey.Replace
+                onActivated:
+                {
+                    root.openSearch()
+                    searchBar.isReplaceVisible = true
+                    if (replaceField) {
+                        replaceField.forceActiveFocus()
                     }
                 }
             }

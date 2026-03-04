@@ -132,6 +132,8 @@ public:
     Q_INVOKABLE void findNext();
     Q_INVOKABLE void findPrevious();
     Q_INVOKABLE void clearSearch();
+    Q_INVOKABLE void replaceCurrent(const QString &replaceText);
+    Q_INVOKABLE int replaceAll(const QString &replaceText);
 
     Q_INVOKABLE void copyWholeNote();
     Q_INVOKABLE void pasteFromClipboard();
