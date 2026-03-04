@@ -28,8 +28,6 @@ Components.MessageDialog {
         model: root.model
     }
     dialogType: Components.MessageDialog.Warning
-    width: Math.min(parent.width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 26)
-    bottomPadding: Kirigami.Units.gridUnit
     title: i18nc("@title:window", "Delete Notebook")
     onRejected: close()
     onAccepted: deleteAction.trigger()

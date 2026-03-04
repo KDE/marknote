@@ -176,8 +176,6 @@ Kirigami.ScrollablePage {
         property url fileUrl
         property string noteName
 
-        width: Math.min(parent.width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 26)
-        bottomPadding: Kirigami.Units.gridUnit
         dialogType: Components.MessageDialog.Warning
         title: i18nc("@title:window", "Delete Note")
         onRejected: close()
