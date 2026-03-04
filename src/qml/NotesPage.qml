@@ -54,7 +54,10 @@ Kirigami.ScrollablePage {
     }
 
     titleDelegate: RowLayout {
+        spacing: Kirigami.Units.smallSpacing
+
         Layout.fillWidth: true
+
         ToolButton {
             id: addButton
             visible: !Kirigami.Settings.isMobile
@@ -187,7 +190,7 @@ Kirigami.ScrollablePage {
             close();
         }
         standardButtons: Dialog.Ok | Dialog.Cancel
-	subtitle: i18n("Are you sure you want to delete the note <b> %1 </b>? This will delete the file <b>%2</b> definitively.", removeDialog.noteName, removeDialog.notePath)
+        subtitle: i18n("Are you sure you want to delete the note <b> %1 </b>? This will delete the file <b>%2</b> definitively.", removeDialog.noteName, removeDialog.notePath)
     }
 
     ListView {
@@ -640,12 +643,29 @@ Kirigami.ScrollablePage {
                 }
 
                 ToolButton{
+                    text: i18nc("@action:button", "Show Menu")
                     icon.name: "overflow-menu"
+                    down: pressed || menu.opened
+                    display: ToolButton.IconOnly
+
+                    onPressed: openMenu()
+
+                    Keys.onReturnPressed: openMenu()
+                    Keys.onEnterPressed: openMenu()
+
                     Layout.alignment: Qt.AlignTop
                     Layout.margins: Kirigami.Units.smallSpacing
-                    onClicked: {
+
+                    Accessible.role: Accessible.ButtonMenu
+                    Accessible.onPressAction: openMenu()
+
+                    ToolTip.visible: hovered && !menu.visible
+                    ToolTip.text: text
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
+
+                    function openMenu(): void {
                         menu.delegateItem = delegateItem;
-                        menu.popup()
+                        menu.popup(this, Qt.point(0, height))
                     }
                 }
             }
