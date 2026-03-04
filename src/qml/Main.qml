@@ -34,7 +34,7 @@ StatetfulApp.StatefulWindow {
     windowName: 'main'
     visible: false
 
-    onWideScreenChanged: Kirigami.Settings.isMobile ? drawer.close() : (!wideScreen ? (drawer.close()) : drawer.open())
+    onIsWideScreenChanged: Kirigami.Settings.isMobile ? drawer.close() : (!isWideScreen ? drawer.close() : drawer.open())
     onWidthChanged: pageStack.defaultColumnWidth = Math.max(Math.min(root.width * maximalColumWidthPercentage, pageStack.defaultColumnWidth), minimalColumnWidth)
     onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
 
@@ -75,7 +75,8 @@ StatetfulApp.StatefulWindow {
             showNavigationButtons: Config.fillWindow ? Kirigami.ApplicationHeaderStyle.None : Kirigami.ApplicationHeaderStyle.ShowBackButton
         }
         columnView {
-            columnResizeMode: (width >= minWideScreenWidth && !columnModeDelayed) && pageStack.depth >= 2 ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
+            columnResizeMode: (root.isWideScreen || (!drawer.opened && drawer.position > 0)) && pageStack.depth >= 2 ?
+            Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
         }
     }
 
@@ -199,7 +200,7 @@ StatetfulApp.StatefulWindow {
             KRunner.model = noteBooksModel;
         }
 
-        Kirigami.Settings.isMobile ? drawer.close() : (!wideScreen ? (drawer.close()) : drawer.open());
+        Kirigami.Settings.isMobile ? drawer.close() : (!isWideScreen ? drawer.close() : drawer.open());
         NavigationController.mobileMode = Kirigami.Settings.isMobile;
         if (noteBooksModel.rowCount() !== 0) {
             NavigationController.notebookPath = noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path);
@@ -247,6 +248,13 @@ StatetfulApp.StatefulWindow {
     globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
 
+        Behavior on width {
+            NumberAnimation {
+                duration: Kirigami.Units.longDuration * 2
+                easing.type: Easing.InOutQuart
+            }
+        }
+
         Component.onCompleted: if (Config.fillWindow === true || Kirigami.Settings.isMobile === true) { drawer.close() }
 
         NoteBooksModel {
@@ -269,15 +277,15 @@ StatetfulApp.StatefulWindow {
         topPadding: 0
         bottomPadding: 0
 
-        Behavior on width {
-            NumberAnimation {
-                duration: Kirigami.Units.shortDuration * 2
-                easing.type: Easing.InOutQuart
-            }
-        }
-
         contentItem: ColumnLayout {
             spacing: 0
+
+            Behavior on x {
+                NumberAnimation {
+                    duration: Kirigami.Units.mediumDuration * 2
+                    easing.type: Easing.InOutQuart
+                }
+            }
 
             Controls.ToolBar {
                 Layout.fillWidth: true
@@ -315,7 +323,7 @@ StatetfulApp.StatefulWindow {
 
                         Behavior on x {
                             NumberAnimation {
-                                duration: Kirigami.Units.shortDuration * 2
+                                duration: Kirigami.Units.longDuration * 2
                                 easing.type: Easing.InOutQuart
                             }
                         }
@@ -403,7 +411,7 @@ StatetfulApp.StatefulWindow {
                         anchors.verticalCenter: parent.verticalCenter
                         Behavior on opacity {
                             NumberAnimation {
-                                duration: Kirigami.Units.shortDuration * 2
+                                duration: Kirigami.Units.longDuration * 2
                                 easing.type: Easing.InOutQuart
                             }
                         }
@@ -418,7 +426,7 @@ StatetfulApp.StatefulWindow {
                         enabled: Config.expandedSidebar
                         Behavior on opacity {
                             NumberAnimation {
-                                duration: Kirigami.Units.shortDuration * 2
+                                duration: Kirigami.Units.longDuration * 2
                                 easing.type: Easing.InOutQuart
                             }
                         }
