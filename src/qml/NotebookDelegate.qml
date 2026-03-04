@@ -49,7 +49,7 @@ Delegates.RoundedItemDelegate {
             if (drop.keys.indexOf("application/x-marknote-note") !== -1) {
                 var notePath = drop.getDataAsString("application/x-marknote-note");
                 if (notePath.startsWith("file:///")) {
-                    notePath = notePath.substring(8);
+                    notePath = notePath.substring(7);
                 } else if (notePath.startsWith("file://")) {
                     notePath = notePath.substring(7);
                 }
@@ -60,7 +60,7 @@ Delegates.RoundedItemDelegate {
                 const uri = uriList.split("\n")[0].trim();
                 var notePath = uri;
                 if (notePath.startsWith("file:///")) {
-                    notePath = notePath.substring(8);
+                    notePath = notePath.substring(7);
                 } else if (notePath.startsWith("file://")) {
                     notePath = notePath.substring(7);
                 }
