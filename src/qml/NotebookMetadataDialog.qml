@@ -41,12 +41,6 @@ FormCard.FormCardDialog {
             regularExpression: /^[^./\\][^/\\]*$/
         }
         onAccepted: root.accepted()
-        onTextChanged: {
-            let saveButton = root.standardButton(Controls.Dialog.Save);
-            if (saveButton) {
-                saveButton.enabled = text.length > 0;
-            }
-        }
     }
 
     FormCard.FormDelegateSeparator {
@@ -63,15 +57,14 @@ FormCard.FormCardDialog {
 
     FormCard.FormColorDelegate {
         id: colorButton
+        color: root.mode === NotebookMetadataDialog.Mode.Edit
+        ? noteBooksModel.colorForPath(root.path)
+        : Kirigami.Theme.highlightColor
     }
 
-    onOpened: nameInput.forceActiveFocus()
+    onOpened: nameInput.forceActiveFocus();
 
-    onClosed: {
-        color = "";
-        name = "";
-        iconName = "addressbook-details"
-    }
+    onClosed: root.destroy();
 
     onAccepted: {
         if (nameInput.text.length === 0) {
@@ -85,6 +78,14 @@ FormCard.FormCardDialog {
         }
 
         close();
+    }
+
+    Component.onCompleted: {
+        let saveButton = root.standardButton(Controls.Dialog.Save);
+        if (saveButton) {
+            // This creates a persistent, declarative link between the button's state and the text length
+            saveButton.enabled = Qt.binding(() => nameInput.text.length > 0);
+        }
     }
 
     onDiscarded: root.close();
