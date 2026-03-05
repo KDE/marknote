@@ -188,7 +188,7 @@ EditPage {
             display: AbstractButton.IconOnly
             icon.name: "view-fullscreen"
             text: KI18n.i18n("Focus Mode")
-            visible: root.isWideScreen && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+            visible: root.isWideScreen || Config.fillWindow
 
             Behavior on columnWidth {
                 NumberAnimation {

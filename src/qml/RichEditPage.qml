@@ -313,7 +313,7 @@ EditPage {
             display: AbstractButton.IconOnly
             icon.name: "view-fullscreen"
             text: KI18n.i18n("Focus Mode")
-            visible: root.isWideScreen && !root.singleDocumentMode && !Kirigami.Settings.isMobile
+            visible: (root.isWideScreen || Config.fillWindow) && !root.singleDocumentMode && !Kirigami.Settings.isMobile
 
             Behavior on columnWidth {
                 NumberAnimation {
