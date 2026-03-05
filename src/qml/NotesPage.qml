@@ -645,7 +645,7 @@ Kirigami.ScrollablePage {
                 ToolButton{
                     text: i18nc("@action:button", "Show Menu")
                     icon.name: "overflow-menu"
-                    down: pressed || menu.opened
+                    down: pressed || (menu.opened && menu.delegateItem === delegateItem)
                     display: ToolButton.IconOnly
 
                     onPressed: openMenu()
