@@ -70,7 +70,6 @@ Kirigami.Page {
     }
 
     function loadNote(): void {
-        console.log(root.document)
         if (!root.visible){
             return;
         }
