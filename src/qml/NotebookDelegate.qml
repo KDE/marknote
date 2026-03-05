@@ -47,24 +47,13 @@ Delegates.RoundedItemDelegate {
 
         onDropped: (drop) => {
             if (drop.keys.indexOf("application/x-marknote-note") !== -1) {
-                var notePath = drop.getDataAsString("application/x-marknote-note");
-                if (notePath.startsWith("file:///")) {
-                    notePath = notePath.substring(7);
-                } else if (notePath.startsWith("file://")) {
-                    notePath = notePath.substring(7);
-                }
-                model.moveNote(notePath, path);
+                const noteUri = drop.getDataAsString("application/x-marknote-note");
+                model.moveNote(noteUri, path);
                 drop.acceptProposedAction();
             } else if (drop.keys.indexOf("text/uri-list") !== -1) {
                 const uriList = drop.getDataAsString("text/uri-list");
-                const uri = uriList.split("\n")[0].trim();
-                var notePath = uri;
-                if (notePath.startsWith("file:///")) {
-                    notePath = notePath.substring(7);
-                } else if (notePath.startsWith("file://")) {
-                    notePath = notePath.substring(7);
-                }
-                model.moveNote(notePath, path);
+                const noteUri = uriList.split("\n")[0].trim();
+                model.moveNote(noteUri, path);
                 drop.acceptProposedAction();
             }
             isDropTarget = false;

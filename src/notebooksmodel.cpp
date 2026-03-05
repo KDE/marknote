@@ -191,17 +191,30 @@ void NoteBooksModel::deleteNoteBook(const QString &path)
     endRemoveRows();
 }
 
-void NoteBooksModel::moveNote(const QString &notePath, const QString &notebookPath)
+void NoteBooksModel::moveNote(const QString &noteUri, const QString &notebookPath)
 {
+    const QString notePath = QUrl(noteUri).toLocalFile();
+
+    if (notePath.isEmpty()) {
+        qWarning() << "Invalid note URI:" << noteUri;
+        return;
+    }
+
+    if (!QFile::exists(notePath)) {
+        qWarning() << "Source note does not exist:" << notePath;
+        return;
+    }
+
     const QString fileName = QFileInfo(notePath).fileName();
     const QString newPath = QDir(notebookPath).filePath(fileName);
 
     if (QFile::exists(newPath)) {
+        qWarning() << "Target note already exists:" << newPath;
         return;
     }
 
     if (!QFile::rename(notePath, newPath)) {
-        qWarning() << "Failed to rename file from" << notePath << "to" << newPath;
+        qWarning() << "Failed to move note from" << notePath << "to" << newPath;
     }
 }
 
