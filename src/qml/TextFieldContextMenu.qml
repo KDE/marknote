@@ -1,7 +1,8 @@
 /*
     SPDX-FileCopyrightText: 2020 Devin Lin <espidev@gmail.com>
     SPDX-FileCopyrightText: 2021 Carl Schwan <carlschwan@kde.org>
-    SPDX-FileCopyrightText: 2023 ivan tkachenko <me@ratijas.tk>
+    SPDX-FileCopyrightText: 2023 Ivan Tkachenko <me@ratijas.tk>
+    SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -271,47 +272,73 @@ QQC2.Menu {
         visible: root.currentLink.toString() !== ""
     }
 
-    QQC2.Menu {
-        title: KI18n.i18nc("@inmenu", "Insert")
-        enabled: root.tableActionHelper !== null
+    Instantiator {
+        id: insertInstantiator
+        active: root.tableActionHelper?.actionInsertRowAbove?.enabled ?? false
 
-        Kirigami.Action {
-            fromQAction: root.tableActionHelper?.actionInsertRowAbove ?? null
+        delegate: QQC2.Menu {
+            title: KI18n.i18nc("@inmenu", "Insert")
+
+            QQC2.MenuItem {
+                text: root.tableActionHelper.actionInsertRowAbove.text
+                icon.name: "edit-table-insert-row-above"
+                onTriggered: root.tableActionHelper.actionInsertRowAbove.trigger()
+            }
+            QQC2.MenuItem {
+                text: root.tableActionHelper.actionInsertRowBelow.text
+                icon.name: "edit-table-insert-row-below"
+                onTriggered: root.tableActionHelper.actionInsertRowBelow.trigger()
+            }
+
+            QQC2.MenuSeparator {}
+
+            QQC2.MenuItem {
+                text: root.tableActionHelper.actionInsertColumnBefore.text
+                icon.name: "edit-table-insert-column-left"
+                onTriggered: root.tableActionHelper.actionInsertColumnBefore.trigger()
+            }
+            QQC2.MenuItem {
+                text: root.tableActionHelper.actionInsertColumnAfter.text
+                icon.name: "edit-table-insert-column-right"
+                onTriggered: root.tableActionHelper.actionInsertColumnAfter.trigger()
+            }
         }
 
-        Kirigami.Action {
-            fromQAction: root.tableActionHelper?.actionInsertRowBelow ?? null
-        }
-
-        QQC2.MenuSeparator {}
-
-        Kirigami.Action {
-            fromQAction: root.tableActionHelper?.actionInsertColumnBefore ?? null
-        }
-
-        Kirigami.Action {
-            fromQAction: root.tableActionHelper?.actionInsertColumnAfter ?? null
-        }
+        onObjectAdded: (index, object) => root.insertMenu(root.count - 10, object)
+        onObjectRemoved: (index, object) => root.removeMenu(object)
     }
 
-    QQC2.Menu {
-        title: KI18n.i18nc("@inmenu", "Remove")
-        enabled: root.tableActionHelper !== null
+    Instantiator {
+        id: removeInstantiator
+        active: root.tableActionHelper?.actionRemoveRow?.enabled ?? false
 
-        Kirigami.Action {
-            fromQAction: root.tableActionHelper?.actionRemoveRow ?? null
+        delegate: QQC2.Menu {
+            title: KI18n.i18nc("@inmenu", "Remove")
+
+            QQC2.MenuItem {
+                text: root.tableActionHelper.actionRemoveRow.text
+                icon.name: "edit-table-delete-row"
+                onTriggered: root.tableActionHelper.actionRemoveRow.trigger()
+            }
+            QQC2.MenuItem {
+                text: root.tableActionHelper.actionRemoveColumn.text
+                icon.name: "edit-table-delete-column"
+                onTriggered: root.tableActionHelper.actionRemoveColumn.trigger()
+            }
+            QQC2.MenuItem {
+                text: root.tableActionHelper.actionRemoveCellContents.text
+                icon.name: "deletecell-symbolic"
+                onTriggered: root.tableActionHelper.actionRemoveCellContents.trigger()
+            }
         }
 
-        Kirigami.Action {
-            fromQAction: root.tableActionHelper?.actionRemoveColumn ?? null
-        }
-
-        Kirigami.Action {
-            fromQAction: root.tableActionHelper?.actionRemoveCellContents ?? null
-        }
+        onObjectAdded: (index, object) => root.insertMenu(root.count - 10, object)
+        onObjectRemoved: (index, object) => root.removeMenu(object)
     }
 
-    QQC2.MenuSeparator { }
+    QQC2.MenuSeparator {
+        visible: insertInstantiator.active || removeInstantiator.active
+    }
 
     QQC2.MenuItem {
         action: QQC2.Action {

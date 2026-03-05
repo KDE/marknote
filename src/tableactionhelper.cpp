@@ -1,5 +1,6 @@
 /*
   SPDX-FileCopyrightText: 2012-2024 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 
   SPDX-License-Identifier: LGPL-2.0-or-later
 
@@ -18,16 +19,18 @@ using namespace Qt::StringLiterals;
 void TableActionHelper::_k_slotRemoveCellContents()
 {
     QTextTable *table = textCursor().currentTable();
-    const QTextTableCell cell = table->cellAt(textCursor());
-    if (cell.isValid()) {
-        const QTextCursor firstCursor = cell.firstCursorPosition();
-        const QTextCursor endCursor = cell.lastCursorPosition();
-        QTextCursor cursor = textCursor();
-        cursor.beginEditBlock();
-        cursor.setPosition(firstCursor.position());
-        cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor, endCursor.position() - firstCursor.position());
-        cursor.removeSelectedText();
-        cursor.endEditBlock();
+    if (table) {
+        const QTextTableCell cell = table->cellAt(textCursor());
+        if (cell.isValid()) {
+            const QTextCursor firstCursor = cell.firstCursorPosition();
+            const QTextCursor endCursor = cell.lastCursorPosition();
+            QTextCursor cursor = textCursor();
+            cursor.beginEditBlock();
+            cursor.setPosition(firstCursor.position());
+            cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor, endCursor.position() - firstCursor.position());
+            cursor.removeSelectedText();
+            cursor.endEditBlock();
+        }
     }
 }
 
@@ -113,44 +116,43 @@ void TableActionHelper::_k_updateActions(bool forceUpdate)
 TableActionHelper::TableActionHelper(QObject *parent)
     : QObject(parent)
 {
-    actionInsertRowBelow = new QAction(QIcon::fromTheme(QStringLiteral("edit-table-insert-row-below")), i18n("Row Below"), this);
+    actionInsertRowBelow = new QAction(i18n("Row Below"), this);
     actionInsertRowBelow->setObjectName("insert_row_below"_L1);
     connect(actionInsertRowBelow, &QAction::triggered, this, [this]() {
         _k_slotInsertRowBelow();
     });
 
-    actionInsertRowAbove = new QAction(QIcon::fromTheme(QStringLiteral("edit-table-insert-row-above")), i18n("Row Above"), this);
+    actionInsertRowAbove = new QAction(i18n("Row Above"), this);
     actionInsertRowAbove->setObjectName("insert_row_above"_L1);
     connect(actionInsertRowAbove, &QAction::triggered, this, [this]() {
         _k_slotInsertRowAbove();
     });
 
-    actionInsertColumnBefore = new QAction(QIcon::fromTheme(QStringLiteral("edit-table-insert-column-left")), i18n("Column Before"), this);
+    actionInsertColumnBefore = new QAction(i18n("Column Before"), this);
     actionInsertColumnBefore->setObjectName("insert_column_before"_L1);
-
     connect(actionInsertColumnBefore, &QAction::triggered, this, [this]() {
         _k_slotInsertColumnBefore();
     });
 
-    actionInsertColumnAfter = new QAction(QIcon::fromTheme(QStringLiteral("edit-table-insert-column-right")), i18n("Column After"), this);
+    actionInsertColumnAfter = new QAction(i18n("Column After"), this);
     actionInsertColumnAfter->setObjectName("insert_column_after"_L1);
     connect(actionInsertColumnAfter, &QAction::triggered, this, [this]() {
         _k_slotInsertColumnAfter();
     });
 
-    actionRemoveRow = new QAction(QIcon::fromTheme(u"edit-table-delete-row"_s), i18n("Row"), this);
+    actionRemoveRow = new QAction(i18n("Row"), this);
     actionRemoveRow->setObjectName("remove_row"_L1);
     connect(actionRemoveRow, &QAction::triggered, this, [this]() {
         _k_slotRemoveRow();
     });
 
-    actionRemoveColumn = new QAction(QIcon::fromTheme(u"edit-table-delete-column"_s), i18n("Column"), this);
+    actionRemoveColumn = new QAction(i18n("Column"), this);
     actionRemoveColumn->setObjectName("remove_column"_L1);
     connect(actionRemoveColumn, &QAction::triggered, this, [this]() {
         _k_slotRemoveColumn();
     });
 
-    actionRemoveCellContents = new QAction(QIcon::fromTheme(u"deletecell-symbolic"_s), i18n("Cell Contents"), this);
+    actionRemoveCellContents = new QAction(i18n("Cell Contents"), this);
     actionRemoveCellContents->setObjectName("remove_cell_contents"_L1);
     connect(actionRemoveCellContents, &QAction::triggered, this, [this]() {
         _k_slotRemoveCellContents();
@@ -173,6 +175,7 @@ void TableActionHelper::setDocument(QQuickTextDocument *document)
         m_document->textDocument()->disconnect(this);
 
     m_document = document;
+    _k_updateActions(true);
 
     Q_EMIT documentChanged();
 }
@@ -228,6 +231,7 @@ void TableActionHelper::setSelectionStart(int position)
         return;
 
     m_selectionStart = position;
+    _k_updateActions(true);
     Q_EMIT selectionStartChanged();
 }
 
@@ -242,6 +246,7 @@ void TableActionHelper::setSelectionEnd(int position)
         return;
 
     m_selectionEnd = position;
+    _k_updateActions(true);
     Q_EMIT selectionEndChanged();
 }
 
