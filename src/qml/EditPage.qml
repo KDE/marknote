@@ -70,6 +70,10 @@ Kirigami.Page {
     }
 
     function loadNote(): void {
+        console.log(root.document)
+        if (!root.visible){
+            return;
+        }
         if (root.oldPath.length > 0 && !saved) {
             root.document.saveAs(root.oldPath);
         }

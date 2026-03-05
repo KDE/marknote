@@ -247,15 +247,13 @@ StatetfulApp.StatefulWindow {
             if (NavigationController.notebookPath.length > 0 && NavigationController.notePath.length > 0) {
                 if (root.pageStack.items[0].objectName === "NotesPage" && root.pageStack.depth === 2){
                     if (root.pageStack.items[1].objectName === "RichEditPage"){
-                        root.pageStack.pop();
-                        // root.pageStack.clear();
-                        // safePush("org.kde.marknote", "NotesPage")
-			            safePush("org.kde.marknote", "RawEditPage");
+                        let oldPage = root.pageStack.pop();
+                        if (oldPage) oldPage.destroy();
+                        safePush("org.kde.marknote", "RawEditPage");
                     } else if (root.pageStack.items[1].objectName === "RawEditPage"){
-                        root.pageStack.pop();
-                        // root.pageStack.clear();
-                        // safePush("org.kde.marknote", "NotesPage")
-			            safePush("org.kde.marknote", "RichEditPage");
+                        let oldPage = root.pageStack.pop();
+                        if (oldPage) oldPage.destroy();
+                        safePush("org.kde.marknote", "RichEditPage");
                     }
                 }
             }
