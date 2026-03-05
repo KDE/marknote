@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
-"PO-Revision-Date: 2026-03-02 06:50+0100\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
+"PO-Revision-Date: 2026-03-04 07:47+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -52,7 +52,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Med pisanjem v '%1' je prišlo do napake"
 
-#: main.cpp:73 qml/Main.qml:399
+#: main.cpp:73 qml/Main.qml:424
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -61,7 +61,7 @@ msgstr "Marknote"
 #: main.cpp:75
 #, kde-format
 msgid "Note taking application"
-msgstr "Program za beleženje"
+msgstr "Program za pisanje zabeležk"
 
 #: main.cpp:77
 #, kde-format
@@ -100,249 +100,70 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "miles@filmsi.net"
 
-#: notesmodel.cpp:155
+#: notesmodel.cpp:157
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
-msgstr "Opombe ni mogoče preimenovati. Opomba z istim imenom že obstaja."
+msgstr "Zabeležke ni mogoče preimenovati. Zabeležka z istim imenom že obstaja."
 
-#: qml/EditPage.qml:222 qml/EditPage.qml:791
-#, kde-format
-msgid "Undo"
-msgstr "Razveljavi"
-
-#: qml/EditPage.qml:235 qml/EditPage.qml:804
-#, kde-format
-msgid "Redo"
-msgstr "Uveljavi"
-
-#: qml/EditPage.qml:285
-#, kde-format
-msgctxt "@action:button"
-msgid "Copy Note"
-msgstr "Kopiraj zabeležko"
-
-#: qml/EditPage.qml:310
-#, kde-format
-msgid "Focus Mode"
-msgstr "Način osredotočenja"
-
-#: qml/EditPage.qml:328
-#, kde-format
-msgctxt "@action:button"
-msgid "Search Note"
-msgstr "Išči zabeležko"
-
-#: qml/EditPage.qml:345
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Search in Note"
-msgstr "Išči v zabeležki"
-
-#: qml/EditPage.qml:353 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:160
-#: qml/WelcomePage.qml:29
-#, kde-format
-msgctxt "@action:menu"
-msgid "Exit Full Screen"
-msgstr "Izhod iz celotnega zaslona"
-
-#: qml/EditPage.qml:366
-#, kde-format
-msgctxt "@action:button"
-msgid "Table of Content"
-msgstr "Kazalo vsebine"
-
-#: qml/EditPage.qml:430
-#, kde-format
-msgctxt "@action:button"
-msgid "Bold"
-msgstr "Krepko"
-
-#: qml/EditPage.qml:449
-#, kde-format
-msgctxt "@action:button"
-msgid "Italic"
-msgstr "Ležeče"
-
-#: qml/EditPage.qml:468
-#, kde-format
-msgctxt "@action:button"
-msgid "Underline"
-msgstr "Podčrtaj"
-
-#: qml/EditPage.qml:482
-#, kde-format
-msgctxt "@action:button"
-msgid "Strikethrough"
-msgstr "Prečrtano"
-
-#: qml/EditPage.qml:500
-#, kde-format
-msgctxt "@action:button"
-msgid "Increase List Level"
-msgstr "Povečaj raven seznama"
-
-#: qml/EditPage.qml:511
-#, kde-format
-msgctxt "@action:button"
-msgid "Decrease List Level"
-msgstr "Zmanjšaj raven seznama"
-
-#: qml/EditPage.qml:553
-#, kde-format
-msgctxt "@item:inmenu no list style"
-msgid "No list"
-msgstr "Ni seznama"
-
-#: qml/EditPage.qml:554
-#, kde-format
-msgctxt "@item:inmenu unordered style"
-msgid "Unordered list"
-msgstr "Neoštevilčen seznam"
-
-#: qml/EditPage.qml:555
-#, kde-format
-msgctxt "@item:inmenu ordered style"
-msgid "Ordered list"
-msgstr "Oštevilčen seznam"
-
-#: qml/EditPage.qml:565
-#, kde-format
-msgctxt "@action:button"
-msgid "Insert checkbox"
-msgstr "Vstavi potrditveno polje"
-
-#: qml/EditPage.qml:580
-#, kde-format
-msgctxt "@action:button"
-msgid "Insert link"
-msgstr "Vstavi povezavo"
-
-#: qml/EditPage.qml:596
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
-msgctxt "@action:button"
-msgid "Insert note link"
-msgstr "Vstavi povezavo"
-
-#: qml/EditPage.qml:612
-#, kde-format
-msgctxt "@action:button"
-msgid "Insert image"
-msgstr "Vstavi sliko"
-
-#: qml/EditPage.qml:625
-#, kde-format
-msgctxt "@action:button"
-msgid "Insert table"
-msgstr "Vstavi tabelo"
-
-#: qml/EditPage.qml:645
-#, kde-format
-msgctxt "@item:inmenu no heading"
-msgid "Basic text"
-msgstr "Osnovno besedilo"
-
-#: qml/EditPage.qml:646
-#, kde-format
-msgctxt "@item:inmenu heading level 1 (largest)"
-msgid "Title"
-msgstr "Naslov"
-
-#: qml/EditPage.qml:647
-#, kde-format
-msgctxt "@item:inmenu heading level 2"
-msgid "Subtitle"
-msgstr "Podnaslov"
-
-#: qml/EditPage.qml:648
-#, kde-format
-msgctxt "@item:inmenu heading level 3"
-msgid "Section"
-msgstr "Razdelek"
-
-#: qml/EditPage.qml:649
-#, kde-format
-msgctxt "@item:inmenu heading level 4"
-msgid "Subsection"
-msgstr "Podrazdelek"
-
-#: qml/EditPage.qml:650
-#, kde-format
-msgctxt "@item:inmenu heading level 5"
-msgid "Paragraph"
-msgstr "Odstavek"
-
-#: qml/EditPage.qml:651
-#, kde-format
-msgctxt "@item:inmenu heading level 6 (smallest)"
-msgid "Subparagraph"
-msgstr "Pododstavek"
-
-#: qml/EditPage.qml:837
-#, kde-format
-msgid "Format"
-msgstr "Oblika"
-
-#: qml/EditPage.qml:841
-#, kde-format
-msgid "Lists"
-msgstr "Seznami"
-
-#: qml/EditPage.qml:845
-#, kde-format
-msgid "Insert"
-msgstr "Vstavi"
-
-#: qml/EditPage.qml:903
-#, kde-format
-msgctxt "@title:window"
-msgid "Table of Contents"
-msgstr "Kazalo vsebine"
-
-#: qml/EditPage.qml:911
-#, kde-format
-msgctxt "@action:button"
-msgid "Close"
-msgstr "Zapri"
-
-#: qml/EditPage.qml:955
-#, kde-format
-msgid "No headers found"
-msgstr "Ni najdenih glav"
-
-#: qml/EditPage.qml:1034
+#: qml/EditPage.qml:136
 #, kde-format
 msgid "Find text..."
 msgstr "Najdi besedilo..."
 
-#: qml/EditPage.qml:1059
+#: qml/EditPage.qml:162
 #, kde-format
 msgid "Previous"
 msgstr "Prejšnji"
 
-#: qml/EditPage.qml:1075
+#: qml/EditPage.qml:178
 #, kde-format
 msgid "Next"
 msgstr "Naslednji"
 
-#: qml/EditPage.qml:1093
+#: qml/EditPage.qml:196 qml/EditPage.qml:302
 #, kde-format
 msgid "No matches"
 msgstr "Ni zadetkov"
 
-#: qml/EditPage.qml:1095
+#: qml/EditPage.qml:198 qml/EditPage.qml:304
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:1102
+#: qml/EditPage.qml:210 qml/EditPage.qml:273
+#, kde-format
+msgid "Replace"
+msgstr ""
+
+#: qml/EditPage.qml:227
 #, kde-format
 msgid "Close"
 msgstr "Zapri"
 
-#: qml/EditPage.qml:1118
+#: qml/EditPage.qml:249
+#, kde-format
+msgid "Replace with..."
+msgstr ""
+
+#: qml/EditPage.qml:285
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Replace All"
+msgstr "Izberi vse"
+
+#: qml/EditPage.qml:289
+#, kde-format
+msgctxt "@info:status"
+msgid "Replaced %1 occurrence"
+msgid_plural "Replaced %1 occurrences"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: qml/EditPage.qml:352
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -442,58 +263,58 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "URL povezave:"
 
-#: qml/Main.qml:150
+#: qml/Main.qml:149
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 "Ne morete ustvariti nove zabeležke, najprej morate ustvariti beležnico."
 
-#: qml/Main.qml:152
+#: qml/Main.qml:151
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Ustvari beležnico"
 
-#: qml/Main.qml:293
+#: qml/Main.qml:318 qml/NotesPage.qml:646
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Prikaži meni"
 
-#: qml/Main.qml:339
+#: qml/Main.qml:364
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Uvozi"
 
-#: qml/Main.qml:348
+#: qml/Main.qml:373
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Razvrsti seznam zabeležk"
 
-#: qml/Main.qml:354
+#: qml/Main.qml:379
 #, kde-format
 msgid "by Name"
 msgstr "po imenu"
 
-#: qml/Main.qml:367
+#: qml/Main.qml:392
 #, kde-format
 msgid "by Date"
 msgstr "po datumu"
 
-#: qml/Main.qml:384
+#: qml/Main.qml:409
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Strni stransko vrstico"
 
-#: qml/Main.qml:384
+#: qml/Main.qml:409
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Razširi stransko vrstico"
 
-#: qml/Main.qml:451
+#: qml/Main.qml:476
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vaše beležnice"
@@ -564,6 +385,13 @@ msgctxt "@action:menu"
 msgid "Window"
 msgstr "Okno"
 
+#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:163 qml/RawEditPage.qml:220
+#: qml/RichEditPage.qml:338 qml/WelcomePage.qml:29
+#, kde-format
+msgctxt "@action:menu"
+msgid "Exit Full Screen"
+msgstr "Izhod iz celotnega zaslona"
+
 #: qml/NativeWindowMenu.qml:22
 #, kde-format
 msgctxt "@action:menu"
@@ -582,13 +410,13 @@ msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Izbriši beležnico"
 
-#: qml/NotebookDeleteDialog.qml:33
+#: qml/NotebookDeleteDialog.qml:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Izbriši beležnico"
 
-#: qml/NotebookDeleteDialog.qml:38
+#: qml/NotebookDeleteDialog.qml:36
 #, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
@@ -610,39 +438,34 @@ msgid "Edit Notebook"
 msgstr "Uredi beležnico"
 
 #: qml/NoteLinkDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "Vstavi povezavo"
+msgstr "Vstavi povezavo do zabeležke"
 
 #: qml/NoteLinkDialog.qml:49
-#, fuzzy, kde-format
-#| msgid "Notebook name"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr "Ime beležnice"
+msgstr "Ime zabeležke:"
 
 #: qml/NoteLinkDialog.qml:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "Ime zabeležke, do katere želite ustvariti povezavo."
 
 #: qml/NoteLinkDialog.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Link Text:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "Besedilo povezave:"
+msgstr "Prikaz besedila:"
 
 #: qml/NoteLinkDialog.qml:70
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
-msgstr ""
+msgstr "Izbirno nadomestno besedilo, ki se prikaže namesto imena zabeležke."
 
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
@@ -667,23 +490,23 @@ msgstr "Ime:"
 msgid "Add note"
 msgstr "Dodaj zabeležko"
 
-#: qml/NotesPage.qml:123
+#: qml/NotesPage.qml:126
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Izhod iz iskanja (%1)"
 
-#: qml/NotesPage.qml:123
+#: qml/NotesPage.qml:126
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Išči po zabeležkah (%1)"
 
-#: qml/NotesPage.qml:182
+#: qml/NotesPage.qml:183
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Izbriši zabeležko"
 
-#: qml/NotesPage.qml:192
+#: qml/NotesPage.qml:193
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -692,103 +515,302 @@ msgstr ""
 "Ali ste prepričani, da želite izbrisati zabeležko <b>»%1«</b>? S tem boste "
 "dokončno izbrisali datoteko <b>%2</b>."
 
-#: qml/NotesPage.qml:382 qml/NotesPage.qml:418
+#: qml/NotesPage.qml:383 qml/NotesPage.qml:419
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:383
+#: qml/NotesPage.qml:384
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
 msgstr "Izvoz datoteke \"%1\" je bil uspešen."
 
-#: qml/NotesPage.qml:401
+#: qml/NotesPage.qml:402
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: qml/NotesPage.qml:419
+#: qml/NotesPage.qml:420
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
 msgstr "Izvoz \"%1\" ni uspel."
 
-#: qml/NotesPage.qml:431
+#: qml/NotesPage.qml:432
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename Note"
 msgstr "Preimenuj zabeležko"
 
-#: qml/NotesPage.qml:443
+#: qml/NotesPage.qml:444
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate Note"
 msgstr "Podvoji zabeležko"
 
-#: qml/NotesPage.qml:451
+#: qml/NotesPage.qml:452
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Note"
 msgstr "Izbriši zabeležko"
 
-#: qml/NotesPage.qml:462
+#: qml/NotesPage.qml:463
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Copy Note"
+msgctxt "@action:inmenu"
+msgid "Copy Note"
+msgstr "Kopiraj zabeležko"
+
+#: qml/NotesPage.qml:472
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Izvozi v HTML"
 
-#: qml/NotesPage.qml:468
+#: qml/NotesPage.qml:478
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Izvozi v HTML"
 
-#: qml/NotesPage.qml:469
+#: qml/NotesPage.qml:479
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Datoteka HTML (*.html)"
 
-#: qml/NotesPage.qml:475
+#: qml/NotesPage.qml:485
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Izvozi v PDF"
 
-#: qml/NotesPage.qml:481
+#: qml/NotesPage.qml:491
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Izvozi v PDF"
 
-#: qml/NotesPage.qml:482
+#: qml/NotesPage.qml:492
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Datoteka PDF (*.pdf)"
 
-#: qml/NotesPage.qml:488
+#: qml/NotesPage.qml:498
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Izvozi v ODT"
 
-#: qml/NotesPage.qml:494
+#: qml/NotesPage.qml:504
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Izvozi v ODT"
 
-#: qml/NotesPage.qml:495
+#: qml/NotesPage.qml:505
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Besedilni dokument ODT (*.odt)"
 
-#: qml/NotesPage.qml:663
+#: qml/NotesPage.qml:690
 #, kde-format
 msgid "Add a note!"
 msgstr "Dodaj zabeležko!"
+
+#: qml/RawEditPage.qml:56 qml/RawEditPage.qml:141 qml/RichEditPage.qml:192
+#: qml/RichEditPage.qml:813
+#, kde-format
+msgid "Undo"
+msgstr "Razveljavi"
+
+#: qml/RawEditPage.qml:68 qml/RawEditPage.qml:154 qml/RichEditPage.qml:206
+#: qml/RichEditPage.qml:824
+#, kde-format
+msgid "Redo"
+msgstr "Uveljavi"
+
+#: qml/RawEditPage.qml:76 qml/RawEditPage.qml:162 qml/RichEditPage.qml:273
+#, kde-format
+msgctxt "@action:button"
+msgid "Search Note"
+msgstr "Išči zabeležko"
+
+#: qml/RawEditPage.qml:87 qml/RawEditPage.qml:173 qml/RichEditPage.qml:284
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Search in Note"
+msgstr "Išči v zabeležki"
+
+#: qml/RawEditPage.qml:190 qml/RichEditPage.qml:315
+#, kde-format
+msgid "Focus Mode"
+msgstr "Način osredotočenja"
+
+#: qml/RawEditPage.qml:228
+#, kde-format
+msgid "Switch editor to preview mode"
+msgstr ""
+
+#: qml/RawEditPage.qml:233 qml/RichEditPage.qml:356
+#, kde-format
+msgid "Source View"
+msgstr ""
+
+#: qml/RichEditPage.qml:219 qml/RichEditPage.qml:292
+#, kde-format
+msgctxt "@action:button"
+msgid "Table of Content"
+msgstr "Kazalo vsebine"
+
+#: qml/RichEditPage.qml:351
+#, kde-format
+msgid "Switch editor to source mode"
+msgstr ""
+
+#: qml/RichEditPage.qml:444
+#, kde-format
+msgctxt "@action:button"
+msgid "Bold"
+msgstr "Krepko"
+
+#: qml/RichEditPage.qml:465
+#, kde-format
+msgctxt "@action:button"
+msgid "Italic"
+msgstr "Ležeče"
+
+#: qml/RichEditPage.qml:484
+#, kde-format
+msgctxt "@action:button"
+msgid "Underline"
+msgstr "Podčrtaj"
+
+#: qml/RichEditPage.qml:498
+#, kde-format
+msgctxt "@action:button"
+msgid "Strikethrough"
+msgstr "Prečrtano"
+
+#: qml/RichEditPage.qml:516
+#, kde-format
+msgctxt "@action:button"
+msgid "Increase List Level"
+msgstr "Povečaj raven seznama"
+
+#: qml/RichEditPage.qml:527
+#, kde-format
+msgctxt "@action:button"
+msgid "Decrease List Level"
+msgstr "Zmanjšaj raven seznama"
+
+#: qml/RichEditPage.qml:569
+#, kde-format
+msgctxt "@item:inmenu no list style"
+msgid "No list"
+msgstr "Ni seznama"
+
+#: qml/RichEditPage.qml:570
+#, kde-format
+msgctxt "@item:inmenu unordered style"
+msgid "Unordered list"
+msgstr "Neoštevilčen seznam"
+
+#: qml/RichEditPage.qml:571
+#, kde-format
+msgctxt "@item:inmenu ordered style"
+msgid "Ordered list"
+msgstr "Oštevilčen seznam"
+
+#: qml/RichEditPage.qml:582
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert checkbox"
+msgstr "Vstavi potrditveno polje"
+
+#: qml/RichEditPage.qml:597
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert link"
+msgstr "Vstavi povezavo"
+
+#: qml/RichEditPage.qml:613
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert note link"
+msgstr "Vstavi povezavo do zabeležke"
+
+#: qml/RichEditPage.qml:629
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert image"
+msgstr "Vstavi sliko"
+
+#: qml/RichEditPage.qml:642
+#, kde-format
+msgctxt "@action:button"
+msgid "Insert table"
+msgstr "Vstavi tabelo"
+
+#: qml/RichEditPage.qml:663
+#, kde-format
+msgctxt "@item:inmenu no heading"
+msgid "Basic text"
+msgstr "Osnovno besedilo"
+
+#: qml/RichEditPage.qml:664
+#, kde-format
+msgctxt "@item:inmenu heading level 1 (largest)"
+msgid "Title"
+msgstr "Naslov"
+
+#: qml/RichEditPage.qml:665
+#, kde-format
+msgctxt "@item:inmenu heading level 2"
+msgid "Subtitle"
+msgstr "Podnaslov"
+
+#: qml/RichEditPage.qml:666
+#, kde-format
+msgctxt "@item:inmenu heading level 3"
+msgid "Section"
+msgstr "Razdelek"
+
+#: qml/RichEditPage.qml:667
+#, kde-format
+msgctxt "@item:inmenu heading level 4"
+msgid "Subsection"
+msgstr "Podrazdelek"
+
+#: qml/RichEditPage.qml:668
+#, kde-format
+msgctxt "@item:inmenu heading level 5"
+msgid "Paragraph"
+msgstr "Odstavek"
+
+#: qml/RichEditPage.qml:669
+#, kde-format
+msgctxt "@item:inmenu heading level 6 (smallest)"
+msgid "Subparagraph"
+msgstr "Pododstavek"
+
+#: qml/RichEditPage.qml:856
+#, kde-format
+msgid "Format"
+msgstr "Oblika"
+
+#: qml/RichEditPage.qml:860
+#, kde-format
+msgid "Lists"
+msgstr "Seznami"
+
+#: qml/RichEditPage.qml:864
+#, kde-format
+msgid "Insert"
+msgstr "Vstavi"
 
 #: qml/TableDialog.qml:18
 #, kde-format
@@ -796,83 +818,100 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Vstavi tabelo"
 
-#: qml/TextFieldContextMenu.qml:235
+#: qml/TextFieldContextMenu.qml:228
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Prezri"
 
-#: qml/TextFieldContextMenu.qml:250
+#: qml/TextFieldContextMenu.qml:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Črkuj"
 
-#: qml/TextFieldContextMenu.qml:267
+#: qml/TextFieldContextMenu.qml:259
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Note"
 msgstr "Odpri zabeležko"
 
-#: qml/TextFieldContextMenu.qml:267
+#: qml/TextFieldContextMenu.qml:259
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
 msgstr "Odpri povezavo"
 
-#: qml/TextFieldContextMenu.qml:283
+#: qml/TextFieldContextMenu.qml:275
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "Vstavi"
 
-#: qml/TextFieldContextMenu.qml:305
+#: qml/TextFieldContextMenu.qml:298
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: qml/TextFieldContextMenu.qml:325
+#: qml/TextFieldContextMenu.qml:319
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Razveljavi"
 
-#: qml/TextFieldContextMenu.qml:340
+#: qml/TextFieldContextMenu.qml:333
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Uveljavi"
 
-#: qml/TextFieldContextMenu.qml:358
+#: qml/TextFieldContextMenu.qml:348
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Izreži"
 
-#: qml/TextFieldContextMenu.qml:373
+#: qml/TextFieldContextMenu.qml:363
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: qml/TextFieldContextMenu.qml:388
+#: qml/TextFieldContextMenu.qml:377
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Prilepi"
 
-#: qml/TextFieldContextMenu.qml:407
+#: qml/TextFieldContextMenu.qml:396
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: qml/TextFieldContextMenu.qml:426
+#: qml/TextFieldContextMenu.qml:414
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Izberi vse"
+
+#: qml/TocDrawer.qml:34
+#, kde-format
+msgctxt "@title:window"
+msgid "Table of Contents"
+msgstr "Kazalo vsebine"
+
+#: qml/TocDrawer.qml:42
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr "Zapri"
+
+#: qml/TocDrawer.qml:92
+#, kde-format
+msgid "No headers found"
+msgstr "Ni najdenih glav"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -904,7 +943,7 @@ msgstr "Nastavitve urejevalnika"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr "Direktorij opomb:"
+msgstr "Direktorij zabeležk:"
 
 #: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
