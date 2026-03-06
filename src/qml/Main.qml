@@ -456,6 +456,77 @@ StatetfulApp.StatefulWindow {
 
                 ListView {
                     spacing: 0
+
+                    populate: Transition {
+                        NumberAnimation {
+                            property: "opacity"
+                            from: 0.0
+                            to: 1.0
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.OutQuart
+                        }
+                    }
+
+                    add: Transition {
+                        NumberAnimation {
+                            property: "opacity"
+                            from: 0.0
+                            to: 1.0
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InOutQuart
+                        }
+                    }
+
+                    addDisplaced: Transition {
+                        NumberAnimation {
+                            properties: "x,y"
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InOutQuart
+                        }
+                    }
+
+                    displaced: Transition {
+                        NumberAnimation {
+                            properties: "x,y"
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InOutQuart
+                        }
+                    }
+
+                    move: Transition {
+                        NumberAnimation {
+                            properties: "x,y"
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InOutQuart
+                        }
+                    }
+
+                    moveDisplaced: Transition {
+                        NumberAnimation {
+                            properties: "x,y"
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InOutQuart
+                        }
+                    }
+
+                    remove: Transition {
+                        NumberAnimation {
+                            property: "opacity"
+                            from: 1.0
+                            to: 0.0
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InQuart
+                        }
+                    }
+
+                    removeDisplaced: Transition {
+                        NumberAnimation {
+                            properties: "x,y"
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InOutQuart
+                        }
+                    }
+
                     clip: true
                     model: noteBooksModel
                     delegate: NotebookDelegate {

@@ -80,7 +80,21 @@ QString NoteBooksModel::addNoteBook(const QString &name, const QString &icon, co
 {
     Q_ASSERT(m_directory);
 
-    beginResetModel();
+    // Predict the exact row index where QDir will place the new directory
+    const QStringList currentDirs = m_directory->entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
+    int insertRow = currentDirs.count();
+
+    for (int i = 0; i < currentDirs.count(); ++i) {
+        // QDir sorts by name case-insensitively by default
+        if (QString::compare(name, currentDirs.at(i), Qt::CaseInsensitive) < 0) {
+            insertRow = i;
+            break;
+        }
+    }
+
+    // Notify the QML view that a single row is about to be inserted
+    beginInsertRows(QModelIndex(), insertRow, insertRow);
+
     m_directory->mkdir(name);
     m_watcher.addPath(m_directory->path() % u'/' % name);
     const QString dotDirectory = m_directory->path() % u'/' % name % u'/' % QStringLiteral(".directory");
@@ -89,7 +103,8 @@ QString NoteBooksModel::addNoteBook(const QString &name, const QString &icon, co
     desktopEntry.writeEntry("Icon", icon);
     desktopEntry.writeEntry("X-MarkNote-Color", color);
     desktopFile.sync();
-    endResetModel();
+
+    endInsertRows();
 
     return m_directory->path() + u'/' + name;
 }
@@ -108,14 +123,51 @@ void NoteBooksModel::editNoteBook(const QString &path, const QString &name, cons
     desktopFile.sync();
 
     if (oldName != name) {
-        beginResetModel();
-        QDir dir(m_directory->path());
-        dir.rename(oldName, name);
+        // Find the current index before renaming
+        const QStringList currentDirs = m_directory->entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
+        int oldIndex = currentDirs.indexOf(oldName);
+
+        if (oldIndex >= 0) {
+            // Simulate the list without the old directory to find the new alphabetical index
+            QStringList simulatedDirs = currentDirs;
+            simulatedDirs.removeAt(oldIndex);
+
+            int newIndex = simulatedDirs.count();
+            for (int i = 0; i < simulatedDirs.count(); ++i) {
+                if (QString::compare(name, simulatedDirs.at(i), Qt::CaseInsensitive) < 0) {
+                    newIndex = i;
+                    break;
+                }
+            }
+
+            QDir dir(m_directory->path());
+
+            // If the alphabetical order changes, move the row
+            if (oldIndex != newIndex) {
+                // Qt quirk: when moving items down the list, the destination row must be offset by +1
+                int destIndex = newIndex > oldIndex ? newIndex + 1 : newIndex;
+
+                beginMoveRows(QModelIndex(), oldIndex, oldIndex, QModelIndex(), destIndex);
+                dir.rename(oldName, name);
+                endMoveRows();
+            } else {
+                dir.rename(oldName, name);
+            }
+
+            // Update the file watcher to track the new directory name instead of the old one
+            m_watcher.removePath(path);
+            m_watcher.addPath(m_directory->path() % u'/' % name);
+
+            // Notify QML that the item's data (its name/path) has updated
+            const QModelIndex changedIdx = index(newIndex, 0);
+            Q_EMIT dataChanged(changedIdx, changedIdx);
+        }
+
         Q_EMIT noteBookRenamed(oldName, name, m_directory->path() + u'/' + name);
-        endResetModel();
         return;
     }
 
+    // Only the icon or color changed, no rename needed
     const auto idx = indexForPath(path);
     if (idx.isValid()) {
         Q_EMIT dataChanged(idx, idx);
@@ -130,17 +182,19 @@ void NoteBooksModel::deleteNoteBook(const QString &path)
     }
 
     beginRemoveRows({}, idx.row(), idx.row());
+
+    m_watcher.removePath(path);
+
     QDir directory(path);
     // TODO(carl): Move to trash instead
     directory.removeRecursively();
-    m_watcher.removePath(path);
     endRemoveRows();
 }
 
 void NoteBooksModel::moveNote(const QString &notePath, const QString &notebookPath)
 {
     const QString fileName = QFileInfo(notePath).fileName();
-    const QString newPath = notebookPath + QDir::separator() + fileName;
+    const QString newPath = QDir(notebookPath).filePath(fileName);
 
     if (QFile::exists(newPath)) {
         return;
