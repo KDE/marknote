@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-05 00:44+0000\n"
-"PO-Revision-Date: 2026-02-25 21:43+0400\n"
+"POT-Creation-Date: 2026-03-06 00:44+0000\n"
+"PO-Revision-Date: 2026-03-05 10:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -48,7 +48,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "حدث خطأ أثناء الكتابة إلى '%1'"
 
-#: main.cpp:73 qml/Main.qml:424
+#: main.cpp:73 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -82,7 +82,7 @@ msgstr "كارل شوان"
 #: main.cpp:84
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "فالينتين بوندارينكو"
 
 #: main.cpp:89
 #, kde-format
@@ -102,54 +102,54 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "تعذر إعادة تسمية الملاحظة. الملف أو المجلد موجودان فعلاً بنفس الاسم."
 
-#: qml/EditPage.qml:136
+#: qml/EditPage.qml:139
 #, kde-format
 msgid "Find text..."
 msgstr "اعثر على النص..."
 
-#: qml/EditPage.qml:162
+#: qml/EditPage.qml:165
 #, kde-format
 msgid "Previous"
 msgstr "السابق"
 
-#: qml/EditPage.qml:178
+#: qml/EditPage.qml:181
 #, kde-format
 msgid "Next"
 msgstr "التالي"
 
-#: qml/EditPage.qml:196 qml/EditPage.qml:302
+#: qml/EditPage.qml:199 qml/EditPage.qml:305
 #, kde-format
 msgid "No matches"
 msgstr "لا يوجد متطابقات"
 
-#: qml/EditPage.qml:198 qml/EditPage.qml:304
+#: qml/EditPage.qml:201 qml/EditPage.qml:307
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:210 qml/EditPage.qml:273
+#: qml/EditPage.qml:213 qml/EditPage.qml:276
 #, kde-format
 msgid "Replace"
 msgstr ""
 
-#: qml/EditPage.qml:227
+#: qml/EditPage.qml:230
 #, kde-format
 msgid "Close"
 msgstr "أغلق"
 
-#: qml/EditPage.qml:249
+#: qml/EditPage.qml:252
 #, kde-format
 msgid "Replace with..."
 msgstr ""
 
-#: qml/EditPage.qml:285
+#: qml/EditPage.qml:288
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
 msgid "Replace All"
 msgstr "حدّد الكل"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -161,7 +161,7 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#: qml/EditPage.qml:352
+#: qml/EditPage.qml:355
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -273,45 +273,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "أنشئ دفتر"
 
-#: qml/Main.qml:318 qml/NotesPage.qml:646
+#: qml/Main.qml:316 qml/NotesPage.qml:646
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "أظهر القائمة"
 
-#: qml/Main.qml:364
+#: qml/Main.qml:362
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "استورد"
 
-#: qml/Main.qml:373
+#: qml/Main.qml:371
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "افرز قائمة الملاحظات"
 
-#: qml/Main.qml:379
+#: qml/Main.qml:377
 #, kde-format
 msgid "by Name"
 msgstr "بالاسم"
 
-#: qml/Main.qml:392
+#: qml/Main.qml:390
 #, kde-format
 msgid "by Date"
 msgstr "بالتّاريخ"
 
-#: qml/Main.qml:409
+#: qml/Main.qml:407
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr " اطوِ الشريط الجانبي"
 
-#: qml/Main.qml:409
+#: qml/Main.qml:407
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "وسع الشريط الجانبي"
 
-#: qml/Main.qml:476
+#: qml/Main.qml:474
 #, kde-format
 msgid "Your Notebooks"
 msgstr "دفاترك"
@@ -435,31 +435,25 @@ msgid "Edit Notebook"
 msgstr "حرر الدفتر"
 
 #: qml/NoteLinkDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "أدرج رابط"
+msgstr "أدرج رابط ملاحظة"
 
 #: qml/NoteLinkDialog.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Notebook name"
-#| msgid "Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr "الاسم:"
+msgstr "اسم الملاحظة:"
 
 #: qml/NoteLinkDialog.qml:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "اسم الملاحظة التي تريد الارتباط بها."
 
 #: qml/NoteLinkDialog.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Link Text:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
 msgstr "نصّ الرّابط:"
@@ -468,7 +462,7 @@ msgstr "نصّ الرّابط:"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
-msgstr ""
+msgstr "نص بديل اختياري لعرضه بدلاً من اسم الملاحظة."
 
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
@@ -741,12 +735,10 @@ msgid "Insert link"
 msgstr "أدرج رابط"
 
 #: qml/RichEditPage.qml:613
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr "أدرج رابط"
+msgstr "أدرج رابط ملاحظة"
 
 #: qml/RichEditPage.qml:629
 #, kde-format
@@ -823,81 +815,79 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "أدرِج جدول"
 
-#: qml/TextFieldContextMenu.qml:228
+#: qml/TextFieldContextMenu.qml:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "تجاهل"
 
-#: qml/TextFieldContextMenu.qml:243
+#: qml/TextFieldContextMenu.qml:244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "تدقيق الإملاء"
 
-#: qml/TextFieldContextMenu.qml:259
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#: qml/TextFieldContextMenu.qml:260
+#, kde-format
 msgctxt "@inmenu"
 msgid "Open Note"
-msgstr "ملاحظة جديدة"
+msgstr "افتح ملاحظة"
 
-#: qml/TextFieldContextMenu.qml:259
+#: qml/TextFieldContextMenu.qml:260
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
 msgstr "افتح الوصلة"
 
-#: qml/TextFieldContextMenu.qml:275
+#: qml/TextFieldContextMenu.qml:280
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "أدرج"
 
-#: qml/TextFieldContextMenu.qml:298
+#: qml/TextFieldContextMenu.qml:316
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "أزل"
 
-#: qml/TextFieldContextMenu.qml:319
+#: qml/TextFieldContextMenu.qml:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "تراجع"
 
-#: qml/TextFieldContextMenu.qml:333
+#: qml/TextFieldContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "كرّر"
 
-#: qml/TextFieldContextMenu.qml:348
+#: qml/TextFieldContextMenu.qml:375
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "قصّ"
 
-#: qml/TextFieldContextMenu.qml:363
+#: qml/TextFieldContextMenu.qml:390
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "انسخ"
 
-#: qml/TextFieldContextMenu.qml:377
+#: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "ألصِق"
 
-#: qml/TextFieldContextMenu.qml:396
+#: qml/TextFieldContextMenu.qml:423
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "احذف"
 
-#: qml/TextFieldContextMenu.qml:414
+#: qml/TextFieldContextMenu.qml:441
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
@@ -982,37 +972,37 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "عن كِيدِي"
 
-#: tableactionhelper.cpp:116
+#: tableactionhelper.cpp:119
 #, kde-format
 msgid "Row Below"
 msgstr "صفًّا بعده"
 
-#: tableactionhelper.cpp:122
+#: tableactionhelper.cpp:125
 #, kde-format
 msgid "Row Above"
 msgstr "صفًّا قبله"
 
-#: tableactionhelper.cpp:128
+#: tableactionhelper.cpp:131
 #, kde-format
 msgid "Column Before"
 msgstr "عمودًا قبله"
 
-#: tableactionhelper.cpp:135
+#: tableactionhelper.cpp:137
 #, kde-format
 msgid "Column After"
 msgstr "عمودًا بعده"
 
-#: tableactionhelper.cpp:141
+#: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
 msgstr "صف"
 
-#: tableactionhelper.cpp:147
+#: tableactionhelper.cpp:149
 #, kde-format
 msgid "Column"
 msgstr "عمود"
 
-#: tableactionhelper.cpp:153
+#: tableactionhelper.cpp:155
 #, kde-format
 msgid "Cell Contents"
 msgstr "محتويات الخليّة"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-05 00:44+0000\n"
-"PO-Revision-Date: 2026-03-01 18:52+0200\n"
+"POT-Creation-Date: 2026-03-06 00:44+0000\n"
+"PO-Revision-Date: 2026-03-05 07:04+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: application.cpp:34
 #, kde-format
@@ -48,7 +48,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "אירעה שגיאה בכתיבה אל ‚%1’"
 
-#: main.cpp:73 qml/Main.qml:424
+#: main.cpp:73 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -82,7 +82,7 @@ msgstr "קארל שוואן"
 #: main.cpp:84
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "ולנטין בונדרנקו"
 
 #: main.cpp:89
 #, kde-format
@@ -102,64 +102,62 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "לא ניתן לשנות שם של פתקית. כבר קיימת פתקית בשם הזה."
 
-#: qml/EditPage.qml:136
+#: qml/EditPage.qml:139
 #, kde-format
 msgid "Find text..."
 msgstr "איתור טקסט…"
 
-#: qml/EditPage.qml:162
+#: qml/EditPage.qml:165
 #, kde-format
 msgid "Previous"
 msgstr "הקודם"
 
-#: qml/EditPage.qml:178
+#: qml/EditPage.qml:181
 #, kde-format
 msgid "Next"
 msgstr "הבא"
 
-#: qml/EditPage.qml:196 qml/EditPage.qml:302
+#: qml/EditPage.qml:199 qml/EditPage.qml:305
 #, kde-format
 msgid "No matches"
 msgstr "אין תוצאות"
 
-#: qml/EditPage.qml:198 qml/EditPage.qml:304
+#: qml/EditPage.qml:201 qml/EditPage.qml:307
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:210 qml/EditPage.qml:273
+#: qml/EditPage.qml:213 qml/EditPage.qml:276
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "החלפה"
 
-#: qml/EditPage.qml:227
+#: qml/EditPage.qml:230
 #, kde-format
 msgid "Close"
 msgstr "סגירה"
 
-#: qml/EditPage.qml:249
+#: qml/EditPage.qml:252
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "החלפה ב…"
 
-#: qml/EditPage.qml:285
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#: qml/EditPage.qml:288
+#, kde-format
 msgid "Replace All"
-msgstr "בחירה בהכול"
+msgstr "החלפה של הכול"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "הוחלף מופע"
+msgstr[1] "הוחלפו שני מופעים"
+msgstr[2] "הוחלפו %1 מופעים"
+msgstr[3] "הוחלפו %1 מופעים"
 
-#: qml/EditPage.qml:352
+#: qml/EditPage.qml:355
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -271,45 +269,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "יצירת מחברת"
 
-#: qml/Main.qml:318 qml/NotesPage.qml:646
+#: qml/Main.qml:316 qml/NotesPage.qml:646
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "הצגת תפריט"
 
-#: qml/Main.qml:364
+#: qml/Main.qml:362
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "ייבוא"
 
-#: qml/Main.qml:373
+#: qml/Main.qml:371
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "מיון רשימת הפתקיות"
 
-#: qml/Main.qml:379
+#: qml/Main.qml:377
 #, kde-format
 msgid "by Name"
 msgstr "לפי שם"
 
-#: qml/Main.qml:392
+#: qml/Main.qml:390
 #, kde-format
 msgid "by Date"
 msgstr "לפי תאריך"
 
-#: qml/Main.qml:409
+#: qml/Main.qml:407
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "צמצום סרגל צד"
 
-#: qml/Main.qml:409
+#: qml/Main.qml:407
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "הרחבת סרגל צד"
 
-#: qml/Main.qml:476
+#: qml/Main.qml:474
 #, kde-format
 msgid "Your Notebooks"
 msgstr "המחברות שלך"
@@ -432,40 +430,34 @@ msgid "Edit Notebook"
 msgstr "עריכת מחברת"
 
 #: qml/NoteLinkDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "הוספת קישור"
+msgstr "הוספת קישור פתקית"
 
 #: qml/NoteLinkDialog.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Notebook name"
-#| msgid "Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr "שם:"
+msgstr "שם פתקית:"
 
 #: qml/NoteLinkDialog.qml:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "שם הפתקית לקישור."
 
 #: qml/NoteLinkDialog.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Link Text:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "טקסט קישור:"
+msgstr "טקסט תצוגה:"
 
 #: qml/NoteLinkDialog.qml:70
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
-msgstr ""
+msgstr "טקסט חלופי כרשות להצגה במקום שם הפתקית."
 
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
@@ -557,9 +549,7 @@ msgid "Delete Note"
 msgstr "מחיקת פתקית"
 
 #: qml/NotesPage.qml:463
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Copy Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Note"
 msgstr "העתקת פתקית"
@@ -652,12 +642,12 @@ msgstr "מצב מיקוד"
 #: qml/RawEditPage.qml:228
 #, kde-format
 msgid "Switch editor to preview mode"
-msgstr ""
+msgstr "החלפת העורך למצב תצוגה מקדימה"
 
 #: qml/RawEditPage.qml:233 qml/RichEditPage.qml:356
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "תצוגת מקור"
 
 #: qml/RichEditPage.qml:219 qml/RichEditPage.qml:292
 #, kde-format
@@ -668,7 +658,7 @@ msgstr "תוכן עניינים"
 #: qml/RichEditPage.qml:351
 #, kde-format
 msgid "Switch editor to source mode"
-msgstr ""
+msgstr "החלפת העורך למצב מקור"
 
 #: qml/RichEditPage.qml:444
 #, kde-format
@@ -737,12 +727,10 @@ msgid "Insert link"
 msgstr "הוספת קישור"
 
 #: qml/RichEditPage.qml:613
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr "הוספת קישור"
+msgstr "הוספת קישור פתקית"
 
 #: qml/RichEditPage.qml:629
 #, kde-format
@@ -819,79 +807,79 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "הוספת טבלה"
 
-#: qml/TextFieldContextMenu.qml:228
+#: qml/TextFieldContextMenu.qml:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "התעלמות"
 
-#: qml/TextFieldContextMenu.qml:243
+#: qml/TextFieldContextMenu.qml:244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "בדיקת איות"
 
-#: qml/TextFieldContextMenu.qml:259
+#: qml/TextFieldContextMenu.qml:260
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Note"
 msgstr "פתיחת פתקית"
 
-#: qml/TextFieldContextMenu.qml:259
+#: qml/TextFieldContextMenu.qml:260
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
 msgstr "פתיחת קישור"
 
-#: qml/TextFieldContextMenu.qml:275
+#: qml/TextFieldContextMenu.qml:280
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "הוספה"
 
-#: qml/TextFieldContextMenu.qml:298
+#: qml/TextFieldContextMenu.qml:316
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "הסרה"
 
-#: qml/TextFieldContextMenu.qml:319
+#: qml/TextFieldContextMenu.qml:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "הסגה"
 
-#: qml/TextFieldContextMenu.qml:333
+#: qml/TextFieldContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "ביצוע מחדש"
 
-#: qml/TextFieldContextMenu.qml:348
+#: qml/TextFieldContextMenu.qml:375
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "גזירה"
 
-#: qml/TextFieldContextMenu.qml:363
+#: qml/TextFieldContextMenu.qml:390
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "העתקה"
 
-#: qml/TextFieldContextMenu.qml:377
+#: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "הדבקה"
 
-#: qml/TextFieldContextMenu.qml:396
+#: qml/TextFieldContextMenu.qml:423
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "מחיקה"
 
-#: qml/TextFieldContextMenu.qml:414
+#: qml/TextFieldContextMenu.qml:441
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
@@ -976,37 +964,37 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "על KDE"
 
-#: tableactionhelper.cpp:116
+#: tableactionhelper.cpp:119
 #, kde-format
 msgid "Row Below"
 msgstr "שורה מתחת"
 
-#: tableactionhelper.cpp:122
+#: tableactionhelper.cpp:125
 #, kde-format
 msgid "Row Above"
 msgstr "שורה מעל"
 
-#: tableactionhelper.cpp:128
+#: tableactionhelper.cpp:131
 #, kde-format
 msgid "Column Before"
 msgstr "עמודה לפני"
 
-#: tableactionhelper.cpp:135
+#: tableactionhelper.cpp:137
 #, kde-format
 msgid "Column After"
 msgstr "עמודה אחרי"
 
-#: tableactionhelper.cpp:141
+#: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
 msgstr "שורה"
 
-#: tableactionhelper.cpp:147
+#: tableactionhelper.cpp:149
 #, kde-format
 msgid "Column"
 msgstr "עמודה"
 
-#: tableactionhelper.cpp:153
+#: tableactionhelper.cpp:155
 #, kde-format
 msgid "Cell Contents"
 msgstr "תוכן התא"

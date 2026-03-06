@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-05 00:44+0000\n"
-"PO-Revision-Date: 2026-03-04 03:28+0100\n"
+"POT-Creation-Date: 2026-03-06 00:44+0000\n"
+"PO-Revision-Date: 2026-03-05 04:01+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -48,7 +48,7 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "შემოტანა '%1'-ში ჩაწერისას"
 
-#: main.cpp:73 qml/Main.qml:424
+#: main.cpp:73 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -103,62 +103,60 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "შენიშვნის სახელის გადარქმევა ჩავარდა. შენიშვნა იგივე სახელით უკვე არსებობს."
 
-#: qml/EditPage.qml:136
+#: qml/EditPage.qml:139
 #, kde-format
 msgid "Find text..."
 msgstr "ტექსტის ძებნა..."
 
-#: qml/EditPage.qml:162
+#: qml/EditPage.qml:165
 #, kde-format
 msgid "Previous"
 msgstr "წინა"
 
-#: qml/EditPage.qml:178
+#: qml/EditPage.qml:181
 #, kde-format
 msgid "Next"
 msgstr "შემდეგი"
 
-#: qml/EditPage.qml:196 qml/EditPage.qml:302
+#: qml/EditPage.qml:199 qml/EditPage.qml:305
 #, kde-format
 msgid "No matches"
 msgstr "დათხვევა არ არსებობს"
 
-#: qml/EditPage.qml:198 qml/EditPage.qml:304
+#: qml/EditPage.qml:201 qml/EditPage.qml:307
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:210 qml/EditPage.qml:273
+#: qml/EditPage.qml:213 qml/EditPage.qml:276
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "ჩანაცვლება"
 
-#: qml/EditPage.qml:227
+#: qml/EditPage.qml:230
 #, kde-format
 msgid "Close"
 msgstr "დახურვა"
 
-#: qml/EditPage.qml:249
+#: qml/EditPage.qml:252
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "ჩანაცვლება რით..."
 
-#: qml/EditPage.qml:285
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#: qml/EditPage.qml:288
+#, kde-format
 msgid "Replace All"
-msgstr "ყველას მონიშვნა"
+msgstr "ყველას ჩანაცვლება"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ჩანაცვლდა %1 შემთხვევა"
+msgstr[1] "ჩანაცვლდა %1 შემთხვევა"
 
-#: qml/EditPage.qml:352
+#: qml/EditPage.qml:355
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -270,45 +268,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "წიგნაკის შექმნა"
 
-#: qml/Main.qml:318 qml/NotesPage.qml:646
+#: qml/Main.qml:316 qml/NotesPage.qml:646
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "მენიუს ჩვენება"
 
-#: qml/Main.qml:364
+#: qml/Main.qml:362
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "შემოტანა"
 
-#: qml/Main.qml:373
+#: qml/Main.qml:371
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "შენიშვნების სიის დალაგება"
 
-#: qml/Main.qml:379
+#: qml/Main.qml:377
 #, kde-format
 msgid "by Name"
 msgstr "სახელის მიხედვით"
 
-#: qml/Main.qml:392
+#: qml/Main.qml:390
 #, kde-format
 msgid "by Date"
 msgstr "თარიღის მიხედვით"
 
-#: qml/Main.qml:409
+#: qml/Main.qml:407
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "გვერდითი ზოლის ჩაკეცვა"
 
-#: qml/Main.qml:409
+#: qml/Main.qml:407
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "გვერდითი ზოლის გაფართოება"
 
-#: qml/Main.qml:476
+#: qml/Main.qml:474
 #, kde-format
 msgid "Your Notebooks"
 msgstr "თქვენი წიგნაკები"
@@ -553,9 +551,7 @@ msgid "Delete Note"
 msgstr "შენიშვნის წაშლა"
 
 #: qml/NotesPage.qml:463
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Copy Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Note"
 msgstr "შენიშვნის კოპირება"
@@ -648,12 +644,12 @@ msgstr "ფოკუსის რეჟიმი"
 #: qml/RawEditPage.qml:228
 #, kde-format
 msgid "Switch editor to preview mode"
-msgstr ""
+msgstr "რედაქტორის გადართვა გადახედვის რეჟიმში"
 
 #: qml/RawEditPage.qml:233 qml/RichEditPage.qml:356
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "წყაროს ნახვა"
 
 #: qml/RichEditPage.qml:219 qml/RichEditPage.qml:292
 #, kde-format
@@ -664,7 +660,7 @@ msgstr "სარჩევი"
 #: qml/RichEditPage.qml:351
 #, kde-format
 msgid "Switch editor to source mode"
-msgstr ""
+msgstr "რედაქტორის გადართვა წყაროს რეჟიმზე"
 
 #: qml/RichEditPage.qml:444
 #, kde-format
@@ -813,79 +809,79 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "ცხრილის ჩასმა"
 
-#: qml/TextFieldContextMenu.qml:228
+#: qml/TextFieldContextMenu.qml:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "გამოტოვება"
 
-#: qml/TextFieldContextMenu.qml:243
+#: qml/TextFieldContextMenu.qml:244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "მართლწერის შემოწმება"
 
-#: qml/TextFieldContextMenu.qml:259
+#: qml/TextFieldContextMenu.qml:260
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Note"
 msgstr "შენიშვნის გახსნა"
 
-#: qml/TextFieldContextMenu.qml:259
+#: qml/TextFieldContextMenu.qml:260
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
 msgstr "ბმულის გახსნა"
 
-#: qml/TextFieldContextMenu.qml:275
+#: qml/TextFieldContextMenu.qml:280
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "ჩასმა"
 
-#: qml/TextFieldContextMenu.qml:298
+#: qml/TextFieldContextMenu.qml:316
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "წაშლა"
 
-#: qml/TextFieldContextMenu.qml:319
+#: qml/TextFieldContextMenu.qml:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "დაბრუნება"
 
-#: qml/TextFieldContextMenu.qml:333
+#: qml/TextFieldContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "გამეორება"
 
-#: qml/TextFieldContextMenu.qml:348
+#: qml/TextFieldContextMenu.qml:375
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "ამოჭრა"
 
-#: qml/TextFieldContextMenu.qml:363
+#: qml/TextFieldContextMenu.qml:390
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "კოპირება"
 
-#: qml/TextFieldContextMenu.qml:377
+#: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "ჩასმა"
 
-#: qml/TextFieldContextMenu.qml:396
+#: qml/TextFieldContextMenu.qml:423
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "წაშლა"
 
-#: qml/TextFieldContextMenu.qml:414
+#: qml/TextFieldContextMenu.qml:441
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
@@ -970,37 +966,37 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE-ს შესახებ"
 
-#: tableactionhelper.cpp:116
+#: tableactionhelper.cpp:119
 #, kde-format
 msgid "Row Below"
 msgstr "მწკრივი ქვემოთ"
 
-#: tableactionhelper.cpp:122
+#: tableactionhelper.cpp:125
 #, kde-format
 msgid "Row Above"
 msgstr "მწკრივი ზემოთ"
 
-#: tableactionhelper.cpp:128
+#: tableactionhelper.cpp:131
 #, kde-format
 msgid "Column Before"
 msgstr "სვეტი მანამდე"
 
-#: tableactionhelper.cpp:135
+#: tableactionhelper.cpp:137
 #, kde-format
 msgid "Column After"
 msgstr "სვეტი შემდეგ"
 
-#: tableactionhelper.cpp:141
+#: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
 msgstr "მწკრივი"
 
-#: tableactionhelper.cpp:147
+#: tableactionhelper.cpp:149
 #, kde-format
 msgid "Column"
 msgstr "სვეტი"
 
-#: tableactionhelper.cpp:153
+#: tableactionhelper.cpp:155
 #, kde-format
 msgid "Cell Contents"
 msgstr "უჯრედის შემცველობა"
