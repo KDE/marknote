@@ -127,7 +127,7 @@ Kirigami.Page {
             Layout.fillWidth: true
 
             contentItem: ColumnLayout {
-                spacing: 0
+                spacing: Kirigami.Units.smallSpacing
 
                 RowLayout {
                     id: searchBarLayout
