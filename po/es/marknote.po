@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:44+0000\n"
-"PO-Revision-Date: 2026-03-04 12:30+0100\n"
+"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"PO-Revision-Date: 2026-03-07 01:19+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -133,7 +133,7 @@ msgstr "%1/%2"
 #: qml/EditPage.qml:213 qml/EditPage.qml:276
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "Sustituir"
 
 #: qml/EditPage.qml:230
 #, kde-format
@@ -143,22 +143,20 @@ msgstr "Cerrar"
 #: qml/EditPage.qml:252
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "Sustituir con…"
 
 #: qml/EditPage.qml:288
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace All"
-msgstr "Seleccionar todo"
+msgstr "Sustituir todo"
 
 #: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 coincidencia sustituida"
+msgstr[1] "%1 coincidencias sustituidas"
 
 #: qml/EditPage.qml:355
 #, kde-format
@@ -311,7 +309,7 @@ msgstr "Contraer barra lateral"
 msgid "Expand Sidebar"
 msgstr "Expandir barra lateral"
 
-#: qml/Main.qml:474
+#: qml/Main.qml:545
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Sus blocs de notas"
@@ -556,9 +554,7 @@ msgid "Delete Note"
 msgstr "Borrar nota"
 
 #: qml/NotesPage.qml:463
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Copy Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Note"
 msgstr "Copiar nota"
@@ -651,12 +647,12 @@ msgstr "Modo de concentración"
 #: qml/RawEditPage.qml:228
 #, kde-format
 msgid "Switch editor to preview mode"
-msgstr ""
+msgstr "Cambiar editor al modo de vista previa"
 
 #: qml/RawEditPage.qml:233 qml/RichEditPage.qml:356
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "Vista del código fuente"
 
 #: qml/RichEditPage.qml:219 qml/RichEditPage.qml:292
 #, kde-format
@@ -667,7 +663,7 @@ msgstr "Tabla de contenidos"
 #: qml/RichEditPage.qml:351
 #, kde-format
 msgid "Switch editor to source mode"
-msgstr ""
+msgstr "Cambiar editor al modo de código fuente"
 
 #: qml/RichEditPage.qml:444
 #, kde-format

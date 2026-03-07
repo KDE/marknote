@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:44+0000\n"
+"POT-Creation-Date: 2026-03-07 00:44+0000\n"
 "PO-Revision-Date: 2025-05-27 17:01+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -307,7 +307,7 @@ msgstr "Fella saman hliðarstiku"
 msgid "Expand Sidebar"
 msgstr "Víkka út hliðarstiku"
 
-#: qml/Main.qml:474
+#: qml/Main.qml:545
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Glósubækurnar þínar"

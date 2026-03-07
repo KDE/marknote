@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:44+0000\n"
+"POT-Creation-Date: 2026-03-07 00:44+0000\n"
 "PO-Revision-Date: 2026-03-05 09:31+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -307,7 +307,7 @@ msgstr "Згорнути бічну панель"
 msgid "Expand Sidebar"
 msgstr "Розгорнути бічну панель"
 
-#: qml/Main.qml:474
+#: qml/Main.qml:545
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Додати записники"

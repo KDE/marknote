@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:44+0000\n"
+"POT-Creation-Date: 2026-03-07 00:44+0000\n"
 "PO-Revision-Date: 2025-12-02 11:29+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -308,7 +308,7 @@ msgstr "Svinout postranní panel"
 msgid "Expand Sidebar"
 msgstr "Rozbalit postranní panel"
 
-#: qml/Main.qml:474
+#: qml/Main.qml:545
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vaše poznámkové bloky"

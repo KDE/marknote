@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:44+0000\n"
+"POT-Creation-Date: 2026-03-07 00:44+0000\n"
 "PO-Revision-Date: 2026-03-05 04:01+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -306,7 +306,7 @@ msgstr "გვერდითი ზოლის ჩაკეცვა"
 msgid "Expand Sidebar"
 msgstr "გვერდითი ზოლის გაფართოება"
 
-#: qml/Main.qml:474
+#: qml/Main.qml:545
 #, kde-format
 msgid "Your Notebooks"
 msgstr "თქვენი წიგნაკები"

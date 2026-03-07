@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:44+0000\n"
-"PO-Revision-Date: 2026-02-26 19:47+0200\n"
+"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"PO-Revision-Date: 2026-03-06 14:23+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -83,7 +83,7 @@ msgstr "Carl Schwan"
 #: main.cpp:84
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "Валентин Бондаренко"
 
 #: main.cpp:89
 #, kde-format
@@ -132,7 +132,7 @@ msgstr "%1/%2"
 #: qml/EditPage.qml:213 qml/EditPage.qml:276
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "Заменить"
 
 #: qml/EditPage.qml:230
 #, kde-format
@@ -142,24 +142,22 @@ msgstr "Закрыть"
 #: qml/EditPage.qml:252
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "Заменить на…"
 
 #: qml/EditPage.qml:288
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace All"
-msgstr "Выбрать всё"
+msgstr "Заменить все"
 
 #: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Заменено %1 вхождение"
+msgstr[1] "Заменено %1 вхождения"
+msgstr[2] "Заменено %1 вхождений"
+msgstr[3] "Заменён %1 экземпляр"
 
 #: qml/EditPage.qml:355
 #, kde-format
@@ -312,7 +310,7 @@ msgstr "Свернуть боковую панель"
 msgid "Expand Sidebar"
 msgstr "Развернуть боковую панель"
 
-#: qml/Main.qml:474
+#: qml/Main.qml:545
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Созданные записные книжки"
@@ -436,40 +434,35 @@ msgid "Edit Notebook"
 msgstr "Изменить записную книжку"
 
 #: qml/NoteLinkDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "Вставить ссылку"
+msgstr "Вставление ссылки на заметку"
 
 #: qml/NoteLinkDialog.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Notebook name"
-#| msgid "Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr "Название:"
+msgstr "Название заметки:"
 
 #: qml/NoteLinkDialog.qml:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "Название заметки, на которую требуется создать ссылку."
 
 #: qml/NoteLinkDialog.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Link Text:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "Текст ссылки:"
+msgstr "Показываемый текст:"
 
 #: qml/NoteLinkDialog.qml:70
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
 msgstr ""
+"Необязательный альтернативный текст для вывода вместо названия заметки."
 
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
@@ -561,9 +554,7 @@ msgid "Delete Note"
 msgstr "Удалить заметку"
 
 #: qml/NotesPage.qml:463
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Copy Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Note"
 msgstr "Копировать заметку"
@@ -656,12 +647,12 @@ msgstr "Режим фокуса"
 #: qml/RawEditPage.qml:228
 #, kde-format
 msgid "Switch editor to preview mode"
-msgstr ""
+msgstr "Переключение редактора в режим предпросмотра"
 
 #: qml/RawEditPage.qml:233 qml/RichEditPage.qml:356
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "Просмотр исходного кода"
 
 #: qml/RichEditPage.qml:219 qml/RichEditPage.qml:292
 #, kde-format
@@ -672,7 +663,7 @@ msgstr "Содержание"
 #: qml/RichEditPage.qml:351
 #, kde-format
 msgid "Switch editor to source mode"
-msgstr ""
+msgstr "Переключение редактора в режим исходного кода"
 
 #: qml/RichEditPage.qml:444
 #, kde-format
@@ -741,12 +732,10 @@ msgid "Insert link"
 msgstr "Вставить ссылку"
 
 #: qml/RichEditPage.qml:613
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr "Вставить ссылку"
+msgstr "Вставить ссылку на заметку"
 
 #: qml/RichEditPage.qml:629
 #, kde-format
@@ -836,12 +825,10 @@ msgid "Spell Check"
 msgstr "Проверка орфографии"
 
 #: qml/TextFieldContextMenu.qml:260
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@inmenu"
 msgid "Open Note"
-msgstr "Создать заметку"
+msgstr "Открыть заметку"
 
 #: qml/TextFieldContextMenu.qml:260
 #, kde-format

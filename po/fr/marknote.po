@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-06 00:44+0000\n"
-"PO-Revision-Date: 2026-03-03 12:24+0100\n"
+"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"PO-Revision-Date: 2026-03-05 16:26+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -307,7 +307,7 @@ msgstr "Réduire la barre latérale"
 msgid "Expand Sidebar"
 msgstr "Développer la barre latérale"
 
-#: qml/Main.qml:474
+#: qml/Main.qml:545
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Vos carnets de notes"
@@ -431,39 +431,35 @@ msgid "Edit Notebook"
 msgstr "Modifier un carnet de notes"
 
 #: qml/NoteLinkDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "Insérer un lien"
+msgstr "Insérer un lien vers une note"
 
 #: qml/NoteLinkDialog.qml:49
-#, fuzzy, kde-format
-#| msgid "Notebook name"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr "Nom du carnet de notes"
+msgstr "Nom de note :"
 
 #: qml/NoteLinkDialog.qml:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "Le nom de la note avec laquelle vous voulez faire un lien."
 
 #: qml/NoteLinkDialog.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Link Text:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "Texte du lien :"
+msgstr "Texte d'affichage :"
 
 #: qml/NoteLinkDialog.qml:70
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
 msgstr ""
+"Texte alternatif optionnel  à afficher en remplacement du nom de la note."
 
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
@@ -736,12 +732,10 @@ msgid "Insert link"
 msgstr "Insérer un lien"
 
 #: qml/RichEditPage.qml:613
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr "Insérer un lien"
+msgstr "Insérer un lien vers une note"
 
 #: qml/RichEditPage.qml:629
 #, kde-format
