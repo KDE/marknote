@@ -1414,6 +1414,23 @@ void RichDocumentHandler::slotKeyPressed(int key)
                 reset();
             }
         }
+        // Switch checked checkbox to unchecked on the newly created line.
+        if (cursor.blockFormat().marker() == QTextBlockFormat::MarkerType::Checked) {
+            QTextCursor markerCursor = cursor;
+            const QTextBlock previousBlock = cursor.block().previous();
+            if (cursor.atBlockStart() && !cursor.block().text().trimmed().isEmpty() && previousBlock.isValid()
+                && previousBlock.blockFormat().marker() == QTextBlockFormat::MarkerType::Checked && previousBlock.text().trimmed().isEmpty()) {
+                markerCursor = QTextCursor(previousBlock);
+            }
+
+            markerCursor.joinPreviousEditBlock();
+            QTextBlockFormat bfmt;
+            bfmt.setMarker(QTextBlockFormat::MarkerType::Unchecked);
+            markerCursor.mergeBlockFormat(bfmt);
+            markerCursor.endEditBlock();
+            Q_EMIT cursorPositionChanged();
+            reset();
+        }
     }
 
     if (key == Qt::Key_BracketRight) {
