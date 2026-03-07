@@ -425,3 +425,5 @@ void DocumentHandler::slotMouseMovedWithControlReleased()
         m_textArea->setCursor(Qt::IBeamCursor);
     }
 }
+
+#include "moc_documenthandler.cpp"
