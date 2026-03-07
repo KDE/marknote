@@ -1154,6 +1154,25 @@ void RichDocumentHandler::slotKeyPressed(int key)
             cursor.endEditBlock();
         }
 
+        // Automatic block transformation for ordered lists
+        static const QRegularExpression orderedListRegex(u"^(\\d+)[\\.|\\)] "_s);
+        const auto match = orderedListRegex.match(fullBlockText);
+        if (match.hasMatch()) {
+            cursor.beginEditBlock();
+
+            const auto capturedNumber = match.captured(1);
+
+            QTextListFormat listFormat;
+            listFormat.setStyle(QTextListFormat::ListDecimal);
+            listFormat.setStart(capturedNumber.toInt());
+            cursor.createList(listFormat);
+
+            const int prefixLength = capturedNumber.length() + 2; // number length + ". "
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, prefixLength);
+            cursor.deleteChar();
+            cursor.endEditBlock();
+        }
+
         // Automatic block transformation to blockquote
         if (fullBlockText.startsWith(u"> ")) {
             cursor.beginEditBlock();
@@ -1466,34 +1485,6 @@ void RichDocumentHandler::slotKeyPressed(int key)
         textCursor().endEditBlock();
         Q_EMIT cursorPositionChanged();
     }
-
-    if (cursor.currentList()) {
-        if ((key != Qt::Key_Backspace) && (key != Qt::Key_Return)) {
-            return;
-        }
-
-        QTextBlock currentBlock = cursor.block();
-        if (cursor.currentList()->count() == cursor.currentList()->itemNumber(currentBlock) + 1) {
-            if (cursor.currentList()->count() > 1 && cursor.currentList()->itemNumber(currentBlock)) {
-                if (currentBlock.previous().text().isEmpty()) {
-                    cursor.joinPreviousEditBlock();
-                    QTextBlockFormat bfmt;
-                    bfmt.setTopMargin(textMargin);
-                    bfmt.setBottomMargin(0);
-                    cursor.setBlockFormat(bfmt);
-                    cursor.endEditBlock();
-                    return;
-                }
-            }
-        }
-
-        cursor.joinPreviousEditBlock();
-        QTextBlockFormat bfmt = cursor.block().blockFormat();
-        bfmt.setTopMargin(cursor.block().previous().textList() == nullptr ? textMargin : 0);
-        bfmt.setBottomMargin(0);
-        cursor.setBlockFormat(bfmt);
-        cursor.endEditBlock();
-    }
 }
 
 bool RichDocumentHandler::processKeyEvent(QKeyEvent *e)
@@ -1506,19 +1497,19 @@ bool RichDocumentHandler::processKeyEvent(QKeyEvent *e)
     }
 
     // do not handle any other key events above this
-    if (isCodeBlock(textCursor().block())) {
+    auto cursor = textCursor();
+    if (isCodeBlock(cursor.block())) {
         if (e->key() == Qt::Key_Return && e->modifiers() == Qt::ShiftModifier) {
-            textCursor().insertBlock(textCursor().blockFormat(), textCursor().charFormat());
+            cursor.insertBlock(cursor.blockFormat(), cursor.charFormat());
             return false;
         }
 
         if (e->key() == Qt::Key_Tab) {
-            textCursor().insertText(u"    "_s);
+            cursor.insertText(u"    "_s);
             return false;
         } else if (e->key() == Qt::Key_Backtab) {
-            QTextCursor cursor = textCursor();
             cursor.movePosition(QTextCursor::StartOfLine);
-            if (textCursor().block().text().startsWith(u"    "_s)) {
+            if (cursor.block().text().startsWith(u"    "_s)) {
                 cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, 4);
                 cursor.removeSelectedText();
             }
@@ -1527,6 +1518,17 @@ bool RichDocumentHandler::processKeyEvent(QKeyEvent *e)
         }
 
         return evaluateReturnKeySupport(e);
+    }
+
+    if (cursor.currentList()) {
+        if (e->key() == Qt::Key_Return) {
+            if (cursor.currentList()->count() == cursor.currentList()->itemNumber(cursor.block()) + 1) {
+                if (cursor.block().text().isEmpty()) {
+                    indentListLess();
+                    return false;
+                }
+            }
+        }
     }
 
     if (textCursor().currentTable() && (e->key() == Qt::Key_Backtab || e->key() == Qt::Key_Tab)) {

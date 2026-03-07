@@ -193,6 +193,7 @@ void NestedListHelper::handleOnIndentMore(const QTextCursor &textCursor)
     } else {
         listFmt = cursor.currentList()->format();
         listFmt.setIndent(listFmt.indent() + 1);
+        listFmt.setStart(1);
 
         cursor.createList(listFmt);
         reformatList(textCursor.block());
