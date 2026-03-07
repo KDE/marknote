@@ -22,11 +22,13 @@ pragma ComponentBehavior: Bound
 Kirigami.ScrollablePage {
     id: root
 
-    readonly property bool isWideScreen: !!_window?.isWideScreen // qmllint disable missing-property
-
     objectName: "NotesPage"
+
+    readonly property bool isWideScreen: !!_window?.isWideScreen // qmllint disable missing-property
     property color backgroundColor: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.alternateBackgroundColor, 0.6)
     background: Rectangle {color: root.backgroundColor}
+    property string currentSearchText: ""
+    property int defaultPlaceholderWidth: notesList.width - (Kirigami.Units.largeSpacing * 4)
 
     property var _window: ApplicationWindow.window
     readonly property Kirigami.PageRow pageStack: (ApplicationWindow.window as Kirigami.ApplicationWindow)?.pageStack ?? null
@@ -239,7 +241,10 @@ Kirigami.ScrollablePage {
                         sequences: [StandardKey.Cancel]
                         onActivated: if (titleLayout.searchOpen) { searchButton.clicked() }
                     }
-                    onTextChanged: filterModel.setFilterFixedString(search.text)
+                    onTextChanged: {
+                        filterModel.setFilterFixedString(search.text);
+                        root.currentSearchText = search.text;
+                    }
                 }
             }
         }
@@ -855,11 +860,19 @@ Kirigami.ScrollablePage {
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
-            width: parent.width - (Kirigami.Units.largeSpacing * 4)
-            icon.name: "note"
-            visible: notesList.count === 0
+            width: defaultPlaceholderWidth
+            icon.name: "note-symbolic"
+            visible: notesList.count === 0 && root.currentSearchText.length === 0
             text: KI18n.i18n("Add a note!")
             helpfulAction: newNoteAction
+        }
+
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            width: defaultPlaceholderWidth
+            icon.name: "edit-none-symbolic"
+            visible: filterModel.count === 0 && root.currentSearchText.length > 0
+            text: KI18n.i18n("No notes matching the search")
         }
     }
 }
