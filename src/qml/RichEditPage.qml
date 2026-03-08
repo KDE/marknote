@@ -891,10 +891,6 @@ EditPage {
         }
     }
 
-    Loader {
-    }
-
-
     Components.FloatingToolBar {
         id: toolBar
 
