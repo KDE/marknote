@@ -18,6 +18,7 @@
 #include <QDesktopServices>
 #include <QFile>
 #include <QFileInfo>
+#include <QFontInfo>
 #include <QGuiApplication>
 #include <QMimeData>
 #include <QMimeDatabase>
@@ -443,7 +444,7 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
 
                 QTextCharFormat resetCharFormat;
                 resetCharFormat.setFontWeight(QFont::Normal);
-                resetCharFormat.setProperty(QTextFormat::FontSizeAdjustment, 0);
+                resetCharFormat.setProperty(QTextFormat::FontPointSize, 12);
 
                 // Apply to the block and the current typing position
                 checkCursor.setBlockCharFormat(resetCharFormat);
@@ -459,6 +460,17 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
     QTextCursor cursor = textCursor();
     cursor.movePosition(QTextCursor::End);
     moveCursor(cursor.position());
+
+    // iterate through all the blocks
+    for (QTextBlock block = textDocument()->begin(); block != textDocument()->end(); block = block.next()) {
+        qDebug() << "Text: " << block.text();
+        // print all valid char properties
+        qDebug() << block.blockFormat().headingLevel();
+        qDebug() << block.charFormat().fontPointSize();
+        qDebug() << block.charFormat().font().pixelSize();
+        qDebug() << block.charFormat().property(QTextFormat::FontSizeAdjustment);
+    }
+
     reset();
 }
 
@@ -637,10 +649,7 @@ void RichDocumentHandler::setListStyle(int styleIndex)
 
 void RichDocumentHandler::setHeadingLevel(int level)
 {
-    const int boundedLevel = qBound(0, 6, level);
-    // Apparently, 5 is maximum for FontSizeAdjustment; otherwise level=1 and
-    // level=2 look the same
-    const int sizeAdjustment = boundedLevel > 0 ? 5 - boundedLevel : 0;
+    const int boundedLevel = qBound(0, level, 6);
 
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
@@ -649,9 +658,6 @@ void RichDocumentHandler::setHeadingLevel(int level)
     blkfmt.setHeadingLevel(boundedLevel);
     cursor.mergeBlockFormat(blkfmt);
 
-    QTextCharFormat chrfmt;
-    chrfmt.setFontWeight(boundedLevel > 0 ? QFont::Bold : QFont::Normal);
-    chrfmt.setProperty(QTextFormat::FontSizeAdjustment, sizeAdjustment);
     // Applying style to the current line or selection
     QTextCursor selectCursor = cursor;
     if (selectCursor.hasSelection()) {
@@ -668,9 +674,26 @@ void RichDocumentHandler::setHeadingLevel(int level)
     } else {
         selectCursor.select(QTextCursor::BlockUnderCursor);
     }
-    selectCursor.mergeCharFormat(chrfmt);
 
-    cursor.mergeBlockCharFormat(chrfmt);
+    // FontSizeAdjustment goes from 3 for Heading 1 to -2 for Heading 6
+    const int fontSizeAdjustment = 4 - boundedLevel;
+
+    QTextCharFormat chrfmt = selectCursor.charFormat();
+    chrfmt.setFontWeight(boundedLevel > 0 ? QFont::Bold : QFont::Normal);
+
+    if (boundedLevel > 0) {
+        chrfmt.setProperty(QTextFormat::FontSizeAdjustment, fontSizeAdjustment);
+    } else {
+        chrfmt.clearProperty(QTextFormat::FontSizeAdjustment);
+        chrfmt.setFontPointSize(QFontInfo(textDocument()->defaultFont()).pointSize());
+    }
+
+    selectCursor.setBlockCharFormat(chrfmt);
+    cursor.setBlockCharFormat(chrfmt);
+
+    selectCursor.setCharFormat(chrfmt);
+    cursor.setCharFormat(chrfmt);
+
     cursor.endEditBlock();
     // richTextComposer()->setTextCursor(cursor);
     // richTextComposer()->setFocus();
@@ -1406,6 +1429,11 @@ void RichDocumentHandler::slotKeyPressed(int key)
                 // Clear heading formatting
                 if (cursor.blockFormat().headingLevel() > 0) {
                     setHeadingLevel(0);
+                    qDebug() << textCursor().block().text();
+                    qDebug() << textCursor().blockFormat().headingLevel();
+                    qDebug() << textCursor().charFormat().fontPointSize();
+                    qDebug() << textCursor().charFormat().font().pixelSize();
+                    qDebug() << textCursor().charFormat().property(QTextFormat::FontSizeAdjustment);
                     formatChanged = true;
                 }
 
@@ -1521,6 +1549,9 @@ void RichDocumentHandler::slotKeyPressed(int key)
         textCursor().joinPreviousEditBlock();
         setHeadingLevel(0);
         textCursor().endEditBlock();
+        qDebug() << textCursor().block().text();
+        qDebug() << textCursor().blockFormat().headingLevel();
+        qDebug() << textCursor().charFormat().fontPointSize();
         Q_EMIT cursorPositionChanged();
     }
 }
