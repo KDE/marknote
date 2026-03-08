@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-07 00:44+0000\n"
-"PO-Revision-Date: 2026-03-05 10:21+0400\n"
+"PO-Revision-Date: 2026-03-07 12:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -130,7 +130,7 @@ msgstr "%1/%2"
 #: qml/EditPage.qml:213 qml/EditPage.qml:276
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "استبدل"
 
 #: qml/EditPage.qml:230
 #, kde-format
@@ -140,26 +140,24 @@ msgstr "أغلق"
 #: qml/EditPage.qml:252
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "استبدله ب‍..."
 
 #: qml/EditPage.qml:288
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace All"
-msgstr "حدّد الكل"
+msgstr "استبدل الكلّ"
 
 #: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لم يستبدل شيء"
+msgstr[1] "اُستبدل موضع واحد"
+msgstr[2] "اُستبدل موضعين"
+msgstr[3] "اُستبدل %1 مواضع"
+msgstr[4] "اُستبدل %1 موضعًا"
+msgstr[5] "اُستبدل %1 موضع"
 
 #: qml/EditPage.qml:355
 #, kde-format
@@ -555,9 +553,7 @@ msgid "Delete Note"
 msgstr "احذف الملاحظة"
 
 #: qml/NotesPage.qml:463
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Copy Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Note"
 msgstr "انسخ الملاحظة"
@@ -650,12 +646,12 @@ msgstr "وضع التركيز"
 #: qml/RawEditPage.qml:228
 #, kde-format
 msgid "Switch editor to preview mode"
-msgstr ""
+msgstr "بدّل المحرر إلى نمط المعاينة"
 
 #: qml/RawEditPage.qml:233 qml/RichEditPage.qml:356
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "عرض المصدر"
 
 #: qml/RichEditPage.qml:219 qml/RichEditPage.qml:292
 #, kde-format
@@ -666,7 +662,7 @@ msgstr "جدول المحتويات"
 #: qml/RichEditPage.qml:351
 #, kde-format
 msgid "Switch editor to source mode"
-msgstr ""
+msgstr "بدّل المحرر إلى نمط المصدر"
 
 #: qml/RichEditPage.qml:444
 #, kde-format

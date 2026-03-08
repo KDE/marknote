@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-07 00:44+0000\n"
-"PO-Revision-Date: 2026-03-05 16:26+0100\n"
+"PO-Revision-Date: 2026-03-06 17:37+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -128,7 +128,7 @@ msgstr "%1 / %2"
 #: qml/EditPage.qml:213 qml/EditPage.qml:276
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "Remplacer"
 
 #: qml/EditPage.qml:230
 #, kde-format
@@ -138,22 +138,20 @@ msgstr "Fermer"
 #: qml/EditPage.qml:252
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "Remplacer par..."
 
 #: qml/EditPage.qml:288
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace All"
-msgstr "Tout sélectionner"
+msgstr "Tout remplacer"
 
 #: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 occurrence a été remplacée."
+msgstr[1] "%1 occurrences ont été remplacées."
 
 #: qml/EditPage.qml:355
 #, kde-format
@@ -552,9 +550,7 @@ msgid "Delete Note"
 msgstr "Supprimer une note"
 
 #: qml/NotesPage.qml:463
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Copy Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Note"
 msgstr "Copier une note"
@@ -647,12 +643,12 @@ msgstr "Mode de focus"
 #: qml/RawEditPage.qml:228
 #, kde-format
 msgid "Switch editor to preview mode"
-msgstr ""
+msgstr "Basculer l'éditeur en mode « Aperçu »"
 
 #: qml/RawEditPage.qml:233 qml/RichEditPage.qml:356
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "Vue source"
 
 #: qml/RichEditPage.qml:219 qml/RichEditPage.qml:292
 #, kde-format
@@ -663,7 +659,7 @@ msgstr "Sommaire"
 #: qml/RichEditPage.qml:351
 #, kde-format
 msgid "Switch editor to source mode"
-msgstr ""
+msgstr "Basculer l'éditeur en mode « Source »"
 
 #: qml/RichEditPage.qml:444
 #, kde-format

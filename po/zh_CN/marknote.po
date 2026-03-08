@@ -143,8 +143,6 @@ msgstr ""
 
 #: qml/EditPage.qml:288
 #, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
 msgid "Replace All"
 msgstr "选择全部"
 
@@ -247,7 +245,7 @@ msgstr "插入链接"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr "链接文字："
+msgstr "链接文本："
 
 #: qml/LinkDialog.qml:31
 #, kde-format
@@ -428,16 +426,12 @@ msgstr "编辑笔记本"
 
 #: qml/NoteLinkDialog.qml:43
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Link"
 msgctxt "@title:window"
 msgid "Insert Note Link"
 msgstr "插入链接"
 
 #: qml/NoteLinkDialog.qml:49
 #, fuzzy, kde-format
-#| msgctxt "@label:textbox Notebook name"
-#| msgid "Name:"
 msgctxt "@label:textbox"
 msgid "Note Name:"
 msgstr "名称："
@@ -450,11 +444,9 @@ msgstr ""
 
 #: qml/NoteLinkDialog.qml:68
 #, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Link Text:"
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "链接文字："
+msgstr "链接文本："
 
 #: qml/NoteLinkDialog.qml:70
 #, kde-format
@@ -552,8 +544,6 @@ msgstr "删除笔记"
 
 #: qml/NotesPage.qml:463
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Note"
 msgstr "复制"
@@ -732,8 +722,6 @@ msgstr "插入链接"
 
 #: qml/RichEditPage.qml:613
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "插入链接"
@@ -754,7 +742,7 @@ msgstr "插入表格"
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
-msgstr "基本文字"
+msgstr "基本文本"
 
 #: qml/RichEditPage.qml:664
 #, kde-format
