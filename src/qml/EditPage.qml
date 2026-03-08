@@ -468,7 +468,7 @@ Kirigami.Page {
             }
 
             Shortcut {
-                sequence: "Ctrl+E"
+                sequence: StandardKey.Find
                 onActivated: if (searchBar.isSearchOpen === true) {
                     root.closeSearch()
                 } else {

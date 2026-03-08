@@ -150,7 +150,7 @@ Kirigami.ScrollablePage {
 
             Shortcut {
                 id: searchShortcut
-                sequence: StandardKey.Find
+                sequence: "Ctrl+E"
                 onActivated: if (!search.visible) {
                     searchButton.clicked()
                 }
