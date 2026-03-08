@@ -1173,6 +1173,24 @@ void RichDocumentHandler::slotKeyPressed(int key)
             cursor.endEditBlock();
         }
 
+        // Automatic block transformation for check lists
+        static const QRegularExpression taskListRegex(u"^\\[([ xX])\\] "_s);
+        const auto taskMatch = taskListRegex.match(fullBlockText);
+        if (taskMatch.hasMatch()) {
+            cursor.beginEditBlock();
+            setCheckable(true);
+
+            if (taskMatch.captured(1).toLower() == u"x") {
+                QTextBlockFormat fmt = cursor.blockFormat();
+                fmt.setMarker(QTextBlockFormat::MarkerType::Checked);
+                cursor.setBlockFormat(fmt);
+            }
+
+            cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 4);
+            cursor.deleteChar();
+            cursor.endEditBlock();
+        }
+
         // Automatic block transformation to blockquote
         if (fullBlockText.startsWith(u"> ")) {
             cursor.beginEditBlock();

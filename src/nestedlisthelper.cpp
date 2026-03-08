@@ -49,7 +49,7 @@ bool NestedListHelper::canIndent(const QTextCursor &textCursor) const
                 return block.textList()->format().indent() <= prevBlock.textList()->format().indent();
             }
         } else {
-            return true;
+            return false;
         }
     }
     return false;
