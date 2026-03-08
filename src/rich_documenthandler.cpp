@@ -444,7 +444,7 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
 
                 QTextCharFormat resetCharFormat;
                 resetCharFormat.setFontWeight(QFont::Normal);
-                resetCharFormat.setProperty(QTextFormat::FontPointSize, 12);
+                resetCharFormat.setProperty(QTextFormat::FontSizeAdjustment, 0);
 
                 // Apply to the block and the current typing position
                 checkCursor.setBlockCharFormat(resetCharFormat);
@@ -460,17 +460,6 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
     QTextCursor cursor = textCursor();
     cursor.movePosition(QTextCursor::End);
     moveCursor(cursor.position());
-
-    // iterate through all the blocks
-    for (QTextBlock block = textDocument()->begin(); block != textDocument()->end(); block = block.next()) {
-        qDebug() << "Text: " << block.text();
-        // print all valid char properties
-        qDebug() << block.blockFormat().headingLevel();
-        qDebug() << block.charFormat().fontPointSize();
-        qDebug() << block.charFormat().font().pixelSize();
-        qDebug() << block.charFormat().property(QTextFormat::FontSizeAdjustment);
-    }
-
     reset();
 }
 
@@ -654,9 +643,9 @@ void RichDocumentHandler::setHeadingLevel(int level)
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
 
-    QTextBlockFormat blkfmt;
+    QTextBlockFormat blkfmt = cursor.blockFormat();
     blkfmt.setHeadingLevel(boundedLevel);
-    cursor.mergeBlockFormat(blkfmt);
+    cursor.setBlockFormat(blkfmt);
 
     // Applying style to the current line or selection
     QTextCursor selectCursor = cursor;
@@ -691,13 +680,7 @@ void RichDocumentHandler::setHeadingLevel(int level)
     selectCursor.setBlockCharFormat(chrfmt);
     cursor.setBlockCharFormat(chrfmt);
 
-    selectCursor.setCharFormat(chrfmt);
-    cursor.setCharFormat(chrfmt);
-
     cursor.endEditBlock();
-    // richTextComposer()->setTextCursor(cursor);
-    // richTextComposer()->setFocus();
-    // richTextComposer()->activateRichText();
 }
 
 QString RichDocumentHandler::currentLinkUrl() const
@@ -1429,11 +1412,6 @@ void RichDocumentHandler::slotKeyPressed(int key)
                 // Clear heading formatting
                 if (cursor.blockFormat().headingLevel() > 0) {
                     setHeadingLevel(0);
-                    qDebug() << textCursor().block().text();
-                    qDebug() << textCursor().blockFormat().headingLevel();
-                    qDebug() << textCursor().charFormat().fontPointSize();
-                    qDebug() << textCursor().charFormat().font().pixelSize();
-                    qDebug() << textCursor().charFormat().property(QTextFormat::FontSizeAdjustment);
                     formatChanged = true;
                 }
 
@@ -1549,9 +1527,6 @@ void RichDocumentHandler::slotKeyPressed(int key)
         textCursor().joinPreviousEditBlock();
         setHeadingLevel(0);
         textCursor().endEditBlock();
-        qDebug() << textCursor().block().text();
-        qDebug() << textCursor().blockFormat().headingLevel();
-        qDebug() << textCursor().charFormat().fontPointSize();
         Q_EMIT cursorPositionChanged();
     }
 }
@@ -1563,6 +1538,33 @@ bool RichDocumentHandler::processKeyEvent(QKeyEvent *e)
         textCursor().clearSelection();
         Q_EMIT focusUp();
         return true;
+    }
+
+    // Reset formatting properly when deleting lines
+    if (e->key() == Qt::Key_Backspace || e->key() == Qt::Key_Delete) {
+        QTextCursor cursor = textCursor();
+        if (cursor.hasSelection()) {
+            QTextCursor cursorAtSelectionStart = textCursor();
+            cursorAtSelectionStart.setPosition(cursor.selectionStart());
+
+            if (cursor.selectionStart() == cursorAtSelectionStart.block().position()) {
+                cursor.beginEditBlock();
+                cursor.setBlockCharFormat(QTextCharFormat());
+                cursor.setBlockFormat(QTextBlockFormat());
+                cursor.endEditBlock();
+            }
+        }
+
+        if (cursor.positionInBlock() == 0 && textCursor().block().text().trimmed().isEmpty()) {
+            cursor.beginEditBlock();
+            cursor.select(QTextCursor::BlockUnderCursor);
+            cursor.removeSelectedText();
+            cursor.deletePreviousChar();
+            cursor.setBlockCharFormat(QTextCharFormat());
+            cursor.setBlockFormat(QTextBlockFormat());
+            cursor.endEditBlock();
+            return false;
+        }
     }
 
     // do not handle any other key events above this
