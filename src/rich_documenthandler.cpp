@@ -1084,9 +1084,12 @@ bool RichDocumentHandler::evaluateListSupport(QKeyEvent *event)
         } else {
             cursor.deletePreviousChar();
         }
+
         setHeadingLevel(cursor.blockFormat().headingLevel());
         cursor.endEditBlock();
-        handled = true;
+
+        // we don't want the native handler to run after this
+        return false;
     }
 
     if (!handled) {
