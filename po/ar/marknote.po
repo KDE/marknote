@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-07 00:44+0000\n"
-"PO-Revision-Date: 2026-03-07 12:02+0400\n"
+"PO-Revision-Date: 2026-03-08 10:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -82,7 +82,7 @@ msgstr "كارل شوان"
 #: main.cpp:84
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr "فالينتين بوندارينكو"
+msgstr "فالنتين بوندارينكو"
 
 #: main.cpp:89
 #, kde-format
@@ -152,12 +152,12 @@ msgstr "استبدل الكلّ"
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] "لم يستبدل شيء"
-msgstr[1] "اُستبدل موضع واحد"
-msgstr[2] "اُستبدل موضعين"
-msgstr[3] "اُستبدل %1 مواضع"
-msgstr[4] "اُستبدل %1 موضعًا"
-msgstr[5] "اُستبدل %1 موضع"
+msgstr[0] "استبدل 0 موضع"
+msgstr[1] "استبدل موضع واحد"
+msgstr[2] "استبدل موضعين"
+msgstr[3] "استبدل %1 موضعًا"
+msgstr[4] "استبدل %1 موضعًا"
+msgstr[5] "استبدل %1 موضع"
 
 #: qml/EditPage.qml:355
 #, kde-format
@@ -436,7 +436,7 @@ msgstr "حرر الدفتر"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "أدرج رابط ملاحظة"
+msgstr "أدرج رابط الملاحظة"
 
 #: qml/NoteLinkDialog.qml:49
 #, kde-format
@@ -454,7 +454,7 @@ msgstr "اسم الملاحظة التي تريد الارتباط بها."
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "نصّ الرّابط:"
+msgstr "النص الذي سيعرض:"
 
 #: qml/NoteLinkDialog.qml:70
 #, kde-format
@@ -646,7 +646,7 @@ msgstr "وضع التركيز"
 #: qml/RawEditPage.qml:228
 #, kde-format
 msgid "Switch editor to preview mode"
-msgstr "بدّل المحرر إلى نمط المعاينة"
+msgstr "بدّل محرر إلى وضع المعاينة"
 
 #: qml/RawEditPage.qml:233 qml/RichEditPage.qml:356
 #, kde-format
@@ -662,7 +662,7 @@ msgstr "جدول المحتويات"
 #: qml/RichEditPage.qml:351
 #, kde-format
 msgid "Switch editor to source mode"
-msgstr "بدّل المحرر إلى نمط المصدر"
+msgstr "بدّل محرر إلى وضع المصدر"
 
 #: qml/RichEditPage.qml:444
 #, kde-format
@@ -734,7 +734,7 @@ msgstr "أدرج رابط"
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr "أدرج رابط ملاحظة"
+msgstr "أدرج رابط الملاحظة"
 
 #: qml/RichEditPage.qml:629
 #, kde-format
