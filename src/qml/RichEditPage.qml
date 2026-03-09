@@ -221,7 +221,7 @@ EditPage {
             checkable: true
             checked: tocLoader.active
             onClicked: tocLoader.active ? tocLoader.close() : tocLoader.open()
-            visible: root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+            visible: root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
 
             ToolTip.text: text
             ToolTip.visible: hovered
@@ -294,7 +294,7 @@ EditPage {
             checkable: true
             checked: tocLoader.active
             onClicked: tocLoader.active ? tocLoader.close() : tocLoader.open()
-            visible: root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
+            visible: root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
 
             ToolTip.text: text
             ToolTip.visible: hovered
