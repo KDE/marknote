@@ -124,7 +124,9 @@ int main(int argc, char *argv[])
 #endif
 
     if (parser.positionalArguments().length() > 0) {
-        const auto path = parser.positionalArguments()[0];
+        QUrl url(parser.positionalArguments()[0]);
+        const auto path = url.isLocalFile() ? url.toLocalFile() : parser.positionalArguments()[0];
+
         if (QFile::exists(path)) {
             engine.rootContext()->setContextProperty(u"cliNoteName"_s, path.split(QLatin1Char('/')).last().replace(u".md"_s, QString{}));
             engine.rootContext()->setContextProperty(u"cliNoteFullPath"_s, QUrl::fromLocalFile(path));
