@@ -142,9 +142,9 @@ msgid "Replace with..."
 msgstr ""
 
 #: qml/EditPage.qml:288
-#, fuzzy, kde-format
+#, kde-format
 msgid "Replace All"
-msgstr "选择全部"
+msgstr ""
 
 #: qml/EditPage.qml:292
 #, kde-format
@@ -425,16 +425,16 @@ msgid "Edit Notebook"
 msgstr "编辑笔记本"
 
 #: qml/NoteLinkDialog.qml:43
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "插入链接"
+msgstr ""
 
 #: qml/NoteLinkDialog.qml:49
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr "名称："
+msgstr ""
 
 #: qml/NoteLinkDialog.qml:51
 #, kde-format
@@ -443,10 +443,10 @@ msgid "The name of the note you want to link to."
 msgstr ""
 
 #: qml/NoteLinkDialog.qml:68
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "链接文本："
+msgstr ""
 
 #: qml/NoteLinkDialog.qml:70
 #, kde-format
@@ -543,10 +543,10 @@ msgid "Delete Note"
 msgstr "删除笔记"
 
 #: qml/NotesPage.qml:463
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Note"
-msgstr "复制"
+msgstr ""
 
 #: qml/NotesPage.qml:472
 #, kde-format
@@ -721,10 +721,10 @@ msgid "Insert link"
 msgstr "插入链接"
 
 #: qml/RichEditPage.qml:613
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr "插入链接"
+msgstr ""
 
 #: qml/RichEditPage.qml:629
 #, kde-format

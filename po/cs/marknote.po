@@ -130,7 +130,7 @@ msgstr "%1/%2"
 #: qml/EditPage.qml:213 qml/EditPage.qml:276
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "Nahradit"
 
 #: qml/EditPage.qml:230
 #, kde-format
@@ -143,11 +143,9 @@ msgid "Replace with..."
 msgstr ""
 
 #: qml/EditPage.qml:288
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace All"
-msgstr "Vybrat vše"
+msgstr "Nahradit vše"
 
 #: qml/EditPage.qml:292
 #, kde-format
