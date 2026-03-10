@@ -356,7 +356,7 @@ EditPage {
 
             // TODO: Move this logic to Main to get rid of the magic number
             // Workarond to align the drawer with the separator
-            readonly property real alignSeparatorWidth: 14.6
+            readonly property real alignSeparatorWidth: floatingEditButton.verticalScrollBar.visible ? 15.7 : 14.6
             readonly property real exactWidth: (Kirigami.Units.gridUnit * alignSeparatorWidth) - Kirigami.Units.largeSpacing
 
             Layout.preferredWidth: exactWidth
@@ -687,6 +687,7 @@ EditPage {
     }
 
     Components.FloatingButton {
+        id: floatingEditButton
         icon.name: "document-edit"
         parent: root.overlay
         visible: !root.isWideScreen && !NavigationController.sourceMode
