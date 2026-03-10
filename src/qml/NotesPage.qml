@@ -429,7 +429,7 @@ Kirigami.ScrollablePage {
             property Delegates.RoundedItemDelegate delegateItem
 
             Action {
-                text: i18nc("@action:inmenu", "Rename Note")
+                text: i18nc("@action:inmenu", "Rename")
                 icon.name: "document-edit"
                 onTriggered:
                 {
@@ -441,26 +441,7 @@ Kirigami.ScrollablePage {
             }
 
             Action {
-                text: i18nc("@action:inmenu", "Duplicate Note")
-                icon.name: "edit-duplicate-symbolic"
-                onTriggered: {
-                    notesModel.duplicateNote(menu.delegateItem.fileUrl)
-                }
-            }
-
-            Action {
-                text: i18nc("@action:inmenu", "Delete Note")
-                icon.name: "delete"
-                onTriggered: {
-                    removeDialog.noteName = menu.delegateItem.name;
-                    removeDialog.notePath = menu.delegateItem.path;
-                    removeDialog.fileUrl = menu.delegateItem.fileUrl;
-                    removeDialog.open()
-                }
-            }
-
-            Action {
-                text: i18nc("@action:inmenu", "Copy Note")
+                text: i18nc("@action:inmenu", "Copy")
                 icon.name: "edit-copy"
                 onTriggered: {
                     notesModel.copyWholeNote(menu.delegateItem.fileUrl)
@@ -469,41 +450,69 @@ Kirigami.ScrollablePage {
             }
 
             Action {
-                text: i18nc("@action:inmenu", "Export to HTML")
-                icon.name: "text-html"
+                text: i18nc("@action:inmenu", "Duplicate")
+                icon.name: "edit-duplicate-symbolic"
                 onTriggered: {
-                    fileDialog.name = menu.delegateItem.name;
-                    fileDialog.path = menu.delegateItem.fileUrl;
-                    fileDialog.selectedFile = menu.delegateItem.name + '.html';
-                    fileDialog.title = i18nc("@title:window", "Export to HTML");
-                    fileDialog.nameFilters = [i18n("HTML file (*.html)")];
-                    fileDialog.open();
+                    notesModel.duplicateNote(menu.delegateItem.fileUrl)
                 }
             }
 
-            Action {
-                text: i18nc("@action:inmenu", "Export to PDF")
-                icon.name: "application-pdf"
-                onTriggered: {
-                    fileDialog.name = menu.delegateItem.name;
-                    fileDialog.path = menu.delegateItem.fileUrl;
-                    fileDialog.selectedFile = menu.delegateItem.name + '.pdf';
-                    fileDialog.title = i18nc("@title:window", "Export to PDF");
-                    fileDialog.nameFilters = [i18n("PDF file (*.pdf)")];
-                    fileDialog.open();
+            Kirigami.Action {
+                text: i18nc("@action:inmenu", "Export")
+                icon.name: "document-export"
+
+                Kirigami.Action {
+                    text: i18nc("@action:inmenu", "Export to HTML")
+                    icon.name: "text-html"
+                    onTriggered: {
+                        fileDialog.name = menu.delegateItem.name;
+                        fileDialog.path = menu.delegateItem.fileUrl;
+                        fileDialog.selectedFile = menu.delegateItem.name + '.html';
+                        fileDialog.title = i18nc("@title:window", "Export to HTML");
+                        fileDialog.nameFilters = [i18n("HTML file (*.html)")];
+                        fileDialog.open();
+                    }
+                }
+
+                Kirigami.Action {
+                    text: i18nc("@action:inmenu", "Export to PDF")
+                    icon.name: "application-pdf"
+                    onTriggered: {
+                        fileDialog.name = menu.delegateItem.name;
+                        fileDialog.path = menu.delegateItem.fileUrl;
+                        fileDialog.selectedFile = menu.delegateItem.name + '.pdf';
+                        fileDialog.title = i18nc("@title:window", "Export to PDF");
+                        fileDialog.nameFilters = [i18n("PDF file (*.pdf)")];
+                        fileDialog.open();
+                    }
+                }
+
+                Kirigami.Action {
+                    text: i18nc("@action:inmenu", "Export to ODT")
+                    icon.name: "application-vnd.oasis.opendocument.text"
+                    onTriggered: {
+                        fileDialog.name = menu.delegateItem.name;
+                        fileDialog.path = menu.delegateItem.fileUrl;
+                        fileDialog.selectedFile = menu.delegateItem.name + '.odt';
+                        fileDialog.title = i18nc("@title:window", "Export to ODT");
+                        fileDialog.nameFilters = [i18n("ODF Text Document (*.odt)")];
+                        fileDialog.open();
+                    }
                 }
             }
 
+            Kirigami.Action {
+                separator: true
+            }
+
             Action {
-                text: i18nc("@action:inmenu", "Export to ODT")
-                icon.name: "application-vnd.oasis.opendocument.text"
+                text: i18nc("@action:inmenu", "Delete")
+                icon.name: "delete"
                 onTriggered: {
-                    fileDialog.name = menu.delegateItem.name;
-                    fileDialog.path = menu.delegateItem.fileUrl;
-                    fileDialog.selectedFile = menu.delegateItem.name + '.odt';
-                    fileDialog.title = i18nc("@title:window", "Export to ODT");
-                    fileDialog.nameFilters = [i18n("ODF Text Document (*.odt)")];
-                    fileDialog.open();
+                    removeDialog.noteName = menu.delegateItem.name;
+                    removeDialog.notePath = menu.delegateItem.path;
+                    removeDialog.fileUrl = menu.delegateItem.fileUrl;
+                    removeDialog.open()
                 }
             }
         }
