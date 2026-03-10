@@ -647,6 +647,19 @@ void RichDocumentHandler::setHeadingLevel(int level)
     blkfmt.setHeadingLevel(boundedLevel);
     cursor.setBlockFormat(blkfmt);
 
+    // FontSizeAdjustment goes from 3 for Heading 1 to -2 for Heading 6
+    const int fontSizeAdjustment = 4 - boundedLevel;
+
+    QTextCharFormat chrfmt = cursor.charFormat();
+    chrfmt.setFontWeight(boundedLevel > 0 ? QFont::Bold : QFont::Normal);
+
+    if (boundedLevel > 0) {
+        chrfmt.setProperty(QTextFormat::FontSizeAdjustment, fontSizeAdjustment);
+    } else {
+        chrfmt.clearProperty(QTextFormat::FontSizeAdjustment);
+        chrfmt.setFontPointSize(QFontInfo(textDocument()->defaultFont()).pointSize());
+    }
+
     // Applying style to the current line or selection
     QTextCursor selectCursor = cursor;
     if (selectCursor.hasSelection()) {
@@ -660,25 +673,11 @@ void RichDocumentHandler::setHeadingLevel(int level)
 
         selectCursor.setPosition(top.position(), QTextCursor::MoveAnchor);
         selectCursor.setPosition(bottom.position(), QTextCursor::KeepAnchor);
+        selectCursor.setCharFormat(chrfmt);
     } else {
         selectCursor.select(QTextCursor::BlockUnderCursor);
+        cursor.setBlockCharFormat(chrfmt);
     }
-
-    // FontSizeAdjustment goes from 3 for Heading 1 to -2 for Heading 6
-    const int fontSizeAdjustment = 4 - boundedLevel;
-
-    QTextCharFormat chrfmt = selectCursor.charFormat();
-    chrfmt.setFontWeight(boundedLevel > 0 ? QFont::Bold : QFont::Normal);
-
-    if (boundedLevel > 0) {
-        chrfmt.setProperty(QTextFormat::FontSizeAdjustment, fontSizeAdjustment);
-    } else {
-        chrfmt.clearProperty(QTextFormat::FontSizeAdjustment);
-        chrfmt.setFontPointSize(QFontInfo(textDocument()->defaultFont()).pointSize());
-    }
-
-    selectCursor.setBlockCharFormat(chrfmt);
-    cursor.setBlockCharFormat(chrfmt);
 
     cursor.endEditBlock();
 }
@@ -1553,15 +1552,13 @@ bool RichDocumentHandler::processKeyEvent(QKeyEvent *e)
                 cursor.setBlockFormat(QTextBlockFormat());
                 cursor.endEditBlock();
             }
-        }
-
-        if (cursor.positionInBlock() == 0 && textCursor().block().text().trimmed().isEmpty()) {
+        } else if (cursor.positionInBlock() == 0 && textCursor().block().text().trimmed().isEmpty()) {
             cursor.beginEditBlock();
+            cursor.setBlockCharFormat(QTextCharFormat());
+            cursor.setBlockFormat(QTextBlockFormat());
             cursor.select(QTextCursor::BlockUnderCursor);
             cursor.removeSelectedText();
             cursor.deletePreviousChar();
-            cursor.setBlockCharFormat(QTextCharFormat());
-            cursor.setBlockFormat(QTextBlockFormat());
             cursor.endEditBlock();
             return false;
         }
