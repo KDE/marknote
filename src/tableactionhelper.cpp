@@ -231,7 +231,6 @@ void TableActionHelper::setSelectionStart(int position)
         return;
 
     m_selectionStart = position;
-    _k_updateActions(true);
     Q_EMIT selectionStartChanged();
 }
 
@@ -246,7 +245,6 @@ void TableActionHelper::setSelectionEnd(int position)
         return;
 
     m_selectionEnd = position;
-    _k_updateActions(true);
     Q_EMIT selectionEndChanged();
 }
 
