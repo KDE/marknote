@@ -354,19 +354,25 @@ EditPage {
         RowLayout {
             visible: tocLoader.active && !root.isNarrow && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
 
-            readonly property real exactWidth: (Kirigami.Units.gridUnit * 15) - Kirigami.Units.largeSpacing
+            // TODO: Move this logic to Main to get rid of the magic number
+            // Workarond to align the drawer with the separator
+            readonly property real alignSeparatorWidth: 14.6
+            readonly property real exactWidth: (Kirigami.Units.gridUnit * alignSeparatorWidth) - Kirigami.Units.largeSpacing
 
             Layout.preferredWidth: exactWidth
             Layout.maximumWidth: exactWidth
             Layout.minimumWidth: exactWidth
 
-            spacing: Kirigami.Units.largeSpacing
+            spacing: 0
+
+            Item { Layout.fillWidth: true }
 
             Kirigami.Heading {
                 text: KI18n.i18nc("@title:window", "Table of Contents")
-                Layout.fillWidth: true
                 elide: Text.ElideRight
             }
+
+            Item { Layout.fillWidth: true }
         }
     }
 
