@@ -24,10 +24,12 @@ EditPage {
     property int listStyle: 0
     property int heading: 0
 
-    readonly property bool canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2
+    readonly property bool canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2 && tocLoader.active !== true
 
     mobileToolBarHidden: mobileToolBarContainer.hidden
     mobileToolBarHeight: mobileToolBarContainer.height
+
+    dynamicRightPadding: tocLoader.item ? (tocLoader.item.position * tocLoader.item.width) : 0
 
     objectName: "RichEditPage"
 
@@ -214,25 +216,6 @@ EditPage {
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
 
-        ToolButton {
-            icon.name: "view-list-details"
-            text: KI18n.i18nc("@action:button", "Table of Content")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: tocLoader.active
-            onClicked: tocLoader.active ? tocLoader.close() : tocLoader.open()
-            visible: root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
-
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        Item {
-            Layout.preferredWidth: Kirigami.Units.largeSpacing*4
-            visible: root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn
-        }
-
         Item { Layout.fillWidth: true }
 
         Rectangle {
@@ -243,7 +226,6 @@ EditPage {
             color: Kirigami.Theme.textColor
             Behavior on scale {
                 NumberAnimation {
-
                     duration: Kirigami.Units.shortDuration * 2
                     easing.type: Easing.InOutQuart
                 }
@@ -251,7 +233,7 @@ EditPage {
         }
 
         Kirigami.Heading {
-            text: root.noteName
+            text: tocLoader.active && !root.singleDocumentMode && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn ? tocButton.text : root.noteName
             elide: Text.ElideRight
             wrapMode: Text.NoWrap
 
@@ -269,6 +251,7 @@ EditPage {
             visible: root.isWideScreen
         }
         ToolButton {
+            id: searchNoteButton
             icon.name: "search"
             text: KI18n.i18nc("@action:button", "Search Note")
             display: AbstractButton.IconOnly
@@ -288,15 +271,16 @@ EditPage {
 
 
         ToolButton {
+            id: tocButton
             icon.name: "view-list-details"
             text: KI18n.i18nc("@action:button", "Table of Content")
             display: AbstractButton.IconOnly
             checkable: true
             checked: tocLoader.active
             onClicked: tocLoader.active ? tocLoader.close() : tocLoader.open()
-            visible: root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+            visible: true
 
-            ToolTip.text: text
+            ToolTip.text: KI18n.i18nc("@info:tooltip", tocButton.text)
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
@@ -361,6 +345,29 @@ EditPage {
                 NavigationController.sourceMode = !NavigationController.sourceMode
             }
         }
+
+        Kirigami.Separator {
+            Layout.fillHeight: true
+            visible: tocLoader.active && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+        }
+
+        RowLayout {
+            visible: tocLoader.active && !root.isNarrow && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+
+            readonly property real exactWidth: (Kirigami.Units.gridUnit * 15) - Kirigami.Units.largeSpacing
+
+            Layout.preferredWidth: exactWidth
+            Layout.maximumWidth: exactWidth
+            Layout.minimumWidth: exactWidth
+
+            spacing: Kirigami.Units.largeSpacing
+
+            Kirigami.Heading {
+                text: KI18n.i18nc("@title:window", "Table of Contents")
+                Layout.fillWidth: true
+                elide: Text.ElideRight
+            }
+        }
     }
 
     LinkDialog {
@@ -418,9 +425,11 @@ EditPage {
         sourceComponent: TocDrawer {
             textArea: root.textArea
             parent: root.Overlay.overlay
+
             topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
-            bottomMargin: toolBar.visible ? (toolBar.height + Kirigami.Units.largeSpacing * 2) : (mobileToolBarContainer.visible && !mobileToolBarContainer.hidden ? mobileToolBarContainer.height : 0)
-            height: parent.height - topMargin - bottomMargin
+            bottomMargin: 0
+
+            height: parent.height - topMargin
         }
     }
 
@@ -707,11 +716,12 @@ EditPage {
         property bool hidden: NavigationController.sourceMode
 
         visible: !root.canFitToolbar
-        y: hidden? parent.height : parent.height - mobileToolBar.height
+        y: hidden ? parent.height : parent.height - mobileToolBar.height
 
         anchors {
             left: parent.left
             right: parent.right
+            rightMargin: root.dynamicRightPadding
         }
 
         z: 600000

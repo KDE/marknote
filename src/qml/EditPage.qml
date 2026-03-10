@@ -28,6 +28,7 @@ Kirigami.Page {
     property string oldPath: ''
     property bool saved: true
     property bool singleDocumentMode: false
+    property real dynamicRightPadding: 0
 
     readonly property alias textArea: textArea
     readonly property alias copyMessage: copyMessage
@@ -39,6 +40,13 @@ Kirigami.Page {
 
     property bool mobileToolBarHidden: true
     property real mobileToolBarHeight: 0
+
+    onWidthChanged: {
+        // 30 grid units gives enough room for the 15-unit drawer + 15 units of text
+        if (tocLoader.active && width < (tocLoader.item.width + Kirigami.Units.gridUnit * 15)) {
+            tocLoader.close()
+        }
+    }
 
     function openSearch(): void {
         if (searchBar) {
@@ -95,7 +103,7 @@ Kirigami.Page {
 
     bottomPadding: 0
     leftPadding: 0
-    rightPadding: 0
+    rightPadding: dynamicRightPadding
     topPadding: 0
 
     header: ColumnLayout {
@@ -385,7 +393,7 @@ Kirigami.Page {
             textMargin: applyWideScreenMargin ? Kirigami.Units.largeSpacing * marginMultiplier : Kirigami.Units.smallSpacing * marginMultiplier
 
             leftPadding: 0
-            rightPadding: 0
+            rightPadding: Kirigami.Units.largeSpacing
             topPadding: 0
             bottomPadding: 0
 

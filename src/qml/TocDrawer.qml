@@ -21,33 +21,12 @@ Kirigami.OverlayDrawer {
     handleVisible: false
     edge: Qt.RightEdge
 
-    width: Kirigami.Units.gridUnit * 15
-    
+    // If the window is too narrow (i.e., less than 15 units of text + 15 units of drawer),
+    // fill the whole parent width; otherwise, clip it to the editor.
+    width: (parent && parent.width < (Kirigami.Units.gridUnit * 30)) ? parent.width : Kirigami.Units.gridUnit * 15
+
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
-
-        RowLayout {
-            Layout.fillWidth: true
-            Layout.margins: Kirigami.Units.smallSpacing
-
-            Kirigami.Heading {
-                text: KI18n.i18nc("@title:window", "Table of Contents")
-                Layout.fillWidth: true
-                elide: Text.ElideRight
-                type: Kirigami.Heading.Type.Primary
-            }
-
-            ToolButton {
-                icon.name: "dialog-close"
-                text: KI18n.i18nc("@action:button", "Close")
-                display: AbstractButton.IconOnly
-                onClicked: root.close()
-
-                ToolTip.text: text
-                ToolTip.visible: hovered
-                ToolTip.delay: Kirigami.Units.toolTipDelay
-            }
-        }
 
         ListView {
             id: tocListView
@@ -60,7 +39,7 @@ Kirigami.OverlayDrawer {
                 document: root.textArea.textDocument
             }
 
-            clip: true
+            clip: false
 
             delegate: Delegates.RoundedItemDelegate {
                 id: tocDelegate
@@ -79,7 +58,10 @@ Kirigami.OverlayDrawer {
                     ListView.view.currentIndex = index
                     root.textArea.cursorPosition = cursorPosition
                     root.textArea.forceActiveFocus()
-                    if (Kirigami.Settings.isMobile) {
+
+                    // Dismiss the drawer on narrow screens so they can read
+                    // We don't exclusively account for mobile screens here
+                    if (root.width === (root.parent ? root.parent.width : 0)) {
                         root.close()
                     }
                 }
