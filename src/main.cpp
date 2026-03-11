@@ -52,6 +52,64 @@
 
 using namespace Qt::Literals::StringLiterals;
 
+void setupAboutAuthors(KAboutData &about)
+{
+    about.addAuthor(i18n("Mathis Brüchert"),
+                    i18n("Maintainer"),
+                    u"mbb@kaidan.im"_s,
+                    u"https://invent.kde.org/mbruchert"_s,
+                    QUrl(u"https://gravatar.com/avatar/f9c35f242fe79337bf8746ca9fccc189?size=256.png"_s));
+
+    about.addAuthor(i18n("Carl Schwan"), i18n("Maintainer"), u"carl@carlschwan.eu"_s, u"https://carlschwan.eu"_s, QUrl(u"https://carlschwan.eu/avatar.png"_s));
+
+    about.addAuthor(i18n("Valentyn Bondarenko"),
+                    i18n("Maintainer"),
+                    u"bondarenko@vivaldi.net"_s,
+                    u"https://invent.kde.org/hunterx"_s,
+                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/14675/avatar.png?width=256"_s));
+}
+
+void setupAboutCredits(KAboutData &about)
+{
+    about.addCredit(i18n("Justin Zobel"),
+                    i18n("Flatpak support"),
+                    u"justin.zobel@gmail.com"_s,
+                    u"https://invent.kde.org/justinzobel"_s,
+                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/1157/avatar.png?width=256"_s));
+
+    about.addCredit(i18n("Shubham Shinde"),
+                    i18n("Table of Contents"),
+                    u"shindeshubham0520@gmail.com"_s,
+                    u"https://invent.kde.org/shub"_s,
+                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/17419/avatar.png?width=256"_s));
+
+    about.addCredit(i18n("Siddharth Chopra"),
+                    i18n("Source Mode"),
+                    u"contact.sid.chopra@gmail.com"_s,
+                    u"https://invent.kde.org/users/siddharthc"_s,
+                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/22002/avatar.png?width=256"_s));
+
+    about.addCredit(i18n("Joshua Goins"),
+                    i18n("Bug fixes"),
+                    u"josh@redstrate.com"_s,
+                    u"https://invent.kde.org/redstrate"_s,
+                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/5782/avatar.png?width=256"_s));
+
+    about.addCredit(i18n("Prayag Jain"),
+                    i18n("Bug fixes"),
+                    u"prayagjain2@gmail.com"_s,
+                    u"https://invent.kde.org/prayag"_s,
+                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/4468/avatar.png?width=256"_s));
+
+    about.addCredit(i18n("Volker Krause"),
+                    i18n("Bug fixes"),
+                    u"vkrause@kde.org"_s,
+                    u"https://invent.kde.org/vkrause"_s,
+                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/54/avatar.png?width=256"_s));
+
+    about.addCredit(i18n("Laurent Montel"), i18n("Bug fixes"), u"montel@kde.org"_s, u"https://invent.kde.org/mlaurent"_s);
+}
+
 int main(int argc, char *argv[])
 {
 #ifdef Q_OS_ANDROID
@@ -75,18 +133,9 @@ int main(int argc, char *argv[])
                      i18n("Note taking application"),
                      KAboutLicense::GPL_V2,
                      i18n("© 2023-2026 Mathis Brüchert"));
-    about.addAuthor(i18n("Mathis Brüchert"),
-                    i18n("Maintainer"),
-                    u"mbb@kaidan.im"_s,
-                    u"https://invent.kde.org/mbruchert"_s,
-                    QUrl(u"https://gravatar.com/avatar/f9c35f242fe79337bf8746ca9fccc189?size=256.png"_s));
-    about.addAuthor(i18n("Carl Schwan"), i18n("Maintainer"), u"carl@carlschwan.eu"_s, u"https://carlschwan.eu"_s, QUrl(u"https://carlschwan.eu/avatar.png"_s));
-    about.addAuthor(i18n("Valentyn Bondarenko"),
-                    i18n("Maintainer"),
-                    u"bondarenko@vivaldi.net"_s,
-                    u"https://invent.kde.org/hunterx"_s,
-                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/14675/avatar.png?width=256"_s));
-    about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
+
+    setupAboutAuthors(about);
+    setupAboutCredits(about);
 
     KAboutData::setApplicationData(about);
 
