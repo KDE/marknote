@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-11 00:46+0000\n"
 "PO-Revision-Date: 2026-03-06 17:37+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -267,7 +267,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Créer un cahier de notes"
 
-#: qml/Main.qml:316 qml/NotesPage.qml:646
+#: qml/Main.qml:316 qml/NotesPage.qml:655
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -532,81 +532,93 @@ msgid "Export of \"%1\" failed."
 msgstr "L'exportation de « %1 » a échoué."
 
 #: qml/NotesPage.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Rename Note"
 msgctxt "@action:inmenu"
-msgid "Rename Note"
+msgid "Rename"
 msgstr "Renommer une note"
 
-#: qml/NotesPage.qml:444
+#: qml/NotesPage.qml:444 qml/TextFieldContextMenu.qml:390
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Duplicate Note"
+msgid "Copy"
+msgstr "Copier"
+
+#: qml/NotesPage.qml:453
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Duplicate Note"
+msgctxt "@action:inmenu"
+msgid "Duplicate"
 msgstr "Dupliquer une note"
 
-#: qml/NotesPage.qml:452
-#, kde-format
+#: qml/NotesPage.qml:461
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Import"
 msgctxt "@action:inmenu"
-msgid "Delete Note"
-msgstr "Supprimer une note"
+msgid "Export"
+msgstr "Importer"
 
-#: qml/NotesPage.qml:463
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Note"
-msgstr "Copier une note"
-
-#: qml/NotesPage.qml:472
+#: qml/NotesPage.qml:465
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Exporter vers le format « HTML »"
 
-#: qml/NotesPage.qml:478
+#: qml/NotesPage.qml:471
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exporter vers le format « HTML »"
 
-#: qml/NotesPage.qml:479
+#: qml/NotesPage.qml:472
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Fichier HTML (*.html)"
 
-#: qml/NotesPage.qml:485
+#: qml/NotesPage.qml:478
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Exporter vers le format « PDF »"
 
-#: qml/NotesPage.qml:491
+#: qml/NotesPage.qml:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exporter vers le format « PDF »"
 
-#: qml/NotesPage.qml:492
+#: qml/NotesPage.qml:485
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Fichier « PDF » (*.pdf)"
 
-#: qml/NotesPage.qml:498
+#: qml/NotesPage.qml:491
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Exporter vers le format « ODT »"
 
-#: qml/NotesPage.qml:504
+#: qml/NotesPage.qml:497
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exporter vers le format « ODT »"
 
-#: qml/NotesPage.qml:505
+#: qml/NotesPage.qml:498
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Document de texte « ODF » (*.odt)"
 
-#: qml/NotesPage.qml:690
+#: qml/NotesPage.qml:509 qml/TextFieldContextMenu.qml:423
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Supprimer"
+
+#: qml/NotesPage.qml:699
 #, kde-format
 msgid "Add a note!"
 msgstr "Ajoutez une note !"
@@ -862,23 +874,11 @@ msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Couper"
 
-#: qml/TextFieldContextMenu.qml:390
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy"
-msgstr "Copier"
-
 #: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Coller"
-
-#: qml/TextFieldContextMenu.qml:423
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Delete"
-msgstr "Supprimer"
 
 #: qml/TextFieldContextMenu.qml:441
 #, kde-format
@@ -999,6 +999,14 @@ msgstr "Colonne"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contenu des cellules"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete Note"
+#~ msgstr "Supprimer une note"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Copy Note"
+#~ msgstr "Copier une note"
 
 #~ msgctxt "@action:button"
 #~ msgid "Icon"

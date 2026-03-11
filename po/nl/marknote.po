@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-11 00:46+0000\n"
 "PO-Revision-Date: 2026-03-05 12:37+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -268,7 +268,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Notitieboek aanmaken"
 
-#: qml/Main.qml:316 qml/NotesPage.qml:646
+#: qml/Main.qml:316 qml/NotesPage.qml:655
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -532,81 +532,93 @@ msgid "Export of \"%1\" failed."
 msgstr "Exporteren van \"%1\" is mislukt."
 
 #: qml/NotesPage.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Rename Note"
 msgctxt "@action:inmenu"
-msgid "Rename Note"
+msgid "Rename"
 msgstr "Notitie hernoemen"
 
-#: qml/NotesPage.qml:444
+#: qml/NotesPage.qml:444 qml/TextFieldContextMenu.qml:390
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Duplicate Note"
+msgid "Copy"
+msgstr "Kopiëren"
+
+#: qml/NotesPage.qml:453
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Duplicate Note"
+msgctxt "@action:inmenu"
+msgid "Duplicate"
 msgstr "Notitie dupliceren"
 
-#: qml/NotesPage.qml:452
-#, kde-format
+#: qml/NotesPage.qml:461
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Import"
 msgctxt "@action:inmenu"
-msgid "Delete Note"
-msgstr "Notitie verwijderen"
+msgid "Export"
+msgstr "Importeren"
 
-#: qml/NotesPage.qml:463
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Note"
-msgstr "Notitie kopiëren"
-
-#: qml/NotesPage.qml:472
+#: qml/NotesPage.qml:465
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Exporteer naar HTML"
 
-#: qml/NotesPage.qml:478
+#: qml/NotesPage.qml:471
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exporteer naar HTML"
 
-#: qml/NotesPage.qml:479
+#: qml/NotesPage.qml:472
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-bestand (*.html)"
 
-#: qml/NotesPage.qml:485
+#: qml/NotesPage.qml:478
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Naar PDF exporteren"
 
-#: qml/NotesPage.qml:491
+#: qml/NotesPage.qml:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Naar PDF exporteren"
 
-#: qml/NotesPage.qml:492
+#: qml/NotesPage.qml:485
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-bestand (*.pdf)"
 
-#: qml/NotesPage.qml:498
+#: qml/NotesPage.qml:491
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Naar ODT exporteren"
 
-#: qml/NotesPage.qml:504
+#: qml/NotesPage.qml:497
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Naar ODT exporteren"
 
-#: qml/NotesPage.qml:505
+#: qml/NotesPage.qml:498
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-tekstdocument (*.odt)"
 
-#: qml/NotesPage.qml:690
+#: qml/NotesPage.qml:509 qml/TextFieldContextMenu.qml:423
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: qml/NotesPage.qml:699
 #, kde-format
 msgid "Add a note!"
 msgstr "Een notitie toevoegen!"
@@ -862,23 +874,11 @@ msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Knippen"
 
-#: qml/TextFieldContextMenu.qml:390
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy"
-msgstr "Kopiëren"
-
 #: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Plakken"
-
-#: qml/TextFieldContextMenu.qml:423
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Delete"
-msgstr "Verwijderen"
 
 #: qml/TextFieldContextMenu.qml:441
 #, kde-format
@@ -999,6 +999,14 @@ msgstr "Kolom"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celinhoud"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete Note"
+#~ msgstr "Notitie verwijderen"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Copy Note"
+#~ msgstr "Notitie kopiëren"
 
 #~ msgctxt "@action:button"
 #~ msgid "Icon"

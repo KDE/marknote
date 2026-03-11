@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-11 00:46+0000\n"
 "PO-Revision-Date: 2026-03-05 04:01+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -268,7 +268,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "წიგნაკის შექმნა"
 
-#: qml/Main.qml:316 qml/NotesPage.qml:646
+#: qml/Main.qml:316 qml/NotesPage.qml:655
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -533,81 +533,93 @@ msgid "Export of \"%1\" failed."
 msgstr "'%1'-ის გატანა ჩავარდა."
 
 #: qml/NotesPage.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Rename Note"
 msgctxt "@action:inmenu"
-msgid "Rename Note"
+msgid "Rename"
 msgstr "შენიშვნის სახელის გადარქმევა"
 
-#: qml/NotesPage.qml:444
+#: qml/NotesPage.qml:444 qml/TextFieldContextMenu.qml:390
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Duplicate Note"
+msgid "Copy"
+msgstr "კოპირება"
+
+#: qml/NotesPage.qml:453
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Duplicate Note"
+msgctxt "@action:inmenu"
+msgid "Duplicate"
 msgstr "შენიშვნის დუბლირება"
 
-#: qml/NotesPage.qml:452
-#, kde-format
+#: qml/NotesPage.qml:461
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Import"
 msgctxt "@action:inmenu"
-msgid "Delete Note"
-msgstr "შენიშვნის წაშლა"
+msgid "Export"
+msgstr "შემოტანა"
 
-#: qml/NotesPage.qml:463
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Note"
-msgstr "შენიშვნის კოპირება"
-
-#: qml/NotesPage.qml:472
+#: qml/NotesPage.qml:465
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "HTML-ში გატანა"
 
-#: qml/NotesPage.qml:478
+#: qml/NotesPage.qml:471
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "HTML-ში გატანა"
 
-#: qml/NotesPage.qml:479
+#: qml/NotesPage.qml:472
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML ფაილი (*.html)"
 
-#: qml/NotesPage.qml:485
+#: qml/NotesPage.qml:478
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "გატანა PDF-ში"
 
-#: qml/NotesPage.qml:491
+#: qml/NotesPage.qml:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "გატანა PDF-ში"
 
-#: qml/NotesPage.qml:492
+#: qml/NotesPage.qml:485
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "ყველა ფაილი (*)"
 
-#: qml/NotesPage.qml:498
+#: qml/NotesPage.qml:491
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "გატანა ODT-ში"
 
-#: qml/NotesPage.qml:504
+#: qml/NotesPage.qml:497
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "გატანა ODT-ში"
 
-#: qml/NotesPage.qml:505
+#: qml/NotesPage.qml:498
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF ტექსტური დოკუმენტი (*.odt)"
 
-#: qml/NotesPage.qml:690
+#: qml/NotesPage.qml:509 qml/TextFieldContextMenu.qml:423
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "წაშლა"
+
+#: qml/NotesPage.qml:699
 #, kde-format
 msgid "Add a note!"
 msgstr "დაამატეთ შენიშვნა!"
@@ -863,23 +875,11 @@ msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "ამოჭრა"
 
-#: qml/TextFieldContextMenu.qml:390
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy"
-msgstr "კოპირება"
-
 #: qml/TextFieldContextMenu.qml:404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "ჩასმა"
-
-#: qml/TextFieldContextMenu.qml:423
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Delete"
-msgstr "წაშლა"
 
 #: qml/TextFieldContextMenu.qml:441
 #, kde-format
@@ -1000,6 +1000,14 @@ msgstr "სვეტი"
 #, kde-format
 msgid "Cell Contents"
 msgstr "უჯრედის შემცველობა"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete Note"
+#~ msgstr "შენიშვნის წაშლა"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Copy Note"
+#~ msgstr "შენიშვნის კოპირება"
 
 #~ msgctxt "@action:button"
 #~ msgid "Icon"
