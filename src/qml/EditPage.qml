@@ -380,14 +380,14 @@ Kirigami.Page {
         T.TextArea {
             id: textArea
 
-            textMargin: root.isWideScreen? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 1
+            readonly property int marginMultiplier: 6
+            readonly property bool applyWideScreenMargin: (root.isWideScreen && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns) || singleDocumentMode
+            textMargin: applyWideScreenMargin ? Kirigami.Units.largeSpacing * marginMultiplier : Kirigami.Units.smallSpacing * marginMultiplier
+
             leftPadding: 0
             rightPadding: 0
             topPadding: 0
-
-            readonly property int additionalPadding: Kirigami.Units.gridUnit * 4
-
-            bottomPadding: root.isWideScreen || NavigationController.sourceMode ? additionalPadding : (root.mobileToolBarHidden ? 0 : root.mobileToolBarHeight)
+            bottomPadding: 0
 
             Behavior on bottomPadding {
                 NumberAnimation {
@@ -395,7 +395,6 @@ Kirigami.Page {
                     easing.type: Easing.OutInQuart
                 }
             }
-            
 
             HoverHandler {
                 id: controlHoverHandler
