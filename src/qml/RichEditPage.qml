@@ -674,8 +674,8 @@ EditPage {
     Components.FloatingButton {
         icon.name: "document-edit"
         parent: root.overlay
-        visible: !root.isWideScreen
-        scale: mobileToolBarContainer.hidden? 1 : 0
+        visible: !root.isWideScreen && !NavigationController.sourceMode
+        scale: mobileToolBarContainer.hidden ? true : false
 
         property int defaultSpacing: Kirigami.Units.largeSpacing * 2
         property T.ScrollBar verticalScrollBar: root.contentScroll.ScrollBar.vertical
@@ -704,7 +704,7 @@ EditPage {
     RowLayout {
         id: mobileToolBarContainer
 
-        property bool hidden: false
+        property bool hidden: NavigationController.sourceMode
 
         visible: !root.canFitToolbar
         y: hidden? parent.height : parent.height - mobileToolBar.height
@@ -890,7 +890,7 @@ EditPage {
     Components.FloatingToolBar {
         id: toolBar
 
-        visible: root.canFitToolbar
+        visible: root.canFitToolbar && !NavigationController.sourceMode
         z: 600000
         parent: root.overlay
 
