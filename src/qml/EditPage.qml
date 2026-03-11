@@ -18,7 +18,7 @@ import org.kde.marknote
 Kirigami.Page {
     id: root
 
-    readonly property bool isWideScreen: ApplicationWindow.window ? ApplicationWindow.window.isWideScreen : false
+    readonly property bool isWideScreen: !!ApplicationWindow.window?.isWideScreen
 
     property bool init: false
 
@@ -554,8 +554,9 @@ Kirigami.Page {
     onDocumentChanged: {
         if (document && init) {
             loadNote();
-            if (ApplicationWindow.window) {
-                ApplicationWindow.window.currentDocument = root.document;
+            let mainWindow = ApplicationWindow.window as Main;
+            if (mainWindow) {
+                mainWindow.currentDocument = root.document;
             }
         }
     }
@@ -565,21 +566,22 @@ Kirigami.Page {
             return;
         }
 
+        let mainWindow = ApplicationWindow.window as Main;
+        if (!mainWindow) {
+            return; // Safely exit if this isn't the Main window
+        }
+
         if (visible) {
-            ApplicationWindow.window.currentDocument = root.document
-        } else if ((ApplicationWindow.window as Main).currentDocument === root.document) {
-            ApplicationWindow.window.currentDocument = null
+            mainWindow.currentDocument = root.document
+        } else if (mainWindow.currentDocument === root.document) {
+            mainWindow.currentDocument = null
         }
     }
 
     Component.onDestruction: {
-        // if (!saved && noteFullPath.toString().length > 0 && root.document !== null) {
-        //     root.document.saveAs(noteFullPath);
-        // }
-        // this doesn't need to be called here as saving the document is already being called in the source mode changed handler
-
-        if (ApplicationWindow.window !== null && (ApplicationWindow.window as Main).currentDocument === root.document) {
-            ApplicationWindow.window.currentDocument = null
+        let mainWindow = ApplicationWindow.window as Main;
+        if (mainWindow && mainWindow.currentDocument === root.document) {
+            mainWindow.currentDocument = null
         }
     }
 
