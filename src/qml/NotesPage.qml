@@ -54,104 +54,167 @@ Kirigami.ScrollablePage {
     }
 
     titleDelegate: RowLayout {
+        id: titleLayout
         spacing: Kirigami.Units.smallSpacing
-
         Layout.fillWidth: true
 
-        ToolButton {
-            id: addButton
-            visible: !Kirigami.Settings.isMobile
-            display: AbstractButton.IconOnly
+        property bool searchOpen: false
 
-            action: newNoteAction
-
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-            ToolTip.visible: hovered
-            ToolTip.text: text
-        }
-
-        Kirigami.Heading {
-            id: heading
-
-            visible: root.isWideScreen
-            text: NavigationController.notebookName
+        Item {
+            id: contentContainer
             Layout.fillWidth: true
-            Layout.leftMargin: Kirigami.Units.largeSpacing
-            Layout.rightMargin: Kirigami.Units.largeSpacing
-            horizontalAlignment: Text.AlignHCenter
-            elide: Qt.ElideRight
-        }
-        ToolButton {
-            id: headingButton
+            implicitHeight: Math.max(defaultHeader.implicitHeight, search.implicitHeight)
 
-            visible: !root.isWideScreen
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            onClicked: ApplicationWindow.window.openBottomDrawer()
-            contentItem: RowLayout{
-                Item {
+            RowLayout {
+                id: defaultHeader
+                anchors.fill: parent
+
+                scale: titleLayout.searchOpen ? 0.7 : 1.0
+                opacity: titleLayout.searchOpen ? 0 : 1
+                visible: opacity > 0
+
+                transformOrigin: Item.Center
+
+                Behavior on opacity {
+                    NumberAnimation { duration: Kirigami.Units.longDuration }
+                }
+
+                // Animate the scale with a bouncy easing curve
+                Behavior on scale {
+                    NumberAnimation {
+                        duration: Kirigami.Units.longDuration
+                        easing.type: Easing.OutBack
+                    }
+                }
+
+                ToolButton {
+                    id: addButton
                     visible: !Kirigami.Settings.isMobile
-                    Layout.fillWidth: true
+                    display: AbstractButton.IconOnly
+                    action: newNoteAction
+                    ToolTip.delay: Kirigami.Units.toolTipDelay
+                    ToolTip.visible: hovered
+                    ToolTip.text: text
                 }
 
                 Kirigami.Heading {
-                    type: Kirigami.Heading.Type.Primary
+                    id: heading
+                    visible: root.isWideScreen
                     text: NavigationController.notebookName
+                    Layout.fillWidth: true
                     Layout.leftMargin: Kirigami.Units.largeSpacing
+                    Layout.rightMargin: Kirigami.Units.largeSpacing
+                    horizontalAlignment: Text.AlignHCenter
+                    elide: Qt.ElideRight
                 }
 
-                Kirigami.Icon {
-                    source: "go-down-symbolic"
-                    implicitHeight: Kirigami.Units.gridUnit
+                ToolButton {
+                    id: headingButton
+                    visible: !root.isWideScreen
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    onClicked: ApplicationWindow.window.openBottomDrawer()
+                    contentItem: RowLayout {
+                        Item {
+                            visible: !Kirigami.Settings.isMobile
+                            Layout.fillWidth: true
+                        }
+                        Kirigami.Heading {
+                            type: Kirigami.Heading.Type.Primary
+                            text: NavigationController.notebookName
+                            Layout.leftMargin: Kirigami.Units.largeSpacing
+                        }
+                        Kirigami.Icon {
+                            source: "go-down-symbolic"
+                            implicitHeight: Kirigami.Units.gridUnit
+                        }
+                        Item { Layout.fillWidth: true }
+                    }
+                }
+            }
+
+            Item {
+                id: searchWrapper
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+
+                // Animate this wrapper's width to "uncover" the search bar
+                width: titleLayout.searchOpen ? parent.width : 0
+                clip: true
+
+                Behavior on width {
+                    NumberAnimation {
+                        duration: Kirigami.Units.longDuration
+                        easing.type: Easing.InOutCubic
+                    }
                 }
 
-                Item { Layout.fillWidth: true }
+                Kirigami.SearchField {
+                    id: search
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
 
+                    // keep width static so the placeholder text doesn't squish during animation
+                    width: contentContainer.width
+
+                    opacity: titleLayout.searchOpen ? 1 : 0
+                    Behavior on opacity {
+                        NumberAnimation { duration: Kirigami.Units.longDuration }
+                    }
+
+                    Shortcut {
+                        id: cancelShortcut
+                        sequences: [StandardKey.Cancel]
+                        onActivated: if (titleLayout.searchOpen) { searchButton.clicked() }
+                    }
+                    onTextChanged: filterModel.setFilterFixedString(search.text)
+                }
             }
         }
-        Kirigami.SearchField {
-            id: search
-            visible: false
-            Layout.fillWidth: true
-            Shortcut {
-                id: cancelShortcut
-                sequences: [StandardKey.Cancel]
-                onActivated: if (search.visible) {searchButton.clicked()}
-            }
-            onTextChanged: filterModel.setFilterFixedString(search.text )
-        }
+
         ToolButton {
             id: searchButton
-            icon.name: "search"
-            text: search.visible ? i18n("Exit Search (%1)", cancelShortcut.nativeText) : i18n("Search notes (%1)", searchShortcut.nativeText)
+            icon.name: titleLayout.searchOpen ? "draw-arrow-back" : "search"
+            text: titleLayout.searchOpen ? i18n("Exit Search (%1)", cancelShortcut.nativeText) : i18n("Search notes (%1)", searchShortcut.nativeText)
             display: AbstractButton.IconOnly
 
             ToolTip.delay: Kirigami.Units.toolTipDelay
             ToolTip.visible: hovered
             ToolTip.text: text
 
-            onClicked:{
-                if (!search.visible){
-                    search.visible = true
-                    root.isWideScreen? heading.visible = false : headingButton.visible = false
-                    addButton.visible = false
-                    searchButton.icon.name = "draw-arrow-back"
-                    search.forceActiveFocus()
-                } else {
-                    search.visible = false
-                    root.isWideScreen? heading.visible = true : headingButton.visible = true
-                    if (!Kirigami.Settings.isMobile) {
-                        addButton.visible = true;
+            transform: Rotation {
+                // Set the origin to the center of the button so it spins in place
+                origin.x: searchButton.width / 2
+                origin.y: searchButton.height / 2
+
+                axis { x: 0; y: 1; z: 0 }
+
+                // Spin a half 180 degrees so the new icon lands facing the right way
+                angle: titleLayout.searchOpen ? 180 : 0
+
+                Behavior on angle {
+                    NumberAnimation {
+                        duration: Kirigami.Units.veryLongDuration
+                        easing.type: Easing.InOutQuart
                     }
-                    search.clear()
-                    searchButton.icon.name = "search"
+                }
+            }
+
+            onClicked: {
+                titleLayout.searchOpen = !titleLayout.searchOpen;
+                if (titleLayout.searchOpen) {
+                    search.forceActiveFocus();
+                } else {
+                    search.clear();
                 }
             }
 
             Shortcut {
                 id: searchShortcut
                 sequence: "Ctrl+E"
-                onActivated: if (!search.visible) {
+                onActivated: if (!titleLayout.searchOpen) {
                     searchButton.clicked()
                 }
             }
