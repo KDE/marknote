@@ -326,10 +326,6 @@ EditPage {
             onClicked: {
                 Config.fillWindow = !Config.fillWindow
             }
-            Shortcut {
-                sequence: "Ctrl+R"
-                onActivated: Config.fillWindow = !Config.fillWindow
-            }
         }
 
         ToolButton {
