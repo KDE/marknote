@@ -41,6 +41,7 @@ EditPage {
         selectionStart: root.textArea.selectionStart
         selectionEnd: root.textArea.selectionEnd
 
+        blockMargin: Kirigami.Units.largeSpacing
 
         onLoaded: (text) => {
             root.textArea.text = text

@@ -38,6 +38,8 @@ class RichDocumentHandler : public DocumentHandler
     Q_PROPERTY(int searchMatchCount READ searchMatchCount NOTIFY searchMatchCountChanged)
     Q_PROPERTY(int searchCurrentMatch READ searchCurrentMatch NOTIFY searchCurrentMatchChanged)
 
+    Q_PROPERTY(int blockMargin READ blockMargin WRITE setBlockMargin NOTIFY blockMarginChanged)
+
 public:
     explicit RichDocumentHandler(QObject *parent = nullptr);
 
@@ -64,6 +66,9 @@ public:
     int currentListStyle() const;
 
     int currentHeadingLevel() const;
+
+    int blockMargin() const;
+    void setBlockMargin(int margin);
 
     Q_INVOKABLE void updateNoteLink(const QString &noteName, const QString &alias = QString());
     Q_INVOKABLE QString currentNoteLinkName() const;
@@ -93,6 +98,7 @@ public Q_SLOTS:
 Q_SIGNALS:
 
     void alignmentChanged();
+    void blockMarginChanged();
 
     void boldChanged();
     void italicChanged();
@@ -116,6 +122,7 @@ private:
     bool processKeyEvent(QKeyEvent *event);
     void moveLineUpDown(bool moveUp);
     void moveCursorBeginUpDown(bool moveUp);
+    void applyBlockMargins();
 
     [[nodiscard]] bool isCodeBlock(const QTextBlock &block) const;
 
@@ -134,6 +141,8 @@ private:
     NestedListHelper m_nestedListHelper;
     QString m_frontMatter;
     QString m_activeLink;
+
+    int m_blockMargin;
 
     bool m_lastBold;
     bool m_lastItalic;

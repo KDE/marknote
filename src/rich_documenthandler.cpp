@@ -150,6 +150,7 @@ RichDocumentHandler::RichDocumentHandler(QObject *parent)
 {
     m_document = nullptr;
     m_textArea = nullptr;
+    m_blockMargin = 0;
     m_cursorPosition = -1;
     m_selectionStart = 0;
     m_selectionEnd = 0;
@@ -161,6 +162,10 @@ RichDocumentHandler::RichDocumentHandler(QObject *parent)
     m_lastItalic = italic();
     m_lastStrikethrough = strikethrough();
     m_lastUnderline = underline();
+
+    connect(this, &DocumentHandler::documentChanged, this, [this]() {
+        applyBlockMargins();
+    });
 }
 
 bool RichDocumentHandler::eventFilter(QObject *object, QEvent *event)
@@ -430,6 +435,8 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
         if (QTextDocument *doc = textDocument()) {
             fixupTable(doc->rootFrame());
 
+            applyBlockMargins();
+
             QTextCursor checkCursor(doc);
             checkCursor.movePosition(QTextCursor::End);
 
@@ -645,6 +652,16 @@ void RichDocumentHandler::setHeadingLevel(int level)
 
     QTextBlockFormat blkfmt = cursor.blockFormat();
     blkfmt.setHeadingLevel(boundedLevel);
+
+    // Apply margins dynamically when changing heading levels
+    if (boundedLevel > 0) {
+        blkfmt.setTopMargin(m_blockMargin * 2);
+        blkfmt.setBottomMargin(m_blockMargin);
+    } else {
+        blkfmt.setTopMargin(m_blockMargin);
+        blkfmt.setBottomMargin(0);
+    }
+
     cursor.setBlockFormat(blkfmt);
 
     // FontSizeAdjustment goes from 3 for Heading 1 to -2 for Heading 6
@@ -1457,6 +1474,15 @@ void RichDocumentHandler::slotKeyPressed(int key)
             Q_EMIT cursorPositionChanged();
             reset();
         }
+
+        if (cursor.blockFormat().headingLevel() == 0 && !cursor.currentList() && !isCodeBlock(cursor.block()) && !cursor.currentTable()) {
+            cursor.joinPreviousEditBlock();
+            QTextBlockFormat bfmt = cursor.blockFormat();
+            bfmt.setTopMargin(m_blockMargin);
+            bfmt.setBottomMargin(0);
+            cursor.setBlockFormat(bfmt);
+            cursor.endEditBlock();
+        }
     }
 
     if (key == Qt::Key_BracketRight) {
@@ -1826,6 +1852,56 @@ QString RichDocumentHandler::currentNoteLinkName() const
 QString RichDocumentHandler::currentNoteLinkAlias() const
 {
     return currentLinkText();
+}
+
+int RichDocumentHandler::blockMargin() const
+{
+    return m_blockMargin;
+}
+
+void RichDocumentHandler::setBlockMargin(int margin)
+{
+    if (m_blockMargin == margin) {
+        return;
+    }
+    m_blockMargin = margin;
+    applyBlockMargins();
+    Q_EMIT blockMarginChanged();
+}
+
+void RichDocumentHandler::applyBlockMargins()
+{
+    QTextDocument *doc = textDocument();
+    if (!doc) {
+        return;
+    }
+
+    QTextCursor cursor(doc);
+    cursor.beginEditBlock();
+
+    QTextBlock block = doc->begin();
+    while (block.isValid()) {
+        QTextBlockFormat fmt = block.blockFormat();
+
+        if (fmt.headingLevel() > 0) {
+            // Give headings some extra breathing room
+            fmt.setTopMargin(m_blockMargin * 4);
+            fmt.setBottomMargin(m_blockMargin);
+
+            QTextCursor blockCursor(block);
+            blockCursor.setBlockFormat(fmt);
+        } else if (!block.textList() && !fmt.isTableCellFormat() && !isCodeBlock(block)) {
+            // Add a bit to standard paragraphs
+            fmt.setTopMargin(m_blockMargin);
+            fmt.setBottomMargin(2);
+
+            QTextCursor blockCursor(block);
+            blockCursor.setBlockFormat(fmt);
+        }
+
+        block = block.next();
+    }
+    cursor.endEditBlock();
 }
 
 #include "moc_rich_documenthandler.cpp"
