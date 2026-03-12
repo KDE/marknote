@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 00:46+0000\n"
+"POT-Creation-Date: 2026-03-12 00:44+0000\n"
 "PO-Revision-Date: 2025-05-27 17:01+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -16,6 +16,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Guðmundur Erlingsson"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "gudmundure@gmail.com"
 
 #: application.cpp:34
 #, kde-format
@@ -47,54 +57,99 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Villa kom upp við að skrifa í '%1'"
 
-#: main.cpp:73 qml/Main.qml:422
+#: main.cpp:57
+#, kde-format
+msgid "Mathis Brüchert"
+msgstr "Mathis Brüchert"
+
+#: main.cpp:58 main.cpp:63 main.cpp:66
+#, kde-format
+msgid "Maintainer"
+msgstr "Umsjónaraðili"
+
+#: main.cpp:63
+#, kde-format
+msgid "Carl Schwan"
+msgstr "Carl Schwan"
+
+#: main.cpp:65
+#, kde-format
+msgid "Valentyn Bondarenko"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Justin Zobel"
+msgstr ""
+
+#: main.cpp:75
+#, kde-format
+msgid "Flatpak support"
+msgstr ""
+
+#: main.cpp:80
+#, kde-format
+msgid "Shubham Shinde"
+msgstr ""
+
+#: main.cpp:81
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgid "Table of Contents"
+msgstr "Innihald hólfs"
+
+#: main.cpp:86
+#, kde-format
+msgid "Siddharth Chopra"
+msgstr ""
+
+#: main.cpp:87
+#, fuzzy, kde-format
+#| msgid "Focus Mode"
+msgid "Source Mode"
+msgstr "Fókussnið"
+
+#: main.cpp:92
+#, kde-format
+msgid "Joshua Goins"
+msgstr ""
+
+#: main.cpp:93 main.cpp:99 main.cpp:105 main.cpp:110
+#, kde-format
+msgid "Bug fixes"
+msgstr ""
+
+#: main.cpp:98
+#, kde-format
+msgid "Prayag Jain"
+msgstr ""
+
+#: main.cpp:104
+#, kde-format
+msgid "Volker Krause"
+msgstr ""
+
+#: main.cpp:110
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: main.cpp:131 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:75
+#: main.cpp:133
 #, kde-format
 msgid "Note taking application"
 msgstr "Glósubókarforrit"
 
-#: main.cpp:77
+#: main.cpp:135
 #, fuzzy, kde-format
 #| msgid "© 2023-2024 Mathis Brüchert"
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2024 Mathis Brüchert"
-
-#: main.cpp:78
-#, kde-format
-msgid "Mathis Brüchert"
-msgstr "Mathis Brüchert"
-
-#: main.cpp:79 main.cpp:83 main.cpp:85
-#, kde-format
-msgid "Maintainer"
-msgstr "Umsjónaraðili"
-
-#: main.cpp:83
-#, kde-format
-msgid "Carl Schwan"
-msgstr "Carl Schwan"
-
-#: main.cpp:84
-#, kde-format
-msgid "Valentyn Bondarenko"
-msgstr ""
-
-#: main.cpp:89
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Guðmundur Erlingsson"
-
-#: main.cpp:89
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "gudmundure@gmail.com"
 
 #: notesmodel.cpp:157
 #, kde-format
@@ -269,7 +324,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Búa til glósubók"
 
-#: qml/Main.qml:316 qml/NotesPage.qml:655
+#: qml/Main.qml:316 qml/NotesPage.qml:718
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -378,8 +433,8 @@ msgctxt "@action:menu"
 msgid "Window"
 msgstr "Gluggi"
 
-#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:163 qml/RawEditPage.qml:220
-#: qml/RichEditPage.qml:338 qml/WelcomePage.qml:29
+#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:226 qml/RawEditPage.qml:220
+#: qml/RichEditPage.qml:334 qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
@@ -492,23 +547,23 @@ msgstr "Heiti:"
 msgid "Add note"
 msgstr "Bæta við glósu"
 
-#: qml/NotesPage.qml:126
+#: qml/NotesPage.qml:180
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Hætta í leit (%1)"
 
-#: qml/NotesPage.qml:126
+#: qml/NotesPage.qml:180
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Leita í glósum (%1)"
 
-#: qml/NotesPage.qml:183
+#: qml/NotesPage.qml:246
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Eyða glósu"
 
-#: qml/NotesPage.qml:193
+#: qml/NotesPage.qml:256
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -517,7 +572,7 @@ msgstr ""
 "Viltu örugglega eyða glósunni <b> %1 </b>? Þá verður skránni <b>%2</b> eytt "
 "varanlega."
 
-#: qml/NotesPage.qml:383 qml/NotesPage.qml:419
+#: qml/NotesPage.qml:446 qml/NotesPage.qml:482
 #, fuzzy, kde-format
 #| msgctxt "Application name"
 #| msgid "Marknote"
@@ -525,13 +580,13 @@ msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:384
+#: qml/NotesPage.qml:447
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
 msgstr ""
 
-#: qml/NotesPage.qml:402
+#: qml/NotesPage.qml:465
 #, fuzzy, kde-format
 #| msgctxt "@inmenu"
 #| msgid "Open Link"
@@ -539,13 +594,13 @@ msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Opna tengil"
 
-#: qml/NotesPage.qml:420
+#: qml/NotesPage.qml:483
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
 msgstr ""
 
-#: qml/NotesPage.qml:432
+#: qml/NotesPage.qml:495
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Rename Note"
@@ -553,13 +608,13 @@ msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Endurnefna glósu"
 
-#: qml/NotesPage.qml:444 qml/TextFieldContextMenu.qml:390
+#: qml/NotesPage.qml:507 qml/TextFieldContextMenu.qml:390
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Afrita"
 
-#: qml/NotesPage.qml:453
+#: qml/NotesPage.qml:516
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Delete Note"
@@ -567,7 +622,7 @@ msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Eyða glósu"
 
-#: qml/NotesPage.qml:461
+#: qml/NotesPage.qml:524
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Import"
@@ -575,76 +630,76 @@ msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Flytja inn"
 
-#: qml/NotesPage.qml:465
+#: qml/NotesPage.qml:528
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Flytja út sem HTML"
 
-#: qml/NotesPage.qml:471
+#: qml/NotesPage.qml:534
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Flytja út sem HTML"
 
-#: qml/NotesPage.qml:472
+#: qml/NotesPage.qml:535
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-skrá (*.html)"
 
-#: qml/NotesPage.qml:478
+#: qml/NotesPage.qml:541
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Flytja út sem PDF"
 
-#: qml/NotesPage.qml:484
+#: qml/NotesPage.qml:547
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Flytja út sem PDF"
 
-#: qml/NotesPage.qml:485
+#: qml/NotesPage.qml:548
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-skrá (*.pdf)"
 
-#: qml/NotesPage.qml:491
+#: qml/NotesPage.qml:554
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Flytja út sem ODT"
 
-#: qml/NotesPage.qml:497
+#: qml/NotesPage.qml:560
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Flytja út sem ODT"
 
-#: qml/NotesPage.qml:498
+#: qml/NotesPage.qml:561
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-textaskjal (*.)"
 
-#: qml/NotesPage.qml:509 qml/TextFieldContextMenu.qml:423
+#: qml/NotesPage.qml:572 qml/TextFieldContextMenu.qml:423
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Eyða"
 
-#: qml/NotesPage.qml:699
+#: qml/NotesPage.qml:762
 #, kde-format
 msgid "Add a note!"
 msgstr "Bættu við glósu!"
 
 #: qml/RawEditPage.qml:56 qml/RawEditPage.qml:141 qml/RichEditPage.qml:192
-#: qml/RichEditPage.qml:813
+#: qml/RichEditPage.qml:809
 #, kde-format
 msgid "Undo"
 msgstr "Afturkalla"
 
 #: qml/RawEditPage.qml:68 qml/RawEditPage.qml:154 qml/RichEditPage.qml:206
-#: qml/RichEditPage.qml:824
+#: qml/RichEditPage.qml:820
 #, kde-format
 msgid "Redo"
 msgstr "Endurtaka"
@@ -673,7 +728,7 @@ msgstr "Fókussnið"
 msgid "Switch editor to preview mode"
 msgstr ""
 
-#: qml/RawEditPage.qml:233 qml/RichEditPage.qml:356
+#: qml/RawEditPage.qml:233 qml/RichEditPage.qml:352
 #, kde-format
 msgid "Source View"
 msgstr ""
@@ -685,78 +740,78 @@ msgctxt "@action:button"
 msgid "Table of Content"
 msgstr "Innihald hólfs"
 
-#: qml/RichEditPage.qml:351
+#: qml/RichEditPage.qml:347
 #, kde-format
 msgid "Switch editor to source mode"
 msgstr ""
 
-#: qml/RichEditPage.qml:444
+#: qml/RichEditPage.qml:440
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Feitletrað"
 
-#: qml/RichEditPage.qml:465
+#: qml/RichEditPage.qml:461
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Skáletrað"
 
-#: qml/RichEditPage.qml:484
+#: qml/RichEditPage.qml:480
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Undirstrikað"
 
-#: qml/RichEditPage.qml:498
+#: qml/RichEditPage.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Gegnumstrikað"
 
-#: qml/RichEditPage.qml:516
+#: qml/RichEditPage.qml:512
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Auka inndrátt lista"
 
-#: qml/RichEditPage.qml:527
+#: qml/RichEditPage.qml:523
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Minnka inndrátt lista"
 
-#: qml/RichEditPage.qml:569
+#: qml/RichEditPage.qml:565
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Enginn listi"
 
-#: qml/RichEditPage.qml:570
+#: qml/RichEditPage.qml:566
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Óraðaður listi"
 
-#: qml/RichEditPage.qml:571
+#: qml/RichEditPage.qml:567
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Raðaður listi"
 
-#: qml/RichEditPage.qml:582
+#: qml/RichEditPage.qml:578
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Setja inn gátreit"
 
-#: qml/RichEditPage.qml:597
+#: qml/RichEditPage.qml:593
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Setja inn tengil"
 
-#: qml/RichEditPage.qml:613
+#: qml/RichEditPage.qml:609
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -764,71 +819,71 @@ msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Setja inn tengil"
 
-#: qml/RichEditPage.qml:629
+#: qml/RichEditPage.qml:625
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Setja inn mynd"
 
-#: qml/RichEditPage.qml:642
+#: qml/RichEditPage.qml:638
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Setja inn töflu"
 
-#: qml/RichEditPage.qml:663
+#: qml/RichEditPage.qml:659
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Einfaldur texti"
 
-#: qml/RichEditPage.qml:664
+#: qml/RichEditPage.qml:660
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Titill"
 
-#: qml/RichEditPage.qml:665
+#: qml/RichEditPage.qml:661
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Undirtitill"
 
-#: qml/RichEditPage.qml:666
+#: qml/RichEditPage.qml:662
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Hluti"
 
-#: qml/RichEditPage.qml:667
+#: qml/RichEditPage.qml:663
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Undirhluti"
 
-#: qml/RichEditPage.qml:668
+#: qml/RichEditPage.qml:664
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Efnisgrein"
 
-#: qml/RichEditPage.qml:669
+#: qml/RichEditPage.qml:665
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Undirefnisgrein"
 
-#: qml/RichEditPage.qml:856
+#: qml/RichEditPage.qml:852
 #, kde-format
 msgid "Format"
 msgstr "Snið"
 
-#: qml/RichEditPage.qml:860
+#: qml/RichEditPage.qml:856
 #, kde-format
 msgid "Lists"
 msgstr "Listar"
 
-#: qml/RichEditPage.qml:864
+#: qml/RichEditPage.qml:860
 #, kde-format
 msgid "Insert"
 msgstr "Setja inn"

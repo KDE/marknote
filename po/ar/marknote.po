@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 00:46+0000\n"
+"POT-Creation-Date: 2026-03-12 00:44+0000\n"
 "PO-Revision-Date: 2026-03-08 10:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -17,6 +17,16 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "زايد السعيدي"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zayed.alsaidi@gmail.com"
 
 #: application.cpp:34
 #, kde-format
@@ -48,53 +58,99 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "حدث خطأ أثناء الكتابة إلى '%1'"
 
-#: main.cpp:73 qml/Main.qml:422
+#: main.cpp:57
+#, kde-format
+msgid "Mathis Brüchert"
+msgstr "ماتيس بروشيرت"
+
+#: main.cpp:58 main.cpp:63 main.cpp:66
+#, kde-format
+msgid "Maintainer"
+msgstr "الصائن"
+
+#: main.cpp:63
+#, kde-format
+msgid "Carl Schwan"
+msgstr "كارل شوان"
+
+#: main.cpp:65
+#, kde-format
+msgid "Valentyn Bondarenko"
+msgstr "فالنتين بوندارينكو"
+
+#: main.cpp:74
+#, kde-format
+msgid "Justin Zobel"
+msgstr ""
+
+#: main.cpp:75
+#, kde-format
+msgid "Flatpak support"
+msgstr ""
+
+#: main.cpp:80
+#, kde-format
+msgid "Shubham Shinde"
+msgstr ""
+
+#: main.cpp:81
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Table of Contents"
+msgid "Table of Contents"
+msgstr "جدول المحتويات"
+
+#: main.cpp:86
+#, kde-format
+msgid "Siddharth Chopra"
+msgstr ""
+
+#: main.cpp:87
+#, fuzzy, kde-format
+#| msgid "Source View"
+msgid "Source Mode"
+msgstr "عرض المصدر"
+
+#: main.cpp:92
+#, kde-format
+msgid "Joshua Goins"
+msgstr ""
+
+#: main.cpp:93 main.cpp:99 main.cpp:105 main.cpp:110
+#, kde-format
+msgid "Bug fixes"
+msgstr ""
+
+#: main.cpp:98
+#, kde-format
+msgid "Prayag Jain"
+msgstr ""
+
+#: main.cpp:104
+#, kde-format
+msgid "Volker Krause"
+msgstr ""
+
+#: main.cpp:110
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: main.cpp:131 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "دفتر مارك"
 
-#: main.cpp:75
+#: main.cpp:133
 #, kde-format
 msgid "Note taking application"
 msgstr "تطبيق كتابة ملاحظات"
 
-#: main.cpp:77
+#: main.cpp:135
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2026 ماتيس بروشيرت"
-
-#: main.cpp:78
-#, kde-format
-msgid "Mathis Brüchert"
-msgstr "ماتيس بروشيرت"
-
-#: main.cpp:79 main.cpp:83 main.cpp:85
-#, kde-format
-msgid "Maintainer"
-msgstr "الصائن"
-
-#: main.cpp:83
-#, kde-format
-msgid "Carl Schwan"
-msgstr "كارل شوان"
-
-#: main.cpp:84
-#, kde-format
-msgid "Valentyn Bondarenko"
-msgstr "فالنتين بوندارينكو"
-
-#: main.cpp:89
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "زايد السعيدي"
-
-#: main.cpp:89
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "zayed.alsaidi@gmail.com"
 
 #: notesmodel.cpp:157
 #, kde-format
@@ -271,7 +327,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "أنشئ دفتر"
 
-#: qml/Main.qml:316 qml/NotesPage.qml:655
+#: qml/Main.qml:316 qml/NotesPage.qml:718
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -380,8 +436,8 @@ msgctxt "@action:menu"
 msgid "Window"
 msgstr "النافذة"
 
-#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:163 qml/RawEditPage.qml:220
-#: qml/RichEditPage.qml:338 qml/WelcomePage.qml:29
+#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:226 qml/RawEditPage.qml:220
+#: qml/RichEditPage.qml:334 qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
@@ -485,23 +541,23 @@ msgstr "الاسم:"
 msgid "Add note"
 msgstr "أضف ملاحظة"
 
-#: qml/NotesPage.qml:126
+#: qml/NotesPage.qml:180
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "اخرج من البحث (%1)"
 
-#: qml/NotesPage.qml:126
+#: qml/NotesPage.qml:180
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "ابحث في الملاحظات (%1)"
 
-#: qml/NotesPage.qml:183
+#: qml/NotesPage.qml:246
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "احذف الملاحظة"
 
-#: qml/NotesPage.qml:193
+#: qml/NotesPage.qml:256
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -510,31 +566,31 @@ msgstr ""
 "هل أنت متأكد من أنك تريد حذف الملاحظة <b> %1 </b>؟ سيؤدي هذا إلى حذف الملف "
 "<b>%2</b> نهائيًا."
 
-#: qml/NotesPage.qml:383 qml/NotesPage.qml:419
+#: qml/NotesPage.qml:446 qml/NotesPage.qml:482
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "دفتر مارك"
 
-#: qml/NotesPage.qml:384
+#: qml/NotesPage.qml:447
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
 msgstr "نجح تصدير ”%1“."
 
-#: qml/NotesPage.qml:402
+#: qml/NotesPage.qml:465
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "افتح ملفًّا"
 
-#: qml/NotesPage.qml:420
+#: qml/NotesPage.qml:483
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
 msgstr "فشل تصدير ”%1“."
 
-#: qml/NotesPage.qml:432
+#: qml/NotesPage.qml:495
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Rename Note"
@@ -542,13 +598,13 @@ msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "غيّر اسم الملاحظة"
 
-#: qml/NotesPage.qml:444 qml/TextFieldContextMenu.qml:390
+#: qml/NotesPage.qml:507 qml/TextFieldContextMenu.qml:390
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "انسخ"
 
-#: qml/NotesPage.qml:453
+#: qml/NotesPage.qml:516
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Duplicate Note"
@@ -556,7 +612,7 @@ msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "كرر الملاحظة"
 
-#: qml/NotesPage.qml:461
+#: qml/NotesPage.qml:524
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Import"
@@ -564,76 +620,76 @@ msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "استورد"
 
-#: qml/NotesPage.qml:465
+#: qml/NotesPage.qml:528
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "صدّر إلى HTML"
 
-#: qml/NotesPage.qml:471
+#: qml/NotesPage.qml:534
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "صدّر إلى HTML"
 
-#: qml/NotesPage.qml:472
+#: qml/NotesPage.qml:535
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "ملفّ HTML ‏(‎*.html)"
 
-#: qml/NotesPage.qml:478
+#: qml/NotesPage.qml:541
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "صدر إلى بي دي اف"
 
-#: qml/NotesPage.qml:484
+#: qml/NotesPage.qml:547
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "صدر إلى بي دي اف"
 
-#: qml/NotesPage.qml:485
+#: qml/NotesPage.qml:548
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "ملف بي دي اف (*.pdf)"
 
-#: qml/NotesPage.qml:491
+#: qml/NotesPage.qml:554
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "صدر إلى ODT"
 
-#: qml/NotesPage.qml:497
+#: qml/NotesPage.qml:560
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "صدر إلى ODT"
 
-#: qml/NotesPage.qml:498
+#: qml/NotesPage.qml:561
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "مستند نصي ODF (*.odt)"
 
-#: qml/NotesPage.qml:509 qml/TextFieldContextMenu.qml:423
+#: qml/NotesPage.qml:572 qml/TextFieldContextMenu.qml:423
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "احذف"
 
-#: qml/NotesPage.qml:699
+#: qml/NotesPage.qml:762
 #, kde-format
 msgid "Add a note!"
 msgstr "أضف ملاحظة!"
 
 #: qml/RawEditPage.qml:56 qml/RawEditPage.qml:141 qml/RichEditPage.qml:192
-#: qml/RichEditPage.qml:813
+#: qml/RichEditPage.qml:809
 #, kde-format
 msgid "Undo"
 msgstr "تراجع"
 
 #: qml/RawEditPage.qml:68 qml/RawEditPage.qml:154 qml/RichEditPage.qml:206
-#: qml/RichEditPage.qml:824
+#: qml/RichEditPage.qml:820
 #, kde-format
 msgid "Redo"
 msgstr "كرّر"
@@ -660,7 +716,7 @@ msgstr "وضع التركيز"
 msgid "Switch editor to preview mode"
 msgstr "بدّل محرر إلى وضع المعاينة"
 
-#: qml/RawEditPage.qml:233 qml/RichEditPage.qml:356
+#: qml/RawEditPage.qml:233 qml/RichEditPage.qml:352
 #, kde-format
 msgid "Source View"
 msgstr "عرض المصدر"
@@ -671,148 +727,148 @@ msgctxt "@action:button"
 msgid "Table of Content"
 msgstr "جدول المحتويات"
 
-#: qml/RichEditPage.qml:351
+#: qml/RichEditPage.qml:347
 #, kde-format
 msgid "Switch editor to source mode"
 msgstr "بدّل محرر إلى وضع المصدر"
 
-#: qml/RichEditPage.qml:444
+#: qml/RichEditPage.qml:440
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "ثخين"
 
-#: qml/RichEditPage.qml:465
+#: qml/RichEditPage.qml:461
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "مائل"
 
-#: qml/RichEditPage.qml:484
+#: qml/RichEditPage.qml:480
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "تسطير"
 
-#: qml/RichEditPage.qml:498
+#: qml/RichEditPage.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "شطب"
 
-#: qml/RichEditPage.qml:516
+#: qml/RichEditPage.qml:512
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "زد مستوى القائمة"
 
-#: qml/RichEditPage.qml:527
+#: qml/RichEditPage.qml:523
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "أنقص مستوى القائمة"
 
-#: qml/RichEditPage.qml:569
+#: qml/RichEditPage.qml:565
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "لا يوجد قائمة"
 
-#: qml/RichEditPage.qml:570
+#: qml/RichEditPage.qml:566
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "قائمة غير مرتّبة"
 
-#: qml/RichEditPage.qml:571
+#: qml/RichEditPage.qml:567
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "قائمة مرتّبة"
 
-#: qml/RichEditPage.qml:582
+#: qml/RichEditPage.qml:578
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "أدرج صندوق تأشير"
 
-#: qml/RichEditPage.qml:597
+#: qml/RichEditPage.qml:593
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "أدرج رابط"
 
-#: qml/RichEditPage.qml:613
+#: qml/RichEditPage.qml:609
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "أدرج رابط الملاحظة"
 
-#: qml/RichEditPage.qml:629
+#: qml/RichEditPage.qml:625
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "أدرج صورة"
 
-#: qml/RichEditPage.qml:642
+#: qml/RichEditPage.qml:638
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "أدرِج جدول"
 
-#: qml/RichEditPage.qml:663
+#: qml/RichEditPage.qml:659
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "نص بسيط"
 
-#: qml/RichEditPage.qml:664
+#: qml/RichEditPage.qml:660
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "العنوان"
 
-#: qml/RichEditPage.qml:665
+#: qml/RichEditPage.qml:661
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "عنوان فرعيّ"
 
-#: qml/RichEditPage.qml:666
+#: qml/RichEditPage.qml:662
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "القسم"
 
-#: qml/RichEditPage.qml:667
+#: qml/RichEditPage.qml:663
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "القسم الفرعي"
 
-#: qml/RichEditPage.qml:668
+#: qml/RichEditPage.qml:664
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "الفقرة"
 
-#: qml/RichEditPage.qml:669
+#: qml/RichEditPage.qml:665
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "الفقرة الفرعية"
 
-#: qml/RichEditPage.qml:856
+#: qml/RichEditPage.qml:852
 #, kde-format
 msgid "Format"
 msgstr "التنسيق"
 
-#: qml/RichEditPage.qml:860
+#: qml/RichEditPage.qml:856
 #, kde-format
 msgid "Lists"
 msgstr "القوائم"
 
-#: qml/RichEditPage.qml:864
+#: qml/RichEditPage.qml:860
 #, kde-format
 msgid "Insert"
 msgstr "أدرج"
