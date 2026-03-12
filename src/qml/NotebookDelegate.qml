@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
+// SPDX-FileCopyrightText: 2026 Shubham Shinde <shindeshubham0520@gmail.com>
+// SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 
 import QtCore
 import QtQuick
@@ -148,11 +150,11 @@ Delegates.RoundedItemDelegate {
             id: countLabel
 
             visible: Config.expandedSidebar
-            opacity: visible ? true : false
+            opacity: visible ? 1 : 0
 
             text: root.noteCount
             font.pixelSize: Kirigami.Units.gridUnit / 1.5
-            color: root.highlighted ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+            color: Kirigami.Theme.textColor
 
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: menuButton.left
@@ -170,7 +172,7 @@ Delegates.RoundedItemDelegate {
             id: badge
 
             visible: !Config.expandedSidebar && root.noteCount > 0
-            opacity: visible ? true : false
+            opacity: visible ? 1 : 0
 
             readonly property int badgeHeight: Math.round(Kirigami.Units.gridUnit * 0.8)
             readonly property int badgePadding: Kirigami.Units.smallSpacing
@@ -187,8 +189,8 @@ Delegates.RoundedItemDelegate {
             anchors.horizontalCenterOffset: -Kirigami.Units.smallSpacing / 2
 
             color: root.highlighted
-                   ? root.background.Kirigami.Theme.highlightColor
-                     : Kirigami.Theme.alternateBackgroundColor
+            ? root.background.Kirigami.Theme.highlightColor
+            : Kirigami.Theme.alternateBackgroundColor
             Behavior on opacity {
                 NumberAnimation {
                     duration: mainAnim.duration
@@ -208,23 +210,6 @@ Delegates.RoundedItemDelegate {
             }
         }
     }
-//    contentItem: GridLayout {
-//        flow: Config.expandedSidebar ? GridLayout.LeftToRight : GridLayout.TopToBottom
-
-//        Kirigami.Icon {
-//            source: root.icon.name
-//            Layout.alignment: Qt.AlignHCenter
-
-//        }
-
-//        Controls.Label {
-//            text: root.name
-//            horizontalAlignment: Config.expandedSidebar ? Qt.AlignLeft : Qt.AlignHCenter
-//            elide: Text.ElideRight
-
-//            Layout.fillWidth: true
-//        }
-//    }
 
     TapHandler {
         onTapped: NavigationController.notebookPath = path
