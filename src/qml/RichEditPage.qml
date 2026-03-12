@@ -281,6 +281,11 @@ EditPage {
             onClicked: tocLoader.active ? tocLoader.close() : tocLoader.open()
             visible: true
 
+            Shortcut {
+                sequence: "Ctrl+T"
+                onActivated: tocLoader.active ? tocLoader.close() : tocLoader.open()
+            }
+
             ToolTip.text: KI18n.i18nc("@info:tooltip", tocButton.text)
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
