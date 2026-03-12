@@ -25,12 +25,12 @@ EditPage {
     property int listStyle: 0
     property int heading: 0
 
-    readonly property bool canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2 && tocLoader.active !== true
+    readonly property bool canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2 && !tocDrawer.opened
 
     mobileToolBarHidden: mobileToolBarContainer.hidden
     mobileToolBarHeight: mobileToolBarContainer.height
 
-    dynamicRightPadding: tocLoader.item ? (tocLoader.item.position * tocLoader.item.width) : 0
+    dynamicRightPadding: tocDrawer.position * tocDrawer.width
 
     objectName: "RichEditPage"
 
@@ -234,7 +234,7 @@ EditPage {
         }
 
         Kirigami.Heading {
-            text: tocLoader.active && !root.singleDocumentMode && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn ? tocButton.text : root.noteName
+            text: tocDrawer.opened && !root.singleDocumentMode && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn ? tocButton.text : root.noteName
             elide: Text.ElideRight
             wrapMode: Text.NoWrap
 
@@ -277,13 +277,13 @@ EditPage {
             text: KI18n.i18nc("@action:button", "Table of Content")
             display: AbstractButton.IconOnly
             checkable: true
-            checked: tocLoader.active
-            onClicked: tocLoader.active ? tocLoader.close() : tocLoader.open()
+            checked: tocDrawer.opened
+            onClicked: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
             visible: true
 
             Shortcut {
                 sequence: "Ctrl+T"
-                onActivated: tocLoader.active ? tocLoader.close() : tocLoader.open()
+                onActivated: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
             }
 
             ToolTip.text: KI18n.i18nc("@info:tooltip", tocButton.text)
@@ -354,20 +354,29 @@ EditPage {
 
         Kirigami.Separator {
             Layout.fillHeight: true
-            visible: tocLoader.active && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+            visible: tocDrawer.position > 0 && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+            opacity: tocDrawer.position
         }
 
         RowLayout {
-            visible: tocLoader.active && !root.isNarrow && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+            visible: tocDrawer.position > 0 && !root.isNarrow && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
 
             // TODO: Move this logic to Main to get rid of the magic number
-            // Workarond to align the drawer with the separator
+            // Workaround to align the drawer with the separator
             readonly property real alignSeparatorWidth: floatingEditButton.verticalScrollBar.visible ? 15.7 : 14.6
-            readonly property real exactWidth: (Kirigami.Units.gridUnit * alignSeparatorWidth) - Kirigami.Units.largeSpacing
+
+            // Calculate the maximum target width, then multiply by the drawer's animation position
+            readonly property real fullWidth: (Kirigami.Units.gridUnit * alignSeparatorWidth) - Kirigami.Units.largeSpacing
+            readonly property real exactWidth: fullWidth * tocDrawer.position
 
             Layout.preferredWidth: exactWidth
             Layout.maximumWidth: exactWidth
             Layout.minimumWidth: exactWidth
+
+            // Fade the text in and out gradually
+            opacity: tocDrawer.position
+            // Clip the text so it doesn't spill out of the layout bounds while expanding
+            clip: true
 
             spacing: 0
 
@@ -420,29 +429,16 @@ EditPage {
         onAccepted: root.document.insertTable(rows, cols)
     }
 
-    Loader {
-        id: tocLoader
+    TocDrawer {
+        id: tocDrawer
 
-        active: false
+        textArea: root.textArea
+        parent: root.Overlay.overlay
 
-        function open(): void {
-            tocLoader.active = true;
-        }
+        topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
+        bottomMargin: 0
 
-        function close(): void {
-            item.closed.connect(() => tocLoader.active = false);
-            item.close();
-        }
-
-        sourceComponent: TocDrawer {
-            textArea: root.textArea
-            parent: root.Overlay.overlay
-
-            topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
-            bottomMargin: 0
-
-            height: parent.height - topMargin
-        }
+        height: parent.height - topMargin
     }
 
     Component {

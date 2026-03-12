@@ -46,10 +46,10 @@ Kirigami.Page {
         // 30 grid units gives enough room for the 15-unit drawer + 15 units of text
         // Have nothing to do in the source mode
         if (!NavigationController.sourceMode &&
-            tocLoader.active &&
-            width < (tocLoader.item.width + Kirigami.Units.gridUnit * 15)) {
-            tocLoader.close()
-        }
+            tocDrawer.opened &&
+            width < (tocDrawer.width + Kirigami.Units.gridUnit * 15)) {
+            tocDrawer.close()
+            }
     }
 
     function openSearch(): void {

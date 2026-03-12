@@ -18,9 +18,11 @@ Kirigami.OverlayDrawer {
 
     required property T.TextArea textArea
 
+    drawerOpen: false
     modal: false
     handleVisible: false
     edge: Qt.RightEdge
+
 
     rightPadding: 0
 
