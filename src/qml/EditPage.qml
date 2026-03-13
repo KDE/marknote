@@ -137,6 +137,7 @@ Kirigami.Page {
             clip: true
 
             Layout.fillWidth: true
+            Layout.rightMargin: root.dynamicRightPadding
 
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.smallSpacing
@@ -345,6 +346,7 @@ Kirigami.Page {
             showCloseButton: true
 
             Layout.fillWidth: true
+            Layout.rightMargin: root.dynamicRightPadding
 
             visible: false
 
@@ -371,6 +373,19 @@ Kirigami.Page {
             showCloseButton: true
 
             Layout.fillWidth: true
+            Layout.rightMargin: root.dynamicRightPadding
+
+            Timer {
+                id: copyMessageTimer
+                interval: 3000
+                onTriggered: copyMessage.visible = false
+            }
+
+            onVisibleChanged: {
+                if (visible) {
+                    copyMessageTimer.restart();
+                }
+            }
         }
     }
 

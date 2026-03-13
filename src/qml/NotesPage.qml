@@ -508,7 +508,17 @@ Kirigami.ScrollablePage {
                 icon.name: "edit-copy"
                 onTriggered: {
                     notesModel.copyWholeNote(menu.delegateItem.fileUrl)
-                    copyMessage.visible = true
+
+                    const appWindow = root.ApplicationWindow.window;
+
+                    if (appWindow && appWindow.pageStack) {
+                        const editorPage = appWindow.pageStack.get(appWindow.pageStack.depth - 1);
+
+                        if (editorPage && editorPage.copyMessage) {
+                            editorPage.copyMessage.visible = true;
+                            return;
+                        }
+                    }
                 }
             }
 
