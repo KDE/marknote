@@ -136,7 +136,7 @@
           Marknote 1.5 introduces major new features like Source Mode for raw Markdown editing, cross-notebook wiki links, and a KRunner plugin for quickly opening notes from the Plasma desktop. The release also improves note organization, editor auto-formatting, media handling, UI animations, and overall stability with many quality-of-life updates and bug fixes.
         </p>
       </description>
-    </realease>
+    </release>
     <release version="1.4.0" date="2026-01-19">
       <description>
         <p>
