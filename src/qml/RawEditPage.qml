@@ -10,6 +10,7 @@ import QtQuick.Layouts
 
 import org.kde.marknote
 import org.kde.ki18n
+import org.kde.syntaxhighlighting
 
 EditPage {
     id: root
@@ -40,6 +41,11 @@ EditPage {
             root.textArea.select(start, end);
         }
         onUndo: root.textArea.undo()
+    }
+
+    SyntaxHighlighter {
+        textEdit: root.textArea
+        definition: "Markdown"
     }
 
     titleDelegate: RowLayout {

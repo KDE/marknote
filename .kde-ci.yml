@@ -13,6 +13,7 @@ Dependencies:
     'frameworks/kcoreaddons': '@latest-kf6'
     'frameworks/kcolorscheme': '@latest-kf6'
     'frameworks/knotifications': '@latest-kf6'
+    'frameworks/syntax-highlighting': '@latest-kf6'
     'pim/kmime': '@latest-kf6'
 
  - 'on': ['Linux', 'FreeBSD', 'Windows']

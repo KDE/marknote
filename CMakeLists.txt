@@ -33,6 +33,7 @@ include(KDEGitCommitHooks)
 include(ECMAddAppIcon)
 include(ECMAddTests)
 include(ECMDeprecationSettings)
+include(ECMFindQmlModule)
 include(ECMQmlModule)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -51,6 +52,8 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Kirigami I18n Config Core
 
 find_package(KF6WindowSystem ${KF_MIN_VERSION} QUIET)
 find_package(KF6Runner ${KF_MIN_VERSION} QUIET)
+
+ecm_find_qmlmodule(org.kde.syntaxhighlighting ${KF_MIN_VERSION})
 
 if (NOT ANDROID)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
