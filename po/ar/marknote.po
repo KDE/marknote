@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 00:44+0000\n"
+"POT-Creation-Date: 2026-03-14 00:44+0000\n"
 "PO-Revision-Date: 2026-03-12 10:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -158,52 +158,52 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "تعذر إعادة تسمية الملاحظة. الملف أو المجلد موجودان فعلاً بنفس الاسم."
 
-#: qml/EditPage.qml:151
+#: qml/EditPage.qml:152
 #, kde-format
 msgid "Find text..."
 msgstr "اعثر على النص..."
 
-#: qml/EditPage.qml:177
+#: qml/EditPage.qml:178
 #, kde-format
 msgid "Previous"
 msgstr "السابق"
 
-#: qml/EditPage.qml:193
+#: qml/EditPage.qml:194
 #, kde-format
 msgid "Next"
 msgstr "التالي"
 
-#: qml/EditPage.qml:211 qml/EditPage.qml:317
+#: qml/EditPage.qml:212 qml/EditPage.qml:318
 #, kde-format
 msgid "No matches"
 msgstr "لا يوجد متطابقات"
 
-#: qml/EditPage.qml:213 qml/EditPage.qml:319
+#: qml/EditPage.qml:214 qml/EditPage.qml:320
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:225 qml/EditPage.qml:288
+#: qml/EditPage.qml:226 qml/EditPage.qml:289
 #, kde-format
 msgid "Replace"
 msgstr "استبدل"
 
-#: qml/EditPage.qml:242
+#: qml/EditPage.qml:243
 #, kde-format
 msgid "Close"
 msgstr "أغلق"
 
-#: qml/EditPage.qml:264
+#: qml/EditPage.qml:265
 #, kde-format
 msgid "Replace with..."
 msgstr "استبدله ب‍..."
 
-#: qml/EditPage.qml:300
+#: qml/EditPage.qml:301
 #, kde-format
 msgid "Replace All"
 msgstr "استبدل الكلّ"
 
-#: qml/EditPage.qml:304
+#: qml/EditPage.qml:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -215,7 +215,7 @@ msgstr[3] "استبدل %1 موضعًا"
 msgstr[4] "استبدل %1 موضعًا"
 msgstr[5] "استبدل %1 موضع"
 
-#: qml/EditPage.qml:367
+#: qml/EditPage.qml:369
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -327,7 +327,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "أنشئ دفتر"
 
-#: qml/Main.qml:316 qml/NotesPage.qml:718
+#: qml/Main.qml:316 qml/NotesPage.qml:728
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -602,76 +602,76 @@ msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "انسخ"
 
-#: qml/NotesPage.qml:516
+#: qml/NotesPage.qml:526
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "كرّر"
 
-#: qml/NotesPage.qml:524
+#: qml/NotesPage.qml:534
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "صدّر"
 
-#: qml/NotesPage.qml:528
+#: qml/NotesPage.qml:538
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "صدّر إلى HTML"
 
-#: qml/NotesPage.qml:534
+#: qml/NotesPage.qml:544
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "صدّر إلى HTML"
 
-#: qml/NotesPage.qml:535
+#: qml/NotesPage.qml:545
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "ملفّ HTML ‏(‎*.html)"
 
-#: qml/NotesPage.qml:541
+#: qml/NotesPage.qml:551
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "صدر إلى بي دي اف"
 
-#: qml/NotesPage.qml:547
+#: qml/NotesPage.qml:557
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "صدر إلى بي دي اف"
 
-#: qml/NotesPage.qml:548
+#: qml/NotesPage.qml:558
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "ملف بي دي اف (*.pdf)"
 
-#: qml/NotesPage.qml:554
+#: qml/NotesPage.qml:564
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "صدر إلى ODT"
 
-#: qml/NotesPage.qml:560
+#: qml/NotesPage.qml:570
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "صدر إلى ODT"
 
-#: qml/NotesPage.qml:561
+#: qml/NotesPage.qml:571
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "مستند نصي ODF (*.odt)"
 
-#: qml/NotesPage.qml:572 qml/TextFieldContextMenu.qml:423
+#: qml/NotesPage.qml:582 qml/TextFieldContextMenu.qml:423
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "احذف"
 
-#: qml/NotesPage.qml:762
+#: qml/NotesPage.qml:772
 #, kde-format
 msgid "Add a note!"
 msgstr "أضف ملاحظة!"
