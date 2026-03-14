@@ -101,12 +101,6 @@ void setupAboutCredits(KAboutData &about)
                     u"https://invent.kde.org/prayag"_s,
                     QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/4468/avatar.png?width=256"_s));
 
-    about.addCredit(i18n("Volker Krause"),
-                    i18n("Bug fixes"),
-                    u"vkrause@kde.org"_s,
-                    u"https://invent.kde.org/vkrause"_s,
-                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/54/avatar.png?width=256"_s));
-
     about.addCredit(i18n("Laurent Montel"), i18n("Bug fixes"), u"montel@kde.org"_s, u"https://invent.kde.org/mlaurent"_s);
 }
 
