@@ -501,16 +501,15 @@ EditPage {
         id: floatingEditButton
         icon.name: "document-edit"
         parent: root.overlay
-        visible: !root.isWideScreen && !NavigationController.sourceMode
-        scale: mobileToolBarContainer.hidden ? true : false
+        visible: !root.canFitToolbar && !NavigationController.sourceMode
+        scale: mobileToolBarContainer.hidden ? 1.0 : 0.0
 
         property int defaultSpacing: Kirigami.Units.largeSpacing * 2
         property T.ScrollBar verticalScrollBar: root.contentScroll.ScrollBar.vertical
 
         Behavior on scale {
             NumberAnimation {
-
-                duration: Kirigami.Units.shortDuration * 2
+                duration: Kirigami.Units.longDuration
                 easing.type: Easing.InOutQuart
             }
         }
@@ -518,6 +517,7 @@ EditPage {
         anchors {
             bottom: parent.bottom
             right: parent.right
+
             rightMargin: verticalScrollBar.visible ?
                          defaultSpacing + verticalScrollBar.width  :
                          defaultSpacing
@@ -525,7 +525,6 @@ EditPage {
         }
 
         onClicked: mobileToolBarContainer.hidden = false
-
     }
 
     RowLayout {
@@ -691,7 +690,7 @@ EditPage {
                        ]
                     }
 
-                    Item{
+                    Item {
                         Layout.fillWidth: true
                     }
 
@@ -708,7 +707,6 @@ EditPage {
                         Layout.preferredHeight: categorySelector.height
 
                         onClicked: mobileToolBarContainer.hidden = true
-
                     }
                 }
             }

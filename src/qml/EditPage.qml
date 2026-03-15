@@ -634,7 +634,7 @@ Kirigami.Page {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        bottomPadding: root.canFitToolbar ? 0 : root.mobileToolBarHeight
+        bottomPadding: root.canFitToolbar || root.mobileToolBarHidden ? 0 : root.mobileToolBarHeight
 
         // Animate scroll bar between wide and mobile screens transitions
         Behavior on bottomPadding {
