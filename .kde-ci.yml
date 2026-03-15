@@ -16,6 +16,10 @@ Dependencies:
     'frameworks/syntax-highlighting': '@latest-kf6'
     'pim/kmime': '@latest-kf6'
 
+ - 'on': ['Linux', 'FreeBSD']
+   'require':
+    'frameworks/kwindowsystem': '@latest-kf6'
+
  - 'on': ['Linux', 'FreeBSD', 'Windows']
    'require':
     'frameworks/kcrash': '@latest-kf6'
