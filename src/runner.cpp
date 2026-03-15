@@ -60,13 +60,11 @@ void Runner::Run(const QString &id, const QString &actionId)
 {
     Q_UNUSED(actionId);
 
-#ifdef HAVE_KWINDOWSYSTEM
     if (KWindowSystem::isPlatformWayland()) {
         if (!m_activationToken.isEmpty()) {
             KWindowSystem::setCurrentXdgActivationToken(m_activationToken);
         }
     }
-#endif
 
     Q_EMIT notebookSelected(id); // Triggers QML notebook opening
 }

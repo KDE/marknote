@@ -132,12 +132,9 @@ if (WITH_KRUNNER)
     target_link_libraries(marknote_static
         PUBLIC
             Qt6::DBus
+            KF6::WindowSystem
     )
     target_compile_definitions(marknote_static PUBLIC HAVE_KRUNNER)
-    if (TARGET KF6::WindowSystem)
-        target_link_libraries(marknote_static PUBLIC KF6::WindowSystem)
-        target_compile_definitions(marknote_static PRIVATE HAVE_KWINDOWSYSTEM)
-    endif()
 endif()
 
 if (TARGET md4c::md4c-html)

@@ -10,9 +10,7 @@
 #include <QString>
 #include <QVariantMap>
 
-#ifdef HAVE_KWINDOWSYSTEM
 #include <KWindowSystem>
-#endif
 
 enum MatchType {
     NoMatch = 0,

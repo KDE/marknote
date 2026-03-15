@@ -55,7 +55,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Kirigami I18n Config Core
 
 if (WITH_KRUNNER)
     find_package(Qt6DBus ${QT_MIN_VERSION} REQUIRED)
-    find_package(KF6WindowSystem ${KF_MIN_VERSION} QUIET)
+    find_package(KF6WindowSystem ${KF_MIN_VERSION} REQUIRED)
 endif()
 
 ecm_find_qmlmodule(org.kde.syntaxhighlighting ${KF_MIN_VERSION})
