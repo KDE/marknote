@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-14 00:44+0000\n"
-"PO-Revision-Date: 2026-03-12 12:24+0100\n"
+"POT-Creation-Date: 2026-03-15 00:45+0000\n"
+"PO-Revision-Date: 2026-03-13 20:52+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -78,73 +78,65 @@ msgstr "Valentyn Bondarenko"
 #: main.cpp:74
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Justin Zobel"
 
 #: main.cpp:75
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Prise en charge de Flatpak"
 
 #: main.cpp:80
 #, kde-format
 msgid "Shubham Shinde"
-msgstr ""
+msgstr "Shubham Shinde"
 
 #: main.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Table of Contents"
+#, kde-format
 msgid "Table of Contents"
 msgstr "Table des matières"
 
 #: main.cpp:86
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
 #: main.cpp:87
-#, fuzzy, kde-format
-#| msgid "Source View"
+#, kde-format
 msgid "Source Mode"
-msgstr "Vue source"
+msgstr "Mode Source"
 
 #: main.cpp:92
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
-#: main.cpp:93 main.cpp:99 main.cpp:105 main.cpp:110
+#: main.cpp:93 main.cpp:99 main.cpp:104
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "Correction de bogues"
 
 #: main.cpp:98
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
 #: main.cpp:104
 #, kde-format
-msgid "Volker Krause"
-msgstr ""
-
-#: main.cpp:110
-#, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
-#: main.cpp:131 qml/Main.qml:422
+#: main.cpp:125 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "MarkNote"
 
-#: main.cpp:133
+#: main.cpp:127
 #, kde-format
 msgid "Note taking application"
 msgstr "Application de prise de notes"
 
-#: main.cpp:135
+#: main.cpp:129
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023 - 2026 Mathis Brüchert"
@@ -432,7 +424,7 @@ msgctxt "@action:menu"
 msgid "Window"
 msgstr "Fenêtre"
 
-#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:226 qml/RawEditPage.qml:220
+#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:226 qml/RawEditPage.qml:226
 #: qml/RichEditPage.qml:325 qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -673,41 +665,41 @@ msgstr "Supprimer"
 msgid "Add a note!"
 msgstr "Ajoutez une note !"
 
-#: qml/RawEditPage.qml:56 qml/RawEditPage.qml:141 qml/RichEditPage.qml:196
+#: qml/RawEditPage.qml:62 qml/RawEditPage.qml:147 qml/RichEditPage.qml:196
 #: qml/RichEditPage.qml:829
 #, kde-format
 msgid "Undo"
 msgstr "Annuler"
 
-#: qml/RawEditPage.qml:68 qml/RawEditPage.qml:154 qml/RichEditPage.qml:210
+#: qml/RawEditPage.qml:74 qml/RawEditPage.qml:160 qml/RichEditPage.qml:210
 #: qml/RichEditPage.qml:840
 #, kde-format
 msgid "Redo"
 msgstr "Refaire"
 
-#: qml/RawEditPage.qml:76 qml/RawEditPage.qml:162 qml/RichEditPage.qml:258
+#: qml/RawEditPage.qml:82 qml/RawEditPage.qml:168 qml/RichEditPage.qml:258
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Rechercher une note"
 
-#: qml/RawEditPage.qml:87 qml/RawEditPage.qml:173 qml/RichEditPage.qml:269
+#: qml/RawEditPage.qml:93 qml/RawEditPage.qml:179 qml/RichEditPage.qml:269
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Rechercher dans une note"
 
-#: qml/RawEditPage.qml:190 qml/RichEditPage.qml:306
+#: qml/RawEditPage.qml:196 qml/RichEditPage.qml:306
 #, kde-format
 msgid "Focus Mode"
 msgstr "Mode de focus"
 
-#: qml/RawEditPage.qml:228
+#: qml/RawEditPage.qml:234
 #, kde-format
 msgid "Switch editor to preview mode"
 msgstr "Basculer l'éditeur en mode « Aperçu »"
 
-#: qml/RawEditPage.qml:233 qml/RichEditPage.qml:343
+#: qml/RawEditPage.qml:239 qml/RichEditPage.qml:343
 #, kde-format
 msgid "Source View"
 msgstr "Vue source"
@@ -1043,6 +1035,9 @@ msgstr "Colonne"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contenu des cellules"
+
+#~ msgid "Volker Krause"
+#~ msgstr "Volker Krause"
 
 #~ msgctxt "@action:button"
 #~ msgid "Close"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-14 00:44+0000\n"
+"POT-Creation-Date: 2026-03-15 00:45+0000\n"
 "PO-Revision-Date: 2026-03-12 08:26+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -114,7 +114,7 @@ msgstr "Mode de codi font"
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: main.cpp:93 main.cpp:99 main.cpp:105 main.cpp:110
+#: main.cpp:93 main.cpp:99 main.cpp:104
 #, kde-format
 msgid "Bug fixes"
 msgstr "Esmena d'errors"
@@ -126,26 +126,21 @@ msgstr "Prayag Jain"
 
 #: main.cpp:104
 #, kde-format
-msgid "Volker Krause"
-msgstr "Volker Krause"
-
-#: main.cpp:110
-#, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: main.cpp:131 qml/Main.qml:422
+#: main.cpp:125 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "MarkNote"
 
-#: main.cpp:133
+#: main.cpp:127
 #, kde-format
 msgid "Note taking application"
 msgstr "Aplicació de presa de notes"
 
-#: main.cpp:135
+#: main.cpp:129
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
@@ -432,7 +427,7 @@ msgctxt "@action:menu"
 msgid "Window"
 msgstr "Finestra"
 
-#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:226 qml/RawEditPage.qml:220
+#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:226 qml/RawEditPage.qml:226
 #: qml/RichEditPage.qml:325 qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -672,41 +667,41 @@ msgstr "Suprimix"
 msgid "Add a note!"
 msgstr "Afig una nota!"
 
-#: qml/RawEditPage.qml:56 qml/RawEditPage.qml:141 qml/RichEditPage.qml:196
+#: qml/RawEditPage.qml:62 qml/RawEditPage.qml:147 qml/RichEditPage.qml:196
 #: qml/RichEditPage.qml:829
 #, kde-format
 msgid "Undo"
 msgstr "Desfés"
 
-#: qml/RawEditPage.qml:68 qml/RawEditPage.qml:154 qml/RichEditPage.qml:210
+#: qml/RawEditPage.qml:74 qml/RawEditPage.qml:160 qml/RichEditPage.qml:210
 #: qml/RichEditPage.qml:840
 #, kde-format
 msgid "Redo"
 msgstr "Refés"
 
-#: qml/RawEditPage.qml:76 qml/RawEditPage.qml:162 qml/RichEditPage.qml:258
+#: qml/RawEditPage.qml:82 qml/RawEditPage.qml:168 qml/RichEditPage.qml:258
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Busca una nota"
 
-#: qml/RawEditPage.qml:87 qml/RawEditPage.qml:173 qml/RichEditPage.qml:269
+#: qml/RawEditPage.qml:93 qml/RawEditPage.qml:179 qml/RichEditPage.qml:269
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Busca en la nota"
 
-#: qml/RawEditPage.qml:190 qml/RichEditPage.qml:306
+#: qml/RawEditPage.qml:196 qml/RichEditPage.qml:306
 #, kde-format
 msgid "Focus Mode"
 msgstr "Mode del focus"
 
-#: qml/RawEditPage.qml:228
+#: qml/RawEditPage.qml:234
 #, kde-format
 msgid "Switch editor to preview mode"
 msgstr "Canvia l'editor al mode de vista prèvia"
 
-#: qml/RawEditPage.qml:233 qml/RichEditPage.qml:343
+#: qml/RawEditPage.qml:239 qml/RichEditPage.qml:343
 #, kde-format
 msgid "Source View"
 msgstr "Vista de codi font"
@@ -1042,6 +1037,9 @@ msgstr "Columna"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contingut de la cel·la"
+
+#~ msgid "Volker Krause"
+#~ msgstr "Volker Krause"
 
 #~ msgctxt "@action:button"
 #~ msgid "Close"

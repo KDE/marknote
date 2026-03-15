@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-14 00:44+0000\n"
+"POT-Creation-Date: 2026-03-15 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Joshua Goins"
 msgstr ""
 
-#: main.cpp:93 main.cpp:99 main.cpp:105 main.cpp:110
+#: main.cpp:93 main.cpp:99 main.cpp:104
 #, kde-format
 msgid "Bug fixes"
 msgstr ""
@@ -124,26 +124,21 @@ msgstr ""
 
 #: main.cpp:104
 #, kde-format
-msgid "Volker Krause"
-msgstr ""
-
-#: main.cpp:110
-#, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:131 qml/Main.qml:422
+#: main.cpp:125 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr ""
 
-#: main.cpp:133
+#: main.cpp:127
 #, kde-format
 msgid "Note taking application"
 msgstr "笔记编辑程序"
 
-#: main.cpp:135
+#: main.cpp:129
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr ""
@@ -427,7 +422,7 @@ msgctxt "@action:menu"
 msgid "Window"
 msgstr "窗口"
 
-#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:226 qml/RawEditPage.qml:220
+#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:226 qml/RawEditPage.qml:226
 #: qml/RichEditPage.qml:325 qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -663,41 +658,41 @@ msgstr "删除"
 msgid "Add a note!"
 msgstr "添加笔记！"
 
-#: qml/RawEditPage.qml:56 qml/RawEditPage.qml:141 qml/RichEditPage.qml:196
+#: qml/RawEditPage.qml:62 qml/RawEditPage.qml:147 qml/RichEditPage.qml:196
 #: qml/RichEditPage.qml:829
 #, kde-format
 msgid "Undo"
 msgstr ""
 
-#: qml/RawEditPage.qml:68 qml/RawEditPage.qml:154 qml/RichEditPage.qml:210
+#: qml/RawEditPage.qml:74 qml/RawEditPage.qml:160 qml/RichEditPage.qml:210
 #: qml/RichEditPage.qml:840
 #, kde-format
 msgid "Redo"
 msgstr ""
 
-#: qml/RawEditPage.qml:76 qml/RawEditPage.qml:162 qml/RichEditPage.qml:258
+#: qml/RawEditPage.qml:82 qml/RawEditPage.qml:168 qml/RichEditPage.qml:258
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr ""
 
-#: qml/RawEditPage.qml:87 qml/RawEditPage.qml:173 qml/RichEditPage.qml:269
+#: qml/RawEditPage.qml:93 qml/RawEditPage.qml:179 qml/RichEditPage.qml:269
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr ""
 
-#: qml/RawEditPage.qml:190 qml/RichEditPage.qml:306
+#: qml/RawEditPage.qml:196 qml/RichEditPage.qml:306
 #, kde-format
 msgid "Focus Mode"
 msgstr "专注模式"
 
-#: qml/RawEditPage.qml:228
+#: qml/RawEditPage.qml:234
 #, kde-format
 msgid "Switch editor to preview mode"
 msgstr ""
 
-#: qml/RawEditPage.qml:233 qml/RichEditPage.qml:343
+#: qml/RawEditPage.qml:239 qml/RichEditPage.qml:343
 #, kde-format
 msgid "Source View"
 msgstr ""
