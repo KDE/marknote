@@ -20,6 +20,7 @@ EditPage {
     document: RawDocumentHandler {
         cursorPosition: root.textArea.cursorPosition
         document: root.textArea.textDocument
+        selectionStart: root.textArea.selectionStart
         selectionEnd: root.textArea.selectionEnd
         textArea: root.textArea
 
