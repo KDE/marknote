@@ -42,6 +42,10 @@ Kirigami.Page {
     property bool mobileToolBarHidden: true
     property real mobileToolBarHeight: 0
 
+    property bool supportsToc: false
+    property bool isTocOpened: false
+    property real tocPosition: 0
+
     onWidthChanged: {
         // 30 grid units gives enough room for the 15-unit drawer + 15 units of text
         // Have nothing to do in the source mode
@@ -55,8 +59,13 @@ Kirigami.Page {
     function openSearch(): void {
         if (searchBar) {
             searchBar.isSearchOpen = true;
-
             if (searchField) {
+                let selText = textArea.selectedText;
+                if (selText.length > 0) {
+                    // Strip out any carriage returns/newlines
+                    searchField.text = selText.replace(/[\r\n]+/g, " ").trim();
+                }
+
                 // Ensure focus happens slightly after
                 // the state change triggers the layout update
                 Qt.callLater(function() {
@@ -110,6 +119,216 @@ Kirigami.Page {
     rightPadding: dynamicRightPadding
     topPadding: 0
 
+    function toggleSearch(): void
+    {
+        if (searchBar.isSearchOpen) {
+            root.closeSearch()
+        } else {
+            root.openSearch()
+        }
+    }
+
+    function toggleReplace(): void {
+        searchBar.isReplaceVisible = !searchBar.isReplaceVisible
+
+        if (!searchBar.isSearchOpen) {
+            root.openSearch()
+        } else {
+            searchBar.isReplaceVisible ? replaceField.forceActiveFocus() : searchField.forceActiveFocus()
+        }
+    }
+
+    titleDelegate: RowLayout {
+        visible: root.noteName
+        Layout.fillWidth: true
+
+        ToolButton {
+            icon.name: "edit-undo"
+            text: KI18n.i18n("Undo")
+            display: AbstractButton.IconOnly
+            Layout.leftMargin: Kirigami.Units.smallSpacing
+            onClicked: root.textArea.undo()
+            enabled: root.textArea.canUndo
+            visible: root.isWideScreen && !root.singleDocumentMode
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        ToolButton {
+            icon.name: "edit-redo"
+            text: KI18n.i18n("Redo")
+            display: AbstractButton.IconOnly
+            onClicked: root.textArea.redo()
+            enabled: root.textArea.canRedo
+            visible: root.isWideScreen && !root.singleDocumentMode
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        Item { Layout.fillWidth: true }
+
+        Rectangle {
+            color: Kirigami.Theme.textColor
+            Layout.preferredHeight: 5
+            Layout.preferredWidth: 5
+            radius: Kirigami.Units.cornerRadius
+            scale: root.saved ? 0 : 1
+
+            Behavior on scale {
+                NumberAnimation {
+                    duration: Kirigami.Units.shortDuration * 2
+                    easing.type: Easing.InOutQuart
+                }
+            }
+        }
+
+        Kirigami.Heading {
+            text: root.isTocOpened && !root.singleDocumentMode && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn ?
+            KI18n.i18nc("@action:button", "Table of Content") : root.noteName
+            elide: Text.ElideRight
+            wrapMode: Text.NoWrap
+
+            Layout.rightMargin: Kirigami.Units.mediumSpacing
+            Layout.leftMargin: Kirigami.Units.mediumSpacing
+            Layout.fillWidth: true
+            Layout.maximumWidth: implicitWidth + Kirigami.Units.mediumSpacing * 2
+            Layout.minimumWidth: 0
+        }
+
+        Item { Layout.fillWidth: true }
+
+        Item {
+            visible: root.isWideScreen
+            Layout.preferredWidth: fillWindowButton.width
+        }
+
+        ToolButton {
+            icon.name: "search"
+            text: KI18n.i18nc("@action:button", "Search Note")
+            display: AbstractButton.IconOnly
+            visible: true
+            checkable: true
+            checked: root.searchBar.isSearchOpen
+
+            onClicked: toggleSearch()
+
+            ToolTip.text: KI18n.i18nc("@info:tooltip", "Search in Note")
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        ToolButton {
+            icon.name: "view-list-details"
+            text: KI18n.i18nc("@action:button", "Table of Content")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: root.isTocOpened
+            visible: root.supportsToc
+            onClicked: root.toggleToc()
+
+            Shortcut {
+                sequence: "Ctrl+T"
+                enabled: root.supportsToc
+                onActivated: root.toggleToc()
+            }
+
+            ToolTip.text: KI18n.i18nc("@info:tooltip", text)
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        ToolButton {
+            id: fillWindowButton
+            property int columnWidth: Config.fillWindow ? 0 : Kirigami.Units.gridUnit * 15
+
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            checkable: true
+            checked: Config.fillWindow
+            display: AbstractButton.IconOnly
+            icon.name: "view-fullscreen"
+            text: KI18n.i18n("Focus Mode")
+            visible: (root.isWideScreen || Config.fillWindow) && !root.singleDocumentMode && !Kirigami.Settings.isMobile
+
+            Behavior on columnWidth {
+                NumberAnimation {
+                    duration: Kirigami.Units.shortDuration * 2
+                    easing.type: Easing.InOutQuart
+                }
+            }
+
+            onClicked: Config.fillWindow = !Config.fillWindow
+            onColumnWidthChanged: root.pageStack.defaultColumnWidth = columnWidth
+        }
+
+        ToolButton {
+            visible: root.Window.window.visibility === Window.FullScreen
+            icon.name: "window-restore-symbolic"
+            text: KI18n.i18nc("@action:menu", "Exit Full Screen")
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: true
+            onClicked: root.Window.window.showNormal()
+
+            ToolTip.text: text
+            ToolTip.visible: hovered
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        Button {
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+            ToolTip.text: KI18n.i18n("Switch editor mode")
+            ToolTip.visible: hovered
+            icon.name: "code-context-symbolic"
+            checkable: true
+            checked: NavigationController.sourceMode
+            text: KI18n.i18n("Source View")
+            padding: 0
+            flat: true
+            spacing: Kirigami.Units.mediumSpacing
+            display: AbstractButton.IconOnly
+
+            onClicked: {
+                document.saveAs(root.noteFullPath)
+                NavigationController.sourceMode = !NavigationController.sourceMode
+            }
+        }
+
+        Kirigami.Separator {
+            Layout.fillHeight: true
+            visible: root.tocPosition > 0 && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+            opacity: root.tocPosition
+        }
+
+        RowLayout {
+            visible: root.tocPosition > 0 && !root.isNarrow && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+
+            readonly property real alignSeparatorWidth: root.contentScroll.ScrollBar.vertical.visible ? 15.7 : 14.6
+            readonly property real fullWidth: (Kirigami.Units.gridUnit * alignSeparatorWidth) - Kirigami.Units.largeSpacing
+            readonly property real exactWidth: fullWidth * root.tocPosition
+
+            Layout.preferredWidth: exactWidth
+            Layout.maximumWidth: exactWidth
+            Layout.minimumWidth: exactWidth
+
+            opacity: root.tocPosition
+            clip: true
+            spacing: 0
+
+            Item { Layout.fillWidth: true }
+            Kirigami.Heading {
+                text: KI18n.i18nc("@title:window", "Table of Contents")
+                elide: Text.ElideRight
+            }
+            Item { Layout.fillWidth: true }
+        }
+    }
+
     header: ColumnLayout {
 
         spacing: 0
@@ -151,14 +370,28 @@ Kirigami.Page {
                         Layout.fillWidth: true
                         placeholderText: KI18n.i18n("Find text...")
                         onTextChanged: {
-                            if (text.length > 0) {
-                                root.document.findText(text);
+                            // Strip out any carriage returns/newlines
+                            const cleanText = text.replace(/[\r\n]+/g, "").trim();
+
+                            if (cleanText.length > 0) {
+                                root.document.findText(cleanText);
                             } else {
                                 root.document.clearSearch();
                                 textArea.deselect();
                             }
                         }
-                        Keys.onShortcutOverride: (event) => event.accepted = (event.key === Qt.Key_Escape)
+                        Keys.onShortcutOverride: (event) => {
+                            if (event.key === Qt.Key_Escape || event.matches(StandardKey.Find)) {
+                                event.accepted = true;
+                            }
+                        }
+
+                        Keys.onPressed: (event) => {
+                            if (event.matches(StandardKey.Find)) {
+                                root.closeSearch();
+                                event.accepted = true;
+                            }
+                        }
                         Keys.onReturnPressed: root.document.findNext()
                         Keys.onEscapePressed: {
                             searchField.text = "";
@@ -225,11 +458,12 @@ Kirigami.Page {
                         icon.name: searchBar.isReplaceVisible ? "arrow-up" : "edit-find-replace-symbolic"
                         text: i18n("Replace")
                         display: AbstractButton.IconOnly
-                        onClicked: {
-                            searchBar.isReplaceVisible = !searchBar.isReplaceVisible
-                            if (searchBar.isReplaceVisible) {
-                                replaceField.forceActiveFocus()
-                            }
+                        onClicked: toggleReplace()
+
+                        Shortcut {
+                            sequence: StandardKey.Replace
+                            enabled: root.visible
+                            onActivated: toggleReplace()
                         }
 
                         ToolTip.text: text
@@ -264,19 +498,24 @@ Kirigami.Page {
                         Layout.fillWidth: true
                         placeholderText: i18n("Replace with...")
                         Keys.onShortcutOverride: (event)=> event.accepted = (event.key === Qt.Key_Escape)
-                        Keys.onReturnPressed: {
+                        Keys.onReturnPressed: (event) => {
                             if (event.modifiers & Qt.ControlModifier) {
-                                document.replaceAll(replaceField.text);
+                                const count = document.replaceAll(replaceField.text);
+                                replaceMessage.text = i18ncp("@info:status", "Replaced %1 occurrence", "Replaced %1 occurrences", count);
+                                replaceMessage.visible = true;
                             } else {
                                 document.replaceCurrent(replaceField.text);
                             }
+
+                            searchField.forceActiveFocus();
+                            searchField.selectAll();
                         }
                         Keys.onEscapePressed: {
-                            searchField.text = "";
-                            searchBar.isSearchOpen = false;
+                            replaceField.text = ""
+                            searchBar.isSearchOpen = true;
                             searchBar.isReplaceVisible = false;
-                            textArea.deselect();
-                            textArea.forceActiveFocus();
+                            searchField.forceActiveFocus();
+                            searchField.selectAll();
                         }
                     }
 
@@ -469,6 +708,12 @@ Kirigami.Page {
                 }
             }
 
+            Keys.onShortcutOverride: (event) => {
+                if (event.matches(StandardKey.Find)) {
+                    event.accepted = true;
+                }
+            }
+
             property int lastKey: -1
             Keys.onPressed: (event) => {
                 if (event.matches(StandardKey.Paste)) {
@@ -477,8 +722,14 @@ Kirigami.Page {
                         event.accepted = true;
                         return;
                     }
+                } else if (event.matches(StandardKey.Find)) {
+                    toggleSearch();
+                    event.accepted = true;
+                    return;
                 }
-                lastKey = event.key
+
+                lastKey = event.key;
+                event.accepted = false;
             }
 
             onTextChanged: {
@@ -492,27 +743,6 @@ Kirigami.Page {
                 root.saved = false;
                 saveTimer.restart()
 
-            }
-
-            Shortcut {
-                sequence: StandardKey.Find
-                onActivated: if (searchBar.isSearchOpen === true) {
-                    root.closeSearch()
-                } else {
-                    root.openSearch()
-                }
-            }
-
-            Shortcut {
-                sequence: StandardKey.Replace
-                onActivated:
-                {
-                    root.openSearch()
-                    searchBar.isReplaceVisible = true
-                    if (replaceField) {
-                        replaceField.forceActiveFocus()
-                    }
-                }
             }
 
             DropArea {

@@ -32,6 +32,18 @@ EditPage {
 
     dynamicRightPadding: tocDrawer.position * tocDrawer.width
 
+    supportsToc: true
+    isTocOpened: tocDrawer.opened
+    tocPosition: tocDrawer.position
+
+    function toggleToc() {
+        if (tocDrawer.opened) {
+            tocDrawer.close()
+        } else {
+            tocDrawer.open()
+        }
+    }
+
     objectName: "RichEditPage"
 
     document: RichDocumentHandler {
@@ -185,210 +197,6 @@ EditPage {
         const noteName = noteNameFromInternalUrl(url);
         if (noteName.length > 0) {
             openNoteByName(noteName);
-        }
-    }
-
-    titleDelegate: RowLayout {
-        visible: root.noteName
-        Layout.fillWidth: true
-        ToolButton {
-            icon.name: "edit-undo"
-            text: KI18n.i18n("Undo")
-            display: AbstractButton.IconOnly
-            Layout.leftMargin: Kirigami.Units.smallSpacing
-            onClicked: root.textArea.undo()
-            enabled: root.textArea.canUndo
-            visible: root.isWideScreen && !root.singleDocumentMode && !mobileToolbarLayout.visible
-
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        ToolButton {
-            icon.name: "edit-redo"
-            text: KI18n.i18n("Redo")
-            display: AbstractButton.IconOnly
-            onClicked: root.textArea.redo()
-            enabled: root.textArea.canRedo
-            visible: root.isWideScreen && !root.singleDocumentMode && !mobileToolbarLayout.visible
-
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        Item { Layout.fillWidth: true }
-
-        Rectangle {
-            Layout.preferredWidth: 5
-            Layout.preferredHeight: 5
-            radius: 5
-            scale: root.saved ? 0 : 1
-            color: Kirigami.Theme.textColor
-            Behavior on scale {
-                NumberAnimation {
-                    duration: Kirigami.Units.shortDuration * 2
-                    easing.type: Easing.InOutQuart
-                }
-            }
-        }
-
-        Kirigami.Heading {
-            text: tocDrawer.opened && !root.singleDocumentMode && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn ? tocButton.text : root.noteName
-            elide: Text.ElideRight
-            wrapMode: Text.NoWrap
-
-            Layout.rightMargin: Kirigami.Units.mediumSpacing
-            Layout.leftMargin: Kirigami.Units.mediumSpacing
-            Layout.fillWidth: true
-            Layout.maximumWidth: implicitWidth + Kirigami.Units.mediumSpacing * 2
-            Layout.minimumWidth: 0
-        }
-
-
-        Item { Layout.fillWidth: true }
-        Item {
-            Layout.preferredWidth: fillWindowButton.width
-            visible: root.isWideScreen
-        }
-        ToolButton {
-            id: searchNoteButton
-            icon.name: "search"
-            text: KI18n.i18nc("@action:button", "Search Note")
-            display: AbstractButton.IconOnly
-            visible: true
-            checkable: true
-            checked: root.searchBar.isSearchOpen
-            onClicked: if (root.searchBar.isSearchOpen === true) {
-                root.closeSearch()
-            } else {
-                root.openSearch()
-            }
-
-            ToolTip.text: KI18n.i18nc("@info:tooltip", "Search in Note")
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-
-        ToolButton {
-            id: tocButton
-            icon.name: "view-list-details"
-            text: KI18n.i18nc("@action:button", "Table of Content")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: tocDrawer.opened
-            onClicked: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
-            visible: true
-
-            Shortcut {
-                sequence: "Ctrl+T"
-                onActivated: tocDrawer.opened ? tocDrawer.close() : tocDrawer.open()
-            }
-
-            ToolTip.text: KI18n.i18nc("@info:tooltip", tocButton.text)
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        ToolButton {
-            id: fillWindowButton
-            property int columnWidth: Config.fillWindow? 0 : Kirigami.Units.gridUnit * 15
-
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            checkable: true
-            checked: Config.fillWindow
-            display: AbstractButton.IconOnly
-            icon.name: "view-fullscreen"
-            text: KI18n.i18n("Focus Mode")
-            visible: (root.isWideScreen || Config.fillWindow) && !root.singleDocumentMode && !Kirigami.Settings.isMobile
-
-            Behavior on columnWidth {
-                NumberAnimation {
-                    duration: Kirigami.Units.shortDuration * 2
-                    easing.type: Easing.InOutQuart
-                }
-            }
-            onColumnWidthChanged: root.pageStack.defaultColumnWidth = columnWidth
-
-            onClicked: {
-                Config.fillWindow = !Config.fillWindow
-            }
-        }
-
-        ToolButton {
-            visible: root.Window.window.visibility === Window.FullScreen
-            icon.name: "window-restore-symbolic"
-            text: KI18n.i18nc("@action:menu", "Exit Full Screen")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: true
-            onClicked: root.Window.window.showNormal()
-
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        Button{
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-            ToolTip.text: KI18n.i18n("Switch editor to source mode")
-            ToolTip.visible: hovered
-            icon.name: "code-context-symbolic"
-            checkable: true
-            checked: false
-            text: KI18n.i18n("Source View")
-            padding: 0
-            flat: true
-            spacing: Kirigami.Units.mediumSpacing
-
-            display: AbstractButton.IconOnly
-
-            onClicked: {
-                document.saveAs(root.noteFullPath)
-                NavigationController.sourceMode = !NavigationController.sourceMode
-            }
-        }
-
-        Kirigami.Separator {
-            Layout.fillHeight: true
-            visible: tocDrawer.position > 0 && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
-            opacity: tocDrawer.position
-        }
-
-        RowLayout {
-            visible: tocDrawer.position > 0 && !root.isNarrow && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
-
-            // TODO: Move this logic to Main to get rid of the magic number
-            // Workaround to align the drawer with the separator
-            readonly property real alignSeparatorWidth: floatingEditButton.verticalScrollBar.visible ? 15.7 : 14.6
-
-            // Calculate the maximum target width, then multiply by the drawer's animation position
-            readonly property real fullWidth: (Kirigami.Units.gridUnit * alignSeparatorWidth) - Kirigami.Units.largeSpacing
-            readonly property real exactWidth: fullWidth * tocDrawer.position
-
-            Layout.preferredWidth: exactWidth
-            Layout.maximumWidth: exactWidth
-            Layout.minimumWidth: exactWidth
-
-            // Fade the text in and out gradually
-            opacity: tocDrawer.position
-            // Clip the text so it doesn't spill out of the layout bounds while expanding
-            clip: true
-
-            spacing: 0
-
-            Item { Layout.fillWidth: true }
-
-            Kirigami.Heading {
-                text: KI18n.i18nc("@title:window", "Table of Contents")
-                elide: Text.ElideRight
-            }
-
-            Item { Layout.fillWidth: true }
         }
     }
 
