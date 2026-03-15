@@ -23,19 +23,18 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 #include <QQuickWindow>
+#include <QUrl>
 #include <QtSystemDetection>
-#if !defined(Q_OS_ANDROID)
-#include <QDBusConnection>
-#include <QDBusError>
-#endif
 
 #include "../marknote-version.h"
 #include "colorschemer.h"
 #include "sketchhistory.h"
-#include <QUrl>
 #include <marknotesettings.h>
+
 #ifdef HAVE_KRUNNER
 #include "runner.h"
+#include <QDBusConnection>
+#include <QDBusError>
 #endif
 
 #if KI18N_VERSION >= QT_VERSION_CHECK(6, 8, 0)
