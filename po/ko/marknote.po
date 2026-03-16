@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-15 00:45+0000\n"
+"POT-Creation-Date: 2026-03-16 00:44+0000\n"
 "PO-Revision-Date: 2026-02-03 23:43+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -151,61 +151,121 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "노트의 이름을 바꿀 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
 
-#: qml/EditPage.qml:152
+#: qml/EditPage.qml:147 qml/RichEditPage.qml:636
+#, kde-format
+msgid "Undo"
+msgstr "실행 취소"
+
+#: qml/EditPage.qml:161 qml/RichEditPage.qml:647
+#, kde-format
+msgid "Redo"
+msgstr "다시 실행"
+
+#: qml/EditPage.qml:191 qml/EditPage.qml:226
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgctxt "@action:button"
+msgid "Table of Content"
+msgstr "셀 내용"
+
+#: qml/EditPage.qml:211
+#, fuzzy, kde-format
+#| msgid "Search notes (%1)"
+msgctxt "@action:button"
+msgid "Search Note"
+msgstr "노트 검색(%1)"
+
+#: qml/EditPage.qml:219
+#, fuzzy, kde-format
+#| msgid "Search notes (%1)"
+msgctxt "@info:tooltip"
+msgid "Search in Note"
+msgstr "노트 검색(%1)"
+
+#: qml/EditPage.qml:255
+#, kde-format
+msgid "Focus Mode"
+msgstr "초점 모드"
+
+#: qml/EditPage.qml:272 qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:226
+#: qml/WelcomePage.qml:29
+#, kde-format
+msgctxt "@action:menu"
+msgid "Exit Full Screen"
+msgstr "전체 화면 나가기"
+
+#: qml/EditPage.qml:285
+#, kde-format
+msgid "Switch editor mode"
+msgstr ""
+
+#: qml/EditPage.qml:290
+#, kde-format
+msgid "Source View"
+msgstr ""
+
+#: qml/EditPage.qml:325
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgctxt "@title:window"
+msgid "Table of Contents"
+msgstr "셀 내용"
+
+#: qml/EditPage.qml:371
 #, kde-format
 msgid "Find text..."
 msgstr ""
 
-#: qml/EditPage.qml:178
+#: qml/EditPage.qml:411
 #, kde-format
 msgid "Previous"
 msgstr ""
 
-#: qml/EditPage.qml:194
+#: qml/EditPage.qml:427
 #, kde-format
 msgid "Next"
 msgstr ""
 
-#: qml/EditPage.qml:212 qml/EditPage.qml:318
+#: qml/EditPage.qml:445 qml/EditPage.qml:557
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: qml/EditPage.qml:214 qml/EditPage.qml:320
+#: qml/EditPage.qml:447 qml/EditPage.qml:559
 #, kde-format
 msgid "%1/%2"
 msgstr ""
 
-#: qml/EditPage.qml:226 qml/EditPage.qml:289
+#: qml/EditPage.qml:459 qml/EditPage.qml:528
 #, kde-format
 msgid "Replace"
 msgstr ""
 
-#: qml/EditPage.qml:243
+#: qml/EditPage.qml:477
 #, kde-format
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:265
+#: qml/EditPage.qml:499
 #, kde-format
 msgid "Replace with..."
 msgstr ""
 
-#: qml/EditPage.qml:301
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
-msgid "Replace All"
-msgstr "모두 선택"
-
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:504 qml/EditPage.qml:544
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
 msgstr[0] ""
 
-#: qml/EditPage.qml:369
+#: qml/EditPage.qml:540
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Replace All"
+msgstr "모두 선택"
+
+#: qml/EditPage.qml:608
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -425,13 +485,6 @@ msgstr "도움말"
 msgctxt "@action:menu"
 msgid "Window"
 msgstr "창"
-
-#: qml/NativeWindowMenu.qml:22 qml/NotesPage.qml:226 qml/RawEditPage.qml:226
-#: qml/RichEditPage.qml:325 qml/WelcomePage.qml:29
-#, kde-format
-msgctxt "@action:menu"
-msgid "Exit Full Screen"
-msgstr "전체 화면 나가기"
 
 #: qml/NativeWindowMenu.qml:22
 #, kde-format
@@ -678,133 +731,73 @@ msgstr "삭제"
 msgid "Add a note!"
 msgstr "새 노트 추가!"
 
-#: qml/RawEditPage.qml:62 qml/RawEditPage.qml:147 qml/RichEditPage.qml:196
-#: qml/RichEditPage.qml:829
-#, kde-format
-msgid "Undo"
-msgstr "실행 취소"
-
-#: qml/RawEditPage.qml:74 qml/RawEditPage.qml:160 qml/RichEditPage.qml:210
-#: qml/RichEditPage.qml:840
-#, kde-format
-msgid "Redo"
-msgstr "다시 실행"
-
-#: qml/RawEditPage.qml:82 qml/RawEditPage.qml:168 qml/RichEditPage.qml:258
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
-msgctxt "@action:button"
-msgid "Search Note"
-msgstr "노트 검색(%1)"
-
-#: qml/RawEditPage.qml:93 qml/RawEditPage.qml:179 qml/RichEditPage.qml:269
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
-msgctxt "@info:tooltip"
-msgid "Search in Note"
-msgstr "노트 검색(%1)"
-
-#: qml/RawEditPage.qml:196 qml/RichEditPage.qml:306
-#, kde-format
-msgid "Focus Mode"
-msgstr "초점 모드"
-
-#: qml/RawEditPage.qml:234
-#, kde-format
-msgid "Switch editor to preview mode"
-msgstr ""
-
-#: qml/RawEditPage.qml:239 qml/RichEditPage.qml:343
-#, kde-format
-msgid "Source View"
-msgstr ""
-
-#: qml/RichEditPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
-msgctxt "@action:button"
-msgid "Table of Content"
-msgstr "셀 내용"
-
-#: qml/RichEditPage.qml:338
-#, kde-format
-msgid "Switch editor to source mode"
-msgstr ""
-
-#: qml/RichEditPage.qml:387
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
-msgctxt "@title:window"
-msgid "Table of Contents"
-msgstr "셀 내용"
-
-#: qml/RichEditPage.qml:458
+#: qml/RichEditPage.qml:266
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "굵게"
 
-#: qml/RichEditPage.qml:479
+#: qml/RichEditPage.qml:287
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "이탤릭"
 
-#: qml/RichEditPage.qml:498
+#: qml/RichEditPage.qml:306
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "밑줄"
 
-#: qml/RichEditPage.qml:512
+#: qml/RichEditPage.qml:320
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "취소선"
 
-#: qml/RichEditPage.qml:530
+#: qml/RichEditPage.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "목록 단계 증가"
 
-#: qml/RichEditPage.qml:541
+#: qml/RichEditPage.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "목록 단계 감소"
 
-#: qml/RichEditPage.qml:583
+#: qml/RichEditPage.qml:391
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "목록 없음"
 
-#: qml/RichEditPage.qml:584
+#: qml/RichEditPage.qml:392
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "순서 없는 목록"
 
-#: qml/RichEditPage.qml:585
+#: qml/RichEditPage.qml:393
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "정렬된 목록"
 
-#: qml/RichEditPage.qml:596
+#: qml/RichEditPage.qml:404
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "체크 상자 삽입"
 
-#: qml/RichEditPage.qml:611
+#: qml/RichEditPage.qml:419
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "링크 삽입"
 
-#: qml/RichEditPage.qml:627
+#: qml/RichEditPage.qml:435
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -812,71 +805,71 @@ msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "링크 삽입"
 
-#: qml/RichEditPage.qml:643
+#: qml/RichEditPage.qml:451
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "그림 삽입"
 
-#: qml/RichEditPage.qml:656
+#: qml/RichEditPage.qml:464
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "표 삽입"
 
-#: qml/RichEditPage.qml:677
+#: qml/RichEditPage.qml:485
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "일반 텍스트"
 
-#: qml/RichEditPage.qml:678
+#: qml/RichEditPage.qml:486
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "제목"
 
-#: qml/RichEditPage.qml:679
+#: qml/RichEditPage.qml:487
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "부제목"
 
-#: qml/RichEditPage.qml:680
+#: qml/RichEditPage.qml:488
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "장"
 
-#: qml/RichEditPage.qml:681
+#: qml/RichEditPage.qml:489
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "절"
 
-#: qml/RichEditPage.qml:682
+#: qml/RichEditPage.qml:490
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "문단"
 
-#: qml/RichEditPage.qml:683
+#: qml/RichEditPage.qml:491
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "하위 문단"
 
-#: qml/RichEditPage.qml:872
+#: qml/RichEditPage.qml:679
 #, kde-format
 msgid "Format"
 msgstr "형식"
 
-#: qml/RichEditPage.qml:876
+#: qml/RichEditPage.qml:683
 #, kde-format
 msgid "Lists"
 msgstr "목록"
 
-#: qml/RichEditPage.qml:880
+#: qml/RichEditPage.qml:687
 #, kde-format
 msgid "Insert"
 msgstr "삽입"
