@@ -434,9 +434,6 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
 
         Q_EMIT loaded(processedContent, Qt::MarkdownText);
 
-        // Force the Markdown parser to finish before calculate table
-        QCoreApplication::processEvents();
-
         if (QTextDocument *doc = textDocument()) {
             fixupTable(doc->rootFrame());
 
