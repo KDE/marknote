@@ -1884,9 +1884,19 @@ void RichDocumentHandler::applyBlockMargins()
         QTextBlockFormat fmt = block.blockFormat();
 
         if (fmt.headingLevel() > 0) {
-            // Give headings some extra breathing room
-            fmt.setTopMargin(m_blockMargin * 4);
-            fmt.setBottomMargin(m_blockMargin);
+            if (block == doc->begin()) {
+                fmt.setTopMargin(m_blockMargin);
+            } else {
+                fmt.setTopMargin(m_blockMargin * 4);
+            }
+
+            // Add a larger bottom margin specifically for the main Title (H1)
+            if (fmt.headingLevel() == 1) {
+                const int titleMarginMultiplier = 3;
+                fmt.setBottomMargin(m_blockMargin * titleMarginMultiplier);
+            } else {
+                fmt.setBottomMargin(m_blockMargin);
+            }
 
             QTextCursor blockCursor(block);
             blockCursor.setBlockFormat(fmt);
