@@ -11,6 +11,7 @@
 #include <KLocalizedString>
 #include <KStandardShortcut>
 
+#include <KColorSchemeManager>
 #include <QAbstractTextDocumentLayout>
 #include <QClipboard>
 #include <QCryptographicHash>
@@ -43,6 +44,11 @@ const QChar kLinkBoundaryChar(u'\u2060');
 QColor normalTextColor()
 {
     return KColorScheme(QPalette::Active, KColorScheme::View).foreground(KColorScheme::NormalText).color();
+}
+
+QColor codeBlockBackgroundColor()
+{
+    return KColorScheme(QPalette::Active, KColorScheme::View).background(KColorScheme::AlternateBackground).color();
 }
 
 QString internalLinkUrlForName(const QString &noteName)
@@ -162,10 +168,6 @@ RichDocumentHandler::RichDocumentHandler(QObject *parent)
     m_lastItalic = italic();
     m_lastStrikethrough = strikethrough();
     m_lastUnderline = underline();
-
-    connect(this, &DocumentHandler::documentChanged, this, [this]() {
-        applyBlockMargins();
-    });
 }
 
 bool RichDocumentHandler::eventFilter(QObject *object, QEvent *event)
@@ -174,6 +176,9 @@ bool RichDocumentHandler::eventFilter(QObject *object, QEvent *event)
         return !processKeyEvent(static_cast<QKeyEvent *>(event));
     }
 
+    if (event->type() == QEvent::ApplicationPaletteChange) {
+        parseDocument();
+    }
     // activate only links covered by press and release, on release
     // matches the behavior of TextArea::linkActivated
     // we can't use that directly though as it prevents placing the cursor inside a link
@@ -435,7 +440,8 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
         if (QTextDocument *doc = textDocument()) {
             fixupTable(doc->rootFrame());
 
-            applyBlockMargins();
+            // apply custom formatting
+            parseDocument();
 
             QTextCursor checkCursor(doc);
             checkCursor.movePosition(QTextCursor::End);
@@ -495,9 +501,26 @@ void RichDocumentHandler::saveAs(const QUrl &fileUrl)
     QString processedMarkdown;
     processedMarkdown.reserve(markdown.size()); // Pre-allocate exact memory needed
 
+    bool inCodeBlock = false;
+    bool extraLineDeleted = false;
+
     const auto lines = QStringView(markdown).split(u'\n');
     for (const auto &line : lines) {
-        if (line.trimmed().startsWith(u'|')) {
+        if (inCodeBlock) {
+            if (line.isEmpty()) {
+                if (!extraLineDeleted) {
+                    extraLineDeleted = true;
+                    continue;
+                }
+            } else {
+                extraLineDeleted = false;
+            }
+        }
+
+        if (line.trimmed().startsWith(u"```"_s)) {
+            inCodeBlock = !inCodeBlock;
+            processedMarkdown.append(line);
+        } else if (line.trimmed().startsWith(u'|')) {
             QString tableLine = line.toString();
             tableLine.replace(u"\u00A0"_s, u""_s);
             tableLine.replace(u"&nbsp;"_s, u""_s);
@@ -964,6 +987,15 @@ void RichDocumentHandler::pasteFromClipboard()
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
 
+    if (isCodeBlock(cursor.block())) {
+        // we want to paste everything as plain text inside a code block,
+        // except images which will be pasted normally in a new block
+        cursor.insertText(mimeData->text());
+        cursor.endEditBlock();
+        parseDocument();
+        return;
+    }
+
     if (mimeData->hasHtml()) {
         cursor.insertHtml(mimeData->html());
     } else if (mimeData->hasFormat(QStringLiteral("text/markdown"))) {
@@ -974,6 +1006,8 @@ void RichDocumentHandler::pasteFromClipboard()
     }
 
     cursor.endEditBlock();
+
+    parseDocument();
 }
 
 void RichDocumentHandler::setCheckable(bool add)
@@ -1240,18 +1274,7 @@ void RichDocumentHandler::slotKeyPressed(int key)
                 cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, 4);
                 cursor.removeSelectedText();
 
-                QTextBlockFormat blockFormat{};
-                blockFormat.setProperty(QTextFormat::BlockCodeFence, true);
-
-                QTextCharFormat charFormat{};
-                charFormat.setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
-
-                // Enforce constraints so the rich text engine doesn't override them
-                charFormat.setFontFixedPitch(true);
-                charFormat.setFontStyleHint(QFont::Monospace);
-
-                cursor.setBlockCharFormat(charFormat);
-                cursor.setBlockFormat(blockFormat);
+                applyCodeBlockFormat(cursor.block());
                 cursor.endEditBlock();
             }
         }
@@ -1366,35 +1389,10 @@ void RichDocumentHandler::slotKeyPressed(int key)
     }
 
     if (key == Qt::Key_Return) {
-        // exit code block
-        if (isCodeBlock(cursor.block()) && cursor.block().previous().text().isEmpty() && !isCodeBlock(cursor.block().next())) {
-            cursor.beginEditBlock();
-            cursor.setBlockFormat({});
-            cursor.setBlockCharFormat({});
-            cursor.endEditBlock();
-            return;
-        }
-
         // insert a code block on detecting a code fence
         const auto fullBlockText = cursor.block().previous().text();
         if (fullBlockText.startsWith(u"```")) {
             cursor.beginEditBlock();
-
-            QTextBlockFormat blockFormat{};
-            blockFormat.setProperty(QTextFormat::BlockCodeFence, true);
-
-            // get language if present
-            const QString language = fullBlockText.mid(3).trimmed();
-            if (!language.isEmpty()) {
-                blockFormat.setProperty(QTextFormat::BlockCodeLanguage, language);
-            }
-
-            QTextCharFormat charFormat{};
-            charFormat.setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
-
-            // Enforce constraints so the rich text engine doesn't override them
-            charFormat.setFontFixedPitch(true);
-            charFormat.setFontStyleHint(QFont::Monospace);
 
             // delete previous line
             cursor.movePosition(QTextCursor::Up);
@@ -1402,9 +1400,11 @@ void RichDocumentHandler::slotKeyPressed(int key)
             cursor.removeSelectedText();
             cursor.deleteChar();
 
-            cursor.insertBlock(blockFormat, charFormat);
-            cursor.endEditBlock();
+            const QString language = fullBlockText.mid(3).trimmed();
+            cursor.insertBlock({}, {});
+            applyCodeBlockFormat(cursor.block(), language);
 
+            cursor.endEditBlock();
             return;
         }
 
@@ -1579,6 +1579,12 @@ bool RichDocumentHandler::processKeyEvent(QKeyEvent *e)
                 cursor.endEditBlock();
             }
         } else if (cursor.positionInBlock() == 0 && textCursor().block().text().trimmed().isEmpty()) {
+            // we don't want to merge with previous block if both current and previous blocks are code blocks,
+            // otherwise we would lose code block formatting
+            if (isCodeBlock(cursor.block()) && isCodeBlock(cursor.block().previous())) {
+                return true;
+            }
+
             cursor.beginEditBlock();
             cursor.setBlockCharFormat(QTextCharFormat());
             cursor.setBlockFormat(QTextBlockFormat());
@@ -1593,8 +1599,16 @@ bool RichDocumentHandler::processKeyEvent(QKeyEvent *e)
     // do not handle any other key events above this
     auto cursor = textCursor();
     if (isCodeBlock(cursor.block())) {
-        if (e->key() == Qt::Key_Return && e->modifiers() == Qt::ShiftModifier) {
-            cursor.insertBlock(cursor.blockFormat(), cursor.charFormat());
+        if (e->key() == Qt::Key_Return) {
+            if (e->modifiers().testFlag(Qt::ShiftModifier) || !cursor.block().text().isEmpty() || isCodeBlock(cursor.block().next())) {
+                cursor.insertBlock({}, {});
+                applyCodeBlockFormat(cursor.block());
+            } else if (cursor.block().text().isEmpty()) {
+                cursor.setBlockCharFormat({});
+                cursor.setBlockFormat({});
+                applyParagraphFormat(cursor.block());
+            }
+
             return false;
         }
 
@@ -1673,35 +1687,8 @@ bool RichDocumentHandler::handleShortcut(QKeyEvent *event)
         copy();
         return true;
     } else if (KStandardShortcut::paste().contains(key)) {
-        const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData(QClipboard::Clipboard);
-        if (!mimeData) {
-            return true;
-        }
-
-        if (const auto urls = mimeData->urls(); urls.size() == 1 && urls.front().scheme() == "https"_L1) {
-            updateLink(urls.front().toString(), QString());
-            return true;
-        }
-
-        // Prefer rich HTML if available
-        if (mimeData->hasHtml()) {
-            textCursor().insertHtml(mimeData->html());
-            return true;
-        }
-
-        if (mimeData->hasFormat(QStringLiteral("text/markdown"))) {
-            const QByteArray md = mimeData->data(QStringLiteral("text/markdown"));
-            textCursor().insertText(QString::fromUtf8(md));
-            return true;
-        }
-
-        const QString text = mimeData->text();
-        if (const QUrl url(text, QUrl::StrictMode); url.isValid() && url.scheme() == "https"_L1) {
-            updateLink(url.toString(), QString());
-            return true;
-        }
-        // i return false here to let the QML TextArea's native handler take over it for ctrl+v pasting(fix: causing the text to be pasted twice).
-        return false;
+        pasteFromClipboard();
+        return true;
     } else if (KStandardShortcut::cut().contains(key)) {
         cut();
         return true;
@@ -1865,53 +1852,84 @@ void RichDocumentHandler::setBlockMargin(int margin)
         return;
     }
     m_blockMargin = margin;
-    applyBlockMargins();
+    parseDocument();
     Q_EMIT blockMarginChanged();
 }
 
-void RichDocumentHandler::applyBlockMargins()
+void RichDocumentHandler::applyCodeBlockFormat(const QTextBlock &block, const QString &language)
 {
-    QTextDocument *doc = textDocument();
+    QTextBlockFormat blockFormat{};
+    blockFormat.setProperty(QTextFormat::BlockCodeFence, true);
+
+    if (!language.isEmpty()) {
+        blockFormat.setProperty(QTextFormat::BlockCodeLanguage, language);
+    }
+
+    QTextCharFormat charFormat{};
+    charFormat.setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
+    charFormat.setFontFixedPitch(true);
+    charFormat.setFontStyleHint(QFont::Monospace);
+    charFormat.setBackground(codeBlockBackgroundColor());
+
+    if (block.previous().isValid() && !isCodeBlock(block.previous())) {
+        blockFormat.setTopMargin(m_blockMargin);
+    }
+
+    QTextCursor cursor(block);
+    cursor.setBlockFormat(blockFormat);
+    cursor.setBlockCharFormat(charFormat);
+}
+
+void RichDocumentHandler::applyHeadingFormat(const QTextBlock &block)
+{
+    QTextBlockFormat fmt = block.blockFormat();
+    if (block == textDocument()->begin()) {
+        fmt.setTopMargin(m_blockMargin);
+    } else {
+        fmt.setTopMargin(m_blockMargin * 4);
+    }
+
+    // Add a larger bottom margin specifically for the main Title (H1)
+    if (fmt.headingLevel() == 1) {
+        const int titleMarginMultiplier = 3;
+        fmt.setBottomMargin(m_blockMargin * titleMarginMultiplier);
+    } else {
+        fmt.setBottomMargin(m_blockMargin);
+    }
+
+    QTextCursor blockCursor(block);
+    blockCursor.setBlockFormat(fmt);
+}
+
+void RichDocumentHandler::applyParagraphFormat(const QTextBlock &block)
+{
+    QTextBlockFormat fmt = block.blockFormat();
+    fmt.setTopMargin(m_blockMargin);
+    fmt.setBottomMargin(2);
+
+    QTextCursor blockCursor(block);
+    blockCursor.setBlockFormat(fmt);
+}
+
+void RichDocumentHandler::parseDocument()
+{
+    auto doc = textDocument();
     if (!doc) {
         return;
     }
 
-    QTextCursor cursor(doc);
-    cursor.beginEditBlock();
+    for (auto block = doc->begin(); block != doc->end(); block = block.next()) {
+        const auto blockFmt = block.blockFormat();
 
-    QTextBlock block = doc->begin();
-    while (block.isValid()) {
-        QTextBlockFormat fmt = block.blockFormat();
-
-        if (fmt.headingLevel() > 0) {
-            if (block == doc->begin()) {
-                fmt.setTopMargin(m_blockMargin);
-            } else {
-                fmt.setTopMargin(m_blockMargin * 4);
-            }
-
-            // Add a larger bottom margin specifically for the main Title (H1)
-            if (fmt.headingLevel() == 1) {
-                const int titleMarginMultiplier = 3;
-                fmt.setBottomMargin(m_blockMargin * titleMarginMultiplier);
-            } else {
-                fmt.setBottomMargin(m_blockMargin);
-            }
-
-            QTextCursor blockCursor(block);
-            blockCursor.setBlockFormat(fmt);
-        } else if (!block.textList() && !fmt.isTableCellFormat() && !isCodeBlock(block)) {
-            // Add a bit to standard paragraphs
-            fmt.setTopMargin(m_blockMargin);
-            fmt.setBottomMargin(2);
-
-            QTextCursor blockCursor(block);
-            blockCursor.setBlockFormat(fmt);
+        if (isCodeBlock(block)) {
+            const QString language = blockFmt.property(QTextFormat::BlockCodeLanguage).toString();
+            applyCodeBlockFormat(block, language);
+        } else if (blockFmt.headingLevel() > 0) {
+            applyHeadingFormat(block);
+        } else if (!block.textList() && !blockFmt.isTableCellFormat()) {
+            applyParagraphFormat(block);
         }
-
-        block = block.next();
     }
-    cursor.endEditBlock();
 }
 
 #include "moc_rich_documenthandler.cpp"

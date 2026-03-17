@@ -122,11 +122,15 @@ private:
     bool processKeyEvent(QKeyEvent *event);
     void moveLineUpDown(bool moveUp);
     void moveCursorBeginUpDown(bool moveUp);
-    void applyBlockMargins();
 
     [[nodiscard]] bool isCodeBlock(const QTextBlock &block) const;
 
     void regenerateColorScheme();
+
+    void applyCodeBlockFormat(const QTextBlock &block, const QString &language = QString());
+    void applyHeadingFormat(const QTextBlock &block);
+    void applyParagraphFormat(const QTextBlock &block);
+    void parseDocument();
 
     QColor mLinkColor;
 
