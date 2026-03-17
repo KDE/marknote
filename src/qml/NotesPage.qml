@@ -673,17 +673,30 @@ Kirigami.ScrollablePage {
                         Kirigami.Theme.inherit: false
                         property color textcolor: Kirigami.Theme.textColor
                     }
+
+                    Label {
+                        Layout.fillWidth: true
+                        Layout.leftMargin: Kirigami.Units.smallSpacing
+
+                        Layout.preferredHeight: renameField.implicitHeight
+                        verticalAlignment: Text.AlignVCenter
+
+                        text: delegateItem.name
+                        elide: Qt.ElideRight
+                        visible: !renameField.enabled
+                        color: textcolorItem.textcolor
+                    }
+
                     Kirigami.ActionTextField {
                         id: renameField
 
                         Layout.fillWidth: true
                         Layout.leftMargin: Kirigami.Units.smallSpacing
 
-                        // Ensure that we elide as expected, otherwise it cuts off the first half of any long title
-                        autoScroll: false
-                        text: name
+                        text: delegateItem.name
                         onAccepted: acceptedAction.triggered();
-                        visible: true
+
+                        visible: enabled
                         enabled: false
                         background.visible: enabled
                         topPadding: enabled ? Kirigami.Units.smallSpacing : 0
