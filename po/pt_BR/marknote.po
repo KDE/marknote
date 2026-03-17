@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-16 00:44+0000\n"
-"PO-Revision-Date: 2026-03-12 08:23-0300\n"
+"PO-Revision-Date: 2026-03-16 08:29-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -195,10 +195,9 @@ msgid "Exit Full Screen"
 msgstr "Sair da tela cheia"
 
 #: qml/EditPage.qml:285
-#, fuzzy, kde-format
-#| msgid "Switch editor to source mode"
+#, kde-format
 msgid "Switch editor mode"
-msgstr "Alternar o editor para o modo de código"
+msgstr "Alternar modo do editor"
 
 #: qml/EditPage.qml:290
 #, kde-format

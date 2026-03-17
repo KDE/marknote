@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-16 00:44+0000\n"
-"PO-Revision-Date: 2026-03-12 12:11+0100\n"
+"PO-Revision-Date: 2026-03-16 14:22+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -194,10 +194,9 @@ msgid "Exit Full Screen"
 msgstr "Salir de pantalla completa"
 
 #: qml/EditPage.qml:285
-#, fuzzy, kde-format
-#| msgid "Switch editor to source mode"
+#, kde-format
 msgid "Switch editor mode"
-msgstr "Cambiar editor al modo de código fuente"
+msgstr "Cambiar modo del editor"
 
 #: qml/EditPage.qml:290
 #, kde-format
@@ -1033,13 +1032,3 @@ msgstr "Columna"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contenido de la celda"
-
-#~ msgid "Switch editor to preview mode"
-#~ msgstr "Cambiar editor al modo de vista previa"
-
-#~ msgid "Volker Krause"
-#~ msgstr "Volker Krause"
-
-#~ msgctxt "@action:button"
-#~ msgid "Close"
-#~ msgstr "Cerrar"

@@ -1,56 +1,56 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the marknote package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SPDX-FileCopyrightText: 2026 charlotte <altronic25@protonmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-16 00:44+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-03-14 12:51+0000\n"
+"Last-Translator: charlotte <altronic25@protonmail.com>\n"
+"Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Charlotte"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "altronic25@protonmail.com"
 
 #: application.cpp:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
-msgstr ""
+msgstr "Leabhar Nótaí Nua"
 
 #: application.cpp:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
-msgstr ""
+msgstr "Nóta Nua"
 
 #: application.cpp:59
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Iompórtáil as KNotes"
 
 #: application.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Iompórtáil as Maildir"
 
 #: maildirimport.cpp:96
 #, kde-format
@@ -61,37 +61,37 @@ msgstr ""
 #: main.cpp:57
 #, kde-format
 msgid "Mathis Brüchert"
-msgstr ""
+msgstr "Mathis Brüchert"
 
 #: main.cpp:58 main.cpp:63 main.cpp:66
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Cothaitheoir"
 
 #: main.cpp:63
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:65
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "Valentyn Bondarenko"
 
 #: main.cpp:74
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Justin Zobel"
 
 #: main.cpp:75
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Tacaíocht Flatpak"
 
 #: main.cpp:80
 #, kde-format
 msgid "Shubham Shinde"
-msgstr ""
+msgstr "Shubham Shinde"
 
 #: main.cpp:81
 #, kde-format
@@ -101,38 +101,38 @@ msgstr ""
 #: main.cpp:86
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
 #: main.cpp:87
 #, kde-format
 msgid "Source Mode"
-msgstr ""
+msgstr "Mód Foinse"
 
 #: main.cpp:92
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: main.cpp:93 main.cpp:99 main.cpp:104
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "Ceartúcháin"
 
 #: main.cpp:98
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
 #: main.cpp:104
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:125 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
-msgstr ""
+msgstr "Marknote"
 
 #: main.cpp:127
 #, kde-format
@@ -142,7 +142,7 @@ msgstr ""
 #: main.cpp:129
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
-msgstr ""
+msgstr "© 2023-2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
 #, kde-format
@@ -153,12 +153,12 @@ msgstr ""
 #: qml/EditPage.qml:147 qml/RichEditPage.qml:636
 #, kde-format
 msgid "Undo"
-msgstr ""
+msgstr "Cealaigh"
 
 #: qml/EditPage.qml:161 qml/RichEditPage.qml:647
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "Athdhéan"
 
 #: qml/EditPage.qml:191 qml/EditPage.qml:226
 #, kde-format
@@ -170,13 +170,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr ""
+msgstr "Cuardaigh Nóta"
 
 #: qml/EditPage.qml:219
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr ""
+msgstr "Cuardaigh i Nóta"
 
 #: qml/EditPage.qml:255
 #, kde-format
@@ -209,17 +209,17 @@ msgstr ""
 #: qml/EditPage.qml:371
 #, kde-format
 msgid "Find text..."
-msgstr ""
+msgstr "Aimsigh téacs..."
 
 #: qml/EditPage.qml:411
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "Siar"
 
 #: qml/EditPage.qml:427
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "Ar Aghaidh"
 
 #: qml/EditPage.qml:445 qml/EditPage.qml:557
 #, kde-format
@@ -229,7 +229,7 @@ msgstr ""
 #: qml/EditPage.qml:447 qml/EditPage.qml:559
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:459 qml/EditPage.qml:528
 #, kde-format
@@ -239,12 +239,12 @@ msgstr ""
 #: qml/EditPage.qml:477
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Dún"
 
 #: qml/EditPage.qml:499
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "Ionadaigh le..."
 
 #: qml/EditPage.qml:504 qml/EditPage.qml:544
 #, kde-format
@@ -260,47 +260,47 @@ msgstr[4] ""
 #: qml/EditPage.qml:540
 #, kde-format
 msgid "Replace All"
-msgstr ""
+msgstr "Ionadaigh Uile"
 
 #: qml/EditPage.qml:608
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "Cóipeáladh an nóta go dtí an ghearrthaisce."
 
 #: qml/GlobalMenuBar.qml:18
 #, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
-msgstr ""
+msgstr "Socruithe"
 
 #: qml/ImageDialog.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "Ionsáigh Íomhá"
 
 #: qml/ImageDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "Roghnaigh íomhá"
 
 #: qml/ImageDialog.qml:27
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr ""
+msgstr "Comhaid íomhá (*.jpg *.jpeg *.png *.svg *.webp)"
 
 #: qml/ImageDialog.qml:27
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "Gach comhad (*)"
 
 #: qml/ImageDialog.qml:42
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
-msgstr ""
+msgstr "Suíomh Íomhá:"
 
 #: qml/ImageDialog.qml:53
 #, kde-format
@@ -324,25 +324,25 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr ""
+msgstr "Ainm:"
 
 #: qml/ImportMaildirDialog.qml:50
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr ""
+msgstr "Suíomh Maildir:"
 
 #: qml/ImportMaildirDialog.qml:57
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Maildir location"
-msgstr ""
+msgstr "Roghnaigh suíomh Maildir"
 
 #: qml/ImportMaildirDialog.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "Iompórtáil"
 
 #: qml/LinkDialog.qml:17
 #, kde-format
@@ -367,12 +367,13 @@ msgstr ""
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
+"Ní féidir nóta nua a chruthú, caithfidh tú leabhar nótaí a chruthú i dtosach."
 
 #: qml/Main.qml:151
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr ""
+msgstr "Cruthaigh Leabhar Nótaí"
 
 #: qml/Main.qml:316 qml/NotesPage.qml:728
 #, kde-format
@@ -384,7 +385,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
-msgstr ""
+msgstr "Iompórtáil"
 
 #: qml/Main.qml:371
 #, kde-format
@@ -395,12 +396,12 @@ msgstr ""
 #: qml/Main.qml:377
 #, kde-format
 msgid "by Name"
-msgstr ""
+msgstr "De Réir Ainm"
 
 #: qml/Main.qml:390
 #, kde-format
 msgid "by Date"
-msgstr ""
+msgstr "De Réir Dáta"
 
 #: qml/Main.qml:407
 #, kde-format
@@ -415,73 +416,73 @@ msgstr ""
 #: qml/Main.qml:545
 #, kde-format
 msgid "Your Notebooks"
-msgstr ""
+msgstr "Do Leabhar Nótaí"
 
 #: qml/NativeEditMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "Edit"
-msgstr ""
+msgstr "Eagar"
 
 #: qml/NativeEditMenu.qml:40
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr ""
+msgstr "Cealaigh"
 
 #: qml/NativeEditMenu.qml:50
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
-msgstr ""
+msgstr "Athdhéan"
 
 #: qml/NativeEditMenu.qml:63
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
-msgstr ""
+msgstr "Gearr"
 
 #: qml/NativeEditMenu.qml:73
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
-msgstr ""
+msgstr "Cóipeáil"
 
 #: qml/NativeEditMenu.qml:83
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
-msgstr ""
+msgstr "Greamaigh"
 
 #: qml/NativeEditMenu.qml:98
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
-msgstr ""
+msgstr "Scrios"
 
 #: qml/NativeEditMenu.qml:111
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
-msgstr ""
+msgstr "Roghnaigh Uile"
 
 #: qml/NativeFileMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
-msgstr ""
+msgstr "Comhad"
 
 #: qml/NativeHelpMenu.qml:11
 #, kde-format
 msgctxt "@action:menu"
 msgid "Help"
-msgstr ""
+msgstr "Cabhair"
 
 #: qml/NativeWindowMenu.qml:14
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
-msgstr ""
+msgstr "Fuinneog"
 
 #: qml/NativeWindowMenu.qml:22
 #, kde-format
@@ -518,13 +519,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
-msgstr ""
+msgstr "Leabhar Nótaí Nua"
 
 #: qml/NotebookMetadataDialog.qml:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Notebook"
-msgstr ""
+msgstr "Cuir Leabhar Nótaí In Eagar"
 
 #: qml/NoteLinkDialog.qml:43
 #, kde-format
@@ -536,7 +537,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr ""
+msgstr "Ainm Nóta:"
 
 #: qml/NoteLinkDialog.qml:51
 #, kde-format
@@ -560,24 +561,24 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "New Note"
-msgstr ""
+msgstr "Nóta Nua"
 
 #: qml/NoteMetadataDialog.qml:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
-msgstr ""
+msgstr "Cuir Nóta In Eagar"
 
 #: qml/NoteMetadataDialog.qml:58
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
-msgstr ""
+msgstr "Ainm:"
 
 #: qml/NotesPage.qml:39
 #, kde-format
 msgid "Add note"
-msgstr ""
+msgstr "Cuir nóta leis"
 
 #: qml/NotesPage.qml:180
 #, kde-format
@@ -593,7 +594,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
-msgstr ""
+msgstr "Scrios nóta"
 
 #: qml/NotesPage.qml:256
 #, kde-format
@@ -601,6 +602,8 @@ msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr ""
+"An bhfuil tú cinnte gur mian leat an nóta <b>%1</b> a scriosadh? Scriosfar "
+"an comhad <b>%2</br> go brách."
 
 #: qml/NotesPage.qml:446 qml/NotesPage.qml:482
 #, kde-format
@@ -618,7 +621,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr ""
+msgstr "Oscail Comhad"
 
 #: qml/NotesPage.qml:483
 #, kde-format
@@ -630,13 +633,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
-msgstr ""
+msgstr "Athainmnigh"
 
 #: qml/NotesPage.qml:507 qml/TextFieldContextMenu.qml:390
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
-msgstr ""
+msgstr "Cóipeáil"
 
 #: qml/NotesPage.qml:526
 #, kde-format
@@ -648,41 +651,41 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
-msgstr ""
+msgstr "Easpórtáil"
 
 #: qml/NotesPage.qml:538
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Easpórtáil mar HTML"
 
 #: qml/NotesPage.qml:544
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Easpórtáil mar HTML"
 
 #: qml/NotesPage.qml:545
 #, kde-format
 msgid "HTML file (*.html)"
-msgstr ""
+msgstr "Comhad HTML (*.html)"
 
 #: qml/NotesPage.qml:551
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Easpórtáil mar PDF"
 
 #: qml/NotesPage.qml:557
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Easpórtáil mar PDF"
 
 #: qml/NotesPage.qml:558
 #, kde-format
 msgid "PDF file (*.pdf)"
-msgstr ""
+msgstr "Comhad PDF (*.pdf)"
 
 #: qml/NotesPage.qml:564
 #, kde-format
@@ -710,7 +713,7 @@ msgstr ""
 #: qml/NotesPage.qml:772
 #, kde-format
 msgid "Add a note!"
-msgstr ""
+msgstr "Cuir nóta leis!"
 
 #: qml/RichEditPage.qml:266
 #, kde-format
@@ -752,7 +755,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
-msgstr ""
+msgstr "Gan liosta"
 
 #: qml/RichEditPage.qml:392
 #, kde-format
@@ -806,7 +809,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
-msgstr ""
+msgstr "Teideal"
 
 #: qml/RichEditPage.qml:487
 #, kde-format
@@ -830,7 +833,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
-msgstr ""
+msgstr "Alt"
 
 #: qml/RichEditPage.qml:491
 #, kde-format
@@ -846,7 +849,7 @@ msgstr ""
 #: qml/RichEditPage.qml:683
 #, kde-format
 msgid "Lists"
-msgstr ""
+msgstr "Liostaí"
 
 #: qml/RichEditPage.qml:687
 #, kde-format
@@ -875,19 +878,19 @@ msgstr ""
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Note"
-msgstr ""
+msgstr "Oscail Nóta"
 
 #: qml/TextFieldContextMenu.qml:260
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
-msgstr ""
+msgstr "Oscail Nasc"
 
 #: qml/TextFieldContextMenu.qml:280
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
-msgstr ""
+msgstr "Ionsáigh"
 
 #: qml/TextFieldContextMenu.qml:316
 #, kde-format
@@ -923,7 +926,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
-msgstr ""
+msgstr "Roghnaigh Uile"
 
 #: qml/TocDrawer.qml:92
 #, kde-format

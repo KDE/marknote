@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-16 00:44+0000\n"
-"PO-Revision-Date: 2026-03-12 10:38+0100\n"
+"PO-Revision-Date: 2026-03-16 14:36+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -191,10 +191,9 @@ msgid "Exit Full Screen"
 msgstr "Volledig scherm verlaten"
 
 #: qml/EditPage.qml:285
-#, fuzzy, kde-format
-#| msgid "Switch editor to source mode"
+#, kde-format
 msgid "Switch editor mode"
-msgstr "Bewerker naar bronmodus omschakelen"
+msgstr "Bewerkingsmodus omschakelen"
 
 #: qml/EditPage.qml:290
 #, kde-format
