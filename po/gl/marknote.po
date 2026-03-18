@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-16 00:44+0000\n"
+"POT-Creation-Date: 2026-03-18 00:45+0000\n"
 "PO-Revision-Date: 2025-05-26 08:44+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -57,90 +57,90 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Produciuse un erro ao escribir en «%1»."
 
-#: main.cpp:57
+#: main.cpp:56
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:58 main.cpp:63 main.cpp:66
+#: main.cpp:57 main.cpp:62 main.cpp:65
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantemento."
 
-#: main.cpp:63
+#: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:65
+#: main.cpp:64
 #, kde-format
 msgid "Valentyn Bondarenko"
 msgstr ""
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Justin Zobel"
 msgstr ""
 
-#: main.cpp:75
+#: main.cpp:74
 #, kde-format
 msgid "Flatpak support"
 msgstr ""
 
-#: main.cpp:80
+#: main.cpp:79
 #, kde-format
 msgid "Shubham Shinde"
 msgstr ""
 
-#: main.cpp:81
+#: main.cpp:80
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgid "Table of Contents"
 msgstr "Contido da cela"
 
-#: main.cpp:86
+#: main.cpp:85
 #, kde-format
 msgid "Siddharth Chopra"
 msgstr ""
 
-#: main.cpp:87
+#: main.cpp:86
 #, fuzzy, kde-format
 #| msgid "Focus Mode"
 msgid "Source Mode"
 msgstr "Modo de foco"
 
-#: main.cpp:92
+#: main.cpp:91
 #, kde-format
 msgid "Joshua Goins"
 msgstr ""
 
-#: main.cpp:93 main.cpp:99 main.cpp:104
+#: main.cpp:92 main.cpp:98 main.cpp:103
 #, kde-format
 msgid "Bug fixes"
 msgstr ""
 
-#: main.cpp:98
+#: main.cpp:97
 #, kde-format
 msgid "Prayag Jain"
 msgstr ""
 
-#: main.cpp:104
+#: main.cpp:103
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:125 qml/Main.qml:422
+#: main.cpp:124 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:127
+#: main.cpp:126
 #, kde-format
 msgid "Note taking application"
 msgstr "Aplicación de notas"
 
-#: main.cpp:129
+#: main.cpp:128
 #, fuzzy, kde-format
 #| msgid "© 2023-2024 Mathis Brüchert"
 msgid "© 2023-2026 Mathis Brüchert"

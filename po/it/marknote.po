@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-16 00:44+0000\n"
-"PO-Revision-Date: 2026-03-04 15:02+0100\n"
+"POT-Creation-Date: 2026-03-18 00:45+0000\n"
+"PO-Revision-Date: 2026-03-16 10:37+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -57,91 +57,88 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "Si è verificato un errore durante la scrittura su «%1»"
 
-#: main.cpp:57
+#: main.cpp:56
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:58 main.cpp:63 main.cpp:66
+#: main.cpp:57 main.cpp:62 main.cpp:65
 #, kde-format
 msgid "Maintainer"
 msgstr "Responsabile"
 
-#: main.cpp:63
+#: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:65
+#: main.cpp:64
 #, kde-format
 msgid "Valentyn Bondarenko"
 msgstr "Valentyn Bondarenko"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Justin Zobel"
 
-#: main.cpp:75
+#: main.cpp:74
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Supporto Flatpak"
+
+#: main.cpp:79
+#, kde-format
+msgid "Shubham Shinde"
+msgstr "Shubham Shinde"
 
 #: main.cpp:80
 #, kde-format
-msgid "Shubham Shinde"
-msgstr ""
-
-#: main.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Table of Contents"
 msgid "Table of Contents"
 msgstr "Indice"
 
-#: main.cpp:86
+#: main.cpp:85
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
-#: main.cpp:87
-#, fuzzy, kde-format
-#| msgid "Focus Mode"
+#: main.cpp:86
+#, kde-format
 msgid "Source Mode"
-msgstr "Modalità di messa a fuoco"
+msgstr "Modalità sorgente"
 
-#: main.cpp:92
+#: main.cpp:91
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
-#: main.cpp:93 main.cpp:99 main.cpp:104
+#: main.cpp:92 main.cpp:98 main.cpp:103
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "Correzioni di bug"
 
-#: main.cpp:98
+#: main.cpp:97
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
-#: main.cpp:104
+#: main.cpp:103
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
-#: main.cpp:125 qml/Main.qml:422
+#: main.cpp:124 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:127
+#: main.cpp:126
 #, kde-format
 msgid "Note taking application"
 msgstr "Applicazione per prendere appunti"
 
-#: main.cpp:129
+#: main.cpp:128
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
@@ -196,12 +193,12 @@ msgstr "Esci da schermo intero"
 #: qml/EditPage.qml:285
 #, kde-format
 msgid "Switch editor mode"
-msgstr ""
+msgstr "Cambia la modalità dell'editor"
 
 #: qml/EditPage.qml:290
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "Vista sorgente"
 
 #: qml/EditPage.qml:325
 #, kde-format
@@ -237,7 +234,7 @@ msgstr "%1/%2"
 #: qml/EditPage.qml:459 qml/EditPage.qml:528
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "Sostituisci"
 
 #: qml/EditPage.qml:477
 #, kde-format
@@ -247,22 +244,20 @@ msgstr "Chiudi"
 #: qml/EditPage.qml:499
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "Sostituisci con..."
 
 #: qml/EditPage.qml:504 qml/EditPage.qml:544
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sostituisci %1 occorrenza"
+msgstr[1] "Sostituisci %1 occorrenze"
 
 #: qml/EditPage.qml:540
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace All"
-msgstr "Seleziona tutto"
+msgstr "Sostituisci tutto"
 
 #: qml/EditPage.qml:608
 #, kde-format
@@ -634,12 +629,10 @@ msgid "Export of \"%1\" failed."
 msgstr "Esportazione di «\"%1» non riuscita."
 
 #: qml/NotesPage.qml:495
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
-msgstr "Rinomina nota"
+msgstr "Rinomina"
 
 #: qml/NotesPage.qml:507 qml/TextFieldContextMenu.qml:390
 #, kde-format
@@ -648,20 +641,16 @@ msgid "Copy"
 msgstr "Copia"
 
 #: qml/NotesPage.qml:526
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Duplicate Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
-msgstr "Duplica nota"
+msgstr "Duplica"
 
 #: qml/NotesPage.qml:534
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Import"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
-msgstr "Importa"
+msgstr "Esporta"
 
 #: qml/NotesPage.qml:538
 #, kde-format

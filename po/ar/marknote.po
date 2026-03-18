@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-16 00:44+0000\n"
+"POT-Creation-Date: 2026-03-18 00:45+0000\n"
 "PO-Revision-Date: 2026-03-14 11:30+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -58,88 +58,88 @@ msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
 msgstr "حدث خطأ أثناء الكتابة إلى '%1'"
 
-#: main.cpp:57
+#: main.cpp:56
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "ماتيس بروشيرت"
 
-#: main.cpp:58 main.cpp:63 main.cpp:66
+#: main.cpp:57 main.cpp:62 main.cpp:65
 #, kde-format
 msgid "Maintainer"
 msgstr "الصائن"
 
-#: main.cpp:63
+#: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
 msgstr "كارل شوان"
 
-#: main.cpp:65
+#: main.cpp:64
 #, kde-format
 msgid "Valentyn Bondarenko"
 msgstr "فالنتين بوندارينكو"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Justin Zobel"
 msgstr "جاستن زوبل"
 
-#: main.cpp:75
+#: main.cpp:74
 #, kde-format
 msgid "Flatpak support"
 msgstr "دعم Flatpak"
 
-#: main.cpp:80
+#: main.cpp:79
 #, kde-format
 msgid "Shubham Shinde"
 msgstr "شوبهام شيندي"
 
-#: main.cpp:81
+#: main.cpp:80
 #, kde-format
 msgid "Table of Contents"
 msgstr "جدول المحتويات"
 
-#: main.cpp:86
+#: main.cpp:85
 #, kde-format
 msgid "Siddharth Chopra"
 msgstr "سيدهارث تشوبرا"
 
-#: main.cpp:87
+#: main.cpp:86
 #, kde-format
 msgid "Source Mode"
 msgstr "وضع المصدر"
 
-#: main.cpp:92
+#: main.cpp:91
 #, kde-format
 msgid "Joshua Goins"
 msgstr "جوشوا جوينز"
 
-#: main.cpp:93 main.cpp:99 main.cpp:104
+#: main.cpp:92 main.cpp:98 main.cpp:103
 #, kde-format
 msgid "Bug fixes"
 msgstr "إصلاح للعلل"
 
-#: main.cpp:98
+#: main.cpp:97
 #, kde-format
 msgid "Prayag Jain"
 msgstr "براياغ جاين"
 
-#: main.cpp:104
+#: main.cpp:103
 #, kde-format
 msgid "Laurent Montel"
 msgstr "لوران مونتال"
 
-#: main.cpp:125 qml/Main.qml:422
+#: main.cpp:124 qml/Main.qml:422
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "دفتر مارك"
 
-#: main.cpp:127
+#: main.cpp:126
 #, kde-format
 msgid "Note taking application"
 msgstr "تطبيق كتابة ملاحظات"
 
-#: main.cpp:129
+#: main.cpp:128
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023-2026 ماتيس بروشيرت"
