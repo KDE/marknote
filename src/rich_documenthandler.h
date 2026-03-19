@@ -39,6 +39,7 @@ class RichDocumentHandler : public DocumentHandler
     Q_PROPERTY(int searchCurrentMatch READ searchCurrentMatch NOTIFY searchCurrentMatchChanged)
 
     Q_PROPERTY(int blockMargin READ blockMargin WRITE setBlockMargin NOTIFY blockMarginChanged)
+    Q_PROPERTY(bool canPaste READ canPaste NOTIFY canPasteChanged)
 
 public:
     explicit RichDocumentHandler(QObject *parent = nullptr);
@@ -70,6 +71,8 @@ public:
     int blockMargin() const;
     void setBlockMargin(int margin);
 
+    bool canPaste() const;
+
     Q_INVOKABLE void updateNoteLink(const QString &noteName, const QString &alias = QString());
     Q_INVOKABLE QString currentNoteLinkName() const;
     Q_INVOKABLE QString currentNoteLinkAlias() const;
@@ -82,7 +85,6 @@ public:
     Q_INVOKABLE void insertTable(int rows, int columns);
 
     Q_INVOKABLE void pasteFromClipboard() override;
-
     Q_INVOKABLE void slotKeyPressed(int key);
 
 public Q_SLOTS:
@@ -105,6 +107,9 @@ Q_SIGNALS:
     void underlineChanged();
     void checkableChanged();
     void strikethroughChanged();
+    void canPasteChanged();
+
+    void showToast(const QString &message);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;

@@ -17,6 +17,7 @@
 #include <QCryptographicHash>
 #include <QCursor>
 #include <QDesktopServices>
+#include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QFontInfo>
@@ -168,6 +169,10 @@ RichDocumentHandler::RichDocumentHandler(QObject *parent)
     m_lastItalic = italic();
     m_lastStrikethrough = strikethrough();
     m_lastUnderline = underline();
+
+    // If the clipboard changes, the canPaste state might also change
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    connect(clipboard, &QClipboard::changed, this, &RichDocumentHandler::canPasteChanged);
 }
 
 bool RichDocumentHandler::eventFilter(QObject *object, QEvent *event)
@@ -951,6 +956,12 @@ void RichDocumentHandler::insertTable(int rows, int columns)
     table->setFormat(tableFormat);
 }
 
+bool RichDocumentHandler::canPaste() const
+{
+    const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData();
+    return mimeData && (mimeData->hasHtml() || mimeData->hasText() || mimeData->hasFormat(QStringLiteral("text/markdown")) || mimeData->hasImage());
+}
+
 void RichDocumentHandler::pasteFromClipboard()
 {
     const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData();
@@ -1000,6 +1011,17 @@ void RichDocumentHandler::pasteFromClipboard()
         cursor.insertText(QString::fromUtf8(md));
     } else if (mimeData->hasText()) {
         cursor.insertText(mimeData->text());
+    } else if (mimeData->hasImage()) {
+        const auto currentDirectory = property("fileUrl").toUrl().adjusted(QUrl::RemoveFilename);
+        const auto image = qvariant_cast<QImage>(mimeData->imageData());
+        QDir dir(currentDirectory.toLocalFile());
+        const auto newFileName = dir.filePath(QString::number(QDateTime::currentMSecsSinceEpoch()) + u".png"_s);
+
+        if (image.save(newFileName)) {
+            insertImage(QUrl::fromLocalFile(newFileName));
+        } else {
+            Q_EMIT showToast(i18n("Failed to save pasted image"));
+        }
     }
 
     cursor.endEditBlock();

@@ -55,24 +55,28 @@ EditPage {
 
         blockMargin: Kirigami.Units.largeSpacing
 
-        onLoaded: (text) => {
-            root.textArea.text = text
-        }
-        onError: (message) => {
-            console.error("Error message from document handler", message)
+        onLoaded: text => {
+            root.textArea.text = text;
         }
 
-        onCopy: root.textArea.copy();
-        onCut: root.textArea.cut();
-        onUndo: root.textArea.undo();
-        onRedo: root.textArea.redo();
+        onError: message => {
+            console.error("Error message from document handler", message);
+        }
 
+        onShowToast: message => {
+            showPassiveNotification(message, "short");
+        }
+
+        onCopy: root.textArea.copy()
+        onCut: root.textArea.cut()
+        onUndo: root.textArea.undo()
+        onRedo: root.textArea.redo()
 
         onCheckableChanged: {
             root.checkbox = checkable;
         }
 
-        onMoveCursor: (position) => {
+        onMoveCursor: position => {
             root.textArea.cursorPosition = position;
         }
         onSelectCursor: (start, end) => {

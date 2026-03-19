@@ -405,7 +405,16 @@ QQC2.Menu {
             shortcut: StandardKey.Paste
         }
         visible: root.__editable()
-        enabled: root.target?.canPaste ?? false
+        enabled: canPaste ?? false
+
+        property bool canPaste: {
+            if (root.document) {
+                return root.document.canPaste;
+            } else {
+                return root.target?.canPaste;
+            }
+        }
+
         onTriggered: {
             root.deselectWhenMenuClosed = false;
             root.runOnMenuClose = () => {

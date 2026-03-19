@@ -79,9 +79,19 @@ Labs.Menu {
         },
 
         Labs.MenuItem {
-            enabled: editMenu.field !== null && editMenu.field.canPaste
+            enabled: editMenu.field !== null && canPaste
             text: i18nc("text editing menu action", "Paste")
             shortcut: StandardKey.Paste
+
+            property bool canPaste: {
+                if (_window.currentDocument) {
+                    return _window.currentDocument.canPaste;
+                } else if (editMenu.field) {
+                    return editMenu.field.canPaste;
+                }
+                return false;
+            }
+            
             onTriggered: {
                 // Prefer rich paste
                 if (_window.currentDocument && typeof _window.currentDocument.pasteFromClipboard === 'function') {
