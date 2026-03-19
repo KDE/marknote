@@ -17,7 +17,6 @@ Labs.Menu {
     property Connections _textInputConnection: Connections {
         target: editMenu._window // <-- Fixed here
         function onActiveFocusItemChanged() {
-            // <-- Fixed 2 spots in the line below
             if (editMenu._window.activeFocusItem instanceof TextEdit || editMenu._window.activeFocusItem instanceof TextInput) {
                 // <-- Fixed 1 spot in the line below
                 editMenu.field = editMenu._window.activeFocusItem;
