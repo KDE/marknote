@@ -15,10 +15,12 @@ Labs.Menu {
     property var _window: ApplicationWindow.window
 
     property Connections _textInputConnection: Connections {
-        target: _window
+        target: editMenu._window // <-- Fixed here
         function onActiveFocusItemChanged() {
-            if (_window.activeFocusItem instanceof TextEdit || _window.activeFocusItem instanceof TextInput) {
-                editMenu.field = _window.activeFocusItem;
+            // <-- Fixed 2 spots in the line below
+            if (editMenu._window.activeFocusItem instanceof TextEdit || editMenu._window.activeFocusItem instanceof TextInput) {
+                // <-- Fixed 1 spot in the line below
+                editMenu.field = editMenu._window.activeFocusItem;
             }
         }
     }
@@ -86,8 +88,8 @@ Labs.Menu {
             shortcut: StandardKey.Paste
 
             property bool canPaste: {
-                if (_window.currentDocument) {
-                    return _window.currentDocument.canPaste;
+                if (editMenu._window.currentDocument) {
+                    return editMenu._window.currentDocument.canPaste;
                 } else if (editMenu.field) {
                     return editMenu.field.canPaste;
                 }
@@ -96,8 +98,8 @@ Labs.Menu {
 
             onTriggered: {
                 // Prefer rich paste
-                if (_window.currentDocument && typeof _window.currentDocument.pasteFromClipboard === 'function') {
-                    _window.currentDocument.pasteFromClipboard()
+                if (editMenu._window.currentDocument && typeof editMenu._window.currentDocument.pasteFromClipboard === 'function') {
+                    editMenu._window.currentDocument.pasteFromClipboard()
                 } else {
                     editMenu.field.paste()
                 }
