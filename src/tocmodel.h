@@ -31,6 +31,8 @@ public:
     QQuickTextDocument *document() const;
     void setDocument(QQuickTextDocument *document);
 
+    Q_INVOKABLE int headingIndexAt(int cursorPosition) const;
+
 Q_SIGNALS:
     void documentChanged();
 

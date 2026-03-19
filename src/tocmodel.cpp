@@ -127,4 +127,17 @@ void TocModel::updateModel()
     }
 }
 
+int TocModel::headingIndexAt(int cursorPosition) const
+{
+    for (int i = rowCount() - 1; i >= 0; --i) {
+        int headingPos = index(i, 0).data(CursorPosition).toInt();
+
+        if (headingPos <= cursorPosition) {
+            return i;
+        }
+    }
+
+    return 0;
+}
+
 #include "moc_tocmodel.cpp"

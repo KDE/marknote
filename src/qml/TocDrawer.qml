@@ -23,12 +23,17 @@ Kirigami.OverlayDrawer {
     handleVisible: false
     edge: Qt.RightEdge
 
-
     rightPadding: 0
 
     // If the window is too narrow (i.e., less than 15 units of text + 15 units of drawer),
     // fill the whole parent width; otherwise, clip it to the editor.
     width: (parent && parent.width < (Kirigami.Units.gridUnit * 30)) ? parent.width : Kirigami.Units.gridUnit * 15
+
+    onDrawerOpenChanged: {
+        if (drawerOpen) {
+            tocListView.forceActiveFocus()
+        }
+    }
 
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.mediumSpacing
@@ -48,10 +53,22 @@ Kirigami.OverlayDrawer {
                 rightMargin: Kirigami.Units.largeSpacing
 
                 clip: true
+                focus: true
 
                 model: TocModel {
                     id: tocModel
                     document: root.textArea.textDocument
+                }
+
+                onCountChanged: {
+                    if (count > 0) {
+                        let activeIndex = tocModel.headingIndexAt(root.textArea.cursorPosition)
+                        currentIndex = activeIndex !== -1 ? activeIndex : 0
+                    }
+                }
+
+                onCurrentIndexChanged: {
+                    positionViewAtIndex(currentIndex, ListView.Contain)
                 }
 
                 delegate: Delegates.RoundedItemDelegate {
@@ -81,6 +98,17 @@ Kirigami.OverlayDrawer {
                         // Dismiss the drawer on narrow screens so they can read
                         if (root.width === (root.parent ? root.parent.width : 0)) {
                             root.close()
+                        }
+                    }
+                }
+
+                Connections {
+                    target: root.textArea
+                    function onCursorPositionChanged() {
+                        let activeIndex = tocModel.headingIndexAt(root.textArea.cursorPosition)
+
+                        if (activeIndex !== -1 && activeIndex !== tocListView.currentIndex) {
+                            tocListView.currentIndex = activeIndex
                         }
                     }
                 }
