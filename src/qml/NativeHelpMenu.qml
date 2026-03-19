@@ -2,13 +2,15 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 import Qt.labs.platform as Labs
+
 import org.kde.marknote
 import org.kde.kirigamiaddons.statefulapp.labs as StatefulAppLabs
+import org.kde.ki18n
 
 Labs.Menu {
     id: root
 
-    title: i18nc("@action:menu", "Help")
+    title: KI18n.i18nc("@action:menu", "Help")
 
     StatefulAppLabs.NativeMenuItem {
         actionName: "open_about_page"

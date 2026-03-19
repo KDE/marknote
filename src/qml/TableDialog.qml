@@ -2,12 +2,13 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick
-import QtCore
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.ki18n
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
-import QtQuick.Dialogs
+
+pragma ComponentBehavior: Bound
 
 FormCard.FormCardDialog {
     id: root
@@ -15,7 +16,7 @@ FormCard.FormCardDialog {
     property int rows: rowsSpinBox.value
     property int cols: colsSpinBox.value
 
-    title: i18nc("@title:window", "Insert Table")
+    title: KI18n.i18nc("@title:window", "Insert Table")
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     onAccepted: close();

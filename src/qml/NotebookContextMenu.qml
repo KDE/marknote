@@ -3,7 +3,9 @@
 
 import QtQuick
 import QtQuick.Controls as Controls
+
 import org.kde.marknote
+import org.kde.ki18n
 
 Controls.Menu {
     id: root
@@ -13,7 +15,7 @@ Controls.Menu {
     property NoteBooksModel model
 
     Controls.MenuItem {
-        text: i18nc("@action:inmenu", "Edit Notebook")
+        text: KI18n.i18nc("@action:inmenu", "Edit Notebook")
         icon.name: "edit-entry-symbolic"
         onTriggered: {
             const editComponent = Qt.createComponent("org.kde.marknote", "NotebookMetadataDialog");
@@ -30,7 +32,7 @@ Controls.Menu {
     }
 
     Controls.MenuItem {
-        text: i18nc("@action:inmenu", "Delete Notebook")
+        text: KI18n.i18nc("@action:inmenu", "Delete Notebook")
         icon.name: "delete"
         onTriggered: {
             const deleteComponent = Qt.createComponent("org.kde.marknote", "NotebookDeleteDialog");

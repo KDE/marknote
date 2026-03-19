@@ -25,7 +25,7 @@ EditPage {
     property int listStyle: 0
     property int heading: 0
 
-    readonly property bool canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2 && !tocDrawer.opened
+    canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2 && !tocDrawer.opened
 
     mobileToolBarHidden: mobileToolBarContainer.hidden
     mobileToolBarHeight: mobileToolBarContainer.height
@@ -35,6 +35,7 @@ EditPage {
     supportsToc: true
     isTocOpened: tocDrawer.opened
     tocPosition: tocDrawer.position
+    tocDrawer: tocDrawer
 
     function toggleToc() {
         if (tocDrawer.opened) {
@@ -216,8 +217,8 @@ EditPage {
         id: noteLinkDialog
         implicitWidth: Kirigami.Units.gridUnit * 20
 
-        parent: ApplicationWindow.window.overlay
-        onAccepted: document.updateNoteLink(noteName, noteAlias)
+        parent: root.Overlay.overlay
+        onAccepted: root.document.updateNoteLink(noteName, noteAlias)
     }
 
     ImageDialog {
@@ -436,7 +437,7 @@ EditPage {
             ToolButton {
                 id: noteLinkAction
                 icon.name: "text-frame-link-symbolic"
-                text: i18nc("@action:button", "Insert note link")
+                text: KI18n.i18nc("@action:button", "Insert note link")
                 display: AbstractButton.IconOnly
                 onClicked: {
                     noteLinkDialog.noteAlias = root.document.currentNoteLinkAlias();

@@ -12,14 +12,12 @@ import QtQuick.Templates as T
 import QtQuick.Layouts
 import org.kde.ki18n
 
-import "components"
-
 import org.kde.marknote
 
 Kirigami.Page {
     id: root
 
-    readonly property bool isWideScreen: !!ApplicationWindow.window?.isWideScreen
+    readonly property bool isWideScreen: !!ApplicationWindow.window?.isWideScreen // qmllint disable missing-property
 
     property bool init: false
 
@@ -29,6 +27,7 @@ Kirigami.Page {
     property string oldPath: ''
     property bool saved: true
     property bool singleDocumentMode: false
+    property bool canFitToolbar: true
     property real dynamicRightPadding: 0
 
     readonly property alias textArea: textArea
@@ -36,6 +35,7 @@ Kirigami.Page {
     required property var document
     readonly property alias contentScroll: contentScroll
     property alias searchBar: searchBar 
+    property TocDrawer tocDrawer: null
     readonly property Kirigami.PageRow pageStack: (root.ApplicationWindow.window as Kirigami.ApplicationWindow)?.pageStack ?? null
     required property TextFieldContextMenu textFieldContextMenu
 
@@ -50,10 +50,20 @@ Kirigami.Page {
         // 30 grid units gives enough room for the 15-unit drawer + 15 units of text
         // Have nothing to do in the source mode
         if (!NavigationController.sourceMode &&
-            tocDrawer.opened &&
-            width < (tocDrawer.width + Kirigami.Units.gridUnit * 15)) {
-            tocDrawer.close()
+            root.tocDrawer && root.tocDrawer.opened &&
+            width < (root.tocDrawer.width + Kirigami.Units.gridUnit * 15)) {
+            root.tocDrawer.close()
             }
+    }
+
+    function toggleToc(): void {
+        if (root.tocDrawer) {
+            if (root.tocDrawer.opened) {
+                root.tocDrawer.close();
+            } else {
+                root.tocDrawer.open();
+            }
+        }
     }
 
     function openSearch(): void {
@@ -214,7 +224,7 @@ Kirigami.Page {
             checkable: true
             checked: root.searchBar.isSearchOpen
 
-            onClicked: toggleSearch()
+            onClicked: root.toggleSearch()
 
             ToolTip.text: KI18n.i18nc("@info:tooltip", "Search in Note")
             ToolTip.visible: hovered
@@ -294,7 +304,7 @@ Kirigami.Page {
             display: AbstractButton.IconOnly
 
             onClicked: {
-                document.saveAs(root.noteFullPath)
+                root.document.saveAs(root.noteFullPath)
                 NavigationController.sourceMode = !NavigationController.sourceMode
             }
         }
@@ -306,7 +316,7 @@ Kirigami.Page {
         }
 
         RowLayout {
-            visible: root.tocPosition > 0 && !root.isNarrow && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
+            visible: root.tocPosition > 0 && !root.canFitToolbar && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
 
             readonly property real alignSeparatorWidth: root.contentScroll.ScrollBar.vertical.visible ? 15.7 : 14.6
             readonly property real fullWidth: (Kirigami.Units.gridUnit * alignSeparatorWidth) - Kirigami.Units.largeSpacing
@@ -408,7 +418,7 @@ Kirigami.Page {
 
                     ToolButton {
                         icon.name: "go-up"
-                        text: i18n("Previous")
+                        text: KI18n.i18n("Previous")
                         display: AbstractButton.IconOnly
                         onClicked: root.document.findPrevious()
                         enabled: root.document.searchMatchCount > 0
@@ -418,33 +428,33 @@ Kirigami.Page {
                         ToolTip.delay: Kirigami.Units.toolTipDelay
                         Shortcut {
                             sequence: StandardKey.FindPrevious
-                            onActivated: document.findPrevious()
+                            onActivated: root.document.findPrevious()
                         }
                     }
 
                     ToolButton {
                         icon.name: "go-down"
-                        text: i18n("Next")
+                        text: KI18n.i18n("Next")
                         display: AbstractButton.IconOnly
-                        onClicked: document.findNext()
-                        enabled: document.searchMatchCount > 0
+                        onClicked: root.document.findNext()
+                        enabled: root.document.searchMatchCount > 0
 
                         ToolTip.text: text
                         ToolTip.visible: hovered
                         ToolTip.delay: Kirigami.Units.toolTipDelay
                         Shortcut {
                             sequence: StandardKey.FindNext
-                            onActivated: document.findNext()
+                            onActivated: root.document.findNext()
                         }
                     }
 
                     Label {
                         text: {
-                            if (document.searchMatchCount === 0) {
+                            if (root.document.searchMatchCount === 0) {
                                 textArea.deselect();
-                                return i18n("No matches");
+                                return KI18n.i18n("No matches");
                             }
-                            return i18n("%1/%2", document.searchCurrentMatch + 1, document.searchMatchCount);
+                            return KI18n.i18n("%1/%2", root.document.searchCurrentMatch + 1, root.document.searchMatchCount);
                         }
                         Layout.minimumWidth: Kirigami.Units.gridUnit * 4
                     }
@@ -456,14 +466,14 @@ Kirigami.Page {
                     ToolButton {
                         id: replaceToggleButton
                         icon.name: searchBar.isReplaceVisible ? "arrow-up" : "edit-find-replace-symbolic"
-                        text: i18n("Replace")
+                        text: KI18n.i18n("Replace")
                         display: AbstractButton.IconOnly
-                        onClicked: toggleReplace()
+                        onClicked: root.toggleReplace()
 
                         Shortcut {
                             sequence: StandardKey.Replace
                             enabled: root.visible
-                            onActivated: toggleReplace()
+                            onActivated: root.toggleReplace()
                         }
 
                         ToolTip.text: text
@@ -474,7 +484,7 @@ Kirigami.Page {
                     ToolButton {
                         id: closeButton
                         icon.name: "dialog-close"
-                        text: i18n("Close")
+                        text: KI18n.i18n("Close")
                         display: AbstractButton.IconOnly
                         onClicked: {
                             root.closeSearch()
@@ -496,15 +506,15 @@ Kirigami.Page {
                     TextField {
                         id: replaceField
                         Layout.fillWidth: true
-                        placeholderText: i18n("Replace with...")
+                        placeholderText: KI18n.i18n("Replace with...")
                         Keys.onShortcutOverride: (event)=> event.accepted = (event.key === Qt.Key_Escape)
                         Keys.onReturnPressed: (event) => {
                             if (event.modifiers & Qt.ControlModifier) {
-                                const count = document.replaceAll(replaceField.text);
-                                replaceMessage.text = i18ncp("@info:status", "Replaced %1 occurrence", "Replaced %1 occurrences", count);
+                                const count = root.document.replaceAll(replaceField.text);
+                                replaceMessage.text = KI18n.i18ncp("@info:status", "Replaced %1 occurrence", "Replaced %1 occurrences", count);
                                 replaceMessage.visible = true;
                             } else {
-                                document.replaceCurrent(replaceField.text);
+                                root.document.replaceCurrent(replaceField.text);
                             }
 
                             searchField.forceActiveFocus();
@@ -525,10 +535,10 @@ Kirigami.Page {
 
                     ToolButton {
                         icon.name: "document-swap"
-                        text: i18n("Replace")
+                        text: KI18n.i18n("Replace")
                         display: AbstractButton.IconOnly
-                        onClicked: document.replaceCurrent(replaceField.text)
-                        enabled: document.searchMatchCount > 0
+                        onClicked: root.document.replaceCurrent(replaceField.text)
+                        enabled: root.document.searchMatchCount > 0
 
                         ToolTip.text: text
                         ToolTip.visible: hovered
@@ -537,14 +547,14 @@ Kirigami.Page {
 
                     ToolButton {
                         icon.name: "view-refresh"
-                        text: i18n("Replace All")
+                        text: KI18n.i18n("Replace All")
                         display: AbstractButton.IconOnly
                         onClicked: {
-                            const count = document.replaceAll(replaceField.text);
-                            replaceMessage.text = i18ncp("@info:status", "Replaced %1 occurrence", "Replaced %1 occurrences", count);
+                            const count = root.document.replaceAll(replaceField.text);
+                            replaceMessage.text = KI18n.i18ncp("@info:status", "Replaced %1 occurrence", "Replaced %1 occurrences", count);
                             replaceMessage.visible = true;
                         }
-                        enabled: document.searchMatchCount > 0
+                        enabled: root.document.searchMatchCount > 0
 
                         ToolTip.text: text
                         ToolTip.visible: hovered
@@ -553,10 +563,10 @@ Kirigami.Page {
 
                     Label {
                         text: {
-                            if (document.searchMatchCount === 0) {
-                                return i18n("No matches");
+                            if (root.document.searchMatchCount === 0) {
+                                return KI18n.i18n("No matches");
                             }
-                            return i18n("%1/%2", document.searchCurrentMatch + 1, document.searchMatchCount);
+                            return KI18n.i18n("%1/%2", root.document.searchCurrentMatch + 1, root.document.searchMatchCount);
                         }
                         Layout.minimumWidth: Kirigami.Units.gridUnit * 4
                     }
@@ -648,7 +658,7 @@ Kirigami.Page {
             id: textArea
 
             readonly property int marginMultiplier: 6
-            readonly property bool applyWideScreenMargin: (root.isWideScreen && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns) || singleDocumentMode
+            readonly property bool applyWideScreenMargin: (root.isWideScreen && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns) || root.singleDocumentMode
             textMargin: applyWideScreenMargin ? Kirigami.Units.largeSpacing * marginMultiplier : Kirigami.Units.smallSpacing * marginMultiplier
 
             leftPadding: 0
@@ -723,7 +733,7 @@ Kirigami.Page {
                         return;
                     }
                 } else if (event.matches(StandardKey.Find)) {
-                    toggleSearch();
+                    root.toggleSearch();
                     event.accepted = true;
                     return;
                 }

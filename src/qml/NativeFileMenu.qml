@@ -3,12 +3,14 @@
 
 import QtQuick
 import Qt.labs.platform as Labs
+
 import org.kde.kirigamiaddons.statefulapp.labs as StatefulAppLabs
 import org.kde.marknote
+import org.kde.ki18n
 
 Labs.Menu {
     id: fileMenu
-    title: i18nc("@action:menu", "File")
+    title: KI18n.i18nc("@action:menu", "File")
 
     default property list<QtObject> additionalMenuItems
 

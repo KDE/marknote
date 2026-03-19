@@ -3,9 +3,8 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 
-import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 import org.kde.kirigamiaddons.formcard as FormCard
 
 FormCard.FormCardDialog {
@@ -14,13 +13,13 @@ FormCard.FormCardDialog {
     property alias linkText: linkTextField.text
     property alias linkUrl: linkUrlField.text
 
-    title: i18nc("@title:window", "Insert Link")
+    title: KI18n.i18nc("@title:window", "Insert Link")
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     FormCard.FormTextFieldDelegate {
         id: linkTextField
 
-        label: i18nc("@label:textbox", "Link Text:")
+        label: KI18n.i18nc("@label:textbox", "Link Text:")
     }
 
     FormCard.FormDelegateSeparator {}
@@ -28,6 +27,6 @@ FormCard.FormCardDialog {
     FormCard.FormTextFieldDelegate {
         id: linkUrlField
 
-        label: i18nc("@label:textbox", "Link URL:")
+        label: KI18n.i18nc("@label:textbox", "Link URL:")
     }
 }

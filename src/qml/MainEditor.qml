@@ -3,13 +3,9 @@
     SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
 */
 
-import QtCore
 import QtQuick
 import org.kde.kirigami as Kirigami
-import QtQuick.Controls as Controls
-import QtQuick.Layouts
 import org.kde.marknote
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import "components"
 

@@ -4,13 +4,10 @@
 
 import QtQuick
 import QtQuick.Controls as Controls
-import QtQuick.Layouts
 
 import org.kde.marknote
-import org.kde.iconthemes as KIconThemes
-import org.kde.kirigamiaddons.components as Components
 import org.kde.kirigamiaddons.formcard as FormCard
-import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 FormCard.FormCardDialog {
     id: root
@@ -24,7 +21,7 @@ FormCard.FormCardDialog {
     property alias name: nameInput.text
     required property var model
 
-    title: mode === NotebookMetadataDialog.Mode.Add ? i18nc("@title:window", "New Note") : i18nc("@title:window", "Edit Note")
+    title: mode === NotebookMetadataDialog.Mode.Add ? KI18n.i18nc("@title:window", "New Note") : KI18n.i18nc("@title:window", "Edit Note")
     standardButtons: Controls.Dialog.Save | Controls.Dialog.Cancel
 
     onOpened: {
@@ -55,7 +52,7 @@ FormCard.FormCardDialog {
     FormCard.FormTextFieldDelegate {
         id: nameInput
 
-        label: i18nc("@label:textbox Note name", "Name:")
+        label: KI18n.i18nc("@label:textbox Note name", "Name:")
         validator: RegularExpressionValidator {
             regularExpression: /^[^./\\][^/\\]*$/
         }

@@ -4,7 +4,6 @@
  *   SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
  */
 
-import QtCore
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -593,7 +592,7 @@ StatetfulApp.StatefulWindow {
                     }
                 }
             }
-            Item { height: Kirigami.Units.largeSpacing * 3 }
+            Item { implicitHeight: Kirigami.Units.largeSpacing * 3 }
         }
     }
 }

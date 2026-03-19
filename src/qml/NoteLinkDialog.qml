@@ -3,10 +3,9 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 
-import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.ki18n
 
 FormCard.FormCardDialog {
     id: root
@@ -40,15 +39,15 @@ FormCard.FormCardDialog {
         }
     }
 
-    title: i18nc("@title:window", "Insert Note Link")
+    title: KI18n.i18nc("@title:window", "Insert Note Link")
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     FormCard.FormTextFieldDelegate {
         id: noteNameField
 
-        label: i18nc("@label:textbox", "Note Name:")
+        label: KI18n.i18nc("@label:textbox", "Note Name:")
 
-        Accessible.description: i18nc("@info:whatsthis", "The name of the note you want to link to.")
+        Accessible.description: KI18n.i18nc("@info:whatsthis", "The name of the note you want to link to.")
 
         onTextChanged: {
             // Only sync if the user hasn't explicitly set a custom alias
@@ -65,9 +64,9 @@ FormCard.FormCardDialog {
     FormCard.FormTextFieldDelegate {
         id: noteAliasField
 
-        label: i18nc("@label:textbox", "Display Text:")
+        label: KI18n.i18nc("@label:textbox", "Display Text:")
 
-        Accessible.description: i18nc("@info:whatsthis", "Optional alternate text to display instead of the note name.")
+        Accessible.description: KI18n.i18nc("@info:whatsthis", "Optional alternate text to display instead of the note name.")
 
         onTextChanged: {
             // activeFocus ensures this only triggers when the user is actively typing,

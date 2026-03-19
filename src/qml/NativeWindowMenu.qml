@@ -3,29 +3,40 @@
 
 import QtQuick
 import QtQuick.Window
-import QtQuick.Controls
 import Qt.labs.platform as Labs
+
 import org.kde.kirigamiaddons.statefulapp.labs as StatefulAppLabs
 import org.kde.marknote
+import org.kde.ki18n
 
 Labs.Menu {
-    property Window _window: ApplicationWindow.window
+    id: root
 
-    title: i18nc("@action:menu", "Window")
+    // Leave this empty so the parent can pass the window in
+    property Window _window
+
+    title: KI18n.i18nc("@action:menu", "Window")
 
     StatefulAppLabs.NativeMenuItem {
         actionName: 'open_kcommand_bar'
-        application: App
+        application: App // qmllint disable incompatible-type
     }
 
     Labs.MenuItem {
-        text: root.visibility === Window.FullScreen ? i18nc("@action:menu", "Exit Full Screen") : i18nc("@action:menu", "Enter Full Screen")
+        text: (root._window && root._window.visibility === Window.FullScreen)
+        ? KI18n.i18nc("@action:menu", "Exit Full Screen")
+        : KI18n.i18nc("@action:menu", "Enter Full Screen")
         icon.name: "view-fullscreen"
         shortcut: StandardKey.FullScreen
-        onTriggered: if (_window.visibility === Window.FullScreen) {
-            _window.showNormal();
-        } else {
-            _window.showFullScreen();
+
+        onTriggered: {
+            if (root._window) {
+                if (root._window.visibility === Window.FullScreen) {
+                    root._window.showNormal();
+                } else {
+                    root._window.showFullScreen();
+                }
+            }
         }
     }
 }

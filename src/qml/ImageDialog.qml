@@ -5,6 +5,7 @@ import QtQuick
 import QtCore
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.ki18n
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtQuick.Dialogs
@@ -15,16 +16,16 @@ FormCard.FormCardDialog {
 
     property string notePath
 
-    title: i18nc("@title:window", "Insert Image")
+    title: KI18n.i18nc("@title:window", "Insert Image")
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     FileDialog {
         id: fileDialog
 
-        title: i18nc("@title:window", "Select an image")
+        title: KI18n.i18nc("@title:window", "Select an image")
         currentFolder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
         fileMode: FileDialog.OpenFile
-        nameFilters: [i18n("Image files (*.jpg *.jpeg *.png *.svg *.webp)"), i18n("All files (*)")]
+        nameFilters: [KI18n.i18n("Image files (*.jpg *.jpeg *.png *.svg *.webp)"), i18n("All files (*)")]
         onAccepted: imageField.path = selectedFile
     }
 
@@ -39,7 +40,7 @@ FormCard.FormCardDialog {
 
         property url path
 
-        text: i18nc("@label:textbox", "Image Location:")
+        text: KI18n.i18nc("@label:textbox", "Image Location:")
         description: path.toString().length > 0 ? path.toString().split('/').slice(-1)[0] : ''
 
         onClicked: fileDialog.open()
@@ -50,7 +51,7 @@ FormCard.FormCardDialog {
     FormCard.FormButtonDelegate {
         id: sketchField
 
-        text: i18nc("@label:textbox", "Quick Sketch")
+        text: KI18n.i18nc("@label:textbox", "Quick Sketch")
         onClicked: {
             sketchDialog.open()
         }

@@ -2,10 +2,10 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick
-import org.kde.kirigami as Kirigami
 import QtQuick.Controls
-import QtQuick.Layouts
-import org.kde.marknote
+
+import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
@@ -19,14 +19,14 @@ Kirigami.Page {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         icon.name: "addressbook-details"
-        text: i18n("Start by creating your first notebook!")
+        text: KI18n.i18n("Start by creating your first notebook!")
         helpfulAction: newNotebookAction
     }
 
     actions: Kirigami.Action {
         visible: ApplicationWindow.window.visibility === Window.FullScreen
         icon.name: "window-restore-symbolic"
-        tooltip: i18nc("@action:menu", "Exit Full Screen")
+        tooltip: KI18n.i18nc("@action:menu", "Exit Full Screen")
         checkable: true
         checked: true
         onTriggered: ApplicationWindow.window.showNormal()

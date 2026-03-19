@@ -3,7 +3,6 @@
 // SPDX-FileCopyrightText: 2026 Shubham Shinde <shindeshubham0520@gmail.com>
 // SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 
-import QtCore
 import QtQuick
 import org.kde.kirigami as Kirigami
 import QtQuick.Controls as Controls
@@ -35,7 +34,7 @@ Delegates.RoundedItemDelegate {
         keys: ["application/x-marknote-note"]
 
         onEntered: (drag) => {
-            isDropTarget = true;
+            root.isDropTarget = true;
             drag.accept(Qt.MoveAction);
         }
 
@@ -44,21 +43,21 @@ Delegates.RoundedItemDelegate {
         }
 
         onExited: {
-            isDropTarget = false;
+            root.isDropTarget = false;
         }
 
         onDropped: (drop) => {
             if (drop.keys.indexOf("application/x-marknote-note") !== -1) {
                 const noteUri = drop.getDataAsString("application/x-marknote-note");
-                model.moveNote(noteUri, path);
+                root.model.moveNote(noteUri, path);
                 drop.acceptProposedAction();
             } else if (drop.keys.indexOf("text/uri-list") !== -1) {
                 const uriList = drop.getDataAsString("text/uri-list");
                 const noteUri = uriList.split("\n")[0].trim();
-                model.moveNote(noteUri, path);
+                root.model.moveNote(noteUri, path);
                 drop.acceptProposedAction();
             }
-            isDropTarget = false;
+            root.isDropTarget = false;
         }
     }
 
@@ -212,7 +211,7 @@ Delegates.RoundedItemDelegate {
     }
 
     TapHandler {
-        onTapped: NavigationController.notebookPath = path
+        onTapped: NavigationController.notebookPath = root.path
     }
 
     TapHandler {

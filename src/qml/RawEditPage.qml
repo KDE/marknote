@@ -1,15 +1,12 @@
 // SPDX-FileCopyrightText: 2026 Siddharth Chopra <contact.sid.chopra@gmail.com>
+// SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import org.kde.kirigami as Kirigami
-import QtQuick.Controls
-import QtQuick.Layouts
 
 import org.kde.marknote
-import org.kde.ki18n
 import org.kde.syntaxhighlighting
 
 EditPage {

@@ -5,22 +5,23 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import QtQuick.Templates as T
 import QtQuick.Dialogs
 import org.kde.kitemmodels
 import org.kde.marknote
 import org.kde.notification
+import org.kde.ki18n
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as Components
-import org.kde.kirigamiaddons.formcard as FormCard
+
+pragma ComponentBehavior: Bound
 
 import "components"
 
 Kirigami.ScrollablePage {
     id: root
 
-    readonly property bool isWideScreen: ApplicationWindow.window ? ApplicationWindow.window.wideScreen : false
+    readonly property bool isWideScreen: !!ApplicationWindow.window?.isWideScreen // qmllint disable missing-property
 
     objectName: "NotesPage"
     property color backgroundColor: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.alternateBackgroundColor, 0.6)
@@ -36,9 +37,14 @@ Kirigami.ScrollablePage {
             bottomMargin: Kirigami.Units.gridUnit
 
         }
-        text: i18n("Add note")
+        text: KI18n.i18n("Add note")
         icon.name: "list-add"
         onClicked: newNoteAction.trigger()
+    }
+
+    enum SortRole {
+        SortName,
+        SortDate
     }
 
     Connections {
@@ -177,7 +183,7 @@ Kirigami.ScrollablePage {
         ToolButton {
             id: searchButton
             icon.name: titleLayout.searchOpen ? "draw-arrow-back" : "search"
-            text: titleLayout.searchOpen ? i18n("Exit Search (%1)", cancelShortcut.nativeText) : i18n("Search notes (%1)", searchShortcut.nativeText)
+            text: titleLayout.searchOpen ? KI18n.i18n("Exit Search (%1)", cancelShortcut.nativeText) : KI18n.i18n("Search notes (%1)", searchShortcut.nativeText)
             display: AbstractButton.IconOnly
 
             ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -223,7 +229,7 @@ Kirigami.ScrollablePage {
         ToolButton {
             visible: ApplicationWindow.window ? (ApplicationWindow.window.visibility === Window.FullScreen && ApplicationWindow.window.pageStack.depth !== 2) : false
             icon.name: "window-restore-symbolic"
-            text: i18nc("@action:menu", "Exit Full Screen")
+            text: KI18n.i18nc("@action:menu", "Exit Full Screen")
             display: AbstractButton.IconOnly
             checkable: true
             checked: true
@@ -243,7 +249,7 @@ Kirigami.ScrollablePage {
         property string noteName
 
         dialogType: Components.MessageDialog.Warning
-        title: i18nc("@title:window", "Delete Note")
+        title: KI18n.i18nc("@title:window", "Delete Note")
         onRejected: close()
         onAccepted: {
             notesModel.deleteNote(fileUrl);
@@ -253,16 +259,12 @@ Kirigami.ScrollablePage {
             close();
         }
         standardButtons: Dialog.Ok | Dialog.Cancel
-        subtitle: i18n("Are you sure you want to delete the note <b> %1 </b>? This will delete the file <b>%2</b> definitively.", removeDialog.noteName, removeDialog.notePath)
+        subtitle: KI18n.i18n("Are you sure you want to delete the note <b> %1 </b>? This will delete the file <b>%2</b> definitively.", removeDialog.noteName, removeDialog.notePath)
     }
 
     ListView {
         id: notesList
 
-        enum SortRole {
-            SortName,
-            SortDate
-        }
         currentIndex: -1
 
         populate: Transition {
@@ -322,7 +324,9 @@ Kirigami.ScrollablePage {
         Component {
             id: sectionDelegate
             Kirigami.ListSectionHeader {
-                label: section
+                required property string section
+
+                text: section
                 width: parent.width
             }
         }
@@ -333,19 +337,16 @@ Kirigami.ScrollablePage {
             Item {}
         }
 
-        state: Config.sortBehaviour
         states: [
             State {
                 name: "sort-name"
 
                 PropertyChanges {
-                    target: filterModel
-                    sortRole: NotesModel.Name
-                    sortOrder: Qt.AscendingOrder
+                    filterModel.sortRole: NotesModel.Name
+                    filterModel.sortOrder: Qt.AscendingOrder
                 }
                 PropertyChanges {
-                    target: notesList.section
-                    delegate: nullComponent
+                    notesList.section.delegate: nullComponent
                 }
                 StateChangeScript {
                     script: filterModel.sort(0, Qt.AscendingOrder)
@@ -355,13 +356,11 @@ Kirigami.ScrollablePage {
                 name: "sort-date"
 
                 PropertyChanges {
-                    target: filterModel
-                    sortRole: NotesModel.Date
-                    sortOrder: Qt.DescendingOrder
+                    filterModel.sortRole: NotesModel.Date
+                    filterModel.sortOrder: Qt.DescendingOrder
                 }
                 PropertyChanges {
-                    target: notesList.section
-                    delegate: sectionDelegate
+                    notesList.section.delegate: sectionDelegate
                 }
                 StateChangeScript {
                     script: filterModel.sort(0, Qt.DescendingOrder)
@@ -390,7 +389,9 @@ Kirigami.ScrollablePage {
         section {
             property: "month"
             delegate: Kirigami.ListSectionHeader {
-                label: section
+                required property string section
+
+                text: section
                 width: parent.width
             }
         }
@@ -443,8 +444,8 @@ Kirigami.ScrollablePage {
 
                     componentName: "marknote"
                     eventId: "exportSuccessful"
-                    title: i18nc("@title:window", "Marknote")
-                    text: i18nc("@info", "Export of \"%1\" was successful.", exportSuccessNotification.name);
+                    title: KI18n.i18nc("@title:window", "Marknote")
+                    text: KI18n.i18nc("@info", "Export of \"%1\" was successful.", exportSuccessNotification.name);
                     iconName: {
                         const ext = exportSuccessNotification.path.split('.').pop().toLowerCase();
 
@@ -462,7 +463,7 @@ Kirigami.ScrollablePage {
                     }
                     actions: [
                         NotificationAction {
-                            label: i18nc("@action:notifaction","Open File")
+                            label: KI18n.i18nc("@action:notifaction","Open File")
                             onActivated: Qt.openUrlExternally(exportSuccessNotification.path)
                         }
                     ]
@@ -479,8 +480,8 @@ Kirigami.ScrollablePage {
 
                     componentName: "marknote"
                     eventId: "exportFailed"
-                    title: i18nc("@title:window", "Marknote")
-                    text: i18nc("@info", "Export of \"%1\" failed.", exportFailedNotification.name);
+                    title: KI18n.i18nc("@title:window", "Marknote")
+                    text: KI18n.i18nc("@info", "Export of \"%1\" failed.", exportFailedNotification.name);
                     iconName: "error"
                 }
             }
@@ -492,7 +493,7 @@ Kirigami.ScrollablePage {
             property Delegates.RoundedItemDelegate delegateItem
 
             Action {
-                text: i18nc("@action:inmenu", "Rename")
+                text: KI18n.i18nc("@action:inmenu", "Rename")
                 icon.name: "document-edit"
                 onTriggered:
                 {
@@ -504,7 +505,7 @@ Kirigami.ScrollablePage {
             }
 
             Action {
-                text: i18nc("@action:inmenu", "Copy")
+                text: KI18n.i18nc("@action:inmenu", "Copy")
                 icon.name: "edit-copy"
                 onTriggered: {
                     notesModel.copyWholeNote(menu.delegateItem.fileUrl)
@@ -523,7 +524,7 @@ Kirigami.ScrollablePage {
             }
 
             Action {
-                text: i18nc("@action:inmenu", "Duplicate")
+                text: KI18n.i18nc("@action:inmenu", "Duplicate")
                 icon.name: "edit-duplicate-symbolic"
                 onTriggered: {
                     notesModel.duplicateNote(menu.delegateItem.fileUrl)
@@ -531,31 +532,31 @@ Kirigami.ScrollablePage {
             }
 
             Kirigami.Action {
-                text: i18nc("@action:inmenu", "Export")
+                text: KI18n.i18nc("@action:inmenu", "Export")
                 icon.name: "document-export"
 
                 Kirigami.Action {
-                    text: i18nc("@action:inmenu", "Export to HTML")
+                    text: KI18n.i18nc("@action:inmenu", "Export to HTML")
                     icon.name: "text-html"
                     onTriggered: {
                         fileDialog.name = menu.delegateItem.name;
                         fileDialog.path = menu.delegateItem.fileUrl;
                         fileDialog.selectedFile = menu.delegateItem.name + '.html';
-                        fileDialog.title = i18nc("@title:window", "Export to HTML");
-                        fileDialog.nameFilters = [i18n("HTML file (*.html)")];
+                        fileDialog.title = KI18n.i18nc("@title:window", "Export to HTML");
+                        fileDialog.nameFilters = [KI18n.i18n("HTML file (*.html)")];
                         fileDialog.open();
                     }
                 }
 
                 Kirigami.Action {
-                    text: i18nc("@action:inmenu", "Export to PDF")
+                    text: KI18n.i18nc("@action:inmenu", "Export to PDF")
                     icon.name: "application-pdf"
                     onTriggered: {
                         fileDialog.name = menu.delegateItem.name;
                         fileDialog.path = menu.delegateItem.fileUrl;
                         fileDialog.selectedFile = menu.delegateItem.name + '.pdf';
-                        fileDialog.title = i18nc("@title:window", "Export to PDF");
-                        fileDialog.nameFilters = [i18n("PDF file (*.pdf)")];
+                        fileDialog.title = KI18n.i18nc("@title:window", "Export to PDF");
+                        fileDialog.nameFilters = [KI18n.i18n("PDF file (*.pdf)")];
                         fileDialog.open();
                     }
                 }
@@ -567,8 +568,8 @@ Kirigami.ScrollablePage {
                         fileDialog.name = menu.delegateItem.name;
                         fileDialog.path = menu.delegateItem.fileUrl;
                         fileDialog.selectedFile = menu.delegateItem.name + '.odt';
-                        fileDialog.title = i18nc("@title:window", "Export to ODT");
-                        fileDialog.nameFilters = [i18n("ODF Text Document (*.odt)")];
+                        fileDialog.title = KI18n.i18nc("@title:window", "Export to ODT");
+                        fileDialog.nameFilters = [KI18n.i18n("ODF Text Document (*.odt)")];
                         fileDialog.open();
                     }
                 }
@@ -579,7 +580,7 @@ Kirigami.ScrollablePage {
             }
 
             Action {
-                text: i18nc("@action:inmenu", "Delete")
+                text: KI18n.i18nc("@action:inmenu", "Delete")
                 icon.name: "delete"
                 onTriggered: {
                     removeDialog.noteName = menu.delegateItem.name;
@@ -727,7 +728,7 @@ Kirigami.ScrollablePage {
 
                     Label {
                         Layout.leftMargin: Kirigami.Units.smallSpacing
-                        text: Qt.formatDateTime(date, Qt.SystemLocaleDate)
+                        text: Qt.formatDateTime(delegateItem.date)
                         font: Kirigami.Theme.smallFont
                         color: Kirigami.Theme.disabledTextColor
                         Layout.fillWidth: true
@@ -738,7 +739,7 @@ Kirigami.ScrollablePage {
                 }
 
                 ToolButton{
-                    text: i18nc("@action:button", "Show Menu")
+                    text: KI18n.i18nc("@action:button", "Show Menu")
                     icon.name: "overflow-menu"
                     down: pressed || (menu.opened && menu.delegateItem === delegateItem)
                     display: ToolButton.IconOnly
@@ -782,7 +783,7 @@ Kirigami.ScrollablePage {
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
             icon.name: "note"
             visible: notesList.count === 0
-            text: i18n("Add a note!")
+            text: KI18n.i18n("Add a note!")
             helpfulAction: newNoteAction
         }
     }

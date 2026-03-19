@@ -5,6 +5,8 @@ import QtQuick
 import QtQuick.Controls as Controls
 import org.kde.marknote
 
+import org.kde.ki18n
+
 Controls.Action {
     id: root
 
@@ -12,7 +14,7 @@ Controls.Action {
     property string name
     property NoteBooksModel model
 
-    text: i18nc("@action:inmenu", "Delete Notebook")
+    text: KI18n.i18nc("@action:inmenu", "Delete Notebook")
 
     icon.name: "delete"
     onTriggered: {

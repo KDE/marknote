@@ -4,6 +4,7 @@
 import Qt.labs.platform as Labs
 import org.kde.kirigamiaddons.statefulapp.labs as StatefulAppLabs
 import org.kde.marknote
+import org.kde.ki18n
 
 Labs.MenuBar {
     id: root
@@ -12,10 +13,12 @@ Labs.MenuBar {
 
     NativeEditMenu {}
 
-    NativeWindowMenu {}
+    NativeWindowMenu {
+        _window: root.window
+    }
 
     Labs.Menu {
-        title: i18nc("@action:menu", "Settings")
+        title: KI18n.i18nc("@action:menu", "Settings")
 
         StatefulAppLabs.NativeMenuItem {
             actionName: 'options_configure_keybinding'
