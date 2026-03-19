@@ -870,7 +870,7 @@ QString RichDocumentHandler::processImage(const QUrl &originalUrl)
     // We just tell the registry where it is. The Provider loads it in the
     // background.
     {
-        QMutexLocker locker(&s_mutex);
+        AsyncImageProvider::registerPath(key, originalUrl.toLocalFile());
         s_pathRegistry[key] = originalUrl.toLocalFile();
     }
 
