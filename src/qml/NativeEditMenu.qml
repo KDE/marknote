@@ -84,7 +84,7 @@ Labs.Menu {
 
         Labs.MenuItem {
             enabled: editMenu.field !== null && canPaste
-            text: i18nc("text editing menu action", "Paste")
+            text: KI18n.i18nc("text editing menu action", "Paste")
             shortcut: StandardKey.Paste
 
             property bool canPaste: {
