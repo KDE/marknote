@@ -88,19 +88,19 @@ Labs.Menu {
             shortcut: StandardKey.Paste
 
             property bool canPaste: {
-                if (editMenu._window.currentDocument) {
+                if (editMenu._window?.currentDocument !== undefined) {
                     return editMenu._window.currentDocument.canPaste;
-                } else if (editMenu.field) {
+                }
+                if (editMenu.field !== null) {
                     return editMenu.field.canPaste;
                 }
                 return false;
             }
 
             onTriggered: {
-                // Prefer rich paste
-                if (editMenu._window.currentDocument && typeof editMenu._window.currentDocument.pasteFromClipboard === 'function') {
+                if (typeof editMenu._window?.currentDocument?.pasteFromClipboard === 'function') {
                     editMenu._window.currentDocument.pasteFromClipboard()
-                } else {
+                } else if (editMenu.field !== null) {
                     editMenu.field.paste()
                 }
                 editMenu.close()
