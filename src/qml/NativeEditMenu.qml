@@ -18,7 +18,6 @@ Labs.Menu {
         target: editMenu._window // <-- Fixed here
         function onActiveFocusItemChanged() {
             if (editMenu._window.activeFocusItem instanceof TextEdit || editMenu._window.activeFocusItem instanceof TextInput) {
-                // <-- Fixed 1 spot in the line below
                 editMenu.field = editMenu._window.activeFocusItem;
             }
         }
