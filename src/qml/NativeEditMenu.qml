@@ -12,7 +12,7 @@ Labs.Menu {
     id: editMenu
     title: KI18n.i18nc("@action:menu", "Edit")
 
-    property Window _window: ApplicationWindow.window
+    property var _window: ApplicationWindow.window
 
     property Connections _textInputConnection: Connections {
         target: _window
@@ -23,7 +23,7 @@ Labs.Menu {
         }
     }
 
-    property Item field: null
+    property var field: null
 
     Component.onCompleted: {
         for (let i in additionalMenuItems) {
@@ -93,7 +93,7 @@ Labs.Menu {
                 }
                 return false;
             }
-            
+
             onTriggered: {
                 // Prefer rich paste
                 if (_window.currentDocument && typeof _window.currentDocument.pasteFromClipboard === 'function') {
