@@ -1945,7 +1945,19 @@ void RichDocumentHandler::parseDocument()
             applyCodeBlockFormat(block, language);
         } else if (blockFmt.headingLevel() > 0) {
             applyHeadingFormat(block);
-        } else if (!block.textList() && !blockFmt.isTableCellFormat()) {
+        } else if (block.textList()) {
+            QTextBlockFormat fmt = block.blockFormat();
+
+            if (block.textList()->itemNumber(block) == 0) {
+                fmt.setTopMargin(m_blockMargin);
+            } else {
+                fmt.setTopMargin(0);
+            }
+
+            fmt.setBottomMargin(2);
+            QTextCursor blockCursor(block);
+            blockCursor.setBlockFormat(fmt);
+        } else if (!blockFmt.isTableCellFormat()) {
             applyParagraphFormat(block);
         }
     }
