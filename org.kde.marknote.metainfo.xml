@@ -130,8 +130,8 @@
     <binary>marknote</binary>
   </provides>
   <releases>
-    <release version="1.5.1" date="2026-03-19">
-      <url>https://blogs.kde.org/2026/03/19/markbote-1.5.1/</url>
+    <release version="1.5.1" date="2026-03-20">
+      <url>https://blogs.kde.org/2026/03/20/markbote-1.5.1/</url>
       <description>
         <p>Marknote 1.5.1 contains various bug fixes, including the ones for specific issues while coping and pasting. This release also adds some tiny improvements like syntax highlighting in the source mode and faster image loading.</p>
       </description>
