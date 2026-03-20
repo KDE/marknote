@@ -46,7 +46,7 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/marknote-version.h
 )
 
-if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
+if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     option(WITH_KRUNNER "Build with Plasma Runner support." ON)
 endif()
 
