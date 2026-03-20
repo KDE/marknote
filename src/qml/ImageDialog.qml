@@ -25,7 +25,7 @@ FormCard.FormCardDialog {
         title: KI18n.i18nc("@title:window", "Select an image")
         currentFolder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
         fileMode: FileDialog.OpenFile
-        nameFilters: [KI18n.i18n("Image files (*.jpg *.jpeg *.png *.svg *.webp)"), i18n("All files (*)")]
+        nameFilters: [KI18n.i18n("Image files (*.jpg *.jpeg *.png *.svg *.webp)"), KI18n.i18n("All files (*)")]
         onAccepted: imageField.path = selectedFile
     }
 

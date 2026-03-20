@@ -6,6 +6,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Dialogs
+
 import org.kde.kitemmodels
 import org.kde.marknote
 import org.kde.notification
@@ -16,8 +17,6 @@ import org.kde.kirigamiaddons.components as Components
 
 pragma ComponentBehavior: Bound
 
-import "components"
-
 Kirigami.ScrollablePage {
     id: root
 
@@ -26,6 +25,9 @@ Kirigami.ScrollablePage {
     objectName: "NotesPage"
     property color backgroundColor: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.alternateBackgroundColor, 0.6)
     background: Rectangle {color: root.backgroundColor}
+
+    property var _window: ApplicationWindow.window
+    readonly property Kirigami.PageRow pageStack: (ApplicationWindow.window as Kirigami.ApplicationWindow)?.pageStack ?? null
 
     Components.FloatingButton {
         visible: Kirigami.Settings.isMobile
@@ -54,7 +56,7 @@ Kirigami.ScrollablePage {
             const dialog = component.createObject(root, {
                 mode: NoteMetadataDialog.Mode.Add,
                 model: notesModel,
-            });
+            }) as NoteMetadataDialog;
             dialog.open();
         }
     }
@@ -227,7 +229,7 @@ Kirigami.ScrollablePage {
         }
 
         ToolButton {
-            visible: ApplicationWindow.window ? (ApplicationWindow.window.visibility === Window.FullScreen && ApplicationWindow.window.pageStack.depth !== 2) : false
+            visible: ApplicationWindow.window ? (ApplicationWindow.window.visibility === Window.FullScreen && root.pageStack.depth !== 2) : false
             icon.name: "window-restore-symbolic"
             text: KI18n.i18nc("@action:menu", "Exit Full Screen")
             display: AbstractButton.IconOnly
@@ -510,10 +512,8 @@ Kirigami.ScrollablePage {
                 onTriggered: {
                     notesModel.copyWholeNote(menu.delegateItem.fileUrl)
 
-                    const appWindow = root.ApplicationWindow.window;
-
-                    if (appWindow && appWindow.pageStack) {
-                        const editorPage = appWindow.pageStack.get(appWindow.pageStack.depth - 1);
+                    if (root._window && root.pageStack) {
+                        const editorPage = root.pageStack.get(root.pageStack.depth - 1);
 
                         if (editorPage && editorPage.copyMessage) {
                             editorPage.copyMessage.visible = true;
@@ -562,7 +562,7 @@ Kirigami.ScrollablePage {
                 }
 
                 Kirigami.Action {
-                    text: i18nc("@action:inmenu", "Export to ODT")
+                    text: KI18n.i18nc("@action:inmenu", "Export to ODT")
                     icon.name: "application-vnd.oasis.opendocument.text"
                     onTriggered: {
                         fileDialog.name = menu.delegateItem.name;
@@ -768,7 +768,7 @@ Kirigami.ScrollablePage {
 
             onClicked: {
                 if (highlighted) {
-                    ApplicationWindow.window.pageStack.currentIndex = ApplicationWindow.window.pageStack.depth - 1;
+                    root.pageStack.currentIndex = root.pageStack.depth - 1;
                     return;
                 }
                 NavigationController.notePath = path;

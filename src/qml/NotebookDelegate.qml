@@ -4,11 +4,12 @@
 // SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 
 import QtQuick
-import org.kde.kirigami as Kirigami
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import org.kde.marknote
+
 import org.kde.kirigamiaddons.delegates as Delegates
+import org.kde.kirigami as Kirigami
+import org.kde.marknote
 
 Delegates.RoundedItemDelegate {
     id: root
@@ -49,12 +50,12 @@ Delegates.RoundedItemDelegate {
         onDropped: (drop) => {
             if (drop.keys.indexOf("application/x-marknote-note") !== -1) {
                 const noteUri = drop.getDataAsString("application/x-marknote-note");
-                root.model.moveNote(noteUri, path);
+                root.model.moveNote(noteUri, root.path);
                 drop.acceptProposedAction();
             } else if (drop.keys.indexOf("text/uri-list") !== -1) {
                 const uriList = drop.getDataAsString("text/uri-list");
                 const noteUri = uriList.split("\n")[0].trim();
-                root.model.moveNote(noteUri, path);
+                root.model.moveNote(noteUri, root.path);
                 drop.acceptProposedAction();
             }
             root.isDropTarget = false;
@@ -132,7 +133,7 @@ Delegates.RoundedItemDelegate {
                     path: root.path,
                     name: root.name,
                     model: root.model
-                });
+                }) as Controls.Menu;
                 menu.popup();
             }
             opacity: Config.expandedSidebar ? 1 : 0
@@ -222,7 +223,7 @@ Delegates.RoundedItemDelegate {
                 path: root.path,
                 name: root.name,
                 model: root.model
-            });
+            }) as Controls.Menu;
             menu.popup();
         }
     }

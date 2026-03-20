@@ -23,10 +23,10 @@ Controls.Menu {
                 mode: NotebookMetadataDialog.Mode.Edit,
                 path: root.path,
                 name: root.name,
-                color: noteBooksModel.colorForPath(root.path),
-                iconName: noteBooksModel.iconNameForPath(root.path),
+                color: root.model.colorForPath(root.path),
+                iconName: root.model.iconNameForPath(root.path),
                 model: root.model,
-            });
+            }) as NotebookMetadataDialog;
             editDialog.open();
         }
     }
@@ -40,7 +40,7 @@ Controls.Menu {
                 path: root.path,
                 name: root.name,
                 model: root.model,
-            });
+            }) as NotebookDeleteDialog;
             deleteDialog.open();
         }
     }

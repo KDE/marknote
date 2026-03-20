@@ -6,9 +6,9 @@ import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
-import org.kde.marknote
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigami as Kirigami
+import org.kde.marknote
 import org.kde.ki18n
 
 FormCard.FormCardDialog {
@@ -27,7 +27,7 @@ FormCard.FormCardDialog {
 
     property NoteBooksModel model
 
-    title: mode === NotebookMetadataDialog.Mode.Add ? i18nc("@title:window", "New Notebook") : KI18n.i18nc("@title:window", "Edit Notebook")
+    title: mode === NotebookMetadataDialog.Mode.Add ? KI18n.i18nc("@title:window", "New Notebook") : KI18n.i18nc("@title:window", "Edit Notebook")
 
     standardButtons: Controls.Dialog.Save | Controls.Dialog.Cancel
 
@@ -56,7 +56,7 @@ FormCard.FormCardDialog {
     FormCard.FormColorDelegate {
         id: colorButton
         color: root.mode === NotebookMetadataDialog.Mode.Edit
-        ? noteBooksModel.colorForPath(root.path)
+        ? root.model.colorForPath(root.path)
         : Kirigami.Theme.highlightColor
     }
 

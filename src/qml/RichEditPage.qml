@@ -5,16 +5,15 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import org.kde.kirigami as Kirigami
 import QtQuick.Controls
 import QtQuick.Templates as T
 import QtQuick.Layouts
-import org.kde.ki18n
-
 import "components"
 
-import org.kde.kirigamiaddons.components as Components
+import org.kde.kirigami as Kirigami
 import org.kde.marknote
+import org.kde.ki18n
+import org.kde.kirigamiaddons.components as Components
 
 EditPage {
     id: root
@@ -62,10 +61,6 @@ EditPage {
 
         onError: message => {
             console.error("Error message from document handler", message);
-        }
-
-        onShowToast: message => {
-            showPassiveNotification(message, "short");
         }
 
         onCopy: root.textArea.copy()

@@ -6,12 +6,13 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Templates as T
 import QtQuick.Layouts
-import org.kde.ki18n
-import org.kde.kirigami as Kirigami
+import QtQuick.Templates as T
+
 import org.kde.kirigamiaddons.delegates as Delegates
+import org.kde.kirigami as Kirigami
 import org.kde.marknote
+import org.kde.ki18n
 
 Kirigami.OverlayDrawer {
     id: root

@@ -2,9 +2,11 @@
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
 
 import QtQuick
+import QtQuick.Window
 import QtQuick.Controls as Controls
-import org.kde.marknote
 
+import org.kde.kirigami as Kirigami
+import org.kde.marknote
 import org.kde.ki18n
 
 Controls.Action {
@@ -13,6 +15,9 @@ Controls.Action {
     property string path
     property string name
     property NoteBooksModel model
+
+    property var _window: Controls.ApplicationWindow.window
+    readonly property Kirigami.PageRow pageStack: (_window as Kirigami.ApplicationWindow)?.pageStack ?? null
 
     text: KI18n.i18nc("@action:inmenu", "Delete Notebook")
 

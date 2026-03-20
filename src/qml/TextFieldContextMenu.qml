@@ -7,16 +7,17 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+pragma ComponentBehavior: Bound
+
 import QtQml.Models
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Templates as T
+
 import org.kde.kirigami as Kirigami
 import org.kde.sonnet as Sonnet
 import org.kde.marknote
 import org.kde.ki18n
-
-pragma ComponentBehavior: Bound
 
 QQC2.Menu {
     id: root
@@ -151,7 +152,7 @@ QQC2.Menu {
 
         // run action, and free memory
         try {
-            root.runOnMenuClose();
+            runOnMenuClose = () => {};
         } catch (e) {
             console.error(e);
             console.trace();

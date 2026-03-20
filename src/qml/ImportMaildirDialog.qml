@@ -10,10 +10,8 @@ import Qt.labs.platform
 import QtQuick.Dialogs
 
 import org.kde.marknote
-import org.kde.iconthemes as KIconThemes
-import org.kde.kirigamiaddons.components as Components
+import org.kde.ki18n
 import org.kde.kirigamiaddons.formcard as FormCard
-import org.kde.kirigami as Kirigami
 
 FormCard.FormCardDialog {
     id: root
@@ -29,12 +27,12 @@ FormCard.FormCardDialog {
     property alias color: colorButton.color
     property NoteBooksModel model
 
-    title: mode === ImportMaildirDialog.Mode.Maildir ? i18nc("@title:window", "Import from Maildir") : i18nc("@title:window", "Import from KNotes")
+    title: mode === ImportMaildirDialog.Mode.Maildir ? KI18n.i18nc("@title:window", "Import from Maildir") : KI18n.i18nc("@title:window", "Import from KNotes")
 
     FormCard.FormTextFieldDelegate {
         id: nameInput
 
-        label: i18nc("@label:textbox Notebook name", "Name:")
+        label: KI18n.i18nc("@label:textbox Notebook name", "Name:")
         onAccepted: root.accepted()
     }
 
@@ -47,14 +45,14 @@ FormCard.FormCardDialog {
 
         property url path: StandardPaths.writableLocation(StandardPaths.GenericDataLocation) + '/notes'
 
-        text: i18nc("@label:textbox Notebook name", "Maildir location:")
+        text: KI18n.i18nc("@label:textbox Notebook name", "Maildir location:")
         description: path.toString()
         onClicked: maildirSelectDialog.open()
-        visible: mode === ImportMaildirDialog.Mode.Maildir
+        visible: root.mode === ImportMaildirDialog.Mode.Maildir
 
         FolderDialog {
             id: maildirSelectDialog
-            title: i18nc("@title:window", "Select a Maildir location")
+            title: KI18n.i18nc("@title:window", "Select a Maildir location")
             currentFolder: directoryInput.path
             onAccepted: directoryInput.path = selectedFolder
         }
@@ -62,7 +60,7 @@ FormCard.FormCardDialog {
 
     FormCard.FormDelegateSeparator {
         Layout.fillWidth: true
-        visible: mode === ImportMaildirDialog.Mode.Maildir
+        visible: root.mode === ImportMaildirDialog.Mode.Maildir
     }
 
     FormCard.FormIconDelegate {
@@ -100,7 +98,7 @@ FormCard.FormCardDialog {
     footer: Controls.DialogButtonBox {
         standardButtons: Controls.Dialog.Cancel
         Controls.Button {
-            text: i18nc("@action:button", "Import")
+            text: KI18n.i18nc("@action:button", "Import")
             enabled: nameInput.text.length > 0
             Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.AcceptRole
         }

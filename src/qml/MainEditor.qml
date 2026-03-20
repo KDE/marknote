@@ -1,13 +1,11 @@
 /*
-    SPDX-License-Identifier: GPL-2.0-or-later
-    SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
-*/
+ *    SPDX-License-Identifier: GPL-2.0-or-later
+ *    SPDX-FileCopyrightText: 2021 Mathis Brüchert <mbb-mail@gmx.de>
+ */
 
 import QtQuick
 import org.kde.kirigami as Kirigami
 import org.kde.marknote
-
-import "components"
 
 Kirigami.ApplicationWindow {
     id: root
@@ -44,7 +42,7 @@ Kirigami.ApplicationWindow {
         target: App
 
         function onOpenAboutPage(): void {
-            const openDialogWindow = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {
+            const openDialogWindow = root.pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {
                 width: root.width
             }, {
                 width: Kirigami.Units.gridUnit * 30,
@@ -53,7 +51,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onOpenAboutKDEPage(): void {
-            const openDialogWindow = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"), {
+            const openDialogWindow = root.pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"), {
                 width: root.width
             }, {
                 width: Kirigami.Units.gridUnit * 30,

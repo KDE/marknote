@@ -6,8 +6,8 @@
 import QtQuick
 import QtQuick.Controls as Controls
 
-import org.kde.marknote
 import org.kde.kirigamiaddons.components as Components
+import org.kde.marknote
 import org.kde.ki18n
 
 Components.MessageDialog {
@@ -18,9 +18,9 @@ Components.MessageDialog {
     property NoteBooksModel model
     NotebookDeleteAction {
         id: deleteAction
-        name: name
-        path: path
-        model: model
+        name: removeDialog.name
+        path: removeDialog.path
+        model: removeDialog.model
     }
     dialogType: Components.MessageDialog.Warning
     title: KI18n.i18nc("@title:window", "Delete Notebook")

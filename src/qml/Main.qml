@@ -192,7 +192,6 @@ StatetfulApp.StatefulWindow {
 
     Component.onCompleted: {
         Config.fillWindow = false;
-        // Safety check for KRunner
         if (typeof KRunner !== "undefined") {
             KRunner.model = noteBooksModel;
         }

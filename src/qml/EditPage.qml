@@ -6,13 +6,13 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 
-import org.kde.kirigami as Kirigami
 import QtQuick.Controls
 import QtQuick.Templates as T
 import QtQuick.Layouts
-import org.kde.ki18n
 
+import org.kde.kirigami as Kirigami
 import org.kde.marknote
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
@@ -36,7 +36,7 @@ Kirigami.Page {
     readonly property alias contentScroll: contentScroll
     property alias searchBar: searchBar 
     property TocDrawer tocDrawer: null
-    readonly property Kirigami.PageRow pageStack: (root.ApplicationWindow.window as Kirigami.ApplicationWindow)?.pageStack ?? null
+    readonly property Kirigami.PageRow pageStack: (ApplicationWindow.window as Kirigami.ApplicationWindow)?.pageStack ?? null
     required property TextFieldContextMenu textFieldContextMenu
 
     property bool mobileToolBarHidden: true

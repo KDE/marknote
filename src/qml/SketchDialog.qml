@@ -22,7 +22,7 @@ Controls.Dialog {
     modal: true
 
     width: Math.min(900, parent.width)
-    height: 600
+    height: Math.min(600, parent.height)
 
     leftPadding: 1
     rightPadding: 1
