@@ -819,7 +819,6 @@ Kirigami.Page {
     Component.onCompleted: {
         loadNote();
         init = true;
-        console.log("Current singleDocumentMode value:", singleDocumentMode)
     }
 
     onDocumentChanged: {
