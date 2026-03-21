@@ -134,6 +134,8 @@ Controls.Dialog {
         MouseArea {
             id: area
             anchors.fill: parent
+            preventStealing: true
+
             onPressed: {
                 canvas.mousePressed = true;
                 canvas.lastX = mouseX
