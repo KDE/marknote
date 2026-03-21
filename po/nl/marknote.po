@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-20 00:44+0000\n"
-"PO-Revision-Date: 2026-03-16 14:36+0100\n"
+"POT-Creation-Date: 2026-03-21 00:45+0000\n"
+"PO-Revision-Date: 2026-03-21 00:39+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -127,7 +127,7 @@ msgstr "Prayag Jain"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: main.cpp:124 qml/Main.qml:421
+#: main.cpp:124 qml/Main.qml:420
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -150,12 +150,12 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "Notitie hernoemen lukt niet. er bestaat al een notitie met dezelfde naam."
 
-#: qml/EditPage.qml:157 qml/RichEditPage.qml:641
+#: qml/EditPage.qml:157 qml/RichEditPage.qml:636
 #, kde-format
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: qml/EditPage.qml:171 qml/RichEditPage.qml:652
+#: qml/EditPage.qml:171 qml/RichEditPage.qml:647
 #, kde-format
 msgid "Redo"
 msgstr "Opnieuw doen"
@@ -183,7 +183,7 @@ msgstr "In notitie zoeken"
 msgid "Focus Mode"
 msgstr "Focusmodus"
 
-#: qml/EditPage.qml:282 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:232
+#: qml/EditPage.qml:282 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:234
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -265,7 +265,7 @@ msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
 msgstr "De notitie is gekopieerd naar het klembord."
 
-#: qml/GlobalMenuBar.qml:21
+#: qml/GlobalMenuBar.qml:27
 #, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
@@ -305,37 +305,37 @@ msgctxt "@label:textbox"
 msgid "Quick Sketch"
 msgstr "Snelle schets"
 
-#: qml/ImportMaildirDialog.qml:32
+#: qml/ImportMaildirDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
 msgstr "Uit Maildir importeren"
 
-#: qml/ImportMaildirDialog.qml:32
+#: qml/ImportMaildirDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
 msgstr "Uit KNotes importeren"
 
-#: qml/ImportMaildirDialog.qml:37 qml/NotebookMetadataDialog.qml:37
+#: qml/ImportMaildirDialog.qml:35 qml/NotebookMetadataDialog.qml:37
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
 msgstr "Naam:"
 
-#: qml/ImportMaildirDialog.qml:50
+#: qml/ImportMaildirDialog.qml:48
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
 msgstr "Locatie van Maildir:"
 
-#: qml/ImportMaildirDialog.qml:57
+#: qml/ImportMaildirDialog.qml:55
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Maildir location"
 msgstr "Selecteer een locatie voor Maildir"
 
-#: qml/ImportMaildirDialog.qml:103
+#: qml/ImportMaildirDialog.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
@@ -372,45 +372,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Notitieboek aanmaken"
 
-#: qml/Main.qml:315 qml/NotesPage.qml:742
+#: qml/Main.qml:314 qml/NotesPage.qml:742
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Menu tonen"
 
-#: qml/Main.qml:361
+#: qml/Main.qml:360
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importeren"
 
-#: qml/Main.qml:370
+#: qml/Main.qml:369
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Notitielijst sorteren"
 
-#: qml/Main.qml:376
+#: qml/Main.qml:375
 #, kde-format
 msgid "by Name"
 msgstr "op naam"
 
-#: qml/Main.qml:389
+#: qml/Main.qml:388
 #, kde-format
 msgid "by Date"
 msgstr "op datum"
 
-#: qml/Main.qml:406
+#: qml/Main.qml:405
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Zijbalk invouwen"
 
-#: qml/Main.qml:406
+#: qml/Main.qml:405
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Zijbalk uitvouwen"
 
-#: qml/Main.qml:544
+#: qml/Main.qml:543
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Uw notitieboeken"
@@ -493,7 +493,7 @@ msgctxt "@action:inmenu"
 msgid "Edit Notebook"
 msgstr "Notitieboek bewerken"
 
-#: qml/NotebookContextMenu.qml:35 qml/NotebookDeleteAction.qml:17
+#: qml/NotebookContextMenu.qml:35 qml/NotebookDeleteAction.qml:22
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
@@ -574,28 +574,28 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Naam:"
 
-#: qml/NotesPage.qml:40
+#: qml/NotesPage.qml:42
 #, kde-format
 msgid "Add note"
 msgstr "Noot toevoegen"
 
-#: qml/NotesPage.qml:186
+#: qml/NotesPage.qml:188
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Zoeken beëindigen (%1)"
 
-#: qml/NotesPage.qml:186
+#: qml/NotesPage.qml:188
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Notities zoeken (%1)"
 
-#: qml/NotesPage.qml:252
+#: qml/NotesPage.qml:254
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Notitie verwijderen"
 
-#: qml/NotesPage.qml:262
+#: qml/NotesPage.qml:264
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -604,37 +604,37 @@ msgstr ""
 "Wilt u werkelijk de notitie <b> %1 </b> wissen? Dit zal het bestand <b>%2</"
 "b> definitief verwijderen."
 
-#: qml/NotesPage.qml:447 qml/NotesPage.qml:483
+#: qml/NotesPage.qml:449 qml/NotesPage.qml:485
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:448
+#: qml/NotesPage.qml:450
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
 msgstr "Exporteren van \"%1\" is gelukt."
 
-#: qml/NotesPage.qml:466
+#: qml/NotesPage.qml:468
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Bestand openen"
 
-#: qml/NotesPage.qml:484
+#: qml/NotesPage.qml:486
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
 msgstr "Exporteren van \"%1\" is mislukt."
 
-#: qml/NotesPage.qml:496
+#: qml/NotesPage.qml:498
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Hernoemen"
 
-#: qml/NotesPage.qml:508 qml/TextFieldContextMenu.qml:390
+#: qml/NotesPage.qml:510 qml/TextFieldContextMenu.qml:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
@@ -703,7 +703,7 @@ msgstr "Naar ODT exporteren"
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-tekstdocument (*.odt)"
 
-#: qml/NotesPage.qml:583 qml/TextFieldContextMenu.qml:432
+#: qml/NotesPage.qml:583 qml/TextFieldContextMenu.qml:433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
@@ -714,220 +714,220 @@ msgstr "Verwijderen"
 msgid "Add a note!"
 msgstr "Een notitie toevoegen!"
 
-#: qml/RichEditPage.qml:271
+#: qml/RichEditPage.qml:266
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Vet"
 
-#: qml/RichEditPage.qml:292
+#: qml/RichEditPage.qml:287
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Cursief"
 
-#: qml/RichEditPage.qml:311
+#: qml/RichEditPage.qml:306
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Onderstrepen"
 
-#: qml/RichEditPage.qml:325
+#: qml/RichEditPage.qml:320
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Doorstrepen"
 
-#: qml/RichEditPage.qml:343
+#: qml/RichEditPage.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Lijstniveau verhogen"
 
-#: qml/RichEditPage.qml:354
+#: qml/RichEditPage.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Lijstniveau verkleinen"
 
-#: qml/RichEditPage.qml:396
+#: qml/RichEditPage.qml:391
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Geen lijst"
 
-#: qml/RichEditPage.qml:397
+#: qml/RichEditPage.qml:392
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Ongeordende lijst"
 
-#: qml/RichEditPage.qml:398
+#: qml/RichEditPage.qml:393
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Geordende lijst"
 
-#: qml/RichEditPage.qml:409
+#: qml/RichEditPage.qml:404
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Keuzevakje invoegen"
 
-#: qml/RichEditPage.qml:424
+#: qml/RichEditPage.qml:419
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Koppeling invoegen"
 
-#: qml/RichEditPage.qml:440
+#: qml/RichEditPage.qml:435
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Notitiekoppeling invoegen"
 
-#: qml/RichEditPage.qml:456
+#: qml/RichEditPage.qml:451
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Afbeelding invoegen"
 
-#: qml/RichEditPage.qml:469
+#: qml/RichEditPage.qml:464
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Tabel invoegen"
 
-#: qml/RichEditPage.qml:490
+#: qml/RichEditPage.qml:485
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Basistekst"
 
-#: qml/RichEditPage.qml:491
+#: qml/RichEditPage.qml:486
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Titel"
 
-#: qml/RichEditPage.qml:492
+#: qml/RichEditPage.qml:487
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Ondertitel"
 
-#: qml/RichEditPage.qml:493
+#: qml/RichEditPage.qml:488
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Sectie"
 
-#: qml/RichEditPage.qml:494
+#: qml/RichEditPage.qml:489
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Subsectie"
 
-#: qml/RichEditPage.qml:495
+#: qml/RichEditPage.qml:490
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragraaf"
 
-#: qml/RichEditPage.qml:496
+#: qml/RichEditPage.qml:491
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Subparagraaf"
 
-#: qml/RichEditPage.qml:684
+#: qml/RichEditPage.qml:679
 #, kde-format
 msgid "Format"
 msgstr "Opmaak"
 
-#: qml/RichEditPage.qml:688
+#: qml/RichEditPage.qml:683
 #, kde-format
 msgid "Lists"
 msgstr "Lijsten"
 
-#: qml/RichEditPage.qml:692
+#: qml/RichEditPage.qml:687
 #, kde-format
 msgid "Insert"
 msgstr "Invoegen"
 
-#: qml/TableDialog.qml:19
+#: qml/TableDialog.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Tabel invoegen"
 
-#: qml/TextFieldContextMenu.qml:229
+#: qml/TextFieldContextMenu.qml:230
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Negeren"
 
-#: qml/TextFieldContextMenu.qml:244
+#: qml/TextFieldContextMenu.qml:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Spellingcontrole"
 
-#: qml/TextFieldContextMenu.qml:260
+#: qml/TextFieldContextMenu.qml:261
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Note"
 msgstr "Notitie openen"
 
-#: qml/TextFieldContextMenu.qml:260
+#: qml/TextFieldContextMenu.qml:261
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
 msgstr "Koppeling openen"
 
-#: qml/TextFieldContextMenu.qml:280
+#: qml/TextFieldContextMenu.qml:281
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
 msgstr "Invoegen"
 
-#: qml/TextFieldContextMenu.qml:316
+#: qml/TextFieldContextMenu.qml:317
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: qml/TextFieldContextMenu.qml:346
+#: qml/TextFieldContextMenu.qml:347
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: qml/TextFieldContextMenu.qml:360
+#: qml/TextFieldContextMenu.qml:361
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Opnieuw doen"
 
-#: qml/TextFieldContextMenu.qml:375
+#: qml/TextFieldContextMenu.qml:376
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Knippen"
 
-#: qml/TextFieldContextMenu.qml:404
+#: qml/TextFieldContextMenu.qml:405
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Plakken"
 
-#: qml/TextFieldContextMenu.qml:450
+#: qml/TextFieldContextMenu.qml:451
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Alles selecteren"
 
-#: qml/TocDrawer.qml:120
+#: qml/TocDrawer.qml:121
 #, kde-format
 msgid "No headers found"
 msgstr "Geen koppen gevonden"
@@ -940,7 +940,7 @@ msgstr "Begin met het maken van uw eerste notitieboek!"
 #: rich_documenthandler.cpp:1023
 #, kde-format
 msgid "Failed to save pasted image"
-msgstr ""
+msgstr "Geplakte afbeelding opslaan is mislukt"
 
 #: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
