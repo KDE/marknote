@@ -339,6 +339,7 @@ Kirigami.ScrollablePage {
             Item {}
         }
 
+        state: Config.sortBehaviour
         states: [
             State {
                 name: "sort-name"
