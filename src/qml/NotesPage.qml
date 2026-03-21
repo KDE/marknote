@@ -20,7 +20,7 @@ pragma ComponentBehavior: Bound
 Kirigami.ScrollablePage {
     id: root
 
-    readonly property bool isWideScreen: !!ApplicationWindow.window?.isWideScreen // qmllint disable missing-property
+    readonly property bool isWideScreen: !!_window?.isWideScreen // qmllint disable missing-property
 
     objectName: "NotesPage"
     property color backgroundColor: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.alternateBackgroundColor, 0.6)
@@ -229,13 +229,13 @@ Kirigami.ScrollablePage {
         }
 
         ToolButton {
-            visible: ApplicationWindow.window ? (ApplicationWindow.window.visibility === Window.FullScreen && root.pageStack.depth !== 2) : false
+            visible: root._window ? (root._window.visibility === Window.FullScreen && root.pageStack.depth !== 2) : false
             icon.name: "window-restore-symbolic"
             text: KI18n.i18nc("@action:menu", "Exit Full Screen")
             display: AbstractButton.IconOnly
             checkable: true
             checked: true
-            onClicked: ApplicationWindow.window.showNormal()
+            onClicked: root._window.showNormal()
 
             ToolTip.text: text
             ToolTip.visible: hovered
@@ -382,7 +382,7 @@ Kirigami.ScrollablePage {
                 path: NavigationController.notebookPath
 
                 onErrorOccurred: (errorMessage) => {
-                    ApplicationWindow.window.showPassiveNotification(errorMessage, "long");
+                    root._window.showPassiveNotification(errorMessage, "long");
                 }
 
                 onModelReset: filterModel.sort(0, filterModel.sortOrder)
@@ -611,7 +611,7 @@ Kirigami.ScrollablePage {
 
                 if (color !== '#ffffff' && color !== '#00000000') {
                     delegateItem.background.Kirigami.Theme.highlightColor = color;
-                } else if (ApplicationWindow.window) {
+                } else if (root._window) {
                     delegateItem.background.Kirigami.Theme.highlightColor = ApplicationWindow.window.Kirigami.Theme.highlightColor;
                 }
             }

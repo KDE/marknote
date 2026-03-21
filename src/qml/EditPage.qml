@@ -17,16 +17,18 @@ import org.kde.ki18n
 Kirigami.Page {
     id: root
 
-    readonly property bool isWideScreen: !!ApplicationWindow.window?.isWideScreen // qmllint disable missing-property
+    readonly property bool isWideScreen: !!mainWindow?.isWideScreen
 
     property bool init: false
 
     property string noteFullPath: NavigationController.noteFullPath
     property string noteName: NavigationController.noteName
 
+    readonly property var mainWindow: singleDocumentMode ? (ApplicationWindow.window as MainEditor) : (ApplicationWindow.window as Main)
+    property bool singleDocumentMode: ApplicationWindow.window ? !("currentDocument" in ApplicationWindow.window) : false
+
     property string oldPath: ''
     property bool saved: true
-    property bool singleDocumentMode: false
     property bool canFitToolbar: true
     property real dynamicRightPadding: 0
 
@@ -159,7 +161,7 @@ Kirigami.Page {
             Layout.leftMargin: Kirigami.Units.smallSpacing
             onClicked: root.textArea.undo()
             enabled: root.textArea.canUndo
-            visible: root.isWideScreen && !root.singleDocumentMode
+            visible: root.singleDocumentMode
 
             ToolTip.text: text
             ToolTip.visible: hovered
@@ -172,7 +174,7 @@ Kirigami.Page {
             display: AbstractButton.IconOnly
             onClicked: root.textArea.redo()
             enabled: root.textArea.canRedo
-            visible: root.isWideScreen && !root.singleDocumentMode
+            visible: root.singleDocumentMode
 
             ToolTip.text: text
             ToolTip.visible: hovered
@@ -817,14 +819,14 @@ Kirigami.Page {
     Component.onCompleted: {
         loadNote();
         init = true;
+        console.log("Current singleDocumentMode value:", singleDocumentMode)
     }
 
     onDocumentChanged: {
         if (document && init) {
             loadNote();
-            let mainWindow = ApplicationWindow.window as Main;
-            if (mainWindow) {
-                mainWindow.currentDocument = root.document;
+            if (root.mainWindow) {
+                root.mainWindow.currentDocument = root.document;
             }
         }
     }
@@ -834,22 +836,20 @@ Kirigami.Page {
             return;
         }
 
-        let mainWindow = ApplicationWindow.window as Main;
-        if (!mainWindow) {
+        if (!root.mainWindow) {
             return; // Safely exit if this isn't the Main window
         }
 
         if (visible) {
-            mainWindow.currentDocument = root.document
+            root.mainWindow.currentDocument = root.document
         } else if (mainWindow.currentDocument === root.document) {
-            mainWindow.currentDocument = null
+            root.mainWindow.currentDocument = null
         }
     }
 
     Component.onDestruction: {
-        let mainWindow = ApplicationWindow.window as Main;
-        if (mainWindow && mainWindow.currentDocument === root.document) {
-            mainWindow.currentDocument = null
+        if (root.mainWindow && root.mainWindow.currentDocument === root.document) {
+            root.mainWindow.currentDocument = null
         }
     }
 
