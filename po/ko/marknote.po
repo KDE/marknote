@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-21 00:45+0000\n"
+"POT-Creation-Date: 2026-03-22 00:44+0000\n"
 "PO-Revision-Date: 2026-02-03 23:43+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -151,121 +151,121 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "노트의 이름을 바꿀 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
 
-#: qml/EditPage.qml:157 qml/RichEditPage.qml:636
+#: qml/EditPage.qml:159 qml/RichEditPage.qml:636
 #, kde-format
 msgid "Undo"
 msgstr "실행 취소"
 
-#: qml/EditPage.qml:171 qml/RichEditPage.qml:647
+#: qml/EditPage.qml:173 qml/RichEditPage.qml:647
 #, kde-format
 msgid "Redo"
 msgstr "다시 실행"
 
-#: qml/EditPage.qml:201 qml/EditPage.qml:236
+#: qml/EditPage.qml:203 qml/EditPage.qml:238
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@action:button"
 msgid "Table of Content"
 msgstr "셀 내용"
 
-#: qml/EditPage.qml:221
+#: qml/EditPage.qml:223
 #, fuzzy, kde-format
 #| msgid "Search notes (%1)"
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "노트 검색(%1)"
 
-#: qml/EditPage.qml:229
+#: qml/EditPage.qml:231
 #, fuzzy, kde-format
 #| msgid "Search notes (%1)"
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "노트 검색(%1)"
 
-#: qml/EditPage.qml:265
+#: qml/EditPage.qml:267
 #, kde-format
 msgid "Focus Mode"
 msgstr "초점 모드"
 
-#: qml/EditPage.qml:282 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:234
+#: qml/EditPage.qml:284 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:234
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "전체 화면 나가기"
 
-#: qml/EditPage.qml:295
+#: qml/EditPage.qml:297
 #, kde-format
 msgid "Switch editor mode"
 msgstr ""
 
-#: qml/EditPage.qml:300
+#: qml/EditPage.qml:302
 #, kde-format
 msgid "Source View"
 msgstr ""
 
-#: qml/EditPage.qml:335
+#: qml/EditPage.qml:337
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "셀 내용"
 
-#: qml/EditPage.qml:381
+#: qml/EditPage.qml:383
 #, kde-format
 msgid "Find text..."
 msgstr ""
 
-#: qml/EditPage.qml:421
+#: qml/EditPage.qml:423
 #, kde-format
 msgid "Previous"
 msgstr ""
 
-#: qml/EditPage.qml:437
+#: qml/EditPage.qml:439
 #, kde-format
 msgid "Next"
 msgstr ""
 
-#: qml/EditPage.qml:455 qml/EditPage.qml:567
+#: qml/EditPage.qml:457 qml/EditPage.qml:569
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: qml/EditPage.qml:457 qml/EditPage.qml:569
+#: qml/EditPage.qml:459 qml/EditPage.qml:571
 #, kde-format
 msgid "%1/%2"
 msgstr ""
 
-#: qml/EditPage.qml:469 qml/EditPage.qml:538
+#: qml/EditPage.qml:471 qml/EditPage.qml:540
 #, kde-format
 msgid "Replace"
 msgstr ""
 
-#: qml/EditPage.qml:487
+#: qml/EditPage.qml:489
 #, kde-format
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:509
+#: qml/EditPage.qml:511
 #, kde-format
 msgid "Replace with..."
 msgstr ""
 
-#: qml/EditPage.qml:514 qml/EditPage.qml:554
+#: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
 msgstr[0] ""
 
-#: qml/EditPage.qml:550
+#: qml/EditPage.qml:552
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
 msgid "Replace All"
 msgstr "모두 선택"
 
-#: qml/EditPage.qml:618
+#: qml/EditPage.qml:620
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -377,7 +377,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "공책 만들기"
 
-#: qml/Main.qml:314 qml/NotesPage.qml:742
+#: qml/Main.qml:314 qml/NotesPage.qml:743
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -611,7 +611,7 @@ msgid ""
 "file <b>%2</b> definitively."
 msgstr "<b>%1</b> 노트를 삭제하시겠습니까? <b>%2</b> 파일을 영원히 삭제합니다."
 
-#: qml/NotesPage.qml:449 qml/NotesPage.qml:485
+#: qml/NotesPage.qml:450 qml/NotesPage.qml:486
 #, fuzzy, kde-format
 #| msgctxt "Application name"
 #| msgid "Marknote"
@@ -619,13 +619,13 @@ msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:450
+#: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
 msgstr ""
 
-#: qml/NotesPage.qml:468
+#: qml/NotesPage.qml:469
 #, fuzzy, kde-format
 #| msgctxt "@inmenu"
 #| msgid "Open Link"
@@ -633,13 +633,13 @@ msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "링크 열기"
 
-#: qml/NotesPage.qml:486
+#: qml/NotesPage.qml:487
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
 msgstr ""
 
-#: qml/NotesPage.qml:498
+#: qml/NotesPage.qml:499
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Rename Note"
@@ -647,13 +647,13 @@ msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "노트 이름 바꾸기"
 
-#: qml/NotesPage.qml:510 qml/TextFieldContextMenu.qml:391
+#: qml/NotesPage.qml:511 qml/TextFieldContextMenu.qml:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "복사"
 
-#: qml/NotesPage.qml:527
+#: qml/NotesPage.qml:528
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Delete Note"
@@ -661,7 +661,7 @@ msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "노트 삭제"
 
-#: qml/NotesPage.qml:535
+#: qml/NotesPage.qml:536
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Import"
@@ -669,64 +669,64 @@ msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "가져오기"
 
-#: qml/NotesPage.qml:539
+#: qml/NotesPage.qml:540
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to HTML"
-msgstr "HTML로 내보내기"
-
-#: qml/NotesPage.qml:545
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "HTML로 내보내기"
 
 #: qml/NotesPage.qml:546
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "HTML로 내보내기"
+
+#: qml/NotesPage.qml:547
+#, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML 파일 (*.html)"
 
-#: qml/NotesPage.qml:552
+#: qml/NotesPage.qml:553
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to PDF"
-msgstr "PDF로 내보내기"
-
-#: qml/NotesPage.qml:558
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "PDF로 내보내기"
 
 #: qml/NotesPage.qml:559
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "PDF로 내보내기"
+
+#: qml/NotesPage.qml:560
+#, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF 파일 (*.pdf)"
 
-#: qml/NotesPage.qml:565
+#: qml/NotesPage.qml:566
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to ODT"
-msgstr "ODT로 내보내기"
-
-#: qml/NotesPage.qml:571
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "ODT로 내보내기"
 
 #: qml/NotesPage.qml:572
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to ODT"
+msgstr "ODT로 내보내기"
+
+#: qml/NotesPage.qml:573
+#, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF 텍스트 문서 (*.odt)"
 
-#: qml/NotesPage.qml:583 qml/TextFieldContextMenu.qml:433
+#: qml/NotesPage.qml:584 qml/TextFieldContextMenu.qml:433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "삭제"
 
-#: qml/NotesPage.qml:786
+#: qml/NotesPage.qml:787
 #, kde-format
 msgid "Add a note!"
 msgstr "새 노트 추가!"

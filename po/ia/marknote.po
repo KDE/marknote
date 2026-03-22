@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-21 00:45+0000\n"
+"POT-Creation-Date: 2026-03-22 00:44+0000\n"
 "PO-Revision-Date: 2026-03-17 11:31+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -149,103 +149,103 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Incapace a renominar nota. Un nota ja existe con le mesme nomine."
 
-#: qml/EditPage.qml:157 qml/RichEditPage.qml:636
+#: qml/EditPage.qml:159 qml/RichEditPage.qml:636
 #, kde-format
 msgid "Undo"
 msgstr "Annulla"
 
-#: qml/EditPage.qml:171 qml/RichEditPage.qml:647
+#: qml/EditPage.qml:173 qml/RichEditPage.qml:647
 #, kde-format
 msgid "Redo"
 msgstr "Reface"
 
-#: qml/EditPage.qml:201 qml/EditPage.qml:236
+#: qml/EditPage.qml:203 qml/EditPage.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
 msgstr "Tabella de contento (Index) "
 
-#: qml/EditPage.qml:221
+#: qml/EditPage.qml:223
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Cerca Nota"
 
-#: qml/EditPage.qml:229
+#: qml/EditPage.qml:231
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Cerca in Nota"
 
-#: qml/EditPage.qml:265
+#: qml/EditPage.qml:267
 #, kde-format
 msgid "Focus Mode"
 msgstr "Modo de Foco"
 
-#: qml/EditPage.qml:282 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:234
+#: qml/EditPage.qml:284 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:234
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Exi del schermo integre"
 
-#: qml/EditPage.qml:295
+#: qml/EditPage.qml:297
 #, kde-format
 msgid "Switch editor mode"
 msgstr "Commuta modo de editor "
 
-#: qml/EditPage.qml:300
+#: qml/EditPage.qml:302
 #, kde-format
 msgid "Source View"
 msgstr "Vista de fonte"
 
-#: qml/EditPage.qml:335
+#: qml/EditPage.qml:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "Tabella de contentos (Index)"
 
-#: qml/EditPage.qml:381
+#: qml/EditPage.qml:383
 #, kde-format
 msgid "Find text..."
 msgstr "Trova texto..."
 
-#: qml/EditPage.qml:421
+#: qml/EditPage.qml:423
 #, kde-format
 msgid "Previous"
 msgstr "Precedente"
 
-#: qml/EditPage.qml:437
+#: qml/EditPage.qml:439
 #, kde-format
 msgid "Next"
 msgstr "Proxime"
 
-#: qml/EditPage.qml:455 qml/EditPage.qml:567
+#: qml/EditPage.qml:457 qml/EditPage.qml:569
 #, kde-format
 msgid "No matches"
 msgstr "Nulle correspondentias"
 
-#: qml/EditPage.qml:457 qml/EditPage.qml:569
+#: qml/EditPage.qml:459 qml/EditPage.qml:571
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:469 qml/EditPage.qml:538
+#: qml/EditPage.qml:471 qml/EditPage.qml:540
 #, kde-format
 msgid "Replace"
 msgstr "Reimplacia"
 
-#: qml/EditPage.qml:487
+#: qml/EditPage.qml:489
 #, kde-format
 msgid "Close"
 msgstr "Claude"
 
-#: qml/EditPage.qml:509
+#: qml/EditPage.qml:511
 #, kde-format
 msgid "Replace with..."
 msgstr "Reimplacia con..."
 
-#: qml/EditPage.qml:514 qml/EditPage.qml:554
+#: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -253,12 +253,12 @@ msgid_plural "Replaced %1 occurrences"
 msgstr[0] "Reimplaciava %1occurrentia"
 msgstr[1] "Reimplaciava %1 occurrentias"
 
-#: qml/EditPage.qml:550
+#: qml/EditPage.qml:552
 #, kde-format
 msgid "Replace All"
 msgstr "Reimplacia Toto"
 
-#: qml/EditPage.qml:618
+#: qml/EditPage.qml:620
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -370,7 +370,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Crea quaderno"
 
-#: qml/Main.qml:314 qml/NotesPage.qml:742
+#: qml/Main.qml:314 qml/NotesPage.qml:743
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -602,112 +602,112 @@ msgstr ""
 " Tu es secur que tu vole deler le nota <b> %1 </b>? Isto delera le file <b>"
 "%2</b> definitivemente."
 
-#: qml/NotesPage.qml:449 qml/NotesPage.qml:485
+#: qml/NotesPage.qml:450 qml/NotesPage.qml:486
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:450
+#: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
 msgstr "Exportation de \"%1\" habeva successo."
 
-#: qml/NotesPage.qml:468
+#: qml/NotesPage.qml:469
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Aperi file"
 
-#: qml/NotesPage.qml:486
+#: qml/NotesPage.qml:487
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
 msgstr "Exportation de \"%1\" falleva."
 
-#: qml/NotesPage.qml:498
+#: qml/NotesPage.qml:499
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Renomina"
 
-#: qml/NotesPage.qml:510 qml/TextFieldContextMenu.qml:391
+#: qml/NotesPage.qml:511 qml/TextFieldContextMenu.qml:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Copia"
 
-#: qml/NotesPage.qml:527
+#: qml/NotesPage.qml:528
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Duplica"
 
-#: qml/NotesPage.qml:535
+#: qml/NotesPage.qml:536
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Exporta"
 
-#: qml/NotesPage.qml:539
+#: qml/NotesPage.qml:540
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to HTML"
-msgstr "Exporta a HTML"
-
-#: qml/NotesPage.qml:545
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exporta a HTML"
 
 #: qml/NotesPage.qml:546
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "Exporta a HTML"
+
+#: qml/NotesPage.qml:547
+#, kde-format
 msgid "HTML file (*.html)"
 msgstr "File HTML (*.html)"
 
-#: qml/NotesPage.qml:552
+#: qml/NotesPage.qml:553
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to PDF"
-msgstr "Exporta a PDF"
-
-#: qml/NotesPage.qml:558
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exporta a PDF"
 
 #: qml/NotesPage.qml:559
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "Exporta a PDF"
+
+#: qml/NotesPage.qml:560
+#, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "File PDF (*.pdf)"
 
-#: qml/NotesPage.qml:565
+#: qml/NotesPage.qml:566
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Exporta a ODT"
 
-#: qml/NotesPage.qml:571
+#: qml/NotesPage.qml:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exporta a ODT "
 
-#: qml/NotesPage.qml:572
+#: qml/NotesPage.qml:573
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Documento de texto ODF (*.odt)"
 
-#: qml/NotesPage.qml:583 qml/TextFieldContextMenu.qml:433
+#: qml/NotesPage.qml:584 qml/TextFieldContextMenu.qml:433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Dele"
 
-#: qml/NotesPage.qml:786
+#: qml/NotesPage.qml:787
 #, kde-format
 msgid "Add a note!"
 msgstr "Adde un nota!"
