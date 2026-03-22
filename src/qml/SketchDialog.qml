@@ -89,6 +89,17 @@ Controls.Dialog {
             drawing.push(currentStroke);
         }
 
+        function clear() {
+            var ctx = getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.reset();
+
+            drawing = [];
+            history.reset();
+            repaintRequired = true;
+            canvas.requestPaint();
+        }
+
         HistoryController {
             id: history
         }
@@ -199,6 +210,8 @@ Controls.Dialog {
                 onClicked: canvas.redo()
             }
 
+            Controls.ToolSeparator { }
+
             Controls.ToolButton {
                 id: eraserButton
                 Controls.ButtonGroup.group: colorGroup
@@ -281,6 +294,20 @@ Controls.Dialog {
                         }
                     }
                 }
+            }
+
+            Controls.ToolSeparator { }
+
+            Controls.ToolButton {
+                id: clearButton
+                implicitHeight: Kirigami.Units.gridUnit * 2
+                autoExclusive: false
+                checkable: false
+                background.visible: true
+                enabled: true
+                display: Controls.AbstractButton.IconOnly
+                icon.name: "albumfolder-user-trash-symbolic"
+                onClicked: canvas.clear()
             }
         }
     }
