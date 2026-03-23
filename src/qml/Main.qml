@@ -38,7 +38,7 @@ StatetfulApp.StatefulWindow {
     onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
 
     function safePush(moduleUri: string, typeName: string, properties = {}): void {
-        let component = Qt.createComponent(moduleUri, typeName, Component.Asynchronous);
+        let component = Qt.createComponent(moduleUri, typeName);
 
         function tryPush() {
             if (component.status === Component.Ready) {
@@ -201,9 +201,7 @@ StatetfulApp.StatefulWindow {
         if (noteBooksModel.rowCount() !== 0) {
             NavigationController.notebookPath = noteBooksModel.data(noteBooksModel.index(0, 0), NoteBooksModel.Path);
         } else {
-            safePush("org.kde.marknote", "WelcomePage", {
-                model: noteBooksModel
-            });
+            safePush("org.kde.marknote", "WelcomePage");
         }
     }
 

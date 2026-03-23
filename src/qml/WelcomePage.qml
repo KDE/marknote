@@ -24,7 +24,7 @@ Kirigami.Page {
     }
 
     actions: Kirigami.Action {
-        visible: ApplicationWindow.window.visibility === Window.FullScreen
+        visible: ApplicationWindow.window?.visibility === Window.FullScreen
         icon.name: "window-restore-symbolic"
         tooltip: KI18n.i18nc("@action:menu", "Exit Full Screen")
         checkable: true
