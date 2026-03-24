@@ -33,6 +33,12 @@ StatetfulApp.StatefulWindow {
     windowName: 'main'
     visible: false
 
+    color: "transparent"
+    background: Rectangle {
+        color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.50)
+    }
+
+
     onIsWideScreenChanged: Kirigami.Settings.isMobile ? drawer.close() : (!isWideScreen ? drawer.close() : drawer.open())
     onWidthChanged: pageStack.defaultColumnWidth = Math.max(Math.min(root.width * maximalColumWidthPercentage, pageStack.defaultColumnWidth), minimalColumnWidth)
     onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
