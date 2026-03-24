@@ -35,12 +35,28 @@ FormCard.FormCardPage {
                 Config.save();
             }
         }
-    }
 
-    FormCard.FormCard {
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormSwitchDelegate {
+            id: translucentSwitch
+            text: i18n("Use transparent editor page")
+            checked: Config.useTranslucentBackground
+
+            onCheckedChanged: {
+                if (Config.useTranslucentBackground !== checked) {
+                    Config.useTranslucentBackground = checked;
+                    Config.save();
+                }
+            }
+        }
+
+        FormCard.FormDelegateSeparator {}
+
         FormCard.AbstractFormDelegate {
             id: opacityDelegate
             background: Item {}
+            enabled: Config.useTranslucentBackground
 
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.smallSpacing
@@ -48,6 +64,12 @@ FormCard.FormCardPage {
                 QQC2.Label {
                     text: i18nc("@label:slider", "Background Opacity")
                     Layout.fillWidth: true
+                }
+
+                QQC2.Label {
+                    text: i18nc("@label:slider Current opacity percentage. %1 is the numeric percentage value", "%1%", Math.round(opacitySlider.value))
+                    Layout.fillWidth: true
+                    opacity: 0.75
                 }
 
                 QQC2.Slider {

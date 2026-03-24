@@ -30,6 +30,10 @@ SPDX-License-Identifier: LGPL-2.0-or-later
     <entry name="colorScheme" type="String">
       <label>Color scheme</label>
     </entry>
+    <entry name="useTranslucentBackground" type="Bool">
+      <label>Enable translucent background</label>
+      <default>false</default>
+    </entry>
     <entry name="backgroundOpacity" type="Double">
       <label>Background opacity</label>
       <default>0.85</default>

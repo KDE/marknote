@@ -11,8 +11,8 @@
 #include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
-#include <KirigamiAppDefaults>
 #include <KWindowEffects>
+#include <KirigamiAppDefaults>
 #ifndef Q_OS_ANDROID
 #include <QApplication>
 #endif
@@ -185,7 +185,11 @@ int main(int argc, char *argv[])
 
     QWindow *window = qobject_cast<QWindow *>(engine.rootObjects().first());
     if (window) {
-        KWindowEffects::enableBlurBehind(window, true);
+        KWindowEffects::enableBlurBehind(window, Config::useTranslucentBackground());
+
+        QObject::connect(Config::self(), &Config::useTranslucentBackgroundChanged, window, [window]() {
+            KWindowEffects::enableBlurBehind(window, Config::useTranslucentBackground());
+        });
     }
 
     return app.exec();

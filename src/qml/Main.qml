@@ -35,7 +35,9 @@ StatetfulApp.StatefulWindow {
 
     color: "transparent"
     background: Rectangle {
-        color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, Config.backgroundOpacity)
+        color: Config.useTranslucentBackground
+        ? Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, Config.backgroundOpacity)
+        : Kirigami.Theme.backgroundColor
     }
 
     onIsWideScreenChanged: Kirigami.Settings.isMobile ? drawer.close() : (!isWideScreen ? drawer.close() : drawer.open())
