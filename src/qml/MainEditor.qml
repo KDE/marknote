@@ -17,7 +17,7 @@ Kirigami.ApplicationWindow {
 
     color: "transparent"
     background: Rectangle {
-        color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.85)
+        color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, Config.backgroundOpacity)
     }
 
     pageStack {

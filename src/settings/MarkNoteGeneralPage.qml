@@ -37,6 +37,38 @@ FormCard.FormCardPage {
         }
     }
 
+    FormCard.FormCard {
+        FormCard.AbstractFormDelegate {
+            id: opacityDelegate
+            background: Item {}
+
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+
+                QQC2.Label {
+                    text: i18nc("@label:slider", "Background Opacity")
+                    Layout.fillWidth: true
+                }
+
+                QQC2.Slider {
+                    id: opacitySlider
+                    from: 5
+                    to: 100
+                    stepSize: 5
+                    Layout.fillWidth: true
+
+                    // Map the backend 0.75-0.95 range to a UI value of 1%-100%
+                    value: (Math.round((Config.backgroundOpacity - 0.75) * 1000))
+
+                    onMoved: {
+                        Config.backgroundOpacity = (0.75 + (value / 1000));
+                        Config.save();
+                    }
+                }
+            }
+        }
+    }
+
     FormCard.FormHeader {
         title: i18n("Editor Settings")
     }
