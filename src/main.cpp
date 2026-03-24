@@ -12,6 +12,7 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 #include <KirigamiAppDefaults>
+#include <KWindowEffects>
 #ifndef Q_OS_ANDROID
 #include <QApplication>
 #endif
@@ -180,6 +181,11 @@ int main(int argc, char *argv[])
 
     if (engine.rootObjects().isEmpty()) {
         return -1;
+    }
+
+    QWindow *window = qobject_cast<QWindow *>(engine.rootObjects().first());
+    if (window) {
+        KWindowEffects::enableBlurBehind(window, true);
     }
 
     return app.exec();
