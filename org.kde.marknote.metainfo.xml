@@ -131,13 +131,13 @@
   </provides>
   <releases>
     <release version="1.5.2" date="2026-03-24">
-      <url>https://blogs.kde.org/2026/03/24/markbote-1.5.2/</url>
+      <url>https://blogs.kde.org/2026/03/24/marknote-1.5.2/</url>
       <description>
         <p>Small bug fix release, mainly to fix deleting notebooks and some other minor changes.</p>
       </description>
     </release>
     <release version="1.5.1" date="2026-03-20">
-      <url>https://blogs.kde.org/2026/03/20/markbote-1.5.1/</url>
+      <url>https://blogs.kde.org/2026/03/20/marknote-1.5.1/</url>
       <description>
         <p>Marknote 1.5.1 contains various bug fixes, including the ones for specific issues while coping and pasting. This release also adds some tiny improvements like syntax highlighting in the source mode and faster image loading.</p>
         <p xml:lang="ca">El Marknote 1.5.1 conté diverses correccions d'errors, incloses les de problemes específics en copiar i enganxar. Aquest llançament també afegeix algunes millores petites com el ressaltat de sintaxi en el mode de codi font i una càrrega d'imatges més ràpida.</p>
