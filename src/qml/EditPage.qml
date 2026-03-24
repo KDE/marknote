@@ -49,9 +49,6 @@ Kirigami.Page {
     property bool isTocOpened: false
     property real tocPosition: 0
 
-    Kirigami.Theme.backgroundColor: "transparent"
-    Kirigami.Theme.inherit: false
-
     background: Item { }
 
     onWidthChanged: {
@@ -128,6 +125,9 @@ Kirigami.Page {
     }
 
     Layout.fillWidth: true
+
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
+    Kirigami.Theme.inherit: false
 
     bottomPadding: 0
     leftPadding: 0
