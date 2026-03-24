@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-22 00:44+0000\n"
+"POT-Creation-Date: 2026-03-24 00:44+0000\n"
 "PO-Revision-Date: 2026-03-20 09:39-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -132,7 +132,7 @@ msgstr "Prayag Jain"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: main.cpp:124 qml/Main.qml:420
+#: main.cpp:124 qml/Main.qml:418
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -377,45 +377,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Criar bloco de notas"
 
-#: qml/Main.qml:314 qml/NotesPage.qml:743
+#: qml/Main.qml:312 qml/NotesPage.qml:743
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Mostrar menu"
 
-#: qml/Main.qml:360
+#: qml/Main.qml:358
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importar"
 
-#: qml/Main.qml:369
+#: qml/Main.qml:367
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Lista de notas de classificação"
 
-#: qml/Main.qml:375
+#: qml/Main.qml:373
 #, kde-format
 msgid "by Name"
 msgstr "por nome"
 
-#: qml/Main.qml:388
+#: qml/Main.qml:386
 #, kde-format
 msgid "by Date"
 msgstr "por data"
 
-#: qml/Main.qml:405
+#: qml/Main.qml:403
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Recolher barra lateral"
 
-#: qml/Main.qml:405
+#: qml/Main.qml:403
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Expandir barra lateral"
 
-#: qml/Main.qml:543
+#: qml/Main.qml:541
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Seus blocos de notas"

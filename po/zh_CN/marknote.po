@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-22 00:44+0000\n"
+"POT-Creation-Date: 2026-03-24 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -127,7 +127,7 @@ msgstr ""
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:124 qml/Main.qml:420
+#: main.cpp:124 qml/Main.qml:418
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -369,45 +369,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "创建笔记本"
 
-#: qml/Main.qml:314 qml/NotesPage.qml:743
+#: qml/Main.qml:312 qml/NotesPage.qml:743
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr ""
 
-#: qml/Main.qml:360
+#: qml/Main.qml:358
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "导入"
 
-#: qml/Main.qml:369
+#: qml/Main.qml:367
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "对笔记列表排序"
 
-#: qml/Main.qml:375
+#: qml/Main.qml:373
 #, kde-format
 msgid "by Name"
 msgstr "按名称"
 
-#: qml/Main.qml:388
+#: qml/Main.qml:386
 #, kde-format
 msgid "by Date"
 msgstr "按日期"
 
-#: qml/Main.qml:405
+#: qml/Main.qml:403
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "折叠侧边栏"
 
-#: qml/Main.qml:405
+#: qml/Main.qml:403
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "展开侧边栏"
 
-#: qml/Main.qml:543
+#: qml/Main.qml:541
 #, kde-format
 msgid "Your Notebooks"
 msgstr "你的笔记本"

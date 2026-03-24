@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-22 00:44+0000\n"
+"POT-Creation-Date: 2026-03-24 00:44+0000\n"
 "PO-Revision-Date: 2026-02-03 23:43+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:124 qml/Main.qml:420
+#: main.cpp:124 qml/Main.qml:418
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -377,45 +377,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "공책 만들기"
 
-#: qml/Main.qml:314 qml/NotesPage.qml:743
+#: qml/Main.qml:312 qml/NotesPage.qml:743
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "메뉴 표시"
 
-#: qml/Main.qml:360
+#: qml/Main.qml:358
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "가져오기"
 
-#: qml/Main.qml:369
+#: qml/Main.qml:367
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "노트 목록 정렬"
 
-#: qml/Main.qml:375
+#: qml/Main.qml:373
 #, kde-format
 msgid "by Name"
 msgstr "이름순"
 
-#: qml/Main.qml:388
+#: qml/Main.qml:386
 #, kde-format
 msgid "by Date"
 msgstr "날짜순"
 
-#: qml/Main.qml:405
+#: qml/Main.qml:403
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "사이드바 접기"
 
-#: qml/Main.qml:405
+#: qml/Main.qml:403
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "사이드바 펼치기"
 
-#: qml/Main.qml:543
+#: qml/Main.qml:541
 #, kde-format
 msgid "Your Notebooks"
 msgstr "내 공책"
