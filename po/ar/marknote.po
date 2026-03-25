@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-24 00:44+0000\n"
-"PO-Revision-Date: 2026-03-14 11:30+0400\n"
+"PO-Revision-Date: 2026-03-24 09:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -191,10 +191,9 @@ msgid "Exit Full Screen"
 msgstr "أنهِ ملء الشاشة"
 
 #: qml/EditPage.qml:297
-#, fuzzy, kde-format
-#| msgid "Switch editor to source mode"
+#, kde-format
 msgid "Switch editor mode"
-msgstr "بدّل محرر إلى وضع المصدر"
+msgstr "بدّل وضع المصدر"
 
 #: qml/EditPage.qml:302
 #, kde-format
@@ -944,7 +943,7 @@ msgstr "ابدأ بإنشاء دفتر ملاحظاتك الأول!"
 #: rich_documenthandler.cpp:1023
 #, kde-format
 msgid "Failed to save pasted image"
-msgstr ""
+msgstr "فشل حفظ الصّورة الملصقة"
 
 #: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
