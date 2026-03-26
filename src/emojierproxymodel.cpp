@@ -1,6 +1,5 @@
-//
-// Created by siddharth on 3/26/26.
-//
+// SPDX-FileCopyrightText: 2026 Siddharth Chopra <contact.sid.chopra@gmail.com>
+// SPDX-License-Identifier: BSD-3-Clause AND LGPL-2.0-or-later
 
 #include "emojierproxymodel.h"
 
