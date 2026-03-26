@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-24 00:44+0000\n"
-"PO-Revision-Date: 2026-03-16 10:37+0100\n"
+"PO-Revision-Date: 2026-03-20 11:53+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -940,7 +940,7 @@ msgstr "Inizia creando il tuo primo taccuino!"
 #: rich_documenthandler.cpp:1023
 #, kde-format
 msgid "Failed to save pasted image"
-msgstr ""
+msgstr "Impossibile salvare l'immagine incollata"
 
 #: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
