@@ -1,3 +1,8 @@
+#!/bin/python
+
+# SPDX-FileCopyrightText: 2026 Siddharth Chopra <contact.sid.chopra@gmail.com>
+# SPDX-License-Identifier: BSD-2-Clause
+
 import json
 import requests
 
@@ -34,7 +39,9 @@ locales = [
 ]
 
 with open("emoji_shortnames.h", "w") as f:
-    f.write(f'''// THIS FILE WAS AUTO-GENERATED
+    f.write(f'''// SPDX-FileCopyrightText: None
+// SPDX-License-Identifier: LGPL-2.0-or-later
+// THIS FILE WAS AUTO-GENERATED
 // clang-format off
 #include <iterator>
 
@@ -65,7 +72,9 @@ for locale in locales:
     merged = j_normal_rev | j_native_rev
     
     with open(f'shortnames_{locale}.h', 'w') as f:
-        f.write('''// THIS FILE WAS AUTO-GENERATED
+        f.write('''// SPDX-FileCopyrightText: None
+// SPDX-License-Identifier: LGPL-2.0-or-later
+// THIS FILE WAS AUTO-GENERATED
 // clang-format off
 ''')
         f.write(f'''inline constexpr Emoji emojis_{locale}[] = {{

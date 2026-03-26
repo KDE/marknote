@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: None
+// SPDX-License-Identifier: LGPL-2.0-or-later
 // THIS FILE WAS AUTO-GENERATED
 // clang-format off
 inline constexpr Emoji emojis_hu[] = {
