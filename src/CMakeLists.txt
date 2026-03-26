@@ -41,6 +41,7 @@ ecm_add_qml_module(marknote_static
         # Components
         qml/components/ActionButton.qml
         qml/components/DoubleActionButton.qml
+        qml/components/EmojierPopup.qml
         # Native menu
         qml/NativeHelpMenu.qml
         qml/NativeWindowMenu.qml
@@ -61,6 +62,8 @@ ecm_add_qml_module(marknote_static
         maildirimport.cpp maildirimport.h
         sketchhistory.cpp sketchhistory.h
         tocmodel.cpp tocmodel.h
+        emojiermodel.h emojiermodel.cpp
+        emojierproxymodel.h emojierproxymodel.cpp
 )
 
 kconfig_target_kcfg_file(marknote_static

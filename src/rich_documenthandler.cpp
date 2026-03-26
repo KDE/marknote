@@ -99,6 +99,8 @@ RichDocumentHandler::RichDocumentHandler(QObject *parent)
     // If the clipboard changes, the canPaste state might also change
     QClipboard *clipboard = QGuiApplication::clipboard();
     connect(clipboard, &QClipboard::changed, this, &RichDocumentHandler::canPasteChanged);
+
+    connect(this, &DocumentHandler::cursorPositionChanged, this, &RichDocumentHandler::checkForShortcode);
 }
 
 bool RichDocumentHandler::eventFilter(QObject *object, QEvent *event)
@@ -1769,6 +1771,29 @@ bool RichDocumentHandler::processKeyEvent(QKeyEvent *e)
         return false;
     }
 
+    if (e->key() == Qt::Key_Space && e->modifiers() & Qt::ControlModifier) {
+        checkForShortcode();
+        return false;
+    }
+
+    if (e->key() == Qt::Key_Up && e->modifiers() != Qt::ShiftModifier && popupVisible()) {
+        Q_EMIT emojiSelectorUp();
+        return false;
+    }
+    if (e->key() == Qt::Key_Down && e->modifiers() != Qt::ShiftModifier && popupVisible()) {
+        Q_EMIT emojiSelectorDown();
+        return false;
+    }
+    if ((e->key() == Qt::Key_Enter || e->key() == Qt::Key_Return || e->key() == Qt::Key_Tab) && e->modifiers() != Qt::ShiftModifier && popupVisible()) {
+        Q_EMIT emojiSelected();
+        return false;
+    }
+
+    if (e->key() == Qt::Key_Escape && popupVisible()) {
+        setPopupVisible(false);
+        return false;
+    }
+
     return evaluateReturnKeySupport(e);
 }
 
@@ -2037,6 +2062,83 @@ void RichDocumentHandler::parseDocument()
             applyParagraphFormat(block);
         }
     }
+}
+
+void RichDocumentHandler::checkForShortcode()
+{
+    QTextCursor cursor = textCursor();
+
+    const QString left_text = cursor.block().text().left(cursor.positionInBlock());
+    if (left_text.length() == 0) {
+        setPopupVisible(false);
+        return;
+    }
+    int colon_posn = -1;
+
+    for (int i = left_text.length() - 1; i >= 0; i--) {
+        static const QRegularExpression regex(QStringLiteral("^[a-z0-9_:-]$"));
+        QRegularExpressionMatch match = regex.match(left_text[i]);
+
+        if (!match.hasMatch()) {
+            break;
+        }
+        if (left_text[i] == u':') {
+            colon_posn = i;
+            break;
+        }
+    }
+
+    if (colon_posn == -1) {
+        setPopupVisible(false);
+        return;
+    }
+
+    QString shortcode = left_text.right(left_text.length() - colon_posn - 1);
+    if (shortcode == u"") {
+        setPopupVisible(false);
+        return;
+    }
+    setCurrentEmojicode(shortcode);
+    setPopupVisible(true);
+}
+
+QString RichDocumentHandler::currentEmojicode() const
+{
+    return m_currentEmojicode;
+}
+
+void RichDocumentHandler::setCurrentEmojicode(QString text)
+{
+    if (m_currentEmojicode != text) {
+        m_currentEmojicode = text;
+        Q_EMIT currentEmojicodeChanged();
+    }
+}
+
+bool RichDocumentHandler::popupVisible() const
+{
+    return m_popupVisible;
+}
+
+void RichDocumentHandler::setPopupVisible(bool status)
+{
+    if (m_popupVisible != status) {
+        m_popupVisible = status;
+        Q_EMIT popupVisibleChanged();
+    }
+}
+
+void RichDocumentHandler::replaceCurrentEmoji(const QString &emojichar)
+{
+    uint8_t chars_to_replace = m_currentEmojicode.length() + 1;
+    // select this many characters from left of cursor and replace with emojichar
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+    cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, chars_to_replace);
+    cursor.insertText(emojichar);
+    cursor.endEditBlock();
+    setPopupVisible(false);
+    setCurrentEmojicode(QString());
 }
 
 #include "moc_rich_documenthandler.cpp"

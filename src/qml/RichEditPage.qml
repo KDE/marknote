@@ -265,6 +265,82 @@ EditPage {
         height: parent.height - topMargin
     }
 
+    EmojierPopup {
+        id: emojierPopup
+        parent: root.Overlay.overlay
+        filterText: root.document.currentEmojicode
+
+        x: {
+            if (!root.textArea || !parent) return 0;
+
+            let cursorRect = root.textArea.positionToRectangle(root.textArea.cursorPosition)
+            let mappedPos = root.textArea.mapToItem(parent, cursorRect.x, cursorRect.y)
+
+            let targetX = mappedPos.x + 5 // 5px offset
+
+            let minX = 0
+            let maxX = parent.width - width
+
+            return Math.max(minX, Math.min(targetX, maxX))
+        }
+
+        y: {
+            if (!root.textArea || !parent) return 0;
+
+            let cursorRect = root.textArea.positionToRectangle(root.textArea.cursorPosition)
+            let mappedPos = root.textArea.mapToItem(parent, cursorRect.x, cursorRect.y)
+
+            let targetY = mappedPos.y + Config.editorFont.pixelSize*2 // margin equal to font size so that the popup doesn't block text
+
+            let minY = 0;
+            let maxY = parent.height - height;
+
+            if (targetY > maxY) { // in case it is overflowing the screen vertically
+                let aboveY = mappedPos.y;
+                return Math.max(minY, aboveY - height - Config.editorFont.pixelSize);
+            }
+
+            return Math.max(minY, Math.min(targetY, maxY));
+        }
+
+        Connections {
+            target: root.document
+            function onPopupVisibleChanged(){
+                if (!root.init){
+                    root.document.popupVisible = false
+                    return;
+                }
+                if (emojierPopup.visibleItemsCount === 0){
+                    root.document.popupVisible = false
+                    return
+                }
+
+                if (root.document.popupVisible){
+                    emojierPopup.open()
+                }
+                else{
+                    emojierPopup.close()
+                }
+            }
+            function onEmojiSelectorUp(){
+                emojierPopup.moveSelectionUp();
+            }
+            function onEmojiSelectorDown(){
+                emojierPopup.moveSelectionDown();
+            }
+            function onEmojiSelected(){
+                emojierPopup.selectCurrent();
+            }
+        }
+        onClosed: {
+            root.document.popupVisible = false
+        }
+
+        onEmojiSelected: (emojichar) => {
+            root.document.replaceCurrentEmoji(emojichar)
+        }
+    }
+
     Component {
         id: textFormatGroup
 

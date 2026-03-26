@@ -9,6 +9,8 @@
 #include "documenthandler.h"
 #include "nestedlisthelper_p.h"
 #include <QHash>
+#include <QRegularExpression>
+#include <QString>
 
 class QTextDocument;
 
@@ -40,6 +42,9 @@ class RichDocumentHandler : public DocumentHandler
 
     Q_PROPERTY(int blockMargin READ blockMargin WRITE setBlockMargin NOTIFY blockMarginChanged)
     Q_PROPERTY(bool canPaste READ canPaste NOTIFY canPasteChanged)
+
+    Q_PROPERTY(QString currentEmojicode READ currentEmojicode WRITE setCurrentEmojicode NOTIFY currentEmojicodeChanged)
+    Q_PROPERTY(bool popupVisible READ popupVisible WRITE setPopupVisible NOTIFY popupVisibleChanged)
 
 public:
     explicit RichDocumentHandler(QObject *parent = nullptr);
@@ -73,6 +78,12 @@ public:
 
     bool canPaste() const;
 
+    QString currentEmojicode() const;
+    void setCurrentEmojicode(QString text);
+
+    bool popupVisible() const;
+    void setPopupVisible(bool status);
+
     Q_INVOKABLE void updateNoteLink(const QString &noteName, const QString &alias = QString());
     Q_INVOKABLE QString currentNoteLinkName() const;
     Q_INVOKABLE QString currentNoteLinkAlias() const;
@@ -86,6 +97,8 @@ public:
 
     Q_INVOKABLE void pasteFromClipboard() override;
     Q_INVOKABLE void slotKeyPressed(int key);
+
+    Q_INVOKABLE void replaceCurrentEmoji(const QString &emojichar);
 
 public Q_SLOTS:
     void load(const QUrl &fileUrl) override;
@@ -108,6 +121,13 @@ Q_SIGNALS:
     void checkableChanged();
     void strikethroughChanged();
     void canPasteChanged();
+
+    void currentEmojicodeChanged();
+    void popupVisibleChanged();
+
+    void emojiSelectorUp();
+    void emojiSelectorDown();
+    void emojiSelected();
 
     void showToast(const QString &message);
 
@@ -137,6 +157,8 @@ private:
     void applyParagraphFormat(const QTextBlock &block);
     void parseDocument();
 
+    void checkForShortcode();
+
     QColor mLinkColor;
 
     /**c
@@ -157,6 +179,9 @@ private:
     bool m_lastItalic;
     bool m_lastUnderline;
     bool m_lastStrikethrough;
+
+    QString m_currentEmojicode;
+    bool m_popupVisible;
 };
 
 #endif // RICHDOCUMENTHANDLER_H
