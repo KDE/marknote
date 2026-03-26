@@ -134,12 +134,23 @@
       <url>https://blogs.kde.org/2026/03/24/marknote-1.5.2/</url>
       <description>
         <p>Small bug fix release, mainly to fix deleting notebooks and some other minor changes.</p>
+        <p xml:lang="ca">Llançament de correcció d'errors petits, principalment per a corregir la supressió de blocs de notes i altres canvis menors.</p>
+        <p xml:lang="ca-valencia">Llançament d'esmena d'errors petits, principalment per a corregir la supressió de blocs de notes i altres canvis menors.</p>
+        <p xml:lang="es">Pequeña actualización de corrección de fallos, principalmente para corregir el borrado de libros de notas y otros cambios menores.</p>
+        <p xml:lang="he">מהדורה לתיקון תקלה קטנה, בעיקר כדי למחוק מחברות וכל מיני שינויים מזעריים נוספים.</p>
+        <p xml:lang="ka">პატარა გამოცემა შეცდომების გასწორება. ძირითადად ეხება ბლოკნოტების წაშლას და სხვა პატარა ცვლილებებს.</p>
+        <p xml:lang="nl">Uitgave met kleine reparaties van fouten, voornamelijk om het verwijderen van notitieboeken te verhelpen en enkele andere kleine wijzigingen door te voeren.</p>
+        <p xml:lang="pt-BR">Pequena atualização com correções de bugs, principalmente para corrigir a exclusão de cadernos e algumas outras pequenas alterações.</p>
+        <p xml:lang="sl">Izdaja z manjšimi popravki napak, predvsem zaradi brisanja zvezkov in nekaterih drugih manjših sprememb.</p>
+        <p xml:lang="tr">Ufak bir hata düzeltme sürümü; defterleri silmekle ilgili bir hata düzeltildi ve başka ufak sorunlar giderildi.</p>
+        <p xml:lang="uk">Випуск з виправленнями невеличких вад; основне призначення — виправити вилучення нотатників та деякі інші незначні зміни.</p>
       </description>
     </release>
     <release version="1.5.1" date="2026-03-20">
       <url>https://blogs.kde.org/2026/03/20/marknote-1.5.1/</url>
       <description>
         <p>Marknote 1.5.1 contains various bug fixes, including the ones for specific issues while coping and pasting. This release also adds some tiny improvements like syntax highlighting in the source mode and faster image loading.</p>
+        <p xml:lang="ar">يحتوي الإصدار 1.5.1 من دفتر مارك على العديد من إصلاحات الأخطاء، بما في ذلك تلك المتعلقة بمشكلات محددة أثناء النسخ واللصق. كما يضيف هذا الإصدار بعض التحسينات البسيطة مثل تمييز بناء الجملة في وضع المصدر وتحميل الصور بشكل أسرع.</p>
         <p xml:lang="ca">El Marknote 1.5.1 conté diverses correccions d'errors, incloses les de problemes específics en copiar i enganxar. Aquest llançament també afegeix algunes millores petites com el ressaltat de sintaxi en el mode de codi font i una càrrega d'imatges més ràpida.</p>
         <p xml:lang="ca-valencia">MarkNote 1.5.1 conté diverses esmenes d'errors, incloses les de problemes específics en copiar i apegar. Este llançament també afig algunes millores xicotetes com el ressaltat de sintaxi en el mode de codi font i una càrrega d'imatges més ràpida.</p>
         <p xml:lang="es">Marknote 1.5.1 contiene diversas correcciones de fallos, incluidos los relacionados con las acciones de copiar y pegar. Esta versión también contiene mejoras menores, como el resaltado de sintaxis en el modo de código fuente y una carga de imágenes más rápida.</p>
