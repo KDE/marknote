@@ -6,6 +6,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.marknote
+import org.kde.kirigamiaddons.delegates
 
 Popup{
     id: root
@@ -62,6 +63,8 @@ Popup{
         id: sourceModel
     }
 
+    padding: Kirigami.Units.smallSpacing
+
     contentItem: Item{
         implicitWidth: Kirigami.Units.gridUnit * 15
         implicitHeight: Kirigami.Units.gridUnit * 15
@@ -73,11 +76,16 @@ Popup{
             clip: true
             currentIndex: 0
 
-            delegate: ItemDelegate{
-
-                width: listView.width
+            delegate: RoundedItemDelegate{
+                width: ListView.view.width
                 height: Kirigami.Units.gridUnit * 2
-                padding: Kirigami.Units.smallSpacing
+
+                padding: 0
+                leftInset: 0
+                rightInset: 0
+                topInset: 0
+                bottomInset: 0
+
                 highlighted: ListView.isCurrentItem
 
                 contentItem: RowLayout{
