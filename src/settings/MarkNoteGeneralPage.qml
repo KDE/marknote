@@ -62,7 +62,7 @@ FormCard.FormCardPage {
                 spacing: Kirigami.Units.smallSpacing
 
                 QQC2.Label {
-                    text: i18nc("@label:slider", "Background Opacity")
+                    text: i18nc("@label:slider", "Background opacity")
                     Layout.fillWidth: true
                 }
 
