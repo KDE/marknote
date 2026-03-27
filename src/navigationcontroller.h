@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
+// SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 
 #pragma once
 
@@ -21,6 +22,9 @@ class NavigationController : public QObject
     /// This property holds the current note path relative to the notebookPath.
     Q_PROPERTY(QString notePath READ notePath WRITE setNotePath NOTIFY notePathChanged)
 
+    // This property holds the normalized absolute path used for note highlighting
+    Q_PROPERTY(QString absoluteNotePath READ absoluteNotePath NOTIFY notePathChanged)
+
     /// This property holds the current note name.
     Q_PROPERTY(QString noteName READ noteName NOTIFY notePathChanged)
 
@@ -41,6 +45,21 @@ public:
     QString notebookName() const;
 
     QString notePath() const;
+
+    /**
+     * @brief Computes a normalized absolute path for the active note.
+     * Combines the notebook path and the relative note path while
+     * resolving redundant separators or directory segments.
+     * @return The cleaned absolute path as a string.
+     */
+    QString absoluteNotePath() const;
+
+    /**
+     * @brief Sets the active note and persists the selection.
+     * Updates the relative path of the current note and saves it to the
+     * notebook's .directory configuration file for state restoration.
+     * @param notePath The relative path of the note to select.
+     */
     void setNotePath(const QString &notePath);
 
     QString noteName() const;

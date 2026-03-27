@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
+// SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 
 #include "navigationcontroller.h"
 
@@ -55,11 +56,11 @@ void NavigationController::setNotebookPath(const QString &notebookPath)
     if (m_mobileMode) {
         return;
     }
-    const QString dotDirectory = m_notebookPath + u'/' + QStringLiteral(".directory");
+    const QString dotDirectory = QDir::cleanPath(m_notebookPath + u'/' + u".directory"_s);
 
     if (QFile::exists(dotDirectory)) {
         const auto lastEntry = KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-LastEntry");
-        if (lastEntry.length() > 0 && QFileInfo::exists(m_notebookPath + u'/' + lastEntry)) {
+        if (lastEntry.length() > 0 && QFileInfo::exists(QDir::cleanPath(m_notebookPath + u'/' + lastEntry))) {
             setNotePath(lastEntry);
         } else {
             setNotePath(QString{});
@@ -70,6 +71,14 @@ void NavigationController::setNotebookPath(const QString &notebookPath)
 QString NavigationController::notePath() const
 {
     return m_notePath;
+}
+
+QString NavigationController::absoluteNotePath() const
+{
+    if (m_notebookPath.isEmpty() || m_notePath.isEmpty()) {
+        return {};
+    }
+    return QDir::cleanPath(m_notebookPath + QDir::separator() + m_notePath);
 }
 
 void NavigationController::setNotePath(const QString &notePath)
@@ -95,10 +104,9 @@ void NavigationController::setNotePath(const QString &notePath)
     m_notePath = path;
     Q_EMIT notePathChanged();
 
-    const QString dotDirectory = m_notebookPath + u'/' + QStringLiteral(".directory");
-
+    const QString dotDirectory = QDir::cleanPath(m_notebookPath + u'/' + u".directory"_s);
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
-    auto desktopEntry = desktopFile.group(QStringLiteral("Desktop Entry"));
+    auto desktopEntry = desktopFile.group(u"Desktop Entry"_s);
     desktopEntry.writeEntry("X-MarkNote-LastEntry", path);
     desktopFile.sync();
 }
