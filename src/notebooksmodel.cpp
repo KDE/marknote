@@ -1,8 +1,10 @@
 // SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
+// SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "notebooksmodel.h"
 #include <QDebug>
+#include <QDirIterator>
 #include <QFile>
 #include <QStandardPaths>
 
@@ -10,13 +12,38 @@
 #include <KDesktopFile>
 #include <QFileSystemWatcher>
 
+using namespace Qt::StringLiterals;
+
 NoteBooksModel::NoteBooksModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, [this](const QString &path) {
-        const auto idx = indexForPath(path);
-        if (idx.isValid()) {
-            Q_EMIT dataChanged(idx, idx, {Role::NoteCount});
+        if (!m_directory)
+            return;
+
+        QString cleanChangedPath = QDir::cleanPath(path);
+
+        // Dynamically watch any newly created subdirectories
+        QDir dir(cleanChangedPath);
+        const auto newDirs = dir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
+        for (const auto &d : newDirs) {
+            QString newDirPath = QDir::cleanPath(cleanChangedPath + u'/' + d);
+            if (!m_watcher.directories().contains(newDirPath)) {
+                m_watcher.addPath(newDirPath);
+            }
+        }
+
+        // Identify the parent notebook and trigger a UI refresh for its NoteCount
+        const auto entries = m_directory->entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot);
+        for (int i = 0; i < entries.count(); ++i) {
+            QString notebookPath = QDir::cleanPath(entries.at(i).filePath());
+
+            // Match the exact notebook directory, or any nested subdirectory within it
+            if (cleanChangedPath == notebookPath || cleanChangedPath.startsWith(notebookPath + u'/')) {
+                const auto idx = index(i, 0);
+                Q_EMIT dataChanged(idx, idx, {Role::NoteCount});
+                break;
+            }
         }
     });
 }
@@ -80,33 +107,31 @@ QString NoteBooksModel::addNoteBook(const QString &name, const QString &icon, co
 {
     Q_ASSERT(m_directory);
 
-    // Predict the exact row index where QDir will place the new directory
     const QStringList currentDirs = m_directory->entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
     int insertRow = currentDirs.count();
 
     for (int i = 0; i < currentDirs.count(); ++i) {
-        // QDir sorts by name case-insensitively by default
         if (QString::compare(name, currentDirs.at(i), Qt::CaseInsensitive) < 0) {
             insertRow = i;
             break;
         }
     }
 
-    // Notify the QML view that a single row is about to be inserted
     beginInsertRows(QModelIndex(), insertRow, insertRow);
 
     m_directory->mkdir(name);
-    m_watcher.addPath(m_directory->path() % u'/' % name);
-    const QString dotDirectory = m_directory->path() % u'/' % name % u'/' % QStringLiteral(".directory");
+    m_watcher.addPath(QDir::cleanPath(m_directory->path() + u'/' + name));
+    const QString dotDirectory = QDir::cleanPath(m_directory->path() + u'/' + name + u"/.directory"_s);
+
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
-    auto desktopEntry = desktopFile.group(QStringLiteral("Desktop Entry"));
+    auto desktopEntry = desktopFile.group(u"Desktop Entry"_s);
     desktopEntry.writeEntry("Icon", icon);
     desktopEntry.writeEntry("X-MarkNote-Color", color);
     desktopFile.sync();
 
     endInsertRows();
 
-    return m_directory->path() + u'/' + name;
+    return QDir::cleanPath(m_directory->path() + u'/' + name);
 }
 
 void NoteBooksModel::editNoteBook(const QString &path, const QString &name, const QString &icon, const QString &color)
@@ -115,20 +140,18 @@ void NoteBooksModel::editNoteBook(const QString &path, const QString &name, cons
 
     const auto oldName = path.split(QLatin1Char('/')).constLast();
 
-    const QString dotDirectory = m_directory->path() % u'/' % oldName % u'/' % QStringLiteral(".directory");
+    const QString dotDirectory = QDir::cleanPath(m_directory->path() + u'/' + oldName + u"/.directory"_s);
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
-    auto desktopEntry = desktopFile.group(QStringLiteral("Desktop Entry"));
+    auto desktopEntry = desktopFile.group(u"Desktop Entry"_s);
     desktopEntry.writeEntry("Icon", icon);
     desktopEntry.writeEntry("X-MarkNote-Color", color);
     desktopFile.sync();
 
     if (oldName != name) {
-        // Find the current index before renaming
         const QStringList currentDirs = m_directory->entryList(QDir::AllDirs | QDir::NoDotAndDotDot);
         int oldIndex = currentDirs.indexOf(oldName);
 
         if (oldIndex >= 0) {
-            // Simulate the list without the old directory to find the new alphabetical index
             QStringList simulatedDirs = currentDirs;
             simulatedDirs.removeAt(oldIndex);
 
@@ -142,9 +165,7 @@ void NoteBooksModel::editNoteBook(const QString &path, const QString &name, cons
 
             QDir dir(m_directory->path());
 
-            // If the alphabetical order changes, move the row
             if (oldIndex != newIndex) {
-                // Qt quirk: when moving items down the list, the destination row must be offset by +1
                 int destIndex = newIndex > oldIndex ? newIndex + 1 : newIndex;
 
                 beginMoveRows(QModelIndex(), oldIndex, oldIndex, QModelIndex(), destIndex);
@@ -154,20 +175,17 @@ void NoteBooksModel::editNoteBook(const QString &path, const QString &name, cons
                 dir.rename(oldName, name);
             }
 
-            // Update the file watcher to track the new directory name instead of the old one
             m_watcher.removePath(path);
-            m_watcher.addPath(m_directory->path() % u'/' % name);
+            m_watcher.addPath(QDir::cleanPath(m_directory->path() + u'/' + name));
 
-            // Notify QML that the item's data (its name/path) has updated
             const QModelIndex changedIdx = index(newIndex, 0);
             Q_EMIT dataChanged(changedIdx, changedIdx);
         }
 
-        Q_EMIT noteBookRenamed(oldName, name, m_directory->path() + u'/' + name);
+        Q_EMIT noteBookRenamed(oldName, name, QDir::cleanPath(m_directory->path() + u'/' + name));
         return;
     }
 
-    // Only the icon or color changed, no rename needed
     const auto idx = indexForPath(path);
     if (idx.isValid()) {
         Q_EMIT dataChanged(idx, idx);
@@ -206,7 +224,7 @@ void NoteBooksModel::moveNote(const QString &noteUri, const QString &notebookPat
     }
 
     const QString fileName = QFileInfo(notePath).fileName();
-    const QString newPath = QDir(notebookPath).filePath(fileName);
+    const QString newPath = QDir::cleanPath(QDir(notebookPath).filePath(fileName));
 
     if (QFile::exists(newPath)) {
         qWarning() << "Target note already exists:" << newPath;
@@ -286,9 +304,13 @@ void NoteBooksModel::updateWatches()
         return;
     }
 
-    const auto entries = m_directory->entryInfoList(QDir::AllDirs | QDir::NoDotAndDotDot);
-    for (const auto &entry : entries) {
-        m_watcher.addPath(entry.filePath());
+    // Watch the root storage directory (to detect new top-level notebooks)
+    m_watcher.addPath(m_directory->path());
+
+    // Recursively add all notebooks and their deep subfolders to the watcher
+    QDirIterator it(m_directory->path(), QDir::AllDirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        m_watcher.addPath(it.next());
     }
 }
 
