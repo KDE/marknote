@@ -30,6 +30,8 @@ Kirigami.ScrollablePage {
     property string currentSearchText: ""
     property int defaultPlaceholderWidth: notesList.width - (Kirigami.Units.largeSpacing * 4)
 
+    bottomPadding: inlineStatusBar.visible ? inlineStatusBar.effectiveHeight : 0
+
     property var _window: ApplicationWindow.window
     readonly property Kirigami.PageRow pageStack: (ApplicationWindow.window as Kirigami.ApplicationWindow)?.pageStack ?? null
 
@@ -873,6 +875,32 @@ Kirigami.ScrollablePage {
             icon.name: "edit-none-symbolic"
             visible: filterModel.count === 0 && root.currentSearchText.length > 0
             text: KI18n.i18n("No notes matching the search")
+        }
+    }
+
+    NoteInlineStatusBar {
+        id: inlineStatusBar
+        parent: root
+        hoverTarget: notesList
+
+        text: {
+            const noteCount = pageNotesModel.totalNotesCount;
+            const folderCount = pageNotesModel.totalFoldersCount;
+
+            if (noteCount === 0 && folderCount === 0) return "";
+
+            if (folderCount === 0) {
+                return KI18n.i18ncp("@info:status", "%1 note", "%1 notes", noteCount);
+            }
+
+            if (noteCount === 0) {
+                return KI18n.i18ncp("@info:status", "%1 folder", "%1 folders", folderCount);
+            }
+
+            const folderText = KI18n.i18ncp("@info:status", "%1 folder", "%1 folders", folderCount);
+            const noteText = KI18n.i18ncp("@info:status", "%1 note", "%1 notes", noteCount);
+
+            return KI18n.i18nc("@info:status", "%1, %2", folderText, noteText);
         }
     }
 }

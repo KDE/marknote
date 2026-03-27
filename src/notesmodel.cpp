@@ -8,6 +8,7 @@
 #include <KLocalizedString>
 #include <QClipboard>
 #include <QDebug>
+#include <QDirIterator>
 #include <QFile>
 #include <QImage>
 #include <QMimeData>
@@ -59,6 +60,8 @@ NotesModel::NotesModel(QObject *parent)
                 endResetModel();
                 Q_EMIT rootIndexChanged();
             }
+
+            updateTotalNotesCount();
         }
     });
 }
@@ -119,6 +122,8 @@ void NotesModel::setPath(const QString &newPath)
     m_rootIndex = m_fsModel->setRootPath(m_path);
     updateColor();
     endResetModel();
+
+    updateTotalNotesCount();
 
     Q_EMIT pathChanged();
     if (m_rootIndex.isValid()) {
@@ -194,6 +199,8 @@ QString NotesModel::addNote(const QString &name)
     } else {
         qDebug() << "Failed to create file at" << path;
     }
+
+    updateTotalNotesCount();
     return name;
 }
 
@@ -202,6 +209,7 @@ void NotesModel::deleteNote(const QUrl &path)
     if (path.isLocalFile()) {
         QFile::remove(path.toLocalFile());
     }
+    updateTotalNotesCount();
 }
 
 void NotesModel::renameNote(const QUrl &path, const QString &name)
@@ -247,6 +255,8 @@ void NotesModel::duplicateNote(const QUrl &path)
     if (!QFile::copy(originalFilePath, finalFilePath)) {
         Q_EMIT errorOccurred(tr("Failed to copy the note file."));
     }
+
+    updateTotalNotesCount();
 }
 
 void NotesModel::copyWholeNote(const QUrl &path)
@@ -291,6 +301,8 @@ bool NotesModel::moveEntry(const QUrl &source, const QUrl &destination)
     if (!success) {
         Q_EMIT errorOccurred(i18nc("@info:status", "Failed to move file."));
     }
+    updateTotalNotesCount();
+
     return success;
 }
 
@@ -431,6 +443,53 @@ bool NotesModel::noteExists(const QString &noteName) const
     }
 
     return QFile::exists(m_path + u'/' + fileName);
+}
+
+int NotesModel::totalNotesCount() const
+{
+    return m_totalNotesCount;
+}
+
+int NotesModel::totalFoldersCount() const
+{
+    return m_totalFoldersCount;
+}
+
+void NotesModel::updateTotalNotesCount()
+{
+    if (m_path.isEmpty()) {
+        if (m_totalNotesCount != 0 || m_totalFoldersCount != 0) {
+            m_totalNotesCount = 0;
+            m_totalFoldersCount = 0;
+            Q_EMIT totalNotesCountChanged();
+            Q_EMIT totalFoldersCountChanged();
+        }
+        return;
+    }
+
+    int noteCount = 0;
+    int folderCount = 0;
+
+    QDirIterator it(m_path, QDir::AllEntries | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+
+    while (it.hasNext()) {
+        it.next();
+        if (it.fileInfo().isDir()) {
+            folderCount++;
+        } else if (it.fileInfo().suffix() == u"md"_s) {
+            noteCount++;
+        }
+    }
+
+    if (m_totalNotesCount != noteCount) {
+        m_totalNotesCount = noteCount;
+        Q_EMIT totalNotesCountChanged();
+    }
+
+    if (m_totalFoldersCount != folderCount) {
+        m_totalFoldersCount = folderCount;
+        Q_EMIT totalFoldersCountChanged();
+    }
 }
 
 #include "moc_notesmodel.cpp"

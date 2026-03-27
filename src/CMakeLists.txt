@@ -23,6 +23,7 @@ ecm_add_qml_module(marknote_static
         qml/Main.qml
         qml/MainEditor.qml
         qml/NotesPage.qml
+        qml/NoteInlineStatusBar.qml
         qml/NoteLinkDialog.qml
         qml/NoteMetadataDialog.qml
         qml/WelcomePage.qml

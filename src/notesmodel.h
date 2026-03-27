@@ -17,6 +17,8 @@ class NotesModel : public QIdentityProxyModel
 
     Q_PROPERTY(QModelIndex rootIndex READ rootIndex NOTIFY rootIndexChanged)
     Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged REQUIRED)
+    Q_PROPERTY(int totalNotesCount READ totalNotesCount NOTIFY totalNotesCountChanged)
+    Q_PROPERTY(int totalFoldersCount READ totalFoldersCount NOTIFY totalFoldersCountChanged)
 
 public:
     enum Role {
@@ -118,9 +120,16 @@ public:
      */
     void setPath(const QString &newPath);
 
+    int totalNotesCount() const;
+    int totalFoldersCount() const;
+
 Q_SIGNALS:
     void pathChanged();
     void rootIndexChanged();
+
+    void totalNotesCountChanged();
+    void totalFoldersCountChanged();
+
     void errorOccurred(const QString &errorMessage);
 
 private:
@@ -130,6 +139,11 @@ private:
     QModelIndex m_rootIndex;
     QString m_path;
     QString m_color;
+
+    void updateTotalNotesCount();
+
+    int m_totalNotesCount = 0;
+    int m_totalFoldersCount = 0;
 };
 
 #endif // NOTESMODEL_H
