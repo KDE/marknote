@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
+// SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "notesmodel.h"
@@ -8,12 +9,18 @@
 #include <QClipboard>
 #include <QDebug>
 #include <QFile>
+#include <QImage>
 #include <QMimeData>
+#include <QMimeDatabase>
+#include <QMimeType>
 #include <QPdfWriter>
 #include <QStandardPaths>
 #include <QTextBlock>
+#include <QTextCursor>
 #include <QTextDocument>
 #include <QTextDocumentWriter>
+#include <QTextFragment>
+#include <QTextImageFormat>
 #include <QUrl>
 
 #if __has_include(<md4c-html.h>)
@@ -23,142 +30,191 @@
 using namespace Qt::StringLiterals;
 
 NotesModel::NotesModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : QIdentityProxyModel(parent)
+    , m_fsModel(new QFileSystemModel(this))
 {
-    connect(&m_watcher, &QFileSystemWatcher::fileChanged, this, [this](const QString &path) {
-        if (!m_watcher.files().contains(path)) {
-            m_watcher.addPath(path);
-        }
+    m_fsModel->setFilter(QDir::AllDirs | QDir::Files | QDir::NoDotAndDotDot);
 
-        updateColor();
-    });
-    connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, [this](const QString &path) {
-        if (path == m_path) {
-            updateEntries();
+    QMimeDatabase mimeDb;
+    QMimeType mdMime = mimeDb.mimeTypeForName(u"text/markdown"_s);
+    QStringList mdFilters = mdMime.globPatterns();
+    if (mdFilters.isEmpty()) {
+        mdFilters << u"*.md"_s;
+    }
+
+    m_fsModel->setNameFilters(mdFilters);
+    m_fsModel->setNameFilterDisables(false);
+
+    // Set the filesystem model as the source for this proxy
+    setSourceModel(m_fsModel);
+
+    connect(m_fsModel, &QFileSystemModel::directoryLoaded, this, [this](const QString &path) {
+        if (QDir::cleanPath(path) == QDir::cleanPath(m_path)) {
+            auto newRoot = m_fsModel->index(m_path);
+
+            // Only reset if the root index has actually changed or was invalid
+            if (newRoot != m_rootIndex) {
+                beginResetModel();
+                m_rootIndex = newRoot;
+                endResetModel();
+                Q_EMIT rootIndexChanged();
+            }
         }
     });
 }
 
-void NotesModel::updateEntries()
+QModelIndex NotesModel::mapToSource(const QModelIndex &proxyIndex) const
 {
-    const auto entries = QDir(m_path).entryInfoList(QDir::Files);
-    QList<QFileInfo> newEntries;
-    for (const auto &entry : entries) {
-        if (entry.fileName().endsWith(u".md"_s)) {
-            newEntries << entry;
-        }
-    }
+    if (!proxyIndex.isValid())
+        return m_rootIndex;
+    return QIdentityProxyModel::mapToSource(proxyIndex);
+}
 
-    // Fast path: if the model is currently empty or completely cleared, do a full reset
-    if (m_entries.isEmpty() || newEntries.isEmpty()) {
-        beginResetModel();
-        m_entries = newEntries;
-        endResetModel();
+QModelIndex NotesModel::mapFromSource(const QModelIndex &sourceIndex) const
+{
+    if (sourceIndex == m_rootIndex)
+        return QModelIndex();
+    return QIdentityProxyModel::mapFromSource(sourceIndex);
+}
+
+int NotesModel::rowCount(const QModelIndex &parent) const
+{
+    // Prevent the UI from attempting to draw OS drives before our folder is loaded
+    // Ensure we don't query a null source model during destruction or init
+    if (!sourceModel() || (!parent.isValid() && !m_rootIndex.isValid())) {
+        return 0;
+    }
+    return QIdentityProxyModel::rowCount(parent);
+}
+
+bool NotesModel::hasChildren(const QModelIndex &parent) const
+{
+    if (!parent.isValid() && !m_rootIndex.isValid())
+        return false;
+    return QIdentityProxyModel::hasChildren(parent);
+}
+
+QModelIndex NotesModel::rootIndex() const
+{
+    // QML now explicitly receives the proxy's root, which is mapped to m_path
+    return QModelIndex();
+}
+
+QString NotesModel::path() const
+{
+    return m_path;
+}
+
+void NotesModel::setPath(const QString &newPath)
+{
+    QString cleanPath = QUrl::fromUserInput(newPath).toLocalFile();
+    if (cleanPath.isEmpty())
+        cleanPath = QDir::cleanPath(newPath);
+
+    if (m_path == cleanPath || cleanPath.isEmpty() || cleanPath == u"/"_s)
         return;
-    }
 
-    // Handle Removals (iterate backwards to safely remove without shifting indices)
-    for (int i = m_entries.count() - 1; i >= 0; --i) {
-        bool found = false;
-        for (const auto &newEntry : newEntries) {
-            if (m_entries[i].fileName() == newEntry.fileName()) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            beginRemoveRows(QModelIndex(), i, i);
-            m_entries.removeAt(i);
-            endRemoveRows();
-        }
-    }
+    beginResetModel();
+    m_path = cleanPath;
+    m_rootIndex = m_fsModel->setRootPath(m_path);
+    updateColor();
+    endResetModel();
 
-    // 2. Handle Insertions
-    for (int i = 0; i < newEntries.count(); ++i) {
-        bool found = false;
-        for (int j = 0; j < m_entries.count(); ++j) {
-            if (newEntries[i].fileName() == m_entries[j].fileName()) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            beginInsertRows(QModelIndex(), i, i);
-            m_entries.insert(i, newEntries[i]);
-            endInsertRows();
-        }
+    Q_EMIT pathChanged();
+    if (m_rootIndex.isValid()) {
+        Q_EMIT rootIndexChanged();
     }
 }
 
-int NotesModel::rowCount(const QModelIndex &index) const
+void NotesModel::fetchMore(const QString &path)
 {
-    return index.isValid() || m_path.isEmpty() ? 0 : m_entries.count();
+    QString clean = QUrl::fromUserInput(path).toLocalFile();
+    if (clean.isEmpty())
+        clean = QDir::cleanPath(path);
+
+    // Bypass the proxy to command the filesystem directly
+    QModelIndex srcIdx = m_fsModel->index(clean);
+    if (srcIdx.isValid() && m_fsModel->canFetchMore(srcIdx)) {
+        m_fsModel->fetchMore(srcIdx);
+    }
 }
 
 QVariant NotesModel::data(const QModelIndex &index, int role) const
 {
-    Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid));
+    if (!index.isValid())
+        return {};
 
-    const auto &entry = m_entries[index.row()];
+    QModelIndex srcIndex = mapToSource(index);
 
     switch (role) {
+    case Qt::DisplayRole:
+    case Role::Name: {
+        QString name = m_fsModel->fileInfo(srcIndex).fileName();
+        if (!m_fsModel->isDir(srcIndex) && name.endsWith(u".md"_s)) {
+            name.chop(3);
+        }
+        return name;
+    }
     case Role::FileUrl:
-        return QUrl::fromLocalFile(entry.filePath());
+        return QUrl::fromLocalFile(m_fsModel->filePath(srcIndex));
     case Role::Path:
-        return entry.fileName();
+        return m_fsModel->filePath(srcIndex);
     case Role::Date:
-        return entry.lastModified(QTimeZone::LocalTime);
+        return m_fsModel->lastModified(srcIndex);
     case Role::Month:
-        return entry.lastModified(QTimeZone::LocalTime).toString(u"MMMM yyyy"_s);
-    case Role::Name:
-        return entry.fileName().replace(QStringLiteral(".md"), QString());
+        return m_fsModel->lastModified(srcIndex).toString(u"MMMM yyyy"_s);
     case Role::Color:
         return m_color;
     }
 
-    return {};
+    return QIdentityProxyModel::data(index, role);
 }
 
 QHash<int, QByteArray> NotesModel::roleNames() const
 {
-    return {
-        {Role::Date, "date"},
-        {Role::Path, "path"},
-        {Role::FileUrl, "fileUrl"},
-        {Role::Name, "name"},
-        {Role::Color, "color"},
-        {Role::Month, "month"},
-    };
+    auto roles = QIdentityProxyModel::roleNames();
+    roles[Role::Date] = "date";
+    roles[Role::Path] = "path";
+    roles[Role::FileUrl] = "fileUrl";
+    roles[Role::Name] = "name";
+    roles[Role::Color] = "color";
+    roles[Role::Month] = "month";
+    return roles;
 }
 
 QString NotesModel::addNote(const QString &name)
 {
-    const QString path = m_path + u'/' + name + QStringLiteral(".md");
+    const QString path = m_path + u'/' + name + u".md"_s;
     QFile file(path);
     if (file.open(QFile::WriteOnly)) {
         file.write("# " + name.toUtf8());
     } else {
         qDebug() << "Failed to create file at" << path;
     }
-    updateEntries();
     return name;
 }
 
 void NotesModel::deleteNote(const QUrl &path)
 {
-    QFile::remove(path.toLocalFile());
-    updateEntries();
+    if (path.isLocalFile()) {
+        QFile::remove(path.toLocalFile());
+    }
 }
 
 void NotesModel::renameNote(const QUrl &path, const QString &name)
 {
-    QString newPath = m_path + u'/' + name + QStringLiteral(".md");
+    QFileInfo info(path.toLocalFile());
+    QString cleanName = name;
+    if (cleanName.endsWith(u".md"_s))
+        cleanName.chop(3);
+
+    QString newPath = info.absolutePath() + u'/' + cleanName + u".md"_s;
+
     if (QFile::exists(newPath)) {
         Q_EMIT errorOccurred(i18nc("@info:status", "Unable to rename note. A note already exists with the same name."));
         return;
     }
     QFile::rename(path.toLocalFile(), newPath);
-    updateEntries();
 }
 
 void NotesModel::duplicateNote(const QUrl &path)
@@ -177,7 +233,6 @@ void NotesModel::duplicateNote(const QUrl &path)
     const QString copyBase = originalInfo.completeBaseName() % QLatin1String(" Copy");
     QString finalFileName = copyBase + u'.' + suffix;
 
-    // Here counter is effectively the note copy number (e.g., Note Copy 1, Note Copy 2, Note Copy 3 etc.)
     int counter = 1;
     while (dir.exists(finalFileName)) {
         finalFileName = copyBase + u' ' + QString::number(counter) + u'.' + suffix;
@@ -186,9 +241,7 @@ void NotesModel::duplicateNote(const QUrl &path)
 
     QString finalFilePath = dir.filePath(finalFileName);
 
-    if (QFile::copy(originalFilePath, finalFilePath)) {
-        updateEntries();
-    } else {
+    if (!QFile::copy(originalFilePath, finalFilePath)) {
         Q_EMIT errorOccurred(tr("Failed to copy the note file."));
     }
 }
@@ -214,43 +267,37 @@ void NotesModel::copyWholeNote(const QUrl &path)
     QGuiApplication::clipboard()->setMimeData(mime);
 }
 
-QString NotesModel::path() const
+bool NotesModel::moveEntry(const QUrl &source, const QUrl &destination)
 {
-    return m_path;
-}
+    QFileInfo sourceInfo(source.toLocalFile());
+    QFileInfo destInfo(destination.toLocalFile());
 
-void NotesModel::setPath(const QString &newPath)
-{
-    if (m_path == newPath)
-        return;
-
-    if (!m_path.isEmpty()) {
-        m_watcher.removePath(m_path);
-        m_watcher.removePath(m_path + u'/' + QStringLiteral(".directory"));
+    if (!sourceInfo.exists() || !destInfo.isDir()) {
+        Q_EMIT errorOccurred(i18nc("@info:status", "Invalid move operation."));
+        return false;
     }
-    m_path = newPath;
-    updateEntries();
-    Q_EMIT pathChanged();
 
-    updateColor();
+    QString newPath = destInfo.absoluteFilePath() + QDir::separator() + sourceInfo.fileName();
 
-    if (!m_path.isEmpty()) {
-        m_watcher.addPath(m_path);
-        m_watcher.addPath(m_path + u'/' + QStringLiteral(".directory"));
+    if (destInfo.absoluteFilePath().startsWith(sourceInfo.absoluteFilePath())) {
+        Q_EMIT errorOccurred(i18nc("@info:status", "Cannot move a folder into itself."));
+        return false;
     }
+
+    bool success = QFile::rename(sourceInfo.absoluteFilePath(), newPath);
+    if (!success) {
+        Q_EMIT errorOccurred(i18nc("@info:status", "Failed to move file."));
+    }
+    return success;
 }
 
 void NotesModel::updateColor()
 {
-    const QString dotDirectory = m_path + u'/' + QStringLiteral(".directory");
+    const QString dotDirectory = m_path + u'/' + u".directory"_s;
     if (QFile::exists(dotDirectory)) {
         m_color = KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-Color");
     } else {
-        m_color = QStringLiteral("#00000000");
-    }
-
-    if (rowCount(QModelIndex()) > 0) {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount(QModelIndex()) - 1, 0), {Role::Color});
+        m_color = u"#00000000"_s;
     }
 }
 
@@ -285,31 +332,22 @@ static void cleanupImageInDocument(QTextDocument &doc, bool setHeight = false)
                         } else {
                             cursor.insertHtml(u"<img width=\"" + QString::number(width) + u"\" src=\""_s + imageFormat.name() + u"\"\\>"_s);
                         }
-
-                        // The textfragment iterator is now invalid, restart from the beginning
-                        // Take care not to replace the same fragment again, or we would be in
-                        // an infinite loop.
                         cursorPositionsToSkip.insert(pos);
-                        // it = currentBlock.begin();
                     }
                 }
             }
         }
-
         currentBlock = currentBlock.next();
     }
 }
 
 bool NotesModel::exportToPdf(const QUrl &path, const QUrl &destination)
 {
-    if (!QFile::exists(path.toLocalFile())) {
+    if (!QFile::exists(path.toLocalFile()))
         return false;
-    }
-
     QFile file(path.toLocalFile());
-    if (!file.open(QFile::ReadOnly)) {
+    if (!file.open(QFile::ReadOnly))
         return false;
-    }
 
     QByteArray data = file.readAll();
     QPdfWriter writer(destination.toLocalFile());
@@ -325,14 +363,11 @@ bool NotesModel::exportToPdf(const QUrl &path, const QUrl &destination)
 
 bool NotesModel::exportToHtml(const QUrl &path, const QUrl &destination)
 {
-    if (!QFile::exists(path.toLocalFile())) {
+    if (!QFile::exists(path.toLocalFile()))
         return false;
-    }
-
     QFile file(path.toLocalFile());
-    if (!file.open(QFile::ReadOnly)) {
+    if (!file.open(QFile::ReadOnly))
         return false;
-    }
 
     QByteArray data = file.readAll();
     QByteArray output;
@@ -355,68 +390,20 @@ bool NotesModel::exportToHtml(const QUrl &path, const QUrl &destination)
 #endif
 
     QFile exportFile(destination.toLocalFile());
-    if (!exportFile.open(QFile::WriteOnly)) {
+    if (!exportFile.open(QFile::WriteOnly))
         return false;
-    }
 
-    QByteArray content = R"(
-<!doctype>
-<html>
-<head>
-<meta charset="utf-8">
-<title>)"
-        + path.toLocalFile().split(QLatin1Char('/')).constLast().toUtf8() + R"(</title>
-<style>
-body {
-  max-width:800px;
-  margin:40px auto;
-  padding:0 10px;
-  font:18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  color:#222
-}
-h1,
-h2,
-h3 {
-  line-height:1.2
-}
-img {
-    max-width: 100%;
-}
-@media (prefers-color-scheme: dark) {
-  body {
-    color:#c9d1d9;
-    background:#0d1117
-  }
-  a:link {
-    color:#58a6ff
-  }
-  a:visited {
-    color:#8e96f0
-  }
-}
-</style>
-</head>
-<body>
-)" + output
-        + R"(
-</body>
-</html>
-)";
-
-    exportFile.write(content);
+    exportFile.write(output);
     return true;
 }
 
 bool NotesModel::exportToOdt(const QUrl &path, const QUrl &destination)
 {
-    if (!QFile::exists(path.toLocalFile())) {
+    if (!QFile::exists(path.toLocalFile()))
         return false;
-    }
-
     QFile file(path.toLocalFile());
-    if (!file.open(QFile::ReadOnly)) {
+    if (!file.open(QFile::ReadOnly))
         return false;
-    }
 
     QByteArray data = file.readAll();
 
