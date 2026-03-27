@@ -105,7 +105,7 @@
     <p xml:lang="sa">Marknote इत्यनेन भवन्तः समृद्धाः पाठटिप्पणीः निर्माय तान् नोटबुकेषु सहजतया व्यवस्थिताः भवेयुः । प्रत्येकस्य कृते चिह्नं उच्चारणवर्णं च चित्वा भवान् स्वस्य नोटबुकं व्यक्तिगतं कर्तुं शक्नोति, येन तेषु भेदं कर्तुं सुलभं भवति तथा च स्वस्य टिप्पणीः अङ्गुलीयपुटे एव भवन्ति भवतः टिप्पण्याः भवतः Documents समुच्चय मध्ये Markdown सञ्चिकारूपेण रक्षिताः भवन्ति, येन भवतः टिप्पणीनां उपयोगः Marknote इत्यस्मात् बहिः अपि च एप् इत्यस्य अन्तः सुलभं भवति ।</p>
     <p xml:lang="sl">Marknote vam omogoča ustvarjanje zapiskov z obogatenim besedilom in njihovo preprosto organiziranje v zvezke. Svoje zvezke lahko prilagodite tako, da za vsakega izberete ikono in barvo poudarka, kar olajša razlikovanje med njimi in ohranjanje zapiskov na dosegu roke. Vaši zapiski so shranjeni kot datoteke Markdown v vaši mapi Dokumenti, kar olajša uporabo vaših zapiskov zunaj Marknota in znotraj aplikacije.</p>
     <p xml:lang="sv">Marknote låter dig skapa anteckningar med Rich text och enkelt organisera dem i anteckningsböcker. Du kan anpassa dina anteckningsböcker genom att välja en ikon och accentfärg för var och en, vilket gör det enkelt att skilja dem åt och ha anteckningarna till hands. Dina anteckningar sparas som Markdown-filer i katalogen Dokument, vilket gör det enkelt att använda anteckningarna utanför Marknote såväl som inuti programmet.</p>
-    <p xml:lang="tr">Marknot, zengin metin notlar oluşturmanıza ve onları defterlerde organize etmenize olanak tanır. Defterleriniz için bir simge ve vurgu rengi seçerek onları kişiselleştirebilir ve her birini kendi içinde öne çıkarabilirsiniz. Notlarınız, Belgeler klasörünüze Markdown dosyalarıı olarak kaydedilir; böylece hem Marknot içinden hem de dosya yöneticinizden onlara kolaylıkla erişebilirsiniz.</p>
+    <p xml:lang="tr">Marknot, zengin metin notlar oluşturmanıza ve onları defterlerde organize etmenize olanak tanır. Defterleriniz için bir simge ve vurgu rengi seçerek onları kişiselleştirebilir ve her birini kendi içinde öne çıkarabilirsiniz. Notlarınız, Belgeler klasörünüze Markdown dosyaları olarak kaydedilir; böylece hem Marknot içinden hem de dosya yöneticinizden onlara kolaylıkla erişebilirsiniz.</p>
     <p xml:lang="uk">Marknote надає змогу створювати форматовані текстові нотатки та без проблем упорядковувати їх за нотатниками. Ви можете персоналізувати ваші нотатники, вибравши піктограму та колір позначення для кожного нотатника, спрощуючи пошук нотатників та роблячи доступ до ваших нотаток якомога простішим. Ваші нотатки буде збережено до файлів Markdown у вашій теці «Документи», щоб спрощує користування нотатками поза Marknote та у самій програмі.</p>
     <p xml:lang="zh-CN">Marknote 让您创建富文本笔记并轻松地将它们组织成笔记本。您可以通过选择一个图标和强调色个性化您的笔记本，让它们更容易区分，您的笔记，就在指尖。 您的笔记将以 Markdown 文件的形式保存在您的文档文件夹中，让您在 Marknote 内外都可以轻松使用您的笔记。</p>
     <p xml:lang="zh-TW">Marknote 讓您建立豐富格式筆記，並放入筆記本內管理。您可以選擇各個筆記本的圖示與強調色，讓筆記本容易分辨，並幫助您利用您的筆記。您的筆記以 Markdown 格式儲存為文件資料夾內的檔案，讓您在 Marknote 外也能輕易地利用您的筆記。</p>
@@ -134,10 +134,12 @@
       <url>https://blogs.kde.org/2026/03/24/marknote-1.5.2/</url>
       <description>
         <p>Small bug fix release, mainly to fix deleting notebooks and some other minor changes.</p>
+        <p xml:lang="ar">إصدار صغير لإصلاح الأخطاء، يهدف بشكل أساسي إلى إصلاح مشكلة حذف دفاتر الملاحظات وإجراء بعض التغييرات الطفيفة الأخرى.</p>
         <p xml:lang="ca">Llançament de correcció d'errors petits, principalment per a corregir la supressió de blocs de notes i altres canvis menors.</p>
         <p xml:lang="ca-valencia">Llançament d'esmena d'errors petits, principalment per a corregir la supressió de blocs de notes i altres canvis menors.</p>
         <p xml:lang="es">Pequeña actualización de corrección de fallos, principalmente para corregir el borrado de libros de notas y otros cambios menores.</p>
         <p xml:lang="he">מהדורה לתיקון תקלה קטנה, בעיקר כדי למחוק מחברות וכל מיני שינויים מזעריים נוספים.</p>
+        <p xml:lang="it">Rilascio con piccole correzioni di bug, principalmente per risolvere il problema di eliminazione dei taccuini e apportare altre piccole modifiche.</p>
         <p xml:lang="ka">პატარა გამოცემა შეცდომების გასწორება. ძირითადად ეხება ბლოკნოტების წაშლას და სხვა პატარა ცვლილებებს.</p>
         <p xml:lang="nl">Uitgave met kleine reparaties van fouten, voornamelijk om het verwijderen van notitieboeken te verhelpen en enkele andere kleine wijzigingen door te voeren.</p>
         <p xml:lang="pt-BR">Pequena atualização com correções de bugs, principalmente para corrigir a exclusão de cadernos e algumas outras pequenas alterações.</p>
@@ -156,11 +158,12 @@
         <p xml:lang="es">Marknote 1.5.1 contiene diversas correcciones de fallos, incluidos los relacionados con las acciones de copiar y pegar. Esta versión también contiene mejoras menores, como el resaltado de sintaxis en el modo de código fuente y una carga de imágenes más rápida.</p>
         <p xml:lang="fr">Marknote 1.5.1 contient diverses corrections de bogues, y compris celles pour des problèmes spécifiques lors du copier-coller. Cette version apporte également quelques petites améliorations comme la coloration syntaxique en mode source et un chargement plus rapide des images.</p>
         <p xml:lang="he">ב־Marknote 1.5.1 תוקנו מגוון תקלות, כולל תקלות נקודתיות שקשורות בהעתקה והדבקה. המהדורה הזאת מוסיפה מגוון שיפורים מזעריים כגון הדגשת תחביר במצב מקור וטעינת תמונות מהירה יותר.</p>
+        <p xml:lang="it">Marknote 1.5.1 include diverse correzioni di bug, tra cui quelle relative a problemi specifici durante le operazioni di copia e incolla. Questa versione introduce anche alcuni piccoli miglioramenti, come l'evidenziazione della sintassi nella modalità sorgente e un caricamento più rapido delle immagini.</p>
         <p xml:lang="ka">Marknote 1.5.1 შეიცავს სხვადასხვა შეცდომის გასწორებას, კოპირებისა და ჩასმის პრობლემების ჩათვლით. ეს გამოცემა ასევე ამატებს რამდენიმე ისე მცირე გაუმჯობესებას, როგორიცაა სინტაქსის გამოკვეთა წყაროს რეჟიმში და უფრო სწრაფი გამოსახულების ჩატვირთვა.</p>
         <p xml:lang="nl">Marknote 1.5.1 bevat verschillende reparaties van fouten, inclusief diegenen voor specifieke problemen bij kopiëren en plakken. Deze uitgave voegt ook enige kleine verbeteringen toe zoals accentuering van syntaxis in de modus broncode en sneller laden van een afbeelding.</p>
         <p xml:lang="pt-BR">O Marknote 1.5.1 contém diversas correções de bugs, incluindo aquelas para problemas específicos ao copiar e colar. Esta versão também adiciona algumas pequenas melhorias, como o realce de sintaxe no modo de código-fonte e carregamento de imagens mais rápido.</p>
         <p xml:lang="sl">Marknote 1.5.1 vsebuje različne popravke napak, vključno s tistimi za specifične težave pri kopiranju in lepljenju. Ta izdaja dodaja tudi nekaj drobnih izboljšav, kot sta označevanje skladnje v izvornem načinu in hitrejše nalaganje slik.</p>
-        <p xml:lang="tr">Marknote 1.5.1, kopyalama ve yapıştırma sırasında ortaya çıkan belirli sorunlar da dahil olmak üzere çeşitli hata düzeltmeleri içeriyor. Bu sürüm ayrıca kaynak kipinde sözdizim vurgulaması ve daha hızlı görsel yükleme gibi bazı küçük iyileştirmeler de ekliyor.</p>
+        <p xml:lang="tr">Marknot 1.5.1, kopyalama ve yapıştırma sırasında ortaya çıkan belirli sorunlar da dahil olmak üzere çeşitli hata düzeltmeleri içeriyor. Bu sürüm ayrıca kaynak kipinde sözdizim vurgulaması ve daha hızlı görsel yükleme gibi bazı küçük iyileştirmeler de ekliyor.</p>
         <p xml:lang="uk">У Marknote 1.5.1 реалізовано різні виправлення помилок, зокрема ті, що стосуються конкретних проблем під час копіювання та вставлення. У цьому випуску також додано деякі незначні покращення, зокрема підсвічування синтаксису у режимі початкового коду та швидше завантаження зображень.</p>
       </description>
     </release>
@@ -634,7 +637,7 @@
         <p xml:lang="pt-BR">O Marknote 1.1.0 já está disponível! O Marknote é o novo aplicativo WYSIWYG para anotações do KDE. Apesar do lançamento ter ocorrido há poucos dias, trabalhamos bastante para adicionar novos recursos e, o mais importante, corrigir alguns bugs.</p>
         <p xml:lang="ru">Выпущена Marknote 1.1.0! Marknote — это новое приложение KDE для создания заметок с поддержкой WYSIWYG. Несмотря на то, что предыдущий выпуск состоялся всего несколько дней назад, разработчики усердно трудились и добавили несколько новых функций, а что ещё важнее — исправили ряд ошибок.</p>
         <p xml:lang="sl">Marknote 1.1.0 je na voljo! Marknote je nova aplikacija za zapisovanje WYSIWYG iz KDE. Čeprav je bila najnovejša izdaja izšla le pred nekaj dnevi, smo trdo delali in dodali nekaj novih zmožnosti ter, kar je še pomembneje, odpravili nekaj napak.</p>
-        <p xml:lang="tr">Marknote 1.1.0 çıktı! Marknote, KDE’nin yeni WYSIWYG not alma uygulamasıdır. Son sürüm birkaç gün önce yayınlanmış olsa da, yoğun bir şekilde çalışarak birkaç yeni özellik ekledik ve daha da önemlisi bazı hataları düzelttik.</p>
+        <p xml:lang="tr">Marknot 1.1.0 çıktı! Marknot, KDE’nin yeni WYSIWYG not alma uygulamasıdır. Son sürüm birkaç gün önce yayınlanmış olsa da, yoğun bir şekilde çalışarak birkaç yeni özellik ekledik ve daha da önemlisi bazı hataları düzelttik.</p>
         <p xml:lang="uk">Випущено Marknote 1.1.0! Marknote — це нова програма для створення нотаток WYSIWYG від KDE. Незважаючи на те, що останній випуск вийшов лише кілька днів тому, ми наполегливо працювали та додали кілька нових функцій, а головне — виправили деякі помилки.</p>
         <p>
           Marknote now boasts broader Markdown support, and can now display
@@ -655,7 +658,7 @@
         <p xml:lang="pt-BR">O Marknote agora oferece suporte mais amplo ao Markdown e pode exibir imagens e listas de tarefas no editor. E, após concluir a edição de suas notas, você pode exportá-las para diversos formatos, incluindo PDF, HTML e ODT.</p>
         <p xml:lang="ru">Расширена поддержка синтаксиса Markdown: в редакторе реализован вывод изображений и списков задач. Заметки можно экспортировать в различные форматы, включая PDF, HTML и ODT.</p>
         <p xml:lang="sl">Marknote se zdaj ponaša s širšo podporo za Markdown in lahko v urejevalniku prikaže slike in sezname opravil. Ko končate z urejanjem zapiskov, jih lahko izvozite v različne oblike, vključno s PDF, HTML in ODT.</p>
-        <p xml:lang="tr">Marknote artık daha geniş Markdown desteğine sahip ve düzenleyicide resimleri ve görev listelerini görüntüleyebiliyor. Notlarınızı düzenlemeyi bitirdikten sonra, PDF, HTML ve ODT dahil olmak üzere çeşitli biçimlere dışa aktarabilirsiniz.</p>
+        <p xml:lang="tr">Marknot artık daha geniş Markdown desteğine sahip ve düzenleyicide resimleri ve görev listelerini görüntüleyebiliyor. Notlarınızı düzenlemeyi bitirdikten sonra, PDF, HTML ve ODT dahil olmak üzere çeşitli biçimlere dışa aktarabilirsiniz.</p>
         <p xml:lang="uk">Marknote тепер може похвалитися ширшою підтримкою Markdown і може показувати зображення та списки завдань у редакторі. А після завершення редагування нотаток ви можете експортувати їх у різні формати, зокрема PDF, HTML та ODT.</p>
         <p>
           Marknote's interface now seamlessly integrates the colors assigned to
@@ -729,7 +732,7 @@
         <p xml:lang="pt-BR">O Marknote, aplicativo de anotações WYSIWYG do KDE, está finalmente pronto para seu primeiro lançamento. O Marknote permite criar notas de rich text e organizá-las facilmente em cadernos. Você pode personalizar seus cadernos escolhendo um ícone e uma cor de destaque para cada um, facilitando a distinção entre eles e mantendo suas anotações ao seu alcance. Suas notas são salvas como arquivos Markdown na pasta documentos, facilitando o uso de suas notas fora do Marknote e dentro do aplicativo.</p>
         <p xml:lang="ru">Marknote, визуальный редвктор, разработанный KDE наконец готов для первого выпуска. Marknote позволяет создавать заметки с форматированным текстом и хранить их в виде записных книжек. Для упрощения поиска заметок записные книжки можно персонализировать, выбрав значок и цвет. Заметки будут сохранены в файлах Markdown в каталоге «Документы», что позволяет упростить работу с ними как внутри, так и за пределами приложения.</p>
         <p xml:lang="sl">Marknote, KDE-jeva aplikacija za beleženje zapiskov WYSIWYG, je končno pripravljena za svojo prvo izdajo. Marknote vam omogoča ustvarjanje zapiskov z obogatenim besedilom in njihovo enostavno organiziranje v zvezke. Zvezke lahko prilagodite tako, da za vsakega izberete ikono in barvo poudarka, kar olajša razlikovanje med njimi in ohranja zapiske na dosegu roke. Vaši zapiski so shranjeni kot datoteke Markdown v mapi Dokumenti, kar omogoča enostavno uporabo zapiskov tako zunaj Marknota kot znotraj aplikacije.</p>
-        <p xml:lang="tr">KDE’nin WYSIWYG not alma uygulaması Marknot, nihayet ilk sürümüne hazır. Marknot, zengin metin notlar oluşturmanıza ve onları defterlerde organize etmenize olanak tanır. Defterleriniz için bir simge ve vurgu rengi seçerek onları kişiselleştirebilir ve her birini kendi içinde öne çıkarabilirsiniz. Notlarınız, Belgeler klasörünüze Markdown dosyalarıı olarak kaydedilir; böylece hem Marknot içinden hem de dosya yöneticinizden onlara kolaylıkla erişebilirsiniz.</p>
+        <p xml:lang="tr">KDE’nin WYSIWYG not alma uygulaması Marknot, nihayet ilk sürümüne hazır. Marknot, zengin metin notlar oluşturmanıza ve onları defterlerde organize etmenize olanak tanır. Defterleriniz için bir simge ve vurgu rengi seçerek onları kişiselleştirebilir ve her birini kendi içinde öne çıkarabilirsiniz. Notlarınız, Belgeler klasörünüze Markdown dosyaları olarak kaydedilir; böylece hem Marknot içinden hem de dosya yöneticinizden onlara kolaylıkla erişebilirsiniz.</p>
         <p xml:lang="uk">Marknote, програма KDE для візуальної роботи з нотатками, нарешті готова до свого першого випуску. Marknote надає змогу створювати форматовані текстові нотатки та без проблем упорядковувати їх за нотатниками. Ви можете персоналізувати ваші нотатники, вибравши піктограму та колір позначення для кожного нотатника, спрощуючи пошук нотатників та роблячи доступ до ваших нотаток якомога простішим. Ваші нотатки буде збережено до файлів Markdown у вашій теці «Документи», щоб спрощує користування нотатками поза Marknote та у самій програмі.</p>
         <p>
           Thanks to Carl, Marknote now not only supports bold and italic fonts,
@@ -767,6 +770,16 @@
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/marknote/marknote.png</image>
       <caption>Markdown document opened in Marknote</caption>
+      <caption xml:lang="ca">Document Markdown obert en el Marknote</caption>
+      <caption xml:lang="es">Documento markdown abierto en Marknote</caption>
+      <caption xml:lang="he">מסמך Markdown פתוח ב־Marknote</caption>
+      <caption xml:lang="it">Documento Markdown aperto in Marknote</caption>
+      <caption xml:lang="ka">Markdown-ის დოკუმენტი გაიხსნა Markote-ში</caption>
+      <caption xml:lang="nl">Markdown-document geopend in Marknote</caption>
+      <caption xml:lang="pt-BR">Documento Markdown aberto no Marknote</caption>
+      <caption xml:lang="sl">Dokument Markdown odprt v programu Marknote</caption>
+      <caption xml:lang="tr">Marknot ile açılan bir Markdown belgesi</caption>
+      <caption xml:lang="uk">Документ Markdown, який відкрито у Marknote</caption>
     </screenshot>
   </screenshots>
   <branding>
