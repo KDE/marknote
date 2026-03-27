@@ -6,14 +6,16 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Dialogs
+import QtQml.Models
 
-import org.kde.kitemmodels
 import org.kde.marknote
 import org.kde.notification
 import org.kde.ki18n
+import org.kde.kitemmodels 1.0 as KItemModels
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as Components
+import org.kde.kirigamiaddons.treeview 1.0 as KTreeView
 
 pragma ComponentBehavior: Bound
 
@@ -29,6 +31,75 @@ Kirigami.ScrollablePage {
     property var _window: ApplicationWindow.window
     readonly property Kirigami.PageRow pageStack: (ApplicationWindow.window as Kirigami.ApplicationWindow)?.pageStack ?? null
 
+    readonly property string normRoot: cleanPath(NavigationController.notebookPath)
+    readonly property int rootDepth: Math.max(0, (normRoot.match(/\//g) || []).length)
+    property bool isTreeExpanded: true
+
+    readonly property string activeAbsolutePath: {
+        if (!NavigationController.notePath) return "";
+        let rPath = root.normRoot;
+        if (!rPath.endsWith("/")) rPath += "/";
+        return rPath + NavigationController.notePath;
+    }
+
+    function cleanPath(p) {
+        if (!p) return "";
+        let s = p.toString();
+        if (s.startsWith("file://")) s = s.substring(7);
+            return s.replace(/\/+$/, "");
+    }
+
+    function activateItem(index, isExpandable, path) {
+        if (isExpandable) {
+            pageNotesModel.fetchMore(path)
+            notesProxyModel.toggleChildren(index)
+        } else {
+            let full = cleanPath(path);
+            let rPath = root.normRoot;
+            if (!rPath.endsWith("/")) rPath += "/";
+
+            if (full.startsWith(rPath)) {
+                NavigationController.notePath = full.substring(rPath.length);
+            }
+        }
+    }
+
+    function toggleExpandAll() {
+        root.isTreeExpanded = !root.isTreeExpanded;
+        if (root.isTreeExpanded) {
+            let i = 0;
+            let limit = 0;
+            // Check rowCount dynamically as the tree grows
+            while (i < notesProxyModel.rowCount() && limit < 500) {
+                let idx = notesProxyModel.index(i, 0);
+                if (notesProxyModel.data(idx, notesProxyModel.KDescendantExpandableRole) &&
+                    !notesProxyModel.data(idx, notesProxyModel.KDescendantExpandedRole)) {
+
+                    let p = notesProxyModel.data(idx, NotesModel.Path);
+                if (p) pageNotesModel.fetchMore(p);
+                notesProxyModel.toggleChildren(i);
+                    // Don't increment i;
+                    // check the same row (now expanded) to dive into children
+                    } else {
+                        i++;
+                    }
+                    limit++;
+            }
+        } else {
+            // Collapse backward to avoid index shifting
+            for (let i = notesProxyModel.rowCount() - 1; i >= 0; i--) {
+                if (notesProxyModel.data(notesProxyModel.index(i, 0), notesProxyModel.KDescendantExpandedRole)) {
+                    notesProxyModel.toggleChildren(i);
+                }
+            }
+        }
+    }
+
+    Component {
+        id: noteMetadataDialogComponent
+        NoteMetadataDialog {}
+    }
+
     Components.FloatingButton {
         visible: Kirigami.Settings.isMobile
         parent: root.overlay
@@ -37,7 +108,6 @@ Kirigami.ScrollablePage {
             right: parent.right
             rightMargin: Kirigami.Units.gridUnit
             bottomMargin: Kirigami.Units.gridUnit
-
         }
         text: KI18n.i18n("Add note")
         icon.name: "list-add"
@@ -52,12 +122,15 @@ Kirigami.ScrollablePage {
     Connections {
         target: App
         function onNewNote(): void {
-            const component = Qt.createComponent("org.kde.marknote", "NoteMetadataDialog");
-            const dialog = component.createObject(root, {
-                mode: NoteMetadataDialog.Mode.Add,
-                model: notesModel,
-            }) as NoteMetadataDialog;
-            dialog.open();
+            if (noteMetadataDialogComponent.status === Component.Ready) {
+                const dialog = noteMetadataDialogComponent.createObject(root, {
+                    mode: NoteMetadataDialog.Mode.Add,
+                    model: pageNotesModel,
+                }) as NoteMetadataDialog;
+                dialog.open();
+            } else if (noteMetadataDialogComponent.status === Component.Error) {
+                console.error("Error loading NoteMetadataDialog:", noteMetadataDialogComponent.errorString());
+            }
         }
     }
 
@@ -76,24 +149,13 @@ Kirigami.ScrollablePage {
             RowLayout {
                 id: defaultHeader
                 anchors.fill: parent
-
                 scale: titleLayout.searchOpen ? 0.7 : 1.0
                 opacity: titleLayout.searchOpen ? 0 : 1
                 visible: opacity > 0
-
                 transformOrigin: Item.Center
 
-                Behavior on opacity {
-                    NumberAnimation { duration: Kirigami.Units.longDuration }
-                }
-
-                // Animate the scale with a bouncy easing curve
-                Behavior on scale {
-                    NumberAnimation {
-                        duration: Kirigami.Units.longDuration
-                        easing.type: Easing.OutBack
-                    }
-                }
+                Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration } }
+                Behavior on scale { NumberAnimation { duration: Kirigami.Units.longDuration; easing.type: Easing.OutBack } }
 
                 ToolButton {
                     id: addButton
@@ -114,6 +176,18 @@ Kirigami.ScrollablePage {
                     Layout.rightMargin: Kirigami.Units.largeSpacing
                     horizontalAlignment: Text.AlignHCenter
                     elide: Qt.ElideRight
+                }
+
+                ToolButton {
+                    icon.name: root.isTreeExpanded ? "collapse-all" : "expand-all"
+                    text: root.isTreeExpanded ? KI18n.i18n("Collapse All") : KI18n.i18n("Expand All")
+                    display: AbstractButton.IconOnly
+                    visible: root.isWideScreen
+
+                    onClicked: root.toggleExpandAll()
+
+                    ToolTip.visible: hovered
+                    ToolTip.text: text
                 }
 
                 ToolButton {
@@ -146,31 +220,19 @@ Kirigami.ScrollablePage {
                 anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-
-                // Animate this wrapper's width to "uncover" the search bar
                 width: titleLayout.searchOpen ? parent.width : 0
                 clip: true
 
-                Behavior on width {
-                    NumberAnimation {
-                        duration: Kirigami.Units.longDuration
-                        easing.type: Easing.InOutCubic
-                    }
-                }
+                Behavior on width { NumberAnimation { duration: Kirigami.Units.longDuration; easing.type: Easing.InOutCubic } }
 
                 Kirigami.SearchField {
                     id: search
                     anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-
-                    // keep width static so the placeholder text doesn't squish during animation
                     width: contentContainer.width
-
                     opacity: titleLayout.searchOpen ? 1 : 0
-                    Behavior on opacity {
-                        NumberAnimation { duration: Kirigami.Units.longDuration }
-                    }
+                    Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration } }
 
                     Shortcut {
                         id: cancelShortcut
@@ -193,21 +255,11 @@ Kirigami.ScrollablePage {
             ToolTip.text: text
 
             transform: Rotation {
-                // Set the origin to the center of the button so it spins in place
                 origin.x: searchButton.width / 2
                 origin.y: searchButton.height / 2
-
                 axis { x: 0; y: 1; z: 0 }
-
-                // Spin a half 180 degrees so the new icon lands facing the right way
                 angle: titleLayout.searchOpen ? 180 : 0
-
-                Behavior on angle {
-                    NumberAnimation {
-                        duration: Kirigami.Units.veryLongDuration
-                        easing.type: Easing.InOutQuart
-                    }
-                }
+                Behavior on angle { NumberAnimation { duration: Kirigami.Units.veryLongDuration; easing.type: Easing.InOutQuart } }
             }
 
             onClicked: {
@@ -254,7 +306,7 @@ Kirigami.ScrollablePage {
         title: KI18n.i18nc("@title:window", "Delete Note")
         onRejected: close()
         onAccepted: {
-            notesModel.deleteNote(fileUrl);
+            pageNotesModel.deleteNote(fileUrl);
             if (notePath === NavigationController.notePath) {
                 NavigationController.notePath = '';
             }
@@ -264,78 +316,74 @@ Kirigami.ScrollablePage {
         subtitle: KI18n.i18n("Are you sure you want to delete the note <b> %1 </b>? This will delete the file <b>%2</b> definitively.", removeDialog.noteName, removeDialog.notePath)
     }
 
+    NotesModel {
+        id: pageNotesModel
+        path: NavigationController.notebookPath
+
+        onErrorOccurred: (errorMessage) => {
+            root._window.showPassiveNotification(errorMessage, "long");
+        }
+    }
+
+    KItemModels.KSortFilterProxyModel {
+        id: filterModel
+        property int sortOrder: Qt.AscendingOrder
+        filterCaseSensitivity: Qt.CaseInsensitive
+        filterRole: NotesModel.Name
+        sortRole: NotesModel.Name
+        sourceModel: pageNotesModel
+        Component.onCompleted: filterModel.sort(0, filterModel.sortOrder)
+    }
+
+    KItemModels.KDescendantsProxyModel {
+        id: notesProxyModel
+        sourceModel: filterModel
+    }
+
     ListView {
         id: notesList
+        model: notesProxyModel
+        anchors.fill: parent
+        clip: true
+        focus: true
+        activeFocusOnTab: true
+        boundsBehavior: Flickable.StopAtBounds
+
+        highlightRangeMode: ListView.NoHighlightRange
+        keyNavigationEnabled: true
+        highlightMoveDuration: 0
 
         currentIndex: -1
 
         populate: Transition {
-            NumberAnimation {
-                property: "opacity"
-                from: 0.0
-                to: 1.0
-                duration: Kirigami.Units.longDuration
-                easing.type: Easing.OutQuart
-            }
+            NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: Kirigami.Units.shortDuration; easing.type: Easing.OutQuart }
         }
-
         add: Transition {
-            NumberAnimation {
-                property: "opacity"
-                from: 0.0
-                to: 1.0
-                duration: Kirigami.Units.longDuration
-                easing.type: Easing.InOutQuart
-            }
+            NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: Kirigami.Units.longDuration; easing.type: Easing.InOutQuart }
         }
-
         addDisplaced: Transition {
-            NumberAnimation {
-                properties: "x,y"
-                duration: Kirigami.Units.longDuration
-                easing.type: Easing.InOutQuart
-            }
+            NumberAnimation { properties: "x,y"; duration: Kirigami.Units.longDuration; easing.type: Easing.InOutQuart }
         }
-
         displaced: Transition {
-            NumberAnimation {
-                properties: "x,y"
-                duration: Kirigami.Units.longDuration
-                easing.type: Easing.InOutQuart
-            }
+            NumberAnimation { properties: "x,y"; duration: Kirigami.Units.longDuration; easing.type: Easing.InOutQuart }
         }
-
         remove: Transition {
-            NumberAnimation {
-                property: "opacity"
-                from: 1.0
-                to: 0.0
-                duration: Kirigami.Units.longDuration
-                easing.type: Easing.InQuart
-            }
+            NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; duration: Kirigami.Units.longDuration; easing.type: Easing.InQuart }
         }
-
         removeDisplaced: Transition {
-            NumberAnimation {
-                properties: "x,y"
-                duration: Kirigami.Units.longDuration
-                easing.type: Easing.InOutQuart
-            }
+            NumberAnimation { properties: "x,y"; duration: Kirigami.Units.longDuration; easing.type: Easing.InOutQuart }
         }
 
         Component {
             id: sectionDelegate
             Kirigami.ListSectionHeader {
                 required property string section
-
                 text: section
                 width: parent.width
             }
         }
-
         Component {
             id: nullComponent
-
             Item {}
         }
 
@@ -343,7 +391,6 @@ Kirigami.ScrollablePage {
         states: [
             State {
                 name: "sort-name"
-
                 PropertyChanges {
                     filterModel.sortRole: NotesModel.Name
                     filterModel.sortOrder: Qt.AscendingOrder
@@ -351,13 +398,10 @@ Kirigami.ScrollablePage {
                 PropertyChanges {
                     notesList.section.delegate: nullComponent
                 }
-                StateChangeScript {
-                    script: filterModel.sort(0, Qt.AscendingOrder)
-                }
+                StateChangeScript { script: filterModel.sort(0, Qt.AscendingOrder) }
             },
             State {
                 name: "sort-date"
-
                 PropertyChanges {
                     filterModel.sortRole: NotesModel.Date
                     filterModel.sortOrder: Qt.DescendingOrder
@@ -365,35 +409,14 @@ Kirigami.ScrollablePage {
                 PropertyChanges {
                     notesList.section.delegate: sectionDelegate
                 }
-                StateChangeScript {
-                    script: filterModel.sort(0, Qt.DescendingOrder)
-                }
+                StateChangeScript { script: filterModel.sort(0, Qt.DescendingOrder) }
             }
         ]
 
-        model: KSortFilterProxyModel {
-            id: filterModel
-            property int sortOrder: Qt.AscendingOrder
-            filterCaseSensitivity: Qt.CaseInsensitive
-            filterRole: NotesModel.Name
-            sortRole: NotesModel.Name
-            sourceModel: NotesModel {
-                id: notesModel
-                path: NavigationController.notebookPath
-
-                onErrorOccurred: (errorMessage) => {
-                    root._window.showPassiveNotification(errorMessage, "long");
-                }
-
-                onModelReset: filterModel.sort(0, filterModel.sortOrder)
-            }
-            Component.onCompleted: filterModel.sort(0, filterModel.sortOrder)
-        }
         section {
             property: "month"
             delegate: Kirigami.ListSectionHeader {
                 required property string section
-
                 text: section
                 width: parent.width
             }
@@ -401,7 +424,6 @@ Kirigami.ScrollablePage {
 
         FileDialog {
             id: fileDialog
-
             property string name
             property string path
             property string exportPath
@@ -411,11 +433,11 @@ Kirigami.ScrollablePage {
                 var success = false;
                 fileDialog.exportPath = selectedFile
                 if (selectedFile.toString().endsWith('.html')) {
-                    success = notesModel.exportToHtml(path, selectedFile);
+                    success = pageNotesModel.exportToHtml(path, selectedFile);
                 } else if (selectedFile.toString().endsWith('.pdf')) {
-                    success = notesModel.exportToPdf(path, selectedFile);
+                    success = pageNotesModel.exportToPdf(path, selectedFile);
                 } else if (selectedFile.toString().endsWith('.odt')) {
-                    success = notesModel.exportToOdt(path, selectedFile);
+                    success = pageNotesModel.exportToOdt(path, selectedFile);
                 }
                 var notification = null;
                 if (success) {
@@ -438,10 +460,8 @@ Kirigami.ScrollablePage {
 
             Component {
                 id: exportSuccessNotificationComponent
-
                 Notification {
                     id: exportSuccessNotification
-
                     required property string path
                     required property string name
 
@@ -451,17 +471,12 @@ Kirigami.ScrollablePage {
                     text: KI18n.i18nc("@info", "Export of “%1” was successful.", exportSuccessNotification.name);
                     iconName: {
                         const ext = exportSuccessNotification.path.split('.').pop().toLowerCase();
-
                         switch (ext) {
-                            case "pdf":
-                                return "application-pdf";
+                            case "pdf": return "application-pdf";
                             case "html":
-                            case "htm":
-                                return "text-html";
-                            case "odt":
-                                return "application-vnd.oasis.opendocument.text";
-                            default:
-                                return "document-export";
+                            case "htm": return "text-html";
+                            case "odt": return "application-vnd.oasis.opendocument.text";
+                            default: return "document-export";
                         }
                     }
                     actions: [
@@ -475,12 +490,9 @@ Kirigami.ScrollablePage {
 
             Component {
                 id: exportFailedNotificationComponent
-
                 Notification {
                     id: exportFailedNotification
-
                     required property string name
-
                     componentName: "marknote"
                     eventId: "exportFailed"
                     title: KI18n.i18nc("@title:window", "Marknote")
@@ -492,30 +504,24 @@ Kirigami.ScrollablePage {
 
         Components.ConvergentContextMenu {
             id: menu
-
             property Delegates.RoundedItemDelegate delegateItem
 
-            Action {
+            Kirigami.Action {
                 text: KI18n.i18nc("@action:inmenu", "Rename")
                 icon.name: "document-edit"
-                onTriggered:
-                {
-                    menu.delegateItem.renameField.enabled = !menu.delegateItem.renameField.enabled
-
-                    if(menu.delegateItem.renameField.enabled === true)
-                        menu.delegateItem.renameField.forceActiveFocus()
+                onTriggered: {
+                    menu.delegateItem.renameField.enabled = true;
+                    menu.delegateItem.renameField.forceActiveFocus();
                 }
             }
 
-            Action {
+            Kirigami.Action {
                 text: KI18n.i18nc("@action:inmenu", "Copy")
                 icon.name: "edit-copy"
                 onTriggered: {
-                    notesModel.copyWholeNote(menu.delegateItem.fileUrl)
-
+                    pageNotesModel.copyWholeNote(menu.delegateItem.fileUrl)
                     if (root._window && root.pageStack) {
                         const editorPage = root.pageStack.get(root.pageStack.depth - 1);
-
                         if (editorPage && editorPage.copyMessage) {
                             editorPage.copyMessage.visible = true;
                             return;
@@ -524,11 +530,11 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            Action {
+            Kirigami.Action {
                 text: KI18n.i18nc("@action:inmenu", "Duplicate")
                 icon.name: "edit-duplicate-symbolic"
                 onTriggered: {
-                    notesModel.duplicateNote(menu.delegateItem.fileUrl)
+                    pageNotesModel.duplicateNote(menu.delegateItem.fileUrl)
                 }
             }
 
@@ -576,9 +582,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            Kirigami.Action {
-                separator: true
-            }
+            Kirigami.Action { separator: true }
 
             Action {
                 text: KI18n.i18nc("@action:inmenu", "Delete")
@@ -601,14 +605,26 @@ Kirigami.ScrollablePage {
             required property string name;
             required property string path;
             required property string color;
-            required property date date;
+            required property var date;
             required property int index;
             required property url fileUrl
             property alias renameField: renameField;
 
+            required property int kDescendantLevel
+            required property bool kDescendantExpandable
+            required property bool kDescendantExpanded
+            required property var kDescendantHasSiblings
+
+            readonly property string normPath: root.cleanPath(path)
+            readonly property bool isRelevant: normPath !== root.normRoot && normPath.startsWith(root.normRoot)
+            readonly property int visualLevel: Math.max(1, (normPath.match(/\//g) || []).length - root.rootDepth)
+
+            visible: isRelevant
+            height: isRelevant ? implicitHeight : 0
+            enabled: isRelevant
+
             function updateColor(): void {
                 if (!delegateItem.background) return;
-
                 if (color !== '#ffffff' && color !== '#00000000') {
                     delegateItem.background.Kirigami.Theme.highlightColor = color;
                 } else if (root._window) {
@@ -618,29 +634,46 @@ Kirigami.ScrollablePage {
 
             onColorChanged: updateColor();
             onBackgroundChanged: updateColor();
-            Component.onCompleted: updateColor();
 
-            TapHandler {
-                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
-                acceptedButtons: Qt.RightButton
-                onTapped: {
-                    menu.delegateItem = delegateItem;
-                    menu.popup()
+            Component.onCompleted: {
+                updateColor();
+                if (kDescendantExpandable) pageNotesModel.fetchMore(path);
+            }
+            onPathChanged: {
+                if (kDescendantExpandable) pageNotesModel.fetchMore(path);
+            }
+            onHighlightedChanged: {
+                if (highlighted) {
+                    notesList.currentIndex = delegateItem.index;
                 }
             }
+
+            Keys.onRightPressed: if (kDescendantExpandable && !kDescendantExpanded) {
+                pageNotesModel.fetchMore(path);
+                notesProxyModel.toggleChildren(index);
+            }
+            Keys.onLeftPressed: if (kDescendantExpandable && kDescendantExpanded) {
+                notesProxyModel.toggleChildren(index);
+            }
+            Keys.onReturnPressed: root.activateItem(delegateItem.index, kDescendantExpandable, path)
 
             DragHandler {
                 id: dragHandler
                 target: null
                 grabPermissions: PointerHandler.CanTakeOverFromAnything
-                onActiveChanged: if (active) {
-                    delegateItem.grabToImage(function(result) {
-                        delegateItem.Drag.imageSource = result.url;
-                    });
+                onActiveChanged: {
+                    if (active) {
+                        delegateItem.grabToImage(function(result) {
+                            delegateItem.Drag.imageSource = result.url;
+                            delegateItem.Drag.active = true;
+                        });
+                    } else {
+                        delegateItem.Drag.drop();
+                        delegateItem.Drag.active = false;
+                    }
                 }
             }
 
-            Drag.active: dragHandler.active
             Drag.dragType: Drag.Automatic
             Drag.hotSpot.x: width / 2
             Drag.hotSpot.y: height / 2
@@ -653,22 +686,45 @@ Kirigami.ScrollablePage {
 
             opacity: dragHandler.active ? 0.5 : 1
 
-            property string dragImageUrl: ""
-            Drag.imageSource: dragImageUrl
+            ContextMenu.onRequested: (position) => {
+                menu.delegateItem = delegateItem;
 
-            onPressed: {
-                delegateItem.grabToImage(function(result) {
-                    dragImageUrl = result.url;
-                });
+                if(delegateItem.kDescendantExpandable) {
+                    console.assert(false, "Folder menu triggered, which is yet to be implemented.")
+                } else {
+                    menu.popup()
+                }
             }
 
             contentItem: RowLayout{
                 spacing: Kirigami.Units.smallSpacing
 
+                KTreeView.TreeViewDecoration {
+                    Layout.fillHeight: true
+                    Layout.topMargin: -delegateItem.topPadding
+                    Layout.bottomMargin: -delegateItem.bottomPadding
+
+                    model: notesProxyModel
+                    parentDelegate: delegateItem
+                    index: delegateItem.index
+
+                    kDescendantLevel: delegateItem.visualLevel
+                    kDescendantHasSiblings: delegateItem.kDescendantHasSiblings
+                    kDescendantExpandable: delegateItem.kDescendantExpandable
+                    kDescendantExpanded: delegateItem.kDescendantExpanded
+                }
+
+                Kirigami.Icon {
+                    source: delegateItem.kDescendantExpandable ? "folder" : "note-symbolic"
+                    implicitWidth: Kirigami.Units.iconSizes.medium
+                    implicitHeight: Kirigami.Units.iconSizes.medium
+                    Layout.alignment: Qt.AlignVCenter
+                }
+
                 ColumnLayout {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    spacing: Kirigami.Units.smallSpacing
+                    spacing: 0
 
                     Item{
                         id: textcolorItem
@@ -679,7 +735,6 @@ Kirigami.ScrollablePage {
                     Label {
                         Layout.fillWidth: true
                         Layout.leftMargin: Kirigami.Units.smallSpacing
-
                         Layout.preferredHeight: renameField.implicitHeight
                         verticalAlignment: Text.AlignVCenter
 
@@ -697,7 +752,6 @@ Kirigami.ScrollablePage {
 
                         text: delegateItem.name
                         onAccepted: acceptedAction.triggered();
-
                         visible: enabled
                         enabled: false
                         background.visible: enabled
@@ -712,16 +766,24 @@ Kirigami.ScrollablePage {
                                 enabled: renameField.text.length > 0
                                 visible: renameField.enabled
                                 onTriggered: {
-                                    if (renameField.text.length === 0) {
-                                        renameField.text = delegateItem.name;
-                                    }
                                     if (renameField.text === delegateItem.name) {
-                                        renameField.enabled = false
+                                        renameField.enabled = false;
+                                        return;
                                     }
-                                    notesModel.renameNote(delegateItem.fileUrl, renameField.text);
-                                    if (NavigationController.notePath === delegateItem.path) {
-                                        NavigationController.notePath = renameField.text + '.md';
+
+                                    pageNotesModel.renameNote(delegateItem.fileUrl, renameField.text);
+
+                                    if (root.activeAbsolutePath === delegateItem.normPath) {
+                                        let relPath = NavigationController.notePath;
+                                        let lastSlash = relPath.lastIndexOf("/");
+
+                                        if (lastSlash !== -1) {
+                                            NavigationController.notePath = relPath.substring(0, lastSlash + 1) + renameField.text + '.md';
+                                        } else {
+                                            NavigationController.notePath = renameField.text + '.md';
+                                        }
                                     }
+                                    renameField.enabled = false;
                                 }
                             }
                         ]
@@ -729,13 +791,13 @@ Kirigami.ScrollablePage {
 
                     Label {
                         Layout.leftMargin: Kirigami.Units.smallSpacing
-                        text: Qt.formatDateTime(delegateItem.date)
-                        font: Kirigami.Theme.smallFont
+                        text: delegateItem.date ? Qt.formatDateTime(delegateItem.date, Qt.DefaultLocaleShortDate) : ""
+                        font.pointSize: Kirigami.Theme.smallFont.pointSize
                         color: Kirigami.Theme.disabledTextColor
                         Layout.fillWidth: true
                         Layout.bottomMargin: Kirigami.Units.smallSpacing
                         elide: Qt.ElideRight
-
+                        visible: text !== "" && !delegateItem.kDescendantExpandable
                     }
                 }
 
@@ -746,7 +808,6 @@ Kirigami.ScrollablePage {
                     display: ToolButton.IconOnly
 
                     onPressed: openMenu()
-
                     Keys.onReturnPressed: openMenu()
                     Keys.onEnterPressed: openMenu()
 
@@ -772,9 +833,18 @@ Kirigami.ScrollablePage {
                     root.pageStack.currentIndex = root.pageStack.depth - 1;
                     return;
                 }
-                NavigationController.notePath = path;
+
+                notesList.currentIndex = delegateItem.index;
+
+                if (delegateItem.kDescendantExpandable) {
+                    pageNotesModel.fetchMore(path);
+                    notesProxyModel.toggleChildren(index);
+                } else {
+                    root.activateItem(index, false, path);
+                }
             }
-            highlighted: NavigationController.notePath === path
+
+            highlighted: NavigationController.absoluteNotePath === delegateItem.normPath
             topPadding: Kirigami.Units.mediumSpacing
             bottomPadding: Kirigami.Units.mediumSpacing
         }
@@ -788,7 +858,4 @@ Kirigami.ScrollablePage {
             helpfulAction: newNoteAction
         }
     }
-
-
-
 }
