@@ -38,6 +38,7 @@ Name[sl]=Marknote
 Name[sv]=Marknote
 Name[tr]=Marknot
 Name[uk]=Marknote
+Name[zh_CN]=Marknote
 Name[zh_TW]=Marknote
 
 [Event/exportSuccessful]
@@ -57,6 +58,7 @@ Name[ru]=Экспорт успешно завершён
 Name[sl]=Izvoz uspešen
 Name[tr]=Dışa Aktarma Başarılı
 Name[uk]=Успішне експортування
+Name[zh_CN]=导出成功
 Name[zh_TW]=匯出成功
 Action=Sound|Popup
 Sound=ocean/stereo/outcome-success.oga
@@ -78,6 +80,7 @@ Name[ru]=Не удалось выполнить экспорт
 Name[sl]=Izvoz neuspel
 Name[tr]=Dışa Aktarma Başarısız
 Name[uk]=Не вдалося експортувати
+Name[zh_CN]=导出失败
 Name[zh_TW]=匯出失敗
 Action=Sound|Popup
 Sound=ocean/stereo/outcome-failure.oga
