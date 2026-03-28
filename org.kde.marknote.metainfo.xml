@@ -138,6 +138,7 @@
         <p xml:lang="ca">Llançament de correcció d'errors petits, principalment per a corregir la supressió de blocs de notes i altres canvis menors.</p>
         <p xml:lang="ca-valencia">Llançament d'esmena d'errors petits, principalment per a corregir la supressió de blocs de notes i altres canvis menors.</p>
         <p xml:lang="es">Pequeña actualización de corrección de fallos, principalmente para corregir el borrado de libros de notas y otros cambios menores.</p>
+        <p xml:lang="fr">Petite version de correction de bogues, principalement pour la correction de la suppression des carnets de notes et quelques autres modifications mineures.</p>
         <p xml:lang="he">מהדורה לתיקון תקלה קטנה, בעיקר כדי למחוק מחברות וכל מיני שינויים מזעריים נוספים.</p>
         <p xml:lang="it">Rilascio con piccole correzioni di bug, principalmente per risolvere il problema di eliminazione dei taccuini e apportare altre piccole modifiche.</p>
         <p xml:lang="ka">პატარა გამოცემა შეცდომების გასწორება. ძირითადად ეხება ბლოკნოტების წაშლას და სხვა პატარა ცვლილებებს.</p>
@@ -770,7 +771,9 @@
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/marknote/marknote.png</image>
       <caption>Markdown document opened in Marknote</caption>
+      <caption xml:lang="ar">مستند ماركداون مفتوح في دفتر داون</caption>
       <caption xml:lang="ca">Document Markdown obert en el Marknote</caption>
+      <caption xml:lang="ca-valencia">Document en Markdown obert en MarkNote</caption>
       <caption xml:lang="es">Documento markdown abierto en Marknote</caption>
       <caption xml:lang="he">מסמך Markdown פתוח ב־Marknote</caption>
       <caption xml:lang="it">Documento Markdown aperto in Marknote</caption>
