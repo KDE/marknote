@@ -60,7 +60,7 @@ msgstr "写入 '%1' 时出错"
 #: main.cpp:56
 #, kde-format
 msgid "Mathis Brüchert"
-msgstr ""
+msgstr "Mathis Brüchert"
 
 #: main.cpp:57 main.cpp:62 main.cpp:65
 #, kde-format
@@ -75,63 +75,63 @@ msgstr "Carl Schwan"
 #: main.cpp:64
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "Valentyn Bondarenko"
 
 #: main.cpp:73
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Jusn Zobel"
 
 #: main.cpp:74
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Flatpak 支持"
 
 #: main.cpp:79
 #, kde-format
 msgid "Shubham Shinde"
-msgstr ""
+msgstr "Shubham Shinde"
 
 #: main.cpp:80
 #, kde-format
 msgid "Table of Contents"
-msgstr ""
+msgstr "目录"
 
 #: main.cpp:85
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
 #: main.cpp:86
 #, kde-format
 msgid "Source Mode"
-msgstr ""
+msgstr "源代码模式"
 
 #: main.cpp:91
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: main.cpp:92 main.cpp:98 main.cpp:103
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "Bug 修正"
 
 #: main.cpp:97
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
 #: main.cpp:103
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:124 qml/Main.qml:418
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
-msgstr ""
+msgstr "Marknote"
 
 #: main.cpp:126
 #, kde-format
@@ -141,7 +141,7 @@ msgstr "笔记编辑程序"
 #: main.cpp:128
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
-msgstr ""
+msgstr "© 2023-2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
 #, kde-format
@@ -152,30 +152,30 @@ msgstr "无法重命名笔记。已经有同名称的笔记。"
 #: qml/EditPage.qml:159 qml/RichEditPage.qml:636
 #, kde-format
 msgid "Undo"
-msgstr ""
+msgstr "撤销"
 
 #: qml/EditPage.qml:173 qml/RichEditPage.qml:647
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "重做"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr ""
+msgstr "目录"
 
 #: qml/EditPage.qml:223
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr ""
+msgstr "搜索笔记"
 
 #: qml/EditPage.qml:231
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr ""
+msgstr "在笔记中搜索"
 
 #: qml/EditPage.qml:267
 #, kde-format
@@ -192,76 +192,76 @@ msgstr "退出全屏"
 #: qml/EditPage.qml:297
 #, kde-format
 msgid "Switch editor mode"
-msgstr ""
+msgstr "切换编辑器模式"
 
 #: qml/EditPage.qml:302
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "源视图"
 
 #: qml/EditPage.qml:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr ""
+msgstr "目录"
 
 #: qml/EditPage.qml:383
 #, kde-format
 msgid "Find text..."
-msgstr ""
+msgstr "查找文本..."
 
 #: qml/EditPage.qml:423
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "上一个"
 
 #: qml/EditPage.qml:439
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "下一个"
 
 #: qml/EditPage.qml:457 qml/EditPage.qml:569
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "无匹配"
 
 #: qml/EditPage.qml:459 qml/EditPage.qml:571
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:471 qml/EditPage.qml:540
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "替换"
 
 #: qml/EditPage.qml:489
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: qml/EditPage.qml:511
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "替换为……"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
+msgstr[0] "已替换了 %1 项。"
 
 #: qml/EditPage.qml:552
 #, kde-format
 msgid "Replace All"
-msgstr ""
+msgstr "全部替换"
 
 #: qml/EditPage.qml:620
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "笔记已复制到剪贴板。"
 
 #: qml/GlobalMenuBar.qml:27
 #, kde-format
@@ -331,7 +331,7 @@ msgstr "Maildir 位置："
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Maildir location"
-msgstr ""
+msgstr "选择一个 Maildir 位置"
 
 #: qml/ImportMaildirDialog.qml:101
 #, kde-format
@@ -373,7 +373,7 @@ msgstr "创建笔记本"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr ""
+msgstr "显示菜单"
 
 #: qml/Main.qml:358
 #, kde-format
@@ -507,7 +507,7 @@ msgstr "删除笔记本"
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."
-msgstr ""
+msgstr "您确定要删除笔记本 <b> %1 </b>？这将删除 <b>%2</b> 中的内容。"
 
 #: qml/NotebookMetadataDialog.qml:30
 #, kde-format
@@ -525,31 +525,31 @@ msgstr "编辑笔记本"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr ""
+msgstr "插入笔记链接"
 
 #: qml/NoteLinkDialog.qml:48
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr ""
+msgstr "笔记名称："
 
 #: qml/NoteLinkDialog.qml:50
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "您想要链接的笔记的名称。"
 
 #: qml/NoteLinkDialog.qml:67
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr ""
+msgstr "显示文本："
 
 #: qml/NoteLinkDialog.qml:69
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
-msgstr ""
+msgstr "可选的替代文字显示而不是笔记名称。"
 
 #: qml/NoteMetadataDialog.qml:24
 #, kde-format
@@ -601,31 +601,31 @@ msgstr "您确定要删除笔记 <b> %1 </b>？这将删除文件 <b>%2</b>。"
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
-msgstr ""
+msgstr "Marknote"
 
 #: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
-msgstr ""
+msgstr "导入\"%1\"成功。"
 
 #: qml/NotesPage.qml:469
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr ""
+msgstr "打开文件"
 
 #: qml/NotesPage.qml:487
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
-msgstr ""
+msgstr "导出“%1”失败。"
 
 #: qml/NotesPage.qml:499
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
-msgstr ""
+msgstr "重命名"
 
 #: qml/NotesPage.qml:511 qml/TextFieldContextMenu.qml:391
 #, kde-format
@@ -637,13 +637,13 @@ msgstr "复制"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
-msgstr ""
+msgstr "创建副本"
 
 #: qml/NotesPage.qml:536
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
-msgstr ""
+msgstr "导出"
 
 #: qml/NotesPage.qml:540
 #, kde-format
@@ -777,7 +777,7 @@ msgstr "插入链接"
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr ""
+msgstr "插入笔记链接"
 
 #: qml/RichEditPage.qml:451
 #, kde-format
@@ -870,7 +870,7 @@ msgstr "拼写检查"
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Note"
-msgstr ""
+msgstr "打开笔记"
 
 #: qml/TextFieldContextMenu.qml:261
 #, kde-format
@@ -923,7 +923,7 @@ msgstr "全部选择"
 #: qml/TocDrawer.qml:121
 #, kde-format
 msgid "No headers found"
-msgstr ""
+msgstr "未找到 headers"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -933,7 +933,7 @@ msgstr "首先创建您的第一个笔记本！"
 #: rich_documenthandler.cpp:1023
 #, kde-format
 msgid "Failed to save pasted image"
-msgstr ""
+msgstr "保存粘贴图像失败"
 
 #: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
@@ -984,7 +984,7 @@ msgstr "常规"
 #, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
-msgstr ""
+msgstr "关于 Markote"
 
 #: settings/MarkNoteSettings.qml:32
 #, kde-format
