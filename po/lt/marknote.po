@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-24 00:44+0000\n"
-"PO-Revision-Date: 2025-05-25 00:43+0000\n"
+"PO-Revision-Date: 2026-03-29 00:02+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,494 +17,495 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Moo"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "<>"
 
 #: application.cpp:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
-msgstr ""
+msgstr "Naujas bloknotas"
 
 #: application.cpp:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
-msgstr ""
+msgstr "Nauji užrašai"
 
 #: application.cpp:59
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Importuoti iš KNotes"
 
 #: application.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Importuoti iš Maildir"
 
 #: maildirimport.cpp:96
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr ""
+msgstr "Įvyko klaida rašant į „%1“"
 
 #: main.cpp:56
 #, kde-format
 msgid "Mathis Brüchert"
-msgstr ""
+msgstr "Mathis Brüchert"
 
 #: main.cpp:57 main.cpp:62 main.cpp:65
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Prižiūrėtojas"
 
 #: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:64
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "Valentyn Bondarenko"
 
 #: main.cpp:73
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Justin Zobel"
 
 #: main.cpp:74
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Flatpak palaikymas"
 
 #: main.cpp:79
 #, kde-format
 msgid "Shubham Shinde"
-msgstr ""
+msgstr "Shubham Shinde"
 
 #: main.cpp:80
 #, kde-format
 msgid "Table of Contents"
-msgstr ""
+msgstr "Turinys"
 
 #: main.cpp:85
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
 #: main.cpp:86
 #, kde-format
 msgid "Source Mode"
-msgstr ""
+msgstr "Šaltinio veiksena"
 
 #: main.cpp:91
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: main.cpp:92 main.cpp:98 main.cpp:103
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "Klaidų pataisymai"
 
 #: main.cpp:97
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
 #: main.cpp:103
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:124 qml/Main.qml:418
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
-msgstr ""
+msgstr "Marknote"
 
 #: main.cpp:126
 #, kde-format
 msgid "Note taking application"
-msgstr ""
+msgstr "Užrašų programa"
 
 #: main.cpp:128
 #, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
-msgstr ""
+msgstr "© 2023–2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
-msgstr ""
+msgstr "Nepavyko pervadinti užrašų. Užrašai tokiu pavadinimu jau yra."
 
 #: qml/EditPage.qml:159 qml/RichEditPage.qml:636
 #, kde-format
 msgid "Undo"
-msgstr ""
+msgstr "Atšaukti"
 
 #: qml/EditPage.qml:173 qml/RichEditPage.qml:647
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "Grąžinti"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr ""
+msgstr "Turinys"
 
 #: qml/EditPage.qml:223
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr ""
+msgstr "Ieškoti užrašų"
 
 #: qml/EditPage.qml:231
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr ""
+msgstr "Ieškoti užrašuose"
 
 #: qml/EditPage.qml:267
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "Susikaupimo veiksena"
 
 #: qml/EditPage.qml:284 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:234
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Išjungti viso ekrano veikseną"
 
 #: qml/EditPage.qml:297
 #, kde-format
 msgid "Switch editor mode"
-msgstr ""
+msgstr "Perjungti redaktoriaus veikseną"
 
 #: qml/EditPage.qml:302
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "Šaltinio rodinys"
 
 #: qml/EditPage.qml:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr ""
+msgstr "Turinys"
 
 #: qml/EditPage.qml:383
 #, kde-format
 msgid "Find text..."
-msgstr ""
+msgstr "Rasti tekstą..."
 
 #: qml/EditPage.qml:423
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "Ankstesnis"
 
 #: qml/EditPage.qml:439
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "Kitas"
 
 #: qml/EditPage.qml:457 qml/EditPage.qml:569
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Nėra atitikčių"
 
 #: qml/EditPage.qml:459 qml/EditPage.qml:571
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:471 qml/EditPage.qml:540
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "Pakeisti"
 
 #: qml/EditPage.qml:489
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Užverti"
 
 #: qml/EditPage.qml:511
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "Pakeisti į..."
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Pakeista %1 atitiktis"
+msgstr[1] "Pakeistos %1 atitiktys"
+msgstr[2] "Pakeista %1 atitikčių"
+msgstr[3] "Pakeista %1 atitiktis"
 
 #: qml/EditPage.qml:552
 #, kde-format
 msgid "Replace All"
-msgstr ""
+msgstr "Pakeisti visus"
 
 #: qml/EditPage.qml:620
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "Užrašai nukopijuoti į iškarpinę."
 
 #: qml/GlobalMenuBar.qml:27
 #, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
-msgstr ""
+msgstr "Nuostatos"
 
 #: qml/ImageDialog.qml:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Image"
-msgstr ""
+msgstr "Įterpti paveikslą"
 
 #: qml/ImageDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "Pasirinkite paveikslą"
 
 #: qml/ImageDialog.qml:28
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr ""
+msgstr "Paveikslo failai (*.jpg *.jpeg *.png *.svg *.webp)"
 
 #: qml/ImageDialog.qml:28
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "Visi failai (*)"
 
 #: qml/ImageDialog.qml:43
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Image Location:"
-msgstr ""
+msgstr "Paveikslo vieta:"
 
 #: qml/ImageDialog.qml:54
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Quick Sketch"
-msgstr ""
+msgstr "Greitas eskizas"
 
 #: qml/ImportMaildirDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Importuoti iš Maildir"
 
 #: qml/ImportMaildirDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Importuoti iš KNotes"
 
 #: qml/ImportMaildirDialog.qml:35 qml/NotebookMetadataDialog.qml:37
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr ""
+msgstr "Pavadinimas:"
 
 #: qml/ImportMaildirDialog.qml:48
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr ""
+msgstr "Maildir vieta:"
 
 #: qml/ImportMaildirDialog.qml:55
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Maildir location"
-msgstr ""
+msgstr "Pasirinkite Maildir vietą"
 
 #: qml/ImportMaildirDialog.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "Importuoti"
 
 #: qml/LinkDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "Įterpti nuorodą"
 
 #: qml/LinkDialog.qml:22
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Nuorodos tekstas:"
 
 #: qml/LinkDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "Nuorodos URL:"
 
 #: qml/Main.qml:148
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
-msgstr ""
+msgstr "Nepavyko sukurti naujų užrašų, iš pradžių, turite sukurti bloknotą."
 
 #: qml/Main.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
-msgstr ""
+msgstr "Sukurti bloknotą"
 
 #: qml/Main.qml:312 qml/NotesPage.qml:743
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr ""
+msgstr "Rodyti meniu"
 
 #: qml/Main.qml:358
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
-msgstr ""
+msgstr "Importuoti"
 
 #: qml/Main.qml:367
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
-msgstr ""
+msgstr "Rikiuoti užrašų sąrašą"
 
 #: qml/Main.qml:373
 #, kde-format
 msgid "by Name"
-msgstr ""
+msgstr "pagal pavadinimą"
 
 #: qml/Main.qml:386
 #, kde-format
 msgid "by Date"
-msgstr ""
+msgstr "pagal datą"
 
 #: qml/Main.qml:403
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "Suskleisti šoninę juostą"
 
 #: qml/Main.qml:403
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Išskleisti šoninę juostą"
 
 #: qml/Main.qml:541
 #, kde-format
 msgid "Your Notebooks"
-msgstr ""
+msgstr "Jūsų bloknotai"
 
 #: qml/NativeEditMenu.qml:13
 #, kde-format
 msgctxt "@action:menu"
 msgid "Edit"
-msgstr ""
+msgstr "Taisyti"
 
 #: qml/NativeEditMenu.qml:42
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr ""
+msgstr "Atšaukti"
 
 #: qml/NativeEditMenu.qml:52
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
-msgstr ""
+msgstr "Grąžinti"
 
 #: qml/NativeEditMenu.qml:65
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
-msgstr ""
+msgstr "Iškirpti"
 
 #: qml/NativeEditMenu.qml:75
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
-msgstr ""
+msgstr "Kopijuoti"
 
 #: qml/NativeEditMenu.qml:85
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
-msgstr ""
+msgstr "Įdėti"
 
 #: qml/NativeEditMenu.qml:110
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
-msgstr ""
+msgstr "Ištrinti"
 
 #: qml/NativeEditMenu.qml:123
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
-msgstr ""
+msgstr "Žymėti viską"
 
 #: qml/NativeFileMenu.qml:13
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
-msgstr ""
+msgstr "Failas"
 
 #: qml/NativeHelpMenu.qml:13
 #, kde-format
 msgctxt "@action:menu"
 msgid "Help"
-msgstr ""
+msgstr "Pagalba"
 
 #: qml/NativeWindowMenu.qml:18
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
-msgstr ""
+msgstr "Langas"
 
 #: qml/NativeWindowMenu.qml:28
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
-msgstr ""
+msgstr "Įjungti viso ekrano veikseną"
 
 #: qml/NotebookContextMenu.qml:18
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit Notebook"
-msgstr ""
+msgstr "Taisyti bloknotą"
 
 #: qml/NotebookContextMenu.qml:35 qml/NotebookDeleteAction.qml:22
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
-msgstr ""
+msgstr "Ištrinti bloknotą"
 
 #: qml/NotebookDeleteDialog.qml:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
-msgstr ""
+msgstr "Ištrinti bloknotą"
 
 #: qml/NotebookDeleteDialog.qml:31
 #, kde-format
@@ -512,87 +513,90 @@ msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."
 msgstr ""
+"Ar tikrai norite ištrinti bloknotą <b>%1</b>? Tai galutinai ištrins <b>%2</"
+"b> turinį."
 
 #: qml/NotebookMetadataDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
-msgstr ""
+msgstr "Naujas bloknotas"
 
 #: qml/NotebookMetadataDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Notebook"
-msgstr ""
+msgstr "Taisyti bloknotą"
 
 #: qml/NoteLinkDialog.qml:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr ""
+msgstr "Įterpti nuoroda į užrašus"
 
 #: qml/NoteLinkDialog.qml:48
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr ""
+msgstr "Užrašų pavadinimas:"
 
 #: qml/NoteLinkDialog.qml:50
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "Užrašų, į kuriuos norite nukreipti, pavadinimas."
 
 #: qml/NoteLinkDialog.qml:67
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr ""
+msgstr "Rodomas tekstas:"
 
 #: qml/NoteLinkDialog.qml:69
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
 msgstr ""
+"Nebūtinas alternatyvus tekstas, kuris bus rodomas vietoj užrašų pavadinimo."
 
 #: qml/NoteMetadataDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "New Note"
-msgstr ""
+msgstr "Nauji užrašai"
 
 #: qml/NoteMetadataDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
-msgstr ""
+msgstr "Taisyti užrašus"
 
 #: qml/NoteMetadataDialog.qml:55
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
-msgstr ""
+msgstr "Pavadinimas:"
 
 #: qml/NotesPage.qml:42
 #, kde-format
 msgid "Add note"
-msgstr ""
+msgstr "Pridėti užrašus"
 
 #: qml/NotesPage.qml:188
 #, kde-format
 msgid "Exit Search (%1)"
-msgstr ""
+msgstr "Išeiti iš paieškos (%1)"
 
 #: qml/NotesPage.qml:188
 #, kde-format
 msgid "Search notes (%1)"
-msgstr ""
+msgstr "Ieškoti užrašų (%1)"
 
 #: qml/NotesPage.qml:254
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
-msgstr ""
+msgstr "Ištrinti užrašus"
 
 #: qml/NotesPage.qml:264
 #, kde-format
@@ -600,433 +604,435 @@ msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr ""
+"Ar tikrai norite ištrinti užrašus <b> %1 </b>? Tai galutinai ištrins failą "
+"<b>%2</b>."
 
 #: qml/NotesPage.qml:450 qml/NotesPage.qml:486
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
-msgstr ""
+msgstr "Marknote"
 
 #: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
-msgstr ""
+msgstr "„%1“ eksportavimas sėkmingas."
 
 #: qml/NotesPage.qml:469
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr ""
+msgstr "Atverti failą"
 
 #: qml/NotesPage.qml:487
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
-msgstr ""
+msgstr "Nepavyko eksportuoti „%1“."
 
 #: qml/NotesPage.qml:499
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
-msgstr ""
+msgstr "Pervadinti"
 
 #: qml/NotesPage.qml:511 qml/TextFieldContextMenu.qml:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
-msgstr ""
+msgstr "Kopijuoti"
 
 #: qml/NotesPage.qml:528
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
-msgstr ""
+msgstr "Dubliuoti"
 
 #: qml/NotesPage.qml:536
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
-msgstr ""
+msgstr "Eksportuoti"
 
 #: qml/NotesPage.qml:540
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Eksportuoti į HTML"
 
 #: qml/NotesPage.qml:546
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Eksportuoti į HTML"
 
 #: qml/NotesPage.qml:547
 #, kde-format
 msgid "HTML file (*.html)"
-msgstr ""
+msgstr "HTML failas (*.html)"
 
 #: qml/NotesPage.qml:553
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Eksportuoti į PDF"
 
 #: qml/NotesPage.qml:559
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Eksportuoti į PDF"
 
 #: qml/NotesPage.qml:560
 #, kde-format
 msgid "PDF file (*.pdf)"
-msgstr ""
+msgstr "PDF failas (*.pdf)"
 
 #: qml/NotesPage.qml:566
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Eksportuoti į ODT"
 
 #: qml/NotesPage.qml:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Eksportuoti į ODT"
 
 #: qml/NotesPage.qml:573
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "ODF tekstinis dokumentas (*.odt)"
 
 #: qml/NotesPage.qml:584 qml/TextFieldContextMenu.qml:433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
-msgstr ""
+msgstr "Ištrinti"
 
 #: qml/NotesPage.qml:787
 #, kde-format
 msgid "Add a note!"
-msgstr ""
+msgstr "Pridėkite užrašų!"
 
 #: qml/RichEditPage.qml:266
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
-msgstr ""
+msgstr "Pusjuodis"
 
 #: qml/RichEditPage.qml:287
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
-msgstr ""
+msgstr "Kursyvas"
 
 #: qml/RichEditPage.qml:306
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr ""
+msgstr "Pabraukimas"
 
 #: qml/RichEditPage.qml:320
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
-msgstr ""
+msgstr "Perbrauktas"
 
 #: qml/RichEditPage.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "Padidinti sąrašo lygį"
 
 #: qml/RichEditPage.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "Sumažinti sąrašo lygį"
 
 #: qml/RichEditPage.qml:391
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
-msgstr ""
+msgstr "Nėra sąrašo"
 
 #: qml/RichEditPage.qml:392
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
-msgstr ""
+msgstr "Netvarkusis sąrašas"
 
 #: qml/RichEditPage.qml:393
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
-msgstr ""
+msgstr "Tvarkusis sąrašas"
 
 #: qml/RichEditPage.qml:404
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
-msgstr ""
+msgstr "Įterpti žymimąjį langelį"
 
 #: qml/RichEditPage.qml:419
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
-msgstr ""
+msgstr "Įterpti nuorodą"
 
 #: qml/RichEditPage.qml:435
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr ""
+msgstr "Įterpti nuoroda į užrašus"
 
 #: qml/RichEditPage.qml:451
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
-msgstr ""
+msgstr "Įterpti paveikslą"
 
 #: qml/RichEditPage.qml:464
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr ""
+msgstr "Įterpti lentelę"
 
 #: qml/RichEditPage.qml:485
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
-msgstr ""
+msgstr "Paprastas tekstas"
 
 #: qml/RichEditPage.qml:486
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
-msgstr ""
+msgstr "Antraštė"
 
 #: qml/RichEditPage.qml:487
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
-msgstr ""
+msgstr "Paantraštė"
 
 #: qml/RichEditPage.qml:488
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
-msgstr ""
+msgstr "Skyrius"
 
 #: qml/RichEditPage.qml:489
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
-msgstr ""
+msgstr "Poskyris"
 
 #: qml/RichEditPage.qml:490
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
-msgstr ""
+msgstr "Pastraipa"
 
 #: qml/RichEditPage.qml:491
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
-msgstr ""
+msgstr "Antrinė pastraipa"
 
 #: qml/RichEditPage.qml:679
 #, kde-format
 msgid "Format"
-msgstr ""
+msgstr "Formatas"
 
 #: qml/RichEditPage.qml:683
 #, kde-format
 msgid "Lists"
-msgstr ""
+msgstr "Sąrašai"
 
 #: qml/RichEditPage.qml:687
 #, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "Įterpti"
 
 #: qml/TableDialog.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr ""
+msgstr "Įterpti lentelę"
 
 #: qml/TextFieldContextMenu.qml:230
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
-msgstr ""
+msgstr "Nepaisyti"
 
 #: qml/TextFieldContextMenu.qml:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr ""
+msgstr "Rašybos tikrinimas"
 
 #: qml/TextFieldContextMenu.qml:261
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Note"
-msgstr ""
+msgstr "Atverti užrašus"
 
 #: qml/TextFieldContextMenu.qml:261
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
-msgstr ""
+msgstr "Atverti nuorodą"
 
 #: qml/TextFieldContextMenu.qml:281
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
-msgstr ""
+msgstr "Įterpti"
 
 #: qml/TextFieldContextMenu.qml:317
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
-msgstr ""
+msgstr "Šalinti"
 
 #: qml/TextFieldContextMenu.qml:347
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
-msgstr ""
+msgstr "Atšaukti"
 
 #: qml/TextFieldContextMenu.qml:361
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
-msgstr ""
+msgstr "Grąžinti"
 
 #: qml/TextFieldContextMenu.qml:376
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
-msgstr ""
+msgstr "Iškirpti"
 
 #: qml/TextFieldContextMenu.qml:405
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
-msgstr ""
+msgstr "Įdėti"
 
 #: qml/TextFieldContextMenu.qml:451
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
-msgstr ""
+msgstr "Žymėti viską"
 
 #: qml/TocDrawer.qml:121
 #, kde-format
 msgid "No headers found"
-msgstr ""
+msgstr "Nerasta jokių antraščių"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
-msgstr ""
+msgstr "Pradėkite sukurdami pirmuosius užrašus!"
 
 #: rich_documenthandler.cpp:1023
 #, kde-format
 msgid "Failed to save pasted image"
-msgstr ""
+msgstr "Nepavyko įrašyti įdėto paveikslo"
 
 #: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
-msgstr ""
+msgstr "Bendra"
 
 #: settings/MarkNoteGeneralPage.qml:20
 #, kde-format
 msgid "General theme"
-msgstr ""
+msgstr "Bendras apipavidalinimas"
 
 #: settings/MarkNoteGeneralPage.qml:27
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Spalvų rinkinys"
 
 #: settings/MarkNoteGeneralPage.qml:41
 #, kde-format
 msgid "Editor Settings"
-msgstr ""
+msgstr "Redaktoriaus nuostatos"
 
 #: settings/MarkNoteGeneralPage.qml:47
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr ""
+msgstr "Užrašų katalogas:"
 
 #: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "Šriftas:"
 
 #: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "Šrifto dydis:"
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
-msgstr ""
+msgstr "Bendra"
 
 #: settings/MarkNoteSettings.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
-msgstr ""
+msgstr "Apie Marknote"
 
 #: settings/MarkNoteSettings.qml:32
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
-msgstr ""
+msgstr "Apie KDE"
 
 #: tableactionhelper.cpp:119
 #, kde-format
 msgid "Row Below"
-msgstr ""
+msgstr "Eilutė žemiau"
 
 #: tableactionhelper.cpp:125
 #, kde-format
 msgid "Row Above"
-msgstr ""
+msgstr "Eilutė aukščiau"
 
 #: tableactionhelper.cpp:131
 #, kde-format
 msgid "Column Before"
-msgstr ""
+msgstr "Stulpelis kairėje"
 
 #: tableactionhelper.cpp:137
 #, kde-format
 msgid "Column After"
-msgstr ""
+msgstr "Stulpelis dešinėje"
 
 #: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
-msgstr ""
+msgstr "Eilutė"
 
 #: tableactionhelper.cpp:149
 #, kde-format
 msgid "Column"
-msgstr ""
+msgstr "Stulpelis"
 
 #: tableactionhelper.cpp:155
 #, kde-format
 msgid "Cell Contents"
-msgstr ""
+msgstr "Langelio turinys"
