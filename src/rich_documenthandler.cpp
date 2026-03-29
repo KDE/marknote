@@ -2076,7 +2076,7 @@ void RichDocumentHandler::checkForShortcode()
     int colon_posn = -1;
 
     for (int i = left_text.length() - 1; i >= 0; i--) {
-        static const QRegularExpression regex(QStringLiteral("^[a-z0-9_:-]$"));
+        static const QRegularExpression regex(QStringLiteral("^[\\w:-]$"), QRegularExpression::UseUnicodePropertiesOption);
         QRegularExpressionMatch match = regex.match(left_text[i]);
 
         if (!match.hasMatch()) {

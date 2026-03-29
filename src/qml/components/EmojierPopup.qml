@@ -16,7 +16,7 @@ Popup{
     signal emojiSelected(string emojichar)
 
     onVisibleItemsCountChanged: {
-        if (visibleItemsCount === 0 && opened){
+        if (visibleItemsCount === 0 && visible){
             close()
         }
         listView.currentIndex = 0
