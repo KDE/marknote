@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as Components
 import org.kde.marknote
+import org.kde.ki18n
 
 import "components"
 
@@ -16,7 +17,8 @@ Controls.Dialog {
     id: root
 
     property string notePath
-    property alias imagePath: saveButton.imagePath
+
+    signal saved(string imagePath)
 
     parent: Controls.ApplicationWindow.window ? Controls.ApplicationWindow.window.overlay : null
     modal: true
@@ -146,6 +148,7 @@ Controls.Dialog {
             id: area
             anchors.fill: parent
             preventStealing: true
+            cursorShape: Qt.CrossCursor
 
             onPressed: {
                 canvas.mousePressed = true;
@@ -158,6 +161,7 @@ Controls.Dialog {
                     isEraser: canvas.erase
                 }
             }
+
             onReleased: {
                 canvas.mousePressed = false;
                 canvas.currentStroke.points.push(Qt.vector2d(canvas.lastX, canvas.lastY));
@@ -212,44 +216,11 @@ Controls.Dialog {
 
             Controls.ToolSeparator { }
 
-            Controls.ToolButton {
-                id: eraserButton
-                Controls.ButtonGroup.group: colorGroup
-                implicitHeight: Kirigami.Units.gridUnit * 2
-                autoExclusive: true
-                checkable: true
-                background.visible: false
-                contentItem: Item {
-                    width: height
-                    Kirigami.ShadowedRectangle {
-                        anchors.centerIn: parent
-                        color: "white"
-                        radius: Kirigami.Units.mediumSpacing
-                        width: eraserButton.checked ? parent.width - 10 : parent.width  - 4
-                        height: width
-                        border{
-                            width: 1
-                            color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
-                        }
-                        shadow {
-                            size: 5
-                            yOffset: 3
-                            color: Qt.rgba(0, 0, 0, 0.2)
-                        }
-
-                        Behavior on width {
-                            NumberAnimation {
-                                duration: Kirigami.Units.shortDuration
-                                easing.type: Easing.InOutQuart
-                            }
-                        }
-                    }
-                }
-            }
-
             Repeater {
+                id: colorRepeater
+
                 model: ListModel {
-                    ListElement { color: "#1A1B1D" }
+                    ListElement { color: "foreground" }
                     ListElement { color: "#de324c" }
                     ListElement { color: "#f4895f" }
                     ListElement { color: "#f8e16f" }
@@ -257,21 +228,34 @@ Controls.Dialog {
                     ListElement { color: "#369acc" }
                     ListElement { color: "#9656a2" }
                 }
+
                 Controls.ToolButton {
                     id: delegate
                     Controls.ButtonGroup.group: colorGroup
 
+                    required property string color
+                    required property int index
+
+                    readonly property var foreground: Kirigami.Theme.textColor
+                    readonly property string colorName: color === "foreground" ? foreground : color
+
                     implicitHeight: Kirigami.Units.gridUnit * 2
                     autoExclusive: true
                     checkable: true
-                    onClicked: canvas.color = color
-                    required property string color
+                    checked: index === 0
+                    onCheckedChanged: canvas.color = colorName
+                    onForegroundChanged: {
+                        if (color === "foreground" && delegate.checked) {
+                            canvas.color = foreground
+                        }
+                    }
+
                     background.visible: false
                     contentItem: Item {
                         width: height
                         Kirigami.ShadowedRectangle {
                             anchors.centerIn: parent
-                            color: delegate.color
+                            color: delegate.colorName
                             radius: Kirigami.Units.mediumSpacing
                             width: delegate.checked ? parent.width - 10 : parent.width  - 4
                             height: width
@@ -299,6 +283,20 @@ Controls.Dialog {
             Controls.ToolSeparator { }
 
             Controls.ToolButton {
+                id: eraserButton
+                Controls.ButtonGroup.group: colorGroup
+                implicitHeight: Kirigami.Units.gridUnit * 2
+                autoExclusive: true
+                checkable: true
+                background.visible: true
+                display: Controls.AbstractButton.IconOnly
+                icon.name: "draw-eraser-symbolic"
+                Controls.ToolTip {
+                    text: KI18n.i18nc("Tool that removes selected parts of image from canvas", "Eraser")
+                }
+            }
+
+            Controls.ToolButton {
                 id: clearButton
                 implicitHeight: Kirigami.Units.gridUnit * 2
                 autoExclusive: false
@@ -308,6 +306,9 @@ Controls.Dialog {
                 display: Controls.AbstractButton.IconOnly
                 icon.name: "albumfolder-user-trash-symbolic"
                 onClicked: canvas.clear()
+                Controls.ToolTip {
+                    text: KI18n.i18nc("Button that clears the canvas", "Clear Canvas")
+                }
             }
         }
     }
@@ -391,11 +392,20 @@ Controls.Dialog {
                 property string imagePath
                 text: "Save"
                 icon.name: "answer-correct"
-                onClicked:{
-                    var notepath = root.notePath.slice(7, -3)
-                    imagePath = notepath + Math.random() * 1000 +".png"
-                    print(canvas.save(imagePath))
-                    root.close()
+                onClicked: {
+                    let base = root.notePath.toString().replace(/^file:\/\//, "").replace(/\.md$/, "");
+                    base = base || (StandardPaths.writableLocation(StandardPaths.TempLocation) + "/sketch");
+                    const timestamp = Date.now();
+                    let localFilePath = `${base}_${timestamp}.png`;
+
+                    canvas.grabToImage(function(result) {
+                        if (result.saveToFile(localFilePath)) {
+                            root.saved(localFilePath);
+                            root.close();
+                        } else {
+                            console.error("Failed to save sketch to: " + localFilePath);
+                        }
+                    });
                 }
             }
         }

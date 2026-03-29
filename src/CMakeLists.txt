@@ -34,7 +34,6 @@ ecm_add_qml_module(marknote_static
         qml/RichEditPage.qml
         qml/RawEditPage.qml
         qml/LinkDialog.qml
-        qml/ImageDialog.qml
         qml/TableDialog.qml
         qml/SketchDialog.qml
         qml/TextFieldContextMenu.qml

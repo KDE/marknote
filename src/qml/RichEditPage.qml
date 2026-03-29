@@ -5,9 +5,11 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
+import QtCore
 import QtQuick.Controls
 import QtQuick.Templates as T
 import QtQuick.Layouts
+import QtQuick.Dialogs
 import "components"
 
 import org.kde.kirigami as Kirigami
@@ -216,18 +218,20 @@ EditPage {
         onAccepted: root.document.updateNoteLink(noteName, noteAlias)
     }
 
-    ImageDialog {
+    FileDialog {
         id: imageDialog
-        implicitWidth: Kirigami.Units.gridUnit * 20
 
-        parent: root.Overlay.overlay
+        title: KI18n.i18nc("@title:window", "Select an image")
+        currentFolder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
+        fileMode: FileDialog.OpenFile
+        nameFilters: [KI18n.i18n("Image files (*.jpg *.jpeg *.png *.svg *.webp)"), KI18n.i18n("All files (*)")]
+
         onAccepted: {
-            if (imagePath.toString().length > 0) {
-                root.document.insertImage(imagePath)
-                imagePath = '';
+            const fileUrl = selectedFile.toString();
+            if (fileUrl.length > 0) {
+                root.document.insertImage(fileUrl);
             }
         }
-        notePath: root.noteFullPath
     }
 
     TableDialog {
@@ -236,6 +240,17 @@ EditPage {
 
         parent: root.Overlay.overlay
         onAccepted: root.document.insertTable(rows, cols)
+    }
+
+    SketchDialog {
+        id: sketchDialog
+        notePath: root.noteFullPath
+
+        onSaved: imagePath => {
+            if (imagePath.toString().length > 0) {
+                root.document.insertImage("file://" + imagePath);
+            }
+        }
     }
 
     TocDrawer {
@@ -458,6 +473,7 @@ EditPage {
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
             }
+
             ToolButton {
                 id: tableAction
                 icon.name: "insert-table"
@@ -472,6 +488,20 @@ EditPage {
                 ToolTip.delay: Kirigami.Units.toolTipDelay
             }
 
+            ToolButton {
+                id: sketchAction
+                icon.name: "draw-freehand"
+                text: KI18n.i18nc("@action:button", "Insert sketch")
+                display: AbstractButton.IconOnly
+
+                onClicked: {
+                    sketchDialog.open();
+                }
+
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
         }
     }
 
@@ -589,7 +619,7 @@ EditPage {
                         implicitHeight: undoButton.height + Kirigami.Units.smallSpacing
                         currentIndex: categorySelector.selectedIndex
                         interactive: false
-                        
+
                         Item {
                             id: firstPage
 
@@ -614,7 +644,7 @@ EditPage {
                                 Loader { sourceComponent: listStyleGroup }
                             }
                         }
-                        
+
                         Item {
                             id: thirdPage
                             RowLayout {
@@ -749,7 +779,7 @@ EditPage {
             Loader { sourceComponent: headingGroup }
         }
     }
-         
+
     Timer {
         id: copyMessageTimer
         interval: 3000
@@ -770,4 +800,3 @@ EditPage {
         onInternalLinkClicked: (link) => root.openInternalLinkUrl(link)
     }
 }
-
