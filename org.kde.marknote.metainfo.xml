@@ -39,6 +39,7 @@
   <name xml:lang="sv">Marknote</name>
   <name xml:lang="tr">Marknot</name>
   <name xml:lang="uk">Marknote</name>
+  <name xml:lang="zh-CN">Marknote</name>
   <name xml:lang="zh-TW">Marknote</name>
   <summary>Write down your thoughts</summary>
   <summary xml:lang="ar">اكتب أفكارك</summary>
@@ -140,6 +141,7 @@
         <p xml:lang="es">Pequeña actualización de corrección de fallos, principalmente para corregir el borrado de libros de notas y otros cambios menores.</p>
         <p xml:lang="fr">Petite version de correction de bogues, principalement pour la correction de la suppression des carnets de notes et quelques autres modifications mineures.</p>
         <p xml:lang="he">מהדורה לתיקון תקלה קטנה, בעיקר כדי למחוק מחברות וכל מיני שינויים מזעריים נוספים.</p>
+        <p xml:lang="ia">Parve edition de correction de errores, principalmente pro corriger le deletion de libros de notas (notebooks)  e alcun altere parve modificationes.</p>
         <p xml:lang="it">Rilascio con piccole correzioni di bug, principalmente per risolvere il problema di eliminazione dei taccuini e apportare altre piccole modifiche.</p>
         <p xml:lang="ka">პატარა გამოცემა შეცდომების გასწორება. ძირითადად ეხება ბლოკნოტების წაშლას და სხვა პატარა ცვლილებებს.</p>
         <p xml:lang="nl">Uitgave met kleine reparaties van fouten, voornamelijk om het verwijderen van notitieboeken te verhelpen en enkele andere kleine wijzigingen door te voeren.</p>
@@ -147,6 +149,7 @@
         <p xml:lang="sl">Izdaja z manjšimi popravki napak, predvsem zaradi brisanja zvezkov in nekaterih drugih manjših sprememb.</p>
         <p xml:lang="tr">Ufak bir hata düzeltme sürümü; defterleri silmekle ilgili bir hata düzeltildi ve başka ufak sorunlar giderildi.</p>
         <p xml:lang="uk">Випуск з виправленнями невеличких вад; основне призначення — виправити вилучення нотатників та деякі інші незначні зміни.</p>
+        <p xml:lang="zh-CN">小错误修复发布，主要是为了修复删除笔记本和其他一些小的更改。</p>
       </description>
     </release>
     <release version="1.5.1" date="2026-03-20">
@@ -159,6 +162,7 @@
         <p xml:lang="es">Marknote 1.5.1 contiene diversas correcciones de fallos, incluidos los relacionados con las acciones de copiar y pegar. Esta versión también contiene mejoras menores, como el resaltado de sintaxis en el modo de código fuente y una carga de imágenes más rápida.</p>
         <p xml:lang="fr">Marknote 1.5.1 contient diverses corrections de bogues, y compris celles pour des problèmes spécifiques lors du copier-coller. Cette version apporte également quelques petites améliorations comme la coloration syntaxique en mode source et un chargement plus rapide des images.</p>
         <p xml:lang="he">ב־Marknote 1.5.1 תוקנו מגוון תקלות, כולל תקלות נקודתיות שקשורות בהעתקה והדבקה. המהדורה הזאת מוסיפה מגוון שיפורים מזעריים כגון הדגשת תחביר במצב מקור וטעינת תמונות מהירה יותר.</p>
+        <p xml:lang="ia">Marknote 1.5.1 contine varie correctiones de errores, includite illos pro problemas specific durante le copiar e collar. Iste version etiam adde alcun parve melioramentos como le evidentiar de syntaxe in le modo de fonte e un cargamento de imagines  plus rapide.</p>
         <p xml:lang="it">Marknote 1.5.1 include diverse correzioni di bug, tra cui quelle relative a problemi specifici durante le operazioni di copia e incolla. Questa versione introduce anche alcuni piccoli miglioramenti, come l'evidenziazione della sintassi nella modalità sorgente e un caricamento più rapido delle immagini.</p>
         <p xml:lang="ka">Marknote 1.5.1 შეიცავს სხვადასხვა შეცდომის გასწორებას, კოპირებისა და ჩასმის პრობლემების ჩათვლით. ეს გამოცემა ასევე ამატებს რამდენიმე ისე მცირე გაუმჯობესებას, როგორიცაა სინტაქსის გამოკვეთა წყაროს რეჟიმში და უფრო სწრაფი გამოსახულების ჩატვირთვა.</p>
         <p xml:lang="nl">Marknote 1.5.1 bevat verschillende reparaties van fouten, inclusief diegenen voor specifieke problemen bij kopiëren en plakken. Deze uitgave voegt ook enige kleine verbeteringen toe zoals accentuering van syntaxis in de modus broncode en sneller laden van een afbeelding.</p>
@@ -166,6 +170,7 @@
         <p xml:lang="sl">Marknote 1.5.1 vsebuje različne popravke napak, vključno s tistimi za specifične težave pri kopiranju in lepljenju. Ta izdaja dodaja tudi nekaj drobnih izboljšav, kot sta označevanje skladnje v izvornem načinu in hitrejše nalaganje slik.</p>
         <p xml:lang="tr">Marknot 1.5.1, kopyalama ve yapıştırma sırasında ortaya çıkan belirli sorunlar da dahil olmak üzere çeşitli hata düzeltmeleri içeriyor. Bu sürüm ayrıca kaynak kipinde sözdizim vurgulaması ve daha hızlı görsel yükleme gibi bazı küçük iyileştirmeler de ekliyor.</p>
         <p xml:lang="uk">У Marknote 1.5.1 реалізовано різні виправлення помилок, зокрема ті, що стосуються конкретних проблем під час копіювання та вставлення. У цьому випуску також додано деякі незначні покращення, зокрема підсвічування синтаксису у режимі початкового коду та швидше завантаження зображень.</p>
+        <p xml:lang="zh-CN">Markote 1.5.1含有各种错误修复，包括处理和粘贴时特定问题的修复。 这个版本还会增加一些小的改进，如源模式下的语法高亮和更快的图像加载等。</p>
       </description>
     </release>
     <release version="1.5.0" date="2026-03-13">
@@ -188,6 +193,7 @@
         <p xml:lang="sl">Marknote 1.5 uvaja pomembne nove funkcije, kot so način Source Mode za urejanje surovih zapiskov v Markdownu, povezave v slogu wikija med zvezki in vtičnik KRunner za hitro odpiranje zapiskov z namizja Plasma. Izdaja izboljšuje tudi organizacijo zapiskov, samodejno oblikovanje urejevalnika, ravnanje z mediji, animacije uporabniškega vmesnika in splošno stabilnost s številnimi posodobitvami za izboljšanje kakovosti in popravki napak.</p>
         <p xml:lang="tr">Marknot 1.5, ham Markdown düzenleme için Kaynak Kipi, not defterleri arası viki tarzı bağlantılar ve Plasma masaüstünden notları hızlıca açmak için K Çalıştır eklentisi gibi önemli yeni özellikler sunuyor. Bu sürüm ayrıca not organizasyonunu, düzenleyici otomatik biçimlendirmesini, ortam işlemeyi, kullanıcı arayüzü canlandırmalarını ve genel kararlılığı birçok yaşam kalitesi iyileştirmesi ve hata düzeltmesiyle geliştiriyor.</p>
         <p xml:lang="uk">У Marknote 1.5 впроваджено важливі нові можливості, зокрема режим початкового коду для редагування необроблених даних Markdown, посилання у стилі вікі між блокнотами та додаток KRunner для швидкого відкриття нотаток зі стільниці Плазми. У випуску також покращено упорядковування нотаток, автоматичне форматування у редакторі, обробку медіафайлів, анімацію інтерфейсу користувача та загальну стабільність завдяки багатьом оновленням якості та виправленню помилок.</p>
+        <p xml:lang="zh-CN">Marknote 1.5 推出了多项重大新功能，包括用于原始 Markdown 编辑的“源代码模式”、跨笔记本的维基风格链接，以及一个 KRunner 插件，可从 Plasma 桌面快速打开笔记。此次更新还改进了笔记组织、编辑器自动格式化、媒体处理、UI 动画以及整体稳定性，并包含许多提升用户体验的更新和错误修复。</p>
       </description>
     </release>
     <release version="1.4.0" date="2026-01-19">
@@ -210,6 +216,7 @@
         <p xml:lang="sl">Ta izdaja vsebuje veliko število popravkov napak in manjših izboljšav.</p>
         <p xml:lang="tr">Bu sürüm çok sayıda hata düzeltmesi ve küçük iyileştirmeler içermektedir.</p>
         <p xml:lang="uk">У цьому випуску виправлено багато вад і реалізовано багато незначних удосконалень.</p>
+        <p xml:lang="zh-CN">这个版本包含大量错误修复和小改进。</p>
         <ul>
           <li>You can now undo and redo changes in the quick sketch dialog</li>
           <li xml:lang="ar">يمكن الآن التراجع عن التغييرات وإعادتها في حوار المخطط السريع</li>
@@ -227,6 +234,7 @@
           <li xml:lang="sl">Zdaj lahko spremembe razveljavite in uveljavite v pogovornem oknu za hitro skiciranje</li>
           <li xml:lang="tr">Artık hızlı çizim iletişim kutusunda yaptığınız değişiklikleri geri alabilir ve yineleyebilirsiniz.</li>
           <li xml:lang="uk">У новій версії можна скасовувати і повторювати зміни у вікні швидкого ескізу</li>
+          <li xml:lang="zh-CN">现在，您可以在“快速草图”对话框中撤销和重做更改</li>
           <li>You can now drag and drop images</li>
           <li xml:lang="ar">يمكن الآن سحب الصور وإفلاتها</li>
           <li xml:lang="ca">Ara podeu arrossegar i deixar anar imatges</li>
@@ -243,6 +251,7 @@
           <li xml:lang="sl">Zdaj lahko vlečete in spuščate slike</li>
           <li xml:lang="tr">Artık görselleri sürükleyip bırakabilirsiniz.</li>
           <li xml:lang="uk">У новій версії можна перетягувати і скидати зображення</li>
+          <li xml:lang="zh-CN">您现在可以拖放图像</li>
           <li>The main view no longer disappears when resizing sidebars</li>
           <li xml:lang="ar">لا يختفي العرض الرئيسي عند تغيير حجم الأشرطة الجانبية</li>
           <li xml:lang="ca">La vista principal ja no desapareix en canviar la mida de les barres laterals</li>
@@ -259,6 +268,7 @@
           <li xml:lang="sl">Glavni pogled ne izgine več pri spreminjanju velikosti stranskih vrstic</li>
           <li xml:lang="tr">Yan çubukların boyutunu değiştirdiğinizde ana görünüm artık kaybolmuyor.</li>
           <li xml:lang="uk">Усунено зникнення головної панелі перегляду при зміні розмірів бічних панелей</li>
+          <li xml:lang="zh-CN">调整侧边栏大小时主视图不再丢失</li>
           <li>Issues with delete dialogs have been fixed</li>
           <li xml:lang="ar">أُصلحت مشكلات في حوارات الحذف</li>
           <li xml:lang="ca">S'han corregit els problemes amb els diàlegs de supressió</li>
@@ -275,6 +285,7 @@
           <li xml:lang="sl">Težave z pogovornimi okni za brisanje so bile popravljene</li>
           <li xml:lang="tr">Silme iletişim kutularıyla ilgili sorunlar giderildi.</li>
           <li xml:lang="uk">Виправлено проблему із вилученням вікон</li>
+          <li xml:lang="zh-CN">删除对话框的问题已解决</li>
         </ul>
       </description>
     </release>
@@ -302,6 +313,7 @@
         <p xml:lang="sl">Na majhnih zaslonih telefonov želite čim več prostora za pisanje in branje zapiskov. Marknote vam zdaj omogoča, da skrijete orodno vrstico urejevalnika na mobilni napravi, tako da se lahko osredotočite na pomembne stvari, medtem ko imate možnosti oblikovanja le en dotik stran.</p>
         <p xml:lang="tr">Küçük telefon ekranlarında, notlarınızı yazmak ve okumak için olabildiğince çok alana gereksiniminiz vardır. Marknot artık taşınabilir aygıtlarda düzenleyici araç çubuğunu gizlemenize olanak tanıyor, böylece biçimlendirme seçeneklerine tek bir dokunuşla ulaşırken önemli şeylere odaklanabilirsiniz.</p>
         <p xml:lang="uk">На маленьких екранах телефонів вам знадобиться якомога більше місця для написання та читання нотаток. Marknote тепер надає змогу приховувати панель інструментів редактора на мобільному пристрої, щоб ви могли зосередитися на важливому, маючи при цьому доступ до параметрів форматування лише одним дотиком.</p>
+        <p xml:lang="zh-CN">在小的手机屏幕上，您想要尽可能多的空间来写和阅读您的笔记。 Marknote 现在允许您在手机上隐藏编辑器工具栏， 这样就可以把注意力放在重要的东西上，同时让格式化选项只需轻触即可。</p>
         <p>
             On desktop, you can now adjust the width of the note list and editor by
             dragging the separator, just like in other desktop applications.
@@ -321,6 +333,7 @@
         <p xml:lang="sl">Na namizju lahko zdaj prilagodite širino seznama zapiskov in urejevalnika tako, da povlečete ločilo, tako kot v drugih namiznih aplikacijah.</p>
         <p xml:lang="tr">Masaüstü uygulamalarında, diğer masaüstü uygulamalarında olduğu gibi, ayırıcıyı sürükleyerek not listesinin ve düzenleyicinin genişliğini ayarlayabilirsiniz.</p>
         <p xml:lang="uk">На робочій станції у новій версії можна налаштувати ширину списку нотаток та редактора, перетягуючи роздільник, як і в інших програмах для робочих станцій.</p>
+        <p xml:lang="zh-CN">在桌面上，您现在可以通过拖动分隔符来调整笔记列表和编辑器的宽度，就像其他桌面应用程序一样。</p>
         <p>
             You can now undo and redo changes using buttons in the UI, rather than relying
             on keyboard shortcuts, which is especially helpful if you're using a virtual
@@ -344,6 +357,7 @@
         <p xml:lang="sl">Spremembe lahko zdaj razveljavite in ponovite z gumbi v uporabniškem vmesniku, namesto da se zanašate na bližnjice na tipkovnici, kar je še posebej koristno, če uporabljate virtualno tipkovnico, ki morda nima tipke Control. Meni aplikacije je bil reorganiziran in poenostavljen, da je manj natrpan.</p>
         <p xml:lang="tr">Artık klavye kısayollarına güvenmek yerine, kullanıcı arayüzündeki düğmeleri kullanarak değişiklikleri geri alabilir ve yineleyebilirsiniz; bu, özellikle Kontrol düğmesi olmayan sanal bir klavye kullanıyorsanız çok yararlıdır. Uygulama menüsü, daha az karmaşık hale getirilmek için yeniden düzenlendi ve basitleştirildi.</p>
         <p xml:lang="uk">У новій версії ви можете скасовувати та повторювати зміни за допомогою кнопок в інтерфейсі користувача, а не покладатися на комбінації клавіш, що особливо корисно, якщо ви використовуєте віртуальну клавіатуру, яка може не мати клавіші Control. Меню програми було реорганізовано та спрощено, щоб зробити його менш захаращеним.</p>
+        <p xml:lang="zh-CN">您现在可以使用用户界面中的按钮撤销和重做更改，而不是依靠键盘快捷键， 如果您使用的虚拟键盘没有控制键，这将特别有用。 应用程序菜单已经重整和简化，以使其更简洁。</p>
         <p>
             We added implemented clickable links! You can now ctrl-click links to open them.
         </p>
@@ -362,6 +376,7 @@
         <p xml:lang="sl">Dodali smo povezave, na katere je mogoče klikniti! Zdaj lahko povezave odprete s klikom na tipko Ctrl.</p>
         <p xml:lang="tr">Tıklanabilir bağlantılar ekledik! Artık bağlantıları açmak için Kontrol düğmesine basılı tutarak tıklayabilirsiniz.</p>
         <p xml:lang="uk">Ми додали інтерактивні посилання! Тепер ви можете відкривати посилання кліками, утримуючи натиснутою клавішу Ctrl.</p>
+        <p xml:lang="zh-CN">我们已添加可点击的链接！现在您可以按住 Ctrl 键点击链接来打开它们。</p>
         <p>
             To make it easier to switch from your current notes application to
             Marknote, Marknote now offers several import options. For now you
@@ -382,6 +397,7 @@
         <p xml:lang="sl">Za lažji prehod iz trenutne aplikacije za beležke na Marknote, Marknote zdaj ponuja več možnosti uvoza. Zaenkrat lahko beležke uvozite iz KNotes in maildir.</p>
         <p xml:lang="tr">Geçerli not uygulamanızdan Marknot’a geçişi kolaylaştırmak için Marknot artık çeşitli içe aktarma seçenekleri sunuyor. Şimdilik notlarınızı K Notlar ve maildir’den içe aktarabilirsiniz.</p>
         <p xml:lang="uk">Щоб спростити перехід з вашої поточної програми для нотаток до Marknote, Marknote тепер пропонує кілька варіантів імпортування даних. Наразі ви можете імпортувати свої нотатки з KNotes та maildir.</p>
+        <p xml:lang="zh-CN">为了使您更容易从当前笔记应用程序切换到 Markote，Markote 现在提供了几个导入选项。 现在，您可以从 KNotes 和 maildir 导入您的笔记。</p>
       </description>
     </release>
     <release version="1.2.1" date="2024-05-21">
@@ -402,6 +418,7 @@
         <p xml:lang="sl">Izdaja s popravki napak vsebuje naslednje popravke:</p>
         <p xml:lang="tr">Aşağıdaki düzeltmeleri içeren hata düzeltmeleri sürümü:</p>
         <p xml:lang="uk">Серед виправлень вад маємо такі:</p>
+        <p xml:lang="zh-CN">Bug 修复发布包含以下修复内容：</p>
         <ul>
           <li>Fix saving font</li>
           <li xml:lang="ar">إصلاح حفظ الخط</li>
@@ -419,6 +436,7 @@
           <li xml:lang="sl">Popravi shranjevanje pisave</li>
           <li xml:lang="tr">Yazıtipini kaydetme sorununu düzelt</li>
           <li xml:lang="uk">Виправлено збереження шрифту</li>
+          <li xml:lang="zh-CN">修复保存字体</li>
           <li>Remember last window state</li>
           <li xml:lang="ar">تذكر حالة النافذة الأخيرة</li>
           <li xml:lang="ca">Recorda l'últim estat de la finestra</li>
@@ -435,6 +453,7 @@
           <li xml:lang="sl">Si zapomni stanje zadnjega okna</li>
           <li xml:lang="tr">Son pencere durumunu anımsa</li>
           <li xml:lang="uk">Реалізовано запам'ятовування стану вікна</li>
+          <li xml:lang="zh-CN">记住最后一个窗口状态</li>
           <li>Close dialog after deleting note</li>
           <li xml:lang="ar">إغلاق الحوار بعد حذف الملاحظة</li>
           <li xml:lang="ca">Tanca el diàleg després de suprimir la nota</li>
@@ -451,6 +470,7 @@
           <li xml:lang="sl">Zapri pogovorno okno po brisanju zapiska</li>
           <li xml:lang="tr">Notu sildikten sonra iletişim kutusunu kapat</li>
           <li xml:lang="uk">Реалізовано закриття вікна після вилучення нотатки</li>
+          <li xml:lang="zh-CN">删除笔记后关闭对话框</li>
           <li>Fix double copy paste</li>
           <li xml:lang="ar">إصلاح النسخ واللصق المزدوج</li>
           <li xml:lang="ca">Corregeix l'enganxament de còpia doble</li>
@@ -467,6 +487,7 @@
           <li xml:lang="sl">Popravi dvojno kopiranje in lepljenje</li>
           <li xml:lang="tr">Çift yapıştırma sorununu düzelt</li>
           <li xml:lang="uk">Виправлено подвійне копіювання зі вставленням</li>
+          <li xml:lang="zh-CN">修复两次复制粘贴</li>
           <li>Fix sidebar not scrollable when there is a note books overflow</li>
           <li xml:lang="ar">إصلاح عدم قابلية الشريط الجانبي للتمرير عند تجاوز عدد دفاتر الملاحظات</li>
           <li xml:lang="ca">Corregeix una barra lateral que no es podia desplaçar quan hi havia un desbordament d'agendes</li>
@@ -483,6 +504,7 @@
           <li xml:lang="sl">Stranska vrstica se ne more pomikati, ko je zvezek preobremenjen</li>
           <li xml:lang="tr">Not defterlerinde taşma olduğunda kenar çubuğunun sarılamaması sorununu düzelt</li>
           <li xml:lang="uk">Виправлено помилку, пов'язану із тим, що не можна було гортати вміст на бічній панелі, якщо у нотатнику надто багато нотаток</li>
+          <li xml:lang="zh-CN">修复笔记本数量过多时侧边栏无法滚动的问题</li>
         </ul>
       </description>
     </release>
@@ -510,6 +532,7 @@
         <p xml:lang="sl">Izboljšali smo upravljanje zapiskov z možnostjo izbire mape po meri za shranjevanje zapiskov in omogočili spremembo razvrščanja zapiskov iz abecednega v datumsko. Stranska vrstica je zdaj zložljiva in dodali smo način fokusa, kjer je prikazano vse razen urejevalnika besedila.</p>
         <p xml:lang="tr">Not yönetimini, notlarınızı saklamak için özel bir klasör seçme özelliğiyle geliştirdik ve notların sıralamasını abeceselden tarihe göre değiştirme olanağı sağladık. Kenar çubuğu artık daraltılabilir ve metin düzenleyici dışındaki her şeyin görüntülendiği bir odak kipi ekledik.</p>
         <p xml:lang="uk">Ми покращили керування нотатками, додавши можливість вибору нетипової теки для зберігання нотаток, а також змінили впорядкування нотаток з алфавітного на упорядкування за датами. Бічна панель тепер згортається, і ми додали режим фокусування, в якому буде показано все, крім текстового редактора.</p>
+        <p xml:lang="zh-CN">我们优化了笔记管理功能，现在您可以选择自定义文件夹来存储笔记，并支持将笔记排序方式从按字母顺序改为按日期排序。侧边栏现已支持折叠，我们还新增了专注模式，该模式下仅显示文本编辑器，其他内容均被隐藏。</p>
         <p>
             If you prefer to just use Marknote as a Markdown editor, we made it
             possible to just open any markdown files directly from the file
@@ -533,6 +556,7 @@
         <p xml:lang="sl">Če raje uporabljate Marknote kot urejevalnik Markdown, smo omogočili, da lahko datoteke Markdown odprete neposredno iz brskalnika datotek ali konzole. Poleg tega Marknote podpira datoteke Markdown s tako imenovano začetno vsebino, kar je pogost način vstavljanja metapodatkov v Markdown v generatorjih statičnih spletnih mest, kot sta Hugo in Jekyll.</p>
         <p xml:lang="tr">Eğer Marknot’u sadece bir Markdown düzenleyicisi olarak kullanmayı tercih ediyorsanız herhangi bir Markdown dosyasını doğrudan dosya tarayıcısından veya konsoldan açmanızı olanaklı kıldık. Ayrıca Marknot, Hugo ve Jekyll gibi statik web sitesi oluşturucularında Markdown’a meta veri eklemenin yaygın bir yolu olan “ön madde” içeren Markdown dosyalarını da destekler.</p>
         <p xml:lang="uk">Якщо ви надаєте перевагу використанню Marknote як редактора Markdown, ми зробили можливим відкриття будь-яких файлів Markdown безпосередньо з програми для роботи з файлами або консолі. Крім того, у Marknote передбачено підтримку файли Markdown з так званим титульним аркушем, що є поширеним способом вставки метаданих до Markdown у генераторах статичних вебсайтів, таких як Hugo та Jekyll.</p>
+        <p xml:lang="zh-CN">如果您更倾向于将 Marknote 仅作为 Markdown 编辑器使用，我们已支持直接从文件浏览器或控制台打开任何 Markdown 文件。此外，Marknote 还支持带有“前置信息”（front matter）的 Markdown 文件，这是在 Hugo 和 Jekyll 等静态网站生成器中向 Markdown 注入元数据的常见方式。</p>
         <p>
             In term of edition support, the subset of markdown supported
             increased again. Now it is possible to add and edit
@@ -556,6 +580,7 @@
         <p xml:lang="sl">Kar zadeva podporo za izdaje, se je podmnožica podprtega markdown-a ponovno povečala. Zdaj je mogoče dodajati in urejati tabele. Poleg tega smo začeli pretvarjati znotrajvrstični markdown neposredno v obogateno besedilo med tipkanjem. Podpora je omejena na nekaj konstruktov markdown-a, vendar se bo sčasoma verjetno še povečala. Zdaj lahko prilagodite pisavo, ki jo uporablja urejevalnik.</p>
         <p xml:lang="tr">Düzenleme desteği açısından, desteklenen Markdown alt kümesi tekrar genişledi. Artık tablo eklemek ve düzenlemek olanaklı. Ek olarak, satır içi Markdown’ı yazarken doğrudan zengin metne dönüştürmeye başladık. Destek birkaç Markdown yapısıyla sınırlı olsa da zamanla artması muhtemeldir. Artık düzenleyici tarafından kullanılan yazıtipini özelleştirebilirsiniz.</p>
         <p xml:lang="uk">Що стосується підтримки редакцій, підмножина підтримуваних синтаксичних конструкцій markdown знову збільшилася. Тепер можна додавати та редагувати таблиці. Крім того, ми почали перетворювати вбудований markdown безпосередньо на форматований текст під час введення тексту. Підтримка обмежена кількома синтаксичними конструкціями markdown, але, ймовірно, з часом розширюватиметься. Тепер ви можете налаштувати шрифт, який використовується редактором.</p>
+        <p xml:lang="zh-CN">在编辑功能支持方面，支持的 Markdown 语法子集再次得到扩展。现在可以添加和编辑表格了。此外，我们开始在您输入时将内联 Markdown 直接转换为富文本。目前该功能仅支持少数几种 Markdown 语法结构，但未来可能会逐步扩展。现在您可以自定义编辑器使用的字体了。</p>
         <p>
             Aside from being able to edit text, it's now possible to also create
             sketches directly from Marknote.
@@ -575,6 +600,7 @@
         <p xml:lang="sl">Poleg urejanja besedila je zdaj mogoče ustvarjati tudi skice neposredno iz Marknota.</p>
         <p xml:lang="tr">Artık metin düzenlemenin yanı sıra, Marknot üzerinden doğrudan çizim oluşturmak da mümkün.</p>
         <p xml:lang="uk">Окрім можливості редагування тексту, тепер також можна створювати начерки безпосередньо з Marknote.</p>
+        <p xml:lang="zh-CN">除了可以编辑文本外，现在还可以直接在 Marknote 中创建草图。</p>
         <p>
             Finally we took care of ensuring Marknote was fully usable when used
             with Plasma Mobile.
@@ -594,6 +620,7 @@
         <p xml:lang="sl">Končno smo poskrbeli, da je bil Marknote v celoti uporaben v kombinaciji s Plasma Mobile.</p>
         <p xml:lang="tr">Son olarak, Marknot’un Plasma Cep ile birlikte kullanıldığında tamamen işlevsel olmasını sağladık.</p>
         <p xml:lang="uk">Зрештою, ми подбали про те, щоб Marknote був повноцінно придатним для використання з мобільною Плазмою.</p>
+        <p xml:lang="zh-CN">最后，我们确保了 Marknote 在与 Plasma Mobile 配合使用时能够完全正常运行。</p>
       </description>
     </release>
     <release version="1.1.1" date="2024-04-01">
@@ -614,6 +641,7 @@
         <p xml:lang="sl">Poprava pomembne napake</p>
         <p xml:lang="tr">Önemli bir hatayı düzelt</p>
         <p xml:lang="uk">Виправлено важливу ваду</p>
+        <p xml:lang="zh-CN">修复一个重要的错误</p>
       </description>
     </release>
     <release version="1.1.0" date="2024-04-01">
@@ -640,6 +668,7 @@
         <p xml:lang="sl">Marknote 1.1.0 je na voljo! Marknote je nova aplikacija za zapisovanje WYSIWYG iz KDE. Čeprav je bila najnovejša izdaja izšla le pred nekaj dnevi, smo trdo delali in dodali nekaj novih zmožnosti ter, kar je še pomembneje, odpravili nekaj napak.</p>
         <p xml:lang="tr">Marknot 1.1.0 çıktı! Marknot, KDE’nin yeni WYSIWYG not alma uygulamasıdır. Son sürüm birkaç gün önce yayınlanmış olsa da, yoğun bir şekilde çalışarak birkaç yeni özellik ekledik ve daha da önemlisi bazı hataları düzelttik.</p>
         <p xml:lang="uk">Випущено Marknote 1.1.0! Marknote — це нова програма для створення нотаток WYSIWYG від KDE. Незважаючи на те, що останній випуск вийшов лише кілька днів тому, ми наполегливо працювали та додали кілька нових функцій, а головне — виправили деякі помилки.</p>
+        <p xml:lang="zh-CN">Marknote 1.1.0 正式发布！Marknote 是 KDE 推出的全新所见即所得笔记应用。尽管最新版本发布仅数日，我们仍一直在努力工作，不仅新增了若干功能，更重要的是修复了一些 bug。</p>
         <p>
           Marknote now boasts broader Markdown support, and can now display
           images and task lists in the editor. And once you are done editing
@@ -661,6 +690,7 @@
         <p xml:lang="sl">Marknote se zdaj ponaša s širšo podporo za Markdown in lahko v urejevalniku prikaže slike in sezname opravil. Ko končate z urejanjem zapiskov, jih lahko izvozite v različne oblike, vključno s PDF, HTML in ODT.</p>
         <p xml:lang="tr">Marknot artık daha geniş Markdown desteğine sahip ve düzenleyicide resimleri ve görev listelerini görüntüleyebiliyor. Notlarınızı düzenlemeyi bitirdikten sonra, PDF, HTML ve ODT dahil olmak üzere çeşitli biçimlere dışa aktarabilirsiniz.</p>
         <p xml:lang="uk">Marknote тепер може похвалитися ширшою підтримкою Markdown і може показувати зображення та списки завдань у редакторі. А після завершення редагування нотаток ви можете експортувати їх у різні формати, зокрема PDF, HTML та ODT.</p>
+        <p xml:lang="zh-CN">Marknote 现已支持更全面的 Markdown 语法，并在编辑器中可显示图片和任务列表。编辑完成后，您可以将笔记导出为多种格式，包括 PDF、HTML 和 ODT。</p>
         <p>
           Marknote's interface now seamlessly integrates the colors assigned to
           your notebooks, enhancing its visual coherence and making it easier to
@@ -682,6 +712,7 @@
         <p xml:lang="sl">Marknotov vmesnik zdaj brezhibno integrira barve, dodeljene vašim zvezkom, kar izboljša vizualno skladnost in olajša razlikovanje med zvezki. Poleg tega si vaši zvezki zapomnijo zadnji odprti zapisek in ga ob izbiri samodejno ponovno odprejo.</p>
         <p xml:lang="tr">Marknot’un arayüzü artık defterlerinize atanan renkleri sorunsuz bir şekilde tümleştirerek görsel tutarlılığı artırıyor ve bir defteri diğerinden ayırt etmeyi kolaylaştırıyor. Ayrıca, defterleriniz en son açılan notu anımsıyor ve seçildiğinde kendiliğinden yeniden açıyor.</p>
         <p xml:lang="uk">Інтерфейс Marknote тепер бездоганно інтегрує кольори, призначені вашим блокнотам, покращуючи візуальну цілісність та полегшуючи відмінність між блокнотами. Крім того, ваші блокноти запам'ятовують останню відкриту нотатку, автоматично відкриваючи її знову після вибору.</p>
+        <p xml:lang="zh-CN">Marknote 的界面现已无缝整合了您为笔记本设置的颜色，不仅增强了视觉一致性，还让您更轻松地区分不同的笔记本。此外，您的笔记本会记住上次打开的笔记，并在您选择时自动重新打开该笔记。</p>
         <p>
           We've also introduced a convenient command bar similar to the one in
           Merkuro. This provides quick access to essential actions within
@@ -705,6 +736,7 @@
         <p xml:lang="sl">Uvedli smo tudi priročno ukazno vrstico, podobno tisti v Merkuru. Ta omogoča hiter dostop do bistvenih dejanj v Marknotu. Trenutno ustvari le nov zvezek in zapisek, vendar načrtujemo, da bomo v prihodnosti omogočili še več dejanj. Nazadnje smo vsa pogovorna okna v Markdownu preoblikovali tako, da uporabljajo novo predstavljeno okno FormCardDialog iz KirigamiAddons.</p>
         <p xml:lang="tr">Ayrıca Merkuro’dakine benzer kullanışlı bir komut çubuğu da ekledik. Bu, Marknote içindeki temel işlemlere hızlı erişim sağlar. Şu anda yalnızca yeni bir defter ve not oluşturuyor; ancak gelecekte daha fazla işlem sunmayı planlıyoruz. Son olarak, Marknot’taki tüm iletişim kutularını KirigamiAddons’tan yeni eklenen FormCardDialog’u kullanacak şekilde yeniden düzenledik.</p>
         <p xml:lang="uk">Ми також додали зручну панель команд, подібну до тієї, що є в Merkuro. Вона забезпечує швидкий доступ до важливих дій у Marknote. У поточній версії за її допомогою можна лише створити блокнот і нотатку, але ми плануємо зробити доступними більше дій у майбутньому. Нарешті, ми переробили всі діалогові вікна в Markdown, щоб використовувати нещодавно представлений FormCardDialog від KirigamiAddons.</p>
+        <p xml:lang="zh-CN">我们还引入了一个类似于 Merkuro 中的便捷命令栏。它可让您快速访问 Marknote 中的核心功能。目前该命令栏仅支持创建新笔记本和笔记，但我们计划在未来增加更多可用操作。最后，我们已将 Markdown 中的所有对话框重新设计，改用 KirigamiAddons 新推出的 FormCardDialog。</p>
       </description>
     </release>
     <release version="1.0.0" date="2024-03-29">
@@ -735,6 +767,7 @@
         <p xml:lang="sl">Marknote, KDE-jeva aplikacija za beleženje zapiskov WYSIWYG, je končno pripravljena za svojo prvo izdajo. Marknote vam omogoča ustvarjanje zapiskov z obogatenim besedilom in njihovo enostavno organiziranje v zvezke. Zvezke lahko prilagodite tako, da za vsakega izberete ikono in barvo poudarka, kar olajša razlikovanje med njimi in ohranja zapiske na dosegu roke. Vaši zapiski so shranjeni kot datoteke Markdown v mapi Dokumenti, kar omogoča enostavno uporabo zapiskov tako zunaj Marknota kot znotraj aplikacije.</p>
         <p xml:lang="tr">KDE’nin WYSIWYG not alma uygulaması Marknot, nihayet ilk sürümüne hazır. Marknot, zengin metin notlar oluşturmanıza ve onları defterlerde organize etmenize olanak tanır. Defterleriniz için bir simge ve vurgu rengi seçerek onları kişiselleştirebilir ve her birini kendi içinde öne çıkarabilirsiniz. Notlarınız, Belgeler klasörünüze Markdown dosyaları olarak kaydedilir; böylece hem Marknot içinden hem de dosya yöneticinizden onlara kolaylıkla erişebilirsiniz.</p>
         <p xml:lang="uk">Marknote, програма KDE для візуальної роботи з нотатками, нарешті готова до свого першого випуску. Marknote надає змогу створювати форматовані текстові нотатки та без проблем упорядковувати їх за нотатниками. Ви можете персоналізувати ваші нотатники, вибравши піктограму та колір позначення для кожного нотатника, спрощуючи пошук нотатників та роблячи доступ до ваших нотаток якомога простішим. Ваші нотатки буде збережено до файлів Markdown у вашій теці «Документи», щоб спрощує користування нотатками поза Marknote та у самій програмі.</p>
+        <p xml:lang="zh-CN">Marknote，这款基于KDE的所见即所得（WYSIWYG）笔记应用，终于准备好发布首个版本了。Marknote 允许您创建富文本笔记，并轻松地将它们整理到笔记本中。您可以通过为每个笔记本选择图标和主题色来自定义它们，这样既能轻松区分不同笔记本，又能让您的笔记触手可及。您的笔记将以 Markdown 文件的形式保存在“文档”文件夹中，这使得您不仅可以在 Marknote 应用内使用笔记，还能在应用外轻松访问。</p>
         <p>
           Thanks to Carl, Marknote now not only supports bold and italic fonts,
           but also lets you underline important parts, strike out wrong parts,
@@ -756,6 +789,7 @@
         <p xml:lang="sl">Zahvaljujoč Carlu Marknote zdaj ne podpira le krepke in poševne pisave, temveč vam omogoča tudi podčrtavanje pomembnih delov, prečrtavanje napačnih delov, organiziranje misli v različne vrste seznamov in organiziranje zapiskov z naslovi, razdelki in še več.</p>
         <p xml:lang="tr">Carl sayesinde Marknot artık sadece kalın ve yatık yazıtiplerini desteklemekle kalmıyor, aynı zamanda önemli kısımların altını çizmenize, yanlış kısımların üzerini çizmenize, düşüncelerinizi çeşitli liste türlerinde düzenlemenize ve notlarınızı başlıklar, bölümler ve daha fazlasıyla organize etmenize olanak tanıyor.</p>
         <p xml:lang="uk">Завдяки Карлу, у Marknote реалізовано не лише жирний та курсивний шрифти, але й можливість підкреслювати важливі частини, викреслювати неправильні, упорядковувати свої думки в різні типи списків та впорядковувати нотатки за заголовками, розділами тощо.</p>
+        <p xml:lang="zh-CN">多亏了卡尔，Marknote 现在不仅支持粗体和斜体字体，还允许您对重要内容加下划线、对错误内容划掉、通过多种列表类型整理思路，并利用标题、章节等功能来管理笔记。</p>
       </description>
     </release>
   </releases>
@@ -775,7 +809,9 @@
       <caption xml:lang="ca">Document Markdown obert en el Marknote</caption>
       <caption xml:lang="ca-valencia">Document en Markdown obert en MarkNote</caption>
       <caption xml:lang="es">Documento markdown abierto en Marknote</caption>
+      <caption xml:lang="fr">Document « Markdown » ouvert dans Marknote</caption>
       <caption xml:lang="he">מסמך Markdown פתוח ב־Marknote</caption>
+      <caption xml:lang="ia">Documento de Markdown aperite in Marknote</caption>
       <caption xml:lang="it">Documento Markdown aperto in Marknote</caption>
       <caption xml:lang="ka">Markdown-ის დოკუმენტი გაიხსნა Markote-ში</caption>
       <caption xml:lang="nl">Markdown-document geopend in Marknote</caption>
@@ -783,6 +819,7 @@
       <caption xml:lang="sl">Dokument Markdown odprt v programu Marknote</caption>
       <caption xml:lang="tr">Marknot ile açılan bir Markdown belgesi</caption>
       <caption xml:lang="uk">Документ Markdown, який відкрито у Marknote</caption>
+      <caption xml:lang="zh-CN">在 Marknote 中打开的 Markdown 文档</caption>
     </screenshot>
   </screenshots>
   <branding>
