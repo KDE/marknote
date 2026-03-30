@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:44+0000\n"
+"POT-Creation-Date: 2026-03-30 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -149,12 +149,12 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "无法重命名笔记。已经有同名称的笔记。"
 
-#: qml/EditPage.qml:159 qml/RichEditPage.qml:636
+#: qml/EditPage.qml:159 qml/RichEditPage.qml:666
 #, kde-format
 msgid "Undo"
 msgstr "撤销"
 
-#: qml/EditPage.qml:173 qml/RichEditPage.qml:647
+#: qml/EditPage.qml:173 qml/RichEditPage.qml:677
 #, kde-format
 msgid "Redo"
 msgstr "重做"
@@ -268,40 +268,6 @@ msgstr "笔记已复制到剪贴板。"
 msgctxt "@action:menu"
 msgid "Settings"
 msgstr "设置"
-
-#: qml/ImageDialog.qml:19
-#, kde-format
-msgctxt "@title:window"
-msgid "Insert Image"
-msgstr "插入图像"
-
-#: qml/ImageDialog.qml:25
-#, kde-format
-msgctxt "@title:window"
-msgid "Select an image"
-msgstr "选择图像"
-
-#: qml/ImageDialog.qml:28
-#, kde-format
-msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr "图片文件 (*.jpg *.jpeg *.png *.svg *.webp)"
-
-#: qml/ImageDialog.qml:28
-#, kde-format
-msgid "All files (*)"
-msgstr "所有文件 (*)"
-
-#: qml/ImageDialog.qml:43
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Image Location:"
-msgstr "图像位置："
-
-#: qml/ImageDialog.qml:54
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Quick Sketch"
-msgstr "快速草稿"
 
 #: qml/ImportMaildirDialog.qml:30
 #, kde-format
@@ -707,146 +673,182 @@ msgstr "删除"
 msgid "Add a note!"
 msgstr "添加笔记！"
 
-#: qml/RichEditPage.qml:266
+#: qml/RichEditPage.qml:224
+#, kde-format
+msgctxt "@title:window"
+msgid "Select an image"
+msgstr "选择图像"
+
+#: qml/RichEditPage.qml:227
+#, kde-format
+msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "图片文件 (*.jpg *.jpeg *.png *.svg *.webp)"
+
+#: qml/RichEditPage.qml:227
+#, kde-format
+msgid "All files (*)"
+msgstr "所有文件 (*)"
+
+#: qml/RichEditPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "粗体"
 
-#: qml/RichEditPage.qml:287
+#: qml/RichEditPage.qml:302
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "斜体"
 
-#: qml/RichEditPage.qml:306
+#: qml/RichEditPage.qml:321
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "下划线"
 
-#: qml/RichEditPage.qml:320
+#: qml/RichEditPage.qml:335
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "删除线"
 
-#: qml/RichEditPage.qml:338
+#: qml/RichEditPage.qml:353
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "增加列表级别"
 
-#: qml/RichEditPage.qml:349
+#: qml/RichEditPage.qml:364
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "降低列表级别"
 
-#: qml/RichEditPage.qml:391
+#: qml/RichEditPage.qml:406
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "无列表"
 
-#: qml/RichEditPage.qml:392
+#: qml/RichEditPage.qml:407
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "无序列表"
 
-#: qml/RichEditPage.qml:393
+#: qml/RichEditPage.qml:408
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "顺序列表"
 
-#: qml/RichEditPage.qml:404
+#: qml/RichEditPage.qml:419
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "插入复选框"
 
-#: qml/RichEditPage.qml:419
+#: qml/RichEditPage.qml:434
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "插入链接"
 
-#: qml/RichEditPage.qml:435
+#: qml/RichEditPage.qml:450
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "插入笔记链接"
 
-#: qml/RichEditPage.qml:451
+#: qml/RichEditPage.qml:466
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "插入图像"
 
-#: qml/RichEditPage.qml:464
+#: qml/RichEditPage.qml:480
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "插入表格"
 
-#: qml/RichEditPage.qml:485
+#: qml/RichEditPage.qml:494
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Insert link"
+msgctxt "@action:button"
+msgid "Insert sketch"
+msgstr "插入链接"
+
+#: qml/RichEditPage.qml:515
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "基本文本"
 
-#: qml/RichEditPage.qml:486
+#: qml/RichEditPage.qml:516
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "标题"
 
-#: qml/RichEditPage.qml:487
+#: qml/RichEditPage.qml:517
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "副标题"
 
-#: qml/RichEditPage.qml:488
+#: qml/RichEditPage.qml:518
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "章节"
 
-#: qml/RichEditPage.qml:489
+#: qml/RichEditPage.qml:519
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "小节"
 
-#: qml/RichEditPage.qml:490
+#: qml/RichEditPage.qml:520
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "段落"
 
-#: qml/RichEditPage.qml:491
+#: qml/RichEditPage.qml:521
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "子段落"
 
-#: qml/RichEditPage.qml:679
+#: qml/RichEditPage.qml:709
 #, kde-format
 msgid "Format"
 msgstr "格式"
 
-#: qml/RichEditPage.qml:683
+#: qml/RichEditPage.qml:713
 #, kde-format
 msgid "Lists"
 msgstr "列表"
 
-#: qml/RichEditPage.qml:687
+#: qml/RichEditPage.qml:717
 #, kde-format
 msgid "Insert"
 msgstr "插入"
+
+#: qml/SketchDialog.qml:295
+#, kde-format
+msgctxt "Tool that removes selected parts of image from canvas"
+msgid "Eraser"
+msgstr ""
+
+#: qml/SketchDialog.qml:310
+#, kde-format
+msgctxt "Button that clears the canvas"
+msgid "Clear Canvas"
+msgstr ""
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1026,3 +1028,15 @@ msgstr "列"
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"
+
+#~ msgctxt "@title:window"
+#~ msgid "Insert Image"
+#~ msgstr "插入图像"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Image Location:"
+#~ msgstr "图像位置："
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Quick Sketch"
+#~ msgstr "快速草稿"

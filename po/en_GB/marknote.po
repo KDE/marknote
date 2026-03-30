@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:44+0000\n"
+"POT-Creation-Date: 2026-03-30 00:44+0000\n"
 "PO-Revision-Date: 2024-09-15 10:44+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -152,14 +152,14 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Unable to rename note. A note already exists with the same name."
 
-#: qml/EditPage.qml:159 qml/RichEditPage.qml:636
+#: qml/EditPage.qml:159 qml/RichEditPage.qml:666
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Undo"
 msgid "Undo"
 msgstr "Undo"
 
-#: qml/EditPage.qml:173 qml/RichEditPage.qml:647
+#: qml/EditPage.qml:173 qml/RichEditPage.qml:677
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Redo"
@@ -282,40 +282,6 @@ msgstr ""
 msgctxt "@action:menu"
 msgid "Settings"
 msgstr "Settings"
-
-#: qml/ImageDialog.qml:19
-#, kde-format
-msgctxt "@title:window"
-msgid "Insert Image"
-msgstr "Insert Image"
-
-#: qml/ImageDialog.qml:25
-#, kde-format
-msgctxt "@title:window"
-msgid "Select an image"
-msgstr "Select an image"
-
-#: qml/ImageDialog.qml:28
-#, kde-format
-msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-
-#: qml/ImageDialog.qml:28
-#, kde-format
-msgid "All files (*)"
-msgstr "All files (*)"
-
-#: qml/ImageDialog.qml:43
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Image Location:"
-msgstr "Image Location:"
-
-#: qml/ImageDialog.qml:54
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Quick Sketch"
-msgstr "Quick Sketch"
 
 #: qml/ImportMaildirDialog.qml:30
 #, kde-format
@@ -746,73 +712,89 @@ msgstr "Delete"
 msgid "Add a note!"
 msgstr "Add a note!"
 
-#: qml/RichEditPage.qml:266
+#: qml/RichEditPage.qml:224
+#, kde-format
+msgctxt "@title:window"
+msgid "Select an image"
+msgstr "Select an image"
+
+#: qml/RichEditPage.qml:227
+#, kde-format
+msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+
+#: qml/RichEditPage.qml:227
+#, kde-format
+msgid "All files (*)"
+msgstr "All files (*)"
+
+#: qml/RichEditPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Bold"
 
-#: qml/RichEditPage.qml:287
+#: qml/RichEditPage.qml:302
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Italic"
 
-#: qml/RichEditPage.qml:306
+#: qml/RichEditPage.qml:321
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Underline"
 
-#: qml/RichEditPage.qml:320
+#: qml/RichEditPage.qml:335
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Strikethrough"
 
-#: qml/RichEditPage.qml:338
+#: qml/RichEditPage.qml:353
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Increase List Level"
 
-#: qml/RichEditPage.qml:349
+#: qml/RichEditPage.qml:364
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Decrease List Level"
 
-#: qml/RichEditPage.qml:391
+#: qml/RichEditPage.qml:406
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "No list"
 
-#: qml/RichEditPage.qml:392
+#: qml/RichEditPage.qml:407
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Unordered list"
 
-#: qml/RichEditPage.qml:393
+#: qml/RichEditPage.qml:408
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Ordered list"
 
-#: qml/RichEditPage.qml:404
+#: qml/RichEditPage.qml:419
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Insert checkbox"
 
-#: qml/RichEditPage.qml:419
+#: qml/RichEditPage.qml:434
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Insert link"
 
-#: qml/RichEditPage.qml:435
+#: qml/RichEditPage.qml:450
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -820,74 +802,94 @@ msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Insert link"
 
-#: qml/RichEditPage.qml:451
+#: qml/RichEditPage.qml:466
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Insert image"
 
-#: qml/RichEditPage.qml:464
+#: qml/RichEditPage.qml:480
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Insert table"
 
-#: qml/RichEditPage.qml:485
+#: qml/RichEditPage.qml:494
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Insert link"
+msgctxt "@action:button"
+msgid "Insert sketch"
+msgstr "Insert link"
+
+#: qml/RichEditPage.qml:515
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Basic text"
 
-#: qml/RichEditPage.qml:486
+#: qml/RichEditPage.qml:516
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Title"
 
-#: qml/RichEditPage.qml:487
+#: qml/RichEditPage.qml:517
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Subtitle"
 
-#: qml/RichEditPage.qml:488
+#: qml/RichEditPage.qml:518
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Section"
 
-#: qml/RichEditPage.qml:489
+#: qml/RichEditPage.qml:519
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Subsection"
 
-#: qml/RichEditPage.qml:490
+#: qml/RichEditPage.qml:520
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragraph"
 
-#: qml/RichEditPage.qml:491
+#: qml/RichEditPage.qml:521
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Subparagraph"
 
-#: qml/RichEditPage.qml:679
+#: qml/RichEditPage.qml:709
 #, kde-format
 msgid "Format"
 msgstr "Format"
 
-#: qml/RichEditPage.qml:683
+#: qml/RichEditPage.qml:713
 #, kde-format
 msgid "Lists"
 msgstr "Lists"
 
-#: qml/RichEditPage.qml:687
+#: qml/RichEditPage.qml:717
 #, kde-format
 msgid "Insert"
 msgstr "Insert"
+
+#: qml/SketchDialog.qml:295
+#, kde-format
+msgctxt "Tool that removes selected parts of image from canvas"
+msgid "Eraser"
+msgstr ""
+
+#: qml/SketchDialog.qml:310
+#, kde-format
+msgctxt "Button that clears the canvas"
+msgid "Clear Canvas"
+msgstr ""
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1072,6 +1074,18 @@ msgstr "Column"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Cell Contents"
+
+#~ msgctxt "@title:window"
+#~ msgid "Insert Image"
+#~ msgstr "Insert Image"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Image Location:"
+#~ msgstr "Image Location:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Quick Sketch"
+#~ msgstr "Quick Sketch"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Delete Note"
