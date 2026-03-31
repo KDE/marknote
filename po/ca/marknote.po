@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-30 00:44+0000\n"
-"PO-Revision-Date: 2026-03-20 09:49+0100\n"
+"PO-Revision-Date: 2026-03-30 11:12+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -783,12 +783,10 @@ msgid "Insert table"
 msgstr "Insereix una taula"
 
 #: qml/RichEditPage.qml:494
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "Insereix un enllaç"
+msgstr "Insereix un esbós"
 
 #: qml/RichEditPage.qml:515
 #, kde-format
@@ -851,13 +849,13 @@ msgstr "Insereix"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "Esborrador"
 
 #: qml/SketchDialog.qml:310
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "Neteja el llenç"
 
 #: qml/TableDialog.qml:21
 #, kde-format

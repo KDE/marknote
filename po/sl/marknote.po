@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-30 00:44+0000\n"
-"PO-Revision-Date: 2026-03-20 06:51+0100\n"
+"PO-Revision-Date: 2026-03-30 07:16+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -787,12 +787,10 @@ msgid "Insert table"
 msgstr "Vstavi tabelo"
 
 #: qml/RichEditPage.qml:494
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "Vstavi povezavo"
+msgstr "Vstavi skico"
 
 #: qml/RichEditPage.qml:515
 #, kde-format
@@ -855,13 +853,13 @@ msgstr "Vstavi"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "Radirka"
 
 #: qml/SketchDialog.qml:310
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "Počisti platno"
 
 #: qml/TableDialog.qml:21
 #, kde-format

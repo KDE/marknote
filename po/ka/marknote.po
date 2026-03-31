@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-30 00:44+0000\n"
-"PO-Revision-Date: 2026-03-20 03:46+0100\n"
+"PO-Revision-Date: 2026-03-30 07:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -782,12 +782,10 @@ msgid "Insert table"
 msgstr "ცხრილის ჩასმა"
 
 #: qml/RichEditPage.qml:494
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "ბმულის ჩასმა"
+msgstr "ესკიზის ჩასმა"
 
 #: qml/RichEditPage.qml:515
 #, kde-format
@@ -850,13 +848,13 @@ msgstr "ჩასმა"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "საშლელი"
 
 #: qml/SketchDialog.qml:310
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "ტილოს გასუფთავება"
 
 #: qml/TableDialog.qml:21
 #, kde-format

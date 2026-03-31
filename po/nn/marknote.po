@@ -1069,15 +1069,3 @@ msgstr "Kolonne"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celleinnhald"
-
-#~ msgctxt "@title:window"
-#~ msgid "Insert Image"
-#~ msgstr "Set inn bilete"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Image Location:"
-#~ msgstr "Biletadresse:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Quick Sketch"
-#~ msgstr "Kjapp skisse"

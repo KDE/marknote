@@ -774,12 +774,10 @@ msgid "Insert table"
 msgstr "插入表格"
 
 #: qml/RichEditPage.qml:494
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "插入链接"
+msgstr ""
 
 #: qml/RichEditPage.qml:515
 #, kde-format
@@ -1028,15 +1026,3 @@ msgstr "列"
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"
-
-#~ msgctxt "@title:window"
-#~ msgid "Insert Image"
-#~ msgstr "插入图像"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Image Location:"
-#~ msgstr "图像位置："
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Quick Sketch"
-#~ msgstr "快速草稿"
