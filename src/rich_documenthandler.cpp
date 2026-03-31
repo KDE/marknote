@@ -345,39 +345,56 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
         return;
 
     const QString rawContent = QString::fromUtf8(file.readAll());
-    QString content;
-    content.reserve(rawContent.size() + rawContent.size() / 10);
 
-    // Table calculation
-    // Matches any cell containing ONLY standard spaces
-    static const QRegularExpression emptyCellRegex(u"\\|[ ]+(?=\\|)"_s);
+    // O(N) Table cell padding without creating temporary strings or using regex
+    QString tableProcessedContent;
+    tableProcessedContent.reserve(rawContent.size() + rawContent.size() / 10);
 
     const auto lines = QStringView(rawContent).split(u'\n');
     for (const auto &line : lines) {
         if (line.trimmed().startsWith(u'|')) {
-            QString fixedLine = line.toString();
+            bool lastWasPipe = false;
+            int spaceCount = 0;
 
-            // Compress padded spaces (e.g., `|   |` -> `||`)
-            fixedLine.replace(emptyCellRegex, u"|"_s);
-
-            // Force md4c to allocate the cell by injecting a non-breaking space
-            while (fixedLine.contains(u"||"_s)) {
-                fixedLine.replace(u"||"_s, u"|\u00A0|"_s);
+            for (qsizetype j = 0; j < line.size(); ++j) {
+                const QChar c = line[j];
+                if (c == u'|') {
+                    if (lastWasPipe) {
+                        tableProcessedContent.append(u"\u00A0|"_s);
+                    } else {
+                        tableProcessedContent.append(c);
+                        lastWasPipe = true;
+                    }
+                    spaceCount = 0;
+                } else if (c == u' ') {
+                    if (lastWasPipe) {
+                        spaceCount++;
+                    } else {
+                        tableProcessedContent.append(c);
+                    }
+                } else {
+                    if (lastWasPipe) {
+                        if (spaceCount > 0) {
+                            tableProcessedContent.append(QString(spaceCount, u' '));
+                            spaceCount = 0;
+                        }
+                        lastWasPipe = false;
+                    }
+                    tableProcessedContent.append(c);
+                }
             }
-            content.append(fixedLine);
+            if (lastWasPipe && spaceCount > 0) {
+                tableProcessedContent.append(QString(spaceCount, u' '));
+            }
         } else {
-            content.append(line);
+            tableProcessedContent.append(line);
         }
-        content.append(u'\n');
+        tableProcessedContent.append(u'\n');
     }
-    if (!content.isEmpty())
-        content.chop(1);
 
-    // PERFORMANCE WIN: String Builder Pattern
-    // Instead of replace() inside a loop (O(N^2)), we build the new string
-    // (O(N)).
-    QString processedContent;
-    processedContent.reserve(content.length() + (content.length() / 5));
+    if (!tableProcessedContent.isEmpty()) {
+        tableProcessedContent.chop(1);
+    }
 
     m_imagePathLookup.clear();
 
@@ -493,8 +510,6 @@ void RichDocumentHandler::saveAs(const QUrl &fileUrl)
     const QString markdown = doc->toMarkdown(QTextDocument::MarkdownDialectGitHub);
 
     // Compile regexes once in memory
-    static const QRegularExpression leadingSpaceRegex(u"(?<!\\\\)\\|[ ]+"_s);
-    static const QRegularExpression trailingSpaceRegex(u"[ ]+(?=\\|)"_s);
     static const QRegularExpression separatorRowRegex(u"^[\\|\\-\\:\\s]+$"_s);
     static const QRegularExpression dashesRegex(u"-+"_s);
     static const QRegularExpression linkRegex(u"\\]\\(image://marknote/([a-f0-9]+)[^)]*\\)"_s);
@@ -526,13 +541,39 @@ void RichDocumentHandler::saveAs(const QUrl &fileUrl)
             QString tableLine = line.toString();
             tableLine.replace(u"\u00A0"_s, u""_s);
             tableLine.replace(u"&nbsp;"_s, u""_s);
-            tableLine.replace(leadingSpaceRegex, u"|"_s);
-            tableLine.replace(trailingSpaceRegex, u""_s);
 
-            if (separatorRowRegex.match(tableLine).hasMatch()) {
-                tableLine.replace(dashesRegex, u"-"_s);
+            // Fast O(N) manual pass instead of expensive negative lookahead regexes
+            QString optimizedTableLine;
+            optimizedTableLine.reserve(tableLine.size());
+            bool escaped = false;
+            for (int j = 0; j < tableLine.size(); ++j) {
+                const QChar c = tableLine[j];
+                if (c == u'\\') {
+                    escaped = !escaped;
+                    optimizedTableLine.append(c);
+                } else if (c == u'|') {
+                    // Remove trailing spaces before this pipe
+                    while (optimizedTableLine.endsWith(u' ')) {
+                        optimizedTableLine.chop(1);
+                    }
+                    optimizedTableLine.append(c);
+                    // Skip leading spaces after this pipe
+                    if (!escaped) {
+                        while (j + 1 < tableLine.size() && tableLine[j + 1] == u' ') {
+                            j++;
+                        }
+                    }
+                    escaped = false;
+                } else {
+                    optimizedTableLine.append(c);
+                    escaped = false;
+                }
             }
-            processedMarkdown.append(tableLine);
+
+            if (separatorRowRegex.match(optimizedTableLine).hasMatch()) {
+                optimizedTableLine.replace(dashesRegex, u"-"_s);
+            }
+            processedMarkdown.append(optimizedTableLine);
         } else {
             // No allocation, just appends the view directly to the output buffer
             processedMarkdown.append(line);
