@@ -27,6 +27,7 @@
 #include <QPalette>
 #include <QQmlFile>
 #include <QRegularExpression>
+#include <QStringBuilder>
 #include <QTextBlock>
 #include <QTextCharFormat>
 #include <QTextDocument>
@@ -75,81 +76,6 @@ QString internalLinkNameFromUrl(const QUrl &url)
     }
     return path.mid(1);
 }
-
-QString convertWikiLinksToMarkdown(const QString &input)
-{
-    static const QRegularExpression wikiRegex(u"\\[\\[([^\\]\\n]+)\\]\\]"_s);
-    QString output;
-    output.reserve(input.length());
-    int lastPos = 0;
-    auto matches = wikiRegex.globalMatch(input);
-    while (matches.hasNext()) {
-        const auto match = matches.next();
-        output.append(QStringView(input).mid(lastPos, match.capturedStart() - lastPos));
-
-        const QString linkBody = match.captured(1).trimmed();
-        if (linkBody.isEmpty()) {
-            output.append(match.captured());
-            lastPos = match.capturedEnd();
-            continue;
-        }
-
-        QString noteName = linkBody;
-        QString alias;
-        const int pipeIndex = linkBody.indexOf(u'|');
-        if (pipeIndex != -1) {
-            noteName = linkBody.left(pipeIndex).trimmed();
-            alias = linkBody.mid(pipeIndex + 1).trimmed();
-        }
-
-        const QString url = internalLinkUrlForName(noteName);
-        if (url.isEmpty()) {
-            output.append(match.captured());
-            lastPos = match.capturedEnd();
-            continue;
-        }
-
-        const QString linkText = alias.isEmpty() ? noteName : alias;
-        output.append(u"["_s + linkText + u"]("_s + url + u")"_s);
-        lastPos = match.capturedEnd();
-    }
-
-    output.append(QStringView(input).mid(lastPos));
-    return output;
-}
-
-QString convertInternalMarkdownLinksToWiki(const QString &input)
-{
-    static const QRegularExpression internalMarkdownRegex(u"\\[([^\\]]+)\\]\\((marknote:[^)]+)\\)"_s);
-    QString output;
-    output.reserve(input.length());
-    int lastPos = 0;
-    auto matches = internalMarkdownRegex.globalMatch(input);
-    while (matches.hasNext()) {
-        const auto match = matches.next();
-        output.append(QStringView(input).mid(lastPos, match.capturedStart() - lastPos));
-
-        const QString linkText = match.captured(1);
-        const QUrl url(match.captured(2));
-        const QString noteName = internalLinkNameFromUrl(url);
-        if (noteName.isEmpty()) {
-            output.append(match.captured());
-            lastPos = match.capturedEnd();
-            continue;
-        }
-
-        if (linkText == noteName) {
-            output.append(u"[["_s + noteName + u"]]"_s);
-        } else {
-            output.append(u"[["_s + noteName + u"|"_s + linkText + u"]]"_s);
-        }
-        lastPos = match.capturedEnd();
-    }
-
-    output.append(QStringView(input).mid(lastPos));
-    return output;
-}
-
 }
 
 RichDocumentHandler::RichDocumentHandler(QObject *parent)
@@ -398,95 +324,156 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
 
     m_imagePathLookup.clear();
 
+    // Unified Image and Wiki Link resolution using QStringBuilder (%)
+    QString finalContent;
+    finalContent.reserve(tableProcessedContent.size() + tableProcessedContent.size() / 5);
+
+    static const QRegularExpression imgRegex(u"!\\[.*?\\]\\(([^)]+)\\)"_s, QRegularExpression::DotMatchesEverythingOption);
+    static const QRegularExpression wikiRegex(u"\\[\\[([^\\]\\n]+)\\]\\]"_s);
+
+    int lastPos = 0;
+    QRegularExpressionMatchIterator imgIt = imgRegex.globalMatch(tableProcessedContent);
+
+    // We need baseUrl for images, grab it early if possible
+    QUrl baseUrl = QUrl(fileUrl).adjusted(QUrl::RemoveFilename);
+    if (QTextDocument *doc = textDocument()) {
+        doc->setBaseUrl(baseUrl);
+    }
+
+    while (imgIt.hasNext()) {
+        QRegularExpressionMatch match = imgIt.next();
+
+        // 1. Get the chunk of text *before* the image
+        QStringView textBeforeImage = QStringView(tableProcessedContent).mid(lastPos, match.capturedStart() - lastPos);
+
+        // 2. Resolve Wiki Links inside that chunk, appending directly to the final buffer
+        int wikiLastPos = 0;
+        QRegularExpressionMatchIterator wikiIt = wikiRegex.globalMatchView(textBeforeImage);
+        while (wikiIt.hasNext()) {
+            QRegularExpressionMatch wikiMatch = wikiIt.next();
+            finalContent.append(textBeforeImage.mid(wikiLastPos, wikiMatch.capturedStart() - wikiLastPos));
+
+            const QString linkBody = wikiMatch.captured(1).trimmed();
+            if (linkBody.isEmpty()) {
+                finalContent.append(wikiMatch.capturedView());
+                wikiLastPos = wikiMatch.capturedEnd();
+                continue;
+            }
+
+            QString noteName = linkBody;
+            QString alias;
+            const int pipeIndex = linkBody.indexOf(u'|');
+            if (pipeIndex != -1) {
+                noteName = linkBody.left(pipeIndex).trimmed();
+                alias = linkBody.mid(pipeIndex + 1).trimmed();
+            }
+
+            const QString url = internalLinkUrlForName(noteName);
+            if (url.isEmpty()) {
+                finalContent.append(wikiMatch.capturedView());
+            } else {
+                const QString linkText = alias.isEmpty() ? noteName : alias;
+                finalContent.append(u"["_s % linkText % u"]("_s % url % u")"_s);
+            }
+            wikiLastPos = wikiMatch.capturedEnd();
+        }
+        finalContent.append(textBeforeImage.mid(wikiLastPos));
+
+        // Process the Image itself
+        QStringView originalPathView = match.capturedView(1).trimmed();
+        int quoteIndex = originalPathView.indexOf(u" \"");
+        if (quoteIndex == -1)
+            quoteIndex = originalPathView.indexOf(u" '");
+        if (quoteIndex != -1)
+            originalPathView = originalPathView.left(quoteIndex).trimmed();
+
+        if (originalPathView.startsWith(u'<') && originalPathView.endsWith(u'>')) {
+            originalPathView = originalPathView.mid(1, originalPathView.length() - 2);
+        }
+
+        QUrl absoluteUrl = baseUrl.resolved(QUrl(originalPathView.toString()));
+        QString proxyUrl = processImage(absoluteUrl);
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+        finalContent.append(u"<br /><img style=\"max-width: 100%\" src=\""_s % proxyUrl % u"\" /><br />"_s);
+#else
+        finalContent.append(u"<br /><img width=\"500\" src=\""_s % proxyUrl % u"\" /><br />"_s);
+#endif
+        lastPos = match.capturedEnd();
+    }
+
+    // 4. Resolve Wiki Links in the remaining trailing text
+    QStringView trailingText = QStringView(tableProcessedContent).mid(lastPos);
+    int wikiLastPos = 0;
+    QRegularExpressionMatchIterator wikiIt = wikiRegex.globalMatchView(trailingText);
+    while (wikiIt.hasNext()) {
+        QRegularExpressionMatch wikiMatch = wikiIt.next();
+        finalContent.append(trailingText.mid(wikiLastPos, wikiMatch.capturedStart() - wikiLastPos));
+
+        const QString linkBody = wikiMatch.captured(1).trimmed();
+        if (linkBody.isEmpty()) {
+            finalContent.append(wikiMatch.capturedView());
+            wikiLastPos = wikiMatch.capturedEnd();
+            continue;
+        }
+
+        QString noteName = linkBody;
+        QString alias;
+        const int pipeIndex = linkBody.indexOf(u'|');
+        if (pipeIndex != -1) {
+            noteName = linkBody.left(pipeIndex).trimmed();
+            alias = linkBody.mid(pipeIndex + 1).trimmed();
+        }
+
+        const QString url = internalLinkUrlForName(noteName);
+        if (url.isEmpty()) {
+            finalContent.append(wikiMatch.capturedView());
+        } else {
+            const QString linkText = alias.isEmpty() ? noteName : alias;
+            finalContent.append(u"["_s % linkText % u"]("_s % url % u")"_s);
+        }
+        wikiLastPos = wikiMatch.capturedEnd();
+    }
+    finalContent.append(trailingText.mid(wikiLastPos));
+
+    Q_EMIT loaded(finalContent, Qt::MarkdownText);
+
+    // 2. NOW access the document, freeze the layout engine, and apply constraints
     if (QTextDocument *doc = textDocument()) {
         doc->setUndoRedoEnabled(false);
-        doc->setBaseUrl(QUrl(fileUrl).adjusted(QUrl::RemoveFilename));
 
-        static const QRegularExpression imgRegex(u"!\\[.*?\\]\\(([^)]+)\\)"_s, QRegularExpression::DotMatchesEverythingOption);
+        QTextCursor editCursor(doc);
+        editCursor.beginEditBlock();
 
-        QRegularExpressionMatchIterator i = imgRegex.globalMatch(content);
+        // 3. The tables now exist, so fixupTable will successfully apply 100% width
+        fixupTable(doc->rootFrame());
+        parseDocument();
 
-        int lastPos = 0; // Track where we are in the original string
+        QTextCursor checkCursor(doc);
+        checkCursor.movePosition(QTextCursor::End);
 
-        while (i.hasNext()) {
-            QRegularExpressionMatch match = i.next();
+        if (checkCursor.blockFormat().headingLevel() > 0) {
+            checkCursor.insertBlock();
+            QTextBlockFormat bf;
+            bf.setHeadingLevel(0);
+            checkCursor.setBlockFormat(bf);
 
-            // OPTIMIZATION: Zero-Copy View
-            QStringView originalPathView = match.capturedView(1);
-            originalPathView = originalPathView.trimmed();
+            QTextCharFormat resetCharFormat;
+            resetCharFormat.setFontWeight(QFont::Normal);
+            resetCharFormat.setProperty(QTextFormat::FontSizeAdjustment, 0);
 
-            int quoteIndex = originalPathView.indexOf(u" \"");
-            if (quoteIndex == -1)
-                quoteIndex = originalPathView.indexOf(u" '");
-            if (quoteIndex != -1)
-                originalPathView = originalPathView.left(quoteIndex).trimmed();
-
-            if (originalPathView.startsWith(u'<') && originalPathView.endsWith(u'>')) {
-                originalPathView = originalPathView.mid(1, originalPathView.length() - 2);
-            }
-
-            // Append text before the image
-            processedContent.append(QStringView(content).mid(lastPos, match.capturedStart() - lastPos));
-
-            // Process Image
-            // FIX: Use doc->baseUrl() directly to avoid scope errors
-            QUrl absoluteUrl = doc->baseUrl().resolved(QUrl(originalPathView.toString()));
-            QString proxyUrl = processImage(absoluteUrl);
-
-            processedContent.append(u"<br />"_s);
-
-// Append HTML (Inline construction to avoid temp objects)
-#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
-            processedContent.append(u"<img style=\"max-width: 100%\" src=\""_s);
-#else
-            processedContent.append(u"<img width=\"500\" src=\""_s);
-#endif
-            processedContent.append(proxyUrl);
-            processedContent.append(u"\" />"_s);
-
-            processedContent.append(u"<br />"_s);
-
-            lastPos = match.capturedEnd();
+            checkCursor.setBlockCharFormat(resetCharFormat);
+            checkCursor.setCharFormat(resetCharFormat);
         }
 
-        // Append remaining text
-        processedContent.append(QStringView(content).mid(lastPos));
+        editCursor.endEditBlock();
 
-        processedContent = convertWikiLinksToMarkdown(processedContent);
-
-        Q_EMIT loaded(processedContent, Qt::MarkdownText);
-
-        if (QTextDocument *doc = textDocument()) {
-            fixupTable(doc->rootFrame());
-
-            // apply custom formatting
-            parseDocument();
-
-            QTextCursor checkCursor(doc);
-            checkCursor.movePosition(QTextCursor::End);
-
-            // If the note ends with a heading, insert a new empty block
-            if (checkCursor.blockFormat().headingLevel() > 0) {
-                checkCursor.insertBlock();
-
-                // Reset Block Structure (Heading Level)
-                QTextBlockFormat bf;
-                bf.setHeadingLevel(0);
-                checkCursor.setBlockFormat(bf);
-
-                QTextCharFormat resetCharFormat;
-                resetCharFormat.setFontWeight(QFont::Normal);
-                resetCharFormat.setProperty(QTextFormat::FontSizeAdjustment, 0);
-
-                // Apply to the block and the current typing position
-                checkCursor.setBlockCharFormat(resetCharFormat);
-                checkCursor.setCharFormat(resetCharFormat);
-            }
-
-            doc->setModified(false);
-            doc->clearUndoRedoStacks();
-            doc->setUndoRedoEnabled(true);
-        }
+        doc->setModified(false);
+        doc->clearUndoRedoStacks();
+        doc->setUndoRedoEnabled(true);
+    } else {
+        // Fallback if the UI hasn't initialized the document
+        Q_EMIT loaded(finalContent, Qt::MarkdownText);
     }
 
     QTextCursor cursor = textCursor();
@@ -513,6 +500,7 @@ void RichDocumentHandler::saveAs(const QUrl &fileUrl)
     static const QRegularExpression separatorRowRegex(u"^[\\|\\-\\:\\s]+$"_s);
     static const QRegularExpression dashesRegex(u"-+"_s);
     static const QRegularExpression linkRegex(u"\\]\\(image://marknote/([a-f0-9]+)[^)]*\\)"_s);
+    static const QRegularExpression internalMarkdownRegex(u"\\[([^\\]]+)\\]\\((marknote:[^)]+)\\)"_s);
 
     // Use QStringView to prevent heap allocations
     QString processedMarkdown;
@@ -585,35 +573,80 @@ void RichDocumentHandler::saveAs(const QUrl &fileUrl)
         processedMarkdown.chop(1); // Remove trailing newline
     }
 
-    // Image processing
+    // Unified Image and Wiki Link resolution using QStringBuilder (%)
     QString finalOutput;
     finalOutput.reserve(processedMarkdown.size());
 
-    QRegularExpressionMatchIterator i = linkRegex.globalMatch(processedMarkdown);
+    QRegularExpressionMatchIterator imgIt = linkRegex.globalMatch(processedMarkdown);
     int lastPos = 0;
-    while (i.hasNext()) {
-        QRegularExpressionMatch match = i.next();
-        QString hash = match.captured(1);
 
-        finalOutput.append(QStringView(processedMarkdown).mid(lastPos, match.capturedStart() - lastPos));
+    while (imgIt.hasNext()) {
+        QRegularExpressionMatch imgMatch = imgIt.next();
 
-        if (m_imagePathLookup.contains(hash)) {
-            finalOutput.append(u"]("_s + m_imagePathLookup.value(hash) + u")"_s);
-        } else {
-            finalOutput.append(match.captured());
+        // 1. Process chunk before image for internal wiki links
+        QStringView textBeforeImage = QStringView(processedMarkdown).mid(lastPos, imgMatch.capturedStart() - lastPos);
+        int internalLastPos = 0;
+        QRegularExpressionMatchIterator internalIt = internalMarkdownRegex.globalMatchView(textBeforeImage);
+
+        while (internalIt.hasNext()) {
+            QRegularExpressionMatch intMatch = internalIt.next();
+            finalOutput.append(textBeforeImage.mid(internalLastPos, intMatch.capturedStart() - internalLastPos));
+
+            const QString linkText = intMatch.captured(1);
+            const QUrl url(intMatch.captured(2));
+            const QString noteName = internalLinkNameFromUrl(url);
+
+            if (noteName.isEmpty()) {
+                finalOutput.append(intMatch.capturedView());
+            } else if (linkText == noteName) {
+                finalOutput.append(u"[["_s % noteName % u"]]"_s);
+            } else {
+                finalOutput.append(u"[["_s % noteName % u"|"_s % linkText % u"]]"_s);
+            }
+            internalLastPos = intMatch.capturedEnd();
         }
-        lastPos = match.capturedEnd();
+        finalOutput.append(textBeforeImage.mid(internalLastPos));
+
+        // Process Image Link
+        QString hash = imgMatch.captured(1);
+        if (m_imagePathLookup.contains(hash)) {
+            finalOutput.append(u"]("_s % m_imagePathLookup.value(hash) % u")"_s);
+        } else {
+            finalOutput.append(imgMatch.capturedView());
+        }
+        lastPos = imgMatch.capturedEnd();
     }
 
-    finalOutput.append(QStringView(processedMarkdown).mid(lastPos));
+    // Process remaining trailing text for internal wiki links
+    QStringView trailingText = QStringView(processedMarkdown).mid(lastPos);
+    int internalLastPos = 0;
+    QRegularExpressionMatchIterator internalIt = internalMarkdownRegex.globalMatchView(trailingText);
+
+    while (internalIt.hasNext()) {
+        QRegularExpressionMatch intMatch = internalIt.next();
+        finalOutput.append(trailingText.mid(internalLastPos, intMatch.capturedStart() - internalLastPos));
+
+        const QString linkText = intMatch.captured(1);
+        const QUrl url(intMatch.captured(2));
+        const QString noteName = internalLinkNameFromUrl(url);
+
+        if (noteName.isEmpty()) {
+            finalOutput.append(intMatch.capturedView());
+        } else if (linkText == noteName) {
+            finalOutput.append(u"[["_s % noteName % u"]]"_s);
+        } else {
+            finalOutput.append(u"[["_s % noteName % u"|"_s % linkText % u"]]"_s);
+        }
+        internalLastPos = intMatch.capturedEnd();
+    }
+    finalOutput.append(trailingText.mid(internalLastPos));
+
+    // Strip out the boundary character in one highly optimized native C-level pass
     finalOutput.remove(kLinkBoundaryChar);
-    finalOutput = convertInternalMarkdownLinksToWiki(finalOutput);
 
-    QFile fileCheck(fileUrl.toLocalFile());
-    if (fileCheck.exists() && fileCheck.open(QFile::ReadOnly)) {
-        const QByteArray existingContent = fileCheck.readAll();
-        fileCheck.close();
-
+    // Check existence without reading the whole file into memory
+    QFileInfo fileCheck(fileUrl.toLocalFile());
+    if (fileCheck.exists()) {
         QFile file(fileUrl.toLocalFile());
         if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
             Q_EMIT error(tr("Cannot save: ") + file.errorString() + u' ' + fileUrl.toLocalFile());
@@ -1943,19 +1976,17 @@ void RichDocumentHandler::applyCodeBlockFormat(const QTextBlock &block, const QS
 void RichDocumentHandler::applyHeadingFormat(const QTextBlock &block)
 {
     QTextBlockFormat fmt = block.blockFormat();
-    if (block == textDocument()->begin()) {
-        fmt.setTopMargin(m_blockMargin);
-    } else {
-        fmt.setTopMargin(m_blockMargin * 4);
+
+    const qreal expectedTop = (block == textDocument()->begin()) ? m_blockMargin : (m_blockMargin * 4);
+    const qreal expectedBottom = (fmt.headingLevel() == 1) ? (m_blockMargin * 3) : m_blockMargin;
+
+    // Early Bailout
+    if (fmt.topMargin() == expectedTop && fmt.bottomMargin() == expectedBottom) {
+        return;
     }
 
-    // Add a larger bottom margin specifically for the main Title (H1)
-    if (fmt.headingLevel() == 1) {
-        const int titleMarginMultiplier = 3;
-        fmt.setBottomMargin(m_blockMargin * titleMarginMultiplier);
-    } else {
-        fmt.setBottomMargin(m_blockMargin);
-    }
+    fmt.setTopMargin(expectedTop);
+    fmt.setBottomMargin(expectedBottom);
 
     QTextCursor blockCursor(block);
     blockCursor.setBlockFormat(fmt);
@@ -1964,6 +1995,12 @@ void RichDocumentHandler::applyHeadingFormat(const QTextBlock &block)
 void RichDocumentHandler::applyParagraphFormat(const QTextBlock &block)
 {
     QTextBlockFormat fmt = block.blockFormat();
+
+    // Do not dirty the block if it's already correct
+    if (fmt.topMargin() == m_blockMargin && fmt.bottomMargin() == 2) {
+        return;
+    }
+
     fmt.setTopMargin(m_blockMargin);
     fmt.setBottomMargin(2);
 
@@ -1988,16 +2025,14 @@ void RichDocumentHandler::parseDocument()
             applyHeadingFormat(block);
         } else if (block.textList()) {
             QTextBlockFormat fmt = block.blockFormat();
+            const qreal expectedTop = (block.textList()->itemNumber(block) == 0) ? m_blockMargin : 0;
 
-            if (block.textList()->itemNumber(block) == 0) {
-                fmt.setTopMargin(m_blockMargin);
-            } else {
-                fmt.setTopMargin(0);
+            if (fmt.topMargin() != expectedTop || fmt.bottomMargin() != 2) {
+                fmt.setTopMargin(expectedTop);
+                fmt.setBottomMargin(2);
+                QTextCursor blockCursor(block);
+                blockCursor.setBlockFormat(fmt);
             }
-
-            fmt.setBottomMargin(2);
-            QTextCursor blockCursor(block);
-            blockCursor.setBlockFormat(fmt);
         } else if (!blockFmt.isTableCellFormat()) {
             applyParagraphFormat(block);
         }
