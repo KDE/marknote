@@ -976,6 +976,7 @@ void RichDocumentHandler::insertImage(const QUrl &url)
     cursor.insertBlock({}, {});
     applyParagraphFormat(cursor.block());
 
+    cursor.insertHtml(u"<br />"_s);
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
     const QString html = u"<img style=\"max-width: 100%\" src=\""_s + proxyUrl + u"\" />"_s;
 #else
@@ -1070,7 +1071,7 @@ void RichDocumentHandler::pasteFromClipboard()
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
 
-    if (isCodeBlock(cursor.block())) {
+    if (!mimeData->hasImage() && isCodeBlock(cursor.block())) {
         // we want to paste everything as plain text inside a code block,
         // except images which will be pasted normally in a new block
         cursor.insertText(mimeData->text());
