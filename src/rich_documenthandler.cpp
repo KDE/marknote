@@ -972,12 +972,10 @@ void RichDocumentHandler::insertImage(const QUrl &url)
     const QString proxyUrl = processImage(url);
 
     QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+    cursor.insertBlock({}, {});
+    applyParagraphFormat(cursor.block());
 
-    cursor.insertHtml(u"<br />"_s);
-
-    while (canDedentList()) {
-        m_nestedListHelper.handleOnIndentLess(cursor);
-    }
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
     const QString html = u"<img style=\"max-width: 100%\" src=\""_s + proxyUrl + u"\" />"_s;
 #else
@@ -986,6 +984,7 @@ void RichDocumentHandler::insertImage(const QUrl &url)
 
     cursor.insertHtml(html);
     cursor.insertHtml(u"<br />"_s);
+    cursor.endEditBlock();
 }
 
 void RichDocumentHandler::insertTable(int rows, int columns)
