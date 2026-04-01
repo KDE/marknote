@@ -1076,7 +1076,6 @@ void RichDocumentHandler::pasteFromClipboard()
         // except images which will be pasted normally in a new block
         cursor.insertText(mimeData->text());
         cursor.endEditBlock();
-        parseDocument();
         return;
     }
 
@@ -1101,8 +1100,6 @@ void RichDocumentHandler::pasteFromClipboard()
     }
 
     cursor.endEditBlock();
-
-    parseDocument();
 }
 
 void RichDocumentHandler::setCheckable(bool add)
