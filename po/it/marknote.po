@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 00:44+0000\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
 "PO-Revision-Date: 2026-03-20 11:53+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -939,7 +939,7 @@ msgstr "Nessuna intestazione trovata"
 msgid "Start by creating your first notebook!"
 msgstr "Inizia creando il tuo primo taccuino!"
 
-#: rich_documenthandler.cpp:1023
+#: rich_documenthandler.cpp:1097
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr "Impossibile salvare l'immagine incollata"

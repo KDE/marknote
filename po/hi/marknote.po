@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 00:44+0000\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 17:36+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -975,7 +975,7 @@ msgstr ""
 msgid "Start by creating your first notebook!"
 msgstr "अपनी पहली नोटबुक बनाकर शुरुआत करें!"
 
-#: rich_documenthandler.cpp:1023
+#: rich_documenthandler.cpp:1097
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr ""

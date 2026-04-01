@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 00:44+0000\n"
-"PO-Revision-Date: 2026-03-20 08:05+0200\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
+"PO-Revision-Date: 2026-03-30 09:14+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -780,12 +780,10 @@ msgid "Insert table"
 msgstr "הוספת טבלה"
 
 #: qml/RichEditPage.qml:494
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "הוספת קישור"
+msgstr "הוספת איור"
 
 #: qml/RichEditPage.qml:515
 #, kde-format
@@ -848,13 +846,13 @@ msgstr "הוספה"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "מוחק"
 
 #: qml/SketchDialog.qml:310
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "פינוי משטח ציור"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -938,7 +936,7 @@ msgstr "לא נמצאו כותרות"
 msgid "Start by creating your first notebook!"
 msgstr "דריסת הרגל הראשונה היא ליצור את המחברת הראשונה שלך!"
 
-#: rich_documenthandler.cpp:1023
+#: rich_documenthandler.cpp:1097
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr "שמירת התמונה המודבקת נכשלה"
