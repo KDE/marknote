@@ -6,9 +6,7 @@
 
 #include <KAboutData>
 #include <KirigamiAppDefaults>
-#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 19, 0) && __has_include("KCrash")
 #include <KCrash>
-#endif
 #include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
@@ -132,9 +130,7 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(about);
 
-#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 19, 0) && __has_include("KCrash")
     KCrash::initialize();
-#endif
 
     ColorSchemer colorScheme;
     if (!Config::self()->colorScheme().isEmpty()) {
