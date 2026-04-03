@@ -6,7 +6,9 @@
 
 #include <KAboutData>
 #include <KirigamiAppDefaults>
+#ifndef Q_OS_ANDROID
 #include <KCrash>
+#endif
 #include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
@@ -130,8 +132,9 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(about);
 
+#ifndef Q_OS_ANDROID
     KCrash::initialize();
-
+#endif
     ColorSchemer colorScheme;
     if (!Config::self()->colorScheme().isEmpty()) {
         colorScheme.apply(Config::self()->colorScheme());
