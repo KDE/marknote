@@ -8,10 +8,10 @@
 #ifndef Q_OS_ANDROID
 #include <KCrash>
 #endif
-#include <KirigamiAppDefaults>
 #include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
+#include <KirigamiAppDefaults>
 #ifndef Q_OS_ANDROID
 #include <QApplication>
 #endif
