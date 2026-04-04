@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-01 00:45+0000\n"
-"PO-Revision-Date: 2026-03-06 14:23+0200\n"
+"PO-Revision-Date: 2026-04-03 21:22+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
@@ -82,55 +82,52 @@ msgstr "Валентин Бондаренко"
 #: main.cpp:73
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Justin Zobel"
 
 #: main.cpp:74
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Поддержка Flatpak"
 
 #: main.cpp:79
 #, kde-format
 msgid "Shubham Shinde"
-msgstr ""
+msgstr "Shubham Shinde"
 
 #: main.cpp:80
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Table of Contents"
+#, kde-format
 msgid "Table of Contents"
 msgstr "Содержание"
 
 #: main.cpp:85
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
 #: main.cpp:86
-#, fuzzy, kde-format
-#| msgid "Source View"
+#, kde-format
 msgid "Source Mode"
-msgstr "Просмотр исходного кода"
+msgstr "Режим просмотра исходного кода"
 
 #: main.cpp:91
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: main.cpp:92 main.cpp:98 main.cpp:103
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "Исправление ошибок"
 
 #: main.cpp:97
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
 #: main.cpp:103
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:124 qml/Main.qml:418
 #, kde-format
@@ -196,10 +193,9 @@ msgid "Exit Full Screen"
 msgstr "Выйти из полноэкранного режима"
 
 #: qml/EditPage.qml:297
-#, fuzzy, kde-format
-#| msgid "Switch editor to source mode"
+#, kde-format
 msgid "Switch editor mode"
-msgstr "Переключение редактора в режим исходного кода"
+msgstr "Переключение режима редактора"
 
 #: qml/EditPage.qml:302
 #, kde-format
@@ -603,12 +599,10 @@ msgid "Export of \"%1\" failed."
 msgstr "Не удалось экспортировать «%1»."
 
 #: qml/NotesPage.qml:499
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
-msgstr "Переименовать заметку"
+msgstr "Переименовать"
 
 #: qml/NotesPage.qml:511 qml/TextFieldContextMenu.qml:391
 #, kde-format
@@ -617,20 +611,16 @@ msgid "Copy"
 msgstr "Копировать"
 
 #: qml/NotesPage.qml:528
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Duplicate Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
-msgstr "Создать копию заметки"
+msgstr "Создать копию"
 
 #: qml/NotesPage.qml:536
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Import"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
-msgstr "Импорт"
+msgstr "Экспорт"
 
 #: qml/NotesPage.qml:540
 #, kde-format
@@ -795,12 +785,10 @@ msgid "Insert table"
 msgstr "Вставить таблицу"
 
 #: qml/RichEditPage.qml:494
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "Вставить ссылку"
+msgstr "Вставить эскиз"
 
 #: qml/RichEditPage.qml:515
 #, kde-format
@@ -863,13 +851,13 @@ msgstr "Вставка"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "Ластик"
 
 #: qml/SketchDialog.qml:310
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "Очистить холст"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -956,7 +944,7 @@ msgstr "Создайте свою первую записную книжку!"
 #: rich_documenthandler.cpp:1097
 #, kde-format
 msgid "Failed to save pasted image"
-msgstr ""
+msgstr "Не удалось сохранить вставленное изображение"
 
 #: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
