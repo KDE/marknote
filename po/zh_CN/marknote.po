@@ -777,7 +777,7 @@ msgstr "插入表格"
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr ""
+msgstr "插入草图"
 
 #: qml/RichEditPage.qml:515
 #, kde-format
@@ -840,13 +840,13 @@ msgstr "插入"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "橡皮擦"
 
 #: qml/SketchDialog.qml:310
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "清除画布"
 
 #: qml/TableDialog.qml:21
 #, kde-format
