@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -26,15 +26,13 @@ msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
 
 #: application.cpp:34
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Notebook"
 msgstr "Nová poznámka"
 
 #: application.cpp:43
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note"
 msgstr "Nová poznámka"
@@ -70,17 +68,17 @@ msgstr "Správca"
 #: main.cpp:62
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:64
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "Valentyn Bondarenko"
 
 #: main.cpp:73
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Justin Zobel"
 
 #: main.cpp:74
 #, kde-format
@@ -90,46 +88,45 @@ msgstr ""
 #: main.cpp:79
 #, kde-format
 msgid "Shubham Shinde"
-msgstr ""
+msgstr "Shubham Shinde"
 
 #: main.cpp:80
 #, kde-format
 msgid "Table of Contents"
-msgstr ""
+msgstr "Obsah"
 
 #: main.cpp:85
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
 #: main.cpp:86
 #, kde-format
 msgid "Source Mode"
-msgstr ""
+msgstr "Source Mode"
 
 #: main.cpp:91
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: main.cpp:92 main.cpp:98 main.cpp:103
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "Opravy chýb"
 
 #: main.cpp:97
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
 #: main.cpp:103
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:124 qml/Main.qml:418
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
@@ -140,8 +137,7 @@ msgid "Note taking application"
 msgstr ""
 
 #: main.cpp:128
-#, fuzzy, kde-format
-#| msgid "© 2023 Mathis Brüchert"
+#, kde-format
 msgid "© 2023-2026 Mathis Brüchert"
 msgstr "© 2023 Mathis Brüchert"
 
@@ -149,17 +145,17 @@ msgstr "© 2023 Mathis Brüchert"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
-msgstr ""
+msgstr "Nie je možné rename note. A note already exists with the same name."
 
 #: qml/EditPage.qml:159 qml/RichEditPage.qml:666
 #, kde-format
 msgid "Undo"
-msgstr ""
+msgstr "Späť"
 
 #: qml/EditPage.qml:173 qml/RichEditPage.qml:677
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "Znovu"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
 #, kde-format
@@ -168,30 +164,28 @@ msgid "Table of Content"
 msgstr ""
 
 #: qml/EditPage.qml:223
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr "Prehľadať poznámky (%1)"
+msgstr "Search Note"
 
 #: qml/EditPage.qml:231
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr "Prehľadať poznámky (%1)"
+msgstr ""
 
 #: qml/EditPage.qml:267
 #, kde-format
 msgid "Focus Mode"
-msgstr ""
+msgstr "Maska"
 
 #: qml/EditPage.qml:284 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:234
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Ukončiť režim celej obrazovky"
 
 #: qml/EditPage.qml:297
 #, kde-format
@@ -201,48 +195,48 @@ msgstr ""
 #: qml/EditPage.qml:302
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "Source View"
 
 #: qml/EditPage.qml:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr ""
+msgstr "Obsah"
 
 #: qml/EditPage.qml:383
 #, kde-format
 msgid "Find text..."
-msgstr ""
+msgstr "Nájsť text..."
 
 #: qml/EditPage.qml:423
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "Predošlý"
 
 #: qml/EditPage.qml:439
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "Ďalej"
 
 #: qml/EditPage.qml:457 qml/EditPage.qml:569
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Žiadne zhody"
 
 #: qml/EditPage.qml:459 qml/EditPage.qml:571
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:471 qml/EditPage.qml:540
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "Nahradiť"
 
 #: qml/EditPage.qml:489
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Zavrieť"
 
 #: qml/EditPage.qml:511
 #, kde-format
@@ -261,7 +255,7 @@ msgstr[2] ""
 #: qml/EditPage.qml:552
 #, kde-format
 msgid "Replace All"
-msgstr ""
+msgstr "Nahradiť všetko"
 
 #: qml/EditPage.qml:620
 #, kde-format
@@ -273,7 +267,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:menu"
 msgid "Settings"
-msgstr ""
+msgstr "Nastavenia"
 
 #: qml/ImportMaildirDialog.qml:30
 #, kde-format
@@ -291,7 +285,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Name:"
-msgstr ""
+msgstr "Názov:"
 
 #: qml/ImportMaildirDialog.qml:48
 #, kde-format
@@ -309,35 +303,34 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr ""
+msgstr "Importovať"
 
 #: qml/LinkDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "Vložiť odkaz"
 
 #: qml/LinkDialog.qml:22
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Text odkazu:"
 
 #: qml/LinkDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "URL odkazu:"
 
 #: qml/Main.qml:148
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
-msgstr ""
+msgstr "Nie je možné create a new note, you need to create a notebook first."
 
 #: qml/Main.qml:150
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Odstrániť poznámku"
@@ -346,19 +339,19 @@ msgstr "Odstrániť poznámku"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr ""
+msgstr "Show Menu"
 
 #: qml/Main.qml:358
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
-msgstr ""
+msgstr "Importovať"
 
 #: qml/Main.qml:367
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
-msgstr ""
+msgstr "Sort Notes List"
 
 #: qml/Main.qml:373
 #, kde-format
@@ -373,108 +366,104 @@ msgstr ""
 #: qml/Main.qml:403
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "Zbaliť bočný panel"
 
 #: qml/Main.qml:403
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "Rozbaliť bočný panel"
 
 #: qml/Main.qml:541
 #, kde-format
 msgid "Your Notebooks"
-msgstr ""
+msgstr "Your Notebooks"
 
 #: qml/NativeEditMenu.qml:13
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:menu"
 msgid "Edit"
-msgstr "Odstrániť poznámku"
+msgstr "Upraviť"
 
 #: qml/NativeEditMenu.qml:42
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr ""
+msgstr "Späť"
 
 #: qml/NativeEditMenu.qml:52
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
-msgstr ""
+msgstr "Znovu"
 
 #: qml/NativeEditMenu.qml:65
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
-msgstr ""
+msgstr "Vystrihnúť"
 
 #: qml/NativeEditMenu.qml:75
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovať"
 
 #: qml/NativeEditMenu.qml:85
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
-msgstr ""
+msgstr "Vložiť"
 
 #: qml/NativeEditMenu.qml:110
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
-msgstr "Odstrániť poznámku"
+msgstr "Vymazať"
 
 #: qml/NativeEditMenu.qml:123
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
-msgstr ""
+msgstr "Vybrať všetko"
 
 #: qml/NativeFileMenu.qml:13
 #, kde-format
 msgctxt "@action:menu"
 msgid "File"
-msgstr ""
+msgstr "Súbor"
 
 #: qml/NativeHelpMenu.qml:13
 #, kde-format
 msgctxt "@action:menu"
 msgid "Help"
-msgstr ""
+msgstr "Pomocník"
 
 #: qml/NativeWindowMenu.qml:18
 #, kde-format
 msgctxt "@action:menu"
 msgid "Window"
-msgstr ""
+msgstr "Okno"
 
 #: qml/NativeWindowMenu.qml:28
 #, kde-format
 msgctxt "@action:menu"
 msgid "Enter Full Screen"
-msgstr ""
+msgstr "Prejsť do režimu celej obrazovky"
 
 #: qml/NotebookContextMenu.qml:18
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit Notebook"
-msgstr ""
+msgstr "Edit Notebook"
 
 #: qml/NotebookContextMenu.qml:35 qml/NotebookDeleteAction.qml:22
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete Notebook"
 msgstr "Odstrániť poznámku"
 
 #: qml/NotebookDeleteDialog.qml:26
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Notebook"
 msgstr "Odstrániť poznámku"
@@ -487,8 +476,7 @@ msgid ""
 msgstr ""
 
 #: qml/NotebookMetadataDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Notebook"
 msgstr "Nová poznámka"
@@ -497,19 +485,19 @@ msgstr "Nová poznámka"
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Notebook"
-msgstr ""
+msgstr "Edit Notebook"
 
 #: qml/NoteLinkDialog.qml:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr ""
+msgstr "Insert Note Link"
 
 #: qml/NoteLinkDialog.qml:48
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr ""
+msgstr "Poznámka Názov:"
 
 #: qml/NoteLinkDialog.qml:50
 #, kde-format
@@ -521,7 +509,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr ""
+msgstr "Displej Text:"
 
 #: qml/NoteLinkDialog.qml:69
 #, kde-format
@@ -530,15 +518,13 @@ msgid "Optional alternate text to display instead of the note name."
 msgstr ""
 
 #: qml/NoteMetadataDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Note"
 msgstr "Nová poznámka"
 
 #: qml/NoteMetadataDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
 msgstr "Odstrániť poznámku"
@@ -547,7 +533,7 @@ msgstr "Odstrániť poznámku"
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
-msgstr ""
+msgstr "Názov:"
 
 #: qml/NotesPage.qml:42
 #, kde-format
@@ -565,8 +551,7 @@ msgid "Search notes (%1)"
 msgstr "Prehľadať poznámky (%1)"
 
 #: qml/NotesPage.qml:254
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Odstrániť poznámku"
@@ -579,8 +564,7 @@ msgid ""
 msgstr ""
 
 #: qml/NotesPage.qml:450 qml/NotesPage.qml:486
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
@@ -595,7 +579,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr ""
+msgstr "Open File"
 
 #: qml/NotesPage.qml:487
 #, kde-format
@@ -604,64 +588,62 @@ msgid "Export of \"%1\" failed."
 msgstr ""
 
 #: qml/NotesPage.qml:499
-#, fuzzy, kde-format
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
-msgstr "Premenovať poznámku"
+msgstr "Premenovať"
 
 #: qml/NotesPage.qml:511 qml/TextFieldContextMenu.qml:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovať"
 
 #: qml/NotesPage.qml:528
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
-msgstr "Odstrániť poznámku"
+msgstr "Duplikovať"
 
 #: qml/NotesPage.qml:536
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
-msgstr ""
+msgstr "Exportovať"
 
 #: qml/NotesPage.qml:540
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Exportovať do HTML..."
 
 #: qml/NotesPage.qml:546
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
-msgstr ""
+msgstr "Exportovať do HTML..."
 
 #: qml/NotesPage.qml:547
 #, kde-format
 msgid "HTML file (*.html)"
-msgstr ""
+msgstr "HTML file (*.html)"
 
 #: qml/NotesPage.qml:553
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Exportovať to PDF"
 
 #: qml/NotesPage.qml:559
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
-msgstr ""
+msgstr "Exportovať to PDF"
 
 #: qml/NotesPage.qml:560
 #, kde-format
 msgid "PDF file (*.pdf)"
-msgstr ""
+msgstr "PDF file (*.pdf)"
 
 #: qml/NotesPage.qml:566
 #, kde-format
@@ -678,14 +660,13 @@ msgstr ""
 #: qml/NotesPage.qml:573
 #, kde-format
 msgid "ODF Text Document (*.odt)"
-msgstr ""
+msgstr "ODF Text Document (*.odt)"
 
 #: qml/NotesPage.qml:584 qml/TextFieldContextMenu.qml:433
-#, fuzzy, kde-format
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
-msgstr "Odstrániť poznámku"
+msgstr "Odstrániť"
 
 #: qml/NotesPage.qml:787
 #, kde-format
@@ -701,12 +682,12 @@ msgstr ""
 #: qml/RichEditPage.qml:227
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
-msgstr ""
+msgstr "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
 
 #: qml/RichEditPage.qml:227
 #, kde-format
 msgid "All files (*)"
-msgstr ""
+msgstr "Všetky súbory (*)"
 
 #: qml/RichEditPage.qml:281
 #, kde-format
@@ -736,17 +717,16 @@ msgstr "Prečiarknuté"
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "Increase List Level"
 
 #: qml/RichEditPage.qml:364
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "Decrease List Level"
 
 #: qml/RichEditPage.qml:406
-#, fuzzy, kde-format
-#| msgid "Add list"
+#, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Pridať zoznam"
@@ -767,31 +747,31 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
-msgstr ""
+msgstr "Vložiť zaškrtávacie pole"
 
 #: qml/RichEditPage.qml:434
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
-msgstr ""
+msgstr "Vložiť odkaz"
 
 #: qml/RichEditPage.qml:450
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr ""
+msgstr "Vložiť poznámka odkaz"
 
 #: qml/RichEditPage.qml:466
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
-msgstr ""
+msgstr "Vložiť obrázok"
 
 #: qml/RichEditPage.qml:480
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
-msgstr ""
+msgstr "Vložiť tabuľka"
 
 #: qml/RichEditPage.qml:494
 #, kde-format
@@ -803,92 +783,91 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
-msgstr ""
+msgstr "Základný text"
 
 #: qml/RichEditPage.qml:516
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
-msgstr ""
+msgstr "Názov"
 
 #: qml/RichEditPage.qml:517
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
-msgstr ""
+msgstr "Podnadpis"
 
 #: qml/RichEditPage.qml:518
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
-msgstr ""
+msgstr "Oddiel"
 
 #: qml/RichEditPage.qml:519
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
-msgstr ""
+msgstr "Dolný index"
 
 #: qml/RichEditPage.qml:520
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
-msgstr ""
+msgstr "Odsek"
 
 #: qml/RichEditPage.qml:521
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
-msgstr ""
+msgstr "Pododsek"
 
 #: qml/RichEditPage.qml:709
 #, kde-format
 msgid "Format"
-msgstr ""
+msgstr "Formát"
 
 #: qml/RichEditPage.qml:713
 #, kde-format
 msgid "Lists"
-msgstr ""
+msgstr "Zoznamy"
 
 #: qml/RichEditPage.qml:717
 #, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "Vložiť"
 
 #: qml/SketchDialog.qml:295
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "Guma"
 
 #: qml/SketchDialog.qml:310
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "Clear Canvas"
 
 #: qml/TableDialog.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr ""
+msgstr "Vložiť tabuľku"
 
 #: qml/TextFieldContextMenu.qml:230
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
-msgstr ""
+msgstr "Ignorovať"
 
 #: qml/TextFieldContextMenu.qml:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr ""
+msgstr "Kontrola pravopisu"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgid "New Note"
+#, kde-format
 msgctxt "@inmenu"
 msgid "Open Note"
 msgstr "Nová poznámka"
@@ -897,54 +876,54 @@ msgstr "Nová poznámka"
 #, kde-format
 msgctxt "@inmenu"
 msgid "Open Link"
-msgstr ""
+msgstr "Otvoriť odkaz"
 
 #: qml/TextFieldContextMenu.qml:281
 #, kde-format
 msgctxt "@inmenu"
 msgid "Insert"
-msgstr ""
+msgstr "Vložiť"
 
 #: qml/TextFieldContextMenu.qml:317
 #, kde-format
 msgctxt "@inmenu"
 msgid "Remove"
-msgstr ""
+msgstr "Odstrániť"
 
 #: qml/TextFieldContextMenu.qml:347
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
-msgstr ""
+msgstr "Vrátiť späť"
 
 #: qml/TextFieldContextMenu.qml:361
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
-msgstr ""
+msgstr "Znovu"
 
 #: qml/TextFieldContextMenu.qml:376
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
-msgstr ""
+msgstr "Vystrihnúť"
 
 #: qml/TextFieldContextMenu.qml:405
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
-msgstr ""
+msgstr "Vložiť"
 
 #: qml/TextFieldContextMenu.qml:451
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
-msgstr ""
+msgstr "Vybrať všetky"
 
 #: qml/TocDrawer.qml:121
 #, kde-format
 msgid "No headers found"
-msgstr ""
+msgstr "Nenašli sa žiadne headers."
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -954,56 +933,55 @@ msgstr ""
 #: rich_documenthandler.cpp:1097
 #, kde-format
 msgid "Failed to save pasted image"
-msgstr ""
+msgstr "Nepodarilo sa save pasted image"
 
 #: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
-msgstr ""
+msgstr "Všeobecné"
 
 #: settings/MarkNoteGeneralPage.qml:20
 #, kde-format
 msgid "General theme"
-msgstr ""
+msgstr "Všeobecné téma"
 
 #: settings/MarkNoteGeneralPage.qml:27
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Farebná téma"
 
 #: settings/MarkNoteGeneralPage.qml:41
 #, kde-format
 msgid "Editor Settings"
-msgstr ""
+msgstr "Editor Settings"
 
 #: settings/MarkNoteGeneralPage.qml:47
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
-msgstr ""
+msgstr "Poznámky Adresár:"
 
 #: settings/MarkNoteGeneralPage.qml:64
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
-msgstr ""
+msgstr "Rodina písma:"
 
 #: settings/MarkNoteGeneralPage.qml:89
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
-msgstr ""
+msgstr "Veľkosť písma:"
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
 msgctxt "@action:button"
 msgid "General"
-msgstr ""
+msgstr "Všeobecné:"
 
 #: settings/MarkNoteSettings.qml:26
-#, fuzzy, kde-format
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
 msgstr "Marknote"
@@ -1017,52 +995,49 @@ msgstr ""
 #: tableactionhelper.cpp:119
 #, kde-format
 msgid "Row Below"
-msgstr ""
+msgstr "Riadok pod"
 
 #: tableactionhelper.cpp:125
 #, kde-format
 msgid "Row Above"
-msgstr ""
+msgstr "Riadok nad"
 
 #: tableactionhelper.cpp:131
 #, kde-format
 msgid "Column Before"
-msgstr ""
+msgstr "Stĺpec pred"
 
 #: tableactionhelper.cpp:137
 #, kde-format
 msgid "Column After"
-msgstr ""
+msgstr "Stĺpec za"
 
 #: tableactionhelper.cpp:143
 #, kde-format
 msgid "Row"
-msgstr ""
+msgstr "Riadok"
 
 #: tableactionhelper.cpp:149
 #, kde-format
 msgid "Column"
-msgstr ""
+msgstr "Stĺpec"
 
 #: tableactionhelper.cpp:155
 #, kde-format
 msgid "Cell Contents"
-msgstr ""
+msgstr "Obsah bunky"
 
 #, fuzzy
-#~| msgid "Delete Note"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Delete Note"
 #~ msgstr "Odstrániť poznámku"
 
 #, fuzzy
-#~| msgid "New Note"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Note"
 #~ msgstr "Nová poznámka"
 
 #, fuzzy
-#~| msgid "Marknote"
 #~ msgctxt "@action:menu"
 #~ msgid "Quit Marknote"
 #~ msgstr "Marknote"
