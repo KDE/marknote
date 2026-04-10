@@ -35,6 +35,7 @@
   <name xml:lang="pt-BR">Marknote</name>
   <name xml:lang="ru">Marknote</name>
   <name xml:lang="sa">मार्कनोट्</name>
+  <name xml:lang="sk">MarkNote</name>
   <name xml:lang="sl">Marknote</name>
   <name xml:lang="sv">Marknote</name>
   <name xml:lang="tr">Marknot</name>
@@ -436,6 +437,7 @@
           <li xml:lang="nl">Opslaan van lettertype gerepareerd</li>
           <li xml:lang="pt-BR">Correção do salvamento de fonte</li>
           <li xml:lang="ru">Исправлено сохранение шрифта;</li>
+          <li xml:lang="sk">Opraviť ukladá sa písmo</li>
           <li xml:lang="sl">Popravi shranjevanje pisave</li>
           <li xml:lang="tr">Yazıtipini kaydetme sorununu düzelt</li>
           <li xml:lang="uk">Виправлено збереження шрифту</li>
