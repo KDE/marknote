@@ -41,19 +41,19 @@ msgstr "Nová poznámka"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Importovať z KNotes"
 
 #: application.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Importovať z Maildir"
 
 #: maildirimport.cpp:96
 #, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to '%1'"
-msgstr ""
+msgstr "Pri zápise do '%1' sa vyskytla chyba"
 
 #: main.cpp:56
 #, kde-format
@@ -83,7 +83,7 @@ msgstr "Justin Zobel"
 #: main.cpp:74
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Podpora Flatpak"
 
 #: main.cpp:79
 #, kde-format
@@ -134,7 +134,7 @@ msgstr "Marknote"
 #: main.cpp:126
 #, kde-format
 msgid "Note taking application"
-msgstr ""
+msgstr "Aplikácia na robenie poznámok"
 
 #: main.cpp:128
 #, kde-format
@@ -161,7 +161,7 @@ msgstr "Znovu"
 #, kde-format
 msgctxt "@action:button"
 msgid "Table of Content"
-msgstr ""
+msgstr "Obsah"
 
 #: qml/EditPage.qml:223
 #, kde-format
@@ -173,7 +173,7 @@ msgstr "Search Note"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr ""
+msgstr "Hľadať v poznámke"
 
 #: qml/EditPage.qml:267
 #, kde-format
@@ -190,7 +190,7 @@ msgstr "Ukončiť režim celej obrazovky"
 #: qml/EditPage.qml:297
 #, kde-format
 msgid "Switch editor mode"
-msgstr ""
+msgstr "Prepnúť režim editora"
 
 #: qml/EditPage.qml:302
 #, kde-format
@@ -241,16 +241,16 @@ msgstr "Zavrieť"
 #: qml/EditPage.qml:511
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "Nahradiť čím..."
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Nahradený %1 výskyt"
+msgstr[1] "Nahradené %1 výskyty"
+msgstr[2] "Nahradených %1 výskytov"
 
 #: qml/EditPage.qml:552
 #, kde-format
@@ -261,7 +261,7 @@ msgstr "Nahradiť všetko"
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "Poznámka bola skopírovaná do schránky."
 
 #: qml/GlobalMenuBar.qml:27
 #, kde-format
@@ -273,13 +273,13 @@ msgstr "Nastavenia"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from Maildir"
-msgstr ""
+msgstr "Importovať z Maildir"
 
 #: qml/ImportMaildirDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Import from KNotes"
-msgstr ""
+msgstr "Importovať z KNotes"
 
 #: qml/ImportMaildirDialog.qml:35 qml/NotebookMetadataDialog.qml:37
 #, kde-format
@@ -291,13 +291,13 @@ msgstr "Názov:"
 #, kde-format
 msgctxt "@label:textbox Notebook name"
 msgid "Maildir location:"
-msgstr ""
+msgstr "Umiestnenie Maildir:"
 
 #: qml/ImportMaildirDialog.qml:55
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Maildir location"
-msgstr ""
+msgstr "Vybrať umiestnenie Maildir"
 
 #: qml/ImportMaildirDialog.qml:101
 #, kde-format
@@ -356,12 +356,12 @@ msgstr "Sort Notes List"
 #: qml/Main.qml:373
 #, kde-format
 msgid "by Name"
-msgstr ""
+msgstr "podľa názvu"
 
 #: qml/Main.qml:386
 #, kde-format
 msgid "by Date"
-msgstr ""
+msgstr "podľa dátumu"
 
 #: qml/Main.qml:403
 #, kde-format
@@ -474,6 +474,8 @@ msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."
 msgstr ""
+"Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
+"content of <b>%2</b> definitively."
 
 #: qml/NotebookMetadataDialog.qml:30
 #, kde-format
@@ -503,7 +505,7 @@ msgstr "Poznámka Názov:"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "Názov poznámky, na ktorú chcete odkazovať."
 
 #: qml/NoteLinkDialog.qml:67
 #, kde-format
@@ -515,7 +517,7 @@ msgstr "Displej Text:"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
-msgstr ""
+msgstr "Voliteľný alternatívny text na zobrazenie namiesto názvu poznámky."
 
 #: qml/NoteMetadataDialog.qml:24
 #, kde-format
@@ -543,7 +545,7 @@ msgstr "Pridať poznámku"
 #: qml/NotesPage.qml:188
 #, kde-format
 msgid "Exit Search (%1)"
-msgstr ""
+msgstr "Ukončiť hľadanie (%1)"
 
 #: qml/NotesPage.qml:188
 #, kde-format
@@ -562,6 +564,8 @@ msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr ""
+"Are you sure you want to delete the note <b> %1 </b>? This will delete the "
+"file <b>%2</b> definitively."
 
 #: qml/NotesPage.qml:450 qml/NotesPage.qml:486
 #, kde-format
@@ -573,7 +577,7 @@ msgstr "Marknote"
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" was successful."
-msgstr ""
+msgstr "Export „%1\" bol úspešný."
 
 #: qml/NotesPage.qml:469
 #, kde-format
@@ -585,7 +589,7 @@ msgstr "Open File"
 #, kde-format
 msgctxt "@info"
 msgid "Export of \"%1\" failed."
-msgstr ""
+msgstr "Export „%1\" zlyhal."
 
 #: qml/NotesPage.qml:499
 #, kde-format
@@ -649,13 +653,13 @@ msgstr "PDF file (*.pdf)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Exportovať do ODT"
 
 #: qml/NotesPage.qml:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
-msgstr ""
+msgstr "Exportovať do ODT"
 
 #: qml/NotesPage.qml:573
 #, kde-format
@@ -677,7 +681,7 @@ msgstr "Pridať poznámku!"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
-msgstr ""
+msgstr "Vybrať obrázok"
 
 #: qml/RichEditPage.qml:227
 #, kde-format
@@ -735,13 +739,13 @@ msgstr "Pridať zoznam"
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
-msgstr ""
+msgstr "Neusporiadaný zoznam"
 
 #: qml/RichEditPage.qml:408
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
-msgstr ""
+msgstr "Usporiadaný zoznam"
 
 #: qml/RichEditPage.qml:419
 #, kde-format
@@ -777,7 +781,7 @@ msgstr "Vložiť tabuľka"
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr ""
+msgstr "Vložiť náčrt"
 
 #: qml/RichEditPage.qml:515
 #, kde-format
@@ -928,7 +932,7 @@ msgstr "Nenašli sa žiadne headers."
 #: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
-msgstr ""
+msgstr "Začnite vytvorením svojho prvého zápisníka!"
 
 #: rich_documenthandler.cpp:1097
 #, kde-format
@@ -990,7 +994,7 @@ msgstr "Marknote"
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
-msgstr ""
+msgstr "O KDE"
 
 #: tableactionhelper.cpp:119
 #, kde-format
