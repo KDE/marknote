@@ -71,6 +71,7 @@
   <summary xml:lang="pt-BR">Anote o que vier à sua cabeça</summary>
   <summary xml:lang="ru">Записывайте свои мысли</summary>
   <summary xml:lang="sa">स्वविचाराः लिखत</summary>
+  <summary xml:lang="sk">Zapíšte si svoje myšlienky</summary>
   <summary xml:lang="sl">Zapišite svoje misli</summary>
   <summary xml:lang="sv">Skriv ner dina tankar</summary>
   <summary xml:lang="tr">Markdown İstemcisi</summary>
@@ -105,6 +106,7 @@
     <p xml:lang="pt-BR">Marknote permite criar notas de rich text e organizá-las facilmente em cadernos. Você pode personalizar seus cadernos escolhendo um ícone e uma cor de destaque para cada um, facilitando a distinção entre eles e mantendo suas anotações ao seu alcance. Suas notas são salvas como arquivos Markdown na pasta documentos, facilitando o uso de suas notas fora do Marknote e dentro do aplicativo.</p>
     <p xml:lang="ru">Marknote позволяет создавать заметки с форматированным текстом и хранить их в виде записных книжек. Для упрощения поиска заметок записные книжки можно персонализировать, выбрав значок и цвет. Заметки будут сохранены в файлах Markdown в каталоге «Документы», что позволяет упростить работу с ними как внутри, так и за пределами приложения.</p>
     <p xml:lang="sa">Marknote इत्यनेन भवन्तः समृद्धाः पाठटिप्पणीः निर्माय तान् नोटबुकेषु सहजतया व्यवस्थिताः भवेयुः । प्रत्येकस्य कृते चिह्नं उच्चारणवर्णं च चित्वा भवान् स्वस्य नोटबुकं व्यक्तिगतं कर्तुं शक्नोति, येन तेषु भेदं कर्तुं सुलभं भवति तथा च स्वस्य टिप्पणीः अङ्गुलीयपुटे एव भवन्ति भवतः टिप्पण्याः भवतः Documents समुच्चय मध्ये Markdown सञ्चिकारूपेण रक्षिताः भवन्ति, येन भवतः टिप्पणीनां उपयोगः Marknote इत्यस्मात् बहिः अपि च एप् इत्यस्य अन्तः सुलभं भवति ।</p>
+    <p xml:lang="sk">Marknote vám umožňuje vytvárať poznámky v formátovanom texte a jednoducho ich organizovať do zápisníkov. Zápisníky si môžete prispôsobiť výberom ikony a zvýrazňovacej farby pre každý z nich.</p>
     <p xml:lang="sl">Marknote vam omogoča ustvarjanje zapiskov z obogatenim besedilom in njihovo preprosto organiziranje v zvezke. Svoje zvezke lahko prilagodite tako, da za vsakega izberete ikono in barvo poudarka, kar olajša razlikovanje med njimi in ohranjanje zapiskov na dosegu roke. Vaši zapiski so shranjeni kot datoteke Markdown v vaši mapi Dokumenti, kar olajša uporabo vaših zapiskov zunaj Marknota in znotraj aplikacije.</p>
     <p xml:lang="sv">Marknote låter dig skapa anteckningar med Rich text och enkelt organisera dem i anteckningsböcker. Du kan anpassa dina anteckningsböcker genom att välja en ikon och accentfärg för var och en, vilket gör det enkelt att skilja dem åt och ha anteckningarna till hands. Dina anteckningar sparas som Markdown-filer i katalogen Dokument, vilket gör det enkelt att använda anteckningarna utanför Marknote såväl som inuti programmet.</p>
     <p xml:lang="tr">Marknot, zengin metin notlar oluşturmanıza ve onları defterlerde organize etmenize olanak tanır. Defterleriniz için bir simge ve vurgu rengi seçerek onları kişiselleştirebilir ve her birini kendi içinde öne çıkarabilirsiniz. Notlarınız, Belgeler klasörünüze Markdown dosyaları olarak kaydedilir; böylece hem Marknot içinden hem de dosya yöneticinizden onlara kolaylıkla erişebilirsiniz.</p>
@@ -148,6 +150,7 @@
         <p xml:lang="nl">Uitgave met kleine reparaties van fouten, voornamelijk om het verwijderen van notitieboeken te verhelpen en enkele andere kleine wijzigingen door te voeren.</p>
         <p xml:lang="pt-BR">Pequena atualização com correções de bugs, principalmente para corrigir a exclusão de cadernos e algumas outras pequenas alterações.</p>
         <p xml:lang="ru">Выпуск с исправлением небольших ошибок, в основном для устранения проблем с удалением записных книжек и некоторыми другими незначительными изменениями.</p>
+        <p xml:lang="sk">Menšie vydanie s opravami chýb, najmä oprava odstraňovania zápisníkov a niektoré ďalšie drobné zmeny.</p>
         <p xml:lang="sl">Izdaja z manjšimi popravki napak, predvsem zaradi brisanja zvezkov in nekaterih drugih manjših sprememb.</p>
         <p xml:lang="tr">Ufak bir hata düzeltme sürümü; defterleri silmekle ilgili bir hata düzeltildi ve başka ufak sorunlar giderildi.</p>
         <p xml:lang="uk">Випуск з виправленнями невеличких вад; основне призначення — виправити вилучення нотатників та деякі інші незначні зміни.</p>
@@ -170,6 +173,7 @@
         <p xml:lang="nl">Marknote 1.5.1 bevat verschillende reparaties van fouten, inclusief diegenen voor specifieke problemen bij kopiëren en plakken. Deze uitgave voegt ook enige kleine verbeteringen toe zoals accentuering van syntaxis in de modus broncode en sneller laden van een afbeelding.</p>
         <p xml:lang="pt-BR">O Marknote 1.5.1 contém diversas correções de bugs, incluindo aquelas para problemas específicos ao copiar e colar. Esta versão também adiciona algumas pequenas melhorias, como o realce de sintaxe no modo de código-fonte e carregamento de imagens mais rápido.</p>
         <p xml:lang="ru">В Marknote 1.5.1 исправлены различные ошибки, в том числе связанные с копированием и вставкой. Также добавлены небольшие улучшения, такие как подсветка синтаксиса в режиме исходного кода и ускоренная загрузка изображений.</p>
+        <p xml:lang="sk">Marknote 1.5.1 obsahuje rôzne opravy chýb, vrátane opráv konkrétnych problémov pri konverzii medzi Markdown a formátovaným textom a ďalších drobných opráv.</p>
         <p xml:lang="sl">Marknote 1.5.1 vsebuje različne popravke napak, vključno s tistimi za specifične težave pri kopiranju in lepljenju. Ta izdaja dodaja tudi nekaj drobnih izboljšav, kot sta označevanje skladnje v izvornem načinu in hitrejše nalaganje slik.</p>
         <p xml:lang="tr">Marknot 1.5.1, kopyalama ve yapıştırma sırasında ortaya çıkan belirli sorunlar da dahil olmak üzere çeşitli hata düzeltmeleri içeriyor. Bu sürüm ayrıca kaynak kipinde sözdizim vurgulaması ve daha hızlı görsel yükleme gibi bazı küçük iyileştirmeler de ekliyor.</p>
         <p xml:lang="uk">У Marknote 1.5.1 реалізовано різні виправлення помилок, зокрема ті, що стосуються конкретних проблем під час копіювання та вставлення. У цьому випуску також додано деякі незначні покращення, зокрема підсвічування синтаксису у режимі початкового коду та швидше завантаження зображень.</p>
@@ -194,6 +198,7 @@
         <p xml:lang="nl">Marknote 1.5 introduceert belangrijke nieuwe functies zoals de bronmodus voor het bewerken van onbewerkte Markdown-tekst, wiki-achtige koppelingen tussen notitieboeken en een KRunner-plug-in voor het snel openen van notities vanuit het Plasma-bureaublad. De uitgave verbetert ook de organisatie van notities, de automatische opmaak van de bewerker, de mediaverwerking, de UI-animaties en de algehele stabiliteit met veel verbeteringen en reparaties van fouten.</p>
         <p xml:lang="pt-BR">O Marknote 1.5 introduz novas funcionalidades importantes, como o Modo de Código-Fonte para edição de Markdown puro, links entre blocos de notas no estilo wiki e um plugin para KRunner que permite abrir notas rapidamente a partir da área de trabalho Plasma. Esta versão também aprimora a organização de notas, a formatação automática do editor, o gerenciamento de mídia, as animações da interface do usuário e a estabilidade geral, com diversas melhorias de usabilidade e correções de bugs.</p>
         <p xml:lang="ru">В Marknote 1.5 добавлены ключевые возможности, такие как режим исходного кода для редактирования Markdown, вики-ссылки между записными книжками и модуль для KRunner для быстрого открытия заметок из рабочего стола Plasma. Также улучшена организация заметок, автоматическое форматирование в редакторе, обработка медиафайлов, анимация интерфейса и общая стабильность за счёт множества улучшений и исправлений ошибок.</p>
+        <p xml:lang="sk">Marknote 1.5 prináša hlavné nové funkcie ako režim zdroja na úpravu surového Markdownu, prepájanie medzi poznámkami a fulltextové vyhľadávanie. Tiež prináša vylepšenú úpravu tabuliek, podporu prečiarknutého textu a mnoho opráv stability.</p>
         <p xml:lang="sl">Marknote 1.5 uvaja pomembne nove funkcije, kot so način Source Mode za urejanje surovih zapiskov v Markdownu, povezave v slogu wikija med zvezki in vtičnik KRunner za hitro odpiranje zapiskov z namizja Plasma. Izdaja izboljšuje tudi organizacijo zapiskov, samodejno oblikovanje urejevalnika, ravnanje z mediji, animacije uporabniškega vmesnika in splošno stabilnost s številnimi posodobitvami za izboljšanje kakovosti in popravki napak.</p>
         <p xml:lang="tr">Marknot 1.5, ham Markdown düzenleme için Kaynak Kipi, not defterleri arası viki tarzı bağlantılar ve Plasma masaüstünden notları hızlıca açmak için K Çalıştır eklentisi gibi önemli yeni özellikler sunuyor. Bu sürüm ayrıca not organizasyonunu, düzenleyici otomatik biçimlendirmesini, ortam işlemeyi, kullanıcı arayüzü canlandırmalarını ve genel kararlılığı birçok yaşam kalitesi iyileştirmesi ve hata düzeltmesiyle geliştiriyor.</p>
         <p xml:lang="uk">У Marknote 1.5 впроваджено важливі нові можливості, зокрема режим початкового коду для редагування необроблених даних Markdown, посилання у стилі вікі між блокнотами та додаток KRunner для швидкого відкриття нотаток зі стільниці Плазми. У випуску також покращено упорядковування нотаток, автоматичне форматування у редакторі, обробку медіафайлів, анімацію інтерфейсу користувача та загальну стабільність завдяки багатьом оновленням якості та виправленню помилок.</p>
@@ -217,6 +222,7 @@
         <p xml:lang="nl">Deze uitgave bevat een groot aantal reparaties van bugs en kleine verbeteringen.</p>
         <p xml:lang="pt-BR">Esta versão contém um grande número de correções de bugs e pequenas melhorias.</p>
         <p xml:lang="ru">В этой версии исправлено множество ошибок и внесены небольшие улучшения.</p>
+        <p xml:lang="sk">Toto vydanie obsahuje veľký počet opráv chýb a malých vylepšení.</p>
         <p xml:lang="sl">Ta izdaja vsebuje veliko število popravkov napak in manjših izboljšav.</p>
         <p xml:lang="tr">Bu sürüm çok sayıda hata düzeltmesi ve küçük iyileştirmeler içermektedir.</p>
         <p xml:lang="uk">У цьому випуску виправлено багато вад і реалізовано багато незначних удосконалень.</p>
@@ -235,6 +241,7 @@
           <li xml:lang="nl">U kunt nu wijzigingen ongedaan maken en opnieuw doen in de dialoog snelle schets</li>
           <li xml:lang="pt-BR">Agora você pode desfazer e refazer alterações na caixa de diálogo de esboço rápido</li>
           <li xml:lang="ru">Реализована возможность отмены и повтора изменений в диалоге быстрого наброска;</li>
+          <li xml:lang="sk">Teraz môžete vracať a opakovať zmeny v dialógu rýchleho náčrtu</li>
           <li xml:lang="sl">Zdaj lahko spremembe razveljavite in uveljavite v pogovornem oknu za hitro skiciranje</li>
           <li xml:lang="tr">Artık hızlı çizim iletişim kutusunda yaptığınız değişiklikleri geri alabilir ve yineleyebilirsiniz.</li>
           <li xml:lang="uk">У новій версії можна скасовувати і повторювати зміни у вікні швидкого ескізу</li>
@@ -252,6 +259,7 @@
           <li xml:lang="nl">U kunt nu afbeeldingen slepen en loslaten</li>
           <li xml:lang="pt-BR">Agora você pode arrastar e soltar imagens</li>
           <li xml:lang="ru">Добавлена возможность перетаскивания изображений мышью;</li>
+          <li xml:lang="sk">Teraz môžete presúvať obrázky ťahaním</li>
           <li xml:lang="sl">Zdaj lahko vlečete in spuščate slike</li>
           <li xml:lang="tr">Artık görselleri sürükleyip bırakabilirsiniz.</li>
           <li xml:lang="uk">У новій версії можна перетягувати і скидати зображення</li>
@@ -269,6 +277,7 @@
           <li xml:lang="nl">Het hoofdvenster verdwijnt niet langer wanneer de zijbalken worden verkleind of vergroot.</li>
           <li xml:lang="pt-BR">A visualização principal não desaparece mais ao redimensionar as barras laterais</li>
           <li xml:lang="ru">Главное окно больше не скрывается при изменении размера боковых панелей;</li>
+          <li xml:lang="sk">Hlavné zobrazenie už nezmizne pri zmene veľkosti bočných panelov</li>
           <li xml:lang="sl">Glavni pogled ne izgine več pri spreminjanju velikosti stranskih vrstic</li>
           <li xml:lang="tr">Yan çubukların boyutunu değiştirdiğinizde ana görünüm artık kaybolmuyor.</li>
           <li xml:lang="uk">Усунено зникнення головної панелі перегляду при зміні розмірів бічних панелей</li>
@@ -286,6 +295,7 @@
           <li xml:lang="nl">Problemen met verwijderingsdialoogvensters zijn opgelost</li>
           <li xml:lang="pt-BR">Os problemas com as caixas de diálogo de exclusão foram corrigidos</li>
           <li xml:lang="ru">Исправлены проблемы с диалогами удаления;</li>
+          <li xml:lang="sk">Problémy s dialógmi odstraňovania boli opravené</li>
           <li xml:lang="sl">Težave z pogovornimi okni za brisanje so bile popravljene</li>
           <li xml:lang="tr">Silme iletişim kutularıyla ilgili sorunlar giderildi.</li>
           <li xml:lang="uk">Виправлено проблему із вилученням вікон</li>
@@ -314,6 +324,7 @@
         <p xml:lang="nl">Op kleine telefoonschermen wil je zoveel mogelijk ruimte om te schrijven en te lezen. Met Marknote kunt u nu de bewerkingswerkbalk op mobiele apparaten verbergen, zodat u zich kunt concentreren op de belangrijke zaken, terwijl de opmaakopties altijd binnen handbereik zijn.</p>
         <p xml:lang="pt-BR">Em telas pequenas de celulares, você precisa do máximo de espaço possível para escrever e ler suas anotações. O Marknote agora permite ocultar a barra de ferramentas do editor em dispositivos móveis, para que você possa se concentrar no que é importante, mantendo as opções de formatação sempre à mão.</p>
         <p xml:lang="ru">На небольших экранах телефонов для написания и чтения заметок нужно как можно больше места. В Marknote добавлена возможность скрывать панель инструментов редактора в мобильной версии, чтобы вы могли сосредоточиться на важном, а параметры форматирования оставались в одном касании.</p>
+        <p xml:lang="sk">Na malých obrazovkách telefónov chcete čo najviac priestoru na písanie a čítanie poznámok. Marknote teraz obsahuje navigáciu potiahnutím, skrývajúc bočné panely na telefónoch.</p>
         <p xml:lang="sl">Na majhnih zaslonih telefonov želite čim več prostora za pisanje in branje zapiskov. Marknote vam zdaj omogoča, da skrijete orodno vrstico urejevalnika na mobilni napravi, tako da se lahko osredotočite na pomembne stvari, medtem ko imate možnosti oblikovanja le en dotik stran.</p>
         <p xml:lang="tr">Küçük telefon ekranlarında, notlarınızı yazmak ve okumak için olabildiğince çok alana gereksiniminiz vardır. Marknot artık taşınabilir aygıtlarda düzenleyici araç çubuğunu gizlemenize olanak tanıyor, böylece biçimlendirme seçeneklerine tek bir dokunuşla ulaşırken önemli şeylere odaklanabilirsiniz.</p>
         <p xml:lang="uk">На маленьких екранах телефонів вам знадобиться якомога більше місця для написання та читання нотаток. Marknote тепер надає змогу приховувати панель інструментів редактора на мобільному пристрої, щоб ви могли зосередитися на важливому, маючи при цьому доступ до параметрів форматування лише одним дотиком.</p>
@@ -334,6 +345,7 @@
         <p xml:lang="nl">Op het bureaublad kunt u nu de breedte van de notitielijst en de bewerker aanpassen door de scheidingslijn te verslepen, net als in andere bureaubladtoepassingen.</p>
         <p xml:lang="pt-BR">Na versão para computador, agora você pode ajustar a largura da lista de notas e do editor arrastando o separador, assim como em outros aplicativos para desktop.</p>
         <p xml:lang="ru">На ПК теперь возможно настраивать ширину списка заметок и редактора, перетаскивая разделитель — как и в других приложениях для рабочего стола.</p>
+        <p xml:lang="sk">Na pracovnej ploche teraz môžete upraviť šírku zoznamu poznámok a editora ťahaním oddeľovača medzi nimi.</p>
         <p xml:lang="sl">Na namizju lahko zdaj prilagodite širino seznama zapiskov in urejevalnika tako, da povlečete ločilo, tako kot v drugih namiznih aplikacijah.</p>
         <p xml:lang="tr">Masaüstü uygulamalarında, diğer masaüstü uygulamalarında olduğu gibi, ayırıcıyı sürükleyerek not listesinin ve düzenleyicinin genişliğini ayarlayabilirsiniz.</p>
         <p xml:lang="uk">На робочій станції у новій версії можна налаштувати ширину списку нотаток та редактора, перетягуючи роздільник, як і в інших програмах для робочих станцій.</p>
@@ -358,6 +370,7 @@
         <p xml:lang="nl">U kunt nu wijzigingen ongedaan maken en opnieuw uitvoeren met behulp van knoppen in de gebruikersinterface, in plaats van afhankelijk te zijn van sneltoetsen. Dit is vooral handig als u een virtueel toetsenbord gebruikt dat mogelijk geen Ctrl-toets heeft. Het toepassingsmenu is heringericht en vereenvoudigd om het overzichtelijker te maken.</p>
         <p xml:lang="pt-BR">Agora você pode desfazer e refazer alterações usando botões na interface do usuário, em vez de depender de atalhos de teclado, o que é especialmente útil se você estiver usando um teclado virtual que pode não ter uma tecla Control. O menu do aplicativo foi reorganizado e simplificado para ficar menos confuso.</p>
         <p xml:lang="ru">Теперь изменения можно отменять и повторять с помощью кнопок в интерфейсе, без необходимости использовать комбинации клавиш. Это особенно удобно при работе с виртуальной клавиатурой, на которой может отсутствовать клавиша «Control». Меню приложения было реорганизовано и упрощено для уменьшения беспорядка.</p>
+        <p xml:lang="sk">Teraz môžete vracať a opakovať zmeny pomocou tlačidiel v rozhraní namiesto spoliehania sa na klávesové skratky.</p>
         <p xml:lang="sl">Spremembe lahko zdaj razveljavite in ponovite z gumbi v uporabniškem vmesniku, namesto da se zanašate na bližnjice na tipkovnici, kar je še posebej koristno, če uporabljate virtualno tipkovnico, ki morda nima tipke Control. Meni aplikacije je bil reorganiziran in poenostavljen, da je manj natrpan.</p>
         <p xml:lang="tr">Artık klavye kısayollarına güvenmek yerine, kullanıcı arayüzündeki düğmeleri kullanarak değişiklikleri geri alabilir ve yineleyebilirsiniz; bu, özellikle Kontrol düğmesi olmayan sanal bir klavye kullanıyorsanız çok yararlıdır. Uygulama menüsü, daha az karmaşık hale getirilmek için yeniden düzenlendi ve basitleştirildi.</p>
         <p xml:lang="uk">У новій версії ви можете скасовувати та повторювати зміни за допомогою кнопок в інтерфейсі користувача, а не покладатися на комбінації клавіш, що особливо корисно, якщо ви використовуєте віртуальну клавіатуру, яка може не мати клавіші Control. Меню програми було реорганізовано та спрощено, щоб зробити його менш захаращеним.</p>
@@ -377,6 +390,7 @@
         <p xml:lang="nl">We hebben aan te klikken koppelingen toegevoegd! U kunt nu met Ctrl-klik op koppelingen klikken om ze te openen.</p>
         <p xml:lang="pt-BR">Implementamos links clicáveis! Agora você pode clicar nos links enquanto pressiona Ctrl para abri-los.</p>
         <p xml:lang="ru">Реализованы ссылки, на которые можно нажимать. Теперь их можно открывать, нажав клавишу Ctrl и щёлкнув по ним.</p>
+        <p xml:lang="sk">Pridali sme klikateľné odkazy! Teraz môžete ctrl-kliknutím na odkazy ich otvoriť.</p>
         <p xml:lang="sl">Dodali smo povezave, na katere je mogoče klikniti! Zdaj lahko povezave odprete s klikom na tipko Ctrl.</p>
         <p xml:lang="tr">Tıklanabilir bağlantılar ekledik! Artık bağlantıları açmak için Kontrol düğmesine basılı tutarak tıklayabilirsiniz.</p>
         <p xml:lang="uk">Ми додали інтерактивні посилання! Тепер ви можете відкривати посилання кліками, утримуючи натиснутою клавішу Ctrl.</p>
@@ -398,6 +412,7 @@
         <p xml:lang="nl">Om de overstap van uw huidige notitie-toepassing naar Marknote te vergemakkelijken, biedt Marknote nu verschillende importopties. U kunt uw notities nu importeren vanuit KNotes en maildir.</p>
         <p xml:lang="pt-BR">Para facilitar a transição do seu aplicativo de notas atual para o Marknote, o Marknote agora oferece diversas opções de importação. Por enquanto, você pode importar suas notas do KNotes e do Maildir.</p>
         <p xml:lang="ru">Для упрощения перехода с текущего приложения для заметок на Marknote добавлена возможность импорта заметок из KNotes и maildir.</p>
+        <p xml:lang="sk">Na uľahčenie prechodu z vašej aktuálnej aplikácie na poznámky do Marknote teraz Marknote podporuje import z KNotes a Maildir.</p>
         <p xml:lang="sl">Za lažji prehod iz trenutne aplikacije za beležke na Marknote, Marknote zdaj ponuja več možnosti uvoza. Zaenkrat lahko beležke uvozite iz KNotes in maildir.</p>
         <p xml:lang="tr">Geçerli not uygulamanızdan Marknot’a geçişi kolaylaştırmak için Marknot artık çeşitli içe aktarma seçenekleri sunuyor. Şimdilik notlarınızı K Notlar ve maildir’den içe aktarabilirsiniz.</p>
         <p xml:lang="uk">Щоб спростити перехід з вашої поточної програми для нотаток до Marknote, Marknote тепер пропонує кілька варіантів імпортування даних. Наразі ви можете імпортувати свої нотатки з KNotes та maildir.</p>
@@ -419,6 +434,7 @@
         <p xml:lang="nl">Deze uitgave bevat een reeks reparaties van fouten met de volgende oplossingen:</p>
         <p xml:lang="pt-BR">Versão com correções de bugs contendo as seguintes correções:</p>
         <p xml:lang="ru">Выпуск с исправлением следующих ошибок:</p>
+        <p xml:lang="sk">Vydanie s opravami chýb obsahujúce nasledujúce opravy:</p>
         <p xml:lang="sl">Izdaja s popravki napak vsebuje naslednje popravke:</p>
         <p xml:lang="tr">Aşağıdaki düzeltmeleri içeren hata düzeltmeleri sürümü:</p>
         <p xml:lang="uk">Серед виправлень вад маємо такі:</p>
@@ -455,6 +471,7 @@
           <li xml:lang="nl">Status van laatste venster herinneren</li>
           <li xml:lang="pt-BR">Lembrar o último estado da janela</li>
           <li xml:lang="ru">Сохранение состояния окна при выходе;</li>
+          <li xml:lang="sk">Zapamätanie stavu posledného okna</li>
           <li xml:lang="sl">Si zapomni stanje zadnjega okna</li>
           <li xml:lang="tr">Son pencere durumunu anımsa</li>
           <li xml:lang="uk">Реалізовано запам'ятовування стану вікна</li>
@@ -472,6 +489,7 @@
           <li xml:lang="nl">Dialoog sluiten na verwijderen van notitie</li>
           <li xml:lang="pt-BR">Fechar a caixa de diálogo após excluir a nota</li>
           <li xml:lang="ru">Закрытие диалога после удаления заметки;</li>
+          <li xml:lang="sk">Zavrieť dialóg po odstránení poznámky</li>
           <li xml:lang="sl">Zapri pogovorno okno po brisanju zapiska</li>
           <li xml:lang="tr">Notu sildikten sonra iletişim kutusunu kapat</li>
           <li xml:lang="uk">Реалізовано закриття вікна після вилучення нотатки</li>
@@ -489,6 +507,7 @@
           <li xml:lang="nl">Dubbel kopiëren plakken gerepareerd</li>
           <li xml:lang="pt-BR">Correção do copiar e colar duas vezes</li>
           <li xml:lang="ru">Исправлено двойное копирование и вставка;</li>
+          <li xml:lang="sk">Oprava dvojitého kopírovania a vkladania</li>
           <li xml:lang="sl">Popravi dvojno kopiranje in lepljenje</li>
           <li xml:lang="tr">Çift yapıştırma sorununu düzelt</li>
           <li xml:lang="uk">Виправлено подвійне копіювання зі вставленням</li>
@@ -506,6 +525,7 @@
           <li xml:lang="nl">Lost het probleem op dat de zijbalk niet te schuiven is wanneer er te veel notitieboeken tegelijk worden weergegeven.</li>
           <li xml:lang="pt-BR">Correção do problema da barra lateral que não rola quando há excesso de cadernos</li>
           <li xml:lang="ru">Исправлена невозможность прокрутки боковой панели при переполнении списка записных книжек;</li>
+          <li xml:lang="sk">Oprava nerolovania bočného panela pri preplnení zápisníkmi</li>
           <li xml:lang="sl">Stranska vrstica se ne more pomikati, ko je zvezek preobremenjen</li>
           <li xml:lang="tr">Not defterlerinde taşma olduğunda kenar çubuğunun sarılamaması sorununu düzelt</li>
           <li xml:lang="uk">Виправлено помилку, пов'язану із тим, що не можна було гортати вміст на бічній панелі, якщо у нотатнику надто багато нотаток</li>
@@ -534,6 +554,7 @@
         <p xml:lang="nl">We hebben het notitiebeheer verbeterd door de mogelijkheid toe te voegen om een ​​aangepaste map te kiezen waarin u uw notities wilt opslaan en het mogelijk te maken om de sortering van notities te wijzigen van alfabetisch naar op datum. De zijbalk is nu inklapbaar en we hebben een focusmodus toegevoegd waarin alles behalve de teksteditor wordt weergegeven.</p>
         <p xml:lang="pt-BR">Aprimoramos o gerenciamento de notas com a possibilidade de escolher uma pasta personalizada para armazená-las e também possibilitamos alterar a ordem de classificação das notas de alfabética para por data. A barra lateral agora pode ser recolhida e adicionamos um modo de foco, no qual tudo, exceto o editor de texto, é exibido.</p>
         <p xml:lang="ru">Улучшено управление заметками: добавлена возможность выбора пользовательской папки для их хранения, а также изменения сортировки с алфавитной на сортировку по дате. Боковую панель теперь можно скрывать, а в режиме фокусировки отображается только текстовый редактор.</p>
+        <p xml:lang="sk">Vylepšili sme správu poznámok s možnosťou vybrať vlastný priečinok na ukladanie poznámok a možnosťou upravovať poznámky v samostatnom okne.</p>
         <p xml:lang="sl">Izboljšali smo upravljanje zapiskov z možnostjo izbire mape po meri za shranjevanje zapiskov in omogočili spremembo razvrščanja zapiskov iz abecednega v datumsko. Stranska vrstica je zdaj zložljiva in dodali smo način fokusa, kjer je prikazano vse razen urejevalnika besedila.</p>
         <p xml:lang="tr">Not yönetimini, notlarınızı saklamak için özel bir klasör seçme özelliğiyle geliştirdik ve notların sıralamasını abeceselden tarihe göre değiştirme olanağı sağladık. Kenar çubuğu artık daraltılabilir ve metin düzenleyici dışındaki her şeyin görüntülendiği bir odak kipi ekledik.</p>
         <p xml:lang="uk">Ми покращили керування нотатками, додавши можливість вибору нетипової теки для зберігання нотаток, а також змінили впорядкування нотаток з алфавітного на упорядкування за датами. Бічна панель тепер згортається, і ми додали режим фокусування, в якому буде показано все, крім текстового редактора.</p>
@@ -558,6 +579,7 @@
         <p xml:lang="nl">Als u Marknote liever alleen als Markdown-editor gebruikt, hebben we het mogelijk gemaakt om Markdown-bestanden rechtstreeks vanuit de bestandsbrowser of de console te openen. Daarnaast ondersteunt Marknote Markdown-bestanden met een zogenaamde front matter, een veelgebruikte methode om metadata toe te voegen aan Markdown in statische websitegeneratoren zoals Hugo en Jekyll.</p>
         <p xml:lang="pt-BR">Se você preferir usar o Marknote apenas como um editor de Markdown, agora é possível abrir qualquer arquivo Markdown diretamente do navegador de arquivos ou do console. Além disso, o Marknote suporta arquivos Markdown com o chamado front matter, uma forma comum de inserir metadados em Markdown em geradores de sites estáticos como Hugo e Jekyll.</p>
         <p xml:lang="ru">Если требуется использовать Marknote только как редактор Markdown, то файлы в этом формате можно открывать непосредственно из файлового менеджера или консоли. Кроме того, приложение поддерживает файлы Markdown с так называемым front matter — распространённым способом добавления метаданных в Markdown для генераторов статических сайтов, таких как Hugo и Jekyll.</p>
+        <p xml:lang="sk">Ak uprednostňujete používanie Marknote iba ako editora Markdown, umožnili sme otvoriť súbor Markdown priamo zo správcu súborov na úpravu.</p>
         <p xml:lang="sl">Če raje uporabljate Marknote kot urejevalnik Markdown, smo omogočili, da lahko datoteke Markdown odprete neposredno iz brskalnika datotek ali konzole. Poleg tega Marknote podpira datoteke Markdown s tako imenovano začetno vsebino, kar je pogost način vstavljanja metapodatkov v Markdown v generatorjih statičnih spletnih mest, kot sta Hugo in Jekyll.</p>
         <p xml:lang="tr">Eğer Marknot’u sadece bir Markdown düzenleyicisi olarak kullanmayı tercih ediyorsanız herhangi bir Markdown dosyasını doğrudan dosya tarayıcısından veya konsoldan açmanızı olanaklı kıldık. Ayrıca Marknot, Hugo ve Jekyll gibi statik web sitesi oluşturucularında Markdown’a meta veri eklemenin yaygın bir yolu olan “ön madde” içeren Markdown dosyalarını da destekler.</p>
         <p xml:lang="uk">Якщо ви надаєте перевагу використанню Marknote як редактора Markdown, ми зробили можливим відкриття будь-яких файлів Markdown безпосередньо з програми для роботи з файлами або консолі. Крім того, у Marknote передбачено підтримку файли Markdown з так званим титульним аркушем, що є поширеним способом вставки метаданих до Markdown у генераторах статичних вебсайтів, таких як Hugo та Jekyll.</p>
@@ -582,6 +604,7 @@
         <p xml:lang="nl">Wat betreft de ondersteuning voor bewerkingen is de subset van ondersteunde Markdown-formaten opnieuw uitgebreid. Het is nu mogelijk om tabellen toe te voegen en te bewerken. Daarnaast zijn we begonnen met het direct omzetten van inline Markdown naar opgemaakte tekst tijdens het typen. De ondersteuning is beperkt tot een paar Markdown-constructies, maar zal naar verwachting in de loop van de tijd worden uitgebreid. U kunt nu het lettertype aanpassen dat door de bewerker wordt gebruikt.</p>
         <p xml:lang="pt-BR">Em termos de suporte à edição, o subconjunto de Markdown suportado aumentou novamente. Agora é possível adicionar e editar tabelas. Além disso, começamos a transformar o Markdown embutido diretamente em texto formatado enquanto você digita. O suporte é limitado a algumas construções de Markdown, mas provavelmente crescerá com o tempo. Agora você pode personalizar a fonte usada pelo editor.</p>
         <p xml:lang="ru">Что касается поддержки редактирования, реализован расширенный набор элементов Markdown. Добавлена возможность создания и редактирования таблиц. Кроме того, введено преобразование встроенных элементов Markdown в форматированный текст по мере ввода. Поддержка пока ограничена несколькими конструкциями, но будет расширяться. Теперь можно настроить шрифт, используемый редактором.</p>
+        <p xml:lang="sk">Čo sa týka podpory úprav, podpora podmnožiny markdownu sa opäť rozšírila. Teraz je možné pridávať do poznámok tabuľky a obsah.</p>
         <p xml:lang="sl">Kar zadeva podporo za izdaje, se je podmnožica podprtega markdown-a ponovno povečala. Zdaj je mogoče dodajati in urejati tabele. Poleg tega smo začeli pretvarjati znotrajvrstični markdown neposredno v obogateno besedilo med tipkanjem. Podpora je omejena na nekaj konstruktov markdown-a, vendar se bo sčasoma verjetno še povečala. Zdaj lahko prilagodite pisavo, ki jo uporablja urejevalnik.</p>
         <p xml:lang="tr">Düzenleme desteği açısından, desteklenen Markdown alt kümesi tekrar genişledi. Artık tablo eklemek ve düzenlemek olanaklı. Ek olarak, satır içi Markdown’ı yazarken doğrudan zengin metne dönüştürmeye başladık. Destek birkaç Markdown yapısıyla sınırlı olsa da zamanla artması muhtemeldir. Artık düzenleyici tarafından kullanılan yazıtipini özelleştirebilirsiniz.</p>
         <p xml:lang="uk">Що стосується підтримки редакцій, підмножина підтримуваних синтаксичних конструкцій markdown знову збільшилася. Тепер можна додавати та редагувати таблиці. Крім того, ми почали перетворювати вбудований markdown безпосередньо на форматований текст під час введення тексту. Підтримка обмежена кількома синтаксичними конструкціями markdown, але, ймовірно, з часом розширюватиметься. Тепер ви можете налаштувати шрифт, який використовується редактором.</p>
@@ -602,6 +625,7 @@
         <p xml:lang="nl">Naast het bewerken van tekst is het nu ook mogelijk om rechtstreeks vanuit Marknote schetsen te maken.</p>
         <p xml:lang="pt-BR">Além de poder editar texto, agora também é possível criar esboços diretamente do Marknote.</p>
         <p xml:lang="ru">Теперь в Marknote добавлена возможность создавать наброски прямо из приложения, а не только редактировать текст.</p>
+        <p xml:lang="sk">Okrem možnosti úpravy textu je teraz možné vytvárať náčrty priamo z Marknote.</p>
         <p xml:lang="sl">Poleg urejanja besedila je zdaj mogoče ustvarjati tudi skice neposredno iz Marknota.</p>
         <p xml:lang="tr">Artık metin düzenlemenin yanı sıra, Marknot üzerinden doğrudan çizim oluşturmak da mümkün.</p>
         <p xml:lang="uk">Окрім можливості редагування тексту, тепер також можна створювати начерки безпосередньо з Marknote.</p>
@@ -622,6 +646,7 @@
         <p xml:lang="nl">Tot slot hebben we ervoor gezorgd dat Marknote volledig bruikbaar is in combinatie met Plasma Mobile.</p>
         <p xml:lang="pt-BR">Por fim, garantimos que o Marknote fosse totalmente utilizável com o Plasma Mobile.</p>
         <p xml:lang="ru">Реализована полная поддержка Plasma Mobile.</p>
+        <p xml:lang="sk">Nakoniec sme sa postarali o zaistenie plnej použiteľnosti Marknote s Plasma Mobile.</p>
         <p xml:lang="sl">Končno smo poskrbeli, da je bil Marknote v celoti uporaben v kombinaciji s Plasma Mobile.</p>
         <p xml:lang="tr">Son olarak, Marknot’un Plasma Cep ile birlikte kullanıldığında tamamen işlevsel olmasını sağladık.</p>
         <p xml:lang="uk">Зрештою, ми подбали про те, щоб Marknote був повноцінно придатним для використання з мобільною Плазмою.</p>
@@ -643,6 +668,7 @@
         <p xml:lang="nl">Repareer een belangrijke bug</p>
         <p xml:lang="pt-BR">Correção de um bug importante</p>
         <p xml:lang="ru">Исправлена важная ошибка.</p>
+        <p xml:lang="sk">Oprava dôležitej chyby</p>
         <p xml:lang="sl">Poprava pomembne napake</p>
         <p xml:lang="tr">Önemli bir hatayı düzelt</p>
         <p xml:lang="uk">Виправлено важливу ваду</p>
@@ -670,6 +696,7 @@
         <p xml:lang="nl">Marknote 1.1.0 is uit! Marknote is de nieuwe WYSIWYG-notitie-toepassing van KDE. Hoewel de nieuwste uitgave nog maar een paar dagen geleden is uitgebracht, hebben we hard gewerkt en een aantal nieuwe functies toegevoegd en, belangrijker nog, een aantal fouten opgelost.</p>
         <p xml:lang="pt-BR">O Marknote 1.1.0 já está disponível! O Marknote é o novo aplicativo WYSIWYG para anotações do KDE. Apesar do lançamento ter ocorrido há poucos dias, trabalhamos bastante para adicionar novos recursos e, o mais importante, corrigir alguns bugs.</p>
         <p xml:lang="ru">Выпущена Marknote 1.1.0! Marknote — это новое приложение KDE для создания заметок с поддержкой WYSIWYG. Несмотря на то, что предыдущий выпуск состоялся всего несколько дней назад, разработчики усердно трудились и добавили несколько новых функций, а что ещё важнее — исправили ряд ошибок.</p>
+        <p xml:lang="sk">Marknote 1.1.0 je tu! Marknote je nová WYSIWYG aplikácia na robenie poznámok od KDE. Napriek číslu verzie je to vlastne veľká aktualizácia.</p>
         <p xml:lang="sl">Marknote 1.1.0 je na voljo! Marknote je nova aplikacija za zapisovanje WYSIWYG iz KDE. Čeprav je bila najnovejša izdaja izšla le pred nekaj dnevi, smo trdo delali in dodali nekaj novih zmožnosti ter, kar je še pomembneje, odpravili nekaj napak.</p>
         <p xml:lang="tr">Marknot 1.1.0 çıktı! Marknot, KDE’nin yeni WYSIWYG not alma uygulamasıdır. Son sürüm birkaç gün önce yayınlanmış olsa da, yoğun bir şekilde çalışarak birkaç yeni özellik ekledik ve daha da önemlisi bazı hataları düzelttik.</p>
         <p xml:lang="uk">Випущено Marknote 1.1.0! Marknote — це нова програма для створення нотаток WYSIWYG від KDE. Незважаючи на те, що останній випуск вийшов лише кілька днів тому, ми наполегливо працювали та додали кілька нових функцій, а головне — виправили деякі помилки.</p>
@@ -692,6 +719,7 @@
         <p xml:lang="nl">Marknote biedt nu bredere ondersteuning voor Markdown en kan nu afbeeldingen en takenlijsten in de bewerker weergeven. En als u klaar bent met het bewerken van uw notities, kun u ze exporteren naar verschillende formaten, waaronder PDF, HTML en ODT.</p>
         <p xml:lang="pt-BR">O Marknote agora oferece suporte mais amplo ao Markdown e pode exibir imagens e listas de tarefas no editor. E, após concluir a edição de suas notas, você pode exportá-las para diversos formatos, incluindo PDF, HTML e ODT.</p>
         <p xml:lang="ru">Расширена поддержка синтаксиса Markdown: в редакторе реализован вывод изображений и списков задач. Заметки можно экспортировать в различные форматы, включая PDF, HTML и ODT.</p>
+        <p xml:lang="sk">Marknote sa teraz môže pochváliť širšou podporou Markdown a teraz môže zobrazovať obrázky a zoznamy úloh v poznámkach.</p>
         <p xml:lang="sl">Marknote se zdaj ponaša s širšo podporo za Markdown in lahko v urejevalniku prikaže slike in sezname opravil. Ko končate z urejanjem zapiskov, jih lahko izvozite v različne oblike, vključno s PDF, HTML in ODT.</p>
         <p xml:lang="tr">Marknot artık daha geniş Markdown desteğine sahip ve düzenleyicide resimleri ve görev listelerini görüntüleyebiliyor. Notlarınızı düzenlemeyi bitirdikten sonra, PDF, HTML ve ODT dahil olmak üzere çeşitli biçimlere dışa aktarabilirsiniz.</p>
         <p xml:lang="uk">Marknote тепер може похвалитися ширшою підтримкою Markdown і може показувати зображення та списки завдань у редакторі. А після завершення редагування нотаток ви можете експортувати їх у різні формати, зокрема PDF, HTML та ODT.</p>
@@ -714,6 +742,7 @@
         <p xml:lang="nl">De interface van Marknote integreert nu naadloos de kleuren die aan uw notitieboeken zijn toegewezen, waardoor de visuele samenhang wordt verbeterd en het gemakkelijker wordt om de notitieboeken van elkaar te onderscheiden. Bovendien onthouden uw notitieboeken de laatst geopende notitie en heropenen deze automatisch wanneer u deze selecteert.</p>
         <p xml:lang="pt-BR">A interface do Marknote agora integra perfeitamente as cores atribuídas aos seus cadernos, aprimorando sua coerência visual e facilitando a distinção entre eles. Além disso, seus cadernos se lembram da última nota aberta, reabrindo-a automaticamente ao ser selecionada.</p>
         <p xml:lang="ru">Теперь оформление Marknote использует цвета, назначенные блокнотам, что улучшает визуальное восприятие и упрощает их различение. Кроме того, реализовано автоматическое открытие последней просматривавшейся заметки при выборе блокнота.</p>
+        <p xml:lang="sk">Rozhranie Marknote teraz plynulo integruje farby priradené vašim zápisníkom, čím vylepšuje vizuálnu organizáciu.</p>
         <p xml:lang="sl">Marknotov vmesnik zdaj brezhibno integrira barve, dodeljene vašim zvezkom, kar izboljša vizualno skladnost in olajša razlikovanje med zvezki. Poleg tega si vaši zvezki zapomnijo zadnji odprti zapisek in ga ob izbiri samodejno ponovno odprejo.</p>
         <p xml:lang="tr">Marknot’un arayüzü artık defterlerinize atanan renkleri sorunsuz bir şekilde tümleştirerek görsel tutarlılığı artırıyor ve bir defteri diğerinden ayırt etmeyi kolaylaştırıyor. Ayrıca, defterleriniz en son açılan notu anımsıyor ve seçildiğinde kendiliğinden yeniden açıyor.</p>
         <p xml:lang="uk">Інтерфейс Marknote тепер бездоганно інтегрує кольори, призначені вашим блокнотам, покращуючи візуальну цілісність та полегшуючи відмінність між блокнотами. Крім того, ваші блокноти запам'ятовують останню відкриту нотатку, автоматично відкриваючи її знову після вибору.</p>
@@ -738,6 +767,7 @@
         <p xml:lang="nl">We hebben ook een handige opdrachtbalk geïntroduceerd, vergelijkbaar met die in Merkuro. Deze biedt snelle toegang tot essentiële acties binnen Marknote. Momenteel maakt deze alleen een nieuw notitieboek en een nieuwe notitie aan, maar we zijn van plan om in de toekomst meer acties beschikbaar te stellen. Tot slot hebben we alle dialoogvensters in Markdown herwerkt om gebruik te maken van de nieuw geïntroduceerde FormCardDialog van KirigamiAddons.</p>
         <p xml:lang="pt-BR">Também introduzimos uma prática barra de comandos semelhante à do Merkuro. Ela proporciona acesso rápido a ações essenciais no Marknote. Atualmente, ela só cria um novo caderno e uma nova nota, mas planejamos disponibilizar mais ações no futuro. Por fim, reformulamos todos os diálogos em Markdown para usar o novo FormCardDialog do KirigamiAddons.</p>
         <p xml:lang="ru">Также добавлена удобная панель команд, аналогичная используемой в Merkuro, которая обеспечивает быстрый доступ к основным действиям в Marknote. В настоящее время она позволяет только создавать новый блокнот и заметку, но в будущем планируется добавить и другие действия. Кроме того, все диалоговые окна в Markdown были переработаны для использования нового компонента FormCardDialog из KirigamiAddons.</p>
+        <p xml:lang="sk">Tiež sme zaviedli pohodlný príkazový panel podobný tomu v Merkuro. Poskytuje rýchly prístup k rôznym funkciám a akciám.</p>
         <p xml:lang="sl">Uvedli smo tudi priročno ukazno vrstico, podobno tisti v Merkuru. Ta omogoča hiter dostop do bistvenih dejanj v Marknotu. Trenutno ustvari le nov zvezek in zapisek, vendar načrtujemo, da bomo v prihodnosti omogočili še več dejanj. Nazadnje smo vsa pogovorna okna v Markdownu preoblikovali tako, da uporabljajo novo predstavljeno okno FormCardDialog iz KirigamiAddons.</p>
         <p xml:lang="tr">Ayrıca Merkuro’dakine benzer kullanışlı bir komut çubuğu da ekledik. Bu, Marknote içindeki temel işlemlere hızlı erişim sağlar. Şu anda yalnızca yeni bir defter ve not oluşturuyor; ancak gelecekte daha fazla işlem sunmayı planlıyoruz. Son olarak, Marknot’taki tüm iletişim kutularını KirigamiAddons’tan yeni eklenen FormCardDialog’u kullanacak şekilde yeniden düzenledik.</p>
         <p xml:lang="uk">Ми також додали зручну панель команд, подібну до тієї, що є в Merkuro. Вона забезпечує швидкий доступ до важливих дій у Marknote. У поточній версії за її допомогою можна лише створити блокнот і нотатку, але ми плануємо зробити доступними більше дій у майбутньому. Нарешті, ми переробили всі діалогові вікна в Markdown, щоб використовувати нещодавно представлений FormCardDialog від KirigamiAddons.</p>
@@ -769,6 +799,7 @@
         <p xml:lang="nl">Marknote, de toepassing voor WYSIWYG notitie maken is eindelijk gereed voor zijn eerste uitgave. Marknote laat u opgemaakte tekst notities maken en ze gemakkelijk organiseren in notitieboeken. U kunt uw notitieboeken personaliseren door een pictogram te kiezen en een accentueringskleur voor elkeen, waarmee het gemakkelijk is ze te onderscheiden en uw notities binnen handbereik te houden. Uw notities worden bewaard als Markdown-bestanden in uw map Documenten, waarmee het gemakkelijk is om uw notities buiten Marknote te gebruiken evenals in de toepassing.</p>
         <p xml:lang="pt-BR">O Marknote, aplicativo de anotações WYSIWYG do KDE, está finalmente pronto para seu primeiro lançamento. O Marknote permite criar notas de rich text e organizá-las facilmente em cadernos. Você pode personalizar seus cadernos escolhendo um ícone e uma cor de destaque para cada um, facilitando a distinção entre eles e mantendo suas anotações ao seu alcance. Suas notas são salvas como arquivos Markdown na pasta documentos, facilitando o uso de suas notas fora do Marknote e dentro do aplicativo.</p>
         <p xml:lang="ru">Marknote, визуальный редвктор, разработанный KDE наконец готов для первого выпуска. Marknote позволяет создавать заметки с форматированным текстом и хранить их в виде записных книжек. Для упрощения поиска заметок записные книжки можно персонализировать, выбрав значок и цвет. Заметки будут сохранены в файлах Markdown в каталоге «Документы», что позволяет упростить работу с ними как внутри, так и за пределами приложения.</p>
+        <p xml:lang="sk">Marknote, WYSIWYG aplikácia na robenie poznámok od KDE, je konečne pripravená na svoje prvé vydanie. Marknote umožňuje vytvárať poznámky v formátovanom texte a jednoducho ich organizovať do zápisníkov.</p>
         <p xml:lang="sl">Marknote, KDE-jeva aplikacija za beleženje zapiskov WYSIWYG, je končno pripravljena za svojo prvo izdajo. Marknote vam omogoča ustvarjanje zapiskov z obogatenim besedilom in njihovo enostavno organiziranje v zvezke. Zvezke lahko prilagodite tako, da za vsakega izberete ikono in barvo poudarka, kar olajša razlikovanje med njimi in ohranja zapiske na dosegu roke. Vaši zapiski so shranjeni kot datoteke Markdown v mapi Dokumenti, kar omogoča enostavno uporabo zapiskov tako zunaj Marknota kot znotraj aplikacije.</p>
         <p xml:lang="tr">KDE’nin WYSIWYG not alma uygulaması Marknot, nihayet ilk sürümüne hazır. Marknot, zengin metin notlar oluşturmanıza ve onları defterlerde organize etmenize olanak tanır. Defterleriniz için bir simge ve vurgu rengi seçerek onları kişiselleştirebilir ve her birini kendi içinde öne çıkarabilirsiniz. Notlarınız, Belgeler klasörünüze Markdown dosyaları olarak kaydedilir; böylece hem Marknot içinden hem de dosya yöneticinizden onlara kolaylıkla erişebilirsiniz.</p>
         <p xml:lang="uk">Marknote, програма KDE для візуальної роботи з нотатками, нарешті готова до свого першого випуску. Marknote надає змогу створювати форматовані текстові нотатки та без проблем упорядковувати їх за нотатниками. Ви можете персоналізувати ваші нотатники, вибравши піктограму та колір позначення для кожного нотатника, спрощуючи пошук нотатників та роблячи доступ до ваших нотаток якомога простішим. Ваші нотатки буде збережено до файлів Markdown у вашій теці «Документи», щоб спрощує користування нотатками поза Marknote та у самій програмі.</p>
@@ -791,6 +822,7 @@
         <p xml:lang="nl">Dankzij Carl ondersteunt Marknote nu niet alleen vetgedrukte en cursieve lettertypen, maar kunt u ook belangrijke delen onderstrepen, foutieve delen doorstrepen, uw gedachten ordenen in verschillende lijsttypen en uw notities organiseren met titels, secties en meer.</p>
         <p xml:lang="pt-BR">Graças ao Carl, o Marknote agora não só suporta fontes em negrito e itálico, como também permite sublinhar partes importantes, riscar partes incorretas, organizar suas ideias em vários tipos de listas e organizar suas anotações com títulos, seções e muito mais.</p>
         <p xml:lang="ru">Благодаря Карлу в Marknote добавлена поддержка не только полужирного и курсивного начертания, но также возможность подчёркивать важные части, зачёркивать ошибочные, организовывать мысли с помощью различных типов списков и структурировать заметки с помощью заголовков, разделов и других элементов.</p>
+        <p xml:lang="sk">Vďaka Carlovi Marknote teraz podporuje nielen tučné a kurzívne písmo, ale tiež umožňuje podčiarkovať a zvýrazňovať text, meniť písmo, pridávať odkazy a obrázky a dokonca vkladať zaškrtávacie polia.</p>
         <p xml:lang="sl">Zahvaljujoč Carlu Marknote zdaj ne podpira le krepke in poševne pisave, temveč vam omogoča tudi podčrtavanje pomembnih delov, prečrtavanje napačnih delov, organiziranje misli v različne vrste seznamov in organiziranje zapiskov z naslovi, razdelki in še več.</p>
         <p xml:lang="tr">Carl sayesinde Marknot artık sadece kalın ve yatık yazıtiplerini desteklemekle kalmıyor, aynı zamanda önemli kısımların altını çizmenize, yanlış kısımların üzerini çizmenize, düşüncelerinizi çeşitli liste türlerinde düzenlemenize ve notlarınızı başlıklar, bölümler ve daha fazlasıyla organize etmenize olanak tanıyor.</p>
         <p xml:lang="uk">Завдяки Карлу, у Marknote реалізовано не лише жирний та курсивний шрифти, але й можливість підкреслювати важливі частини, викреслювати неправильні, упорядковувати свої думки в різні типи списків та впорядковувати нотатки за заголовками, розділами тощо.</p>
@@ -822,6 +854,7 @@
       <caption xml:lang="nl">Markdown-document geopend in Marknote</caption>
       <caption xml:lang="pt-BR">Documento Markdown aberto no Marknote</caption>
       <caption xml:lang="ru">Документ Markdown, открытый в Marknote</caption>
+      <caption xml:lang="sk">Markdown dokument otvorený v Marknote</caption>
       <caption xml:lang="sl">Dokument Markdown odprt v programu Marknote</caption>
       <caption xml:lang="tr">Marknot ile açılan bir Markdown belgesi</caption>
       <caption xml:lang="uk">Документ Markdown, який відкрито у Marknote</caption>
