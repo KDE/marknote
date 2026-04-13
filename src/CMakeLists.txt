@@ -171,8 +171,9 @@ if (APPLE)
         MACOSX_BUNDLE_COPYRIGHT "2002-2024 The Marknote Developers")
 endif()
 
-if (TARGET KF6::Crash)
+if (WITH_KCRASH)
    target_link_libraries(marknote PRIVATE KF6::Crash)
+    target_compile_definitions(marknote_static PUBLIC HAVE_KCRASH)
 endif()
 
 if (BUILD_TESTING)

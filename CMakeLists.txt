@@ -53,17 +53,25 @@ endif()
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg)
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Kirigami I18n Config CoreAddons IconThemes ColorScheme Notifications)
 
+if (NOT ANDROID AND KF6CoreAddons_VERSION VERSION_LESS "6.19.0")
+    option(WITH_KCRASH "Build with KCrash support as KCoreAddons is not new enough." ON)
+endif()
+
 if (WITH_KRUNNER)
     find_package(Qt6DBus ${QT_MIN_VERSION} REQUIRED)
     find_package(KF6WindowSystem ${KF_MIN_VERSION} REQUIRED)
+endif()
+
+if (WITH_KCRASH)
+    find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Crash)
 endif()
 
 ecm_find_qmlmodule(org.kde.syntaxhighlighting ${KF_MIN_VERSION})
 
 if (NOT ANDROID)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
-    find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Crash)
 endif()
+
 if (BUILD_TESTING)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 endif()

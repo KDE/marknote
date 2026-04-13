@@ -5,13 +5,13 @@
 */
 
 #include <KAboutData>
-#include <KirigamiAppDefaults>
-#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 19, 0) && __has_include("KCrash")
+#ifdef HAVE_KCRASH
 #include <KCrash>
 #endif
 #include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
+#include <KirigamiAppDefaults>
 #ifndef Q_OS_ANDROID
 #include <QApplication>
 #endif
@@ -132,7 +132,7 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(about);
 
-#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 19, 0) && __has_include("KCrash")
+#ifdef HAVE_KCRASH
     KCrash::initialize();
 #endif
 
