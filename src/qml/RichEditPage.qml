@@ -305,7 +305,7 @@ EditPage {
 
         Connections {
             target: root.document
-            function onPopupVisibleChanged(){
+            function onPopupVisibleChanged(): void {
                 if (!root.init){
                     root.document.popupVisible = false
                     return;
@@ -317,18 +317,17 @@ EditPage {
 
                 if (root.document.popupVisible){
                     emojierPopup.open()
-                }
-                else{
+                } else {
                     emojierPopup.close()
                 }
             }
-            function onEmojiSelectorUp(){
+            function onEmojiSelectorUp(): void {
                 emojierPopup.moveSelectionUp();
             }
-            function onEmojiSelectorDown(){
+            function onEmojiSelectorDown(): void {
                 emojierPopup.moveSelectionDown();
             }
-            function onEmojiSelected(){
+            function onEmojiSelected(): void {
                 emojierPopup.selectCurrent();
             }
         }

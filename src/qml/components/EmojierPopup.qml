@@ -33,39 +33,39 @@ Popup{
         listView.positionViewAtIndex(0, ListView.Beginning)
     }
 
-    function renderEmoji(code){
-        if (!code){
+    function renderEmoji(code: string): string {
+        if (!code) {
             return ""
         }
-        let codePoints = code.split("-").map(c => parseInt(c, 16))
+        const codePoints = code.split("-").map(c => parseInt(c, 16));
         return String.fromCodePoint.apply(null, codePoints);
     }
 
-    function moveSelectionUp(){
-        if (listView.currentIndex !== 0){
+    function moveSelectionUp(): void {
+        if (listView.currentIndex !== 0) {
             listView.currentIndex--;
         }
     }
 
-    function moveSelectionDown(){
-        if (listView.currentIndex !== visibleItemsCount - 1){
+    function moveSelectionDown(): void {
+        if (listView.currentIndex !== visibleItemsCount - 1) {
             listView.currentIndex++;
         }
     }
 
-    function selectCurrent(){
+    function selectCurrent(): void {
         if (listView.currentItem){
             listView.currentItem.selectEmoji();
         }
     }
 
-    EmojierProxyModel{
+    EmojierProxyModel {
         id: sourceModel
     }
 
     padding: Kirigami.Units.smallSpacing
 
-    contentItem: Item{
+    contentItem: Item {
         implicitWidth: Kirigami.Units.gridUnit * 15
         implicitHeight: Kirigami.Units.gridUnit * 15
 
@@ -76,7 +76,7 @@ Popup{
             clip: true
             currentIndex: 0
 
-            delegate: RoundedItemDelegate{
+            delegate: RoundedItemDelegate {
                 width: ListView.view.width
                 height: Kirigami.Units.gridUnit * 2
 
@@ -88,7 +88,7 @@ Popup{
 
                 highlighted: ListView.isCurrentItem
 
-                contentItem: RowLayout{
+                contentItem: RowLayout {
                     spacing: Kirigami.Units.largeSpacing
 
                     Label {
@@ -110,17 +110,15 @@ Popup{
                     }
                 }
 
-                function selectEmoji(){
-                    let emojichar = root.renderEmoji(model.emojicode);
+                function selectEmoji(): void {
+                    const emojichar = root.renderEmoji(model.emojicode);
                     root.emojiSelected(emojichar);
                 }
 
                 onClicked: {
                     selectEmoji();
                 }
-
             }
-
         }
     }
 }
