@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-01 00:45+0000\n"
+"POT-Creation-Date: 2026-04-15 00:46+0000\n"
 "PO-Revision-Date: 2026-04-03 21:22+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -152,12 +152,12 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "Не удалось переименовать заметку. Заметка с таким именем уже существует."
 
-#: qml/EditPage.qml:159 qml/RichEditPage.qml:666
+#: qml/EditPage.qml:159 qml/RichEditPage.qml:741
 #, kde-format
 msgid "Undo"
 msgstr "Отменить"
 
-#: qml/EditPage.qml:173 qml/RichEditPage.qml:677
+#: qml/EditPage.qml:173 qml/RichEditPage.qml:752
 #, kde-format
 msgid "Redo"
 msgstr "Повторить"
@@ -700,149 +700,149 @@ msgstr "Файлы изображений (*.jpg *.jpeg *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "Все файлы (*)"
 
-#: qml/RichEditPage.qml:281
+#: qml/RichEditPage.qml:356
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Жирный"
 
-#: qml/RichEditPage.qml:302
+#: qml/RichEditPage.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Курсив"
 
-#: qml/RichEditPage.qml:321
+#: qml/RichEditPage.qml:396
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Подчёркнутый"
 
-#: qml/RichEditPage.qml:335
+#: qml/RichEditPage.qml:410
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Зачёркнутый"
 
-#: qml/RichEditPage.qml:353
+#: qml/RichEditPage.qml:428
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Повысить уровень в списке"
 
-#: qml/RichEditPage.qml:364
+#: qml/RichEditPage.qml:439
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Понизить уровень в списке"
 
-#: qml/RichEditPage.qml:406
+#: qml/RichEditPage.qml:481
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Не список"
 
-#: qml/RichEditPage.qml:407
+#: qml/RichEditPage.qml:482
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Неупорядоченный список"
 
-#: qml/RichEditPage.qml:408
+#: qml/RichEditPage.qml:483
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Упорядоченный список"
 
-#: qml/RichEditPage.qml:419
+#: qml/RichEditPage.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Вставить поле с флажком"
 
-#: qml/RichEditPage.qml:434
+#: qml/RichEditPage.qml:509
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Вставить ссылку"
 
-#: qml/RichEditPage.qml:450
+#: qml/RichEditPage.qml:525
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Вставить ссылку на заметку"
 
-#: qml/RichEditPage.qml:466
+#: qml/RichEditPage.qml:541
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Вставить изображение"
 
-#: qml/RichEditPage.qml:480
+#: qml/RichEditPage.qml:555
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Вставить таблицу"
 
-#: qml/RichEditPage.qml:494
+#: qml/RichEditPage.qml:569
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Вставить эскиз"
 
-#: qml/RichEditPage.qml:515
+#: qml/RichEditPage.qml:590
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Основной текст"
 
-#: qml/RichEditPage.qml:516
+#: qml/RichEditPage.qml:591
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Заголовок"
 
-#: qml/RichEditPage.qml:517
+#: qml/RichEditPage.qml:592
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Подзаголовок"
 
-#: qml/RichEditPage.qml:518
+#: qml/RichEditPage.qml:593
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Раздел"
 
-#: qml/RichEditPage.qml:519
+#: qml/RichEditPage.qml:594
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Подраздел"
 
-#: qml/RichEditPage.qml:520
+#: qml/RichEditPage.qml:595
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Параграф"
 
-#: qml/RichEditPage.qml:521
+#: qml/RichEditPage.qml:596
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Подпараграф"
 
-#: qml/RichEditPage.qml:709
+#: qml/RichEditPage.qml:784
 #, kde-format
 msgid "Format"
 msgstr "Формат"
 
-#: qml/RichEditPage.qml:713
+#: qml/RichEditPage.qml:788
 #, kde-format
 msgid "Lists"
 msgstr "Списки"
 
-#: qml/RichEditPage.qml:717
+#: qml/RichEditPage.qml:792
 #, kde-format
 msgid "Insert"
 msgstr "Вставка"
@@ -941,7 +941,7 @@ msgstr "Заголовки не найдены"
 msgid "Start by creating your first notebook!"
 msgstr "Создайте свою первую записную книжку!"
 
-#: rich_documenthandler.cpp:1097
+#: rich_documenthandler.cpp:1099
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr "Не удалось сохранить вставленное изображение"

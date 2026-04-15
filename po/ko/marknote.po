@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-01 00:45+0000\n"
+"POT-Creation-Date: 2026-04-15 00:46+0000\n"
 "PO-Revision-Date: 2026-02-03 23:43+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -151,12 +151,12 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "노트의 이름을 바꿀 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
 
-#: qml/EditPage.qml:159 qml/RichEditPage.qml:666
+#: qml/EditPage.qml:159 qml/RichEditPage.qml:741
 #, kde-format
 msgid "Undo"
 msgstr "실행 취소"
 
-#: qml/EditPage.qml:173 qml/RichEditPage.qml:677
+#: qml/EditPage.qml:173 qml/RichEditPage.qml:752
 #, kde-format
 msgid "Redo"
 msgstr "다시 실행"
@@ -713,73 +713,73 @@ msgstr "그림 파일 (*.jpg *.jpeg *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "모든 파일 (*)"
 
-#: qml/RichEditPage.qml:281
+#: qml/RichEditPage.qml:356
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "굵게"
 
-#: qml/RichEditPage.qml:302
+#: qml/RichEditPage.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "이탤릭"
 
-#: qml/RichEditPage.qml:321
+#: qml/RichEditPage.qml:396
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "밑줄"
 
-#: qml/RichEditPage.qml:335
+#: qml/RichEditPage.qml:410
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "취소선"
 
-#: qml/RichEditPage.qml:353
+#: qml/RichEditPage.qml:428
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "목록 단계 증가"
 
-#: qml/RichEditPage.qml:364
+#: qml/RichEditPage.qml:439
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "목록 단계 감소"
 
-#: qml/RichEditPage.qml:406
+#: qml/RichEditPage.qml:481
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "목록 없음"
 
-#: qml/RichEditPage.qml:407
+#: qml/RichEditPage.qml:482
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "순서 없는 목록"
 
-#: qml/RichEditPage.qml:408
+#: qml/RichEditPage.qml:483
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "정렬된 목록"
 
-#: qml/RichEditPage.qml:419
+#: qml/RichEditPage.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "체크 상자 삽입"
 
-#: qml/RichEditPage.qml:434
+#: qml/RichEditPage.qml:509
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "링크 삽입"
 
-#: qml/RichEditPage.qml:450
+#: qml/RichEditPage.qml:525
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -787,19 +787,19 @@ msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "링크 삽입"
 
-#: qml/RichEditPage.qml:466
+#: qml/RichEditPage.qml:541
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "그림 삽입"
 
-#: qml/RichEditPage.qml:480
+#: qml/RichEditPage.qml:555
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "표 삽입"
 
-#: qml/RichEditPage.qml:494
+#: qml/RichEditPage.qml:569
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -807,59 +807,59 @@ msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "링크 삽입"
 
-#: qml/RichEditPage.qml:515
+#: qml/RichEditPage.qml:590
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "일반 텍스트"
 
-#: qml/RichEditPage.qml:516
+#: qml/RichEditPage.qml:591
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "제목"
 
-#: qml/RichEditPage.qml:517
+#: qml/RichEditPage.qml:592
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "부제목"
 
-#: qml/RichEditPage.qml:518
+#: qml/RichEditPage.qml:593
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "장"
 
-#: qml/RichEditPage.qml:519
+#: qml/RichEditPage.qml:594
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "절"
 
-#: qml/RichEditPage.qml:520
+#: qml/RichEditPage.qml:595
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "문단"
 
-#: qml/RichEditPage.qml:521
+#: qml/RichEditPage.qml:596
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "하위 문단"
 
-#: qml/RichEditPage.qml:709
+#: qml/RichEditPage.qml:784
 #, kde-format
 msgid "Format"
 msgstr "형식"
 
-#: qml/RichEditPage.qml:713
+#: qml/RichEditPage.qml:788
 #, kde-format
 msgid "Lists"
 msgstr "목록"
 
-#: qml/RichEditPage.qml:717
+#: qml/RichEditPage.qml:792
 #, kde-format
 msgid "Insert"
 msgstr "삽입"
@@ -960,7 +960,7 @@ msgstr ""
 msgid "Start by creating your first notebook!"
 msgstr "첫 공책을 만들어서 시작하십시오!"
 
-#: rich_documenthandler.cpp:1097
+#: rich_documenthandler.cpp:1099
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr ""

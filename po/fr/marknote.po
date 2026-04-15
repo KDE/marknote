@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-01 00:45+0000\n"
+"POT-Creation-Date: 2026-04-15 00:46+0000\n"
 "PO-Revision-Date: 2026-03-31 07:22+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -148,12 +148,12 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "Impossible de renommer une note. Une note existe déjà avec le même nom."
 
-#: qml/EditPage.qml:159 qml/RichEditPage.qml:666
+#: qml/EditPage.qml:159 qml/RichEditPage.qml:741
 #, kde-format
 msgid "Undo"
 msgstr "Annuler"
 
-#: qml/EditPage.qml:173 qml/RichEditPage.qml:677
+#: qml/EditPage.qml:173 qml/RichEditPage.qml:752
 #, kde-format
 msgid "Redo"
 msgstr "Refaire"
@@ -696,149 +696,149 @@ msgstr "Fichiers d'image (* .jpg * .jpeg * .png * .svg * .webp)"
 msgid "All files (*)"
 msgstr "Tous les fichiers (*)"
 
-#: qml/RichEditPage.qml:281
+#: qml/RichEditPage.qml:356
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Gras"
 
-#: qml/RichEditPage.qml:302
+#: qml/RichEditPage.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Italique"
 
-#: qml/RichEditPage.qml:321
+#: qml/RichEditPage.qml:396
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Souligner"
 
-#: qml/RichEditPage.qml:335
+#: qml/RichEditPage.qml:410
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Barré"
 
-#: qml/RichEditPage.qml:353
+#: qml/RichEditPage.qml:428
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Accroître le niveau de la liste"
 
-#: qml/RichEditPage.qml:364
+#: qml/RichEditPage.qml:439
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Réduire le niveau de la liste"
 
-#: qml/RichEditPage.qml:406
+#: qml/RichEditPage.qml:481
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Aucune liste"
 
-#: qml/RichEditPage.qml:407
+#: qml/RichEditPage.qml:482
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Liste non triée"
 
-#: qml/RichEditPage.qml:408
+#: qml/RichEditPage.qml:483
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Liste triée"
 
-#: qml/RichEditPage.qml:419
+#: qml/RichEditPage.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Insérer une case à cocher"
 
-#: qml/RichEditPage.qml:434
+#: qml/RichEditPage.qml:509
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Insérer un lien"
 
-#: qml/RichEditPage.qml:450
+#: qml/RichEditPage.qml:525
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Insérer un lien vers une note"
 
-#: qml/RichEditPage.qml:466
+#: qml/RichEditPage.qml:541
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Insérer une image"
 
-#: qml/RichEditPage.qml:480
+#: qml/RichEditPage.qml:555
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Insérer un tableau"
 
-#: qml/RichEditPage.qml:494
+#: qml/RichEditPage.qml:569
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Insérer un croquis"
 
-#: qml/RichEditPage.qml:515
+#: qml/RichEditPage.qml:590
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Texte standard"
 
-#: qml/RichEditPage.qml:516
+#: qml/RichEditPage.qml:591
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Titre"
 
-#: qml/RichEditPage.qml:517
+#: qml/RichEditPage.qml:592
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Sous-titre"
 
-#: qml/RichEditPage.qml:518
+#: qml/RichEditPage.qml:593
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Section"
 
-#: qml/RichEditPage.qml:519
+#: qml/RichEditPage.qml:594
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Sous-section"
 
-#: qml/RichEditPage.qml:520
+#: qml/RichEditPage.qml:595
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragraphe"
 
-#: qml/RichEditPage.qml:521
+#: qml/RichEditPage.qml:596
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Sous-paragraphe"
 
-#: qml/RichEditPage.qml:709
+#: qml/RichEditPage.qml:784
 #, kde-format
 msgid "Format"
 msgstr "Formater"
 
-#: qml/RichEditPage.qml:713
+#: qml/RichEditPage.qml:788
 #, kde-format
 msgid "Lists"
 msgstr "Listes"
 
-#: qml/RichEditPage.qml:717
+#: qml/RichEditPage.qml:792
 #, kde-format
 msgid "Insert"
 msgstr "Insérer"
@@ -937,7 +937,7 @@ msgstr "Aucune en-tête n'a été trouvée"
 msgid "Start by creating your first notebook!"
 msgstr "Commencez par créer votre premier carnet de notes !"
 
-#: rich_documenthandler.cpp:1097
+#: rich_documenthandler.cpp:1099
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr "Impossible d'enregistrer l'image collée"

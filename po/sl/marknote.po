@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-01 00:45+0000\n"
+"POT-Creation-Date: 2026-04-15 00:46+0000\n"
 "PO-Revision-Date: 2026-03-30 07:16+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -154,12 +154,12 @@ msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Zabeležke ni mogoče preimenovati. Zabeležka z istim imenom že obstaja."
 
-#: qml/EditPage.qml:159 qml/RichEditPage.qml:666
+#: qml/EditPage.qml:159 qml/RichEditPage.qml:741
 #, kde-format
 msgid "Undo"
 msgstr "Razveljavi"
 
-#: qml/EditPage.qml:173 qml/RichEditPage.qml:677
+#: qml/EditPage.qml:173 qml/RichEditPage.qml:752
 #, kde-format
 msgid "Redo"
 msgstr "Uveljavi"
@@ -702,149 +702,149 @@ msgstr "Slikovne datoteke (*.jpg *.jpeg *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "Vse datoteke (*)"
 
-#: qml/RichEditPage.qml:281
+#: qml/RichEditPage.qml:356
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Krepko"
 
-#: qml/RichEditPage.qml:302
+#: qml/RichEditPage.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Ležeče"
 
-#: qml/RichEditPage.qml:321
+#: qml/RichEditPage.qml:396
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
 msgstr "Podčrtaj"
 
-#: qml/RichEditPage.qml:335
+#: qml/RichEditPage.qml:410
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Prečrtano"
 
-#: qml/RichEditPage.qml:353
+#: qml/RichEditPage.qml:428
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Povečaj raven seznama"
 
-#: qml/RichEditPage.qml:364
+#: qml/RichEditPage.qml:439
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Zmanjšaj raven seznama"
 
-#: qml/RichEditPage.qml:406
+#: qml/RichEditPage.qml:481
 #, kde-format
 msgctxt "@item:inmenu no list style"
 msgid "No list"
 msgstr "Ni seznama"
 
-#: qml/RichEditPage.qml:407
+#: qml/RichEditPage.qml:482
 #, kde-format
 msgctxt "@item:inmenu unordered style"
 msgid "Unordered list"
 msgstr "Neoštevilčen seznam"
 
-#: qml/RichEditPage.qml:408
+#: qml/RichEditPage.qml:483
 #, kde-format
 msgctxt "@item:inmenu ordered style"
 msgid "Ordered list"
 msgstr "Oštevilčen seznam"
 
-#: qml/RichEditPage.qml:419
+#: qml/RichEditPage.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert checkbox"
 msgstr "Vstavi potrditveno polje"
 
-#: qml/RichEditPage.qml:434
+#: qml/RichEditPage.qml:509
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Vstavi povezavo"
 
-#: qml/RichEditPage.qml:450
+#: qml/RichEditPage.qml:525
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Vstavi povezavo do zabeležke"
 
-#: qml/RichEditPage.qml:466
+#: qml/RichEditPage.qml:541
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Vstavi sliko"
 
-#: qml/RichEditPage.qml:480
+#: qml/RichEditPage.qml:555
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Vstavi tabelo"
 
-#: qml/RichEditPage.qml:494
+#: qml/RichEditPage.qml:569
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Vstavi skico"
 
-#: qml/RichEditPage.qml:515
+#: qml/RichEditPage.qml:590
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Basic text"
 msgstr "Osnovno besedilo"
 
-#: qml/RichEditPage.qml:516
+#: qml/RichEditPage.qml:591
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Title"
 msgstr "Naslov"
 
-#: qml/RichEditPage.qml:517
+#: qml/RichEditPage.qml:592
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Subtitle"
 msgstr "Podnaslov"
 
-#: qml/RichEditPage.qml:518
+#: qml/RichEditPage.qml:593
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Section"
 msgstr "Razdelek"
 
-#: qml/RichEditPage.qml:519
+#: qml/RichEditPage.qml:594
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Subsection"
 msgstr "Podrazdelek"
 
-#: qml/RichEditPage.qml:520
+#: qml/RichEditPage.qml:595
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Odstavek"
 
-#: qml/RichEditPage.qml:521
+#: qml/RichEditPage.qml:596
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
 msgstr "Pododstavek"
 
-#: qml/RichEditPage.qml:709
+#: qml/RichEditPage.qml:784
 #, kde-format
 msgid "Format"
 msgstr "Oblika"
 
-#: qml/RichEditPage.qml:713
+#: qml/RichEditPage.qml:788
 #, kde-format
 msgid "Lists"
 msgstr "Seznami"
 
-#: qml/RichEditPage.qml:717
+#: qml/RichEditPage.qml:792
 #, kde-format
 msgid "Insert"
 msgstr "Vstavi"
@@ -943,7 +943,7 @@ msgstr "Ni najdenih glav"
 msgid "Start by creating your first notebook!"
 msgstr "Začnite izdelavo svoje prve beležnice!"
 
-#: rich_documenthandler.cpp:1097
+#: rich_documenthandler.cpp:1099
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr "Neuspelo shranjevanje prilepljene slike"
