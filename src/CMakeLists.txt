@@ -68,6 +68,7 @@ ecm_add_qml_module(marknote_static
         tocmodel.cpp tocmodel.h
         emojiermodel.h emojiermodel.cpp
         emojierproxymodel.h emojierproxymodel.cpp
+        commandbarhelper.cpp commandbarhelper.h
 )
 
 kconfig_target_kcfg_file(marknote_static

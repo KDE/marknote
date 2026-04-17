@@ -182,6 +182,28 @@ StatetfulApp.StatefulWindow {
             });
             dialog.open();
         }
+
+        function onOpenKCommandBarAction(): void {
+            try {
+                if (App.actionsModel) {
+                    App.actionsModel.filterString = "";
+                }
+            } catch (e) {
+            }
+        }
+    }
+
+    CommandBarHelper {
+        id: commandBarHelper
+        application: App
+        storagePath: Config.storage
+
+        onNavigateToNote: (notebookPath, notePath) => {
+            root.raise();
+            root.requestActivate();
+            NavigationController.notebookPath = notebookPath;
+            NavigationController.notePath = notePath;
+        }
     }
 
     MarkNoteSettings {
