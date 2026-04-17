@@ -12,6 +12,10 @@ if(USE_UNITY_CMAKE_SUPPORT)
     set_target_properties(marknote_static PROPERTIES UNITY_BUILD ON)
 endif()
 
+target_compile_options(marknote_static PRIVATE
+    $<$<CXX_COMPILER_ID:MSVC>:/bigobj>
+)
+
 ecm_add_qml_module(marknote_static
     URI org.kde.marknote
     GENERATE_PLUGIN_SOURCE
