@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-15 00:46+0000\n"
-"PO-Revision-Date: 2026-03-02 05:48+0900\n"
+"PO-Revision-Date: 2026-04-20 01:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -75,60 +75,57 @@ msgstr "Carl Schwan"
 #: main.cpp:64
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "Valentyn Bondarenko"
 
 #: main.cpp:73
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Justin Zobel"
 
 #: main.cpp:74
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Flatpak 支援"
 
 #: main.cpp:79
 #, kde-format
 msgid "Shubham Shinde"
-msgstr ""
+msgstr "Shubham Shinde"
 
 #: main.cpp:80
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Table of Contents"
+#, kde-format
 msgid "Table of Contents"
 msgstr "目錄"
 
 #: main.cpp:85
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
 #: main.cpp:86
-#, fuzzy, kde-format
-#| msgid "Focus Mode"
+#, kde-format
 msgid "Source Mode"
-msgstr "專注模式"
+msgstr "原始碼模式"
 
 #: main.cpp:91
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: main.cpp:92 main.cpp:98 main.cpp:103
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "錯誤修正"
 
 #: main.cpp:97
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
 #: main.cpp:103
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:124 qml/Main.qml:418
 #, kde-format
@@ -195,12 +192,12 @@ msgstr "離開全螢幕"
 #: qml/EditPage.qml:297
 #, kde-format
 msgid "Switch editor mode"
-msgstr ""
+msgstr "切換編輯器模式"
 
 #: qml/EditPage.qml:302
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "原始碼檢視"
 
 #: qml/EditPage.qml:337
 #, kde-format
@@ -236,7 +233,7 @@ msgstr "%1/%2"
 #: qml/EditPage.qml:471 qml/EditPage.qml:540
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "取代"
 
 #: qml/EditPage.qml:489
 #, kde-format
@@ -246,21 +243,19 @@ msgstr "關閉"
 #: qml/EditPage.qml:511
 #, kde-format
 msgid "Replace with..."
-msgstr ""
+msgstr "替換為…"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
+msgstr[0] "已取代 %1 處"
 
 #: qml/EditPage.qml:552
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace All"
-msgstr "全部選取"
+msgstr "全部取代"
 
 #: qml/EditPage.qml:620
 #, kde-format
@@ -493,39 +488,34 @@ msgid "Edit Notebook"
 msgstr "編輯筆記本"
 
 #: qml/NoteLinkDialog.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "插入連結"
+msgstr "插入筆記連結"
 
 #: qml/NoteLinkDialog.qml:48
-#, fuzzy, kde-format
-#| msgid "Notebook name"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr "筆記本名稱"
+msgstr "筆記名稱："
 
 #: qml/NoteLinkDialog.qml:50
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "要連結到的筆記的名稱。"
 
 #: qml/NoteLinkDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Link Text:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "連結文字："
+msgstr "顯示文字："
 
 #: qml/NoteLinkDialog.qml:69
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
-msgstr ""
+msgstr "若有提供，顯示此文字而非目標筆記的名稱。"
 
 #: qml/NoteMetadataDialog.qml:24
 #, kde-format
@@ -598,12 +588,10 @@ msgid "Export of \"%1\" failed."
 msgstr "匯出「%1」失敗。"
 
 #: qml/NotesPage.qml:499
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
-msgstr "重新命名筆記"
+msgstr "重新命名"
 
 #: qml/NotesPage.qml:511 qml/TextFieldContextMenu.qml:391
 #, kde-format
@@ -612,20 +600,16 @@ msgid "Copy"
 msgstr "複製"
 
 #: qml/NotesPage.qml:528
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Duplicate Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
-msgstr "建立筆記複本"
+msgstr "建立複本"
 
 #: qml/NotesPage.qml:536
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Import"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
-msgstr "匯入"
+msgstr "匯出"
 
 #: qml/NotesPage.qml:540
 #, kde-format
@@ -772,12 +756,10 @@ msgid "Insert link"
 msgstr "插入連結"
 
 #: qml/RichEditPage.qml:525
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr "插入連結"
+msgstr "插入筆記連結"
 
 #: qml/RichEditPage.qml:541
 #, kde-format
@@ -792,12 +774,10 @@ msgid "Insert table"
 msgstr "插入表格"
 
 #: qml/RichEditPage.qml:569
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "插入連結"
+msgstr "插入塗鴉"
 
 #: qml/RichEditPage.qml:590
 #, kde-format
@@ -860,13 +840,13 @@ msgstr "插入"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "橡皮擦"
 
 #: qml/SketchDialog.qml:310
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "清空畫布"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -953,7 +933,7 @@ msgstr "從建立您的第一本筆記本開始吧！"
 #: rich_documenthandler.cpp:1099
 #, kde-format
 msgid "Failed to save pasted image"
-msgstr ""
+msgstr "儲存貼上的影像失敗"
 
 #: settings/MarkNoteGeneralPage.qml:17
 #, kde-format
