@@ -2,7 +2,7 @@
 
 Write down your thoughts.
 
-Marknote supports a wide range of formating options usefully for taking every day notes, like bold, italic, underlined and strike through fonts as well as headings, lists, check boxes, images and more.
+Marknote supports a wide range of formatting options useful for taking everyday notes, like bold, italic, underlined and strike through fonts as well as headings, lists, check boxes, images and more.
 
 <img src="https://i.imgur.com/tJba9pK.png.png"  height="350" > <img src="https://i.imgur.com/9DsuKFP.png"  height="350" >
 
