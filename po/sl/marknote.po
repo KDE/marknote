@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:46+0000\n"
+"POT-Creation-Date: 2026-04-26 00:44+0000\n"
 "PO-Revision-Date: 2026-03-30 07:16+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -943,7 +943,7 @@ msgstr "Ni najdenih glav"
 msgid "Start by creating your first notebook!"
 msgstr "Začnite izdelavo svoje prve beležnice!"
 
-#: rich_documenthandler.cpp:1099
+#: rich_documenthandler.cpp:1098
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr "Neuspelo shranjevanje prilepljene slike"

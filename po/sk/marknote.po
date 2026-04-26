@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:46+0000\n"
+"POT-Creation-Date: 2026-04-26 00:44+0000\n"
 "PO-Revision-Date: 2023-12-08 20:00+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -934,7 +934,7 @@ msgstr "Nenašli sa žiadne headers."
 msgid "Start by creating your first notebook!"
 msgstr "Začnite vytvorením svojho prvého zápisníka!"
 
-#: rich_documenthandler.cpp:1099
+#: rich_documenthandler.cpp:1098
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr "Nepodarilo sa save pasted image"

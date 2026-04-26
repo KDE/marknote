@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:46+0000\n"
+"POT-Creation-Date: 2026-04-26 00:44+0000\n"
 "PO-Revision-Date: 2026-03-30 08:57-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -942,7 +942,7 @@ msgstr "Nenhum cabeçalho encontrado"
 msgid "Start by creating your first notebook!"
 msgstr "Comece criando seu primeiro bloco de notas!"
 
-#: rich_documenthandler.cpp:1099
+#: rich_documenthandler.cpp:1098
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr "Não foi possível salvar a imagem colada"

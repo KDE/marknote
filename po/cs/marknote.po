@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:46+0000\n"
+"POT-Creation-Date: 2026-04-26 00:44+0000\n"
 "PO-Revision-Date: 2025-12-02 11:29+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -963,7 +963,7 @@ msgstr ""
 msgid "Start by creating your first notebook!"
 msgstr "Začněte vytvořením vašeho prvního poznámkového bloku."
 
-#: rich_documenthandler.cpp:1099
+#: rich_documenthandler.cpp:1098
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr ""

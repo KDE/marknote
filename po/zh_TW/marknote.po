@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:46+0000\n"
+"POT-Creation-Date: 2026-04-26 00:44+0000\n"
 "PO-Revision-Date: 2026-04-20 01:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -930,7 +930,7 @@ msgstr "找不到標頭"
 msgid "Start by creating your first notebook!"
 msgstr "從建立您的第一本筆記本開始吧！"
 
-#: rich_documenthandler.cpp:1099
+#: rich_documenthandler.cpp:1098
 #, kde-format
 msgid "Failed to save pasted image"
 msgstr "儲存貼上的影像失敗"
