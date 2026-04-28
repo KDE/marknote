@@ -145,7 +145,8 @@ msgstr "© 2023 Mathis Brüchert"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
-msgstr "Nie je možné rename note. A note already exists with the same name."
+msgstr ""
+"Nie je možné premenovať poznámku. Poznámka s rovnakým názvom už existuje."
 
 #: qml/EditPage.qml:159 qml/RichEditPage.qml:741
 #, kde-format
@@ -327,7 +328,8 @@ msgstr "URL odkazu:"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
-msgstr "Nie je možné create a new note, you need to create a notebook first."
+msgstr ""
+"Nie je možné vytvoriť novú poznámku, najprv musíte vytvoriť poznámkový blok."
 
 #: qml/Main.qml:150
 #, kde-format
