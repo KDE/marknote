@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-26 00:44+0000\n"
-"PO-Revision-Date: 2026-03-30 20:04+0300\n"
+"PO-Revision-Date: 2026-05-02 18:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -147,7 +147,7 @@ msgstr "© 2023–2026 Mathis Brüchert"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
-msgstr "Not yeniden adlandırılamıyor. Aynı adlı bir not halihazırda var."
+msgstr "Not yeniden adlandırılamıyor. Aynı adlı bir not hâlihazırda var."
 
 #: qml/EditPage.qml:159 qml/RichEditPage.qml:741
 #, kde-format
