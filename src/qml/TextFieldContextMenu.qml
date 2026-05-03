@@ -258,7 +258,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         visible: root.currentLink.toString() !== ""
         action: QQC2.Action {
-            text: root.__isInternalLink(root.currentLink) ? KI18n.i18nc("@inmenu", "Open Note") : KI18n.i18nc("@inmenu", "Open Link")
+            text: root.__isInternalLink(root.currentLink) ? KI18n.i18nc("@action:inmenu", "Open Note") : KI18n.i18nc("@action:inmenu", "Open Link")
             icon.name: "document-open"
             onTriggered: {
                 if (root.__isInternalLink(root.currentLink)) {
@@ -278,7 +278,7 @@ QQC2.Menu {
         active: root.tableActionHelper?.actionInsertRowAbove?.enabled ?? false
 
         delegate: QQC2.Menu {
-            title: KI18n.i18nc("@inmenu", "Insert")
+            title: KI18n.i18nc("@action:inmenu", "Insert")
 
             QQC2.MenuItem {
                 text: root.tableActionHelper.actionInsertRowAbove.text
@@ -314,7 +314,7 @@ QQC2.Menu {
         active: root.tableActionHelper?.actionRemoveRow?.enabled ?? false
 
         delegate: QQC2.Menu {
-            title: KI18n.i18nc("@inmenu", "Remove")
+            title: KI18n.i18nc("@action:inmenu", "Remove")
 
             QQC2.MenuItem {
                 text: root.tableActionHelper.actionRemoveRow.text

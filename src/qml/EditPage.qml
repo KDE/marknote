@@ -200,7 +200,7 @@ Kirigami.Page {
 
         Kirigami.Heading {
             text: root.isTocOpened && !root.singleDocumentMode && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn ?
-            KI18n.i18nc("@action:button", "Table of Content") : root.noteName
+            KI18n.i18nc("@action:button", "Table of Contents") : root.noteName
             elide: Text.ElideRight
             wrapMode: Text.NoWrap
 
@@ -235,7 +235,7 @@ Kirigami.Page {
 
         ToolButton {
             icon.name: "view-list-details"
-            text: KI18n.i18nc("@action:button", "Table of Content")
+            text: KI18n.i18nc("@action:button", "Table of Contents")
             display: AbstractButton.IconOnly
             checkable: true
             checked: root.isTocOpened

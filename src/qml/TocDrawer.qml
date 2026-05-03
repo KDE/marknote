@@ -118,7 +118,7 @@ Kirigami.OverlayDrawer {
                     anchors.centerIn: parent
                     icon.name: "format-list-unordered"
                     visible: tocListView.count === 0
-                    text: KI18n.i18n("No headers found")
+                    text: KI18n.i18nc("Is shown instead of the table of contents", "No headings found")
                 }
             }
         }
