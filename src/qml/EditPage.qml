@@ -380,7 +380,7 @@ Kirigami.Page {
                     Kirigami.SearchField {
                         id: searchField
                         Layout.fillWidth: true
-                        placeholderText: KI18n.i18n("Find text...")
+                        placeholderText: KI18n.i18n("Find text…")
                         onTextChanged: {
                             // Strip out any carriage returns/newlines
                             const cleanText = text.replace(/[\r\n]+/g, "").trim();
@@ -508,7 +508,7 @@ Kirigami.Page {
                     TextField {
                         id: replaceField
                         Layout.fillWidth: true
-                        placeholderText: KI18n.i18n("Replace with...")
+                        placeholderText: KI18n.i18n("Replace with…")
                         Keys.onShortcutOverride: (event)=> event.accepted = (event.key === Qt.Key_Escape)
                         Keys.onReturnPressed: (event) => {
                             if (event.modifiers & Qt.ControlModifier) {

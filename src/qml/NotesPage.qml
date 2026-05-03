@@ -448,7 +448,7 @@ Kirigami.ScrollablePage {
                     componentName: "marknote"
                     eventId: "exportSuccessful"
                     title: KI18n.i18nc("@title:window", "Marknote")
-                    text: KI18n.i18nc("@info", "Export of \"%1\" was successful.", exportSuccessNotification.name);
+                    text: KI18n.i18nc("@info", "Export of “%1” was successful.", exportSuccessNotification.name);
                     iconName: {
                         const ext = exportSuccessNotification.path.split('.').pop().toLowerCase();
 
@@ -484,7 +484,7 @@ Kirigami.ScrollablePage {
                     componentName: "marknote"
                     eventId: "exportFailed"
                     title: KI18n.i18nc("@title:window", "Marknote")
-                    text: KI18n.i18nc("@info", "Export of \"%1\" failed.", exportFailedNotification.name);
+                    text: KI18n.i18nc("@info", "Export of “%1” failed.", exportFailedNotification.name);
                     iconName: "error"
                 }
             }

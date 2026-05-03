@@ -93,7 +93,7 @@ void MaildirImport::import(const QUrl &maildir, const QUrl &destinationDir)
                 QFile markdownFile(destinationDir.toLocalFile() + u'/' + cleanFileName(subject) + u".md"_s);
                 if (!markdownFile.open(QIODevice::WriteOnly)) {
                     qWarning() << "Not writable" << markdownFile.fileName() << markdownFile.errorString();
-                    Q_EMIT errorOccurred(i18nc("@status", "An error occurred while writing to '%1'", markdownFile.fileName()));
+                    Q_EMIT errorOccurred(i18nc("@status", "An error occurred while writing to “%1”", markdownFile.fileName()));
                     continue;
                 }
                 markdownFile.write(content);
