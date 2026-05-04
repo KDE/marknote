@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:44+0000\n"
+"POT-Creation-Date: 2026-05-04 00:44+0000\n"
 "PO-Revision-Date: 2026-03-30 10:51+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -52,9 +52,11 @@ msgid "Import from Maildir"
 msgstr "Uit Maildir importeren"
 
 #: maildirimport.cpp:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@status"
+#| msgid "An error occurred while writing to '%1'"
 msgctxt "@status"
-msgid "An error occurred while writing to '%1'"
+msgid "An error occurred while writing to “%1”"
 msgstr "Er deed zich een fout voor bij schrijven naar '%1'"
 
 #: main.cpp:56
@@ -139,8 +141,9 @@ msgid "Note taking application"
 msgstr "Toepassing voor maken van notities"
 
 #: main.cpp:128
-#, kde-format
-msgid "© 2023-2026 Mathis Brüchert"
+#, fuzzy, kde-format
+#| msgid "© 2023-2026 Mathis Brüchert"
+msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
@@ -161,9 +164,10 @@ msgid "Redo"
 msgstr "Opnieuw doen"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Table of Contents"
 msgctxt "@action:button"
-msgid "Table of Content"
+msgid "Table of Contents"
 msgstr "Inhoudsopgave"
 
 #: qml/EditPage.qml:223
@@ -207,8 +211,9 @@ msgid "Table of Contents"
 msgstr "Inhoudsopgave"
 
 #: qml/EditPage.qml:383
-#, kde-format
-msgid "Find text..."
+#, fuzzy, kde-format
+#| msgid "Find text..."
+msgid "Find text…"
 msgstr "Tekst zoeken..."
 
 #: qml/EditPage.qml:423
@@ -242,8 +247,9 @@ msgid "Close"
 msgstr "Sluiten"
 
 #: qml/EditPage.qml:511
-#, kde-format
-msgid "Replace with..."
+#, fuzzy, kde-format
+#| msgid "Replace with..."
+msgid "Replace with…"
 msgstr "Vervangen door..."
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
@@ -577,9 +583,11 @@ msgid "Marknote"
 msgstr "Marknote"
 
 #: qml/NotesPage.qml:451
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export of \"%1\" was successful."
 msgctxt "@info"
-msgid "Export of \"%1\" was successful."
+msgid "Export of “%1” was successful."
 msgstr "Exporteren van \"%1\" is gelukt."
 
 #: qml/NotesPage.qml:469
@@ -589,9 +597,11 @@ msgid "Open File"
 msgstr "Bestand openen"
 
 #: qml/NotesPage.qml:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export of \"%1\" failed."
 msgctxt "@info"
-msgid "Export of \"%1\" failed."
+msgid "Export of “%1” failed."
 msgstr "Exporteren van \"%1\" is mislukt."
 
 #: qml/NotesPage.qml:499
@@ -874,26 +884,33 @@ msgid "Spell Check"
 msgstr "Spellingcontrole"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Note"
+msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "Notitie openen"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Link"
+msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Koppeling openen"
 
 #: qml/TextFieldContextMenu.qml:281
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "Invoegen"
 
 #: qml/TextFieldContextMenu.qml:317
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Remove"
+msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Verwijderen"
 
@@ -928,8 +945,10 @@ msgid "Select All"
 msgstr "Alles selecteren"
 
 #: qml/TocDrawer.qml:121
-#, kde-format
-msgid "No headers found"
+#, fuzzy, kde-format
+#| msgid "No headers found"
+msgctxt "Is shown instead of the table of contents"
+msgid "No headings found"
 msgstr "Geen koppen gevonden"
 
 #: qml/WelcomePage.qml:22
@@ -1033,6 +1052,14 @@ msgstr "Kolom"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celinhoud"
+
+#~ msgctxt "@action:button"
+#~ msgid "Table of Content"
+#~ msgstr "Inhoudsopgave"
+
+#~ msgctxt "@inmenu"
+#~ msgid "Insert"
+#~ msgstr "Invoegen"
 
 #~ msgctxt "@title:window"
 #~ msgid "Insert Image"

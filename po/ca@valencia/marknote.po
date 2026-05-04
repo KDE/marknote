@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:44+0000\n"
+"POT-Creation-Date: 2026-05-04 00:44+0000\n"
 "PO-Revision-Date: 2026-03-30 11:12+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -54,9 +54,11 @@ msgid "Import from Maildir"
 msgstr "Importa des de Maildir"
 
 #: maildirimport.cpp:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@status"
+#| msgid "An error occurred while writing to '%1'"
 msgctxt "@status"
-msgid "An error occurred while writing to '%1'"
+msgid "An error occurred while writing to “%1”"
 msgstr "S'ha produït un error mentre s'escrivia a «%1»"
 
 #: main.cpp:56
@@ -141,8 +143,9 @@ msgid "Note taking application"
 msgstr "Aplicació de presa de notes"
 
 #: main.cpp:128
-#, kde-format
-msgid "© 2023-2026 Mathis Brüchert"
+#, fuzzy, kde-format
+#| msgid "© 2023-2026 Mathis Brüchert"
+msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
@@ -164,9 +167,10 @@ msgid "Redo"
 msgstr "Refés"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Table of Contents"
 msgctxt "@action:button"
-msgid "Table of Content"
+msgid "Table of Contents"
 msgstr "Taula de contingut"
 
 #: qml/EditPage.qml:223
@@ -210,8 +214,9 @@ msgid "Table of Contents"
 msgstr "Taula de contingut"
 
 #: qml/EditPage.qml:383
-#, kde-format
-msgid "Find text..."
+#, fuzzy, kde-format
+#| msgid "Find text..."
+msgid "Find text…"
 msgstr "Busca el text…"
 
 #: qml/EditPage.qml:423
@@ -245,8 +250,9 @@ msgid "Close"
 msgstr "Tanca"
 
 #: qml/EditPage.qml:511
-#, kde-format
-msgid "Replace with..."
+#, fuzzy, kde-format
+#| msgid "Replace with..."
+msgid "Replace with…"
 msgstr "Substituïx per…"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
@@ -579,9 +585,11 @@ msgid "Marknote"
 msgstr "MarkNote"
 
 #: qml/NotesPage.qml:451
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export of \"%1\" was successful."
 msgctxt "@info"
-msgid "Export of \"%1\" was successful."
+msgid "Export of “%1” was successful."
 msgstr "L'exportació de «%1» ha sigut correcta."
 
 #: qml/NotesPage.qml:469
@@ -591,9 +599,11 @@ msgid "Open File"
 msgstr "Obri un fitxer"
 
 #: qml/NotesPage.qml:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export of \"%1\" failed."
 msgctxt "@info"
-msgid "Export of \"%1\" failed."
+msgid "Export of “%1” failed."
 msgstr "No s'ha pogut fer l'exportació de «%1»."
 
 #: qml/NotesPage.qml:499
@@ -876,26 +886,33 @@ msgid "Spell Check"
 msgstr "Verificació de l'ortografia"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Note"
+msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "Obri una nota"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Link"
+msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Obri l'enllaç"
 
 #: qml/TextFieldContextMenu.qml:281
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "Inserix"
 
 #: qml/TextFieldContextMenu.qml:317
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Remove"
+msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Elimina"
 
@@ -930,8 +947,10 @@ msgid "Select All"
 msgstr "Selecciona-ho tot"
 
 #: qml/TocDrawer.qml:121
-#, kde-format
-msgid "No headers found"
+#, fuzzy, kde-format
+#| msgid "No headers found"
+msgctxt "Is shown instead of the table of contents"
+msgid "No headings found"
 msgstr "No s'ha trobat cap capçalera"
 
 #: qml/WelcomePage.qml:22
@@ -1035,3 +1054,11 @@ msgstr "Columna"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Contingut de la cel·la"
+
+#~ msgctxt "@action:button"
+#~ msgid "Table of Content"
+#~ msgstr "Taula de contingut"
+
+#~ msgctxt "@inmenu"
+#~ msgid "Insert"
+#~ msgstr "Inserix"

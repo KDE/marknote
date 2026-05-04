@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:44+0000\n"
+"POT-Creation-Date: 2026-05-04 00:44+0000\n"
 "PO-Revision-Date: 2025-10-26 13:33+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -53,9 +53,11 @@ msgid "Import from Maildir"
 msgstr "Importer frå Maildir-mappe"
 
 #: maildirimport.cpp:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@status"
+#| msgid "An error occurred while writing to '%1'"
 msgctxt "@status"
-msgid "An error occurred while writing to '%1'"
+msgid "An error occurred while writing to “%1”"
 msgstr "Det oppstod ein feil ved lagring til «%1»"
 
 #: main.cpp:56
@@ -144,7 +146,7 @@ msgstr "Notatverktøy"
 #: main.cpp:128
 #, fuzzy, kde-format
 #| msgid "© 2023-2024 Mathis Brüchert"
-msgid "© 2023-2026 Mathis Brüchert"
+msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2024 Jonah Brüchert"
 
 #: notesmodel.cpp:157
@@ -168,7 +170,7 @@ msgstr "Gjer om"
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@action:button"
-msgid "Table of Content"
+msgid "Table of Contents"
 msgstr "Celleinnhald"
 
 #: qml/EditPage.qml:223
@@ -216,7 +218,7 @@ msgstr "Celleinnhald"
 
 #: qml/EditPage.qml:383
 #, kde-format
-msgid "Find text..."
+msgid "Find text…"
 msgstr ""
 
 #: qml/EditPage.qml:423
@@ -250,9 +252,11 @@ msgid "Close"
 msgstr ""
 
 #: qml/EditPage.qml:511
-#, kde-format
-msgid "Replace with..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Replace with…"
+msgstr "Merk alt"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
@@ -601,7 +605,7 @@ msgstr "Marknote"
 #: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@info"
-msgid "Export of \"%1\" was successful."
+msgid "Export of “%1” was successful."
 msgstr ""
 
 #: qml/NotesPage.qml:469
@@ -615,7 +619,7 @@ msgstr "Opna lenkja"
 #: qml/NotesPage.qml:487
 #, kde-format
 msgctxt "@info"
-msgid "Export of \"%1\" failed."
+msgid "Export of “%1” failed."
 msgstr ""
 
 #: qml/NotesPage.qml:499
@@ -911,25 +915,30 @@ msgstr "Stavekontroll"
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "New Note"
-msgctxt "@inmenu"
+msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "Nytt notat"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Link"
+msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Opna lenkja"
 
 #: qml/TextFieldContextMenu.qml:281
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "Set inn"
 
 #: qml/TextFieldContextMenu.qml:317
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Remove"
+msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Fjern"
 
@@ -965,7 +974,8 @@ msgstr "Merk alt"
 
 #: qml/TocDrawer.qml:121
 #, kde-format
-msgid "No headers found"
+msgctxt "Is shown instead of the table of contents"
+msgid "No headings found"
 msgstr ""
 
 #: qml/WelcomePage.qml:22
@@ -1069,3 +1079,13 @@ msgstr "Kolonne"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celleinnhald"
+
+#, fuzzy
+#~| msgid "Cell Contents"
+#~ msgctxt "@action:button"
+#~ msgid "Table of Content"
+#~ msgstr "Celleinnhald"
+
+#~ msgctxt "@inmenu"
+#~ msgid "Insert"
+#~ msgstr "Set inn"

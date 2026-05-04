@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:44+0000\n"
+"POT-Creation-Date: 2026-05-04 00:44+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -54,9 +54,11 @@ msgid "Import from Maildir"
 msgstr "मैल्डिरतः आयातम्"
 
 #: maildirimport.cpp:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@status"
+#| msgid "An error occurred while writing to '%1'"
 msgctxt "@status"
-msgid "An error occurred while writing to '%1'"
+msgid "An error occurred while writing to “%1”"
 msgstr "'%1' इति लेखनकाले त्रुटिः अभवत् ।"
 
 #: main.cpp:56
@@ -145,7 +147,7 @@ msgstr "आवेदनं गृहीत्वा टिप्पणी"
 #: main.cpp:128
 #, fuzzy, kde-format
 #| msgid "© 2023-2024 Mathis Brüchert"
-msgid "© 2023-2026 Mathis Brüchert"
+msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© २०२३-२०२४ माथिस ब्रुचेर्ट"
 
 #: notesmodel.cpp:157
@@ -172,7 +174,7 @@ msgstr "पुनः करो"
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@action:button"
-msgid "Table of Content"
+msgid "Table of Contents"
 msgstr "कोष्ठक सामग्री"
 
 #: qml/EditPage.qml:223
@@ -220,7 +222,7 @@ msgstr "कोष्ठक सामग्री"
 
 #: qml/EditPage.qml:383
 #, kde-format
-msgid "Find text..."
+msgid "Find text…"
 msgstr ""
 
 #: qml/EditPage.qml:423
@@ -254,9 +256,11 @@ msgid "Close"
 msgstr ""
 
 #: qml/EditPage.qml:511
-#, kde-format
-msgid "Replace with..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Replace with…"
+msgstr "All इति चिनोतु"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
@@ -605,7 +609,7 @@ msgstr "मार्कनोट्"
 #: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@info"
-msgid "Export of \"%1\" was successful."
+msgid "Export of “%1” was successful."
 msgstr ""
 
 #: qml/NotesPage.qml:469
@@ -619,7 +623,7 @@ msgstr "लिङ्कं उद्घाटयतु"
 #: qml/NotesPage.qml:487
 #, kde-format
 msgctxt "@info"
-msgid "Export of \"%1\" failed."
+msgid "Export of “%1” failed."
 msgstr ""
 
 #: qml/NotesPage.qml:499
@@ -915,25 +919,30 @@ msgstr "वर्तनीपरीक्षा"
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "New Note"
-msgctxt "@inmenu"
+msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "नवीन टिप्पणी"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Link"
+msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "लिङ्कं उद्घाटयतु"
 
 #: qml/TextFieldContextMenu.qml:281
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "युज्"
 
 #: qml/TextFieldContextMenu.qml:317
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Remove"
+msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "अपाकरोति"
 
@@ -969,7 +978,8 @@ msgstr "All इति चिनोतु"
 
 #: qml/TocDrawer.qml:121
 #, kde-format
-msgid "No headers found"
+msgctxt "Is shown instead of the table of contents"
+msgid "No headings found"
 msgstr ""
 
 #: qml/WelcomePage.qml:22
@@ -1075,6 +1085,16 @@ msgstr "स्तम्भ"
 #, kde-format
 msgid "Cell Contents"
 msgstr "कोष्ठक सामग्री"
+
+#, fuzzy
+#~| msgid "Cell Contents"
+#~ msgctxt "@action:button"
+#~ msgid "Table of Content"
+#~ msgstr "कोष्ठक सामग्री"
+
+#~ msgctxt "@inmenu"
+#~ msgid "Insert"
+#~ msgstr "युज्"
 
 #~ msgctxt "@title:window"
 #~ msgid "Insert Image"

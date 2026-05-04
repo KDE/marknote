@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:44+0000\n"
+"POT-Creation-Date: 2026-05-04 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -52,9 +52,11 @@ msgid "Import from Maildir"
 msgstr "从 Maildir 导入"
 
 #: maildirimport.cpp:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@status"
+#| msgid "An error occurred while writing to '%1'"
 msgctxt "@status"
-msgid "An error occurred while writing to '%1'"
+msgid "An error occurred while writing to “%1”"
 msgstr "写入 '%1' 时出错"
 
 #: main.cpp:56
@@ -139,8 +141,9 @@ msgid "Note taking application"
 msgstr "笔记编辑程序"
 
 #: main.cpp:128
-#, kde-format
-msgid "© 2023-2026 Mathis Brüchert"
+#, fuzzy, kde-format
+#| msgid "© 2023-2026 Mathis Brüchert"
+msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
@@ -160,9 +163,10 @@ msgid "Redo"
 msgstr "重做"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Table of Contents"
 msgctxt "@action:button"
-msgid "Table of Content"
+msgid "Table of Contents"
 msgstr "目录"
 
 #: qml/EditPage.qml:223
@@ -206,8 +210,9 @@ msgid "Table of Contents"
 msgstr "目录"
 
 #: qml/EditPage.qml:383
-#, kde-format
-msgid "Find text..."
+#, fuzzy, kde-format
+#| msgid "Find text..."
+msgid "Find text…"
 msgstr "查找文本..."
 
 #: qml/EditPage.qml:423
@@ -241,8 +246,9 @@ msgid "Close"
 msgstr "关闭"
 
 #: qml/EditPage.qml:511
-#, kde-format
-msgid "Replace with..."
+#, fuzzy, kde-format
+#| msgid "Replace with..."
+msgid "Replace with…"
 msgstr "替换为……"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
@@ -570,9 +576,11 @@ msgid "Marknote"
 msgstr "Marknote"
 
 #: qml/NotesPage.qml:451
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export of \"%1\" was successful."
 msgctxt "@info"
-msgid "Export of \"%1\" was successful."
+msgid "Export of “%1” was successful."
 msgstr "导入\"%1\"成功。"
 
 #: qml/NotesPage.qml:469
@@ -582,9 +590,11 @@ msgid "Open File"
 msgstr "打开文件"
 
 #: qml/NotesPage.qml:487
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export of \"%1\" failed."
 msgctxt "@info"
-msgid "Export of \"%1\" failed."
+msgid "Export of “%1” failed."
 msgstr "导出“%1”失败。"
 
 #: qml/NotesPage.qml:499
@@ -867,26 +877,33 @@ msgid "Spell Check"
 msgstr "拼写检查"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Note"
+msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "打开笔记"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Link"
+msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "打开链接"
 
 #: qml/TextFieldContextMenu.qml:281
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "插入"
 
 #: qml/TextFieldContextMenu.qml:317
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Remove"
+msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "移除"
 
@@ -921,8 +938,10 @@ msgid "Select All"
 msgstr "全部选择"
 
 #: qml/TocDrawer.qml:121
-#, kde-format
-msgid "No headers found"
+#, fuzzy, kde-format
+#| msgid "No headers found"
+msgctxt "Is shown instead of the table of contents"
+msgid "No headings found"
 msgstr "未找到 headers"
 
 #: qml/WelcomePage.qml:22
@@ -1026,3 +1045,11 @@ msgstr "列"
 #, kde-format
 msgid "Cell Contents"
 msgstr "单元格内容"
+
+#~ msgctxt "@action:button"
+#~ msgid "Table of Content"
+#~ msgstr "目录"
+
+#~ msgctxt "@inmenu"
+#~ msgid "Insert"
+#~ msgstr "插入"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:44+0000\n"
+"POT-Creation-Date: 2026-05-04 00:44+0000\n"
 "PO-Revision-Date: 2026-03-14 12:51+0000\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -55,7 +55,7 @@ msgstr "Iompórtáil as Maildir"
 #: maildirimport.cpp:96
 #, kde-format
 msgctxt "@status"
-msgid "An error occurred while writing to '%1'"
+msgid "An error occurred while writing to “%1”"
 msgstr ""
 
 #: main.cpp:56
@@ -140,8 +140,9 @@ msgid "Note taking application"
 msgstr ""
 
 #: main.cpp:128
-#, kde-format
-msgid "© 2023-2026 Mathis Brüchert"
+#, fuzzy, kde-format
+#| msgid "© 2023-2026 Mathis Brüchert"
+msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
@@ -163,7 +164,7 @@ msgstr "Athdhéan"
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
 #, kde-format
 msgctxt "@action:button"
-msgid "Table of Content"
+msgid "Table of Contents"
 msgstr ""
 
 #: qml/EditPage.qml:223
@@ -207,8 +208,9 @@ msgid "Table of Contents"
 msgstr ""
 
 #: qml/EditPage.qml:383
-#, kde-format
-msgid "Find text..."
+#, fuzzy, kde-format
+#| msgid "Find text..."
+msgid "Find text…"
 msgstr "Aimsigh téacs..."
 
 #: qml/EditPage.qml:423
@@ -242,8 +244,9 @@ msgid "Close"
 msgstr "Dún"
 
 #: qml/EditPage.qml:511
-#, kde-format
-msgid "Replace with..."
+#, fuzzy, kde-format
+#| msgid "Replace with..."
+msgid "Replace with…"
 msgstr "Ionadaigh le..."
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
@@ -580,7 +583,7 @@ msgstr ""
 #: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@info"
-msgid "Export of \"%1\" was successful."
+msgid "Export of “%1” was successful."
 msgstr ""
 
 #: qml/NotesPage.qml:469
@@ -592,7 +595,7 @@ msgstr "Oscail Comhad"
 #: qml/NotesPage.qml:487
 #, kde-format
 msgctxt "@info"
-msgid "Export of \"%1\" failed."
+msgid "Export of “%1” failed."
 msgstr ""
 
 #: qml/NotesPage.qml:499
@@ -877,26 +880,32 @@ msgid "Spell Check"
 msgstr ""
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Note"
+msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "Oscail Nóta"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Link"
+msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Oscail Nasc"
 
 #: qml/TextFieldContextMenu.qml:281
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Insert"
+msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "Ionsáigh"
 
 #: qml/TextFieldContextMenu.qml:317
 #, kde-format
-msgctxt "@inmenu"
+msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr ""
 
@@ -932,7 +941,8 @@ msgstr "Roghnaigh Uile"
 
 #: qml/TocDrawer.qml:121
 #, kde-format
-msgid "No headers found"
+msgctxt "Is shown instead of the table of contents"
+msgid "No headings found"
 msgstr ""
 
 #: qml/WelcomePage.qml:22

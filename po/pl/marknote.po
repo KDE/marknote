@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:44+0000\n"
+"POT-Creation-Date: 2026-05-04 00:44+0000\n"
 "PO-Revision-Date: 2026-01-24 11:07+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -53,9 +53,11 @@ msgid "Import from Maildir"
 msgstr "Zaimportuj z katalogu pocztowego"
 
 #: maildirimport.cpp:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@status"
+#| msgid "An error occurred while writing to '%1'"
 msgctxt "@status"
-msgid "An error occurred while writing to '%1'"
+msgid "An error occurred while writing to “%1”"
 msgstr "Wystąpił błąd przy zapisywaniu do pliku'%1'"
 
 #: main.cpp:56
@@ -142,8 +144,9 @@ msgid "Note taking application"
 msgstr "Aplikacja do notatek"
 
 #: main.cpp:128
-#, kde-format
-msgid "© 2023-2026 Mathis Brüchert"
+#, fuzzy, kde-format
+#| msgid "© 2023-2026 Mathis Brüchert"
+msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
@@ -166,7 +169,7 @@ msgstr "Przywróć"
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@action:button"
-msgid "Table of Content"
+msgid "Table of Contents"
 msgstr "Zawartość komórki"
 
 #: qml/EditPage.qml:223
@@ -214,7 +217,7 @@ msgstr "Zawartość komórki"
 
 #: qml/EditPage.qml:383
 #, kde-format
-msgid "Find text..."
+msgid "Find text…"
 msgstr ""
 
 #: qml/EditPage.qml:423
@@ -248,9 +251,11 @@ msgid "Close"
 msgstr ""
 
 #: qml/EditPage.qml:511
-#, kde-format
-msgid "Replace with..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Replace with…"
+msgstr "Zaznacz wszystko"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
@@ -593,7 +598,7 @@ msgstr "Marknote"
 #: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@info"
-msgid "Export of \"%1\" was successful."
+msgid "Export of “%1” was successful."
 msgstr ""
 
 #: qml/NotesPage.qml:469
@@ -607,7 +612,7 @@ msgstr "Otwórz odnośnik"
 #: qml/NotesPage.qml:487
 #, kde-format
 msgctxt "@info"
-msgid "Export of \"%1\" failed."
+msgid "Export of “%1” failed."
 msgstr ""
 
 #: qml/NotesPage.qml:499
@@ -903,25 +908,30 @@ msgstr "Sprawdzanie pisowni"
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "New Note"
-msgctxt "@inmenu"
+msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "Nowa notatka"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Link"
+msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Otwórz odnośnik"
 
 #: qml/TextFieldContextMenu.qml:281
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "Wstaw"
 
 #: qml/TextFieldContextMenu.qml:317
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Remove"
+msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Usuń"
 
@@ -958,7 +968,8 @@ msgstr "Zaznacz wszystko"
 #: qml/TocDrawer.qml:121
 #, fuzzy, kde-format
 #| msgid "No results found"
-msgid "No headers found"
+msgctxt "Is shown instead of the table of contents"
+msgid "No headings found"
 msgstr "Nie ma żadnych wyników"
 
 #: qml/WelcomePage.qml:22
@@ -1062,6 +1073,16 @@ msgstr "Kolumna"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Zawartość komórki"
+
+#, fuzzy
+#~| msgid "Cell Contents"
+#~ msgctxt "@action:button"
+#~ msgid "Table of Content"
+#~ msgstr "Zawartość komórki"
+
+#~ msgctxt "@inmenu"
+#~ msgid "Insert"
+#~ msgstr "Wstaw"
 
 #~ msgctxt "@title:window"
 #~ msgid "Insert Image"

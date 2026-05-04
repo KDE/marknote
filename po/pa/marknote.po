@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:44+0000\n"
+"POT-Creation-Date: 2026-05-04 00:44+0000\n"
 "PO-Revision-Date: 2025-09-15 10:25-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 #: maildirimport.cpp:96
 #, kde-format
 msgctxt "@status"
-msgid "An error occurred while writing to '%1'"
+msgid "An error occurred while writing to “%1”"
 msgstr ""
 
 #: main.cpp:56
@@ -142,7 +142,7 @@ msgstr "ਨੋਟ ਲੈਣ ਵਾਲੀ ਐਪਲੀਕੇਸ਼ਨ"
 
 #: main.cpp:128
 #, kde-format
-msgid "© 2023-2026 Mathis Brüchert"
+msgid "© 2023–2026 Mathis Brüchert"
 msgstr ""
 
 #: notesmodel.cpp:157
@@ -165,7 +165,7 @@ msgstr "ਪਰਤਾਓ"
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@action:button"
-msgid "Table of Content"
+msgid "Table of Contents"
 msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
 
 #: qml/EditPage.qml:223
@@ -213,7 +213,7 @@ msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
 
 #: qml/EditPage.qml:383
 #, kde-format
-msgid "Find text..."
+msgid "Find text…"
 msgstr ""
 
 #: qml/EditPage.qml:423
@@ -247,9 +247,11 @@ msgid "Close"
 msgstr ""
 
 #: qml/EditPage.qml:511
-#, kde-format
-msgid "Replace with..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Replace with…"
+msgstr "ਸਭ ਨੂੰ ਚੁਣੋ"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
@@ -589,7 +591,7 @@ msgstr "ਮਾਰਕਨੋਟ"
 #: qml/NotesPage.qml:451
 #, kde-format
 msgctxt "@info"
-msgid "Export of \"%1\" was successful."
+msgid "Export of “%1” was successful."
 msgstr ""
 
 #: qml/NotesPage.qml:469
@@ -603,7 +605,7 @@ msgstr "ਲਿੰਕ ਨੂੰ ਖੋਲ੍ਹੋ"
 #: qml/NotesPage.qml:487
 #, kde-format
 msgctxt "@info"
-msgid "Export of \"%1\" failed."
+msgid "Export of “%1” failed."
 msgstr ""
 
 #: qml/NotesPage.qml:499
@@ -899,25 +901,30 @@ msgstr "ਸ਼ਬਦ-ਜੋੜ ਦੀ ਜਾਂਚ"
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "New Note"
-msgctxt "@inmenu"
+msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "ਨਵਾਂ ਨੋਟ"
 
 #: qml/TextFieldContextMenu.qml:261
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Open Link"
+msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "ਲਿੰਕ ਨੂੰ ਖੋਲ੍ਹੋ"
 
 #: qml/TextFieldContextMenu.qml:281
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "ਸ਼ਾਮਲ"
 
 #: qml/TextFieldContextMenu.qml:317
-#, kde-format
-msgctxt "@inmenu"
+#, fuzzy, kde-format
+#| msgctxt "@inmenu"
+#| msgid "Remove"
+msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
@@ -953,7 +960,8 @@ msgstr "ਸਭ ਨੂੰ ਚੁਣੋ"
 
 #: qml/TocDrawer.qml:121
 #, kde-format
-msgid "No headers found"
+msgctxt "Is shown instead of the table of contents"
+msgid "No headings found"
 msgstr ""
 
 #: qml/WelcomePage.qml:22
@@ -1057,6 +1065,16 @@ msgstr "ਕਾਲਮ"
 #, kde-format
 msgid "Cell Contents"
 msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
+
+#, fuzzy
+#~| msgid "Cell Contents"
+#~ msgctxt "@action:button"
+#~ msgid "Table of Content"
+#~ msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
+
+#~ msgctxt "@inmenu"
+#~ msgid "Insert"
+#~ msgstr "ਸ਼ਾਮਲ"
 
 #~ msgctxt "@title:window"
 #~ msgid "Insert Image"
