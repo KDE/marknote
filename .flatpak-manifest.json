@@ -29,6 +29,10 @@
                 {
                     "type": "git",
                     "url": "https://invent.kde.org/pim/kmime"
+                },
+                {
+                    "type": "patch",
+                    "path": "flatpak-kmime-version.patch"
                 }
             ],
             "cleanup": [
