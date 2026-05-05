@@ -50,12 +50,10 @@ msgid "Import from Maildir"
 msgstr "Importovať z Maildir"
 
 #: maildirimport.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@status"
-#| msgid "An error occurred while writing to '%1'"
+#, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
-msgstr "Pri zápise do '%1' sa vyskytla chyba"
+msgstr "Pri zápise do „%1“ sa vyskytla chyba"
 
 #: main.cpp:56
 #, kde-format
@@ -139,10 +137,9 @@ msgid "Note taking application"
 msgstr "Aplikácia na robenie poznámok"
 
 #: main.cpp:128
-#, fuzzy, kde-format
-#| msgid "© 2023-2026 Mathis Brüchert"
+#, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
-msgstr "© 2023 Mathis Brüchert"
+msgstr "© 2023–2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
 #, kde-format
@@ -162,8 +159,7 @@ msgid "Redo"
 msgstr "Znovu"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
-#, fuzzy, kde-format
-#| msgid "Table of Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Contents"
 msgstr "Obsah"
@@ -209,10 +205,9 @@ msgid "Table of Contents"
 msgstr "Obsah"
 
 #: qml/EditPage.qml:383
-#, fuzzy, kde-format
-#| msgid "Find text..."
+#, kde-format
 msgid "Find text…"
-msgstr "Nájsť text..."
+msgstr "Nájsť text…"
 
 #: qml/EditPage.qml:423
 #, kde-format
@@ -245,10 +240,9 @@ msgid "Close"
 msgstr "Zavrieť"
 
 #: qml/EditPage.qml:511
-#, fuzzy, kde-format
-#| msgid "Replace with..."
+#, kde-format
 msgid "Replace with…"
-msgstr "Nahradiť čím..."
+msgstr "Nahradiť čím…"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
@@ -582,26 +576,22 @@ msgid "Marknote"
 msgstr "Marknote"
 
 #: qml/NotesPage.qml:451
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" was successful."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
-msgstr "Export „%1\" bol úspešný."
+msgstr "Export „%1“ bol úspešný."
 
 #: qml/NotesPage.qml:469
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr "Open File"
+msgstr "Otvoriť súbor"
 
 #: qml/NotesPage.qml:487
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" failed."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
-msgstr "Export „%1\" zlyhal."
+msgstr "Export „%1“ zlyhal."
 
 #: qml/NotesPage.qml:499
 #, kde-format
@@ -883,32 +873,25 @@ msgid "Spell Check"
 msgstr "Kontrola pravopisu"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
-msgstr "Nová poznámka"
+msgstr "Otvoriť poznámku"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Otvoriť odkaz"
 
 #: qml/TextFieldContextMenu.qml:281
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "Vložiť"
 
 #: qml/TextFieldContextMenu.qml:317
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Odstrániť"
@@ -944,11 +927,10 @@ msgid "Select All"
 msgstr "Vybrať všetky"
 
 #: qml/TocDrawer.qml:121
-#, fuzzy, kde-format
-#| msgid "No headers found"
+#, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
-msgstr "Nenašli sa žiadne headers."
+msgstr "Nenašli sa žiadne nadpisy"
 
 #: qml/WelcomePage.qml:22
 #, kde-format

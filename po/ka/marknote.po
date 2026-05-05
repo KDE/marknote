@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-04 00:44+0000\n"
-"PO-Revision-Date: 2026-03-30 07:18+0200\n"
+"PO-Revision-Date: 2026-05-04 05:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -53,9 +53,7 @@ msgid "Import from Maildir"
 msgstr "შემოტანა Maildir-დან"
 
 #: maildirimport.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@status"
-#| msgid "An error occurred while writing to '%1'"
+#, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "შემოტანა '%1'-ში ჩაწერისას"
@@ -142,8 +140,7 @@ msgid "Note taking application"
 msgstr "შენიშვნების აპლიკაცია"
 
 #: main.cpp:128
-#, fuzzy, kde-format
-#| msgid "© 2023-2026 Mathis Brüchert"
+#, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
 
@@ -165,8 +162,7 @@ msgid "Redo"
 msgstr "გამეორება"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
-#, fuzzy, kde-format
-#| msgid "Table of Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Contents"
 msgstr "სარჩევი"
@@ -212,10 +208,9 @@ msgid "Table of Contents"
 msgstr "სარჩევი"
 
 #: qml/EditPage.qml:383
-#, fuzzy, kde-format
-#| msgid "Find text..."
+#, kde-format
 msgid "Find text…"
-msgstr "ტექსტის ძებნა..."
+msgstr "ტექსტის ძებნა…"
 
 #: qml/EditPage.qml:423
 #, kde-format
@@ -248,10 +243,9 @@ msgid "Close"
 msgstr "დახურვა"
 
 #: qml/EditPage.qml:511
-#, fuzzy, kde-format
-#| msgid "Replace with..."
+#, kde-format
 msgid "Replace with…"
-msgstr "ჩანაცვლება რით..."
+msgstr "ჩანაცვლება რით…"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
@@ -584,9 +578,7 @@ msgid "Marknote"
 msgstr "Marknote"
 
 #: qml/NotesPage.qml:451
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" was successful."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "\"%1\"-ის გატანა წარმატებულია."
@@ -598,9 +590,7 @@ msgid "Open File"
 msgstr "ფაილის გახსნა"
 
 #: qml/NotesPage.qml:487
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" failed."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "'%1'-ის გატანა ჩავარდა."
@@ -885,32 +875,25 @@ msgid "Spell Check"
 msgstr "მართლწერის შემოწმება"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "შენიშვნის გახსნა"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "ბმულის გახსნა"
 
 #: qml/TextFieldContextMenu.qml:281
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "ჩასმა"
 
 #: qml/TextFieldContextMenu.qml:317
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "წაშლა"
@@ -946,11 +929,10 @@ msgid "Select All"
 msgstr "ყველას მონიშვნა"
 
 #: qml/TocDrawer.qml:121
-#, fuzzy, kde-format
-#| msgid "No headers found"
+#, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
-msgstr "თავსართები აღმოჩენილი არაა"
+msgstr "სათაურები აღმოჩენილი არაა"
 
 #: qml/WelcomePage.qml:22
 #, kde-format

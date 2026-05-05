@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-04 00:44+0000\n"
-"PO-Revision-Date: 2026-03-30 11:12+0200\n"
+"PO-Revision-Date: 2026-05-04 09:09+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -54,9 +54,7 @@ msgid "Import from Maildir"
 msgstr "Importa des del Maildir"
 
 #: maildirimport.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@status"
-#| msgid "An error occurred while writing to '%1'"
+#, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "S'ha produït un error en escriure a «%1»"
@@ -143,10 +141,9 @@ msgid "Note taking application"
 msgstr "Aplicació de presa de notes"
 
 #: main.cpp:128
-#, fuzzy, kde-format
-#| msgid "© 2023-2026 Mathis Brüchert"
+#, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
-msgstr "© 2023-2026 Mathis Brüchert"
+msgstr "© 2023–2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
 #, kde-format
@@ -167,8 +164,7 @@ msgid "Redo"
 msgstr "Refés"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
-#, fuzzy, kde-format
-#| msgid "Table of Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Contents"
 msgstr "Taula de contingut"
@@ -214,10 +210,9 @@ msgid "Table of Contents"
 msgstr "Taula de contingut"
 
 #: qml/EditPage.qml:383
-#, fuzzy, kde-format
-#| msgid "Find text..."
+#, kde-format
 msgid "Find text…"
-msgstr "Cerca el text..."
+msgstr "Cerca text…"
 
 #: qml/EditPage.qml:423
 #, kde-format
@@ -250,10 +245,9 @@ msgid "Close"
 msgstr "Tanca"
 
 #: qml/EditPage.qml:511
-#, fuzzy, kde-format
-#| msgid "Replace with..."
+#, kde-format
 msgid "Replace with…"
-msgstr "Substitueix per..."
+msgstr "Substitueix per…"
 
 #: qml/EditPage.qml:516 qml/EditPage.qml:556
 #, kde-format
@@ -585,9 +579,7 @@ msgid "Marknote"
 msgstr "Marknote"
 
 #: qml/NotesPage.qml:451
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" was successful."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "L'exportació de «%1» ha estat correcta."
@@ -599,9 +591,7 @@ msgid "Open File"
 msgstr "Obre un fitxer"
 
 #: qml/NotesPage.qml:487
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" failed."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "Ha fallat l'exportació de «%1»."
@@ -886,32 +876,25 @@ msgid "Spell Check"
 msgstr "Verificació de l'ortografia"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "Obre una nota"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Obre l'enllaç"
 
 #: qml/TextFieldContextMenu.qml:281
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "Insereix"
 
 #: qml/TextFieldContextMenu.qml:317
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Elimina"
@@ -947,11 +930,10 @@ msgid "Select All"
 msgstr "Selecciona-ho tot"
 
 #: qml/TocDrawer.qml:121
-#, fuzzy, kde-format
-#| msgid "No headers found"
+#, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
-msgstr "No s'ha trobat cap capçalera"
+msgstr "No s'ha trobat cap encapçalament"
 
 #: qml/WelcomePage.qml:22
 #, kde-format

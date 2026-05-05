@@ -907,9 +907,7 @@ msgid "Open Note"
 msgstr "Nová poznámka"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Otevřít odkaz"
@@ -922,9 +920,7 @@ msgid "Insert"
 msgstr "Vložit"
 
 #: qml/TextFieldContextMenu.qml:317
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Odstranit"
