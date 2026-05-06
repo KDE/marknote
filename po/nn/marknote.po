@@ -1079,13 +1079,3 @@ msgstr "Kolonne"
 #, kde-format
 msgid "Cell Contents"
 msgstr "Celleinnhald"
-
-#, fuzzy
-#~| msgid "Cell Contents"
-#~ msgctxt "@action:button"
-#~ msgid "Table of Content"
-#~ msgstr "Celleinnhald"
-
-#~ msgctxt "@inmenu"
-#~ msgid "Insert"
-#~ msgstr "Set inn"
