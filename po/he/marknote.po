@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the marknote package.
 #
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-04 00:44+0000\n"
-"PO-Revision-Date: 2026-03-30 09:14+0300\n"
+"PO-Revision-Date: 2026-05-04 22:57+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -53,12 +53,10 @@ msgid "Import from Maildir"
 msgstr "ייבוא מ־Maildir"
 
 #: maildirimport.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@status"
-#| msgid "An error occurred while writing to '%1'"
+#, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
-msgstr "אירעה שגיאה בכתיבה אל ‚%1’"
+msgstr "אירעה שגיאה בכתיבה אל „%1”"
 
 #: main.cpp:56
 #, kde-format
@@ -142,8 +140,7 @@ msgid "Note taking application"
 msgstr "יישום לכתיבת פתקיות"
 
 #: main.cpp:128
-#, fuzzy, kde-format
-#| msgid "© 2023-2026 Mathis Brüchert"
+#, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023-‏2026 מתיס בריכרט"
 
@@ -164,8 +161,7 @@ msgid "Redo"
 msgstr "ביצוע מחדש"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
-#, fuzzy, kde-format
-#| msgid "Table of Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Contents"
 msgstr "תוכן העניינים"
@@ -211,8 +207,7 @@ msgid "Table of Contents"
 msgstr "תוכן העניינים"
 
 #: qml/EditPage.qml:383
-#, fuzzy, kde-format
-#| msgid "Find text..."
+#, kde-format
 msgid "Find text…"
 msgstr "איתור טקסט…"
 
@@ -247,8 +242,7 @@ msgid "Close"
 msgstr "סגירה"
 
 #: qml/EditPage.qml:511
-#, fuzzy, kde-format
-#| msgid "Replace with..."
+#, kde-format
 msgid "Replace with…"
 msgstr "החלפה ב…"
 
@@ -582,9 +576,7 @@ msgid "Marknote"
 msgstr "Marknote"
 
 #: qml/NotesPage.qml:451
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" was successful."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "הייצוא של „%1” הצליח."
@@ -596,9 +588,7 @@ msgid "Open File"
 msgstr "פתיחת קובץ"
 
 #: qml/NotesPage.qml:487
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" failed."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "הייצוא של „%1” נכשל."
@@ -883,32 +873,25 @@ msgid "Spell Check"
 msgstr "בדיקת איות"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "פתיחת פתקית"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "פתיחת קישור"
 
 #: qml/TextFieldContextMenu.qml:281
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "הוספה"
 
 #: qml/TextFieldContextMenu.qml:317
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "הסרה"
@@ -944,8 +927,7 @@ msgid "Select All"
 msgstr "בחירה בהכול"
 
 #: qml/TocDrawer.qml:121
-#, fuzzy, kde-format
-#| msgid "No headers found"
+#, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
 msgstr "לא נמצאו כותרות"
