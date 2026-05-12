@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the marknote package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023-2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-04 00:44+0000\n"
-"PO-Revision-Date: 2026-04-20 01:35+0900\n"
+"PO-Revision-Date: 2026-05-12 04:07+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.11.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -52,9 +52,7 @@ msgid "Import from Maildir"
 msgstr "從 Maildir 匯入"
 
 #: maildirimport.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@status"
-#| msgid "An error occurred while writing to '%1'"
+#, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "寫入「%1」時發生錯誤"
@@ -141,10 +139,9 @@ msgid "Note taking application"
 msgstr "筆記本應用程式"
 
 #: main.cpp:128
-#, fuzzy, kde-format
-#| msgid "© 2023-2026 Mathis Brüchert"
+#, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
-msgstr "© 2023-2026 Mathis Brüchert"
+msgstr "© 2023–2026 Mathis Brüchert"
 
 #: notesmodel.cpp:157
 #, kde-format
@@ -163,8 +160,7 @@ msgid "Redo"
 msgstr "重做"
 
 #: qml/EditPage.qml:203 qml/EditPage.qml:238
-#, fuzzy, kde-format
-#| msgid "Table of Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Contents"
 msgstr "目錄"
@@ -210,8 +206,7 @@ msgid "Table of Contents"
 msgstr "目錄"
 
 #: qml/EditPage.qml:383
-#, fuzzy, kde-format
-#| msgid "Find text..."
+#, kde-format
 msgid "Find text…"
 msgstr "尋找文字…"
 
@@ -246,8 +241,7 @@ msgid "Close"
 msgstr "關閉"
 
 #: qml/EditPage.qml:511
-#, fuzzy, kde-format
-#| msgid "Replace with..."
+#, kde-format
 msgid "Replace with…"
 msgstr "替換為…"
 
@@ -576,9 +570,7 @@ msgid "Marknote"
 msgstr "Marknote"
 
 #: qml/NotesPage.qml:451
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" was successful."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "匯出「%1」成功。"
@@ -590,9 +582,7 @@ msgid "Open File"
 msgstr "開啟檔案"
 
 #: qml/NotesPage.qml:487
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" failed."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "匯出「%1」失敗。"
@@ -877,32 +867,25 @@ msgid "Spell Check"
 msgstr "拼字檢查"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "開啟筆記"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "開啟連結"
 
 #: qml/TextFieldContextMenu.qml:281
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "插入"
 
 #: qml/TextFieldContextMenu.qml:317
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "移除"
@@ -938,11 +921,10 @@ msgid "Select All"
 msgstr "全部選取"
 
 #: qml/TocDrawer.qml:121
-#, fuzzy, kde-format
-#| msgid "No headers found"
+#, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
-msgstr "找不到標頭"
+msgstr "找不到標題"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
