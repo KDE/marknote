@@ -608,6 +608,7 @@ Kirigami.ScrollablePage {
             required property var date;
             required property int index;
             required property url fileUrl
+            required property bool isFolder
             property alias renameField: renameField;
 
             required property int kDescendantLevel
@@ -692,7 +693,7 @@ Kirigami.ScrollablePage {
             ContextMenu.onRequested: (position) => {
                 menu.delegateItem = delegateItem;
 
-                if(delegateItem.kDescendantExpandable) {
+                if(delegateItem.kDescendantExpandable || delegateItem.isFolder) {
                     console.assert(false, "Folder menu triggered, which is yet to be implemented.")
                 } else {
                     menu.popup()
@@ -718,7 +719,7 @@ Kirigami.ScrollablePage {
                 }
 
                 Kirigami.Icon {
-                    source: delegateItem.kDescendantExpandable ? "folder" : "note-symbolic"
+                    source: delegateItem.kDescendantExpandable || delegateItem.isFolder ? "folder" : "note-symbolic"
                     implicitWidth: Kirigami.Units.iconSizes.medium
                     implicitHeight: Kirigami.Units.iconSizes.medium
                     Layout.alignment: Qt.AlignVCenter
@@ -800,7 +801,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.bottomMargin: Kirigami.Units.smallSpacing
                         elide: Qt.ElideRight
-                        visible: text !== "" && !delegateItem.kDescendantExpandable
+                        visible: text !== "" && !(delegateItem.kDescendantExpandable || delegateItem.isFolder)
                     }
                 }
 
@@ -839,7 +840,7 @@ Kirigami.ScrollablePage {
 
                 notesList.currentIndex = delegateItem.index;
 
-                if (delegateItem.kDescendantExpandable) {
+                if (delegateItem.kDescendantExpandable || delegateItem.isFolder) {
                     pageNotesModel.fetchMore(path);
                     notesProxyModel.toggleChildren(index);
                 } else {
