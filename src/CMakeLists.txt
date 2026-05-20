@@ -94,6 +94,7 @@ target_link_libraries(marknote_static
         Qt::Quick
         Qt::QuickControls2
         Qt::Svg
+        md4qt::md4qt
         KF6::I18n
         KF6::ConfigCore
         KF6::ConfigGui
@@ -149,6 +150,8 @@ endif()
 if (TARGET md4c::md4c-html)
     target_link_libraries(marknote_static PUBLIC md4c::md4c-html)
 endif()
+
+include_directories(${md4qt_INCLUDE_DIRECTORIES}/../..)
 
 add_executable(marknote main.cpp)
 

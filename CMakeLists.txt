@@ -91,6 +91,8 @@ if(NOT TARGET KF6::Mime)
     add_library(KF6::Mime ALIAS KPim6::Mime)
 endif()
 
+find_package(md4qt REQUIRED COMPONENTS md4qt)
+
 find_package(md4c)
 set_package_properties(md4c PROPERTIES
     TYPE OPTIONAL

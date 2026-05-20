@@ -16,6 +16,7 @@ Dependencies:
     'frameworks/syntax-highlighting': '@latest-kf6'
     'frameworks/kmime': '@latest-kf6'
     'frameworks/kitemmodels': '@latest-kf6'
+    'libraries/md4qt': '@latest-kf6'
 
  - 'on': ['Linux', 'FreeBSD']
    'require':
