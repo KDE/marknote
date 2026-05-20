@@ -624,7 +624,10 @@ Kirigami.ScrollablePage {
             enabled: isRelevant
 
             function updateColor(): void {
-                if (!delegateItem.background) return;
+                if (!delegateItem.background || !ApplicationWindow.window) {
+                    return;
+                }
+
                 if (color !== '#ffffff' && color !== '#00000000') {
                     delegateItem.background.Kirigami.Theme.highlightColor = color;
                 } else if (root._window) {
