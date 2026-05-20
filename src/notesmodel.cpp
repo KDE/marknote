@@ -165,6 +165,8 @@ QVariant NotesModel::data(const QModelIndex &index, int role) const
         return m_fsModel->lastModified(srcIndex).toString(u"MMMM yyyy"_s);
     case Role::Color:
         return m_color;
+    case Role::IsFolder:
+        return m_fsModel->fileInfo(srcIndex).isDir();
     }
 
     return QIdentityProxyModel::data(index, role);
@@ -179,6 +181,7 @@ QHash<int, QByteArray> NotesModel::roleNames() const
     roles[Role::Name] = "name";
     roles[Role::Color] = "color";
     roles[Role::Month] = "month";
+    roles[Role::IsFolder] = "isFolder";
     return roles;
 }
 

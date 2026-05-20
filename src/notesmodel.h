@@ -26,6 +26,7 @@ public:
         Month,
         Name,
         Color,
+        IsFolder,
     };
     Q_ENUM(Role)
 
