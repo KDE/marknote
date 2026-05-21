@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-04 00:44+0000\n"
+"POT-Creation-Date: 2026-05-21 00:44+0000\n"
 "PO-Revision-Date: 2026-05-04 08:32+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -128,7 +128,7 @@ msgstr "Праяг Джайн"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: main.cpp:124 qml/Main.qml:418
+#: main.cpp:124 qml/Main.qml:440
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -339,45 +339,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Створити записник"
 
-#: qml/Main.qml:312 qml/NotesPage.qml:743
+#: qml/Main.qml:334 qml/NotesPage.qml:743
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Показати меню"
 
-#: qml/Main.qml:358
+#: qml/Main.qml:380
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Імпортувати"
 
-#: qml/Main.qml:367
+#: qml/Main.qml:389
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Упорядкування списку нотаток"
 
-#: qml/Main.qml:373
+#: qml/Main.qml:395
 #, kde-format
 msgid "by Name"
 msgstr "за назвою"
 
-#: qml/Main.qml:386
+#: qml/Main.qml:408
 #, kde-format
 msgid "by Date"
 msgstr "за датою"
 
-#: qml/Main.qml:403
+#: qml/Main.qml:425
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Згорнути бічну панель"
 
-#: qml/Main.qml:403
+#: qml/Main.qml:425
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Розгорнути бічну панель"
 
-#: qml/Main.qml:541
+#: qml/Main.qml:563
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Додати записники"

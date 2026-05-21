@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-04 00:44+0000\n"
+"POT-Creation-Date: 2026-05-21 00:44+0000\n"
 "PO-Revision-Date: 2025-05-27 17:01+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:124 qml/Main.qml:418
+#: main.cpp:124 qml/Main.qml:440
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
@@ -349,45 +349,45 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Búa til glósubók"
 
-#: qml/Main.qml:312 qml/NotesPage.qml:743
+#: qml/Main.qml:334 qml/NotesPage.qml:743
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr ""
 
-#: qml/Main.qml:358
+#: qml/Main.qml:380
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Flytja inn"
 
-#: qml/Main.qml:367
+#: qml/Main.qml:389
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Raða glósulista"
 
-#: qml/Main.qml:373
+#: qml/Main.qml:395
 #, kde-format
 msgid "by Name"
 msgstr "eftir heiti"
 
-#: qml/Main.qml:386
+#: qml/Main.qml:408
 #, kde-format
 msgid "by Date"
 msgstr "eftir dagsetningu"
 
-#: qml/Main.qml:403
+#: qml/Main.qml:425
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Fella saman hliðarstiku"
 
-#: qml/Main.qml:403
+#: qml/Main.qml:425
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Víkka út hliðarstiku"
 
-#: qml/Main.qml:541
+#: qml/Main.qml:563
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Glósubækurnar þínar"
