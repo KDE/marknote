@@ -15,6 +15,7 @@ Dependencies:
     'frameworks/knotifications': '@latest-kf6'
     'frameworks/syntax-highlighting': '@latest-kf6'
     'frameworks/kmime': '@latest-kf6'
+    'frameworks/kitemmodels': '@latest-kf6'
 
  - 'on': ['Linux', 'FreeBSD']
    'require':
