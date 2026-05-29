@@ -30,7 +30,17 @@ SPDX-License-Identifier: LGPL-2.0-or-later
     <entry name="colorScheme" type="String">
       <label>Color scheme</label>
     </entry>
-  </group>s
+    <entry name="useTranslucentBackground" type="Bool">
+      <label>Enable translucent background</label>
+      <default>false</default>
+    </entry>
+    <entry name="backgroundOpacity" type="Double">
+      <label>Background opacity</label>
+      <default>0.85</default>
+      <min>0.75</min>
+      <max>0.95</max>
+    </entry>
+  </group>
 
   <group name="Fonts">
     <entry name="EditorFont" type="Font" key="editor-font">

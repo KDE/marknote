@@ -6,6 +6,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 
+import QtQuick.Effects
 import QtQuick.Controls
 import QtQuick.Templates as T
 import QtQuick.Layouts
@@ -47,6 +48,8 @@ Kirigami.Page {
     property bool supportsToc: false
     property bool isTocOpened: false
     property real tocPosition: 0
+
+    background: Item { }
 
     onWidthChanged: {
         // 30 grid units gives enough room for the 15-unit drawer + 15 units of text

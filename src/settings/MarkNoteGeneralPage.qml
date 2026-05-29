@@ -4,6 +4,7 @@
 
 import QtCore
 import QtQuick
+import QtQml
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import QtQuick.Dialogs
@@ -33,6 +34,66 @@ FormCard.FormCardPage {
                 ColorSchemer.apply(currentIndex);
                 Config.colorScheme = ColorSchemer.nameForIndex(currentIndex);
                 Config.save();
+            }
+        }
+
+        FormCard.FormDelegateSeparator {
+            visible: Qt.platform.os === 'linux'
+        }
+
+        FormCard.FormSwitchDelegate {
+            id: translucentSwitch
+            text: i18n("Use transparent editor page")
+            checked: Config.useTranslucentBackground
+            visible: Qt.platform.os === 'linux'
+
+            onCheckedChanged: {
+                if (Config.useTranslucentBackground !== checked) {
+                    Config.useTranslucentBackground = checked;
+                    Config.save();
+                }
+            }
+        }
+
+        FormCard.FormDelegateSeparator {
+            visible: Qt.platform.os === 'linux'
+        }
+
+        FormCard.AbstractFormDelegate {
+            id: opacityDelegate
+            background: Item {}
+            enabled: Config.useTranslucentBackground
+            visible: Qt.platform.os === 'linux'
+
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+
+                QQC2.Label {
+                    text: i18nc("@label:slider", "Background opacity")
+                    Layout.fillWidth: true
+                }
+
+                QQC2.Label {
+                    text: i18nc("@label:slider Current opacity percentage. %1 is the numeric percentage value", "%1%", Math.round(opacitySlider.value))
+                    Layout.fillWidth: true
+                    opacity: 0.75
+                }
+
+                QQC2.Slider {
+                    id: opacitySlider
+                    from: 5
+                    to: 100
+                    stepSize: 5
+                    Layout.fillWidth: true
+
+                    // Map the backend 0.75-0.95 range to a UI value of 1%-100%
+                    value: (Math.round((Config.backgroundOpacity - 0.75) * 1000))
+
+                    onMoved: {
+                        Config.backgroundOpacity = (0.75 + (value / 1000));
+                        Config.save();
+                    }
+                }
             }
         }
     }
