@@ -4,6 +4,7 @@
 
 import QtCore
 import QtQuick
+import QtQml
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import QtQuick.Dialogs
@@ -36,12 +37,15 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator {}
+	FormCard.FormDelegateSeparator {
+	    visible: Qt.platform.os === 'linux'
+	}
 
         FormCard.FormSwitchDelegate {
             id: translucentSwitch
             text: i18n("Use transparent editor page")
             checked: Config.useTranslucentBackground
+	    visible: Qt.platform.os === 'linux'
 
             onCheckedChanged: {
                 if (Config.useTranslucentBackground !== checked) {
@@ -51,12 +55,15 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator {}
+	FormCard.FormDelegateSeparator {
+	    visible: Qt.platform.os === 'linux'
+	}
 
         FormCard.AbstractFormDelegate {
             id: opacityDelegate
             background: Item {}
             enabled: Config.useTranslucentBackground
+	    visible: Qt.platform.os === 'linux'
 
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.smallSpacing
