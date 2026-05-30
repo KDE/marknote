@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:44+0000\n"
+"POT-Creation-Date: 2026-05-30 00:45+0000\n"
 "PO-Revision-Date: 2026-05-07 12:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -58,195 +58,214 @@ msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "حدث خطأ أثناء الكتابة إلى ”%1“"
 
-#: main.cpp:56
+#: main.cpp:59
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "ماتيس بروشيرت"
 
-#: main.cpp:57 main.cpp:62 main.cpp:65
+#: main.cpp:60 main.cpp:65 main.cpp:68
 #, kde-format
 msgid "Maintainer"
 msgstr "الصائن"
 
-#: main.cpp:62
+#: main.cpp:65
 #, kde-format
 msgid "Carl Schwan"
 msgstr "كارل شوان"
 
-#: main.cpp:64
+#: main.cpp:67
 #, kde-format
 msgid "Valentyn Bondarenko"
 msgstr "فالنتين بوندارينكو"
 
-#: main.cpp:73
+#: main.cpp:76
 #, kde-format
 msgid "Justin Zobel"
 msgstr "جاستن زوبل"
 
-#: main.cpp:74
+#: main.cpp:77
 #, kde-format
 msgid "Flatpak support"
 msgstr "دعم Flatpak"
 
-#: main.cpp:79
+#: main.cpp:82
 #, kde-format
 msgid "Shubham Shinde"
 msgstr "شوبهام شيندي"
 
-#: main.cpp:80
+#: main.cpp:83
 #, kde-format
 msgid "Table of Contents"
 msgstr "جدول المحتويات"
 
-#: main.cpp:85
+#: main.cpp:88
 #, kde-format
 msgid "Siddharth Chopra"
 msgstr "سيدهارث تشوبرا"
 
-#: main.cpp:86
+#: main.cpp:89
 #, kde-format
 msgid "Source Mode"
 msgstr "وضع المصدر"
 
-#: main.cpp:91
+#: main.cpp:94
 #, kde-format
 msgid "Joshua Goins"
 msgstr "جوشوا جوينز"
 
-#: main.cpp:92 main.cpp:98 main.cpp:103
+#: main.cpp:95 main.cpp:101 main.cpp:106
 #, kde-format
 msgid "Bug fixes"
 msgstr "إصلاح للعلل"
 
-#: main.cpp:97
+#: main.cpp:100
 #, kde-format
 msgid "Prayag Jain"
 msgstr "براياغ جاين"
 
-#: main.cpp:103
+#: main.cpp:106
 #, kde-format
 msgid "Laurent Montel"
 msgstr "لوران مونتال"
 
-#: main.cpp:124 qml/Main.qml:440
+#: main.cpp:127 qml/Main.qml:450
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "دفتر مارك"
 
-#: main.cpp:126
+#: main.cpp:129
 #, kde-format
 msgid "Note taking application"
 msgstr "تطبيق كتابة ملاحظات"
 
-#: main.cpp:128
+#: main.cpp:131
 #, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 ماتيس بروشيرت"
 
-#: notesmodel.cpp:157
+#: notesmodel.cpp:225
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "تعذر إعادة تسمية الملاحظة. الملف أو المجلد موجودان فعلاً بنفس الاسم."
 
-#: qml/EditPage.qml:159 qml/RichEditPage.qml:741
+#: notesmodel.cpp:289
+#, kde-format
+msgctxt "@info:status"
+msgid "Invalid move operation."
+msgstr ""
+
+#: notesmodel.cpp:296
+#, kde-format
+msgctxt "@info:status"
+msgid "Cannot move a folder into itself."
+msgstr ""
+
+#: notesmodel.cpp:302
+#, fuzzy, kde-format
+#| msgid "Failed to save pasted image"
+msgctxt "@info:status"
+msgid "Failed to move file."
+msgstr "فشل حفظ الصّورة الملصقة"
+
+#: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
 msgid "Undo"
 msgstr "تراجع"
 
-#: qml/EditPage.qml:173 qml/RichEditPage.qml:752
+#: qml/EditPage.qml:176 qml/RichEditPage.qml:752
 #, kde-format
 msgid "Redo"
 msgstr "كرّر"
 
-#: qml/EditPage.qml:203 qml/EditPage.qml:238
+#: qml/EditPage.qml:206 qml/EditPage.qml:241
 #, kde-format
 msgctxt "@action:button"
 msgid "Table of Contents"
 msgstr "جدول المحتويات"
 
-#: qml/EditPage.qml:223
+#: qml/EditPage.qml:226
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "ابحث ملاحظة"
 
-#: qml/EditPage.qml:231
+#: qml/EditPage.qml:234
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "ابحث في ملاحظة"
 
-#: qml/EditPage.qml:267
+#: qml/EditPage.qml:270
 #, kde-format
 msgid "Focus Mode"
 msgstr "وضع التركيز"
 
-#: qml/EditPage.qml:284 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:234
+#: qml/EditPage.qml:287 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "أنهِ ملء الشاشة"
 
-#: qml/EditPage.qml:297
+#: qml/EditPage.qml:300
 #, kde-format
 msgid "Switch editor mode"
 msgstr "بدّل وضع المصدر"
 
-#: qml/EditPage.qml:302
+#: qml/EditPage.qml:305
 #, kde-format
 msgid "Source View"
 msgstr "عرض المصدر"
 
-#: qml/EditPage.qml:337
+#: qml/EditPage.qml:340
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "جدول المحتويات"
 
-#: qml/EditPage.qml:383
+#: qml/EditPage.qml:386
 #, kde-format
 msgid "Find text…"
 msgstr "اعثر على النص…"
 
-#: qml/EditPage.qml:423
+#: qml/EditPage.qml:426
 #, kde-format
 msgid "Previous"
 msgstr "السابق"
 
-#: qml/EditPage.qml:439
+#: qml/EditPage.qml:442
 #, kde-format
 msgid "Next"
 msgstr "التالي"
 
-#: qml/EditPage.qml:457 qml/EditPage.qml:569
+#: qml/EditPage.qml:460 qml/EditPage.qml:572
 #, kde-format
 msgid "No matches"
 msgstr "لا يوجد متطابقات"
 
-#: qml/EditPage.qml:459 qml/EditPage.qml:571
+#: qml/EditPage.qml:462 qml/EditPage.qml:574
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:471 qml/EditPage.qml:540
+#: qml/EditPage.qml:474 qml/EditPage.qml:543
 #, kde-format
 msgid "Replace"
 msgstr "استبدل"
 
-#: qml/EditPage.qml:489
+#: qml/EditPage.qml:492
 #, kde-format
 msgid "Close"
 msgstr "أغلق"
 
-#: qml/EditPage.qml:511
+#: qml/EditPage.qml:514
 #, kde-format
 msgid "Replace with…"
 msgstr "استبدله ب‍…"
 
-#: qml/EditPage.qml:516 qml/EditPage.qml:556
+#: qml/EditPage.qml:519 qml/EditPage.qml:559
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -258,12 +277,12 @@ msgstr[3] "استبدل %1 موضعًا"
 msgstr[4] "استبدل %1 موضعًا"
 msgstr[5] "استبدل %1 موضع"
 
-#: qml/EditPage.qml:552
+#: qml/EditPage.qml:555
 #, kde-format
 msgid "Replace All"
 msgstr "استبدل الكلّ"
 
-#: qml/EditPage.qml:620
+#: qml/EditPage.qml:623
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -329,57 +348,57 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "مسار الرّابط:"
 
-#: qml/Main.qml:148
+#: qml/Main.qml:158
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "غير قادر على إنشاء ملاحظة جديدة، يجب عليك إنشاء دفتر ملاحظات أولاً."
 
-#: qml/Main.qml:150
+#: qml/Main.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "أنشئ دفتر"
 
-#: qml/Main.qml:334 qml/NotesPage.qml:743
+#: qml/Main.qml:344 qml/NotesPage.qml:816
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "أظهر القائمة"
 
-#: qml/Main.qml:380
+#: qml/Main.qml:390
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "استورد"
 
-#: qml/Main.qml:389
+#: qml/Main.qml:399
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "افرز قائمة الملاحظات"
 
-#: qml/Main.qml:395
+#: qml/Main.qml:405
 #, kde-format
 msgid "by Name"
 msgstr "بالاسم"
 
-#: qml/Main.qml:408
+#: qml/Main.qml:418
 #, kde-format
 msgid "by Date"
 msgstr "بالتّاريخ"
 
-#: qml/Main.qml:425
+#: qml/Main.qml:435
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr " اطوِ الشريط الجانبي"
 
-#: qml/Main.qml:425
+#: qml/Main.qml:435
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "وسع الشريط الجانبي"
 
-#: qml/Main.qml:563
+#: qml/Main.qml:573
 #, kde-format
 msgid "Your Notebooks"
 msgstr "دفاترك"
@@ -543,28 +562,39 @@ msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "الاسم:"
 
-#: qml/NotesPage.qml:42
+#: qml/NotesPage.qml:116
 #, kde-format
 msgid "Add note"
 msgstr "أضف ملاحظة"
 
-#: qml/NotesPage.qml:188
+#: qml/NotesPage.qml:187
+#, fuzzy, kde-format
+#| msgid "Collapse Sidebar"
+msgid "Collapse All"
+msgstr " اطوِ الشريط الجانبي"
+
+#: qml/NotesPage.qml:187
+#, kde-format
+msgid "Expand All"
+msgstr ""
+
+#: qml/NotesPage.qml:257
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "اخرج من البحث (%1)"
 
-#: qml/NotesPage.qml:188
+#: qml/NotesPage.qml:257
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "ابحث في الملاحظات (%1)"
 
-#: qml/NotesPage.qml:254
+#: qml/NotesPage.qml:313
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "احذف الملاحظة"
 
-#: qml/NotesPage.qml:264
+#: qml/NotesPage.qml:323
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -573,115 +603,151 @@ msgstr ""
 "هل أنت متأكد من أنك تريد حذف الملاحظة <b> %1 </b>؟ سيؤدي هذا إلى حذف الملف "
 "<b>%2</b> نهائيًا."
 
-#: qml/NotesPage.qml:450 qml/NotesPage.qml:486
+#: qml/NotesPage.qml:477 qml/NotesPage.qml:505
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "دفتر مارك"
 
-#: qml/NotesPage.qml:451
+#: qml/NotesPage.qml:478
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "نجح تصدير ”%1“."
 
-#: qml/NotesPage.qml:469
+#: qml/NotesPage.qml:491
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "افتح ملفًّا"
 
-#: qml/NotesPage.qml:487
+#: qml/NotesPage.qml:506
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "فشل تصدير ”%1“."
 
-#: qml/NotesPage.qml:499
+#: qml/NotesPage.qml:517
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "أعد التّسمية"
 
-#: qml/NotesPage.qml:511 qml/TextFieldContextMenu.qml:391
+#: qml/NotesPage.qml:526 qml/TextFieldContextMenu.qml:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "انسخ"
 
-#: qml/NotesPage.qml:528
+#: qml/NotesPage.qml:541
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "كرّر"
 
-#: qml/NotesPage.qml:536
+#: qml/NotesPage.qml:549
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "صدّر"
 
-#: qml/NotesPage.qml:540
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Export to HTML"
-msgstr "صدّر إلى HTML"
-
-#: qml/NotesPage.qml:546
-#, kde-format
-msgctxt "@title:window"
-msgid "Export to HTML"
-msgstr "صدّر إلى HTML"
-
-#: qml/NotesPage.qml:547
-#, kde-format
-msgid "HTML file (*.html)"
-msgstr "ملفّ HTML ‏(‎*.html)"
-
 #: qml/NotesPage.qml:553
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to PDF"
-msgstr "صدر إلى بي دي اف"
+msgid "Export to HTML"
+msgstr "صدّر إلى HTML"
 
 #: qml/NotesPage.qml:559
 #, kde-format
 msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "صدّر إلى HTML"
+
+#: qml/NotesPage.qml:560
+#, kde-format
+msgid "HTML file (*.html)"
+msgstr "ملفّ HTML ‏(‎*.html)"
+
+#: qml/NotesPage.qml:566
+#, kde-format
+msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "صدر إلى بي دي اف"
 
-#: qml/NotesPage.qml:560
+#: qml/NotesPage.qml:572
+#, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "صدر إلى بي دي اف"
+
+#: qml/NotesPage.qml:573
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "ملف بي دي اف (*.pdf)"
 
-#: qml/NotesPage.qml:566
+#: qml/NotesPage.qml:579
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "صدر إلى ODT"
 
-#: qml/NotesPage.qml:572
+#: qml/NotesPage.qml:585
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "صدر إلى ODT"
 
-#: qml/NotesPage.qml:573
+#: qml/NotesPage.qml:586
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "مستند نصي ODF (*.odt)"
 
-#: qml/NotesPage.qml:584 qml/TextFieldContextMenu.qml:433
+#: qml/NotesPage.qml:595 qml/TextFieldContextMenu.qml:433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "احذف"
 
-#: qml/NotesPage.qml:787
+#: qml/NotesPage.qml:868
 #, kde-format
 msgid "Add a note!"
 msgstr "أضف ملاحظة!"
+
+#: qml/NotesPage.qml:877
+#, kde-format
+msgid "No notes matching the search"
+msgstr ""
+
+#: qml/NotesPage.qml:893 qml/NotesPage.qml:901
+#, fuzzy, kde-format
+#| msgid "Add note"
+msgctxt "@info:status"
+msgid "%1 note"
+msgid_plural "%1 notes"
+msgstr[0] "أضف ملاحظة"
+msgstr[1] "أضف ملاحظة"
+msgstr[2] "أضف ملاحظة"
+msgstr[3] "أضف ملاحظة"
+msgstr[4] "أضف ملاحظة"
+msgstr[5] "أضف ملاحظة"
+
+#: qml/NotesPage.qml:897 qml/NotesPage.qml:900
+#, kde-format
+msgctxt "@info:status"
+msgid "%1 folder"
+msgid_plural "%1 folders"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: qml/NotesPage.qml:903
+#, kde-format
+msgctxt "@info:status"
+msgid "%1, %2"
+msgstr ""
 
 #: qml/RichEditPage.qml:224
 #, kde-format
@@ -946,40 +1012,59 @@ msgstr "ابدأ بإنشاء دفتر ملاحظاتك الأول!"
 msgid "Failed to save pasted image"
 msgstr "فشل حفظ الصّورة الملصقة"
 
-#: settings/MarkNoteGeneralPage.qml:17
+#: settings/MarkNoteGeneralPage.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "عامّ"
 
-#: settings/MarkNoteGeneralPage.qml:20
+#: settings/MarkNoteGeneralPage.qml:21
 #, kde-format
 msgid "General theme"
 msgstr "سمة عامّ"
 
-#: settings/MarkNoteGeneralPage.qml:27
+#: settings/MarkNoteGeneralPage.qml:28
 #, kde-format
 msgid "Color theme"
 msgstr "سمة الألوان"
 
-#: settings/MarkNoteGeneralPage.qml:41
+#: settings/MarkNoteGeneralPage.qml:46
+#, kde-format
+msgid "Use transparent editor page"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:72
+#, kde-format
+msgctxt "@label:slider"
+msgid "Background opacity"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:77
+#, fuzzy, kde-format
+#| msgid "%1/%2"
+msgctxt ""
+"@label:slider Current opacity percentage. %1 is the numeric percentage value"
+msgid "%1%"
+msgstr "%1/%2"
+
+#: settings/MarkNoteGeneralPage.qml:102
 #, kde-format
 msgid "Editor Settings"
 msgstr "إعدادات المحرّر"
 
-#: settings/MarkNoteGeneralPage.qml:47
+#: settings/MarkNoteGeneralPage.qml:108
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notes Directory:"
 msgstr "مجلد الملاحظات:"
 
-#: settings/MarkNoteGeneralPage.qml:64
+#: settings/MarkNoteGeneralPage.qml:125
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "عائلة الخطوط:"
 
-#: settings/MarkNoteGeneralPage.qml:89
+#: settings/MarkNoteGeneralPage.qml:150
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
