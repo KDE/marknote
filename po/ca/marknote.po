@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-30 00:45+0000\n"
-"PO-Revision-Date: 2026-05-04 09:09+0200\n"
+"PO-Revision-Date: 2026-05-30 09:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -157,20 +157,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "Operació de moviment no vàlida."
 
 #: notesmodel.cpp:296
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "No es pot moure una carpeta en si mateixa."
 
 #: notesmodel.cpp:302
-#, fuzzy, kde-format
-#| msgid "Failed to save pasted image"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr "Ha fallat en desar la imatge enganxada"
+msgstr "Ha fallat en moure el fitxer."
 
 #: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
@@ -567,15 +566,14 @@ msgid "Add note"
 msgstr "Afegeix una nota"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "Redueix la barra lateral"
+msgstr "Redueix-ho tot"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "Expandeix-ho tot"
 
 #: qml/NotesPage.qml:257
 #, kde-format
@@ -715,30 +713,29 @@ msgstr "Afegeix una nota!"
 #: qml/NotesPage.qml:877
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "No hi ha cap nota que coincideixi amb la cerca"
 
 #: qml/NotesPage.qml:893 qml/NotesPage.qml:901
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "Afegeix una nota"
-msgstr[1] "Afegeix una nota"
+msgstr[0] "%1 nota"
+msgstr[1] "%1 notes"
 
 #: qml/NotesPage.qml:897 qml/NotesPage.qml:900
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 carpeta"
+msgstr[1] "%1 carpetes"
 
 #: qml/NotesPage.qml:903
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:224
 #, kde-format
@@ -1022,21 +1019,20 @@ msgstr "Tema de color"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "Usa una pàgina transparent de l'editor"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "Opacitat del fons"
 
 #: settings/MarkNoteGeneralPage.qml:77
-#, fuzzy, kde-format
-#| msgid "%1/%2"
+#, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1/%2"
+msgstr "%1%"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format

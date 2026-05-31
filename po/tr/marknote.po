@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-30 00:45+0000\n"
-"PO-Revision-Date: 2026-05-04 20:55+0300\n"
+"PO-Revision-Date: 2026-05-30 19:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -153,20 +153,19 @@ msgstr "Not yeniden adlandırılamıyor. Aynı adlı bir not hâlihazırda var."
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "Geçersiz taşıma işlemi"
 
 #: notesmodel.cpp:296
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "Bir klasör kendi içine taşınamaz."
 
 #: notesmodel.cpp:302
-#, fuzzy, kde-format
-#| msgid "Failed to save pasted image"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr "Yapıştırılan görsel kaydedilemedi"
+msgstr "Dosya taşınamadı."
 
 #: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
@@ -563,15 +562,14 @@ msgid "Add note"
 msgstr "Not ekle"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "Kenar Çubuğunu Daralt"
+msgstr "Tümünü Daralt"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "Tümünü Genişlet"
 
 #: qml/NotesPage.qml:257
 #, kde-format
@@ -711,30 +709,29 @@ msgstr "Bir not ekle!"
 #: qml/NotesPage.qml:877
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "Aramayla eşleşen not yok"
 
 #: qml/NotesPage.qml:893 qml/NotesPage.qml:901
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "Not ekle"
-msgstr[1] "Not ekle"
+msgstr[0] "%1 not"
+msgstr[1] "%1 not"
 
 #: qml/NotesPage.qml:897 qml/NotesPage.qml:900
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 klasör"
+msgstr[1] "%1 klasör"
 
 #: qml/NotesPage.qml:903
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:224
 #, kde-format
@@ -997,7 +994,7 @@ msgstr "İlk defterini oluşturarak başla!"
 #: rich_documenthandler.cpp:1098
 #, kde-format
 msgid "Failed to save pasted image"
-msgstr "Yapıştırılan görsel kaydedilemedi"
+msgstr "Yapıştırılan görsel kaydedilemedi."
 
 #: settings/MarkNoteGeneralPage.qml:18
 #, kde-format
@@ -1018,21 +1015,20 @@ msgstr "Renk teması"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "Saydam düzenleyici sayfası kullan"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "Arka plan matlığı"
 
 #: settings/MarkNoteGeneralPage.qml:77
-#, fuzzy, kde-format
-#| msgid "%1/%2"
+#, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1/%2"
+msgstr "%%1"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-30 00:45+0000\n"
-"PO-Revision-Date: 2026-05-04 05:46+0200\n"
+"PO-Revision-Date: 2026-05-30 05:04+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -155,20 +155,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "არასწორი გადატანის ოპერაცია."
 
 #: notesmodel.cpp:296
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "საქაღალდეს თავის თავში გადატანა შეუძლებელია."
 
 #: notesmodel.cpp:302
-#, fuzzy, kde-format
-#| msgid "Failed to save pasted image"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr "ჩასმული გამოსახულების შენახვა ჩავარდა"
+msgstr "ფაილის გადატანის შეცდომა."
 
 #: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
@@ -566,15 +565,14 @@ msgid "Add note"
 msgstr "ნოტის დამატება"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "გვერდითი ზოლის ჩაკეცვა"
+msgstr "ყველას ჩამოშლა"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "ყველას აკეცვა"
 
 #: qml/NotesPage.qml:257
 #, kde-format
@@ -714,30 +712,29 @@ msgstr "დაამატეთ შენიშვნა!"
 #: qml/NotesPage.qml:877
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "შენიშვნები, რომლებიც ძებნას შეესაბამება, არ არსებობს"
 
 #: qml/NotesPage.qml:893 qml/NotesPage.qml:901
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "ნოტის დამატება"
-msgstr[1] "ნოტის დამატება"
+msgstr[0] "%1 შენიშვნა"
+msgstr[1] "%1 შენიშვნა"
 
 #: qml/NotesPage.qml:897 qml/NotesPage.qml:900
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 საქაღალდე"
+msgstr[1] "%1 საქაღალდე"
 
 #: qml/NotesPage.qml:903
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:224
 #, kde-format
@@ -885,7 +882,7 @@ msgstr "პარაგრაფი"
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Subparagraph"
-msgstr "ქვეპარაგრაფი"
+msgstr "ქვეაბზაცი"
 
 #: qml/RichEditPage.qml:784
 #, kde-format
@@ -1021,21 +1018,20 @@ msgstr "ფერის თემა"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "გამჭვირვალე რედაქტორის გვერდის გამოყენება"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "ფონის გაუმჭვირვალობა"
 
 #: settings/MarkNoteGeneralPage.qml:77
-#, fuzzy, kde-format
-#| msgid "%1/%2"
+#, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1/%2"
+msgstr "%1%"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format

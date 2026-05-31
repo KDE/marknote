@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-30 00:45+0000\n"
-"PO-Revision-Date: 2026-05-04 07:06+0200\n"
+"PO-Revision-Date: 2026-05-30 06:52+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -25,7 +25,7 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Martin Srebotnjak"
+msgstr "Ni zabeležk, ki bi ustrezale iskanju"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -158,20 +158,19 @@ msgstr "Zabeležke ni mogoče preimenovati. Zabeležka z istim imenom že obstaj
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "Neveljavna operacija premikanja."
 
 #: notesmodel.cpp:296
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "Mape ni mogoče premakniti same vase."
 
 #: notesmodel.cpp:302
-#, fuzzy, kde-format
-#| msgid "Failed to save pasted image"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr "Neuspelo shranjevanje prilepljene slike"
+msgstr "Neuspelo premikanje datoteke."
 
 #: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
@@ -571,15 +570,14 @@ msgid "Add note"
 msgstr "Dodaj zabeležko"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "Strni stransko vrstico"
+msgstr "Strni vse"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "Razširi vse"
 
 #: qml/NotesPage.qml:257
 #, kde-format
@@ -719,34 +717,33 @@ msgstr "Dodaj zabeležko!"
 #: qml/NotesPage.qml:877
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "Ni zabeležk, ki bi ustrezale iskanju"
 
 #: qml/NotesPage.qml:893 qml/NotesPage.qml:901
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "Dodaj zabeležko"
-msgstr[1] "Dodaj zabeležko"
-msgstr[2] "Dodaj zabeležko"
-msgstr[3] "Dodaj zabeležko"
+msgstr[0] "%1 zabeležk"
+msgstr[1] "%1 zabeležka"
+msgstr[2] "%1 zabeležki"
+msgstr[3] "%1 zabeležke"
 
 #: qml/NotesPage.qml:897 qml/NotesPage.qml:900
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 map"
+msgstr[1] "%1 mapa"
+msgstr[2] "%1 mapi"
+msgstr[3] "%1 mape"
 
 #: qml/NotesPage.qml:903
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:224
 #, kde-format
@@ -1030,21 +1027,20 @@ msgstr "Barvna tema"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "Uporabi prosojno stran urejevalnika"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "Neprosojnost ozadja"
 
 #: settings/MarkNoteGeneralPage.qml:77
-#, fuzzy, kde-format
-#| msgid "%1/%2"
+#, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1/%2"
+msgstr "%1%"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format
