@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:45+0000\n"
+"POT-Creation-Date: 2026-06-01 00:44+0000\n"
 "PO-Revision-Date: 2026-04-03 21:22+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -763,8 +763,9 @@ msgid "Select an image"
 msgstr "Выбрать изображение"
 
 #: qml/RichEditPage.qml:227
-#, kde-format
-msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, fuzzy, kde-format
+#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgstr "Файлы изображений (*.jpg *.jpeg *.png *.svg *.webp)"
 
 #: qml/RichEditPage.qml:227
