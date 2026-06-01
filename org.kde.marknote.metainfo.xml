@@ -139,6 +139,15 @@
       <url>https://carlschwan.eu/2026/05/30/marknote-1.6.0/</url>
       <description>
         <p>This release is packed with new features, including support for subfolders, an optional background blur effect, note search in the command bar, and emoji auto-completion.</p>
+        <p xml:lang="ca">Aquesta versió està plena de característiques noves, incloent-hi el suport per a subcarpetes, un efecte de difuminat opcional de fons, cerca de notes a la barra d'ordres i compleció automàtica d'emojis.</p>
+        <p xml:lang="cs">Tato verze přináší celou řadu nových funkcí, mezi nimiž nechybí podpora podsložek, volitelný efekt rozostření pozadí, vyhledávání poznámek v příkazovém řádku a automatické doplňování emotikonů.</p>
+        <p xml:lang="es">Esta versión incluye numerosas funciones nuevas, como compatibilidad con subcarpetas, un efecto de desenfoque de fondo opcional, búsqueda de notas en la barra de órdenes y compleción automática de emojis.</p>
+        <p xml:lang="ka">ეს ვერსია შეიცავს მრავალ ისეთ ახალ ფუნქციას, როგორიცაა ქვესაქაღალდეების მხარდაჭერა, არასავალდებულო ფონის დაბინდვის ეფექტი, შენიშვნის ძებნა ბრძანების სტრიქონიდან და ემოჯის ავტოდასრულება.</p>
+        <p xml:lang="nl">Deze uitgave zit boordevol nieuwe functies, waaronder ondersteuning voor submappen, een optioneel achtergrondvervagingseffect, notities zoeken in de opdrachtbalk en automatische aanvulling van emoji's.</p>
+        <p xml:lang="pt-BR">Esta versão está repleta de novos recursos, incluindo suporte para subpastas, um efeito opcional de desfoque de fundo, busca de notas na barra de comandos e preenchimento automático de emojis.</p>
+        <p xml:lang="sl">Ta izdaja je polna novih zmožnosti, vključno s podporo za podmape, izbirnim učinkom zameglitve ozadja, iskanjem zapiskov v ukazni vrstici in samodejnim dokončanjem čustvenčkov.</p>
+        <p xml:lang="tr">Bu yayım; alt klasör desteği, isteğe bağlı arka plan bulanıklığı efekti, komut çubuğunda not arama ve emojileri kendiliğinden tamamlama gibi birçok yeni özellik içeriyor.</p>
+        <p xml:lang="uk">У цьому випуску реалізовано багато нових можливостей, зокрема підтримку підтек, необов'язковий ефект розмивання тла, пошук нотаток на панелі команд та автоматичне доповнення емоційок.</p>
       </description>
     </release>
     <release version="1.5.2" date="2026-03-24">
