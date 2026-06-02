@@ -70,6 +70,7 @@ ecm_add_qml_module(marknote_static
         emojiermodel.h emojiermodel.cpp
         emojierproxymodel.h emojierproxymodel.cpp
         commandbarhelper.cpp commandbarhelper.h
+        asyncdocbuilder/asyncdocbuilder.h asyncdocbuilder/asyncdocbuilder.cpp
 )
 
 kconfig_target_kcfg_file(marknote_static
