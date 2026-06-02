@@ -84,6 +84,19 @@ ecm_set_disabled_deprecation_versions(QT 6.9.0
     KF 6.19.0
 )
 
+find_package(KF6Mime ${KF_MIN_VERSION} CONFIG)
+if(NOT TARGET KF6::Mime)
+    find_package(KPim6Mime ${KPIM_MIME_VERSION} CONFIG REQUIRED)
+    add_library(KF6::Mime ALIAS KPim6::Mime)
+endif()
+
+find_package(md4qt COMPONENTS md4qt)
+set_package_properties(md4qt PROPERTIES
+    TYPE REQUIRED
+    URL "https://invent.kde.org/libraries/md4qt"
+    PURPOSE "Parse markdown"
+)
+
 find_package(md4c)
 set_package_properties(md4c PROPERTIES
     TYPE OPTIONAL
