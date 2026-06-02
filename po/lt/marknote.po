@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-01 00:44+0000\n"
-"PO-Revision-Date: 2026-03-29 00:02+0200\n"
+"PO-Revision-Date: 2026-06-01 14:08+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -54,9 +54,7 @@ msgid "Import from Maildir"
 msgstr "Importuoti iš Maildir"
 
 #: maildirimport.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@status"
-#| msgid "An error occurred while writing to '%1'"
+#, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "Įvyko klaida rašant į „%1“"
@@ -143,8 +141,7 @@ msgid "Note taking application"
 msgstr "Užrašų programa"
 
 #: main.cpp:131
-#, fuzzy, kde-format
-#| msgid "© 2023-2026 Mathis Brüchert"
+#, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
 
@@ -158,20 +155,19 @@ msgstr "Nepavyko pervadinti užrašų. Užrašai tokiu pavadinimu jau yra."
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "Netinkama perkėlimo operacija."
 
 #: notesmodel.cpp:296
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "Negalima perkelti aplanką į jį patį."
 
 #: notesmodel.cpp:302
-#, fuzzy, kde-format
-#| msgid "Failed to save pasted image"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr "Nepavyko įrašyti įdėto paveikslo"
+msgstr "Nepavyko perkelti failą."
 
 #: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
@@ -184,8 +180,7 @@ msgid "Redo"
 msgstr "Grąžinti"
 
 #: qml/EditPage.qml:206 qml/EditPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Table of Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Contents"
 msgstr "Turinys"
@@ -231,10 +226,9 @@ msgid "Table of Contents"
 msgstr "Turinys"
 
 #: qml/EditPage.qml:386
-#, fuzzy, kde-format
-#| msgid "Find text..."
+#, kde-format
 msgid "Find text…"
-msgstr "Rasti tekstą..."
+msgstr "Rasti tekstą…"
 
 #: qml/EditPage.qml:426
 #, kde-format
@@ -267,10 +261,9 @@ msgid "Close"
 msgstr "Užverti"
 
 #: qml/EditPage.qml:514
-#, fuzzy, kde-format
-#| msgid "Replace with..."
+#, kde-format
 msgid "Replace with…"
-msgstr "Pakeisti į..."
+msgstr "Pakeisti į…"
 
 #: qml/EditPage.qml:519 qml/EditPage.qml:559
 #, kde-format
@@ -574,15 +567,14 @@ msgid "Add note"
 msgstr "Pridėti užrašus"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "Suskleisti šoninę juostą"
+msgstr "Suskleisti viską"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "Išskleisti viską"
 
 #: qml/NotesPage.qml:257
 #, kde-format
@@ -616,9 +608,7 @@ msgid "Marknote"
 msgstr "Marknote"
 
 #: qml/NotesPage.qml:478
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" was successful."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "„%1“ eksportavimas sėkmingas."
@@ -630,9 +620,7 @@ msgid "Open File"
 msgstr "Atverti failą"
 
 #: qml/NotesPage.qml:506
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export of \"%1\" failed."
+#, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "Nepavyko eksportuoti „%1“."
@@ -726,34 +714,33 @@ msgstr "Pridėkite užrašų!"
 #: qml/NotesPage.qml:877
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "Nėra užrašų, kurie atitinka paiešką"
 
 #: qml/NotesPage.qml:893 qml/NotesPage.qml:901
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "Pridėti užrašus"
-msgstr[1] "Pridėti užrašus"
-msgstr[2] "Pridėti užrašus"
-msgstr[3] "Pridėti užrašus"
+msgstr[0] "%1 užrašai"
+msgstr[1] "%1 užrašai"
+msgstr[2] "%1 užrašų"
+msgstr[3] "%1 užrašai"
 
 #: qml/NotesPage.qml:897 qml/NotesPage.qml:900
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 aplankas"
+msgstr[1] "%1 aplankai"
+msgstr[2] "%1 aplankų"
+msgstr[3] "%1 aplankas"
 
 #: qml/NotesPage.qml:903
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:224
 #, kde-format
@@ -762,10 +749,9 @@ msgid "Select an image"
 msgstr "Pasirinkite paveikslą"
 
 #: qml/RichEditPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
-msgstr "Paveikslo failai (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "Paveikslo failai (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
 #: qml/RichEditPage.qml:227
 #, kde-format
@@ -857,12 +843,10 @@ msgid "Insert table"
 msgstr "Įterpti lentelę"
 
 #: qml/RichEditPage.qml:569
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "Įterpti nuorodą"
+msgstr "Įterpti eskizą"
 
 #: qml/RichEditPage.qml:590
 #, kde-format
@@ -925,13 +909,13 @@ msgstr "Įterpti"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "Trintukas"
 
 #: qml/SketchDialog.qml:310
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "Išvalyti piešimo drobę"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -952,32 +936,25 @@ msgid "Spell Check"
 msgstr "Rašybos tikrinimas"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "Atverti užrašus"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Atverti nuorodą"
 
 #: qml/TextFieldContextMenu.qml:281
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "Įterpti"
 
 #: qml/TextFieldContextMenu.qml:317
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Šalinti"
@@ -1013,8 +990,7 @@ msgid "Select All"
 msgstr "Žymėti viską"
 
 #: qml/TocDrawer.qml:121
-#, fuzzy, kde-format
-#| msgid "No headers found"
+#, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
 msgstr "Nerasta jokių antraščių"
@@ -1048,21 +1024,20 @@ msgstr "Spalvų rinkinys"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "Naudoti permatomą redaktoriaus puslapį"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "Fono nepermatomumas"
 
 #: settings/MarkNoteGeneralPage.qml:77
-#, fuzzy, kde-format
-#| msgid "%1/%2"
+#, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1/%2"
+msgstr "%1%"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format
