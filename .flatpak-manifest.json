@@ -42,17 +42,6 @@
             ]
         },
         {
-            "name": "md4qt",
-            "buildsystem": "cmake-ninja",
-            "builddir": true,
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://invent.kde.org/libraries/md4qt"
-                }
-            ]
-        },
-        {
             "name": "marknote",
             "buildsystem": "cmake-ninja",
             "builddir": true,
