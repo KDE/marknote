@@ -27,6 +27,7 @@
   <name xml:lang="it">Marknote</name>
   <name xml:lang="ka">Marknote</name>
   <name xml:lang="ko">Marknote</name>
+  <name xml:lang="lt">Marknote</name>
   <name xml:lang="lv">Marknote</name>
   <name xml:lang="nl">Marknote</name>
   <name xml:lang="nn">Marknote</name>
@@ -39,6 +40,7 @@
   <name xml:lang="sl">Marknote</name>
   <name xml:lang="sv">Marknote</name>
   <name xml:lang="tr">Marknot</name>
+  <name xml:lang="ug">Marknote</name>
   <name xml:lang="uk">Marknote</name>
   <name xml:lang="zh-CN">Marknote</name>
   <name xml:lang="zh-TW">Marknote</name>
@@ -63,6 +65,7 @@
   <summary xml:lang="it">Scrivi i tuoi pensieri</summary>
   <summary xml:lang="ka">ჩაიწერეთ თქვენი იდეები</summary>
   <summary xml:lang="ko">내 생각 기록하기</summary>
+  <summary xml:lang="lt">Užsirašykite savo mintis</summary>
   <summary xml:lang="lv">Pierakstiet savas domas</summary>
   <summary xml:lang="nl">Schrijf uw gedachten op</summary>
   <summary xml:lang="nn">Skriv ned tankane dine</summary>
@@ -143,6 +146,7 @@
         <p xml:lang="ca-valencia">Esta versió està plena de característiques noves, incloent-hi el suport per a subcarpetes, un efecte de difuminat opcional de fons, busca de notes a la barra d'ordres i compleció automàtica d'emoji.</p>
         <p xml:lang="cs">Tato verze přináší celou řadu nových funkcí, mezi nimiž nechybí podpora podsložek, volitelný efekt rozostření pozadí, vyhledávání poznámek v příkazovém řádku a automatické doplňování emotikonů.</p>
         <p xml:lang="es">Esta versión incluye numerosas funciones nuevas, como compatibilidad con subcarpetas, un efecto de desenfoque de fondo opcional, búsqueda de notas en la barra de órdenes y compleción automática de emojis.</p>
+        <p xml:lang="fr">Cette version est fournie avec de nouvelles fonctionnalités, y compris la prise en charge des sous-dossiers, un effet de flou d'arrière-plan optionnel, la recherche de notes dans la barre de commandes et l'auto-complétion des émoticônes.</p>
         <p xml:lang="ka">ეს ვერსია შეიცავს მრავალ ისეთ ახალ ფუნქციას, როგორიცაა ქვესაქაღალდეების მხარდაჭერა, არასავალდებულო ფონის დაბინდვის ეფექტი, შენიშვნის ძებნა ბრძანების სტრიქონიდან და ემოჯის ავტოდასრულება.</p>
         <p xml:lang="nl">Deze uitgave zit boordevol nieuwe functies, waaronder ondersteuning voor submappen, een optioneel achtergrondvervagingseffect, notities zoeken in de opdrachtbalk en automatische aanvulling van emoji's.</p>
         <p xml:lang="pt-BR">Esta versão está repleta de novos recursos, incluindo suporte para subpastas, um efeito opcional de desfoque de fundo, busca de notas na barra de comandos e preenchimento automático de emojis.</p>
@@ -244,6 +248,7 @@
         <p xml:lang="ia">Iste version contine un grande numero de correctiones de faltas e parve melioramentos.</p>
         <p xml:lang="it">Questa versione contiene un gran numero di correzioni di bug e piccoli miglioramenti.</p>
         <p xml:lang="ka">ეს რელიზი შეცდომების გასწორებებისა და პატარა გაუმჯობესებების დიდ რაოდენობას შეიცავს.</p>
+        <p xml:lang="lt">Šioje laidoje yra daug klaidų pataisymų ir smulkių patobulinimų.</p>
         <p xml:lang="nl">Deze uitgave bevat een groot aantal reparaties van bugs en kleine verbeteringen.</p>
         <p xml:lang="pt-BR">Esta versão contém um grande número de correções de bugs e pequenas melhorias.</p>
         <p xml:lang="ru">В этой версии исправлено множество ошибок и внесены небольшие улучшения.</p>
@@ -265,6 +270,7 @@
           <li xml:lang="ia">Tu pote nunc annullare refacer cambiamentos in le dialogo de schizzo rapide</li>
           <li xml:lang="it">Ora è possibile annullare e ripristinare le modifiche nella finestra dello schizzo rapido</li>
           <li xml:lang="ka">ახლა შეგიძლიათ ცვლილებების გაუქმება და დაბრუნდება სწრაფი ესკიზის დიალოგში</li>
+          <li xml:lang="lt">Nuo šiol galite atšaukti ir grąžinti pakeitimus greito eskizo dialoge</li>
           <li xml:lang="nl">U kunt nu wijzigingen ongedaan maken en opnieuw doen in de dialoog snelle schets</li>
           <li xml:lang="pt-BR">Agora você pode desfazer e refazer alterações na caixa de diálogo de esboço rápido</li>
           <li xml:lang="ru">Реализована возможность отмены и повтора изменений в диалоге быстрого наброска;</li>
@@ -285,12 +291,14 @@
           <li xml:lang="ia">Tu pote ora traher e poner images</li>
           <li xml:lang="it">Ora è possibile trascinare e rilasciare le immagini</li>
           <li xml:lang="ka">ახლა შეგიძლიათ გადაათრიოთ და დააგდოთ გამოსახულებები</li>
+          <li xml:lang="lt">Nuo šiol galite tempti paveikslus</li>
           <li xml:lang="nl">U kunt nu afbeeldingen slepen en loslaten</li>
           <li xml:lang="pt-BR">Agora você pode arrastar e soltar imagens</li>
           <li xml:lang="ru">Добавлена возможность перетаскивания изображений мышью;</li>
           <li xml:lang="sk">Teraz môžete presúvať obrázky ťahaním</li>
           <li xml:lang="sl">Zdaj lahko vlečete in spuščate slike</li>
           <li xml:lang="tr">Artık görselleri sürükleyip bırakabilirsiniz.</li>
+          <li xml:lang="ug">ھازىر سۈرەتنى سۆرەپ تاشلىيالايسىز</li>
           <li xml:lang="uk">У новій версії можна перетягувати і скидати зображення</li>
           <li xml:lang="zh-CN">您现在可以拖放图像</li>
           <li xml:lang="zh-TW">支援拖放影像</li>
@@ -305,6 +313,7 @@
           <li xml:lang="ia">Le vista principal nonplus disappare quando on redimensiona barras lateral</li>
           <li xml:lang="it">La vista principale non scompare più quando si ridimensionano le barre laterali</li>
           <li xml:lang="ka">მთავარი ხედი აღარ გაქრება გვერდითი პანელების ზომის შეცვლისას</li>
+          <li xml:lang="lt">Pagrindinis rodinys daugiau nebeišnyksta, kai keičiamas šoninių juostų dydis</li>
           <li xml:lang="nl">Het hoofdvenster verdwijnt niet langer wanneer de zijbalken worden verkleind of vergroot.</li>
           <li xml:lang="pt-BR">A visualização principal não desaparece mais ao redimensionar as barras laterais</li>
           <li xml:lang="ru">Главное окно больше не скрывается при изменении размера боковых панелей;</li>
@@ -325,6 +334,7 @@
           <li xml:lang="ia">Problemas con ledialogos de delre ha essite corrigite</li>
           <li xml:lang="it">Sono stati risolti i problemi con le finestre di eliminazione</li>
           <li xml:lang="ka">გასწორდა შეცდომები წაშლის დიალოგებში</li>
+          <li xml:lang="lt">Pataisytos klaidos susijusios su ištrynimo dialogais</li>
           <li xml:lang="nl">Problemen met verwijderingsdialoogvensters zijn opgelost</li>
           <li xml:lang="pt-BR">Os problemas com as caixas de diálogo de exclusão foram corrigidos</li>
           <li xml:lang="ru">Исправлены проблемы с диалогами удаления;</li>
@@ -476,6 +486,7 @@
         <p xml:lang="ia">Version de correctiones de bug,continente le sequente correctiones:</p>
         <p xml:lang="it">Versione di correzione dei bug contenente le seguenti correzioni:</p>
         <p xml:lang="ka">შეცდომების გასწორების რელიზი შეიცავს შემდეგი შეცდომის შესწორებას:</p>
+        <p xml:lang="lt">Klaidų pataisymo laida, kurioje yra šie pataisymai:</p>
         <p xml:lang="nl">Deze uitgave bevat een reeks reparaties van fouten met de volgende oplossingen:</p>
         <p xml:lang="pt-BR">Versão com correções de bugs contendo as seguintes correções:</p>
         <p xml:lang="ru">Выпуск с исправлением следующих ошибок:</p>
@@ -497,6 +508,7 @@
           <li xml:lang="ia">Corrige salveguardar font</li>
           <li xml:lang="it">Corregge il salvataggio del carattere</li>
           <li xml:lang="ka">გასწორდა ფონტის შენახვა</li>
+          <li xml:lang="lt">Pataisytas šrifto įrašymas</li>
           <li xml:lang="nl">Opslaan van lettertype gerepareerd</li>
           <li xml:lang="pt-BR">Correção do salvamento de fonte</li>
           <li xml:lang="ru">Исправлено сохранение шрифта;</li>
@@ -517,6 +529,7 @@
           <li xml:lang="ia">Memora le stato de ultime fenestra</li>
           <li xml:lang="it">Ricorda l'ultimo stato della finestra</li>
           <li xml:lang="ka">ფანჯრის ბოლო მდგომარეობის დამახსოვრება</li>
+          <li xml:lang="lt">Prisimenama paskutinė lango būsena</li>
           <li xml:lang="nl">Status van laatste venster herinneren</li>
           <li xml:lang="pt-BR">Lembrar o último estado da janela</li>
           <li xml:lang="ru">Сохранение состояния окна при выходе;</li>
@@ -537,6 +550,7 @@
           <li xml:lang="ia">Claude dialogo post deler nota</li>
           <li xml:lang="it">Chiude la finestra dopo aver eliminato la nota</li>
           <li xml:lang="ka">დიალოგის დახურვა შენიშვნის წაშლის შემდეგ</li>
+          <li xml:lang="lt">Ištrinus užrašus užveriamas dialogas</li>
           <li xml:lang="nl">Dialoog sluiten na verwijderen van notitie</li>
           <li xml:lang="pt-BR">Fechar a caixa de diálogo após excluir a nota</li>
           <li xml:lang="ru">Закрытие диалога после удаления заметки;</li>
@@ -557,6 +571,7 @@
           <li xml:lang="ia">Corrige collar de duple copia</li>
           <li xml:lang="it">Corregge il doppio copia-incolla</li>
           <li xml:lang="ka">გასწორდა ორმაგი კოპირება/ჩასმა</li>
+          <li xml:lang="lt">Pataisytas dvikartis kopijavimas ir įdėjimas</li>
           <li xml:lang="nl">Dubbel kopiëren plakken gerepareerd</li>
           <li xml:lang="pt-BR">Correção do copiar e colar duas vezes</li>
           <li xml:lang="ru">Исправлено двойное копирование и вставка;</li>
@@ -732,12 +747,14 @@
         <p xml:lang="ia">Corrige un falta importante</p>
         <p xml:lang="it">Corregge un bug importante</p>
         <p xml:lang="ka">გასწორდა მნიშვნელოვანი შეცდომა</p>
+        <p xml:lang="lt">Pataisyta svarbi klaida</p>
         <p xml:lang="nl">Repareer een belangrijke bug</p>
         <p xml:lang="pt-BR">Correção de um bug importante</p>
         <p xml:lang="ru">Исправлена важная ошибка.</p>
         <p xml:lang="sk">Oprava dôležitej chyby</p>
         <p xml:lang="sl">Poprava pomembne napake</p>
         <p xml:lang="tr">Önemli bir hatayı düzelt</p>
+        <p xml:lang="ug">مۇھىم بىر كەمتۈك ئوڭشالدى</p>
         <p xml:lang="uk">Виправлено важливу ваду</p>
         <p xml:lang="zh-CN">修复一个重要的错误</p>
         <p xml:lang="zh-TW">修正一個重要錯誤</p>
