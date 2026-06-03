@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-01 00:44+0000\n"
-"PO-Revision-Date: 2026-05-04 22:57+0300\n"
+"PO-Revision-Date: 2026-06-02 09:21+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -154,20 +154,19 @@ msgstr "לא ניתן לשנות שם של פתקית. כבר קיימת פתק�
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "פעולת העברה שגויה."
 
 #: notesmodel.cpp:296
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "לא ניתן להעביר תיקייה לתוך עצמה."
 
 #: notesmodel.cpp:302
-#, fuzzy, kde-format
-#| msgid "Failed to save pasted image"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr "שמירת התמונה המודבקת נכשלה"
+msgstr "העברת הקובץ נכשלה."
 
 #: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
@@ -565,15 +564,14 @@ msgid "Add note"
 msgstr "הוספת פתקית"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "צמצום סרגל צד"
+msgstr "צמצום של הכול"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "הרחבה של הכול"
 
 #: qml/NotesPage.qml:257
 #, kde-format
@@ -712,34 +710,33 @@ msgstr "אפשר להוסיף פתקית!"
 #: qml/NotesPage.qml:877
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "אין פתקיות שתואמות לחיפוש"
 
 #: qml/NotesPage.qml:893 qml/NotesPage.qml:901
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "הוספת פתקית"
-msgstr[1] "הוספת פתקית"
-msgstr[2] "הוספת פתקית"
-msgstr[3] "הוספת פתקית"
+msgstr[0] "פתקית"
+msgstr[1] "שתי פתקיות"
+msgstr[2] "%1 פתקיות"
+msgstr[3] "%1 פתקיות"
 
 #: qml/NotesPage.qml:897 qml/NotesPage.qml:900
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "תיקייה"
+msgstr[1] "שתי תיקיות"
+msgstr[2] "%1 תיקיות"
+msgstr[3] "%1 תיקיות"
 
 #: qml/NotesPage.qml:903
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:224
 #, kde-format
@@ -748,10 +745,9 @@ msgid "Select an image"
 msgstr "בחירת תמונה"
 
 #: qml/RichEditPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
-msgstr "קובצי תמונה (‎*.jpg‏ ‎*.jpeg ‏‎*.png ‏‎*‎.svg ‏‎*.webp)"
+msgstr "קובצי תמונה (‎*.jpg‏ ‎*.jpeg‏ ‎*.jxl‏ ‎*.png‏ ‎*.svg‏ ‎*.webp)"
 
 #: qml/RichEditPage.qml:227
 #, kde-format
@@ -1024,21 +1020,20 @@ msgstr "ערכת צבעים"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "להשתמש בעמוד עורך שקוף"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "אטימות רקע"
 
 #: settings/MarkNoteGeneralPage.qml:77
-#, fuzzy, kde-format
-#| msgid "%1/%2"
+#, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1/%2"
+msgstr "%1%"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format
