@@ -162,11 +162,10 @@ msgid "Cannot move a folder into itself."
 msgstr ""
 
 #: notesmodel.cpp:302
-#, fuzzy, kde-format
-#| msgid "Failed to save pasted image"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr "保存粘贴图像失败"
+msgstr ""
 
 #: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
@@ -560,10 +559,9 @@ msgid "Add note"
 msgstr "添加笔记"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "折叠侧边栏"
+msgstr ""
 
 #: qml/NotesPage.qml:187
 #, kde-format
@@ -709,12 +707,11 @@ msgid "No notes matching the search"
 msgstr ""
 
 #: qml/NotesPage.qml:893 qml/NotesPage.qml:901
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "添加笔记"
+msgstr[0] ""
 
 #: qml/NotesPage.qml:897 qml/NotesPage.qml:900
 #, kde-format
@@ -736,10 +733,9 @@ msgid "Select an image"
 msgstr "选择图像"
 
 #: qml/RichEditPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
-msgstr "图片文件 (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr ""
 
 #: qml/RichEditPage.qml:227
 #, kde-format
@@ -1021,12 +1017,11 @@ msgid "Background opacity"
 msgstr ""
 
 #: settings/MarkNoteGeneralPage.qml:77
-#, fuzzy, kde-format
-#| msgid "%1/%2"
+#, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1/%2"
+msgstr ""
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format
