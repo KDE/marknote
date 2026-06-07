@@ -142,6 +142,7 @@
       <url>https://carlschwan.eu/2026/05/30/marknote-1.6.0/</url>
       <description>
         <p>This release is packed with new features, including support for subfolders, an optional background blur effect, note search in the command bar, and emoji auto-completion.</p>
+        <p xml:lang="ar">يحتوي هذا الإصدار على ميزات جديدة كثيرة، منها دعم المجلدات الفرعية، وتأثير تعتيم الخلفية الاختياري، والبحث عن الملاحظات في شريط الأوامر، والإكمال آلي للرموز التعبيرية.</p>
         <p xml:lang="ca">Aquesta versió està plena de característiques noves, incloent-hi el suport per a subcarpetes, un efecte de difuminat opcional de fons, cerca de notes a la barra d'ordres i compleció automàtica d'emojis.</p>
         <p xml:lang="ca-valencia">Esta versió està plena de característiques noves, incloent-hi el suport per a subcarpetes, un efecte de difuminat opcional de fons, busca de notes a la barra d'ordres i compleció automàtica d'emoji.</p>
         <p xml:lang="cs">Tato verze přináší celou řadu nových funkcí, mezi nimiž nechybí podpora podsložek, volitelný efekt rozostření pozadí, vyhledávání poznámek v příkazovém řádku a automatické doplňování emotikonů.</p>
