@@ -743,10 +743,9 @@ msgid "Select an image"
 msgstr "Vybrať obrázok"
 
 #: qml/RichEditPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
-msgstr "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "Obrázkové súbory (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
 #: qml/RichEditPage.qml:227
 #, kde-format

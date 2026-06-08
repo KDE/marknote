@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-01 00:44+0000\n"
-"PO-Revision-Date: 2026-05-12 04:07+0900\n"
+"PO-Revision-Date: 2026-06-07 16:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -153,20 +153,19 @@ msgstr "無法重新命名筆記。已經有另一個筆記使用該名稱。"
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "無效移動操作。"
 
 #: notesmodel.cpp:296
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "無法將資料夾移動到自己當中。"
 
 #: notesmodel.cpp:302
-#, fuzzy, kde-format
-#| msgid "Failed to save pasted image"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr "儲存貼上的影像失敗"
+msgstr "移動檔案失敗。"
 
 #: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
@@ -560,15 +559,14 @@ msgid "Add note"
 msgstr "新增筆記"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "收合側邊欄"
+msgstr "全部收起"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "全部展開"
 
 #: qml/NotesPage.qml:257
 #, kde-format
@@ -706,28 +704,27 @@ msgstr "新增筆記！"
 #: qml/NotesPage.qml:877
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "沒有符合搜尋的筆記"
 
 #: qml/NotesPage.qml:893 qml/NotesPage.qml:901
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "新增筆記"
+msgstr[0] "%1 個筆記"
 
 #: qml/NotesPage.qml:897 qml/NotesPage.qml:900
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
+msgstr[0] "%1 個資料夾"
 
 #: qml/NotesPage.qml:903
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:224
 #, kde-format
@@ -736,10 +733,9 @@ msgid "Select an image"
 msgstr "選擇影像"
 
 #: qml/RichEditPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
-msgstr "影像檔 (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "影像檔 (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
 #: qml/RichEditPage.qml:227
 #, kde-format
@@ -1012,21 +1008,20 @@ msgstr "顏色主題"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "使用透明編輯器頁面"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "背景不透明度"
 
 #: settings/MarkNoteGeneralPage.qml:77
-#, fuzzy, kde-format
-#| msgid "%1/%2"
+#, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1/%2"
+msgstr "%1%"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format
