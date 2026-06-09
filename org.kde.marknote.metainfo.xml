@@ -156,6 +156,7 @@
         <p xml:lang="sl">Ta izdaja je polna novih zmožnosti, vključno s podporo za podmape, izbirnim učinkom zameglitve ozadja, iskanjem zapiskov v ukazni vrstici in samodejnim dokončanjem čustvenčkov.</p>
         <p xml:lang="tr">Bu yayım; alt klasör desteği, isteğe bağlı arka plan bulanıklığı efekti, komut çubuğunda not arama ve emojileri kendiliğinden tamamlama gibi birçok yeni özellik içeriyor.</p>
         <p xml:lang="uk">У цьому випуску реалізовано багато нових можливостей, зокрема підтримку підтек, необов'язковий ефект розмивання тла, пошук нотаток на панелі команд та автоматичне доповнення емоційок.</p>
+        <p xml:lang="zh-TW">這個版本包含許多新功能，像是子資料夾的支援、可選的模糊背景效果、用彈出命令列搜尋筆記，以及表情符號自動補完。</p>
       </description>
     </release>
     <release version="1.5.2" date="2026-03-24">
