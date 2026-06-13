@@ -16,6 +16,10 @@ target_compile_options(marknote_static PRIVATE
     $<$<CXX_COMPILER_ID:MSVC>:/bigobj>
 )
 
+target_include_directories(marknote_static PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/mdoptions
+)
+
 ecm_add_qml_module(marknote_static
     URI org.kde.marknote
     GENERATE_PLUGIN_SOURCE
@@ -71,6 +75,9 @@ ecm_add_qml_module(marknote_static
         emojierproxymodel.h emojierproxymodel.cpp
         commandbarhelper.cpp commandbarhelper.h
         asyncdocbuilder/asyncdocbuilder.h asyncdocbuilder/asyncdocbuilder.cpp
+        mdoptions/mdoptions.h
+        mdtreemodel/treeitem.h mdtreemodel/treeitem.cpp
+        mdtreemodel/mddatagenerator.h mdtreemodel/mddatagenerator.cpp
 )
 
 kconfig_target_kcfg_file(marknote_static

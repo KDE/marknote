@@ -5,7 +5,10 @@
 // SPDX-License-Identifier: BSD-3-Clause AND LGPL-2.0-or-later
 
 #include "rich_documenthandler.h"
+#include "asyncdocbuilder/asyncdocbuilder.h"
 #include "asyncimageprovider.h"
+#include "mdtreemodel/treeitem.h"
+#include <md4qt/html.h>
 
 #include <KColorScheme>
 #include <KLocalizedString>
@@ -271,6 +274,15 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
     QFile file(fileUrl.toLocalFile());
     if (!file.open(QFile::ReadOnly))
         return;
+
+    AsyncDocBuilder *builder = new AsyncDocBuilder(this);
+    builder->loadDocument(fileUrl.toLocalFile());
+
+    connect(builder, &AsyncDocBuilder::documentReady, this, [](const AsyncDocBuilder::DocPointer &doc) {
+        qDebug() << "Doc Loaded succesfully!";
+        TreeItem *root = TreeItem::buildTree(doc);
+        TreeItem::traverseTree(root);
+    });
 
     const QString rawContent = QString::fromUtf8(file.readAll());
 
