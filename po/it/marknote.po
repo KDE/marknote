@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-01 00:44+0000\n"
-"PO-Revision-Date: 2026-05-07 11:22+0200\n"
+"PO-Revision-Date: 2026-06-02 15:35+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -154,20 +154,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "Operazione di spostamento non valida."
 
 #: notesmodel.cpp:296
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "Impossibile spostare una cartella al suo interno."
 
 #: notesmodel.cpp:302
-#, fuzzy, kde-format
-#| msgid "Failed to save pasted image"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr "Impossibile salvare l'immagine incollata"
+msgstr "Spostamento file non riuscita."
 
 #: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
@@ -565,15 +564,14 @@ msgid "Add note"
 msgstr "Aggiungi nota"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "Contrai la barra laterale"
+msgstr "Contrai tutto"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "Espandi tutto"
 
 #: qml/NotesPage.qml:257
 #, kde-format
@@ -713,30 +711,29 @@ msgstr "Aggiungi una nota!"
 #: qml/NotesPage.qml:877
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "Nessuna nota corrispondente alla ricerca"
 
 #: qml/NotesPage.qml:893 qml/NotesPage.qml:901
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "Aggiungi nota"
-msgstr[1] "Aggiungi nota"
+msgstr[0] "%1 nota"
+msgstr[1] "%1 note"
 
 #: qml/NotesPage.qml:897 qml/NotesPage.qml:900
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 cartella"
+msgstr[1] "%1 cartelle"
 
 #: qml/NotesPage.qml:903
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:224
 #, kde-format
@@ -745,10 +742,9 @@ msgid "Select an image"
 msgstr "Seleziona un'immagine"
 
 #: qml/RichEditPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
-msgstr "File immagine (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "File immagine (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
 #: qml/RichEditPage.qml:227
 #, kde-format
@@ -1021,21 +1017,20 @@ msgstr "Tema di colori"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "Utilizza la pagina dell'editor trasparente"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "Opacità dello sfondo"
 
 #: settings/MarkNoteGeneralPage.qml:77
-#, fuzzy, kde-format
-#| msgid "%1/%2"
+#, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1/%2"
+msgstr "%1%"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format
