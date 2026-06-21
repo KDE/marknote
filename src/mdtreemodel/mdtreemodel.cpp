@@ -5,6 +5,7 @@
 
 MDTreeModel::MDTreeModel(QObject *parent)
     : QAbstractItemModel(parent)
+    , m_rootItem(std::make_unique<TreeItem>())
 {
 }
 
@@ -12,25 +13,52 @@ QModelIndex MDTreeModel::index(int row, int column, const QModelIndex &parent) c
 {
     if (!hasIndex(row, column, parent))
         return QModelIndex();
+
+    TreeItem *parentItem = parent.isValid() ? static_cast<TreeItem *>(parent.internalPointer()) : m_rootItem.get();
+
+    if (auto *childItem = parentItem->child(row))
+        return createIndex(row, column, childItem);
+
+    return QModelIndex();
 }
 
 QModelIndex MDTreeModel::parent(const QModelIndex &child) const
 {
-    return QModelIndex();
+    if (!child.isValid())
+        return QModelIndex();
+
+    TreeItem *childItem = static_cast<TreeItem *>(child.internalPointer());
+    TreeItem *parentItem = childItem->parent();
+
+    if (parentItem == m_rootItem.get() || !parentItem)
+        return QModelIndex();
+
+    return createIndex(parentItem->row(), 0, parentItem);
 }
 
 int MDTreeModel::rowCount(const QModelIndex &parent) const
 {
-    return 0;
+    TreeItem *parentItem = parent.isValid() ? static_cast<TreeItem *>(parent.internalPointer()) : m_rootItem.get();
+
+    return parentItem->childCount();
 }
 
 int MDTreeModel::columnCount(const QModelIndex &parent) const
 {
-    return 0;
+    return 1;
 }
 
 QVariant MDTreeModel::data(const QModelIndex &index, int role) const
 {
+    if (!index.isValid())
+        return QVariant();
+
+    TreeItem *item = static_cast<TreeItem *>(index.internalPointer());
+
+    if (role == Roles::DataRole) {
+        return item->data();
+    }
+
     return QVariant();
 }
 
@@ -51,22 +79,4 @@ void MDTreeModel::setDocument(const QSharedPointer<MD::Document> &document)
     }
 
     endResetModel();
-}
-
-void MDTreeModel::dumpTree() const
-{
-    if (m_rootItem) {
-        qDebug() << "Dumping tree structure:";
-        std::function<void(const TreeItem *, int)> dump = [&](const TreeItem *item, int depth) {
-            QString indent(depth * 2, ' ');
-            qDebug() << indent << item->data();
-            for (int i = 0; i < item->childCount(); ++i) {
-                dump(item->child(i), depth + 1);
-            }
-        };
-        dump(m_rootItem.get(), 0);
-    } else {
-        qDebug() << "Tree is empty.";
-    }
-
 }

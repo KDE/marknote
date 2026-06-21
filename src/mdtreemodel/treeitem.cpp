@@ -110,23 +110,3 @@ TreeItem *TreeItem::buildTree(const QSharedPointer<MD::Item> &item)
 
     return treeItem;
 }
-
-namespace
-{
-int indent = 0;
-};
-
-void TreeItem::traverseTree(TreeItem *item)
-{
-    if (!item) {
-        return;
-    }
-
-    indent++;
-    qDebug() << std::string(indent * 2, ' ') << "Item Type:" << item->data().value(u"type"_s);
-
-    for (int i = 0; i < item->childCount(); ++i) {
-        traverseTree(item->child(i));
-    }
-    indent--;
-}

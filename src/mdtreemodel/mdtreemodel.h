@@ -4,9 +4,11 @@
 #ifndef MDTREEMODEL_H
 #define MDTREEMODEL_H
 
+#include "treeitem.h"
 #include <QAbstractItemModel>
 #include <QtQmlIntegration/qqmlintegration.h>
 #include <md4qt/doc.h>
+#include <memory>
 
 class MDTreeModel : public QAbstractItemModel
 {
@@ -14,6 +16,10 @@ class MDTreeModel : public QAbstractItemModel
     QML_ELEMENT
 
 public:
+    enum Roles {
+        DataRole = Qt::UserRole + 1
+    };
+
     explicit MDTreeModel(QObject *parent = nullptr);
 
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
@@ -21,9 +27,14 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QHash<int, QByteArray> roleNames() const override;
+
+    void setDocument(const QSharedPointer<MD::Document> &document);
+
+    void dumpTree() const;
 
 private:
-    MD::Document *m_document;
+    std::unique_ptr<TreeItem> m_rootItem;
 };
 
 #endif // MDTREEMODEL_H

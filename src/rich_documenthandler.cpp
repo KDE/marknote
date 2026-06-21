@@ -7,6 +7,7 @@
 #include "rich_documenthandler.h"
 #include "asyncdocbuilder/asyncdocbuilder.h"
 #include "asyncimageprovider.h"
+#include "mdserializer/mdserializer.h"
 #include "mdtreemodel/treeitem.h"
 #include <md4qt/html.h>
 
@@ -280,8 +281,6 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
 
     connect(builder, &AsyncDocBuilder::documentReady, this, [](const AsyncDocBuilder::DocPointer &doc) {
         qDebug() << "Doc Loaded succesfully!";
-        TreeItem *root = TreeItem::buildTree(doc);
-        TreeItem::traverseTree(root);
     });
 
     const QString rawContent = QString::fromUtf8(file.readAll());
@@ -2148,6 +2147,15 @@ void RichDocumentHandler::replaceCurrentEmoji(const QString &emojichar)
     cursor.endEditBlock();
     setPopupVisible(false);
     setCurrentEmojicode(QString());
+}
+
+void RichDocumentHandler::setMdTreeModel(MDTreeModel *model)
+{
+    if (model == m_mdTreeModel || !model) {
+        return;
+    }
+
+    m_mdTreeModel = model;
 }
 
 #include "moc_rich_documenthandler.cpp"
