@@ -33,3 +33,40 @@ QVariant MDTreeModel::data(const QModelIndex &index, int role) const
 {
     return QVariant();
 }
+
+QHash<int, QByteArray> MDTreeModel::roleNames() const
+{
+    QHash<int, QByteArray> roles;
+    roles[Roles::DataRole] = "data";
+    return roles;
+}
+
+void MDTreeModel::setDocument(const QSharedPointer<MD::Document> &document)
+{
+    beginResetModel();
+
+    if (document) {
+        TreeItem *newRoot = TreeItem::buildTree(document);
+        m_rootItem.reset(newRoot);
+    }
+
+    endResetModel();
+}
+
+void MDTreeModel::dumpTree() const
+{
+    if (m_rootItem) {
+        qDebug() << "Dumping tree structure:";
+        std::function<void(const TreeItem *, int)> dump = [&](const TreeItem *item, int depth) {
+            QString indent(depth * 2, ' ');
+            qDebug() << indent << item->data();
+            for (int i = 0; i < item->childCount(); ++i) {
+                dump(item->child(i), depth + 1);
+            }
+        };
+        dump(m_rootItem.get(), 0);
+    } else {
+        qDebug() << "Tree is empty.";
+    }
+
+}
