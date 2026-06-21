@@ -18,6 +18,7 @@ target_compile_options(marknote_static PRIVATE
 
 target_include_directories(marknote_static PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/mdoptions
+    ${CMAKE_CURRENT_SOURCE_DIR}/mdtreemodel
 )
 
 ecm_add_qml_module(marknote_static
@@ -77,7 +78,9 @@ ecm_add_qml_module(marknote_static
         asyncdocbuilder/asyncdocbuilder.h asyncdocbuilder/asyncdocbuilder.cpp
         mdoptions/mdoptions.h
         mdtreemodel/treeitem.h mdtreemodel/treeitem.cpp
+        mdtreemodel/mdtreemodel.h mdtreemodel/mdtreemodel.cpp
         mdtreemodel/mddatagenerator.h mdtreemodel/mddatagenerator.cpp
+        mdserializer/mdserializer.h mdserializer/mdserializer.cpp
 )
 
 kconfig_target_kcfg_file(marknote_static

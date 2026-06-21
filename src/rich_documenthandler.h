@@ -7,6 +7,7 @@
 #include <QQuickItem>
 
 #include "documenthandler.h"
+#include "mdtreemodel/mdtreemodel.h"
 #include "nestedlisthelper_p.h"
 #include <QHash>
 #include <QRegularExpression>
@@ -100,6 +101,8 @@ public:
 
     Q_INVOKABLE void replaceCurrentEmoji(const QString &emojichar);
 
+    Q_INVOKABLE void setMdTreeModel(MDTreeModel *model);
+
 public Q_SLOTS:
     void load(const QUrl &fileUrl) override;
     void saveAs(const QUrl &fileUrl) override;
@@ -182,6 +185,8 @@ private:
 
     QString m_currentEmojicode;
     bool m_popupVisible;
+
+    MDTreeModel *m_mdTreeModel;
 };
 
 #endif // RICHDOCUMENTHANDLER_H

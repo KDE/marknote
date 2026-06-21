@@ -113,7 +113,7 @@ Kirigami.Page {
             root.document.saveAs(root.oldPath);
         }
         if (root.noteFullPath.toString().length > 0) {
-        
+
             root.document.load(root.noteFullPath);
 
             root.saved = true;

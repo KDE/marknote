@@ -12,14 +12,6 @@ namespace MDOptions
 Q_NAMESPACE
 QML_ELEMENT
 
-enum TextStyle {
-    NormalText = 0,
-    BoldText = 1,
-    ItalicText = 2,
-    StrikethroughText = 4
-};
-Q_ENUM_NS(TextStyle)
-
 enum ElementType {
     Heading = 0,
     Text = 1,

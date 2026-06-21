@@ -22,7 +22,6 @@ public:
     int row() const;
 
     static TreeItem *buildTree(const QSharedPointer<MD::Item> &item);
-    static void traverseTree(TreeItem *item);
 
 private:
     QSharedPointer<MD::Item> m_item;

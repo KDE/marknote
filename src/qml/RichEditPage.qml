@@ -49,6 +49,8 @@ EditPage {
     objectName: "RichEditPage"
 
     document: RichDocumentHandler {
+        id: richdochandler
+
         textArea: root.textArea
         document: root.textArea.textDocument
         cursorPosition: root.textArea.cursorPosition
@@ -69,6 +71,14 @@ EditPage {
         onCut: root.textArea.cut()
         onUndo: root.textArea.undo()
         onRedo: root.textArea.redo()
+
+        property var testModel : MDTreeModel {
+            id: treeModel
+        }
+
+        Component.onCompleted: {
+            richdochandler.setMdTreeModel(treeModel)
+        }
 
         onCheckableChanged: {
             root.checkbox = checkable;
