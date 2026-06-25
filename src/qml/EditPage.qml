@@ -33,14 +33,12 @@ Kirigami.Page {
     property bool canFitToolbar: true
     property real dynamicRightPadding: 0
 
-    readonly property alias textArea: textArea
     readonly property alias copyMessage: copyMessage
     required property var document
-    readonly property alias contentScroll: contentScroll
     property alias searchBar: searchBar 
     property TocDrawer tocDrawer: null
     readonly property Kirigami.PageRow pageStack: (ApplicationWindow.window as Kirigami.ApplicationWindow)?.pageStack ?? null
-    required property TextFieldContextMenu textFieldContextMenu
+    property TextFieldContextMenu textFieldContextMenu
 
     property bool mobileToolBarHidden: true
     property real mobileToolBarHeight: 0
@@ -48,6 +46,8 @@ Kirigami.Page {
     property bool supportsToc: false
     property bool isTocOpened: false
     property real tocPosition: 0
+
+    required property Component contentComponent
 
     background: Item { }
 
@@ -75,7 +75,7 @@ Kirigami.Page {
         if (searchBar) {
             searchBar.isSearchOpen = true;
             if (searchField) {
-                let selText = textArea.selectedText;
+                // let selText = textArea.selectedText;
                 if (selText.length > 0) {
                     // Strip out any carriage returns/newlines
                     searchField.text = selText.replace(/[\r\n]+/g, " ").trim();
@@ -95,13 +95,13 @@ Kirigami.Page {
         if (searchBar) {
             searchBar.isSearchOpen = false;
             searchBar.isReplaceVisible = false;
-            textArea.deselect();
+            // textArea.deselect();
 
-            if (textArea) {
-                Qt.callLater(function() {
-                    textArea.forceActiveFocus();
-                });
-            }
+            // if (textArea) {
+            //     Qt.callLater(function() {
+            //         textArea.forceActiveFocus();
+            //     });
+            // }
         }
     }
 
@@ -120,8 +120,6 @@ Kirigami.Page {
         }
 
         root.oldPath = root.noteFullPath;
-
-        textArea.forceActiveFocus();
     }
 
     Layout.fillWidth: true
@@ -162,8 +160,8 @@ Kirigami.Page {
             text: KI18n.i18n("Undo")
             display: AbstractButton.IconOnly
             Layout.leftMargin: Kirigami.Units.smallSpacing
-            onClicked: root.textArea.undo()
-            enabled: root.textArea.canUndo
+            // onClicked: root.textArea.undo()
+            // enabled: root.textArea.canUndo
             visible: root.singleDocumentMode
 
             ToolTip.text: text
@@ -175,8 +173,8 @@ Kirigami.Page {
             icon.name: "edit-redo"
             text: KI18n.i18n("Redo")
             display: AbstractButton.IconOnly
-            onClicked: root.textArea.redo()
-            enabled: root.textArea.canRedo
+            // onClicked: root.textArea.redo()
+            // enabled: root.textArea.canRedo
             visible: root.singleDocumentMode
 
             ToolTip.text: text
@@ -323,7 +321,7 @@ Kirigami.Page {
         RowLayout {
             visible: root.tocPosition > 0 && !root.canFitToolbar && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
 
-            readonly property real alignSeparatorWidth: root.contentScroll.ScrollBar.vertical.visible ? 15.7 : 14.6
+            readonly property real alignSeparatorWidth: 15.7
             readonly property real fullWidth: (Kirigami.Units.gridUnit * alignSeparatorWidth) - Kirigami.Units.largeSpacing
             readonly property real exactWidth: fullWidth * root.tocPosition
 
@@ -348,7 +346,7 @@ Kirigami.Page {
 
         spacing: 0
 
-	    ToolBar {
+        ToolBar {
             id: searchBar
 
             property bool isSearchOpen: false
@@ -392,7 +390,7 @@ Kirigami.Page {
                                 root.document.findText(cleanText);
                             } else {
                                 root.document.clearSearch();
-                                textArea.deselect();
+                                // textArea.deselect();
                             }
                         }
                         Keys.onShortcutOverride: (event) => {
@@ -412,8 +410,8 @@ Kirigami.Page {
                             searchField.text = "";
                             searchBar.isSearchOpen = false;
                             searchBar.isReplaceVisible = false;
-                            textArea.deselect();
-                            textArea.forceActiveFocus();
+                            // textArea.deselect();
+                            // textArea.forceActiveFocus();
                         }
                     }
 
@@ -456,7 +454,7 @@ Kirigami.Page {
                     Label {
                         text: {
                             if (root.document.searchMatchCount === 0) {
-                                textArea.deselect();
+                                // textArea.deselect();
                                 return KI18n.i18n("No matches");
                             }
                             return KI18n.i18n("%1/%2", root.document.searchCurrentMatch + 1, root.document.searchMatchCount);
@@ -643,179 +641,13 @@ Kirigami.Page {
         }
     }
 
-    contentItem: ScrollView {
-        id: contentScroll
-        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-
-        bottomPadding: root.canFitToolbar || root.mobileToolBarHidden ? 0 : root.mobileToolBarHeight
-
-        // Animate scroll bar between wide and mobile screens transitions
-        Behavior on bottomPadding {
-            NumberAnimation {
-                duration: Kirigami.Units.longDuration
-                easing.type: Easing.OutInQuart
-            }
-        }
-
-        T.TextArea {
-            id: textArea
-
-            readonly property int marginMultiplier: 6
-            readonly property bool applyWideScreenMargin: (root.isWideScreen && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns) || root.singleDocumentMode
-            textMargin: applyWideScreenMargin ? Kirigami.Units.largeSpacing * marginMultiplier : Kirigami.Units.smallSpacing * marginMultiplier
-
-            leftPadding: 0
-            rightPadding: Kirigami.Units.largeSpacing
-            topPadding: 0
-            bottomPadding: 0
-
-            Behavior on bottomPadding {
-                NumberAnimation {
-                    duration: Kirigami.Units.longDuration
-                    easing.type: Easing.OutInQuart
-                }
-            }
-
-            HoverHandler {
-                id: controlHoverHandler
-                acceptedModifiers: Qt.ControlModifier
-
-                onPointChanged: () => {
-                    root.document.slotMouseMovedWithControl(controlHoverHandler.point.position)
-                }
-
-                onHoveredChanged: () => {
-                    if (!controlHoverHandler.hovered) {
-                        root.document.slotMouseMovedWithControlReleased()
-                    }
-                }
-            }
-
-            font: Config.editorFont
-
-            implicitWidth: Math.max(contentWidth + leftPadding + rightPadding,
-                implicitBackgroundWidth + leftInset + rightInset)
-            implicitHeight: Math.max(contentHeight + topPadding + bottomPadding,
-                implicitBackgroundHeight + topInset + bottomInset)
-
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            Kirigami.Theme.inherit: background == null
-
-            color: Kirigami.Theme.textColor
-            selectionColor: Kirigami.Theme.highlightColor
-            selectedTextColor: Kirigami.Theme.highlightedTextColor
-            placeholderTextColor: Kirigami.Theme.disabledTextColor
-
-            selectByMouse: true
-            background: null
-            persistentSelection: true
-            height: parent.height
-            textFormat: NavigationController.sourceMode ? TextEdit.PlainText : TextEdit.MarkdownText
-            wrapMode: TextEdit.Wrap
-
-            onPressAndHold: (event) => {
-                if (Kirigami.Settings.tabletMode && selectByMouse) {
-                    forceActiveFocus();
-                    cursorPosition = positionAt(event.x, event.y);
-                    selectWord();
-                }
-            }
-
-            Keys.onShortcutOverride: (event) => {
-                if (event.matches(StandardKey.Find)) {
-                    event.accepted = true;
-                }
-            }
-
-            property int lastKey: -1
-            Keys.onPressed: (event) => {
-                if (event.matches(StandardKey.Paste)) {
-                    if (root.document && typeof root.document.pasteFromClipboard === 'function') {
-                        root.document.pasteFromClipboard();
-                        event.accepted = true;
-                        return;
-                    }
-                } else if (event.matches(StandardKey.Find)) {
-                    root.toggleSearch();
-                    event.accepted = true;
-                    return;
-                }
-
-                lastKey = event.key;
-                event.accepted = false;
-            }
-
-            onTextChanged: {
-                if (!NavigationController.sourceMode) {
-                    if (lastKey !== -1) {
-                        let key = lastKey;
-                        lastKey = -1;
-                        root.document.slotKeyPressed(key);
-                    }
-                }
-                root.saved = false;
-                saveTimer.restart()
-
-            }
-
-            DropArea {
-                id: imageDropArea
-                anchors.fill: parent
-
-                onEntered: (drag) => {
-                    let compatible = false;
-                    for (let i = 0; i < drag.formats.length; i++) {
-                        const fmt = drag.formats[i].toString();
-                        // Allow text/uri-list as some file managers use this format
-                        if (fmt.indexOf("image/") === 0 || fmt === "text/uri-list") {
-                            compatible = true;
-                            break;
-                        }
-                    }
-
-                    if (compatible) {
-                        drag.acceptProposedAction()
-                    }
-                }
-
-                onDropped: (drop) => {
-                    if (drop.hasUrls) {
-                        for (let i = 0; i < drop.urls.length; i++) {
-                            const path = drop.urls[i].toString();
-                            root.document.insertImage(path);
-                        }
-                    }
-                }
-            }
-
-            TapHandler {
-                acceptedButtons: Qt.RightButton
-                // unfortunately, taphandler's pressed event only triggers when the press is lifted
-                // we need to use the longpress signal since it triggers when the button is first pressed
-                longPressThreshold: 0.001 // https://invent.kde.org/qt/qt/qtdeclarative/-/commit/8f6809681ec82da783ae8dcd76fa2c209b28fde6
-                onLongPressed: {
-                    root.textFieldContextMenu.currentLink = root.document.anchorAt(point.position);
-                    root.textFieldContextMenu.targetClick(
-                        point,
-                        textArea,
-                        /*spellcheckHighlighterInstantiator*/ null,
-                        /*mousePosition*/ null,
-                    );
-                }
-            }
-
-            Timer {
-                id: saveTimer
-
-                repeat: false
-                interval: 1000
-                onTriggered: if (root.noteFullPath.toString().length > 0) {
-                    root.document.saveAs(root.noteFullPath);
-                    root.saved = true;
-                }
-            }
+    contentItem: ColumnLayout {
+        spacing: 0
+        Loader {
+            id: contentLoader
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            sourceComponent: root.contentComponent
         }
     }
 
