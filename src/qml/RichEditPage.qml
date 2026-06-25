@@ -26,51 +26,40 @@ EditPage {
     property int listStyle: 0
     property int heading: 0
 
-    canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2 && !tocDrawer.opened
+    canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2
 
     mobileToolBarHidden: mobileToolBarContainer.hidden
     mobileToolBarHeight: mobileToolBarContainer.height
 
-    dynamicRightPadding: tocDrawer.position * tocDrawer.width
+    // dynamicRightPadding: tocDrawer.position * tocDrawer.width
 
-    supportsToc: true
-    isTocOpened: tocDrawer.opened
-    tocPosition: tocDrawer.position
-    tocDrawer: tocDrawer
+    supportsToc: false
+    // isTocOpened: tocDrawer.opened
+    // tocPosition: tocDrawer.position
+    // tocDrawer: tocDrawer
 
-    function toggleToc() {
-        if (tocDrawer.opened) {
-            tocDrawer.close()
-        } else {
-            tocDrawer.open()
-        }
-    }
+    // function toggleToc() {
+    //     if (tocDrawer.opened) {
+    //         tocDrawer.close()
+    //     } else {
+    //         tocDrawer.open()
+    //     }
+    // }
 
     objectName: "RichEditPage"
+
+    contentComponent: Item {
+        id: test
+    }
 
     document: RichDocumentHandler {
         id: richdochandler
 
-        textArea: root.textArea
-        document: root.textArea.textDocument
-        cursorPosition: root.textArea.cursorPosition
-        selectionStart: root.textArea.selectionStart
-        selectionEnd: root.textArea.selectionEnd
-
         blockMargin: Kirigami.Units.largeSpacing
-
-        onLoaded: text => {
-            root.textArea.text = text;
-        }
 
         onError: message => {
             console.error("Error message from document handler", message);
         }
-
-        onCopy: root.textArea.copy()
-        onCut: root.textArea.cut()
-        onUndo: root.textArea.undo()
-        onRedo: root.textArea.redo()
 
         property var testModel : MDTreeModel {
             id: treeModel
@@ -82,13 +71,6 @@ EditPage {
 
         onCheckableChanged: {
             root.checkbox = checkable;
-        }
-
-        onMoveCursor: position => {
-            root.textArea.cursorPosition = position;
-        }
-        onSelectCursor: (start, end) => {
-            root.textArea.select(start, end);
         }
 
         onCursorPositionChanged: {
@@ -263,92 +245,8 @@ EditPage {
         }
     }
 
-    TocDrawer {
-        id: tocDrawer
-
-        textArea: root.textArea
-        parent: root.Overlay.overlay
-
-        topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
-        bottomMargin: 0
-
-        height: parent.height - topMargin
-    }
-
-    EmojierPopup {
-        id: emojierPopup
-        parent: root.Overlay.overlay
-        filterText: root.document.currentEmojicode
-
-        x: {
-            if (!root.textArea || !parent) return 0;
-
-            let cursorRect = root.textArea.positionToRectangle(root.textArea.cursorPosition)
-            let mappedPos = root.textArea.mapToItem(parent, cursorRect.x, cursorRect.y)
-
-            let targetX = mappedPos.x + 5 // 5px offset
-
-            let minX = 0
-            let maxX = parent.width - width
-
-            return Math.max(minX, Math.min(targetX, maxX))
-        }
-
-        y: {
-            if (!root.textArea || !parent) return 0;
-
-            let cursorRect = root.textArea.positionToRectangle(root.textArea.cursorPosition)
-            let mappedPos = root.textArea.mapToItem(parent, cursorRect.x, cursorRect.y)
-
-            let targetY = mappedPos.y + Config.editorFont.pixelSize*2 // margin equal to font size so that the popup doesn't block text
-
-            let minY = 0;
-            let maxY = parent.height - height;
-
-            if (targetY > maxY) { // in case it is overflowing the screen vertically
-                let aboveY = mappedPos.y;
-                return Math.max(minY, aboveY - height - Config.editorFont.pixelSize);
-            }
-
-            return Math.max(minY, Math.min(targetY, maxY));
-        }
-
-        Connections {
-            target: root.document
-            function onPopupVisibleChanged(): void {
-                if (!root.init){
-                    root.document.popupVisible = false
-                    return;
-                }
-                if (emojierPopup.visibleItemsCount === 0){
-                    root.document.popupVisible = false
-                    return
-                }
-
-                if (root.document.popupVisible){
-                    emojierPopup.open()
-                } else {
-                    emojierPopup.close()
-                }
-            }
-            function onEmojiSelectorUp(): void {
-                emojierPopup.moveSelectionUp();
-            }
-            function onEmojiSelectorDown(): void {
-                emojierPopup.moveSelectionDown();
-            }
-            function onEmojiSelected(): void {
-                emojierPopup.selectCurrent();
-            }
-        }
-        onClosed: {
-            root.document.popupVisible = false
-        }
-
-        onEmojiSelected: (emojichar) => {
-            root.document.replaceCurrentEmoji(emojichar)
-        }
-    }
+    // TODO: add TOCDrawer
+    // TODO: add emojierpopup
 
     Component {
         id: textFormatGroup
@@ -620,7 +518,6 @@ EditPage {
         scale: mobileToolBarContainer.hidden ? 1.0 : 0.0
 
         property int defaultSpacing: Kirigami.Units.largeSpacing * 2
-        property T.ScrollBar verticalScrollBar: root.contentScroll.ScrollBar.vertical
 
         Behavior on scale {
             NumberAnimation {
@@ -633,9 +530,7 @@ EditPage {
             bottom: parent.bottom
             right: parent.right
 
-            rightMargin: verticalScrollBar.visible ?
-                         defaultSpacing + verticalScrollBar.width  :
-                         defaultSpacing
+            rightMargin: defaultSpacing
             bottomMargin: defaultSpacing
         }
 
@@ -750,8 +645,8 @@ EditPage {
                         icon.name: "edit-undo"
                         text: KI18n.i18n("Undo")
                         display: AbstractButton.IconOnly
-                        onClicked: root.textArea.undo()
-                        enabled: root.textArea.canUndo
+                        // onClicked: root.textArea.undo()
+                        // enabled: root.textArea.canUndo
                         ToolTip.text: text
                         ToolTip.visible: hovered
                         ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -761,8 +656,8 @@ EditPage {
                         icon.name: "edit-redo"
                         text: KI18n.i18n("Redo")
                         display: AbstractButton.IconOnly
-                        onClicked: root.textArea.redo()
-                        enabled: root.textArea.canRedo
+                        // onClicked: root.textArea.redo()
+                        // enabled: root.textArea.canRedo
 
                         ToolTip.text: text
                         ToolTip.visible: hovered
@@ -870,18 +765,5 @@ EditPage {
         interval: 3000
         repeat: false
         onTriggered: root.copyMessage.visible = false
-    }
-
-    textFieldContextMenu: TextFieldContextMenu {
-        tableActionHelper: TableActionHelper {
-            id: tableHelper
-
-            document: root.textArea.textDocument
-            cursorPosition: root.textArea.cursorPosition
-            selectionStart: root.textArea.selectionStart
-            selectionEnd: root.textArea.selectionEnd
-        }
-        document: root.document
-        onInternalLinkClicked: (link) => root.openInternalLinkUrl(link)
     }
 }
