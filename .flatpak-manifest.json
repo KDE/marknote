@@ -18,30 +18,6 @@
 
     "modules": [
         {
-            "name": "kmime",
-            "config-opts": [
-                "-DBUILD_TESTING=OFF",
-                "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
-            ],
-            "buildsystem": "cmake-ninja",
-            "builddir": true,
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://invent.kde.org/pim/kmime"
-                },
-                {
-                    "type": "patch",
-                    "path": "flatpak-kmime-version.patch"
-                }
-            ],
-            "cleanup": [
-                "/include",
-                "/lib/cmake",
-                "/share/qlogging-categories6"
-            ]
-        },
-        {
             "name": "marknote",
             "buildsystem": "cmake-ninja",
             "builddir": true,
