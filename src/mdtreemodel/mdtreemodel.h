@@ -17,7 +17,8 @@ class MDTreeModel : public QAbstractItemModel
 
 public:
     enum Roles {
-        DataRole = Qt::UserRole + 1
+        BlockDataRole = Qt::UserRole + 1,
+        BlockTypeRole
     };
 
     explicit MDTreeModel(QObject *parent = nullptr);

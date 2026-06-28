@@ -58,6 +58,13 @@ ecm_add_qml_module(marknote_static
         qml/NativeFileMenu.qml
         qml/NativeEditMenu.qml
         qml/GlobalMenuBar.qml
+        # Block Editor
+        qml/BlockView.qml
+        qml/BlockTemplate.qml
+        qml/BlockChooser.qml
+        qml/BlockHeading.qml
+        qml/BlockParagraph.qml
+        qml/BlockQuote.qml
     SOURCES
         documenthandler.cpp documenthandler.h
         rich_documenthandler.cpp rich_documenthandler.h

@@ -84,6 +84,7 @@ QString internalLinkNameFromUrl(const QUrl &url)
 
 RichDocumentHandler::RichDocumentHandler(QObject *parent)
     : DocumentHandler(parent)
+    , m_mdTreeModel(new MDTreeModel(this))
 {
     m_document = nullptr;
     m_textArea = nullptr;
@@ -279,9 +280,11 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
     AsyncDocBuilder *builder = new AsyncDocBuilder(this);
     builder->loadDocument(fileUrl.toLocalFile());
 
-    connect(builder, &AsyncDocBuilder::documentReady, this, [](const AsyncDocBuilder::DocPointer &doc) {
-        qDebug() << "Doc Loaded succesfully!";
-    });
+    connect(builder, &AsyncDocBuilder::documentReady, this, [this](const AsyncDocBuilder::DocPointer &doc) {
+        if (m_mdTreeModel) {
+            m_mdTreeModel->setDocument(doc);
+        }
+    }, Qt::SingleShotConnection);
 
     const QString rawContent = QString::fromUtf8(file.readAll());
 
@@ -2149,13 +2152,8 @@ void RichDocumentHandler::replaceCurrentEmoji(const QString &emojichar)
     setCurrentEmojicode(QString());
 }
 
-void RichDocumentHandler::setMdTreeModel(MDTreeModel *model)
-{
-    if (model == m_mdTreeModel || !model) {
-        return;
-    }
-
-    m_mdTreeModel = model;
+MDTreeModel* RichDocumentHandler::treeModel() const {
+    return m_mdTreeModel;
 }
 
 #include "moc_rich_documenthandler.cpp"
