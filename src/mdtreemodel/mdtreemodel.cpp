@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "mdtreemodel.h"
+using namespace Qt::StringLiterals;
 
 MDTreeModel::MDTreeModel(QObject *parent)
     : QAbstractItemModel(parent)
@@ -38,6 +39,10 @@ QModelIndex MDTreeModel::parent(const QModelIndex &child) const
 
 int MDTreeModel::rowCount(const QModelIndex &parent) const
 {
+    if (parent.column() > 0) {
+        return 0;
+    }
+
     TreeItem *parentItem = parent.isValid() ? static_cast<TreeItem *>(parent.internalPointer()) : m_rootItem.get();
 
     return parentItem->childCount();
@@ -55,8 +60,12 @@ QVariant MDTreeModel::data(const QModelIndex &index, int role) const
 
     TreeItem *item = static_cast<TreeItem *>(index.internalPointer());
 
-    if (role == Roles::DataRole) {
+    if (role == Roles::BlockDataRole) {
         return item->data();
+    }
+
+    if (role == Roles::BlockTypeRole) {
+        return item->data()[u"type"_s];
     }
 
     return QVariant();
@@ -65,7 +74,8 @@ QVariant MDTreeModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> MDTreeModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[Roles::DataRole] = "data";
+    roles[Roles::BlockDataRole] = "blockData";
+    roles[Roles::BlockTypeRole] = "blockType";
     return roles;
 }
 

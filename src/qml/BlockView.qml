@@ -1,5 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
+import QtQml.Models
+import org.kde.kirigami as Kirigami
 
 Item {
     id: root
@@ -7,24 +9,16 @@ Item {
 
     required property var richDocumentHandler;
 
-    property var testModel : MDTreeModel {
-        id: treeModel
-    }
+    DelegateModel {
+        id: treeDelegateModel
+        model: richDocumentHandler.treeModel
 
-    Component.onCompleted: {
-        richDocumentHandler.setMdTreeModel(treeModel)
+        delegate: BlockChooser { }
     }
 
     ListView {
-        id: testView
-        model: 10
-
-        delegate: Rectangle {
-            required property int index
-
-            width: parent.width
-            height: 50
-            color: index % 2 === 0 ? "lightgray" : "white"
-        }
+        model: treeDelegateModel        
+        anchors.fill: parent
+        anchors.margins: Kirigami.Units.gridUnit
     }
 }

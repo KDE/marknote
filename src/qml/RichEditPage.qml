@@ -48,8 +48,10 @@ EditPage {
 
     objectName: "RichEditPage"
 
-    contentComponent: Item {
-        id: test
+    contentComponent: BlockView {
+        id: blockView
+        anchors.fill: parent
+        richDocumentHandler: richdochandler
     }
 
     document: RichDocumentHandler {
@@ -59,14 +61,6 @@ EditPage {
 
         onError: message => {
             console.error("Error message from document handler", message);
-        }
-
-        property var testModel : MDTreeModel {
-            id: treeModel
-        }
-
-        Component.onCompleted: {
-            richdochandler.setMdTreeModel(treeModel)
         }
 
         onCheckableChanged: {
