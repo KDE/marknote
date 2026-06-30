@@ -57,6 +57,7 @@ QVariantMap fromListItem(const QSharedPointer<MD::Item> &item)
     } else {
         if (listItem->listType() == MD::ListItem::Ordered) {
             map[u"listType"_s] = QVariant::fromValue(MDOptions::ListType::OrderedList);
+            map[u"listIndex"_s] = QVariant::fromValue(listItem->startNumber());
         } else {
             map[u"listType"_s] = QVariant::fromValue(MDOptions::ListType::UnorderedList);
         }

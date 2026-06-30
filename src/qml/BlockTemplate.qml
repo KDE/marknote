@@ -3,6 +3,8 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQml.Models
 
+import org.kde.kirigami as Kirigami
+
 Item {
     id: root
 
@@ -24,6 +26,7 @@ Item {
         Loader {
             id: blockLoader
             Layout.fillWidth: true
+            Layout.fillHeight: true
 
             sourceComponent: root.blockComponent
         }
@@ -33,6 +36,8 @@ Item {
 
             Layout.fillWidth: true
             implicitHeight: contentHeight
+
+            spacing: Kirigami.Units.mediumSpacing
 
             model: DelegateModel {
                 id: childDelegateModel
