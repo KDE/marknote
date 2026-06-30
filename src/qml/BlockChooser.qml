@@ -22,6 +22,16 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MDOptions.ElementType.List
+        BlockList { }
+    }
+
+    DelegateChoice {
+        roleValue: MDOptions.ElementType.ListItem
+        BlockListItem { }
+    }
+
+    DelegateChoice {
         Text {
             text: "Unknown block type"
         }

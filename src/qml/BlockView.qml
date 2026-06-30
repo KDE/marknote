@@ -20,5 +20,6 @@ Item {
         model: treeDelegateModel        
         anchors.fill: parent
         anchors.margins: Kirigami.Units.gridUnit
+        spacing: Kirigami.Units.mediumSpacing
     }
 }
