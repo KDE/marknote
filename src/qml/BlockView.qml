@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
 import QtQml.Models
+
 import org.kde.kirigami as Kirigami
 
 Item {
@@ -17,9 +19,8 @@ Item {
     }
 
     ListView {
-        model: treeDelegateModel        
+        model: treeDelegateModel
         anchors.fill: parent
         anchors.margins: Kirigami.Units.gridUnit
-        spacing: Kirigami.Units.mediumSpacing
     }
 }

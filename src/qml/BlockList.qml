@@ -3,6 +3,6 @@ import QtQuick.Layouts
 
 BlockTemplate {
     id: root
-    
-    blockComponent: Item { }
+
+    isFinalBlock: false
 }

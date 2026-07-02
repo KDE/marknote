@@ -32,8 +32,18 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MDOptions.ElementType.HorizontalLine
+        BlockHorizontalLine { }
+    }
+
+    DelegateChoice {
+        roleValue: MDOptions.ElementType.Code
+        BlockCode { }
+    }
+
+    DelegateChoice {
         Text {
-            text: "Unknown block type"
+            text: "Unknown block type: " + blockType
         }
     }
 }
