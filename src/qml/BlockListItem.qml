@@ -7,21 +7,21 @@ import org.kde.kirigami as Kirigami
 BlockTemplate {
     id: root
 
-    blockComponent: RowLayout {
-        Layout.fillHeight: false
+    isFinalBlock: false
 
+    blockComponent: RowLayout {
         FontMetrics {
             id: fm
             font: listText.font
         }
 
         function getTopMargin(loadedItem) {
-            return loadedItem ? Math.max(0, (fm.height - loadedItem.height) / 2) : 0;
+            return loadedItem ? Math.max(0, (fm.height - loadedItem.height) / 2) + Kirigami.Units.mediumSpacing : 0;
         }
 
         Loader {
             Layout.alignment: Qt.AlignTop
-            Layout.topMargin: getTopMargin(item)
+            Layout.topMargin: getTopMargin(item) - Kirigami.Units.smallSpacing
             active: blockData.listType === MDOptions.ListType.TaskList
             visible: active
 
@@ -58,7 +58,7 @@ BlockTemplate {
         Text {
             id: listText
             Layout.alignment: Qt.AlignTop
-            text: blockData.html
+            text: blockData.html ? blockData.html : ""
             textFormat: Text.RichText
         }
     }

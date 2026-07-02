@@ -5,6 +5,8 @@ import org.kde.kirigami as Kirigami
 BlockTemplate {
     id: root
 
+    isFinalBlock: false
+
     blockComponent: Item {
         implicitWidth: rectangle.width + Kirigami.Units.largeSpacing
 

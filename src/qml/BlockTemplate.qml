@@ -5,46 +5,75 @@ import QtQml.Models
 
 import org.kde.kirigami as Kirigami
 
-Item {
+Rectangle {
     id: root
 
     required property var index;
     required property var blockData;
+    required property bool isFinalBlock;
+    property int topMargin: 0
+    property int bottomMargin: 0
 
-    width: ListView.view ? ListView.view.width : 0
-    implicitHeight: row.implicitHeight
+    implicitWidth: ListView.view ? ListView.view.width : 0
+    implicitHeight: row.implicitHeight + root.topMargin + root.bottomMargin
 
     property var parentModel: ListView.view ? ListView.view.model : null
     property var cppModel: parentModel ? parentModel.model : null
     property var nodeIndex: parentModel ? parentModel.modelIndex(index) : null
 
-    required property Component blockComponent;
+    property Component blockComponent: null;
+
+    radius: Kirigami.Units.smallSpacing
+    color: hoverHandler.hovered ? Kirigami.Theme.alternateBackgroundColor.darker(1.02) : "transparent"
+
+    HoverHandler {
+        id: hoverHandler
+        target: root
+        blocking: true
+    }
 
     RowLayout {
         id: row
 
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: Kirigami.Units.mediumSpacing
+        anchors.topMargin: root.topMargin
+        anchors.bottomMargin: root.bottomMargin
+        anchors.verticalCenter: parent.verticalCenter
+
         Loader {
             id: blockLoader
-            Layout.fillWidth: true
-            Layout.fillHeight: true
 
-            sourceComponent: root.blockComponent
+            Layout.fillHeight: !root.isFinalBlock
+            Layout.preferredHeight: root.isFinalBlock && item ? (item.implicitHeight || item.height) : 0
+
+            Layout.fillWidth: root.isFinalBlock;
+            visible: blockComponent !== null
+
+            sourceComponent: blockComponent
         }
 
-        ListView {
-            id: childWrapper
+        Loader {
+            id: childLoader
+            active: !root.isFinalBlock
+            visible: active
 
             Layout.fillWidth: true
-            implicitHeight: contentHeight
 
-            spacing: Kirigami.Units.mediumSpacing
+            sourceComponent: ListView {
+                id: childWrapper
 
-            model: DelegateModel {
-                id: childDelegateModel
-                model: root.cppModel
-                rootIndex: root.nodeIndex
+                implicitHeight: contentHeight
+                interactive: false
 
-                delegate: root.parentModel ? root.parentModel.delegate : null 
+                model: DelegateModel {
+                    id: childDelegateModel
+                    model: root.cppModel
+                    rootIndex: root.nodeIndex
+
+                    delegate: root.parentModel ? root.parentModel.delegate : null 
+                }
             }
         }
     }
