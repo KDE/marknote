@@ -42,6 +42,11 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MDOptions.ElementType.Table
+        BlockTable { }
+    }
+
+    DelegateChoice {
         Text {
             text: "Unknown block type: " + blockType
         }
