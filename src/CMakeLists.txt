@@ -69,6 +69,7 @@ ecm_add_qml_module(marknote_static
         qml/BlockListItem.qml
         qml/BlockHorizontalLine.qml
         qml/BlockCode.qml
+        qml/BlockTable.qml
     SOURCES
         documenthandler.cpp documenthandler.h
         rich_documenthandler.cpp rich_documenthandler.h
