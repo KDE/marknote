@@ -2,9 +2,8 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "tocmodel.h"
-
-#include <QTextBlock>
-#include <QTextDocument>
+#include "mdoptions/mdoptions.h"
+#include <QRegularExpression>
 
 TocModel::TocModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -31,8 +30,8 @@ QVariant TocModel::data(const QModelIndex &index, int role) const
         return entry.title;
     case Role::Level:
         return entry.level;
-    case Role::CursorPosition:
-        return entry.position;
+    case Role::BlockIndex:
+        return entry.blockIndex;
     }
 
     return {};
@@ -43,57 +42,48 @@ QHash<int, QByteArray> TocModel::roleNames() const
     return {
         {Role::Title, "title"},
         {Role::Level, "level"},
-        {Role::CursorPosition, "cursorPosition"},
+        {Role::BlockIndex, "blockIndex"},
     };
 }
 
-QQuickTextDocument *TocModel::document() const
+MDTreeModel *TocModel::treeModel() const
 {
-    return m_document;
+    return m_treeModel;
 }
 
-void TocModel::setDocument(QQuickTextDocument *document)
+void TocModel::setTreeModel(MDTreeModel *treeModel)
 {
-    if (m_document == document) {
+    if (m_treeModel == treeModel) {
         return;
     }
 
-    m_document = document;
-
-    if (m_document && m_document->textDocument()) {
-        setTextDocument(m_document->textDocument());
-    } else {
-        setTextDocument(nullptr);
+    if (m_treeModel) {
+        disconnect(m_treeModel, &QAbstractItemModel::modelReset, this, &TocModel::updateModel);
+        disconnect(m_treeModel, &QAbstractItemModel::dataChanged, this, &TocModel::updateModel);
+        disconnect(m_treeModel, &QAbstractItemModel::rowsInserted, this, &TocModel::updateModel);
+        disconnect(m_treeModel, &QAbstractItemModel::rowsRemoved, this, &TocModel::updateModel);
     }
 
-    Q_EMIT documentChanged();
-}
+    m_treeModel = treeModel;
 
-void TocModel::setTextDocument(QTextDocument *document)
-{
-    if (m_textDocument == document) {
-        return;
-    }
-
-    if (m_textDocument) {
-        disconnect(m_textDocument, &QTextDocument::contentsChanged, this, &TocModel::updateModel);
-    }
-
-    m_textDocument = document;
-
-    if (m_textDocument) {
-        connect(m_textDocument, &QTextDocument::contentsChanged, this, &TocModel::updateModel);
+    if (m_treeModel) {
+        connect(m_treeModel, &QAbstractItemModel::modelReset, this, &TocModel::updateModel);
+        connect(m_treeModel, &QAbstractItemModel::dataChanged, this, &TocModel::updateModel);
+        connect(m_treeModel, &QAbstractItemModel::rowsInserted, this, &TocModel::updateModel);
+        connect(m_treeModel, &QAbstractItemModel::rowsRemoved, this, &TocModel::updateModel);
         updateModel();
     } else {
         beginResetModel();
         m_entries.clear();
         endResetModel();
     }
+
+    Q_EMIT treeModelChanged();
 }
 
 void TocModel::updateModel()
 {
-    if (!m_textDocument) {
+    if (!m_treeModel) {
         beginResetModel();
         m_entries.clear();
         endResetModel();
@@ -101,19 +91,29 @@ void TocModel::updateModel()
     }
 
     QList<Entry> newEntries;
-    QTextDocument *doc = m_textDocument;
+    int rows = m_treeModel->rowCount();
+    for (int i = 0; i < rows; ++i) {
+        QModelIndex idx = m_treeModel->index(i, 0);
+        int type = m_treeModel->data(idx, MDTreeModel::BlockTypeRole).toInt();
 
-    for (QTextBlock it = doc->begin(); it.isValid(); it = it.next()) {
-        const int level = it.blockFormat().headingLevel();
-        if (level > 0) {
-            newEntries.append({it.text(), level, it.position()});
+        if (type == MDOptions::ElementType::Heading) {
+            QVariantMap blockData = m_treeModel->data(idx, MDTreeModel::BlockDataRole).toMap();
+            int level = blockData[QStringLiteral("level")].toInt();
+            QString html = blockData[QStringLiteral("html")].toString();
+
+            // Strip HTML tags
+            QString title = html;
+            title.remove(QRegularExpression(QStringLiteral("<[^>]*>")));
+            title = title.trimmed();
+
+            newEntries.append({title, level, i});
         }
     }
 
     bool changed = (m_entries.count() != newEntries.count());
     if (!changed) {
         for (int i = 0; i < m_entries.count(); ++i) {
-            if (m_entries[i].title != newEntries[i].title || m_entries[i].level != newEntries[i].level || m_entries[i].position != newEntries[i].position) {
+            if (m_entries[i].title != newEntries[i].title || m_entries[i].level != newEntries[i].level || m_entries[i].blockIndex != newEntries[i].blockIndex) {
                 changed = true;
                 break;
             }
@@ -127,12 +127,12 @@ void TocModel::updateModel()
     }
 }
 
-int TocModel::headingIndexAt(int cursorPosition) const
+int TocModel::headingIndexAtBlock(int blockIndex) const
 {
     for (int i = rowCount() - 1; i >= 0; --i) {
-        int headingPos = index(i, 0).data(CursorPosition).toInt();
+        int headingPos = index(i, 0).data(Role::BlockIndex).toInt();
 
-        if (headingPos <= cursorPosition) {
+        if (headingPos <= blockIndex) {
             return i;
         }
     }

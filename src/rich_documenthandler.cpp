@@ -280,11 +280,16 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
     AsyncDocBuilder *builder = new AsyncDocBuilder(this);
     builder->loadDocument(fileUrl.toLocalFile());
 
-    connect(builder, &AsyncDocBuilder::documentReady, this, [this](const AsyncDocBuilder::DocPointer &doc) {
-        if (m_mdTreeModel) {
-            m_mdTreeModel->setDocument(doc);
-        }
-    }, Qt::SingleShotConnection);
+    connect(
+        builder,
+        &AsyncDocBuilder::documentReady,
+        this,
+        [this](const AsyncDocBuilder::DocPointer &doc) {
+            if (m_mdTreeModel) {
+                m_mdTreeModel->setDocument(doc);
+            }
+        },
+        Qt::SingleShotConnection);
 
     const QString rawContent = QString::fromUtf8(file.readAll());
 
@@ -2152,7 +2157,8 @@ void RichDocumentHandler::replaceCurrentEmoji(const QString &emojichar)
     setCurrentEmojicode(QString());
 }
 
-MDTreeModel* RichDocumentHandler::treeModel() const {
+MDTreeModel *RichDocumentHandler::treeModel() const
+{
     return m_mdTreeModel;
 }
 

@@ -11,6 +11,8 @@ Item {
 
     required property var richDocumentHandler;
 
+    property alias listView: blockListView
+
     DelegateModel {
         id: treeDelegateModel
         model: richDocumentHandler.treeModel
@@ -22,6 +24,7 @@ Item {
         anchors.fill: parent
 
         ListView {
+            id: blockListView
             model: treeDelegateModel
             Layout.fillWidth: true
             Layout.fillHeight: true

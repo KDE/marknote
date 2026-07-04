@@ -48,6 +48,7 @@ Kirigami.Page {
     property real tocPosition: 0
 
     required property Component contentComponent
+    readonly property Item mainContentItem: contentLoader.item
 
     background: Item { }
 

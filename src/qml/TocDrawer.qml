@@ -17,7 +17,8 @@ import org.kde.ki18n
 Kirigami.OverlayDrawer {
     id: root
 
-    required property T.TextArea textArea
+    required property var treeModel
+    required property var blockView
 
     drawerOpen: false
     modal: false
@@ -58,12 +59,12 @@ Kirigami.OverlayDrawer {
 
                 model: TocModel {
                     id: tocModel
-                    document: root.textArea.textDocument
+                    treeModel: root.treeModel
                 }
 
                 onCountChanged: {
-                    if (count > 0) {
-                        let activeIndex = tocModel.headingIndexAt(root.textArea.cursorPosition)
+                    if (count > 0 && root.blockView) {
+                        let activeIndex = tocModel.headingIndexAtBlock(root.blockView.currentIndex)
                         currentIndex = activeIndex !== -1 ? activeIndex : 0
                     }
                 }
@@ -80,7 +81,7 @@ Kirigami.OverlayDrawer {
                     required property string title
                     required property int level
                     required property int index
-                    required property int cursorPosition
+                    required property int blockIndex
 
                     text: title
                     leftPadding: ((level - 1) * Kirigami.Units.largeSpacing) + Kirigami.Units.largeSpacing
@@ -93,8 +94,11 @@ Kirigami.OverlayDrawer {
 
                     onClicked: {
                         ListView.view.currentIndex = index
-                        root.textArea.cursorPosition = cursorPosition
-                        root.textArea.forceActiveFocus()
+                        if (root.blockView) {
+                            root.blockView.currentIndex = blockIndex
+                            root.blockView.positionViewAtIndex(blockIndex, ListView.Beginning)
+                            root.blockView.forceActiveFocus()
+                        }
 
                         // Dismiss the drawer on narrow screens so they can read
                         if (root.width === (root.parent ? root.parent.width : 0)) {
@@ -104,9 +108,10 @@ Kirigami.OverlayDrawer {
                 }
 
                 Connections {
-                    target: root.textArea
-                    function onCursorPositionChanged() {
-                        let activeIndex = tocModel.headingIndexAt(root.textArea.cursorPosition)
+                    target: root.blockView
+                    function onCurrentIndexChanged() {
+                        if (!root.blockView) return;
+                        let activeIndex = tocModel.headingIndexAtBlock(root.blockView.currentIndex)
 
                         if (activeIndex !== -1 && activeIndex !== tocListView.currentIndex) {
                             tocListView.currentIndex = activeIndex
