@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import org.kde.kquickcontrolsaddons as KQuickControlsAddons
 
 import org.kde.kirigami as Kirigami
 
@@ -58,12 +59,13 @@ BlockTemplate {
                 topMargin: Kirigami.Units.mediumSpacing
             }
 
+            KQuickControlsAddons.Clipboard { id: clipboard }
+
             Button {
                 icon.source: "edit-copy-symbolic"
                 onClicked: {
-                    Qt.callLater(function() {
-                        Qt.application.clipboard.setText(blockData.text);
-                    });
+                    clipboard.content = codeText.text
+                    showPassiveNotification(i18n("Copied to clipboard!"))
                 }
             }
         }
