@@ -18,9 +18,27 @@ Item {
         delegate: BlockChooser { }
     }
 
-    ListView {
-        model: treeDelegateModel
+    RowLayout {
         anchors.fill: parent
-        anchors.margins: Kirigami.Units.gridUnit
+
+        ListView {
+            model: treeDelegateModel
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            ScrollBar.vertical: verticalScrollBar
+            synchronousDrag: true
+
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.bottomMargin: Kirigami.Units.largeSpacing
+        }
+
+        ScrollBar {
+            id: verticalScrollBar
+            policy: ScrollBar.AlwaysOn
+            Layout.fillHeight: true
+        }
     }
 }

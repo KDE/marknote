@@ -15,22 +15,31 @@ BlockTemplate {
         implicitWidth: parent.width
         implicitHeight: scrollView.implicitHeight
         
-        ScrollView {
+        Flickable {
             id: scrollView
 
             implicitWidth: parent.width
             implicitHeight: codeText.implicitHeight + (ScrollBar.horizontal.visible ? ScrollBar.horizontal.height : 0)
 
-            ScrollBar.vertical.policy: ScrollBar.AlwaysOff
+            contentWidth: codeText.width
+            contentHeight: codeText.implicitHeight
+            
+            flickableDirection: Flickable.HorizontalFlick
+            clip: true
+            
+            ScrollBar.horizontal: ScrollBar {
+                policy: ScrollBar.AsNeeded
+            }
 
             TextArea {
                 id: codeText
                 text: blockData.text
                 font.family: Kirigami.Theme.fixedWidthFont.family
                 color: Kirigami.Theme.backgroundColor
-                anchors.leftMargin: Kirigami.Units.smallSpacing
-                anchors.rightMargin: Kirigami.Units.smallSpacing
                 padding: Kirigami.Units.largeSpacing
+
+                width: Math.max(implicitWidth, scrollView.width)
+                implicitHeight: Math.max(buttonRow.implicitHeight + buttonRow.anchors.topMargin * 2, contentHeight + topPadding + bottomPadding)
 
                 background: Rectangle {
                     color: Kirigami.Theme.textColor
@@ -40,6 +49,8 @@ BlockTemplate {
         }
 
         RowLayout {
+            id: buttonRow
+
             anchors {
                 right: parent.right
                 top: parent.top

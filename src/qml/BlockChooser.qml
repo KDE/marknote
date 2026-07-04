@@ -46,9 +46,10 @@ DelegateChooser {
         BlockTable { }
     }
 
+    // Default choice
     DelegateChoice {
-        Text {
-            text: "Unknown block type: " + blockType
+        Item {
+            visible: false
         }
     }
 }

@@ -24,7 +24,7 @@ Rectangle {
     property Component blockComponent: null;
 
     radius: Kirigami.Units.smallSpacing
-    color: hoverHandler.hovered ? Kirigami.Theme.alternateBackgroundColor.darker(1.02) : "transparent"
+    color: hoverHandler.hovered ? Qt.alpha(Kirigami.Theme.textColor, 0.2) : "transparent"
 
     HoverHandler {
         id: hoverHandler
@@ -38,6 +38,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.leftMargin: Kirigami.Units.mediumSpacing
+        anchors.rightMargin: Kirigami.Units.mediumSpacing
         anchors.topMargin: root.topMargin
         anchors.bottomMargin: root.bottomMargin
         anchors.verticalCenter: parent.verticalCenter
@@ -46,7 +47,7 @@ Rectangle {
             id: blockLoader
 
             Layout.fillHeight: !root.isFinalBlock
-            Layout.preferredHeight: root.isFinalBlock && item ? (item.implicitHeight || item.height) : 0
+            Layout.preferredHeight: root.isFinalBlock ? -1 : 0
 
             Layout.fillWidth: root.isFinalBlock;
             visible: blockComponent !== null

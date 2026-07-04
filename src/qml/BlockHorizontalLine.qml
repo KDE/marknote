@@ -13,7 +13,7 @@ BlockTemplate {
         width: parent.width
 
         Rectangle {
-            color: Kirigami.Theme.alternateBackgroundColor.darker(1.25)
+            color: Qt.alpha(Kirigami.Theme.textColor, 0.2)
             height: Kirigami.Units.gridUnit / 10.0
             width: parent.width
             anchors.centerIn: parent
