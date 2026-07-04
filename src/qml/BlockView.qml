@@ -36,6 +36,8 @@ Item {
             Layout.rightMargin: Kirigami.Units.largeSpacing
             Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
+
+            bottomMargin: parent.height / 2.0
         }
 
         ScrollBar {
