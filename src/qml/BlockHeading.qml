@@ -13,5 +13,7 @@ BlockTemplate {
     blockComponent: Text {
         text: blockData.html
         textFormat: Text.RichText
+        color: Kirigami.Theme.textColor
+        wrapMode: Text.Wrap
     }
 }

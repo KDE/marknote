@@ -16,12 +16,22 @@ BlockTemplate {
         implicitWidth: parent.width
         implicitHeight: scrollView.implicitHeight
 
-        ScrollView {
+        Flickable {
             id: scrollView
 
             implicitWidth: parent.width
             implicitHeight: table.implicitHeight + (ScrollBar.horizontal.visible ? ScrollBar.horizontal.height : 0)
             
+            contentWidth: table.implicitWidth
+            contentHeight: table.implicitHeight
+            
+            flickableDirection: Flickable.HorizontalFlick
+            clip: true
+            
+            ScrollBar.horizontal: ScrollBar {
+                policy: ScrollBar.AsNeeded
+            }
+
             GridLayout {
                 id: table
                 
@@ -48,13 +58,16 @@ BlockTemplate {
                             text: blockData.htmlData[rowIndex][columnIndex]
                             textFormat: Text.RichText
                             padding: Kirigami.Units.smallSpacing 
+                            font.bold: rowIndex === 0
+                            color: rowIndex === 0 ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
                         }
 
                         Rectangle {
                             anchors.fill: parent
                             border.color: Kirigami.Theme.textColor
                             border.width: 1
-                            color: "transparent"
+                            color: rowIndex === 0 ? Kirigami.Theme.highlightColor : (rowIndex % 2 != 0 ? Kirigami.Theme.backgroundColor : Kirigami.Theme.alternateBackgroundColor)
+                            z: -1
                         }
                     }
                 }

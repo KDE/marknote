@@ -12,7 +12,7 @@ BlockTemplate {
     blockComponent: RowLayout {
         FontMetrics {
             id: fm
-            font: listText.font
+            font: Kirigami.Theme.defaultFont
         }
 
         function getTopMargin(loadedItem) {
@@ -52,14 +52,8 @@ BlockTemplate {
             sourceComponent: Text {
                 text: blockData.listIndex + "."
                 font.bold: true
+                color: Kirigami.Theme.textColor
             }
-        }
-
-        Text {
-            id: listText
-            Layout.alignment: Qt.AlignTop
-            text: blockData.html ? blockData.html : ""
-            textFormat: Text.RichText
         }
     }
 }
