@@ -3,22 +3,22 @@
 
 #pragma once
 
+#include "mdtreemodel/mdtreemodel.h"
 #include <QAbstractListModel>
 #include <QPointer>
-#include <QQuickTextDocument>
 
 class TocModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged REQUIRED)
+    Q_PROPERTY(MDTreeModel *treeModel READ treeModel WRITE setTreeModel NOTIFY treeModelChanged REQUIRED)
 
 public:
     enum Role {
         Title = Qt::UserRole + 1,
         Level,
-        CursorPosition,
+        BlockIndex,
     };
     Q_ENUM(Role)
 
@@ -28,24 +28,22 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
 
-    QQuickTextDocument *document() const;
-    void setDocument(QQuickTextDocument *document);
+    MDTreeModel *treeModel() const;
+    void setTreeModel(MDTreeModel *treeModel);
 
-    Q_INVOKABLE int headingIndexAt(int cursorPosition) const;
+    Q_INVOKABLE int headingIndexAtBlock(int blockIndex) const;
 
 Q_SIGNALS:
-    void documentChanged();
+    void treeModelChanged();
 
 private:
-    void setTextDocument(QTextDocument *document);
     void updateModel();
 
-    QPointer<QQuickTextDocument> m_document;
-    QPointer<QTextDocument> m_textDocument;
+    QPointer<MDTreeModel> m_treeModel;
     struct Entry {
         QString title;
         int level;
-        int position;
+        int blockIndex;
     };
     QList<Entry> m_entries;
 };

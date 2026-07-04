@@ -31,20 +31,20 @@ EditPage {
     mobileToolBarHidden: mobileToolBarContainer.hidden
     mobileToolBarHeight: mobileToolBarContainer.height
 
-    // dynamicRightPadding: tocDrawer.position * tocDrawer.width
+    dynamicRightPadding: tocDrawer.position * tocDrawer.width
 
-    supportsToc: false
-    // isTocOpened: tocDrawer.opened
-    // tocPosition: tocDrawer.position
-    // tocDrawer: tocDrawer
+    supportsToc: true
+    isTocOpened: tocDrawer.opened
+    tocPosition: tocDrawer.position
+    tocDrawer: tocDrawer
 
-    // function toggleToc() {
-    //     if (tocDrawer.opened) {
-    //         tocDrawer.close()
-    //     } else {
-    //         tocDrawer.open()
-    //     }
-    // }
+    function toggleToc() {
+        if (tocDrawer.opened) {
+            tocDrawer.close()
+        } else {
+            tocDrawer.open()
+        }
+    }
 
     objectName: "RichEditPage"
 
@@ -239,7 +239,19 @@ EditPage {
         }
     }
 
-    // TODO: add TOCDrawer
+    TocDrawer {
+        id: tocDrawer
+
+        treeModel: root.document.treeModel
+        blockView: root.mainContentItem ? root.mainContentItem.listView : null
+        parent: root.Overlay.overlay
+
+        topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
+        bottomMargin: 0
+
+        height: parent.height - topMargin
+    }
+
     // TODO: add emojierpopup
 
     Component {

@@ -20,7 +20,7 @@ class RichDocumentHandler : public DocumentHandler
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(MDTreeModel* treeModel READ treeModel NOTIFY treeModelChanged)
+    Q_PROPERTY(MDTreeModel *treeModel READ treeModel NOTIFY treeModelChanged)
 
     Q_PROPERTY(Qt::Alignment alignment READ alignment WRITE setAlignment NOTIFY alignmentChanged)
 
@@ -103,7 +103,7 @@ public:
 
     Q_INVOKABLE void replaceCurrentEmoji(const QString &emojichar);
 
-    MDTreeModel* treeModel() const;
+    MDTreeModel *treeModel() const;
 
 public Q_SLOTS:
     void load(const QUrl &fileUrl) override;
