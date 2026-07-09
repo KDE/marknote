@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the marknote package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2023-2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-01 00:44+0000\n"
-"PO-Revision-Date: 2025-05-31 11:41+0200\n"
+"PO-Revision-Date: 2026-07-08 12:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -52,12 +52,10 @@ msgid "Import from Maildir"
 msgstr "Importera från Maildir"
 
 #: maildirimport.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@status"
-#| msgid "An error occurred while writing to '%1'"
+#, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
-msgstr "Ett fel uppstod vid skrivning till '%1'"
+msgstr "Ett fel uppstod vid skrivning till “%1”"
 
 #: main.cpp:59
 #, kde-format
@@ -77,59 +75,57 @@ msgstr "Carl Schwan"
 #: main.cpp:67
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "Valentyn Bondarenko"
 
 #: main.cpp:76
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Justin Zobel"
 
 #: main.cpp:77
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Stöd för Flatpak"
 
 #: main.cpp:82
 #, kde-format
 msgid "Shubham Shinde"
-msgstr ""
+msgstr "Shubham Shinde"
 
 #: main.cpp:83
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgid "Table of Contents"
-msgstr "Cellinnehåll"
+msgstr "Innehållsförteckning"
 
 #: main.cpp:88
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
 #: main.cpp:89
-#, fuzzy, kde-format
-#| msgid "Focus Mode"
+#, kde-format
 msgid "Source Mode"
-msgstr "Fokuseringsläge"
+msgstr "Källäge"
 
 #: main.cpp:94
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: main.cpp:95 main.cpp:101 main.cpp:106
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "Felrättningar"
 
 #: main.cpp:100
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
 #: main.cpp:106
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:127 qml/Main.qml:450
 #, kde-format
@@ -143,10 +139,9 @@ msgid "Note taking application"
 msgstr "Anteckningsprogram"
 
 #: main.cpp:131
-#, fuzzy, kde-format
-#| msgid "© 2023-2024 Mathis Brüchert"
+#, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
-msgstr "© 2023-2024 Mathis Brüchert"
+msgstr "© 2023-2026 Mathis Brüchert"
 
 #: notesmodel.cpp:225
 #, kde-format
@@ -160,19 +155,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "Ogiltig förflyttningsåtgärd."
 
 #: notesmodel.cpp:296
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "Kan inte flytta en katalog till sig själv."
 
 #: notesmodel.cpp:302
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr ""
+msgstr "Misslyckades flytta fil."
 
 #: qml/EditPage.qml:162 qml/RichEditPage.qml:741
 #, kde-format
@@ -185,25 +180,22 @@ msgid "Redo"
 msgstr "Gör om"
 
 #: qml/EditPage.qml:206 qml/EditPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Contents"
-msgstr "Cellinnehåll"
+msgstr "Innehållsförteckning"
 
 #: qml/EditPage.qml:226
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr "Sök anteckningar (%1)"
+msgstr "Sök efter anteckning"
 
 #: qml/EditPage.qml:234
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr "Sök anteckningar (%1)"
+msgstr "Sök i anteckning"
 
 #: qml/EditPage.qml:270
 #, kde-format
@@ -220,82 +212,77 @@ msgstr "Avsluta fullskärm"
 #: qml/EditPage.qml:300
 #, kde-format
 msgid "Switch editor mode"
-msgstr ""
+msgstr "Byt redigeringsläge"
 
 #: qml/EditPage.qml:305
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "Källvy"
 
 #: qml/EditPage.qml:340
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "Cellinnehåll"
+msgstr "Innehållsförteckning"
 
 #: qml/EditPage.qml:386
 #, kde-format
 msgid "Find text…"
-msgstr ""
+msgstr "Sök text…"
 
 #: qml/EditPage.qml:426
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "Föregående"
 
 #: qml/EditPage.qml:442
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "Nästa"
 
 #: qml/EditPage.qml:460 qml/EditPage.qml:572
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Inga träffar"
 
 #: qml/EditPage.qml:462 qml/EditPage.qml:574
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:474 qml/EditPage.qml:543
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "Ersätt"
 
 #: qml/EditPage.qml:492
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Stäng"
 
 #: qml/EditPage.qml:514
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace with…"
-msgstr "Markera alla"
+msgstr "Ersätt med…"
 
 #: qml/EditPage.qml:519 qml/EditPage.qml:559
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ersatte %1 förekomst"
+msgstr[1] "Ersatte %1 förekomster"
 
 #: qml/EditPage.qml:555
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace All"
-msgstr "Markera alla"
+msgstr "Ersätt alla"
 
 #: qml/EditPage.qml:623
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "Anteckningen har kopierats till klippbordet."
 
 #: qml/GlobalMenuBar.qml:27
 #, kde-format
@@ -374,7 +361,7 @@ msgstr "Skapa anteckningsbok"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr ""
+msgstr "Visa meny"
 
 #: qml/Main.qml:390
 #, kde-format
@@ -504,10 +491,7 @@ msgid "Delete Notebook"
 msgstr "Ta bort anteckningsbok"
 
 #: qml/NotebookDeleteDialog.qml:31
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the Notebook <b> %1 </b>? This will "
-#| "delete the content of <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the Notebook <b>%1</b>? This will delete the "
 "content of <b>%2</b> definitively."
@@ -528,39 +512,34 @@ msgid "Edit Notebook"
 msgstr "Redigera anteckningsbok"
 
 #: qml/NoteLinkDialog.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "Infoga länk"
+msgstr "Infoga anteckningslänk"
 
 #: qml/NoteLinkDialog.qml:48
-#, fuzzy, kde-format
-#| msgid "Notebook name"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr "Anteckningsboksnamn"
+msgstr "Anteckningsnamn:"
 
 #: qml/NoteLinkDialog.qml:50
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "Namnet på anteckningen som du vill länka till."
 
 #: qml/NoteLinkDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Link Text:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "Länktext:"
+msgstr "Visa text:"
 
 #: qml/NoteLinkDialog.qml:69
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
-msgstr ""
+msgstr "Valfri alternativ text att visa istället för anteckningsnamnet."
 
 #: qml/NoteMetadataDialog.qml:24
 #, kde-format
@@ -586,15 +565,14 @@ msgid "Add note"
 msgstr "Lägg till not"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "Dra ihop sidorad"
+msgstr "Dra ihop alla"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "Expandera alla"
 
 #: qml/NotesPage.qml:257
 #, kde-format
@@ -622,9 +600,7 @@ msgstr ""
 "filen <b>%2</b> definitivt."
 
 #: qml/NotesPage.qml:477 qml/NotesPage.qml:505
-#, fuzzy, kde-format
-#| msgctxt "Application name"
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
@@ -633,29 +609,25 @@ msgstr "Marknote"
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
-msgstr ""
+msgstr "Export av “%1” lyckades."
 
 #: qml/NotesPage.qml:491
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr "Öppna länk"
+msgstr "Öppna fil"
 
 #: qml/NotesPage.qml:506
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
-msgstr ""
+msgstr "Export av “%1” misslyckades."
 
 #: qml/NotesPage.qml:517
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
-msgstr "Byt namn på anteckning"
+msgstr "Byt namn"
 
 #: qml/NotesPage.qml:526 qml/TextFieldContextMenu.qml:391
 #, kde-format
@@ -664,20 +636,16 @@ msgid "Copy"
 msgstr "Kopiera"
 
 #: qml/NotesPage.qml:541
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
-msgstr "Ta bort anteckning"
+msgstr "Duplicera"
 
 #: qml/NotesPage.qml:549
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Import"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
-msgstr "Importera"
+msgstr "Exportera"
 
 #: qml/NotesPage.qml:553
 #, kde-format
@@ -744,30 +712,29 @@ msgstr "Lägg till en anteckning."
 #: qml/NotesPage.qml:877
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "Inga anteckningar matchar sökningen"
 
 #: qml/NotesPage.qml:893 qml/NotesPage.qml:901
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "Lägg till not"
-msgstr[1] "Lägg till not"
+msgstr[0] "%1 anteckning"
+msgstr[1] "%1 anteckningar"
 
 #: qml/NotesPage.qml:897 qml/NotesPage.qml:900
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 katalog"
+msgstr[1] "%1 kataloger"
 
 #: qml/NotesPage.qml:903
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:224
 #, kde-format
@@ -776,10 +743,9 @@ msgid "Select an image"
 msgstr "Välj en bild"
 
 #: qml/RichEditPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
-msgstr "Bildfiler (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "Bildfiler (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
 #: qml/RichEditPage.qml:227
 #, kde-format
@@ -853,12 +819,10 @@ msgid "Insert link"
 msgstr "Infoga länk"
 
 #: qml/RichEditPage.qml:525
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr "Infoga länk"
+msgstr "Infoga anteckningslänk"
 
 #: qml/RichEditPage.qml:541
 #, kde-format
@@ -873,12 +837,10 @@ msgid "Insert table"
 msgstr "Infoga tabell"
 
 #: qml/RichEditPage.qml:569
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "Infoga länk"
+msgstr "Infoga sketch"
 
 #: qml/RichEditPage.qml:590
 #, kde-format
@@ -941,13 +903,13 @@ msgstr "Infoga"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "Radering"
 
 #: qml/SketchDialog.qml:310
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "Rensa duken"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -968,32 +930,25 @@ msgid "Spell Check"
 msgstr "Stavningskontroll"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
-msgstr "Ny anteckning"
+msgstr "Öppna anteckning"
 
 #: qml/TextFieldContextMenu.qml:261
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Öppna länk"
 
 #: qml/TextFieldContextMenu.qml:281
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert"
 msgstr "Infoga"
 
 #: qml/TextFieldContextMenu.qml:317
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Ta bort"
@@ -1029,11 +984,10 @@ msgid "Select All"
 msgstr "Markera alla"
 
 #: qml/TocDrawer.qml:121
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
-msgstr "Inga resultat hittades"
+msgstr "Inga rubriker hittades"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -1043,7 +997,7 @@ msgstr "Börja med att skapa din första anteckningsbok."
 #: rich_documenthandler.cpp:1098
 #, kde-format
 msgid "Failed to save pasted image"
-msgstr ""
+msgstr "Misslyckades spara inklistrad bild"
 
 #: settings/MarkNoteGeneralPage.qml:18
 #, kde-format
@@ -1064,20 +1018,20 @@ msgstr "Färgtema"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "Använd genomskinlig editorsida"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "Bakgrundens ogenomskinlighet"
 
 #: settings/MarkNoteGeneralPage.qml:77
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr ""
+msgstr "%1 %"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format
