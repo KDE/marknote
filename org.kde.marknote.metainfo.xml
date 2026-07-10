@@ -152,6 +152,7 @@
         <p xml:lang="ia">Iste edition es plen de nove characteristicas, includente supporto pro sub-dossieres, un effecto optional de obfuscation de fundo, recerca de notas in le barra de commando, e auto-completion de emojis.</p>
         <p xml:lang="it">Questa versione è ricca di nuove funzionalità, tra cui il supporto per le sottocartelle, un effetto di sfocatura dello sfondo opzionale, la ricerca delle note nella barra dei comandi e il completamento automatico delle emoji.</p>
         <p xml:lang="ka">ეს ვერსია შეიცავს მრავალ ისეთ ახალ ფუნქციას, როგორიცაა ქვესაქაღალდეების მხარდაჭერა, არასავალდებულო ფონის დაბინდვის ეფექტი, შენიშვნის ძებნა ბრძანების სტრიქონიდან და ემოჯის ავტოდასრულება.</p>
+        <p xml:lang="lt">Šioje laidoje yra daugybė naujų ypatybių, įskaitant poaplankių palaikymą, pasirinktinį fono suliejimo efektą, užrašų paiešką komandų juostoje ir automatinį jaustukų užbaigimą.</p>
         <p xml:lang="nl">Deze uitgave zit boordevol nieuwe functies, waaronder ondersteuning voor submappen, een optioneel achtergrondvervagingseffect, notities zoeken in de opdrachtbalk en automatische aanvulling van emoji's.</p>
         <p xml:lang="pt-BR">Esta versão está repleta de novos recursos, incluindo suporte para subpastas, um efeito opcional de desfoque de fundo, busca de notas na barra de comandos e preenchimento automático de emojis.</p>
         <p xml:lang="ru">В этом выпуске представлено множество новых функций: поддержка вложенных папок, необязательный эффект размытия фона, поиск заметок в командной строке и автозавершение эмодзи.</p>
@@ -176,6 +177,7 @@
         <p xml:lang="ia">Parve edition de correction de errores, principalmente pro corriger le deletion de libros de notas (notebooks)  e alcun altere parve modificationes.</p>
         <p xml:lang="it">Rilascio con piccole correzioni di bug, principalmente per risolvere il problema di eliminazione dei taccuini e apportare altre piccole modifiche.</p>
         <p xml:lang="ka">პატარა გამოცემა შეცდომების გასწორება. ძირითადად ეხება ბლოკნოტების წაშლას და სხვა პატარა ცვლილებებს.</p>
+        <p xml:lang="lt">Maža klaidų pataisymų laida, daugiausiai, kada būtų ištaisytas bloknotų ištrynimas ir atlikti kai kurie kiti smulkūs pakeitimai.</p>
         <p xml:lang="nl">Uitgave met kleine reparaties van fouten, voornamelijk om het verwijderen van notitieboeken te verhelpen en enkele andere kleine wijzigingen door te voeren.</p>
         <p xml:lang="pt-BR">Pequena atualização com correções de bugs, principalmente para corrigir a exclusão de cadernos e algumas outras pequenas alterações.</p>
         <p xml:lang="ru">Выпуск с исправлением небольших ошибок, в основном для устранения проблем с удалением записных книжек и некоторыми другими незначительными изменениями.</p>
@@ -201,6 +203,7 @@
         <p xml:lang="ia">Marknote 1.5.1 contine varie correctiones de errores, includite illos pro problemas specific durante le copiar e collar. Iste version etiam adde alcun parve melioramentos como le evidentiar de syntaxe in le modo de fonte e un cargamento de imagines  plus rapide.</p>
         <p xml:lang="it">Marknote 1.5.1 include diverse correzioni di bug, tra cui quelle relative a problemi specifici durante le operazioni di copia e incolla. Questa versione introduce anche alcuni piccoli miglioramenti, come l'evidenziazione della sintassi nella modalità sorgente e un caricamento più rapido delle immagini.</p>
         <p xml:lang="ka">Marknote 1.5.1 შეიცავს სხვადასხვა შეცდომის გასწორებას, კოპირებისა და ჩასმის პრობლემების ჩათვლით. ეს გამოცემა ასევე ამატებს რამდენიმე ისე მცირე გაუმჯობესებას, როგორიცაა სინტაქსის გამოკვეთა წყაროს რეჟიმში და უფრო სწრაფი გამოსახულების ჩატვირთვა.</p>
+        <p xml:lang="lt">Marknote 1.5.1 laidoje yra įvairūs klaidų pataisymai, įskaitant tuos, kurie skirti konkrečioms kopijavimo ir įdėjimo problemoms išspręsti. Šioje laidoje taip pat yra pridėti kai kurie smulkūs patobulinimai, tokie kaip sintaksės paryškinimas šaltinio veiksenoje ir greitesnis paveikslų įkėlimas.</p>
         <p xml:lang="nl">Marknote 1.5.1 bevat verschillende reparaties van fouten, inclusief diegenen voor specifieke problemen bij kopiëren en plakken. Deze uitgave voegt ook enige kleine verbeteringen toe zoals accentuering van syntaxis in de modus broncode en sneller laden van een afbeelding.</p>
         <p xml:lang="pt-BR">O Marknote 1.5.1 contém diversas correções de bugs, incluindo aquelas para problemas específicos ao copiar e colar. Esta versão também adiciona algumas pequenas melhorias, como o realce de sintaxe no modo de código-fonte e carregamento de imagens mais rápido.</p>
         <p xml:lang="ru">В Marknote 1.5.1 исправлены различные ошибки, в том числе связанные с копированием и вставкой. Также добавлены небольшие улучшения, такие как подсветка синтаксиса в режиме исходного кода и ускоренная загрузка изображений.</p>
@@ -759,6 +762,7 @@
         <p xml:lang="ru">Исправлена важная ошибка.</p>
         <p xml:lang="sk">Oprava dôležitej chyby</p>
         <p xml:lang="sl">Poprava pomembne napake</p>
+        <p xml:lang="sv">Rätta ett viktigt fel</p>
         <p xml:lang="tr">Önemli bir hatayı düzelt</p>
         <p xml:lang="ug">مۇھىم بىر كەمتۈك ئوڭشالدى</p>
         <p xml:lang="uk">Виправлено важливу ваду</p>
@@ -901,6 +905,7 @@
         <p xml:lang="ru">Marknote, визуальный редвктор, разработанный KDE наконец готов для первого выпуска. Marknote позволяет создавать заметки с форматированным текстом и хранить их в виде записных книжек. Для упрощения поиска заметок записные книжки можно персонализировать, выбрав значок и цвет. Заметки будут сохранены в файлах Markdown в каталоге «Документы», что позволяет упростить работу с ними как внутри, так и за пределами приложения.</p>
         <p xml:lang="sk">Marknote, WYSIWYG aplikácia na robenie poznámok od KDE, je konečne pripravená na svoje prvé vydanie. Marknote umožňuje vytvárať poznámky v formátovanom texte a jednoducho ich organizovať do zápisníkov.</p>
         <p xml:lang="sl">Marknote, KDE-jeva aplikacija za beleženje zapiskov WYSIWYG, je končno pripravljena za svojo prvo izdajo. Marknote vam omogoča ustvarjanje zapiskov z obogatenim besedilom in njihovo enostavno organiziranje v zvezke. Zvezke lahko prilagodite tako, da za vsakega izberete ikono in barvo poudarka, kar olajša razlikovanje med njimi in ohranja zapiske na dosegu roke. Vaši zapiski so shranjeni kot datoteke Markdown v mapi Dokumenti, kar omogoča enostavno uporabo zapiskov tako zunaj Marknota kot znotraj aplikacije.</p>
+        <p xml:lang="sv">Marknote, KDE:s WYSIWYG anteckningsprogram, är äntligen redo för sin första utgåva. Marknote låter dig skapa anteckningar med Rich text och enkelt organisera dem i anteckningsböcker. Du kan anpassa dina anteckningsböcker genom att välja en ikon och accentfärg för var och en, vilket gör det enkelt att skilja dem åt och ha anteckningarna till hands. Dina anteckningar sparas som Markdown-filer i katalogen Dokument, vilket gör det enkelt att använda anteckningarna utanför Marknote såväl som inuti programmet.</p>
         <p xml:lang="tr">KDE’nin WYSIWYG not alma uygulaması Marknot, nihayet ilk sürümüne hazır. Marknot, zengin metin notlar oluşturmanıza ve onları defterlerde organize etmenize olanak tanır. Defterleriniz için bir simge ve vurgu rengi seçerek onları kişiselleştirebilir ve her birini kendi içinde öne çıkarabilirsiniz. Notlarınız, Belgeler klasörünüze Markdown dosyaları olarak kaydedilir; böylece hem Marknot içinden hem de dosya yöneticinizden onlara kolaylıkla erişebilirsiniz.</p>
         <p xml:lang="uk">Marknote, програма KDE для візуальної роботи з нотатками, нарешті готова до свого першого випуску. Marknote надає змогу створювати форматовані текстові нотатки та без проблем упорядковувати їх за нотатниками. Ви можете персоналізувати ваші нотатники, вибравши піктограму та колір позначення для кожного нотатника, спрощуючи пошук нотатників та роблячи доступ до ваших нотаток якомога простішим. Ваші нотатки буде збережено до файлів Markdown у вашій теці «Документи», щоб спрощує користування нотатками поза Marknote та у самій програмі.</p>
         <p xml:lang="zh-CN">Marknote，这款基于KDE的所见即所得（WYSIWYG）笔记应用，终于准备好发布首个版本了。Marknote 允许您创建富文本笔记，并轻松地将它们整理到笔记本中。您可以通过为每个笔记本选择图标和主题色来自定义它们，这样既能轻松区分不同笔记本，又能让您的笔记触手可及。您的笔记将以 Markdown 文件的形式保存在“文档”文件夹中，这使得您不仅可以在 Marknote 应用内使用笔记，还能在应用外轻松访问。</p>
@@ -955,11 +960,13 @@
       <caption xml:lang="ia">Documento de Markdown aperite in Marknote</caption>
       <caption xml:lang="it">Documento Markdown aperto in Marknote</caption>
       <caption xml:lang="ka">Markdown-ის დოკუმენტი გაიხსნა Markote-ში</caption>
+      <caption xml:lang="lt">Marknote programoje atvertas Markdown dokumentas</caption>
       <caption xml:lang="nl">Markdown-document geopend in Marknote</caption>
       <caption xml:lang="pt-BR">Documento Markdown aberto no Marknote</caption>
       <caption xml:lang="ru">Документ Markdown, открытый в Marknote</caption>
       <caption xml:lang="sk">Markdown dokument otvorený v Marknote</caption>
       <caption xml:lang="sl">Dokument Markdown odprt v programu Marknote</caption>
+      <caption xml:lang="sv">Markdown-dokument öppnat i Marknote</caption>
       <caption xml:lang="tr">Marknot ile açılan bir Markdown belgesi</caption>
       <caption xml:lang="uk">Документ Markdown, який відкрито у Marknote</caption>
       <caption xml:lang="zh-CN">在 Marknote 中打开的 Markdown 文档</caption>
