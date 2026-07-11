@@ -709,6 +709,7 @@
         <p xml:lang="ia">Al latere ab poter editar texto, il es nunc possibile anque crear schizzos directemente ab Marknote.</p>
         <p xml:lang="it">Oltre a poter modificare il testo, ora è anche possibile creare schizzi direttamente da Marknote.</p>
         <p xml:lang="ka">ტექსტის ჩასწორების შესაძლებლობის გარდა ახლა ასევე შესაძლებელია, ესკიზები პირდაპირ Marknote-დან შექმნათ.</p>
+        <p xml:lang="lt">Be galimybės taisyti tekstą, dabar taip pat įmanoma kurti eskizus tiesiogiai Marknote programoje.</p>
         <p xml:lang="nl">Naast het bewerken van tekst is het nu ook mogelijk om rechtstreeks vanuit Marknote schetsen te maken.</p>
         <p xml:lang="pt-BR">Além de poder editar texto, agora também é possível criar esboços diretamente do Marknote.</p>
         <p xml:lang="ru">Теперь в Marknote добавлена возможность создавать наброски прямо из приложения, а не только редактировать текст.</p>
@@ -732,6 +733,7 @@
         <p xml:lang="ia">Finalmente nos nos occupa de assecurar que Marknote esseva completemente usabile quando usate con Plasma Mobile.</p>
         <p xml:lang="it">Infine ci siamo assicurati che Marknote fosse pienamente utilizzabile quando utilizzato con Plasma Mobile.</p>
         <p xml:lang="ka">ბოლოს და ბოლოს ჩვენ ვიზრუნეთ, რომ Marknote სრულად გამოყენებადი იყოს Plasma Mobile-ისთან ერთად.</p>
+        <p xml:lang="lt">Pagaliau pasirūpinome, kad Marknote būtų visiškai tinkama naudoti Plasma Mobile aplinkoje.</p>
         <p xml:lang="nl">Tot slot hebben we ervoor gezorgd dat Marknote volledig bruikbaar is in combinatie met Plasma Mobile.</p>
         <p xml:lang="pt-BR">Por fim, garantimos que o Marknote fosse totalmente utilizável com o Plasma Mobile.</p>
         <p xml:lang="ru">Реализована полная поддержка Plasma Mobile.</p>
@@ -926,6 +928,7 @@
         <p xml:lang="ia">Gratias a Carl, Marknote nonsolmente supporta fonts grasse e italic, ma anque te permitte sublinear partes importante, cancellar partes errate, organisar tu pensamentos in varie typos de lista e organisar tu notas con  titulos,sectiones e plus.</p>
         <p xml:lang="it">Grazie a Carl, Marknote ora non solo supporta i caratteri grassetto e corsivo, ma ti consente anche di sottolineare parti importanti, barrare parti sbagliate, organizzare i tuoi pensieri in vari tipi di elenchi e organizzare le tue note con titoli, sezioni e altro ancora.</p>
         <p xml:lang="ka">კარლის წყალობით, Marknote-ს ახლა არა მხოლოდ სქელი და კურსივი ფონტების მხარდაჭერა აქვს, არამედ საშუალებას გაძლევთ ხაზი გაუსვათ მნიშვნელოვან ნაწილებს, გადახაზოთ არასწორი მონაკვეთები, დაალაგოთ თქვენი აზრები სხვადასხვა ტიპის სიებში და მოაწყოთ თქვენი ჩანაწერები სათაურების, სექციების და სხვა ელემენტების გამოყენებით.</p>
+        <p xml:lang="lt">Carl pasistengė ir jo dėka Marknote dabar ne tik palaiko pusjuodžius ir kursyvinius šriftus, bet taip pat jums leidžia pabraukti svarbias dalis, išbraukti neteisingas dalis, susisteminti mintis naudojant įvairius sąrašo tipus bei sutvarkyti užrašus naudojant antraštes, skyrius ir kt.</p>
         <p xml:lang="nl">Dankzij Carl ondersteunt Marknote nu niet alleen vetgedrukte en cursieve lettertypen, maar kunt u ook belangrijke delen onderstrepen, foutieve delen doorstrepen, uw gedachten ordenen in verschillende lijsttypen en uw notities organiseren met titels, secties en meer.</p>
         <p xml:lang="pt-BR">Graças ao Carl, o Marknote agora não só suporta fontes em negrito e itálico, como também permite sublinhar partes importantes, riscar partes incorretas, organizar suas ideias em vários tipos de listas e organizar suas anotações com títulos, seções e muito mais.</p>
         <p xml:lang="ru">Благодаря Карлу в Marknote добавлена поддержка не только полужирного и курсивного начертания, но также возможность подчёркивать важные части, зачёркивать ошибочные, организовывать мысли с помощью различных типов списков и структурировать заметки с помощью заголовков, разделов и других элементов.</p>
