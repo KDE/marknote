@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-01 00:44+0000\n"
-"PO-Revision-Date: 2026-07-08 12:12+0200\n"
+"PO-Revision-Date: 2026-07-12 09:04+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -840,7 +840,7 @@ msgstr "Infoga tabell"
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "Infoga sketch"
+msgstr "Infoga skiss"
 
 #: qml/RichEditPage.qml:590
 #, kde-format
