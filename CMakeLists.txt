@@ -114,12 +114,6 @@ if (WITH_KRUNNER)
     install(FILES plasma-runner-marknote.desktop DESTINATION ${KDE_INSTALL_DATAROOTDIR}/krunner/dbusplugins)
 endif()
 
-ecm_qt_install_logging_categories(
-    EXPORT MARKNOTE
-    FILE marknote.categories
-    SORT DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
-)
-
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES src/*.cpp src/*.h)
