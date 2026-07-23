@@ -21,7 +21,7 @@ SPDX-License-Identifier: LGPL-2.0-or-later
     <entry name="fillWindow" type="Bool">
       <default>false</default>
     </entry>
-    <entry name="columnWidth" type="int">
+    <entry name="columnWidth" type="Int">
       <default>370</default>
     </entry>
     <entry name="storage" type="Path" key="storage">
