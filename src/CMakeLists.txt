@@ -191,3 +191,4 @@ if (BUILD_TESTING)
 endif()
 
 install(TARGETS marknote ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES marknotesettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
