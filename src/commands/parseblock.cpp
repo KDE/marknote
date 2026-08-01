@@ -23,7 +23,6 @@ ParseBlockCommand::~ParseBlockCommand()
 
 void ParseBlockCommand::undo()
 {
-    qDebug() << "Parse block undo";
     for (int i = 0; i < m_newBlocks.size(); i++) {
         m_model->takeItem(m_originalParent, m_originalRow);
     }
@@ -35,7 +34,6 @@ void ParseBlockCommand::undo()
 
 void ParseBlockCommand::redo()
 {
-    qDebug() << "Parse block redo";
     m_model->takeItem(m_originalParent, m_originalRow);
 
     int offset = m_originalRow;

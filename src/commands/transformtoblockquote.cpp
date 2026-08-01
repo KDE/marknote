@@ -35,21 +35,19 @@ TransformToBlockquoteCommand::~TransformToBlockquoteCommand()
 
 void TransformToBlockquoteCommand::undo()
 {
-    qDebug() << "Transform to blockquote undo";
     m_model->takeItem(m_originalParent, m_originalRow);
 
     m_originalBlock->parent()->removeChild(m_originalBlock->row());
 
-    m_originalBlock->setUnparsedMarkdown(m_oldText);
+    m_model->setItemMD(m_originalBlock, m_oldText);
     m_model->insertItem(m_originalParent, m_originalRow, m_originalBlock);
     m_model->requestFocus(m_originalBlock, m_level);
 }
 
 void TransformToBlockquoteCommand::redo()
 {
-    qDebug() << "Transform to blockquote redo";
     m_model->takeItem(m_originalParent, m_originalRow);
-    m_originalBlock->setUnparsedMarkdown(m_text);
+    m_model->setItemMD(m_originalBlock, m_text);
 
     TreeItem *inner = m_outerBlockquote;
     for (int i = 1; i < m_level; ++i) {

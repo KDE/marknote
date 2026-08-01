@@ -46,6 +46,7 @@ public:
     void childMoveBegin(TreeItem *parent, int rowStart, int rowEnd, TreeItem *newParent, int newRowStart);
     void childMoveEnd();
     void childModified(TreeItem *parent, int rowStart, int rowEnd);
+    void setItemMD(TreeItem *block, const QString &md);
 
     void insertItem(TreeItem *parent, int row, TreeItem *child);
     void insertItems(TreeItem *parent, int row, const QList<TreeItem *> &children);

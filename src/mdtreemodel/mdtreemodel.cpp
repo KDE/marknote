@@ -160,6 +160,14 @@ void MDTreeModel::childModified(TreeItem *parent, int rowStart, int rowEnd)
     Q_EMIT dataChanged(index(rowStart, 0, parentIndex), index(rowEnd, 0, parentIndex));
 }
 
+void MDTreeModel::setItemMD(TreeItem *block, const QString &md)
+{
+    block->setUnparsedMarkdown(md);
+    if (block->parent()) {
+        childModified(block->parent(), block->row(), block->row());
+    }
+}
+
 void MDTreeModel::insertItem(TreeItem *parent, int row, TreeItem *child)
 {
     if (!parent || !child || row < 0 || row > parent->childCount()) {
