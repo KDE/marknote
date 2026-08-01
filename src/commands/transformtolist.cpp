@@ -41,7 +41,7 @@ void TransformToListCommand::undo()
 
     m_originalBlock->parent()->removeChild(m_originalBlock->row());
 
-    m_originalBlock->setUnparsedMarkdown(m_oldText);
+    m_model->setItemMD(m_originalBlock, m_oldText);
     m_model->insertItem(m_originalParent, m_originalRow, m_originalBlock);
 
     int offset = m_oldText.length() - m_text.length();
@@ -53,7 +53,7 @@ void TransformToListCommand::undo()
 void TransformToListCommand::redo()
 {
     m_model->takeItem(m_originalParent, m_originalRow); // Takes m_originalBlock
-    m_originalBlock->setUnparsedMarkdown(m_text);
+    m_model->setItemMD(m_originalBlock, m_text);
 
     TreeItem *listItem = m_outerList->child(0);
     listItem->appendChild(m_originalBlock);

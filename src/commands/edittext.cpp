@@ -27,16 +27,13 @@ EditTextCommand::~EditTextCommand()
 
 void EditTextCommand::undo()
 {
-    m_block->setUnparsedMarkdown(m_oldText);
-    m_model->childModified(m_block->parent(), m_block->row(), m_block->row());
+    m_model->setItemMD(m_block, m_oldText);
     m_model->requestFocus(m_block, m_oldCursorPosition);
 }
 
 void EditTextCommand::redo()
 {
-    qDebug() << "Redoing edit text: " << m_newText;
-    m_block->setUnparsedMarkdown(m_newText);
-    m_model->childModified(m_block->parent(), m_block->row(), m_block->row());
+    m_model->setItemMD(m_block, m_newText);
 
     if (!m_isFirstTime) {
         m_model->requestFocus(m_block, m_newCursorPosition);

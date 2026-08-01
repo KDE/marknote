@@ -22,7 +22,6 @@ RemoveBlockquoteCommand::~RemoveBlockquoteCommand()
 
 void RemoveBlockquoteCommand::undo()
 {
-    qDebug() << "Remove blockquote undo";
     m_model->insertItem(m_parentBlock, m_blockquoteRow, m_blockquote);
 
     QTimer::singleShot(0, [this]() {
@@ -36,7 +35,6 @@ void RemoveBlockquoteCommand::undo()
 
 void RemoveBlockquoteCommand::redo()
 {
-    qDebug() << "Remove blockquote redo";
     if (m_childCount > 0) {
         m_model->moveItems(m_blockquote, 0, m_childCount, m_parentBlock, m_blockquoteRow);
     }

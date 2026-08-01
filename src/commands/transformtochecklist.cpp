@@ -34,7 +34,7 @@ void TransformToChecklistCommand::undo()
         mdListItem->setChecked(m_wasChecked);
     }
 
-    m_block->setUnparsedMarkdown(m_oldText);
+    m_model->setItemMD(m_block, m_oldText);
     m_model->childModified(listItemNode->parent(), listItemNode->row(), listItemNode->row());
 
     int offset = m_oldText.length() - m_text.length();
@@ -51,8 +51,7 @@ void TransformToChecklistCommand::redo()
     mdListItem->setTaskList(true);
     mdListItem->setChecked(m_isChecked);
 
-    m_block->setUnparsedMarkdown(m_text);
-
+    m_model->setItemMD(m_block, m_text);
     m_model->childModified(listItemNode->parent(), listItemNode->row(), listItemNode->row());
 
     m_model->requestFocus(m_block, 0);
