@@ -168,6 +168,17 @@ void MDTreeModel::setItemMD(TreeItem *block, const QString &md)
     }
 }
 
+void MDTreeModel::setItemCode(TreeItem *block, const QString &code)
+{
+    if (block->type() != MDOptions::ElementType::Code) {
+        return;
+    }
+    block->setCode(code);
+    if (block->parent()) {
+        childModified(block->parent(), block->row(), block->row());
+    }
+}
+
 void MDTreeModel::insertItem(TreeItem *parent, int row, TreeItem *child)
 {
     if (!parent || !child || row < 0 || row > parent->childCount()) {

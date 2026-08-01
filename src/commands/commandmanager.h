@@ -24,9 +24,12 @@ public:
     Q_INVOKABLE bool canRedo() const;
 
     Q_INVOKABLE void editText(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
+    Q_INVOKABLE void editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
     Q_INVOKABLE void parseBlock(TreeItem *block, const QString &text);
 
     Q_INVOKABLE void splitBlock(TreeItem *block, const QString &text, int splitIndex);
+    Q_INVOKABLE void splitCode(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition);
+    Q_INVOKABLE void insertParagraphBelow(TreeItem *block, const QString &text);
     Q_INVOKABLE void mergeWithPreviousBlock(TreeItem *block, const QString &text);
     Q_INVOKABLE void transformToBlockquote(TreeItem *block, int level, const QString &text);
     Q_INVOKABLE void transformToList(TreeItem *block, bool isOrdered, int startNumber, const QString &text);

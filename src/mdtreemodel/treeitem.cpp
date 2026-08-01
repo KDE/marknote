@@ -335,3 +335,13 @@ void TreeItem::clearUnparsedMarkdown()
 {
     m_unparsedMd.clear();
 }
+
+void TreeItem::setCode(const QString &text)
+{
+    if (m_item->type() != MD::ItemType::Code) {
+        return;
+    }
+
+    auto codeItem = m_item.dynamicCast<MD::Code>();
+    codeItem->setText(text);
+}

@@ -3,14 +3,17 @@
 
 #include "commandmanager.h"
 #include "deindentlistitem.h"
+#include "editcode.h"
 #include "edittext.h"
 #include "indentlistitem.h"
+#include "insertparagraphbelow.h"
 #include "mergewithpreviousblock.h"
 #include "moveoutsideblockquote.h"
 #include "parseblock.h"
 #include "removeblockquote.h"
 #include "removefromlist.h"
 #include "splitblock.h"
+#include "splitcode.h"
 #include "splitlistitem.h"
 #include "transformtoblockquote.h"
 #include "transformtochecklist.h"
@@ -58,9 +61,24 @@ void CommandManager::splitBlock(TreeItem *block, const QString &text, int splitI
     m_undoStack.push(new SplitBlockCommand(block, text, splitIndex, m_model));
 }
 
+void CommandManager::splitCode(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition)
+{
+    m_undoStack.push(new SplitCodeCommand(block, oldText, text, cursorPosition, m_model));
+}
+
+void CommandManager::insertParagraphBelow(TreeItem *block, const QString &text)
+{
+    m_undoStack.push(new InsertParagraphBelowCommand(block, text, m_model));
+}
+
 void CommandManager::editText(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition)
 {
     m_undoStack.push(new EditTextCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
+}
+
+void CommandManager::editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition)
+{
+    m_undoStack.push(new EditCodeCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
 }
 
 void CommandManager::parseBlock(TreeItem *block, const QString &text)

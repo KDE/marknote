@@ -98,6 +98,7 @@ ecm_add_qml_module(marknote_static
         commands/commandmanager.h commands/commandmanager.cpp
         commands/mergewithpreviousblock.h commands/mergewithpreviousblock.cpp
         commands/edittext.h commands/edittext.cpp
+        commands/editcode.h commands/editcode.cpp
         commands/parseblock.h commands/parseblock.cpp
         commands/splitblock.h commands/splitblock.cpp
         commands/splitlistitem.h commands/splitlistitem.cpp
@@ -109,6 +110,8 @@ ecm_add_qml_module(marknote_static
         commands/transformtoblockquote.h commands/transformtoblockquote.cpp
         commands/transformtolist.h commands/transformtolist.cpp
         commands/transformtochecklist.h commands/transformtochecklist.cpp
+        commands/insertparagraphbelow.h commands/insertparagraphbelow.cpp
+        commands/splitcode.h commands/splitcode.cpp
 )
 
 kconfig_target_kcfg_file(marknote_static

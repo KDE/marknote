@@ -60,6 +60,8 @@ public:
     QString unparsedMarkdown() const;
     void clearUnparsedMarkdown();
 
+    void setCode(const QString &text);
+
 private:
     QSharedPointer<MD::Item> m_item;
     QString m_unparsedMd;
