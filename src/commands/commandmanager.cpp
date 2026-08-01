@@ -230,8 +230,11 @@ TreeItem *CommandManager::getPreviousSibling(TreeItem *block)
             current = current->parent();
         }
 
-        if (current && current->data().contains(u"md"_s)) {
-            return current;
+        if (current) {
+            const auto data = current->data();
+            if (data.contains(u"md"_s) || data.contains(u"text"_s)) {
+                return current;
+            }
         }
 
         if (current && !current->parent()) {
@@ -260,8 +263,11 @@ TreeItem *CommandManager::getNextSibling(TreeItem *block)
             }
         }
 
-        if (current && current->data().contains(u"md"_s)) {
-            return current;
+        if (current) {
+            const auto data = current->data();
+            if (data.contains(u"md"_s) || data.contains(u"text"_s)) {
+                return current;
+            }
         }
     }
 

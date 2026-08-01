@@ -316,7 +316,12 @@ void MDTreeModel::updateListNumbers(TreeItem *list, bool reset)
 
 void MDTreeModel::requestFocus(TreeItem *block, int cursorPos)
 {
-    while (block && !block->data().contains(u"md"_s)) {
+    while (block) {
+        const auto data = block->data();
+        if (data.contains(u"md"_s) || data.contains(u"text"_s)) {
+            break;
+        }
+
         block = block->child(0);
     }
 
