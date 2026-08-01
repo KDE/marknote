@@ -40,8 +40,8 @@ public:
     Q_INVOKABLE bool convertToParagraph(TreeItem *block, int cursorPosition);
     Q_INVOKABLE bool moveOutsideBlockquote(TreeItem *block, int cursorPosition);
 
-    Q_INVOKABLE void moveToPreviousBlock(TreeItem *block, int cursorPosition);
-    Q_INVOKABLE void moveToNextBlock(TreeItem *block, int cursorPosition);
+    Q_INVOKABLE void moveToPreviousBlock(TreeItem *block, const QString &currentText, int cursorPosition);
+    Q_INVOKABLE void moveToNextBlock(TreeItem *block, const QString &currentText, int cursorPosition);
 
     Q_INVOKABLE bool autoTransform(TreeItem *block, const QString &text, int cursorPosition, int index);
 
@@ -51,6 +51,8 @@ private:
 
     bool removeBlockquoteIfAtStart(TreeItem *bqBlock, TreeItem *block, int cursorPosition);
     bool removeFromListIfAtStart(TreeItem *block, int cursorPosition);
+
+    QString getBlockText(TreeItem *block) const;
 
     QUndoStack m_undoStack;
     MDTreeModel *m_model;

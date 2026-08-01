@@ -218,20 +218,73 @@ bool CommandManager::removeFromListIfAtStart(TreeItem *block, int cursorPosition
     return true;
 }
 
-void CommandManager::moveToPreviousBlock(TreeItem *block, int cursorPosition)
+QString CommandManager::getBlockText(TreeItem *block) const
 {
-    TreeItem *target = getPreviousSibling(block);
-    if (target) {
-        m_model->requestFocus(target, cursorPosition);
+    if (!block) {
+        return QString();
     }
+
+    const auto data = block->data();
+    if (data.contains(u"md"_s)) {
+        return data[u"md"_s].value<QString>();
+    } else if (data.contains(u"text"_s)) {
+        return data[u"text"_s].value<QString>();
+    }
+
+    return QString();
 }
 
-void CommandManager::moveToNextBlock(TreeItem *block, int cursorPosition)
+void CommandManager::moveToPreviousBlock(TreeItem *block, const QString &currentText, int cursorPosition)
+{
+    TreeItem *target = getPreviousSibling(block);
+    if (!target) {
+        return;
+    }
+
+    int currentNewline = -1;
+    if (cursorPosition > 0) {
+        currentNewline = currentText.lastIndexOf(u'\n', cursorPosition - 1);
+    }
+    int currentColumn = cursorPosition - currentNewline - 1;
+
+    QString targetText = getBlockText(target);
+    int lastNewline = targetText.lastIndexOf(u'\n');
+    int targetPos = 0;
+
+    if (lastNewline != -1) {
+        int lastLineLength = targetText.length() - lastNewline - 1;
+        targetPos = lastNewline + 1 + qMin(currentColumn, lastLineLength);
+    } else {
+        targetPos = qMin(currentColumn, static_cast<int>(targetText.length()));
+    }
+
+    m_model->requestFocus(target, targetPos);
+}
+
+void CommandManager::moveToNextBlock(TreeItem *block, const QString &currentText, int cursorPosition)
 {
     TreeItem *target = getNextSibling(block);
-    if (target) {
-        m_model->requestFocus(target, cursorPosition);
+    if (!target) {
+        return;
     }
+
+    int currentNewline = -1;
+    if (cursorPosition > 0) {
+        currentNewline = currentText.lastIndexOf(u'\n', cursorPosition - 1);
+    }
+    int currentColumn = cursorPosition - currentNewline - 1;
+
+    QString targetText = getBlockText(target);
+    int firstNewline = targetText.indexOf(u'\n');
+    int targetPos = 0;
+
+    if (firstNewline != -1) {
+        targetPos = qMin(currentColumn, firstNewline);
+    } else {
+        targetPos = qMin(currentColumn, static_cast<int>(targetText.length()));
+    }
+
+    m_model->requestFocus(target, targetPos);
 }
 
 TreeItem *CommandManager::getPreviousSibling(TreeItem *block)

@@ -223,15 +223,21 @@ Item {
             }
 
             if (event.key === Qt.Key_Up) {
-                CommandManager.moveToPreviousBlock(root.block, textEdit.cursorPosition);
-                flushTimer();
-                event.accepted = true;
+                let textBeforeCursor = textEdit.text.substring(0, textEdit.cursorPosition);
+                if (textBeforeCursor.indexOf('\n') === -1) {
+                    CommandManager.moveToPreviousBlock(root.block, textEdit.text, textEdit.cursorPosition);
+                    flushTimer();
+                    event.accepted = true;
+                }
             }
 
             if (event.key === Qt.Key_Down) {
-                CommandManager.moveToNextBlock(root.block, textEdit.cursorPosition);
-                flushTimer();
-                event.accepted = true;
+                let textAfterCursor = textEdit.text.substring(textEdit.cursorPosition);
+                if (textAfterCursor.indexOf('\n') === -1) {
+                    CommandManager.moveToNextBlock(root.block, textEdit.text, textEdit.cursorPosition);
+                    flushTimer();
+                    event.accepted = true;
+                }
             }
         }
 

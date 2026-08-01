@@ -110,7 +110,7 @@ BlockTemplate {
                     if (event.key === Qt.Key_Up) {
                         let textBeforeCursor = codeText.text.substring(0, codeText.cursorPosition);
                         if (textBeforeCursor.indexOf('\n') === -1) {
-                            CommandManager.moveToPreviousBlock(root.block, codeText.cursorPosition);
+                            CommandManager.moveToPreviousBlock(root.block, codeText.text, codeText.cursorPosition);
                             flushTimer();
                             event.accepted = true;
                         }
@@ -119,7 +119,7 @@ BlockTemplate {
                     if (event.key === Qt.Key_Down) {
                         let textAfterCursor = codeText.text.substring(codeText.cursorPosition);
                         if (textAfterCursor.indexOf('\n') === -1) {
-                            CommandManager.moveToNextBlock(root.block, codeText.cursorPosition);
+                            CommandManager.moveToNextBlock(root.block, codeText.text, codeText.cursorPosition);
                             flushTimer();
                             event.accepted = true;
                         }
