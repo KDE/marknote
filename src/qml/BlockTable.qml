@@ -58,16 +58,13 @@ BlockTemplate {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
 
-                        BlockText {
+                        BlockTableCell {
                             id: cell
                             wrapMode: TextEdit.NoWrap
                             html: blockData.htmlData[rowIndex][columnIndex]
                             md: blockData.mdData[rowIndex][columnIndex]
-                            blockType: blockData.blockType
                             block: root.block
-                            delegateModel: root.delegateModel
-                            index: root.index
-                            padding: Kirigami.Units.smallSpacing 
+                            padding: Kirigami.Units.largeSpacing
                             fontBold: rowIndex === 0 ? true : Kirigami.Theme.defaultFont.bold
                             color: rowIndex === 0 ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
                         }

@@ -60,17 +60,24 @@ public:
     void updateListNumbers(TreeItem *list, bool reset = false);
 
     Q_INVOKABLE void requestFocus(TreeItem *block, int cursorPos = -1);
+    Q_INVOKABLE void requestFocusOnTable(TreeItem *block, int row, int column, int cursorPos = -1);
     Q_INVOKABLE void setFocusedBlock(TreeItem *block, int cursorPos);
+    Q_INVOKABLE void setFocusedBlockToTable(TreeItem *block, int row, int column, int cursorPos);
     Q_INVOKABLE TreeItem *focusedBlock() const;
     Q_INVOKABLE int focusedBlockCursorPos() const;
+    Q_INVOKABLE int focusedTableRow() const;
+    Q_INVOKABLE int focusedTableColumn() const;
 
 Q_SIGNALS:
     void focusRequested(TreeItem *block, int cursorPosition);
+    void focusRequestedOnTable(TreeItem *block, int row, int column, int cursorPosition);
 
 private:
     std::unique_ptr<TreeItem> m_rootItem;
-    TreeItem *m_pendingFocusBlock = nullptr;
-    int m_pendingCursorPos = -1;
+    TreeItem *m_focusedBlock = nullptr;
+    int m_focusedBlockCursorPos = -1;
+    int m_focusedTableRow = -1;
+    int m_focusedTableColumn = -1;
 };
 
 #endif // MDTREEMODEL_H
