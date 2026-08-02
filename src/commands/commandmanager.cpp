@@ -241,6 +241,13 @@ void CommandManager::moveToPreviousBlock(TreeItem *block, const QString &current
         return;
     }
 
+    if (target->type() == MDOptions::ElementType::Table) {
+        int rowCount = target->data()[u"rowCount"_s].toInt();
+        int columnCount = target->data()[u"columnCount"_s].toInt();
+        m_model->requestFocusOnTable(target, rowCount - 1, columnCount - 1, -1);
+        return;
+    }
+
     int currentNewline = -1;
     if (cursorPosition > 0) {
         currentNewline = currentText.lastIndexOf(u'\n', cursorPosition - 1);
@@ -268,6 +275,11 @@ void CommandManager::moveToNextBlock(TreeItem *block, const QString &currentText
         return;
     }
 
+    if (target->type() == MDOptions::ElementType::Table) {
+        m_model->requestFocusOnTable(target, 0, 0, 0);
+        return;
+    }
+
     int currentNewline = -1;
     if (cursorPosition > 0) {
         currentNewline = currentText.lastIndexOf(u'\n', cursorPosition - 1);
@@ -287,6 +299,52 @@ void CommandManager::moveToNextBlock(TreeItem *block, const QString &currentText
     m_model->requestFocus(target, targetPos);
 }
 
+void CommandManager::moveToLeftTableCell(TreeItem *block, int row, int column)
+{
+    if (column > 0) {
+        m_model->requestFocusOnTable(block, row, column - 1, -1);
+    } else if (row > 0) {
+        int columnCount = block->data()[u"columnCount"_s].toInt();
+        m_model->requestFocusOnTable(block, row - 1, columnCount - 1, -1);
+    } else {
+        moveToPreviousBlock(block, u""_s, 0);
+    }
+}
+
+void CommandManager::moveToRightTableCell(TreeItem *block, int row, int column)
+{
+    int columnCount = block->data()[u"columnCount"_s].toInt();
+    int rowCount = block->data()[u"rowCount"_s].toInt();
+
+    if (column < columnCount - 1) {
+        m_model->requestFocusOnTable(block, row, column + 1, 0);
+    } else if (row < rowCount - 1) {
+        m_model->requestFocusOnTable(block, row + 1, 0, 0);
+    } else {
+        moveToNextBlock(block, u""_s, 0);
+    }
+}
+
+void CommandManager::moveToTopTableCell(TreeItem *block, int row, int column, int cursorPosition)
+{
+    if (row > 0) {
+        m_model->requestFocusOnTable(block, row - 1, column, cursorPosition);
+    } else {
+        moveToPreviousBlock(block, u""_s, cursorPosition);
+    }
+}
+
+void CommandManager::moveToBottomTableCell(TreeItem *block, int row, int column, int cursorPosition)
+{
+    int rowCount = block->data()[u"rowCount"_s].toInt();
+
+    if (row < rowCount - 1) {
+        m_model->requestFocusOnTable(block, row + 1, column, cursorPosition);
+    } else {
+        moveToNextBlock(block, u""_s, cursorPosition);
+    }
+}
+
 TreeItem *CommandManager::getPreviousSibling(TreeItem *block)
 {
     TreeItem *current = block;
@@ -303,7 +361,7 @@ TreeItem *CommandManager::getPreviousSibling(TreeItem *block)
 
         if (current) {
             const auto data = current->data();
-            if (data.contains(u"md"_s) || data.contains(u"text"_s)) {
+            if (data.contains(u"md"_s) || data.contains(u"text"_s) || current->type() == MDOptions::ElementType::Table) {
                 return current;
             }
         }
@@ -336,7 +394,7 @@ TreeItem *CommandManager::getNextSibling(TreeItem *block)
 
         if (current) {
             const auto data = current->data();
-            if (data.contains(u"md"_s) || data.contains(u"text"_s)) {
+            if (data.contains(u"md"_s) || data.contains(u"text"_s) || current->type() == MDOptions::ElementType::Table) {
                 return current;
             }
         }
@@ -389,4 +447,23 @@ bool CommandManager::autoTransform(TreeItem *block, const QString &text, int cur
     }
 
     return false;
+}
+
+int CommandManager::getCursorInMdString(const QString &rawString, const QString &mdString, int index)
+{
+    int mdIndex = 0;
+    QString cleanedMdString = mdString;
+    cleanedMdString.replace(QRegularExpression(u"(\\r\\n|\\n|\\r)"_s), u" "_s);
+
+    int limit = qMin(index, static_cast<int>(rawString.length()));
+
+    for (int rawIndex = 0; rawIndex < limit; rawIndex++) {
+        while (mdIndex < cleanedMdString.length() && rawString.at(rawIndex) != cleanedMdString.at(mdIndex)) {
+            mdIndex++;
+        }
+
+        mdIndex++;
+    }
+
+    return qMin(mdIndex, static_cast<int>(cleanedMdString.length()));
 }

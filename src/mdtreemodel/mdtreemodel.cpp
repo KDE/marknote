@@ -358,20 +358,70 @@ void MDTreeModel::requestFocus(TreeItem *block, int cursorPos)
 
 void MDTreeModel::setFocusedBlock(TreeItem *block, int cursorPos)
 {
-    m_pendingFocusBlock = block;
-    m_pendingCursorPos = cursorPos;
+    m_focusedBlock = block;
+    m_focusedBlockCursorPos = cursorPos;
+    m_focusedTableRow = -1;
+    m_focusedTableColumn = -1;
+}
+
+void MDTreeModel::setFocusedBlockToTable(TreeItem *block, int row, int column, int cursorPos)
+{
+    if (!block || block->type() != MDOptions::ElementType::Table) {
+        return;
+    }
+
+    m_focusedBlock = block;
+    m_focusedBlockCursorPos = cursorPos;
+    m_focusedTableRow = row;
+    m_focusedTableColumn = column;
+}
+
+void MDTreeModel::requestFocusOnTable(TreeItem *block, int row, int column, int cursorPos)
+{
+    if (!block || block->type() != MDOptions::ElementType::Table) {
+        return;
+    }
+
+    if (cursorPos == -1) {
+        const auto data = block->data();
+        if (data.contains(u"mdData"_s)) {
+            QList<QVariantList> mdData = data[u"mdData"_s].value<QList<QVariantList>>();
+            if (row >= 0 && row < mdData.size() && column >= 0 && column < mdData[row].size()) {
+                cursorPos = mdData[row][column].toString().length();
+            }
+        }
+    }
+
+    setFocusedBlockToTable(block, row, column, cursorPos);
+    Q_EMIT focusRequestedOnTable(block, row, column, cursorPos);
 }
 
 TreeItem *MDTreeModel::focusedBlock() const
 {
-    return m_pendingFocusBlock;
+    return m_focusedBlock;
 }
 
 int MDTreeModel::focusedBlockCursorPos() const
 {
-    if (m_pendingFocusBlock) {
-        return m_pendingCursorPos;
+    if (m_focusedBlock) {
+        return m_focusedBlockCursorPos;
     }
 
     return 0;
+}
+
+int MDTreeModel::focusedTableRow() const
+{
+    if (m_focusedBlock && m_focusedBlock->type() == MDOptions::ElementType::Table) {
+        return m_focusedTableRow;
+    }
+    return -1;
+}
+
+int MDTreeModel::focusedTableColumn() const
+{
+    if (m_focusedBlock && m_focusedBlock->type() == MDOptions::ElementType::Table) {
+        return m_focusedTableColumn;
+    }
+    return -1;
 }

@@ -62,27 +62,9 @@ Item {
         hoverEnabled: true
         cursorShape: Qt.IBeamCursor
 
-        // gets the index of the character in the markdown string
-        // time complexity: o(n + m)
-        function getCursorInMdString(rawString, mdString, index) {
-            let mdIndex = 0;
-
-            mdString = mdString.replace(/(\r\n|\n|\r)/gm, " ");
-
-            for (let rawIndex = 0; rawIndex < index; rawIndex++) {
-                while (rawString[rawIndex] !== mdString[mdIndex] && mdIndex < mdString.length) {
-                    mdIndex++;
-                }
-
-                mdIndex++;
-            }
-
-            return Math.min(mdIndex, mdString.length);
-        }
-
         onClicked: (mouse) => {
             let clickIndex = textView.positionAt(mouse.x, mouse.y);
-            const cursorPosition = getCursorInMdString(textView.getText(0, textView.text.length), root.md, clickIndex);
+            const cursorPosition = CommandManager.getCursorInMdString(textView.getText(0, textView.text.length), root.md, clickIndex);
 
             model.requestFocus(root.block, cursorPosition);
         }
