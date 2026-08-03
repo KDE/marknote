@@ -18,6 +18,7 @@
 #ifndef Q_OS_ANDROID
 #include <QApplication>
 #endif
+#include "mdtreemodel/treeitem.h"
 #include <QCommandLineParser>
 #include <QFile>
 #include <QFontDatabase>
@@ -33,6 +34,8 @@
 #include "colorschemer.h"
 #include "sketchhistory.h"
 #include <marknotesettings.h>
+
+#include "commands/commandmanager.h"
 
 #ifdef HAVE_KRUNNER
 #include "runner.h"
@@ -153,8 +156,12 @@ int main(int argc, char *argv[])
     KLocalization::setupLocalizedContext(&engine);
 
     qRegisterMetaType<Stroke>("Stroke");
+    qmlRegisterUncreatableType<TreeItem>("org.kde.marknote", 1, 0, "TreeItem", u"TreeItem should not be created in QML"_s);
 
     engine.rootContext()->setContextProperty(u"appFontList"_s, QFontDatabase::families());
+
+    CommandManager commandManager;
+    qmlRegisterSingletonInstance<CommandManager>("org.kde.marknote", 1, 0, "CommandManager", &commandManager);
 
 #ifdef HAVE_KRUNNER
     qmlRegisterType<Runner>("org.kde.marknote", 1, 0, "Runner");

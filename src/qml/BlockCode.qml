@@ -15,6 +15,8 @@ BlockTemplate {
     topMargin: Kirigami.Units.smallSpacing
     bottomMargin: Kirigami.Units.largeSpacing
 
+    readonly property var blockData: root.block.data
+
     blockComponent: Item {
         implicitWidth: parent.width
         implicitHeight: scrollView.implicitHeight

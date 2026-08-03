@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
 
 import org.kde.kirigami as Kirigami
 
@@ -13,10 +14,15 @@ BlockTemplate {
     topMargin: Kirigami.Units.mediumSpacing
     bottomMargin: Kirigami.Units.largeSpacing
 
-    blockComponent: Text {
-        text: blockData.html
-        textFormat: Text.RichText
-        color: Kirigami.Theme.textColor
-        wrapMode: Text.Wrap
+    readonly property var blockData: root.block.data
+
+    blockComponent: BlockText {
+        implicitWidth: parent.width
+        html: root.blockData.html
+        md: root.blockData.md
+        blockType: root.blockData.blockType
+        block: root.block
+        delegateModel: root.delegateModel
+        index: root.index
     }
 }

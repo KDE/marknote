@@ -15,6 +15,8 @@ BlockTemplate {
     topMargin: Kirigami.Units.mediumSpacing
     bottomMargin: Kirigami.Units.largeSpacing
 
+    readonly property var blockData: root.block.data
+
     blockComponent: Item {
         implicitWidth: parent.width
         implicitHeight: scrollView.implicitHeight
@@ -56,12 +58,17 @@ BlockTemplate {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
 
-                        Text {
+                        BlockText {
                             id: cell
-                            text: blockData.htmlData[rowIndex][columnIndex]
-                            textFormat: Text.RichText
+                            wrapMode: TextEdit.NoWrap
+                            html: blockData.htmlData[rowIndex][columnIndex]
+                            md: blockData.mdData[rowIndex][columnIndex]
+                            blockType: blockData.blockType
+                            block: root.block
+                            delegateModel: root.delegateModel
+                            index: root.index
                             padding: Kirigami.Units.smallSpacing 
-                            font.bold: rowIndex === 0
+                            fontBold: rowIndex === 0 ? true : Kirigami.Theme.defaultFont.bold
                             color: rowIndex === 0 ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
                         }
 

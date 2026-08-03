@@ -12,6 +12,8 @@ BlockTemplate {
 
     isFinalBlock: false
 
+    readonly property var blockData: root.block.data
+
     blockComponent: RowLayout {
         FontMetrics {
             id: fm

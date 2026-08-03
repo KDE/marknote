@@ -14,10 +14,14 @@ BlockTemplate {
     topMargin: Kirigami.Units.mediumSpacing
     bottomMargin: Kirigami.Units.mediumSpacing
 
-    blockComponent: Text {
-        text: blockData.html
-        textFormat: Text.RichText
-        wrapMode: Text.Wrap
-        color: Kirigami.Theme.textColor
+    readonly property var blockData: root.block.data
+
+    blockComponent: BlockText {
+        html: root.blockData.html
+        md: root.blockData.md
+        blockType: root.blockData.blockType
+        delegateModel: root.delegateModel
+        block: root.block
+        index: root.index
     }
 }
