@@ -67,6 +67,10 @@ EditPage {
             root.checkbox = checkable;
         }
 
+        Component.onCompleted: {
+            CommandManager.setModel(richdochandler.treeModel);
+        }
+
         onCursorPositionChanged: {
             root.listIndent = canIndentList;
             root.listDedent = canDedentList;

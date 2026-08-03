@@ -4,29 +4,136 @@
 #include "treeitem.h"
 #include "mddatagenerator.h"
 #include <md4qt/html.h>
+#include <md4qt/parser.h>
 using namespace Qt::StringLiterals;
 
-TreeItem::TreeItem(TreeItem *parent)
-    : m_parent(parent)
+TreeItem::TreeItem(TreeItem *parent, QObject *parentObject)
+    : QObject(parent ? parent : parentObject)
+    , m_parent(parent)
 {
 }
 
 TreeItem::~TreeItem()
 {
-    qDeleteAll(m_children);
 }
 
 void TreeItem::appendChild(TreeItem *child)
 {
     m_children.append(child);
     child->m_parent = this;
+    child->setParent(this);
 }
 
-TreeItem *TreeItem::child(int row)
+void TreeItem::insertChild(int childRow, TreeItem *child)
 {
-    if (row < 0 || row >= m_children.size())
+    m_children.insert(childRow, child);
+    child->m_parent = this;
+    child->setParent(this);
+}
+
+TreeItem *TreeItem::removeChild(int childRow)
+{
+    if (childRow < 0 || childRow >= m_children.size())
         return nullptr;
-    return m_children.at(row);
+
+    TreeItem *child = m_children.takeAt(childRow);
+    child->m_parent = nullptr;
+    return child;
+}
+
+QList<TreeItem *> TreeItem::takeChildren(int startIndex, int count)
+{
+    QList<TreeItem *> result;
+    if (startIndex < 0 || startIndex >= m_children.size()) {
+        return result;
+    }
+
+    if (count == -1 || startIndex + count > m_children.size()) {
+        count = m_children.size() - startIndex;
+    }
+
+    for (int i = 0; i < count; ++i) {
+        TreeItem *child = m_children.takeAt(startIndex);
+        child->m_parent = nullptr;
+        result.append(child);
+    }
+
+    return result;
+}
+
+void TreeItem::insertChildren(int startIndex, const QList<TreeItem *> &children)
+{
+    if (startIndex < 0) {
+        startIndex = 0;
+    }
+    if (startIndex > m_children.size()) {
+        startIndex = m_children.size();
+    }
+
+    int i = 0;
+    for (TreeItem *child : children) {
+        m_children.insert(startIndex + i, child);
+        child->m_parent = this;
+        child->setParent(this);
+        i++;
+    }
+}
+
+void TreeItem::removeChildren(int startIndex, int count)
+{
+    takeChildren(startIndex, count);
+}
+
+void TreeItem::moveChildren(int sourceRow, int count, TreeItem *destination, int destRow)
+{
+    if (!destination || count <= 0) {
+        return;
+    }
+
+    if (this == destination && destRow >= sourceRow && destRow <= sourceRow + count) {
+        return;
+    }
+
+    QList<TreeItem *> itemsToMove = takeChildren(sourceRow, count);
+    if (itemsToMove.isEmpty()) {
+        return;
+    }
+
+    if (this == destination && destRow > sourceRow) {
+        destRow -= itemsToMove.size();
+    }
+
+    destination->insertChildren(destRow, itemsToMove);
+}
+
+QList<TreeItem *> TreeItem::fromMarkdown(const QString &markdown)
+{
+    if (markdown.isEmpty()) {
+        return {createTreeItem(MDOptions::ElementType::Paragraph)};
+    }
+
+    QTextStream stream{markdown.toUtf8()};
+
+    MD::Parser parser;
+    auto doc = parser.parse(stream, u""_s, u""_s);
+
+    QList<TreeItem *> items;
+    for (const auto &item : doc->items()) {
+        if (item->type() == MD::ItemType::Anchor) {
+            continue;
+        }
+
+        items.append(buildTree(item));
+    }
+
+    return items;
+}
+
+TreeItem *TreeItem::child(int childRow)
+{
+    if (childRow < 0 || childRow >= m_children.size())
+        return nullptr;
+    return m_children.at(childRow);
 }
 
 int TreeItem::childCount() const
@@ -46,36 +153,58 @@ QVariantMap TreeItem::data() const
         return QVariantMap();
     }
 
+    QVariantMap map;
+
     switch (m_item->type()) {
     case MD::ItemType::Heading:
-        return MDDataGenerator::fromHeading(m_item);
+        map = MDDataGenerator::fromHeading(m_item);
+        break;
     case MD::ItemType::Paragraph:
-        return MDDataGenerator::fromParagraph(m_item);
+        map = MDDataGenerator::fromParagraph(m_item);
+        break;
     case MD::ItemType::Blockquote:
-        return MDDataGenerator::fromBlockquote(m_item);
+        map = MDDataGenerator::fromBlockquote(m_item);
+        break;
     case MD::ItemType::ListItem:
-        return MDDataGenerator::fromListItem(m_item);
+        map = MDDataGenerator::fromListItem(m_item);
+        break;
     case MD::ItemType::List:
-        return MDDataGenerator::fromList(m_item);
+        map = MDDataGenerator::fromList(m_item);
+        break;
     case MD::ItemType::Code:
-        return MDDataGenerator::fromCodeBlock(m_item);
+        map = MDDataGenerator::fromCodeBlock(m_item);
+        break;
     case MD::ItemType::Table:
-        return MDDataGenerator::fromTable(m_item);
+        map = MDDataGenerator::fromTable(m_item);
+        break;
     case MD::ItemType::Footnote:
-        return MDDataGenerator::fromFootnote(m_item);
+        map = MDDataGenerator::fromFootnote(m_item);
+        break;
     case MD::ItemType::Document:
-        return {};
+        break;
     case MD::ItemType::PageBreak:
-        return MDDataGenerator::fromPageBreak(m_item);
+        map = MDDataGenerator::fromPageBreak(m_item);
+        break;
     case MD::ItemType::Anchor:
-        return MDDataGenerator::fromAnchor(m_item);
+        map = MDDataGenerator::fromAnchor(m_item);
+        break;
     case MD::ItemType::HorizontalLine:
-        return MDDataGenerator::fromHorizontalLine(m_item);
+        map = MDDataGenerator::fromHorizontalLine(m_item);
+        break;
     default:
         break;
     }
 
-    return QVariantMap();
+    if (!m_unparsedMd.isNull()) {
+        map[u"md"_s] = m_unparsedMd;
+    }
+
+    return map;
+}
+
+MDOptions::ElementType TreeItem::type() const
+{
+    return data()[u"type"_s].value<MDOptions::ElementType>();
 }
 
 TreeItem *TreeItem::parent()
@@ -91,6 +220,27 @@ int TreeItem::row() const
     return 0;
 }
 
+QSharedPointer<MD::Item> TreeItem::item() const
+{
+    return m_item;
+}
+
+QList<TreeItem *> TreeItem::children() const
+{
+    return m_children;
+}
+
+bool TreeItem::isDescendantOf(TreeItem *other) const
+{
+    TreeItem *p = m_parent;
+    while (p) {
+        if (p == other)
+            return true;
+        p = p->m_parent;
+    }
+    return false;
+}
+
 TreeItem *TreeItem::buildTree(const QSharedPointer<MD::Item> &item)
 {
     TreeItem *treeItem = new TreeItem();
@@ -99,7 +249,7 @@ TreeItem *TreeItem::buildTree(const QSharedPointer<MD::Item> &item)
     // items that are not "blocks" don't have any children, so we can return early
     auto block = item.dynamicCast<MD::Block>();
 
-    if (!block || block->type() == MD::ItemType::Paragraph) {
+    if (!block) {
         return treeItem;
     }
 
@@ -108,5 +258,80 @@ TreeItem *TreeItem::buildTree(const QSharedPointer<MD::Item> &item)
         treeItem->appendChild(child);
     }
 
+    if (treeItem->childCount() == 0) {
+        treeItem->appendChild(createTreeItem(MDOptions::ElementType::Paragraph));
+    }
+
     return treeItem;
+}
+
+QSharedPointer<MD::Item> TreeItem::createMDItem(MDOptions::ElementType type, const QString &text)
+{
+    switch (type) {
+    case MDOptions::ElementType::Heading: {
+        auto heading = QSharedPointer<MD::Heading>::create();
+        heading->setText(createMDItem(MDOptions::ElementType::Paragraph, text).dynamicCast<MD::Paragraph>());
+        return heading;
+    }
+    case MDOptions::ElementType::Paragraph: {
+        auto paragraph = QSharedPointer<MD::Paragraph>::create();
+        paragraph->appendItem(createMDItem(MDOptions::ElementType::Text, text));
+        return paragraph;
+    }
+    case MDOptions::ElementType::Text: {
+        auto textItem = QSharedPointer<MD::Text>::create();
+        textItem->setText(text);
+        return textItem;
+    }
+    case MDOptions::ElementType::Blockquote: {
+        auto blockquote = QSharedPointer<MD::Blockquote>::create();
+        blockquote->appendItem(createMDItem(MDOptions::ElementType::Paragraph, text));
+        return blockquote;
+    }
+    case MDOptions::ElementType::ListItem: {
+        auto listItem = QSharedPointer<MD::ListItem>::create();
+        listItem->appendItem(createMDItem(MDOptions::ElementType::Paragraph, text));
+        return listItem;
+    }
+    case MDOptions::ElementType::List: {
+        auto list = QSharedPointer<MD::List>::create();
+        list->appendItem(createMDItem(MDOptions::ElementType::ListItem, text));
+        return list;
+    }
+    case MDOptions::ElementType::Code: {
+        return QSharedPointer<MD::Code>::create(text, true, false);
+    }
+    case MDOptions::ElementType::Table: {
+        return QSharedPointer<MD::Table>::create();
+    }
+    case MDOptions::ElementType::Footnote: {
+        return QSharedPointer<MD::Footnote>::create();
+    }
+    case MDOptions::ElementType::HorizontalLine: {
+        return QSharedPointer<MD::HorizontalLine>::create();
+    }
+    default: {
+        return createMDItem(MDOptions::ElementType::Paragraph, text);
+    }
+    }
+}
+
+TreeItem *TreeItem::createTreeItem(MDOptions::ElementType type, const QString &text)
+{
+    return buildTree(createMDItem(type, text));
+}
+
+void TreeItem::setUnparsedMarkdown(const QString &text)
+{
+    m_unparsedMd = text;
+}
+
+QString TreeItem::unparsedMarkdown() const
+{
+    return m_unparsedMd;
+}
+
+void TreeItem::clearUnparsedMarkdown()
+{
+    m_unparsedMd.clear();
 }

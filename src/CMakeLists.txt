@@ -19,6 +19,7 @@ target_compile_options(marknote_static PRIVATE
 target_include_directories(marknote_static PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/mdoptions
     ${CMAKE_CURRENT_SOURCE_DIR}/mdtreemodel
+    ${CMAKE_CURRENT_SOURCE_DIR}/commands
 )
 
 ecm_add_qml_module(marknote_static
@@ -70,6 +71,7 @@ ecm_add_qml_module(marknote_static
         qml/BlockHorizontalLine.qml
         qml/BlockCode.qml
         qml/BlockTable.qml
+        qml/BlockText.qml
     SOURCES
         documenthandler.cpp documenthandler.h
         rich_documenthandler.cpp rich_documenthandler.h
@@ -93,6 +95,20 @@ ecm_add_qml_module(marknote_static
         mdtreemodel/mdtreemodel.h mdtreemodel/mdtreemodel.cpp
         mdtreemodel/mddatagenerator.h mdtreemodel/mddatagenerator.cpp
         mdserializer/mdserializer.h mdserializer/mdserializer.cpp
+        commands/commandmanager.h commands/commandmanager.cpp
+        commands/mergewithpreviousblock.h commands/mergewithpreviousblock.cpp
+        commands/edittext.h commands/edittext.cpp
+        commands/parseblock.h commands/parseblock.cpp
+        commands/splitblock.h commands/splitblock.cpp
+        commands/splitlistitem.h commands/splitlistitem.cpp
+        commands/deindentlistitem.h commands/deindentlistitem.cpp
+        commands/indentlistitem.h commands/indentlistitem.cpp
+        commands/removeblockquote.h commands/removeblockquote.cpp
+        commands/removefromlist.h commands/removefromlist.cpp
+        commands/moveoutsideblockquote.h commands/moveoutsideblockquote.cpp
+        commands/transformtoblockquote.h commands/transformtoblockquote.cpp
+        commands/transformtolist.h commands/transformtolist.cpp
+        commands/transformtochecklist.h commands/transformtochecklist.cpp
 )
 
 kconfig_target_kcfg_file(marknote_static

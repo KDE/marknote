@@ -9,13 +9,15 @@
 #include <md4qt/visitor.h>
 #include <memory>
 
-class MdVisitor : public MD::Visitor
+class MDSerializer : public MD::Visitor
 {
 public:
-    MdVisitor();
-    ~MdVisitor() override;
+    MDSerializer();
+    ~MDSerializer() override;
 
-    virtual QString toMd(QSharedPointer<MD::Document> doc);
+    virtual QString processDoc(QSharedPointer<MD::Document> doc);
+
+    static QString toMd(QSharedPointer<MD::Item> item);
 
 protected:
     virtual void openStyle(const typename MD::ItemWithOpts::Styles &styles);

@@ -12,7 +12,7 @@ Rectangle {
     id: root
 
     required property var index;
-    required property var blockData;
+    required property var block;
     required property bool isFinalBlock;
     property int topMargin: 0
     property int bottomMargin: 0
@@ -20,20 +20,14 @@ Rectangle {
     implicitWidth: ListView.view ? ListView.view.width : 0
     implicitHeight: row.implicitHeight + root.topMargin + root.bottomMargin
 
-    property var parentModel: ListView.view ? ListView.view.model : null
-    property var cppModel: parentModel ? parentModel.model : null
-    property var nodeIndex: parentModel ? parentModel.modelIndex(index) : null
+    property var delegateModel: ListView.view ? ListView.view.model : null
+    property var cppModel: delegateModel ? delegateModel.model : null
+    property var nodeIndex: delegateModel ? delegateModel.modelIndex(index) : null
 
     property Component blockComponent: null;
 
     radius: Kirigami.Units.smallSpacing
-    color: hoverHandler.hovered ? Qt.alpha(Kirigami.Theme.textColor, 0.2) : "transparent"
-
-    HoverHandler {
-        id: hoverHandler
-        target: root
-        blocking: true
-    }
+    color: "transparent"
 
     RowLayout {
         id: row
@@ -76,7 +70,7 @@ Rectangle {
                     model: root.cppModel
                     rootIndex: root.nodeIndex
 
-                    delegate: root.parentModel ? root.parentModel.delegate : null 
+                    delegate: root.delegateModel ? root.delegateModel.delegate : null 
                 }
             }
         }

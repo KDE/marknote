@@ -3,6 +3,7 @@
 
 #include "mddatagenerator.h"
 #include "mdoptions/mdoptions.h"
+#include "mdserializer/mdserializer.h"
 #include <md4qt/html.h>
 using namespace Qt::StringLiterals;
 
@@ -25,6 +26,7 @@ QVariantMap fromHeading(const QSharedPointer<MD::Item> &item)
     map[u"type"_s] = QVariant::fromValue(MDOptions::ElementType::Heading);
     map[u"level"_s] = heading->level();
     map[u"html"_s] = toHtml(item);
+    map[u"md"_s] = MDSerializer::toMd(item);
 
     return map;
 }
@@ -34,6 +36,7 @@ QVariantMap fromParagraph(const QSharedPointer<MD::Item> &item)
     QVariantMap map;
     map[u"type"_s] = QVariant::fromValue(MDOptions::ElementType::Paragraph);
     map[u"html"_s] = toHtml(item);
+    map[u"md"_s] = MDSerializer::toMd(item);
 
     return map;
 }
@@ -96,10 +99,12 @@ QVariantMap fromTable(const QSharedPointer<MD::Item> &item)
     map[u"rowCount"_s] = QVariant::fromValue(table->rows().size());
     map[u"columnCount"_s] = QVariant::fromValue(table->columnsCount());
 
-    QList<QVariantList> data;
+    QList<QVariantList> htmlData;
+    QList<QVariantList> mdData;
 
     for (const auto &row : table->rows()) {
-        QVariantList rowData;
+        QVariantList rowHtmlData;
+        QVariantList rowMdData;
 
         for (const auto &cell : row->cells()) {
             // toHtml does not work for tableCells
@@ -110,13 +115,16 @@ QVariantMap fromTable(const QSharedPointer<MD::Item> &item)
                 p->appendItem(item);
             }
 
-            rowData.append(toHtml(p));
+            rowHtmlData.append(toHtml(p));
+            rowMdData.append(MDSerializer::toMd(p));
         }
 
-        data.append(rowData);
+        htmlData.append(rowHtmlData);
+        mdData.append(rowMdData);
     }
 
-    map[u"htmlData"_s] = QVariant::fromValue(data);
+    map[u"htmlData"_s] = QVariant::fromValue(htmlData);
+    map[u"mdData"_s] = QVariant::fromValue(mdData);
 
     return map;
 }

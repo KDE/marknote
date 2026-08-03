@@ -97,7 +97,7 @@ void TocModel::updateModel()
         int type = m_treeModel->data(idx, MDTreeModel::BlockTypeRole).toInt();
 
         if (type == MDOptions::ElementType::Heading) {
-            QVariantMap blockData = m_treeModel->data(idx, MDTreeModel::BlockDataRole).toMap();
+            QVariantMap blockData = m_treeModel->data(idx, MDTreeModel::BlockRole).value<TreeItem *>()->data();
             int level = blockData[QStringLiteral("level")].toInt();
             QString html = blockData[QStringLiteral("html")].toString();
 

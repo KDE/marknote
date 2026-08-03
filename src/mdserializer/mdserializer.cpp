@@ -6,11 +6,11 @@
 #include <QRegularExpression>
 using namespace Qt::StringLiterals;
 
-MdVisitor::MdVisitor() = default;
+MDSerializer::MDSerializer() = default;
 
-MdVisitor::~MdVisitor() = default;
+MDSerializer::~MDSerializer() = default;
 
-QString MdVisitor::toMd(QSharedPointer<MD::Document> doc)
+QString MDSerializer::processDoc(QSharedPointer<MD::Document> doc)
 {
     m_Md = std::make_unique<QString>();
 
@@ -19,7 +19,23 @@ QString MdVisitor::toMd(QSharedPointer<MD::Document> doc)
     return *m_Md;
 }
 
-void MdVisitor::openStyle(const typename MD::ItemWithOpts::Styles &styles)
+QString MDSerializer::toMd(QSharedPointer<MD::Item> item)
+{
+    MDSerializer visitor;
+
+    auto doc = QSharedPointer<MD::Document>::create();
+    doc->appendItem(item);
+
+    auto result = visitor.processDoc(doc);
+
+    while (result.endsWith(u'\n')) {
+        result.chop(1);
+    }
+
+    return result;
+}
+
+void MDSerializer::openStyle(const typename MD::ItemWithOpts::Styles &styles)
 {
     for (const auto &s : styles) {
         switch (s.style()) {
@@ -41,7 +57,7 @@ void MdVisitor::openStyle(const typename MD::ItemWithOpts::Styles &styles)
     }
 }
 
-void MdVisitor::closeStyle(const typename MD::ItemWithOpts::Styles &styles)
+void MDSerializer::closeStyle(const typename MD::ItemWithOpts::Styles &styles)
 {
     for (const auto &s : styles) {
         switch (s.style()) {
@@ -63,27 +79,22 @@ void MdVisitor::closeStyle(const typename MD::ItemWithOpts::Styles &styles)
     }
 }
 
-void MdVisitor::onAddLineEnding()
+void MDSerializer::onAddLineEnding()
 {
-    qDebug() << "AddLineEnding Enter";
     m_Md->push_back(u"\n"_s);
-    qDebug() << "AddLineEnding Exit";
 }
 
-void MdVisitor::onText(MD::Text *t)
+void MDSerializer::onText(MD::Text *t)
 {
-    qDebug() << "Text Enter";
     openStyle(t->openStyles());
 
     m_Md->push_back(t->text());
 
     closeStyle(t->closeStyles());
-    qDebug() << "Text Exit";
 }
 
-void MdVisitor::onMath(MD::Math *m)
+void MDSerializer::onMath(MD::Math *m)
 {
-    qDebug() << "Math Enter";
     openStyle(m->openStyles());
 
     m_Md->push_back(m->isInline() ? u"$"_s : u"$$"_s);
@@ -91,31 +102,24 @@ void MdVisitor::onMath(MD::Math *m)
     m_Md->push_back(m->isInline() ? u"$"_s : u"$$"_s);
 
     closeStyle(m->closeStyles());
-    qDebug() << "Math Exit";
 }
 
-void MdVisitor::onLineBreak(MD::LineBreak *)
+void MDSerializer::onLineBreak(MD::LineBreak *)
 {
-    qDebug() << "LineBreak Enter";
     m_Md->push_back(u"<br>"_s);
-    qDebug() << "LineBreak Exit";
 }
 
-void MdVisitor::onParagraph(MD::Paragraph *p, bool wrap, bool skipOpeningWrap)
+void MDSerializer::onParagraph(MD::Paragraph *p, bool wrap, bool skipOpeningWrap)
 {
-    qDebug() << "Paragraph Enter";
     Visitor::onParagraph(p, wrap);
 
     if (wrap) {
         addNewBlock();
     }
-
-    qDebug() << "Paragraph Exit";
 }
 
-void MdVisitor::onHeading(MD::Heading *h)
+void MDSerializer::onHeading(MD::Heading *h)
 {
-    qDebug() << "Heading Enter";
     switch (h->level()) {
     case 1:
     case 2:
@@ -128,12 +132,10 @@ void MdVisitor::onHeading(MD::Heading *h)
     default:
         break;
     }
-    qDebug() << "Heading Exit";
 }
 
-void MdVisitor::onCode(MD::Code *c)
+void MDSerializer::onCode(MD::Code *c)
 {
-    qDebug() << "Code Enter";
     m_Md->push_back(u"```"_s);
 
     if (!c->syntax().isEmpty()) {
@@ -144,12 +146,10 @@ void MdVisitor::onCode(MD::Code *c)
     m_Md->push_back(c->text());
     m_Md->push_back(u"\n```"_s);
     addNewBlock();
-    qDebug() << "Code Exit";
 }
 
-void MdVisitor::onInlineCode(MD::Code *c)
+void MDSerializer::onInlineCode(MD::Code *c)
 {
-    qDebug() << "InlineCode Enter";
     openStyle(c->openStyles());
 
     m_Md->push_back(u"`"_s);
@@ -159,12 +159,10 @@ void MdVisitor::onInlineCode(MD::Code *c)
     m_Md->push_back(u"`"_s);
 
     closeStyle(c->closeStyles());
-    qDebug() << "InlineCode Exit";
 }
 
-void MdVisitor::onBlockquote(MD::Blockquote *b)
+void MDSerializer::onBlockquote(MD::Blockquote *b)
 {
-    qDebug() << "Blockquote Enter";
     std::unique_ptr<QString> curStr = std::move(m_Md);
 
     m_Md = std::make_unique<QString>();
@@ -182,12 +180,10 @@ void MdVisitor::onBlockquote(MD::Blockquote *b)
 
     m_Md = std::move(curStr);
     addNewBlock();
-    qDebug() << "Blockquote Exit";
 }
 
-void MdVisitor::onListItem(MD::ListItem *i, bool first, bool skipOpeningWrap)
+void MDSerializer::onListItem(MD::ListItem *i, bool first, bool skipOpeningWrap)
 {
-    qDebug() << "ListItem Enter";
     std::unique_ptr<QString> curStr = std::move(m_Md);
     m_Md = std::make_unique<QString>();
 
@@ -239,12 +235,10 @@ void MdVisitor::onListItem(MD::ListItem *i, bool first, bool skipOpeningWrap)
     *curStr += lines.join(u'\n') + u"\n"_s;
 
     m_Md = std::move(curStr);
-    qDebug() << "ListItem Exit";
 }
 
-void MdVisitor::onList(MD::List *l)
+void MDSerializer::onList(MD::List *l)
 {
-    qDebug() << "List Enter";
     bool first = true;
 
     std::unique_ptr<QString> curStr = std::move(m_Md);
@@ -282,13 +276,10 @@ void MdVisitor::onList(MD::List *l)
     }
 
     m_Md = std::move(curStr);
-    qDebug() << "List Exit";
 }
 
-void MdVisitor::onTable(MD::Table *t)
+void MDSerializer::onTable(MD::Table *t)
 {
-    qDebug() << "Table Enter";
-
     if (!t->isEmpty() && !t->rows().empty()) {
         int columns = 0;
 
@@ -359,18 +350,14 @@ void MdVisitor::onTable(MD::Table *t)
     }
 
     addNewBlock();
-    qDebug() << "Table Exit";
 }
 
-void MdVisitor::onAnchor(MD::Anchor *a)
+void MDSerializer::onAnchor(MD::Anchor *a)
 {
-    qDebug() << "Anchor Enter";
-    qDebug() << "Anchor Exit";
 }
 
-void MdVisitor::onRawHtml(MD::RawHtml *h)
+void MDSerializer::onRawHtml(MD::RawHtml *h)
 {
-    qDebug() << "RawHtml Enter";
     openStyle(h->openStyles());
 
     m_Md->push_back(h->text());
@@ -378,20 +365,16 @@ void MdVisitor::onRawHtml(MD::RawHtml *h)
     closeStyle(h->closeStyles());
 
     addNewBlock();
-    qDebug() << "RawHtml Exit";
 }
 
-void MdVisitor::onHorizontalLine(MD::HorizontalLine *)
+void MDSerializer::onHorizontalLine(MD::HorizontalLine *)
 {
-    qDebug() << "HorizontalLine Enter";
     m_Md->push_back(u"---"_s);
     addNewBlock();
-    qDebug() << "HorizontalLine Exit";
 }
 
-void MdVisitor::onLink(MD::Link *l)
+void MDSerializer::onLink(MD::Link *l)
 {
-    qDebug() << "Link Enter";
     QString url = l->url();
 
     const auto lit = this->m_doc->labeledLinks().find(url);
@@ -435,12 +418,10 @@ void MdVisitor::onLink(MD::Link *l)
     m_Md->push_back(u")"_s);
 
     closeStyle(l->closeStyles());
-    qDebug() << "Link Exit";
 }
 
-void MdVisitor::onImage(MD::Image *i)
+void MDSerializer::onImage(MD::Image *i)
 {
-    qDebug() << "Image Enter";
     openStyle(i->openStyles());
 
     m_Md->push_back(u"!["_s);
@@ -450,12 +431,10 @@ void MdVisitor::onImage(MD::Image *i)
     m_Md->push_back(u")"_s);
 
     closeStyle(i->closeStyles());
-    qDebug() << "Image Exit";
 }
 
-void MdVisitor::onFootnoteRef(MD::FootnoteRef *ref)
+void MDSerializer::onFootnoteRef(MD::FootnoteRef *ref)
 {
-    qDebug() << "FootnoteRef Enter";
     const auto fit = this->m_doc->footnotesMap().find(ref->id());
 
     if (fit != this->m_doc->footnotesMap().cend()) {
@@ -498,10 +477,9 @@ void MdVisitor::onFootnoteRef(MD::FootnoteRef *ref)
     } else {
         onText(static_cast<MD::Text *>(ref));
     }
-    qDebug() << "FootnoteRef Exit";
 }
 
-void MdVisitor::onHeading(MD::Heading *h, const QString &ht)
+void MDSerializer::onHeading(MD::Heading *h, const QString &ht)
 {
     QString hashes(h->level(), u'#');
     *m_Md += hashes + u" "_s;
@@ -513,18 +491,16 @@ void MdVisitor::onHeading(MD::Heading *h, const QString &ht)
     addNewBlock();
 }
 
-void MdVisitor::onFootnotes(const QString &footnoteBackLinkContent)
+void MDSerializer::onFootnotes(const QString &footnoteBackLinkContent)
 {
-    qDebug() << "Footnotes Enter";
-    qDebug() << "Footnotes Exit";
 }
 
-void MdVisitor::addNewBlock()
+void MDSerializer::addNewBlock()
 {
     m_Md->push_back(u"\n\n"_s);
 }
 
-void MdVisitor::trimEnd()
+void MDSerializer::trimEnd()
 {
     while (m_Md->endsWith(u'\n')) {
         m_Md->chop(1);
