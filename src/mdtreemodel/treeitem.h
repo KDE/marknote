@@ -60,11 +60,16 @@ public:
     QString unparsedMarkdown() const;
     void clearUnparsedMarkdown();
 
+    void setUnparsedMarkdownForTable(const QString &text, int row, int col);
+    void clearUnparsedTableMarkdown();
+
     void setCode(const QString &text);
+    void setTableCellMarkdown(int row, int col, const QString &markdown);
 
 private:
     QSharedPointer<MD::Item> m_item;
     QString m_unparsedMd;
+    std::unique_ptr<QList<QList<QString>>> m_unparsedTableMd;
 
     TreeItem *m_parent;
     QList<TreeItem *> m_children;

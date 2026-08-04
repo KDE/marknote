@@ -3,6 +3,7 @@
 
 #include "commandmanager.h"
 #include "deindentlistitem.h"
+#include "editcelltext.h"
 #include "editcode.h"
 #include "edittext.h"
 #include "indentlistitem.h"
@@ -79,6 +80,17 @@ void CommandManager::editText(TreeItem *block, const QString &oldText, const QSt
 void CommandManager::editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition)
 {
     m_undoStack.push(new EditCodeCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
+}
+
+void CommandManager::editTableCellText(TreeItem *block,
+                                       int row,
+                                       int column,
+                                       const QString &oldText,
+                                       const QString &newText,
+                                       int oldCursorPosition,
+                                       int newCursorPosition)
+{
+    m_undoStack.push(new EditCellTextCommand(block, row, column, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
 }
 
 void CommandManager::parseBlock(TreeItem *block, const QString &text)

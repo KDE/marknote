@@ -49,6 +49,7 @@ BlockTemplate {
                     model: blockData.rowCount * blockData.columnCount
 
                     delegate: Item {
+                        id: delegateItem
                         property int rowIndex: Math.floor(index / blockData.columnCount)
                         property int columnIndex: index % blockData.columnCount
 
@@ -64,6 +65,9 @@ BlockTemplate {
                             html: blockData.htmlData[rowIndex][columnIndex]
                             md: blockData.mdData[rowIndex][columnIndex]
                             block: root.block
+                            model: root.delegateModel.model
+                            rowIndex: delegateItem.rowIndex
+                            columnIndex: delegateItem.columnIndex
                             padding: Kirigami.Units.largeSpacing
                             fontBold: rowIndex === 0 ? true : Kirigami.Theme.defaultFont.bold
                             color: rowIndex === 0 ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor

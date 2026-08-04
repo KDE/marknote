@@ -99,6 +99,7 @@ ecm_add_qml_module(marknote_static
         commands/commandmanager.h commands/commandmanager.cpp
         commands/mergewithpreviousblock.h commands/mergewithpreviousblock.cpp
         commands/edittext.h commands/edittext.cpp
+        commands/editcelltext.h commands/editcelltext.cpp
         commands/editcode.h commands/editcode.cpp
         commands/parseblock.h commands/parseblock.cpp
         commands/splitblock.h commands/splitblock.cpp
