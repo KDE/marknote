@@ -199,6 +199,23 @@ QVariantMap TreeItem::data() const
         map[u"md"_s] = m_unparsedMd;
     }
 
+    if (m_item->type() == MD::ItemType::Table && m_unparsedTableMd) {
+        if (map.contains(u"mdData"_s)) {
+            QList<QVariantList> mdData = map[u"mdData"_s].value<QList<QVariantList>>();
+
+            for (int r = 0; r < m_unparsedTableMd->size() && r < mdData.size(); ++r) {
+                for (int c = 0; c < (*m_unparsedTableMd)[r].size() && c < mdData[r].size(); ++c) {
+                    const QString &unparsedText = (*m_unparsedTableMd)[r][c];
+                    if (!unparsedText.isNull()) {
+                        mdData[r][c] = unparsedText;
+                    }
+                }
+            }
+
+            map[u"mdData"_s] = QVariant::fromValue(mdData);
+        }
+    }
+
     return map;
 }
 
@@ -336,6 +353,40 @@ void TreeItem::clearUnparsedMarkdown()
     m_unparsedMd.clear();
 }
 
+void TreeItem::setUnparsedMarkdownForTable(const QString &text, int row, int col)
+{
+    if (m_item->type() != MD::ItemType::Table) {
+        return;
+    }
+
+    auto table = m_item.dynamicCast<MD::Table>();
+    if (!table) {
+        return;
+    }
+
+    if (!m_unparsedTableMd) {
+        int rowCount = table->rows().size();
+        int colCount = table->columnsCount();
+        m_unparsedTableMd = std::make_unique<QList<QList<QString>>>();
+        for (int r = 0; r < rowCount; ++r) {
+            QList<QString> rowData;
+            for (int c = 0; c < colCount; ++c) {
+                rowData.append(QString());
+            }
+            m_unparsedTableMd->append(rowData);
+        }
+    }
+
+    if (row >= 0 && row < m_unparsedTableMd->size() && col >= 0 && col < (*m_unparsedTableMd)[row].size()) {
+        (*m_unparsedTableMd)[row][col] = text;
+    }
+}
+
+void TreeItem::clearUnparsedTableMarkdown()
+{
+    m_unparsedTableMd.reset();
+}
+
 void TreeItem::setCode(const QString &text)
 {
     if (m_item->type() != MD::ItemType::Code) {
@@ -344,4 +395,43 @@ void TreeItem::setCode(const QString &text)
 
     auto codeItem = m_item.dynamicCast<MD::Code>();
     codeItem->setText(text);
+}
+
+void TreeItem::setTableCellMarkdown(int row, int col, const QString &markdown)
+{
+    if (m_item->type() != MD::ItemType::Table) {
+        return;
+    }
+
+    auto tableItem = m_item.dynamicCast<MD::Table>();
+
+    if (row < 0 || row >= tableItem->rows().size()) {
+        return;
+    }
+
+    auto tableRow = tableItem->rows()[row];
+    if (col < 0 || col >= tableRow->cells().size()) {
+        return;
+    }
+
+    QString markdownInTable{QString(u"|%1|\n|-|"_s).arg(markdown)};
+    const auto output = fromMarkdown(markdownInTable);
+
+    if (output.empty()) {
+        return;
+    }
+
+    const auto parsedTable = output[0]->item().dynamicCast<MD::Table>();
+    if (parsedTable && !parsedTable->rows().empty() && !parsedTable->rows()[0]->cells().empty()) {
+        auto parsedCell = parsedTable->rows()[0]->cells()[0].dynamicCast<MD::Block>();
+        auto targetCell = tableRow->cells()[col].dynamicCast<MD::Block>();
+
+        for (int i = targetCell->items().size() - 1; i >= 0; --i) {
+            targetCell->removeItemAt(i);
+        }
+
+        for (const auto &inlineItem : parsedCell->items()) {
+            targetCell->appendItem(inlineItem);
+        }
+    }
 }

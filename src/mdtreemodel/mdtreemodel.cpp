@@ -168,6 +168,28 @@ void MDTreeModel::setItemMD(TreeItem *block, const QString &md)
     }
 }
 
+void MDTreeModel::setItemTableMD(TreeItem *block, int row, int col, const QString &md)
+{
+    if (!block || block->type() != MDOptions::ElementType::Table) {
+        return;
+    }
+    block->setUnparsedMarkdownForTable(md, row, col);
+    if (block->parent()) {
+        childModified(block->parent(), block->row(), block->row());
+    }
+}
+
+void MDTreeModel::setTableCellMD(TreeItem *block, int row, int col, const QString &markdown)
+{
+    if (!block || block->type() != MDOptions::ElementType::Table) {
+        return;
+    }
+    block->setTableCellMarkdown(row, col, markdown);
+    if (block->parent()) {
+        childModified(block->parent(), block->row(), block->row());
+    }
+}
+
 void MDTreeModel::setItemCode(TreeItem *block, const QString &code)
 {
     if (block->type() != MDOptions::ElementType::Code) {

@@ -131,6 +131,11 @@ Item {
         }
 
         Keys.onReturnPressed: event => {
+            if (event.modifiers & Qt.ShiftModifier) {
+                event.accepted = false;
+                return;
+            }
+
             flushTimer();
             const cursorPos = textEdit.cursorPosition;
 
