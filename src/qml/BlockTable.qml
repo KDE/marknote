@@ -121,6 +121,7 @@ BlockTemplate {
                         duration: Kirigami.Units.shortDuration
                     }
                 }
+                onClicked: CommandManager.insertColInTable(root.block)
             }
 
             Button {
@@ -137,6 +138,7 @@ BlockTemplate {
                         duration: Kirigami.Units.shortDuration
                     }
                 }
+                onClicked: CommandManager.insertRowInTable(root.block)
             }
         }
     }

@@ -66,6 +66,11 @@ public:
     void setCode(const QString &text);
     void setTableCellMarkdown(int row, int col, const QString &markdown);
 
+    void appendRowInTable();
+    void appendColInTable();
+    void removeRowFromTable(int row);
+    void removeColFromTable(int col);
+
 private:
     QSharedPointer<MD::Item> m_item;
     QString m_unparsedMd;
