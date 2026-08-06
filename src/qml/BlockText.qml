@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import QtQuick.Window
 
 import org.kde.kirigami as Kirigami
 import org.kde.marknote
@@ -231,12 +232,24 @@ Item {
         onActiveFocusChanged: {
             if (!activeFocus) {
                 if (model.focusedBlock() === root.block) {
-                    // Focus lost due to some unknown reason
-                    // We need to bring it back
-                    Qt.callLater(() => {
-                        model.requestFocus(root.block, model.focusedBlockCursorPos());
-                    })
-                    return;
+                    let activeItem = textEdit.Window.activeFocusItem;
+                    let isFallback = !activeItem;
+                    let p = root.parent;
+                    while (p && !isFallback) {
+                        if (activeItem === p) isFallback = true;
+                        p = p.parent;
+                    }
+
+                    if (!isFallback) {
+                        model.setFocusedBlock(null, -1);
+                    } else {
+                        // Focus lost due to some unknown reason
+                        // We need to bring it back
+                        Qt.callLater(() => {
+                            model.requestFocus(root.block, model.focusedBlockCursorPos());
+                        })
+                        return;
+                    }
                 }
 
                 root.editing = false;

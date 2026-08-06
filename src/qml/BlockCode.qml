@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import QtQuick.Window
 import org.kde.kquickcontrolsaddons as KQuickControlsAddons
 
 import org.kde.kirigami as Kirigami
@@ -129,12 +130,24 @@ BlockTemplate {
                 onActiveFocusChanged: {
                     if (!activeFocus) {
                         if (root.cppModel && root.cppModel.focusedBlock() === root.block) {
-                            // Focus lost due to some unknown reason
-                            // We need to bring it back
-                            Qt.callLater(() => {
-                                root.cppModel.requestFocus(root.block, root.cppModel.focusedBlockCursorPos());
-                            })
-                            return;
+                            let activeItem = codeText.Window.activeFocusItem;
+                            let isFallback = !activeItem;
+                            let p = root.parent;
+                            while (p && !isFallback) {
+                                if (activeItem === p) isFallback = true;
+                                p = p.parent;
+                            }
+
+                            if (!isFallback) {
+                                root.cppModel.setFocusedBlock(null, -1);
+                            } else {
+                                // Focus lost due to some unknown reason
+                                // We need to bring it back
+                                Qt.callLater(() => {
+                                    root.cppModel.requestFocus(root.block, root.cppModel.focusedBlockCursorPos());
+                                })
+                                return;
+                            }
                         }
                         flushTimer();
                     } else {
