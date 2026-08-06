@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import QtQuick.Window
 
 import org.kde.kirigami as Kirigami
 import org.kde.marknote
@@ -164,10 +165,22 @@ Item {
         onActiveFocusChanged: {
             if (!activeFocus) {
                 if (model.focusedBlock() === root.block && model.focusedTableRow() === root.rowIndex && model.focusedTableColumn() === root.columnIndex) {
-                    Qt.callLater(() => {
-                        model.requestFocusOnTable(root.block, root.rowIndex, root.columnIndex, model.focusedBlockCursorPos());
-                    })
-                    return;
+                    let activeItem = textEdit.Window.activeFocusItem;
+                    let isFallback = !activeItem;
+                    let p = root.parent;
+                    while (p && !isFallback) {
+                        if (activeItem === p) isFallback = true;
+                        p = p.parent;
+                    }
+
+                    if (!isFallback) {
+                        model.setFocusedBlock(null, -1);
+                    } else {
+                        Qt.callLater(() => {
+                            model.requestFocusOnTable(root.block, root.rowIndex, root.columnIndex, model.focusedBlockCursorPos());
+                        })
+                        return;
+                    }
                 }
 
                 flushTimer();
