@@ -51,6 +51,11 @@ public:
     void setTableCellMD(TreeItem *block, int row, int col, const QString &markdown);
     void setItemCode(TreeItem *block, const QString &code);
 
+    void appendRowInTable(TreeItem *block);
+    void appendColInTable(TreeItem *block);
+    void removeRowFromTable(TreeItem *block, int row);
+    void removeColFromTable(TreeItem *block, int col);
+
     void insertItem(TreeItem *parent, int row, TreeItem *child);
     void insertItems(TreeItem *parent, int row, const QList<TreeItem *> &children);
     void removeItem(TreeItem *parent, int row);

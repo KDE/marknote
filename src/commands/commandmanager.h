@@ -29,6 +29,9 @@ public:
     editTableCellText(TreeItem *block, int row, int column, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
     Q_INVOKABLE void parseBlock(TreeItem *block, const QString &text);
 
+    Q_INVOKABLE void insertRowInTable(TreeItem *block);
+    Q_INVOKABLE void insertColInTable(TreeItem *block);
+
     Q_INVOKABLE void splitBlock(TreeItem *block, const QString &text, int splitIndex);
     Q_INVOKABLE void splitCode(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition);
     Q_INVOKABLE void insertParagraphBelow(TreeItem *block, const QString &text);

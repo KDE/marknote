@@ -201,6 +201,38 @@ void MDTreeModel::setItemCode(TreeItem *block, const QString &code)
     }
 }
 
+void MDTreeModel::appendRowInTable(TreeItem *block)
+{
+    if (block) {
+        block->appendRowInTable();
+        childModified(block->parent(), block->row(), block->row());
+    }
+}
+
+void MDTreeModel::appendColInTable(TreeItem *block)
+{
+    if (block) {
+        block->appendColInTable();
+        childModified(block->parent(), block->row(), block->row());
+    }
+}
+
+void MDTreeModel::removeRowFromTable(TreeItem *block, int row)
+{
+    if (block) {
+        block->removeRowFromTable(row);
+        childModified(block->parent(), block->row(), block->row());
+    }
+}
+
+void MDTreeModel::removeColFromTable(TreeItem *block, int col)
+{
+    if (block) {
+        block->removeColFromTable(col);
+        childModified(block->parent(), block->row(), block->row());
+    }
+}
+
 void MDTreeModel::insertItem(TreeItem *parent, int row, TreeItem *child)
 {
     if (!parent || !child || row < 0 || row > parent->childCount()) {

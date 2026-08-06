@@ -7,7 +7,9 @@
 #include "editcode.h"
 #include "edittext.h"
 #include "indentlistitem.h"
+#include "insertcolumnintablecommand.h"
 #include "insertparagraphbelow.h"
+#include "insertrowintablecommand.h"
 #include "mergewithpreviousblock.h"
 #include "moveoutsideblockquote.h"
 #include "parseblock.h"
@@ -96,6 +98,16 @@ void CommandManager::editTableCellText(TreeItem *block,
 void CommandManager::parseBlock(TreeItem *block, const QString &text)
 {
     m_undoStack.push(new ParseBlockCommand(block, text, m_model));
+}
+
+void CommandManager::insertRowInTable(TreeItem *block)
+{
+    m_undoStack.push(new InsertRowInTableCommand(block, m_model));
+}
+
+void CommandManager::insertColInTable(TreeItem *block)
+{
+    m_undoStack.push(new InsertColumnInTableCommand(block, m_model));
 }
 
 void CommandManager::mergeWithPreviousBlock(TreeItem *block, const QString &text)
