@@ -18,8 +18,9 @@ BlockTemplate {
 
             color: Kirigami.Theme.highlightColor
             implicitWidth: Kirigami.Units.gridUnit / 4.0
-            implicitHeight: parent.height - Kirigami.Units.mediumSpacing
+            implicitHeight: parent.height
             anchors.verticalCenter: parent.verticalCenter
+            radius: Kirigami.Units.cornerRadius
         }
     }
 }
