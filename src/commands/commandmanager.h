@@ -29,8 +29,8 @@ public:
     editTableCellText(TreeItem *block, int row, int column, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
     Q_INVOKABLE void parseBlock(TreeItem *block, const QString &text);
 
-    Q_INVOKABLE void insertRowInTable(TreeItem *block);
-    Q_INVOKABLE void insertColInTable(TreeItem *block);
+    Q_INVOKABLE void insertRowInTable(TreeItem *block, int index = -1);
+    Q_INVOKABLE void insertColInTable(TreeItem *block, int index = -1);
     Q_INVOKABLE void deleteRowInTable(TreeItem *block, int row);
     Q_INVOKABLE void deleteColumnInTable(TreeItem *block, int col);
 

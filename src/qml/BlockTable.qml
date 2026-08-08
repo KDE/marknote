@@ -26,8 +26,14 @@ BlockTemplate {
 
     Menu {
         id: rowContextMenu
-        MenuItem { text: "Insert Row Above" }
-        MenuItem { text: "Insert Row Below" }
+        MenuItem { 
+            text: "Insert Row Above" 
+            onClicked: CommandManager.insertRowInTable(root.block, root.selectedRow)
+        }
+        MenuItem { 
+            text: "Insert Row Below" 
+            onClicked: CommandManager.insertRowInTable(root.block, root.selectedRow + 1)
+        }
         MenuItem { 
             text: "Delete Row" 
             onClicked: CommandManager.deleteRowInTable(root.block, root.selectedRow)
@@ -37,8 +43,14 @@ BlockTemplate {
 
     Menu {
         id: colContextMenu
-        MenuItem { text: "Insert Column Left" }
-        MenuItem { text: "Insert Column Right" }
+        MenuItem { 
+            text: "Insert Column Left" 
+            onClicked: CommandManager.insertColInTable(root.block, root.selectedColumn)
+        }
+        MenuItem { 
+            text: "Insert Column Right" 
+            onClicked: CommandManager.insertColInTable(root.block, root.selectedColumn + 1)
+        }
         MenuItem { 
             text: "Delete Column" 
             onClicked: CommandManager.deleteColumnInTable(root.block, root.selectedColumn)
