@@ -45,6 +45,7 @@ BlockTemplate {
                 color: Kirigami.Theme.highlightColor
                 implicitWidth: Kirigami.Units.gridUnit / 4.0
                 implicitHeight: Kirigami.Units.gridUnit / 4.0
+                radius: implicitHeight / 2.0
             }
         }
 
