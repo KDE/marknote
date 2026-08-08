@@ -498,6 +498,158 @@ void TreeItem::appendColInTable()
     }
 }
 
+void TreeItem::insertRowInTable(int rowToInsert, QSharedPointer<MD::TableRow> rowData, const QList<QString> &unparsedMdRow)
+{
+    if (m_item->type() != MD::ItemType::Table) {
+        return;
+    }
+
+    auto oldTable = m_item.dynamicCast<MD::Table>();
+    if (rowToInsert < 0 || rowToInsert > oldTable->rows().size()) {
+        return;
+    }
+
+    int colCount = oldTable->columnsCount();
+    if (colCount == 0 && oldTable->rows().size() > 0) {
+        colCount = oldTable->rows()[0]->cells().size();
+    }
+    if (colCount == 0) {
+        colCount = 1;
+    }
+
+    auto newTable = QSharedPointer<MD::Table>::create();
+    for (int c = 0; c < oldTable->columnsCount(); ++c) {
+        newTable->setColumnAlignment(c, oldTable->columnAlignment(c));
+    }
+
+    for (int r = 0; r <= oldTable->rows().size(); ++r) {
+        if (r == rowToInsert) {
+            auto newRow = QSharedPointer<MD::TableRow>::create();
+            if (rowData) {
+                for (int c = 0; c < rowData->cells().size(); ++c) {
+                    auto oldCell = rowData->cells()[c];
+                    auto newCell = QSharedPointer<MD::TableCell>::create();
+                    for (const auto &item : oldCell->items()) {
+                        newCell->appendItem(item);
+                    }
+                    newRow->appendCell(newCell);
+                }
+            } else {
+                for (int c = 0; c < colCount; ++c) {
+                    auto newCell = QSharedPointer<MD::TableCell>::create();
+                    auto newText = QSharedPointer<MD::Text>::create();
+                    newText->setText(QString());
+                    newCell->appendItem(newText);
+                    newRow->appendCell(newCell);
+                }
+            }
+            newTable->appendRow(newRow);
+        }
+
+        if (r < oldTable->rows().size()) {
+            auto oldRow = oldTable->rows()[r];
+            auto newRow = QSharedPointer<MD::TableRow>::create();
+
+            for (int c = 0; c < oldRow->cells().size(); ++c) {
+                auto oldCell = oldRow->cells()[c];
+                auto newCell = QSharedPointer<MD::TableCell>::create();
+
+                for (const auto &item : oldCell->items()) {
+                    newCell->appendItem(item);
+                }
+                newRow->appendCell(newCell);
+            }
+            newTable->appendRow(newRow);
+        }
+    }
+
+    m_item = newTable;
+
+    if (m_unparsedTableMd) {
+        if (rowToInsert >= 0 && rowToInsert <= m_unparsedTableMd->size()) {
+            QList<QString> mdRow;
+            if (!unparsedMdRow.isEmpty()) {
+                mdRow = unparsedMdRow;
+            } else {
+                for (int c = 0; c < colCount; ++c) {
+                    mdRow.append(QString());
+                }
+            }
+            m_unparsedTableMd->insert(rowToInsert, mdRow);
+        }
+    }
+}
+
+void TreeItem::insertColInTable(int colToInsert, const QList<QSharedPointer<MD::TableCell>> &colData, const QList<QString> &unparsedMdCol)
+{
+    if (m_item->type() != MD::ItemType::Table) {
+        return;
+    }
+
+    auto oldTable = m_item.dynamicCast<MD::Table>();
+    int colCount = oldTable->columnsCount();
+    if (colCount == 0 && oldTable->rows().size() > 0) {
+        colCount = oldTable->rows()[0]->cells().size();
+    }
+
+    if (colToInsert < 0 || colToInsert > colCount) {
+        return;
+    }
+
+    auto newTable = QSharedPointer<MD::Table>::create();
+    for (int c = 0, newC = 0; c <= oldTable->columnsCount(); ++c) {
+        if (c == colToInsert) {
+            newTable->setColumnAlignment(newC++, MD::Table::AlignLeft);
+        }
+        if (c < oldTable->columnsCount()) {
+            newTable->setColumnAlignment(newC++, oldTable->columnAlignment(c));
+        }
+    }
+
+    for (int r = 0; r < oldTable->rows().size(); ++r) {
+        auto oldRow = oldTable->rows()[r];
+        auto newRow = QSharedPointer<MD::TableRow>::create();
+
+        for (int c = 0; c <= oldRow->cells().size(); ++c) {
+            if (c == colToInsert) {
+                auto newCell = QSharedPointer<MD::TableCell>::create();
+                if (r < colData.size() && colData[r]) {
+                    for (const auto &item : colData[r]->items()) {
+                        newCell->appendItem(item);
+                    }
+                } else {
+                    auto newText = QSharedPointer<MD::Text>::create();
+                    newText->setText(QString());
+                    newCell->appendItem(newText);
+                }
+                newRow->appendCell(newCell);
+            }
+
+            if (c < oldRow->cells().size()) {
+                auto oldCell = oldRow->cells()[c];
+                auto newCell = QSharedPointer<MD::TableCell>::create();
+
+                for (const auto &item : oldCell->items()) {
+                    newCell->appendItem(item);
+                }
+                newRow->appendCell(newCell);
+            }
+        }
+        newTable->appendRow(newRow);
+    }
+
+    m_item = newTable;
+
+    if (m_unparsedTableMd) {
+        for (int r = 0; r < m_unparsedTableMd->size(); ++r) {
+            if (colToInsert >= 0 && colToInsert <= (*m_unparsedTableMd)[r].size()) {
+                QString cellMd = (r < unparsedMdCol.size()) ? unparsedMdCol[r] : QString();
+                (*m_unparsedTableMd)[r].insert(colToInsert, cellMd);
+            }
+        }
+    }
+}
+
 void TreeItem::removeRowFromTable(int rowToRemove)
 {
     if (m_item->type() != MD::ItemType::Table) {
