@@ -217,6 +217,22 @@ void MDTreeModel::appendColInTable(TreeItem *block)
     }
 }
 
+void MDTreeModel::insertRowInTable(TreeItem *block, int row, QSharedPointer<MD::TableRow> rowToInsert, const QList<QString> &unparsedRowData)
+{
+    if (block) {
+        block->insertRowInTable(row, rowToInsert, unparsedRowData);
+        childModified(block->parent(), block->row(), block->row());
+    }
+}
+
+void MDTreeModel::insertColInTable(TreeItem *block, int col, const QList<QSharedPointer<MD::TableCell>> &colToInsert, const QList<QString> &unparsedColData)
+{
+    if (block) {
+        block->insertColInTable(col, colToInsert, unparsedColData);
+        childModified(block->parent(), block->row(), block->row());
+    }
+}
+
 void MDTreeModel::removeRowFromTable(TreeItem *block, int row)
 {
     if (block) {

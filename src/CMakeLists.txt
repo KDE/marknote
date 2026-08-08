@@ -116,6 +116,8 @@ ecm_add_qml_module(marknote_static
         commands/splitcode.h commands/splitcode.cpp
         commands/insertrowintablecommand.h commands/insertrowintablecommand.cpp
         commands/insertcolumnintablecommand.h commands/insertcolumnintablecommand.cpp
+        commands/removerowfromtablecommand.h commands/removerowfromtablecommand.cpp
+        commands/removecolumnfromtablecommand.h commands/removecolumnfromtablecommand.cpp
 )
 
 kconfig_target_kcfg_file(marknote_static
