@@ -25,7 +25,6 @@ Item {
     property var color: Kirigami.Theme.textColor
     property int padding: 0
     property int fontSize: Kirigami.Theme.defaultFont.pointSize
-    property int fontBold: Kirigami.Theme.defaultFont.bold
     property string fontFamily: Kirigami.Theme.defaultFont.family
 
     property bool editing: false
@@ -73,7 +72,6 @@ Item {
         selectByMouse: false
         padding: root.padding
         font.pointSize: root.fontSize
-        font.bold: root.fontBold
         font.family: root.fontFamily
     }
 
@@ -101,7 +99,6 @@ Item {
         background: null
         padding: root.padding
         font.pointSize: root.fontSize
-        font.bold: root.fontBold
         font.family: root.fontFamily
         color: root.color
 

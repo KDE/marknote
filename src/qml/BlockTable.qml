@@ -16,6 +16,44 @@ BlockTemplate {
     bottomMargin: Kirigami.Units.largeSpacing
 
     readonly property var blockData: root.block.data
+    readonly property var borderColor: Qt.alpha(Kirigami.Theme.textColor, 0.5)
+    readonly property var headerBgColor: Qt.alpha(Kirigami.Theme.highlightColor, 0.3)
+
+    property int hoveredRow: -1
+    property int hoveredColumn: -1
+    property int selectedRow: -1
+    property int selectedColumn: -1
+
+    Menu {
+        id: rowContextMenu
+        MenuItem { text: "Insert Row Above" }
+        MenuItem { text: "Insert Row Below" }
+        MenuItem { 
+            text: "Delete Row" 
+            onClicked: CommandManager.deleteRowInTable(root.block, root.selectedRow)
+        }
+        onClosed: root.selectedRow = -1
+    }
+
+    Menu {
+        id: colContextMenu
+        MenuItem { text: "Insert Column Left" }
+        MenuItem { text: "Insert Column Right" }
+        MenuItem { 
+            text: "Delete Column" 
+            onClicked: CommandManager.deleteColumnInTable(root.block, root.selectedColumn)
+        }
+        onClosed: root.selectedColumn = -1
+    }
+
+    HoverHandler {
+        onHoveredChanged: {
+            if (!hovered) {
+                root.hoveredRow = -1;
+                root.hoveredColumn = -1;
+            }
+        }
+    }
 
     blockComponent: Item {
         implicitWidth: parent.width
@@ -69,12 +107,22 @@ BlockTemplate {
                 rowSpacing: 0
  
                 Repeater {
+                    id: cellRepeater
                     model: blockData.rowCount * blockData.columnCount
 
                     delegate: Item {
                         id: delegateItem
                         property int rowIndex: Math.floor(index / blockData.columnCount)
                         property int columnIndex: index % blockData.columnCount
+
+                        HoverHandler {
+                            onHoveredChanged: {
+                                if (hovered) {
+                                    root.hoveredRow = delegateItem.rowIndex;
+                                    root.hoveredColumn = delegateItem.columnIndex;
+                                }
+                            }
+                        }
 
                         Layout.preferredWidth: cell.implicitWidth
                         Layout.preferredHeight: cell.implicitHeight
@@ -92,20 +140,59 @@ BlockTemplate {
                             rowIndex: delegateItem.rowIndex
                             columnIndex: delegateItem.columnIndex
                             padding: Kirigami.Units.largeSpacing
-                            fontBold: rowIndex === 0 ? true : Kirigami.Theme.defaultFont.bold
-                            color: rowIndex === 0 ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+                            color: Kirigami.Theme.textColor
                         }
 
                         Rectangle {
                             anchors.fill: parent
-                            border.color: Kirigami.Theme.textColor
+                            border.color: root.borderColor
                             border.width: 1
-                            color: rowIndex === 0 ? Kirigami.Theme.highlightColor : (rowIndex % 2 != 0 ? Kirigami.Theme.backgroundColor : Kirigami.Theme.alternateBackgroundColor)
+                            color: rowIndex === 0 ? root.headerBgColor : (rowIndex % 2 != 0 ? Kirigami.Theme.backgroundColor : Kirigami.Theme.alternateBackgroundColor)
                             z: -1
+                        }
+
+                        Rectangle {
+                            visible: delegateItem.columnIndex === 0 && root.hoveredRow === delegateItem.rowIndex && root.selectedRow === -1
+                            width: Kirigami.Units.gridUnit / 4.0
+                            height: Kirigami.Units.gridUnit / 1.25
+                            radius: Kirigami.Units.cornerRadius
+                            color: Kirigami.Theme.textColor
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.horizontalCenter: parent.left
+                            z: 10
+                            
+                            MouseArea {
+                                anchors.fill: parent
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: {
+                                    root.selectedRow = delegateItem.rowIndex;
+                                    rowContextMenu.popup();
+                                }
+                            }
+                        }
+
+                        Rectangle {
+                            visible: delegateItem.rowIndex === 0 && root.hoveredColumn === delegateItem.columnIndex && root.selectedColumn === -1
+                            height: Kirigami.Units.gridUnit / 4.0
+                            width: Kirigami.Units.gridUnit / 1.25
+                            radius: Kirigami.Units.cornerRadius
+                            color: Kirigami.Theme.textColor
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.verticalCenter: parent.top
+                            z: 10
+                            
+                            MouseArea {
+                                anchors.fill: parent
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: {
+                                    root.selectedColumn = delegateItem.columnIndex;
+                                    colContextMenu.popup();
+                                }
+                            }
                         }
                     }
                 }
-            }
+            } // end table
 
             Button {
                 id: colButton
@@ -140,6 +227,34 @@ BlockTemplate {
                 }
                 onClicked: CommandManager.insertRowInTable(root.block)
             }
+        } // end tableWrapper
+
+        Rectangle {
+            visible: root.selectedRow !== -1
+            color: "transparent"
+            border.color: Kirigami.Theme.highlightColor
+            border.width: 2
+            z: 10
+
+            property Item firstCell: root.selectedRow !== -1 ? cellRepeater.itemAt(root.selectedRow * blockData.columnCount) : null
+            x: tableWrapper.x + table.x
+            y: tableWrapper.y + table.y + (firstCell ? firstCell.y : 0)
+            width: table.width
+            height: firstCell ? firstCell.height : 0
+        }
+
+        Rectangle {
+            visible: root.selectedColumn !== -1
+            color: "transparent"
+            border.color: Kirigami.Theme.highlightColor
+            border.width: 2
+            z: 10
+
+            property Item topCell: root.selectedColumn !== -1 ? cellRepeater.itemAt(root.selectedColumn) : null
+            x: tableWrapper.x + table.x + (topCell ? topCell.x : 0)
+            y: tableWrapper.y + table.y
+            width: topCell ? topCell.width : 0
+            height: table.height
         }
     }
 }
