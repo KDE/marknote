@@ -14,7 +14,9 @@
 #include "moveoutsideblockquote.h"
 #include "parseblock.h"
 #include "removeblockquote.h"
+#include "removecolumnfromtablecommand.h"
 #include "removefromlist.h"
+#include "removerowfromtablecommand.h"
 #include "splitblock.h"
 #include "splitcode.h"
 #include "splitlistitem.h"
@@ -108,6 +110,16 @@ void CommandManager::insertRowInTable(TreeItem *block)
 void CommandManager::insertColInTable(TreeItem *block)
 {
     m_undoStack.push(new InsertColumnInTableCommand(block, m_model));
+}
+
+void CommandManager::deleteRowInTable(TreeItem *block, int row)
+{
+    m_undoStack.push(new RemoveRowFromTableCommand(block, row, m_model));
+}
+
+void CommandManager::deleteColumnInTable(TreeItem *block, int col)
+{
+    m_undoStack.push(new RemoveColumnFromTableCommand(block, col, m_model));
 }
 
 void CommandManager::mergeWithPreviousBlock(TreeItem *block, const QString &text)

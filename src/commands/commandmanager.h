@@ -31,6 +31,8 @@ public:
 
     Q_INVOKABLE void insertRowInTable(TreeItem *block);
     Q_INVOKABLE void insertColInTable(TreeItem *block);
+    Q_INVOKABLE void deleteRowInTable(TreeItem *block, int row);
+    Q_INVOKABLE void deleteColumnInTable(TreeItem *block, int col);
 
     Q_INVOKABLE void splitBlock(TreeItem *block, const QString &text, int splitIndex);
     Q_INVOKABLE void splitCode(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition);
