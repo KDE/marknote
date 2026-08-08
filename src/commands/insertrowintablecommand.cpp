@@ -5,11 +5,12 @@
 
 using namespace Qt::StringLiterals;
 
-InsertRowInTableCommand::InsertRowInTableCommand(TreeItem *block, MDTreeModel *model, QUndoCommand *parent)
+InsertRowInTableCommand::InsertRowInTableCommand(TreeItem *block, int index, MDTreeModel *model, QUndoCommand *parent)
     : QUndoCommand(parent)
     , m_block(block)
     , m_model(model)
     , m_row(-1)
+    , m_insertIndex(index)
 {
 }
 
@@ -27,7 +28,8 @@ void InsertRowInTableCommand::undo()
 
 void InsertRowInTableCommand::redo()
 {
-    m_model->appendRowInTable(m_block);
-    m_row = m_block->data().value(u"rowCount"_s).toInt() - 1;
+    int actualRow = m_insertIndex == -1 ? m_block->data().value(u"rowCount"_s).toInt() : m_insertIndex;
+    m_model->insertRowInTable(m_block, actualRow);
+    m_row = actualRow;
     m_model->requestFocusOnTable(m_block, m_row, 0, 0);
 }

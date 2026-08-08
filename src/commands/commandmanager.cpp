@@ -102,14 +102,14 @@ void CommandManager::parseBlock(TreeItem *block, const QString &text)
     m_undoStack.push(new ParseBlockCommand(block, text, m_model));
 }
 
-void CommandManager::insertRowInTable(TreeItem *block)
+void CommandManager::insertRowInTable(TreeItem *block, int index)
 {
-    m_undoStack.push(new InsertRowInTableCommand(block, m_model));
+    m_undoStack.push(new InsertRowInTableCommand(block, index, m_model));
 }
 
-void CommandManager::insertColInTable(TreeItem *block)
+void CommandManager::insertColInTable(TreeItem *block, int index)
 {
-    m_undoStack.push(new InsertColumnInTableCommand(block, m_model));
+    m_undoStack.push(new InsertColumnInTableCommand(block, index, m_model));
 }
 
 void CommandManager::deleteRowInTable(TreeItem *block, int row)

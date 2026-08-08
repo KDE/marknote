@@ -10,7 +10,7 @@
 class InsertColumnInTableCommand : public QUndoCommand
 {
 public:
-    InsertColumnInTableCommand(TreeItem *block, MDTreeModel *model, QUndoCommand *parent = nullptr);
+    InsertColumnInTableCommand(TreeItem *block, int index, MDTreeModel *model, QUndoCommand *parent = nullptr);
     ~InsertColumnInTableCommand() override;
 
     void undo() override;
@@ -20,6 +20,7 @@ private:
     TreeItem *m_block;
     MDTreeModel *m_model;
     int m_col;
+    int m_insertIndex;
 };
 
 #endif // INSERTCOLUMNINTABLECOMMAND_H

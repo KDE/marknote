@@ -5,11 +5,12 @@
 
 using namespace Qt::StringLiterals;
 
-InsertColumnInTableCommand::InsertColumnInTableCommand(TreeItem *block, MDTreeModel *model, QUndoCommand *parent)
+InsertColumnInTableCommand::InsertColumnInTableCommand(TreeItem *block, int index, MDTreeModel *model, QUndoCommand *parent)
     : QUndoCommand(parent)
     , m_block(block)
     , m_model(model)
     , m_col(-1)
+    , m_insertIndex(index)
 {
 }
 
@@ -27,7 +28,8 @@ void InsertColumnInTableCommand::undo()
 
 void InsertColumnInTableCommand::redo()
 {
-    m_model->appendColInTable(m_block);
-    m_col = m_block->data().value(u"columnCount"_s).toInt() - 1;
+    int actualCol = m_insertIndex == -1 ? m_block->data().value(u"columnCount"_s).toInt() : m_insertIndex;
+    m_model->insertColInTable(m_block, actualCol);
+    m_col = actualCol;
     m_model->requestFocusOnTable(m_block, 0, m_col, 0);
 }
