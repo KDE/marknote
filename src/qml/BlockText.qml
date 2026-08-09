@@ -164,6 +164,15 @@ Item {
         }
 
         Keys.onPressed: (event) => {
+            if (event.matches(StandardKey.SelectAll)) {
+                if (textEdit.text.length === 0 || textEdit.selectedText.length === textEdit.text.length) {
+                    model.selectAll();
+                    textEdit.focus = false;
+                    event.accepted = true;
+                    return;
+                }
+            }
+
             if (event.key === Qt.Key_Space) {
                 if (CommandManager.autoTransform(root.block, textEdit.text, textEdit.cursorPosition, index)) {
                     textEdit.text = root.md;

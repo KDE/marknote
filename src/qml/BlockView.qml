@@ -16,6 +16,15 @@ Item {
 
     property alias listView: blockListView
 
+    Shortcut {
+        sequence: StandardKey.SelectAll
+        onActivated: {
+            if (richDocumentHandler && richDocumentHandler.treeModel) {
+                richDocumentHandler.treeModel.selectAll();
+            }
+        }
+    }
+
     property real selectionStartContentX: 0
     property real selectionStartContentY: 0
     property real selectionCurrentContentX: 0
@@ -97,8 +106,8 @@ Item {
             }
 
             if (scrollSpeed !== 0) {
-                let maxContentY = blockListView.contentHeight - blockListView.height + blockListView.originY;
                 let minContentY = blockListView.originY;
+                let maxContentY = Math.max(minContentY, blockListView.contentHeight - blockListView.height + blockListView.originY);
                 
                 let newContentY = blockListView.contentY + scrollSpeed;
                 if (newContentY < minContentY) newContentY = minContentY;
@@ -119,10 +128,10 @@ Item {
         onActiveChanged: {
             if (active) {
                 root.isSelecting = true;
-                root.selectionStartContentX = centroid.position.x + blockListView.contentX;
-                root.selectionStartContentY = centroid.position.y + blockListView.contentY;
-                root.selectionCurrentContentX = centroid.position.x + blockListView.contentX;
-                root.selectionCurrentContentY = centroid.position.y + blockListView.contentY;
+                root.selectionStartContentX = centroid.position.x - blockListView.x + blockListView.contentX;
+                root.selectionStartContentY = centroid.position.y - blockListView.y + blockListView.contentY;
+                root.selectionCurrentContentX = centroid.position.x - blockListView.x + blockListView.contentX;
+                root.selectionCurrentContentY = centroid.position.y - blockListView.y + blockListView.contentY;
                 
                 root.selectionStartIndex = root.getIndexAtContentY(root.selectionStartContentY);
                 root.selectionCurrentIndex = root.selectionStartIndex;
@@ -135,8 +144,8 @@ Item {
         }
         onCentroidChanged: {
             if (active) {
-                root.selectionCurrentContentX = centroid.position.x + blockListView.contentX;
-                root.selectionCurrentContentY = centroid.position.y + blockListView.contentY;
+                root.selectionCurrentContentX = centroid.position.x - blockListView.x + blockListView.contentX;
+                root.selectionCurrentContentY = centroid.position.y - blockListView.y + blockListView.contentY;
                 root.updateSelection();
             }
         }
@@ -144,8 +153,8 @@ Item {
 
     Rectangle {
         visible: root.isSelecting
-        x: Math.min(root.selectionStartContentX, root.selectionCurrentContentX) - blockListView.contentX
-        y: Math.min(root.selectionStartContentY, root.selectionCurrentContentY) - blockListView.contentY
+        x: Math.min(root.selectionStartContentX, root.selectionCurrentContentX) - blockListView.contentX + blockListView.x
+        y: Math.min(root.selectionStartContentY, root.selectionCurrentContentY) - blockListView.contentY + blockListView.y
         width: Math.abs(root.selectionCurrentContentX - root.selectionStartContentX)
         height: Math.abs(root.selectionCurrentContentY - root.selectionStartContentY)
         color: Qt.alpha(Kirigami.Theme.highlightColor, 0.3)
