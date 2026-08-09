@@ -520,3 +520,15 @@ QList<TreeItem *> MDTreeModel::selectedBlocks() const
     }
     return blocks;
 }
+
+void MDTreeModel::selectAll()
+{
+    QVariantList allIndices;
+    if (m_rootItem) {
+        int count = m_rootItem->childCount();
+        for (int i = 0; i < count; ++i) {
+            allIndices.append(i);
+        }
+    }
+    setSelectedIndices(allIndices);
+}

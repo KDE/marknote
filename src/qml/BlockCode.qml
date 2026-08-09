@@ -98,6 +98,17 @@ BlockTemplate {
                 }
 
                 Keys.onPressed: (event) => {
+                    if (event.matches(StandardKey.SelectAll)) {
+                        if (codeText.text.length === 0 || codeText.selectedText.length === codeText.text.length) {
+                            if (root.cppModel) {
+                                root.cppModel.selectAll();
+                            }
+                            codeText.focus = false;
+                            event.accepted = true;
+                            return;
+                        }
+                    }
+
                     if (event.key === Qt.Key_Z && (event.modifiers & Qt.ControlModifier)) {
                         flushTimer();
                         if (event.modifiers & Qt.ShiftModifier) {

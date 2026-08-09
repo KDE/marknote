@@ -82,6 +82,7 @@ public:
     QVariantList selectedIndices() const;
     void setSelectedIndices(const QVariantList &indices);
     Q_INVOKABLE QList<TreeItem *> selectedBlocks() const;
+    Q_INVOKABLE void selectAll();
 
 Q_SIGNALS:
     void focusRequested(TreeItem *block, int cursorPosition);
