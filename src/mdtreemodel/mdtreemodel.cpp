@@ -495,3 +495,28 @@ int MDTreeModel::focusedTableColumn() const
     }
     return -1;
 }
+
+QVariantList MDTreeModel::selectedIndices() const
+{
+    return m_selectedIndices;
+}
+
+void MDTreeModel::setSelectedIndices(const QVariantList &indices)
+{
+    if (m_selectedIndices != indices) {
+        m_selectedIndices = indices;
+        Q_EMIT selectedIndicesChanged();
+    }
+}
+
+QList<TreeItem *> MDTreeModel::selectedBlocks() const
+{
+    QList<TreeItem *> blocks;
+    for (const QVariant &var : m_selectedIndices) {
+        int index = var.toInt();
+        if (index >= 0 && index < m_rootItem->childCount()) {
+            blocks.append(m_rootItem->child(index));
+        }
+    }
+    return blocks;
+}
