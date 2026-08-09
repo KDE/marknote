@@ -26,8 +26,10 @@ Rectangle {
 
     property Component blockComponent: null;
 
+    property bool isSelected: ListView.view && ListView.view.selectedIndices ? ListView.view.selectedIndices.includes(index) : false
+
     radius: Kirigami.Units.smallSpacing
-    color: "transparent"
+    color: isSelected ? Qt.alpha(Kirigami.Theme.highlightColor, 0.2) : "transparent"
 
     RowLayout {
         id: row
