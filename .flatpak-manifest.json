@@ -4,7 +4,9 @@
     "runtime-version": "6.11",
     "sdk": "org.kde.Sdk",
     "command": "marknote",
-    "tags": ["nightly"],
+    "tags": [
+        "nightly"
+    ],
     "desktop-file-name-suffix": " (Nightly)",
     "finish-args": [
         "--share=ipc",
@@ -15,14 +17,20 @@
         "--filesystem=xdg-documents"
     ],
     "separate-locales": false,
-
     "modules": [
         {
             "name": "marknote",
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "sources": [ { "type": "dir", "path": ".", "skip": [".git"] } ]
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": ".",
+                    "skip": [
+                        ".git"
+                    ]
+                }
+            ]
         }
     ]
 }
-
