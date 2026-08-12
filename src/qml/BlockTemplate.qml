@@ -20,6 +20,12 @@ Rectangle {
     implicitWidth: ListView.view ? ListView.view.width : 0
     implicitHeight: row.implicitHeight + root.topMargin + root.bottomMargin
 
+    SystemPalette {
+        id: sysPalette
+        colorGroup: SystemPalette.Active
+    }
+
+    readonly property bool isDarkMode: sysPalette.windowText.hslLightness > sysPalette.window.hslLightness
     property var delegateModel: ListView.view ? ListView.view.model : null
     property var cppModel: delegateModel ? delegateModel.model : null
     property var nodeIndex: delegateModel ? delegateModel.modelIndex(index) : null
@@ -30,17 +36,70 @@ Rectangle {
 
     radius: Kirigami.Units.smallSpacing
     color: isSelected ? Qt.alpha(Kirigami.Theme.highlightColor, 0.2) : "transparent"
+    Behavior on color { ColorAnimation { duration: Kirigami.Units.shortDuration } }
+
+    HoverHandler {
+        id: blockHoverHandler
+        blocking: true
+    }
+
+    Rectangle {
+        id: dragHandle
+        
+        anchors.right: row.left
+        anchors.rightMargin: Kirigami.Units.mediumSpacing
+        anchors.verticalCenter: root.verticalCenter
+        
+        implicitWidth: handleText.implicitWidth + Kirigami.Units.smallSpacing * 2
+        implicitHeight: root.height
+        radius: Kirigami.Units.cornerRadius
+        color: isDarkMode ? Qt.darker(Kirigami.Theme.textColor, 3) : Qt.lighter(Kirigami.Theme.textColor, 3)
+
+        opacity: dragMouseArea.containsMouse ? 1.0 : (blockHoverHandler.hovered ? 0.2 : 0)
+        Behavior on opacity { NumberAnimation { duration: Kirigami.Units.shortDuration } }
+        z: 99
+
+        Text {
+            id: handleText
+            text: "\u205D\u205D"
+            color: Kirigami.Theme.textColor
+            anchors.centerIn: parent
+        }
+
+        MouseArea {
+            id: dragMouseArea
+            anchors.left: dragHandle.left
+            anchors.top: dragHandle.top
+            anchors.bottom: dragHandle.bottom
+            width: dragHandle.implicitWidth * 2
+            hoverEnabled: true
+            cursorShape: Qt.OpenHandCursor
+            onPressed: cursorShape = Qt.ClosedHandCursor
+            onReleased: cursorShape = Qt.OpenHandCursor
+        }
+    }
 
     RowLayout {
         id: row
 
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.leftMargin: Kirigami.Units.mediumSpacing
+        anchors.leftMargin: dragMouseArea.containsMouse ? Kirigami.Units.largeSpacing * 2 : Kirigami.Units.mediumSpacing
         anchors.rightMargin: Kirigami.Units.mediumSpacing
         anchors.topMargin: root.topMargin
         anchors.bottomMargin: root.bottomMargin
         anchors.verticalCenter: parent.verticalCenter
+
+        Behavior on anchors.leftMargin {
+            SequentialAnimation {
+                PauseAnimation {
+                    duration: Kirigami.Units.longDuration
+                }
+                NumberAnimation {
+                    duration: Kirigami.Units.shortDuration
+                }
+            }
+        }
 
         Loader {
             id: blockLoader

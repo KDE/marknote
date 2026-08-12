@@ -4,8 +4,14 @@
 import QtQuick
 import QtQuick.Layouts
 
+import org.kde.kirigami as Kirigami
+
 BlockTemplate {
     id: root
 
     isFinalBlock: false
+
+    blockComponent: Item {
+        width: Kirigami.Units.smallSpacing
+    }
 }

@@ -183,7 +183,7 @@ Item {
             ScrollBar.vertical: verticalScrollBar
             synchronousDrag: true
 
-            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.leftMargin: Kirigami.Units.largeSpacing * 3
             Layout.rightMargin: Kirigami.Units.largeSpacing
             Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
