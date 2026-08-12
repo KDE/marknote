@@ -148,7 +148,7 @@ msgstr "© 2023–2026 ماتيس بروشيرت"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
-msgstr "تعذر إعادة تسمية الملاحظة. الملف أو المجلد موجودان فعلاً بنفس الاسم."
+msgstr "تعذر إعادة تسمية الملاحظة. الملف أو المجلد موجودان فعلًا بنفس الاسم."
 
 #: notesmodel.cpp:289
 #, kde-format
@@ -351,7 +351,7 @@ msgstr "مسار الرّابط:"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
-msgstr "غير قادر على إنشاء ملاحظة جديدة، يجب عليك إنشاء دفتر ملاحظات أولاً."
+msgstr "غير قادر على إنشاء ملاحظة جديدة، يجب عليك إنشاء دفتر ملاحظات أولًا."
 
 #: qml/Main.qml:160
 #, kde-format
@@ -541,7 +541,7 @@ msgstr "النص الذي سيعرض:"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
-msgstr "نص بديل اختياري لعرضه بدلاً من اسم الملاحظة."
+msgstr "نص بديل اختياري لعرضه بدلًا من اسم الملاحظة."
 
 #: qml/NoteMetadataDialog.qml:24
 #, kde-format
