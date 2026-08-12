@@ -196,7 +196,7 @@ EditPage {
         id: linkDialog
         implicitWidth: Kirigami.Units.gridUnit * 20
 
-        parent: root.Overlay.overlay
+        parent: root.overlay
         onAccepted: root.document.updateLink(linkUrl, linkText)
     }
 
@@ -204,7 +204,7 @@ EditPage {
         id: noteLinkDialog
         implicitWidth: Kirigami.Units.gridUnit * 20
 
-        parent: root.Overlay.overlay
+        parent: root.overlay
         onAccepted: root.document.updateNoteLink(noteName, noteAlias)
     }
 
@@ -228,7 +228,7 @@ EditPage {
         id: tableDialog
         implicitWidth: Kirigami.Units.gridUnit * 20
 
-        parent: root.Overlay.overlay
+        parent: root.overlay
         onAccepted: root.document.insertTable(rows, cols)
     }
 
@@ -248,7 +248,7 @@ EditPage {
 
         treeModel: root.document.treeModel
         blockView: root.mainContentItem ? root.mainContentItem.listView : null
-        parent: root.Overlay.overlay
+        parent: root.overlay
 
         topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
         bottomMargin: 0
@@ -523,7 +523,7 @@ EditPage {
     Components.FloatingButton {
         id: floatingEditButton
         icon.name: "document-edit"
-        parent: root.overlay
+        parent: root.Overlay.overlay
         visible: !root.canFitToolbar && !NavigationController.sourceMode
         scale: mobileToolBarContainer.hidden ? 1.0 : 0.0
 
