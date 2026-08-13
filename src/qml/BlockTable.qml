@@ -9,12 +9,7 @@ import org.kde.kirigami as Kirigami
 BlockTemplate {
     id: root
 
-    SystemPalette {
-        id: sysPalette
-        colorGroup: SystemPalette.Active
-    }
-
-    readonly property bool isDarkMode: sysPalette.windowText.hslLightness > sysPalette.window.hslLightness
+    readonly property bool isDarkMode: Kirigami.Theme.textColor.hslLightness > Kirigami.Theme.backgroundColor.hslLightness
     readonly property var blockData: root.block.data
     readonly property color borderColor: isDarkMode ? Qt.darker(Kirigami.Theme.textColor, 1.25) : Qt.lighter(Kirigami.Theme.textColor, 1.25)
     readonly property color headerBgColor: isDarkMode ? Qt.darker(Kirigami.Theme.highlightColor, 1.5) : Qt.lighter(Kirigami.Theme.highlightColor, 1.5)

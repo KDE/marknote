@@ -20,12 +20,7 @@ Rectangle {
     implicitWidth: ListView.view ? ListView.view.width : 0
     implicitHeight: row.implicitHeight + root.topMargin + root.bottomMargin
 
-    SystemPalette {
-        id: sysPalette
-        colorGroup: SystemPalette.Active
-    }
-
-    readonly property bool isDarkMode: sysPalette.windowText.hslLightness > sysPalette.window.hslLightness
+    readonly property bool isDarkMode: Kirigami.Theme.textColor.hslLightness > Kirigami.Theme.backgroundColor.hslLightness
     property var delegateModel: ListView.view ? ListView.view.model : null
     property var cppModel: delegateModel ? delegateModel.model : null
     property var nodeIndex: delegateModel ? delegateModel.modelIndex(index) : null
