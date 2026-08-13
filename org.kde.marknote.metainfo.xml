@@ -428,7 +428,7 @@
             less
             cluttered.
         </p>
-        <p xml:lang="ar">يمكن الآن التراجع عن التغييرات وإعادتها باستخدام أزرار في واجهة المستخدم، بدلاً من الاعتماد على اختصارات لوحة المفاتيح، وهذا مفيد بشكل خاص إذا كنت تستخدم لوحة مفاتيح افتراضية قد لا تحتوي على مفتاح التحكم. أُعيد تنظيم قائمة التطبيق وتبسيطها لتكون أقل ازدحامًا.</p>
+        <p xml:lang="ar">يمكن الآن التراجع عن التغييرات وإعادتها باستخدام أزرار في واجهة المستخدم، بدلًا من الاعتماد على اختصارات لوحة المفاتيح، وهذا مفيد بشكل خاص إذا كنت تستخدم لوحة مفاتيح افتراضية قد لا تحتوي على مفتاح التحكم. أُعيد تنظيم قائمة التطبيق وتبسيطها لتكون أقل ازدحامًا.</p>
         <p xml:lang="ca">Ara podeu desfer i refer els canvis utilitzant botons a la interfície d'usuari, en lloc de dependre de les dreceres de teclat, cosa que és especialment útil si utilitzeu un teclat virtual que pot no tenir una tecla de control. El menú de l'aplicació s'ha reorganitzat i simplificat per a fer-lo menys desordenat.</p>
         <p xml:lang="ca-valencia">Ara podeu desfer i refer els canvis utilitzant botons a la interfície d'usuari, en lloc de dependre de les dreceres de teclat, cosa que és especialment útil si utilitzeu un teclat virtual que pot no tindre una tecla «Ctrl». El menú de l'aplicació s'ha reorganitzat i simplificat per a fer-lo menys desordenat.</p>
         <p xml:lang="cs">Změny můžete nyní vracet zpět a opakovat pomocí tlačítek v uživatelském rozhraní, místo abyste se spoléhali na klávesové zkratky, což je obzvláště užitečné, pokud používáte virtuální klávesnici, která nemusí mít klávesu Ctrl. Nabídka aplikace byla přepracována a zjednodušena, aby působila přehledněji.</p>
@@ -648,7 +648,7 @@
             sidebar is now collapsible and we added a focus mode where
             everything but the text editor is displayed.
         </p>
-        <p xml:lang="ar">حُسنت إدارة الملاحظات مع القدرة على اختيار مجلد مخصص لتخزين ملاحظاتك وأُتيح تغيير فرز الملاحظات من أبجدي إلى حسب التاريخ. أصبح الشريط الجانبي قابلاً للطي وأُضيف وضع التركيز حيث يُعرض المحرر النصي فقط.</p>
+        <p xml:lang="ar">حُسنت إدارة الملاحظات مع القدرة على اختيار مجلد مخصص لتخزين ملاحظاتك وأُتيح تغيير فرز الملاحظات من أبجدي إلى حسب التاريخ. أصبح الشريط الجانبي قابلًا للطي وأُضيف وضع التركيز حيث يُعرض المحرر النصي فقط.</p>
         <p xml:lang="ca">Hem millorat la gestió de les notes amb la capacitat d'escollir una carpeta personalitzada on emmagatzemar-les i permetre canviar l'ordenació de les notes alfabèticament a fer-ho per data. La barra lateral ara es pot reduir i hem afegit un mode d'enfocament on es mostra només l'editor de text.</p>
         <p xml:lang="ca-valencia">Hem millorat la gestió de les notes amb la capacitat d'escollir una carpeta personalitzada on emmagatzemar-les i permetre canviar l'ordenació de les notes alfabèticament a fer-ho per data. La barra lateral ara es pot reduir i hem afegit un mode d'enfocament on es mostra només l'editor de text.</p>
         <p xml:lang="cs">Vylepšili jsme správu poznámek o možnost zvolit si vlastní složku pro jejich ukládání a umožnili jsme změnit řazení poznámek z abecedního na chronologické. Postranní panel lze nyní sbalit a přidali jsme režim soustředění, ve kterém se zobrazuje pouze textový editor.</p>
@@ -892,7 +892,7 @@
           reworked all the dialogs in Markdown to use the newly introduced
           FormCardDialog from KirigamiAddons.
         </p>
-        <p xml:lang="ar">أُضيف أيضًا شريط أوامر مريح مشابه للموجود في Merkuro. يوفر هذا وصولاً سريعًا للإجراءات الأساسية داخل دفتر مارك. حاليًا يقوم فقط بإنشاء دفتر ملاحظات وملاحظة جديدة، ولكن نخطط لتوفير المزيد من الإجراءات في المستقبل. أخيرًا، أُعيد العمل على جميع الحوارات في مارك داون لاستخدام FormCardDialog المستحدث من KirigamiAddons.</p>
+        <p xml:lang="ar">أُضيف أيضًا شريط أوامر مريح مشابه للموجود في Merkuro. يوفر هذا وصولًا سريعًا للإجراءات الأساسية داخل دفتر مارك. حاليًا يقوم فقط بإنشاء دفتر ملاحظات وملاحظة جديدة، ولكن نخطط لتوفير المزيد من الإجراءات في المستقبل. أخيرًا، أُعيد العمل على جميع الحوارات في مارك داون لاستخدام FormCardDialog المستحدث من KirigamiAddons.</p>
         <p xml:lang="ca">També hem introduït una barra d'ordres pràctica similar a la del Merkuro. Això proporciona un accés ràpid a les accions essencials dins del Marknote. Actualment només crea un bloc i una nota nous, però tenim previst fer disponibles més accions en el futur. Finalment, hem redissenyat tots els diàlegs del Markdown per a utilitzar el nou FormCardDialog de KirigamiAddons.</p>
         <p xml:lang="ca-valencia">També hem introduït una barra d'ordres pràctica similar a la de Merkuro. Açò proporciona un accés ràpid a les accions essencials dins de MarkNote. Actualment només crea un bloc i una nota nous, però tenim previst fer disponibles més accions en el futur. Finalment, hem redissenyat tots els diàlegs de Markdown per a utilitzar el nou FormCardDialog de KirigamiAddons.</p>
         <p xml:lang="cs">Zavedli jsme také praktickou lištu příkazů podobnou té v aplikaci Merkuro. Ta umožňuje rychlý přístup k základním funkcím v aplikaci Marknote. Momentálně slouží pouze k vytváření nových zápisníků a poznámek, ale v budoucnu plánujeme přidat další funkce. Nakonec jsme přepracovali všechny dialogová okna v Markdownu tak, aby využívala nově zavedený FormCardDialog z balíčku KirigamiAddons.</p>
