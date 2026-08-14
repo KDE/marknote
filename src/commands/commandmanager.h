@@ -46,6 +46,7 @@ public:
     Q_INVOKABLE void indentListItem(TreeItem *block, int cursorPosition);
     Q_INVOKABLE bool convertToParagraph(TreeItem *block, int cursorPosition);
     Q_INVOKABLE bool moveOutsideBlockquote(TreeItem *block, int cursorPosition);
+    Q_INVOKABLE void moveBlock(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex);
 
     Q_INVOKABLE void moveToPreviousBlock(TreeItem *block, const QString &currentText, int cursorPosition);
     Q_INVOKABLE void moveToNextBlock(TreeItem *block, const QString &currentText, int cursorPosition);
