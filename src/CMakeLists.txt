@@ -113,6 +113,7 @@ ecm_add_qml_module(marknote_static
         commands/transformtolist.h commands/transformtolist.cpp
         commands/transformtochecklist.h commands/transformtochecklist.cpp
         commands/insertparagraphbelow.h commands/insertparagraphbelow.cpp
+        commands/moveblockcommand.h commands/moveblockcommand.cpp
         commands/splitcode.h commands/splitcode.cpp
         commands/insertrowintablecommand.h commands/insertrowintablecommand.cpp
         commands/insertcolumnintablecommand.h commands/insertcolumnintablecommand.cpp

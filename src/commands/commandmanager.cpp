@@ -11,6 +11,7 @@
 #include "insertparagraphbelow.h"
 #include "insertrowintablecommand.h"
 #include "mergewithpreviousblock.h"
+#include "moveblockcommand.h"
 #include "moveoutsideblockquote.h"
 #include "parseblock.h"
 #include "removeblockquote.h"
@@ -240,6 +241,20 @@ bool CommandManager::moveOutsideBlockquote(TreeItem *block, int cursorPosition)
 
     m_undoStack.push(new MoveOutsideBlockquoteCommand(block, m_model, cursorPosition));
     return true;
+}
+
+void CommandManager::moveBlock(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex)
+{
+    if (!sourceBlock || !targetParent) {
+        return;
+    }
+
+    const auto itemType = targetParent->item()->type();
+    if (itemType != MD::ItemType::Document && itemType != MD::ItemType::List && itemType != MD::ItemType::Blockquote) {
+        return;
+    }
+
+    m_undoStack.push(new MoveBlockCommand(sourceBlock, targetParent, targetIndex, m_model));
 }
 
 bool CommandManager::removeBlockquoteIfAtStart(TreeItem *bqBlock, TreeItem *block, int cursorPosition)

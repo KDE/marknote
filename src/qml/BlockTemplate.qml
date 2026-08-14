@@ -7,6 +7,7 @@ import QtQuick.Controls
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
+import org.kde.marknote
 
 Rectangle {
     id: root
@@ -71,6 +72,10 @@ Rectangle {
             cursorShape: Qt.OpenHandCursor
             onPressed: cursorShape = Qt.ClosedHandCursor
             onReleased: cursorShape = Qt.OpenHandCursor
+
+            onClicked: () => {
+                CommandManager.moveBlock(root.block, root.block.parent.children[root.index - 1], 0);
+            }
         }
     }
 
