@@ -245,16 +245,33 @@ bool CommandManager::moveOutsideBlockquote(TreeItem *block, int cursorPosition)
 
 void CommandManager::moveBlock(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex)
 {
-    if (!sourceBlock || !targetParent) {
-        return;
-    }
-
-    const auto itemType = targetParent->item()->type();
-    if (itemType != MD::ItemType::Document && itemType != MD::ItemType::List && itemType != MD::ItemType::Blockquote) {
+    if (!isValidMove(sourceBlock, targetParent, targetIndex)) {
         return;
     }
 
     m_undoStack.push(new MoveBlockCommand(sourceBlock, targetParent, targetIndex, m_model));
+}
+
+bool CommandManager::isValidMove(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex)
+{
+    if (!sourceBlock || !targetParent) {
+        return false;
+    }
+
+    const auto itemType = targetParent->item()->type();
+    if (itemType != MD::ItemType::Document && itemType != MD::ItemType::List && itemType != MD::ItemType::Blockquote && itemType != MD::ItemType::ListItem) {
+        return false;
+    }
+
+    if (targetParent->child(targetIndex) == sourceBlock) {
+        return false;
+    }
+
+    if (targetParent == sourceBlock || targetParent->isDescendantOf(sourceBlock)) {
+        return false;
+    }
+
+    return true;
 }
 
 bool CommandManager::removeBlockquoteIfAtStart(TreeItem *bqBlock, TreeItem *block, int cursorPosition)
