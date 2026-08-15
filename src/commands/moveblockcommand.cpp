@@ -64,10 +64,15 @@ void MoveBlockCommand::redo()
     TreeItem *itemToInsert = m_sourceBlock;
 
     if (m_targetParent->type() == MDOptions::ElementType::List && m_sourceBlock->type() != MDOptions::ElementType::ListItem) {
+        const auto prevListType = m_targetParent->child(0)->item().dynamicCast<MD::ListItem>()->listType();
+
         if (!m_wrappedListItem) {
             m_wrappedListItem = TreeItem::createTreeItem(MDOptions::ElementType::ListItem);
             m_wrappedListItem->removeChild(0);
         }
+
+        m_wrappedListItem->item().dynamicCast<MD::ListItem>()->setListType(prevListType);
+
         m_wrappedListItem->appendChild(m_sourceBlock);
         itemToInsert = m_wrappedListItem;
     } else if (m_sourceBlock->type() == MDOptions::ElementType::ListItem && m_targetParent->type() != MDOptions::ElementType::List) {
@@ -99,7 +104,8 @@ void MoveBlockCommand::redo()
     }
 
     if (m_targetParent->type() == MDOptions::ElementType::List) {
-        m_model->updateListNumbers(m_targetParent, false);
+        bool shouldResetList = actualTargetIndex == 0;
+        m_model->updateListNumbers(m_targetParent, shouldResetList);
     }
 }
 

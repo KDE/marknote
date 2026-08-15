@@ -21,7 +21,6 @@ Rectangle {
     implicitWidth: ListView.view ? ListView.view.width : 0
     implicitHeight: row.implicitHeight + root.topMargin + root.bottomMargin
 
-    readonly property bool isDarkMode: Kirigami.Theme.textColor.hslLightness > Kirigami.Theme.backgroundColor.hslLightness
     property var delegateModel: ListView.view ? ListView.view.model : null
     property var cppModel: delegateModel ? delegateModel.model : null
     property var nodeIndex: delegateModel ? delegateModel.modelIndex(index) : null
@@ -34,9 +33,101 @@ Rectangle {
     color: isSelected ? Qt.alpha(Kirigami.Theme.highlightColor, 0.2) : "transparent"
     Behavior on color { ColorAnimation { duration: Kirigami.Units.shortDuration } }
 
+    Behavior on opacity {
+        NumberAnimation {
+            duration: Kirigami.Units.shortDuration
+        }
+    }
+
+    ShaderEffectSource {
+        id: dragProxy
+        sourceItem: root
+        parent: root.Overlay.overlay
+        visible: dragMouseArea.drag.active
+        live: false
+        width: root.width
+        height: root.height
+        opacity: 0.8
+
+        Drag.active: dragMouseArea.drag.active
+        Drag.source: root.block
+    }
+
     HoverHandler {
         id: blockHoverHandler
         blocking: true
+    }
+
+    Rectangle {
+        id: topDragIndicator
+        anchors.top: parent.top
+        anchors.topMargin: - Kirigami.Units.smallSpacing / 2.0
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: Kirigami.Units.smallSpacing
+        color: Kirigami.Theme.highlightColor
+        radius: Kirigami.Units.cornerRadius
+        opacity: shown ? 0.5 : 0
+        z: 99
+
+        property bool shown: false
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: Kirigami.Units.shortDuration
+            }
+        }
+    }
+
+    Rectangle {
+        id: bottomDragIndicator
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: - Kirigami.Units.smallSpacing / 2.0
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: Kirigami.Units.smallSpacing
+        color: Kirigami.Theme.highlightColor
+        radius: Kirigami.Units.cornerRadius
+        opacity: shown ? 0.5 : 0
+        z: 99
+
+        property bool shown: false
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: Kirigami.Units.shortDuration
+            }
+        }
+    }
+
+    DropArea {
+        id: dropArea
+        anchors.fill: parent
+
+        onPositionChanged: (drag) => {
+            let isTopHalf = drag.y < (height / 2.0)
+
+            if (CommandManager.isValidMove(drag.source, root.block.parent, isTopHalf ? root.index : root.index + 1)) {
+                topDragIndicator.shown = isTopHalf;
+                bottomDragIndicator.shown = !isTopHalf;
+            }
+        }
+
+        onExited: () => {
+            topDragIndicator.shown = false;
+            bottomDragIndicator.shown = false;
+        }
+
+        onDropped: (drag) => {
+            topDragIndicator.shown = false;
+            bottomDragIndicator.shown = false;
+
+            let isTopHalf = drag.y < (height / 2.0);
+
+            CommandManager.moveBlock(drag.source, root.block.parent, isTopHalf ? root.index : root.index + 1);
+
+            drag.accept();
+        }
     }
 
     Rectangle {
@@ -49,7 +140,17 @@ Rectangle {
         implicitWidth: handleText.implicitWidth + Kirigami.Units.smallSpacing * 2
         implicitHeight: root.height
         radius: Kirigami.Units.cornerRadius
-        color: isDarkMode ? Qt.darker(Kirigami.Theme.textColor, 3) : Qt.lighter(Kirigami.Theme.textColor, 3)
+
+        function blend(color, bg, alpha) {
+            return Qt.rgba(
+                color.r * alpha + bg.r * (1 - alpha),
+                color.g * alpha + bg.g * (1 - alpha),
+                color.b * alpha + bg.b * (1 - alpha),
+                1.0
+            )
+        }
+
+        color: blend(Kirigami.Theme.textColor, Kirigami.Theme.backgroundColor, 0.1)
 
         opacity: dragMouseArea.containsMouse ? 1.0 : (blockHoverHandler.hovered ? 0.2 : 0)
         Behavior on opacity { NumberAnimation { duration: Kirigami.Units.shortDuration } }
@@ -70,12 +171,26 @@ Rectangle {
             width: dragHandle.implicitWidth * 2
             hoverEnabled: true
             cursorShape: Qt.OpenHandCursor
-            onPressed: cursorShape = Qt.ClosedHandCursor
-            onReleased: cursorShape = Qt.OpenHandCursor
 
-            onClicked: () => {
-                CommandManager.moveBlock(root.block, root.block.parent.children[root.index - 1], 0);
+            onPressed: () => {
+                cursorShape = Qt.ClosedHandCursor
+                let mappedPos = root.mapToItem(root.Overlay.overlay, 0, 0)
+                dragProxy.x = mappedPos.x
+                dragProxy.y = mappedPos.y
+                dragProxy.scheduleUpdate()
+                root.opacity = 0.3
+                root.isSelected = true
             }
+
+            onReleased: () => {
+                cursorShape = Qt.OpenHandCursor
+                root.opacity = 1.0
+                root.isSelected = false
+
+                dragProxy.Drag.drop();
+            }
+
+            drag.target: dragProxy
         }
     }
 

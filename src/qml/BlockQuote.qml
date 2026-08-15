@@ -9,6 +9,8 @@ BlockTemplate {
     id: root
 
     isFinalBlock: false
+    topMargin: Kirigami.Units.mediumSpacing
+    bottomMargin: Kirigami.Units.mediumSpacing
 
     blockComponent: Item {
         implicitWidth: rectangle.width + Kirigami.Units.largeSpacing
