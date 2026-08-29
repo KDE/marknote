@@ -20,7 +20,19 @@ Item {
         sequence: StandardKey.SelectAll
         onActivated: {
             if (richDocumentHandler && richDocumentHandler.treeModel) {
+                richDocumentHandler.treeModel.clearFocus();
                 richDocumentHandler.treeModel.selectAll();
+            }
+            root.forceActiveFocus();
+        }
+    }
+
+    Shortcut {
+        sequence: "Escape"
+        enabled: richDocumentHandler.treeModel && richDocumentHandler.treeModel.selectedIndices.length > 0
+        onActivated: {
+            if (richDocumentHandler && richDocumentHandler.treeModel) {
+                richDocumentHandler.treeModel.clearSelection();
             }
         }
     }
@@ -84,7 +96,7 @@ Item {
         propagateComposedEvents: true
         preventStealing: false
         onPressed: (mouse) => {
-            richDocumentHandler.treeModel.selectedIndices = [];
+            richDocumentHandler.treeModel.clearSelection();
             mouse.accepted = false; 
         }
     }
@@ -127,6 +139,11 @@ Item {
         target: null
         onActiveChanged: {
             if (active) {
+                if (richDocumentHandler && richDocumentHandler.treeModel) {
+                    richDocumentHandler.treeModel.clearFocus();
+                }
+                root.forceActiveFocus();
+
                 root.isSelecting = true;
                 root.selectionStartContentX = centroid.position.x - blockListView.x + blockListView.contentX;
                 root.selectionStartContentY = centroid.position.y - blockListView.y + blockListView.contentY;

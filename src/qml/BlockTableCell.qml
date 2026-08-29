@@ -112,9 +112,24 @@ Item {
             lastSavedTextParsed = false;
         }
 
+        Keys.onShortcutOverride: (event) => {
+            if (event.key === Qt.Key_Escape) {
+                event.accepted = true;
+            }
+        }
+
         Keys.onPressed: (event) => {
+            if (event.key === Qt.Key_Escape) {
+                model.clearFocus();
+                model.clearSelection();
+                textEdit.focus = false;
+                event.accepted = true;
+                return;
+            }
+
             if (event.matches(StandardKey.SelectAll)) {
                 if (textEdit.text.length === 0 || textEdit.selectedText.length === textEdit.text.length) {
+                    model.clearFocus();
                     model.selectAll();
                     textEdit.focus = false;
                     event.accepted = true;
