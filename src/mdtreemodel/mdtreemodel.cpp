@@ -532,3 +532,13 @@ void MDTreeModel::selectAll()
     }
     setSelectedIndices(allIndices);
 }
+
+void MDTreeModel::clearSelection()
+{
+    setSelectedIndices({});
+}
+
+void MDTreeModel::clearFocus()
+{
+    setFocusedBlock(nullptr, -1);
+}

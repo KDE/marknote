@@ -240,6 +240,7 @@ Kirigami.ScrollablePage {
 
                     Shortcut {
                         id: cancelShortcut
+                        enabled: titleLayout.searchOpen
                         sequences: [StandardKey.Cancel]
                         onActivated: if (titleLayout.searchOpen) { searchButton.clicked() }
                     }
