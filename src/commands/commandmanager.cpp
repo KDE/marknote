@@ -15,6 +15,7 @@
 #include "moveoutsideblockquote.h"
 #include "parseblock.h"
 #include "removeblockquote.h"
+#include "removeblockscommand.h"
 #include "removecolumnfromtablecommand.h"
 #include "removefromlist.h"
 #include "removerowfromtablecommand.h"
@@ -30,6 +31,7 @@ using namespace Qt::StringLiterals;
 
 CommandManager::CommandManager(QObject *parent)
     : QObject(parent)
+    , m_model(nullptr)
 {
 }
 
@@ -37,9 +39,17 @@ CommandManager::~CommandManager()
 {
 }
 
+MDTreeModel *CommandManager::model() const
+{
+    return m_model;
+}
+
 void CommandManager::setModel(MDTreeModel *model)
 {
-    m_model = model;
+    if (m_model != model) {
+        m_model = model;
+        Q_EMIT modelChanged();
+    }
 }
 
 void CommandManager::undo()
@@ -241,6 +251,15 @@ bool CommandManager::moveOutsideBlockquote(TreeItem *block, int cursorPosition)
 
     m_undoStack.push(new MoveOutsideBlockquoteCommand(block, m_model, cursorPosition));
     return true;
+}
+
+void CommandManager::removeBlocks(const QList<TreeItem *> &blocks)
+{
+    if (blocks.isEmpty()) {
+        return;
+    }
+
+    m_undoStack.push(new RemoveBlocksCommand(blocks, m_model));
 }
 
 void CommandManager::moveBlock(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex)

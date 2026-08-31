@@ -27,6 +27,28 @@ Rectangle {
 
     property Component blockComponent: null;
 
+    function openContextMenu(targetItem, mouseX, mouseY) {
+        let p = root;
+        let menu = null;
+        while (p) {
+            if (p.globalBlockContextMenu) {
+                menu = p.globalBlockContextMenu;
+                break;
+            }
+            p = p.parent;
+        }
+        if (menu) {
+            if (root.cppModel) {
+                root.cppModel.clearFocus();
+                if (!root.cppModel.hasSelection) {
+                    root.cppModel.selectBlock(root.block);
+                }
+            }
+            menu.currentBlock = root.block;
+            menu.popup(targetItem, mouseX, mouseY);
+        }
+    }
+
     property bool isSelected: false
 
     Connections {
@@ -216,25 +238,7 @@ Rectangle {
         preventStealing: true
 
         onClicked: (mouse) => {
-            let p = root;
-            let menu = null;
-            while (p) {
-                if (p.globalBlockContextMenu) {
-                    menu = p.globalBlockContextMenu;
-                    break;
-                }
-                p = p.parent;
-            }
-            if (menu) {
-                if (root.cppModel) {
-                    root.cppModel.clearFocus();
-                    if (!root.cppModel.hasSelection) {
-                        root.cppModel.selectBlock(root.block);
-                    }
-                }
-                menu.currentBlock = root.block;
-                menu.popup(root, mouse.x, mouse.y);
-            }
+            root.openContextMenu(root, mouse.x, mouse.y);
         }
     }
 

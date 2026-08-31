@@ -54,6 +54,15 @@ BlockTemplate {
                     radius: Kirigami.Units.smallSpacing
                 }
 
+                MouseArea {
+                    anchors.fill: parent
+                    acceptedButtons: Qt.RightButton
+                    cursorShape: Qt.IBeamCursor
+                    onClicked: (mouse) => {
+                        root.openContextMenu(codeText, mouse.x, mouse.y);
+                    }
+                }
+
                 property string lastSavedText: root.blockData.text
                 property int lastSavedCursorPos: 0
                 property bool isProgrammaticUpdate: false

@@ -12,10 +12,13 @@
 class CommandManager : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(MDTreeModel *model READ model WRITE setModel NOTIFY modelChanged)
+
 public:
     CommandManager(QObject *parent = nullptr);
     ~CommandManager();
 
+    MDTreeModel *model() const;
     Q_INVOKABLE void setModel(MDTreeModel *model);
 
     Q_INVOKABLE void undo();
@@ -49,6 +52,8 @@ public:
     Q_INVOKABLE void moveBlock(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex);
     Q_INVOKABLE bool isValidMove(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex);
 
+    Q_INVOKABLE void removeBlocks(const QList<TreeItem *> &blocks);
+
     Q_INVOKABLE void moveToPreviousBlock(TreeItem *block, const QString &currentText, int cursorPosition);
     Q_INVOKABLE void moveToNextBlock(TreeItem *block, const QString &currentText, int cursorPosition);
 
@@ -60,6 +65,9 @@ public:
     Q_INVOKABLE bool autoTransform(TreeItem *block, const QString &text, int cursorPosition, int index);
 
     Q_INVOKABLE int getCursorInMdString(const QString &rawString, const QString &mdString, int index);
+
+Q_SIGNALS:
+    void modelChanged();
 
 private:
     TreeItem *getPreviousSibling(TreeItem *block);
