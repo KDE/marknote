@@ -13,6 +13,8 @@ class CommandManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(MDTreeModel *model READ model WRITE setModel NOTIFY modelChanged)
+    Q_PROPERTY(bool canUndo READ canUndo NOTIFY canUndoChanged)
+    Q_PROPERTY(bool canRedo READ canRedo NOTIFY canRedoChanged)
 
 public:
     CommandManager(QObject *parent = nullptr);
@@ -23,8 +25,8 @@ public:
 
     Q_INVOKABLE void undo();
     Q_INVOKABLE void redo();
-    Q_INVOKABLE bool canUndo() const;
-    Q_INVOKABLE bool canRedo() const;
+    bool canUndo() const;
+    bool canRedo() const;
 
     Q_INVOKABLE void editText(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
     Q_INVOKABLE void editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
@@ -68,6 +70,8 @@ public:
 
 Q_SIGNALS:
     void modelChanged();
+    void canUndoChanged();
+    void canRedoChanged();
 
 private:
     TreeItem *getPreviousSibling(TreeItem *block);

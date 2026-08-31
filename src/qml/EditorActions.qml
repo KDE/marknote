@@ -12,7 +12,6 @@ Item {
     property Kirigami.Action deleteBlockAction: Kirigami.Action {
         text: i18n("Delete")
         icon.name: "edit-delete"
-        shortcut: "Delete"
         enabled: CommandManager.model !== null && CommandManager.model.hasSelection
         
         onTriggered: {
@@ -22,4 +21,19 @@ Item {
             }
         }
     }
+
+    property Kirigami.Action undoAction: Kirigami.Action {
+        text: i18n("Undo")
+        icon.name: "edit-undo"
+        enabled: CommandManager.canUndo
+        onTriggered: CommandManager.undo()
+    }
+
+    property Kirigami.Action redoAction: Kirigami.Action {
+        text: i18n("Redo")
+        icon.name: "edit-redo"
+        enabled: CommandManager.canRedo
+        onTriggered: CommandManager.redo()
+    }
+
 }

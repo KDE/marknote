@@ -43,6 +43,24 @@ Item {
         }
     }
 
+    Shortcut {
+        sequence: StandardKey.Undo
+        enabled: EditorActions.undoAction.enabled
+        onActivated: EditorActions.undoAction.trigger()
+    }
+
+    Shortcut {
+        sequence: StandardKey.Redo
+        enabled: EditorActions.redoAction.enabled
+        onActivated: EditorActions.redoAction.trigger()
+    }
+
+    Shortcut {
+        sequence: "Delete"
+        enabled: EditorActions.deleteBlockAction.enabled
+        onActivated: EditorActions.deleteBlockAction.trigger()
+    }
+
     property real selectionStartContentX: 0
     property real selectionStartContentY: 0
     property real selectionCurrentContentX: 0

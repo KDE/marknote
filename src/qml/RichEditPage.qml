@@ -652,24 +652,17 @@ EditPage {
                         Layout.bottomMargin: Kirigami.Units.mediumSpacing
                     }
                     ToolButton {
-                        icon.name: "edit-undo"
-                        text: KI18n.i18n("Undo")
+                        id: undoButton
+                        action: EditorActions.undoAction
                         display: AbstractButton.IconOnly
-                        // onClicked: root.textArea.undo()
-                        // enabled: root.textArea.canUndo
-                        ToolTip.text: text
+                        ToolTip.text: action.text
                         ToolTip.visible: hovered
                         ToolTip.delay: Kirigami.Units.toolTipDelay
                     }
                     ToolButton {
-                        id: undoButton
-                        icon.name: "edit-redo"
-                        text: KI18n.i18n("Redo")
+                        action: EditorActions.redoAction
                         display: AbstractButton.IconOnly
-                        // onClicked: root.textArea.redo()
-                        // enabled: root.textArea.canRedo
-
-                        ToolTip.text: text
+                        ToolTip.text: action.text
                         ToolTip.visible: hovered
                         ToolTip.delay: Kirigami.Units.toolTipDelay
                     }

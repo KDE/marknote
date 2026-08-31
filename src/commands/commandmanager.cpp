@@ -33,6 +33,8 @@ CommandManager::CommandManager(QObject *parent)
     : QObject(parent)
     , m_model(nullptr)
 {
+    connect(&m_undoStack, &QUndoStack::canUndoChanged, this, &CommandManager::canUndoChanged);
+    connect(&m_undoStack, &QUndoStack::canRedoChanged, this, &CommandManager::canRedoChanged);
 }
 
 CommandManager::~CommandManager()
