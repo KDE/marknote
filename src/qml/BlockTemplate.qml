@@ -27,7 +27,20 @@ Rectangle {
 
     property Component blockComponent: null;
 
-    property bool isSelected: ListView.view && ListView.view.selectedIndices ? ListView.view.selectedIndices.includes(index) : false
+    property bool isSelected: false
+
+    Connections {
+        target: root.cppModel
+        function onSelectedBlocksChanged() {
+            root.isSelected = root.cppModel ? root.cppModel.isBlockSelected(root.block) : false;
+        }
+    }
+
+    Component.onCompleted: {
+        if (root.cppModel) {
+            root.isSelected = root.cppModel.isBlockSelected(root.block);
+        }
+    }
 
     radius: Kirigami.Units.smallSpacing
     color: isSelected ? Qt.alpha(Kirigami.Theme.highlightColor, 0.2) : "transparent"
@@ -179,18 +192,49 @@ Rectangle {
                 dragProxy.y = mappedPos.y
                 dragProxy.scheduleUpdate()
                 root.opacity = 0.3
-                root.isSelected = true
+                
+                if (root.cppModel && !root.cppModel.isBlockSelected(root.block)) {
+                    root.cppModel.clearFocus();
+                    root.cppModel.selectBlock(root.block);
+                }
             }
 
             onReleased: () => {
                 cursorShape = Qt.OpenHandCursor
                 root.opacity = 1.0
-                root.isSelected = false
 
                 dragProxy.Drag.drop();
             }
 
             drag.target: dragProxy
+        }
+    }
+
+    MouseArea {
+        anchors.fill: row
+        acceptedButtons: Qt.RightButton
+        preventStealing: true
+
+        onClicked: (mouse) => {
+            let p = root;
+            let menu = null;
+            while (p) {
+                if (p.globalBlockContextMenu) {
+                    menu = p.globalBlockContextMenu;
+                    break;
+                }
+                p = p.parent;
+            }
+            if (menu) {
+                if (root.cppModel) {
+                    root.cppModel.clearFocus();
+                    if (!root.cppModel.hasSelection) {
+                        root.cppModel.selectBlock(root.block);
+                    }
+                }
+                menu.currentBlock = root.block;
+                menu.popup(root, mouse.x, mouse.y);
+            }
         }
     }
 

@@ -60,6 +60,7 @@ ecm_add_qml_module(marknote_static
         qml/NativeEditMenu.qml
         qml/GlobalMenuBar.qml
         # Block Editor
+        qml/BlockContextMenu.qml
         qml/BlockView.qml
         qml/BlockTemplate.qml
         qml/BlockChooser.qml

@@ -16,6 +16,12 @@ Item {
 
     property alias listView: blockListView
 
+    property var globalBlockContextMenu: contextMenuObj
+
+    BlockContextMenu {
+        id: contextMenuObj
+    }
+
     Shortcut {
         sequence: StandardKey.SelectAll
         onActivated: {
@@ -29,7 +35,7 @@ Item {
 
     Shortcut {
         sequence: "Escape"
-        enabled: richDocumentHandler.treeModel && richDocumentHandler.treeModel.selectedIndices.length > 0
+        enabled: richDocumentHandler.treeModel && richDocumentHandler.treeModel.hasSelection
         onActivated: {
             if (richDocumentHandler && richDocumentHandler.treeModel) {
                 richDocumentHandler.treeModel.clearSelection();
@@ -91,8 +97,8 @@ Item {
     MouseArea {
         parent: root.Overlay.overlay
         anchors.fill: parent
-        visible: richDocumentHandler.treeModel && richDocumentHandler.treeModel.selectedIndices.length > 0
-        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        visible: richDocumentHandler.treeModel && richDocumentHandler.treeModel.hasSelection
+        acceptedButtons: Qt.LeftButton
         propagateComposedEvents: true
         preventStealing: false
         onPressed: (mouse) => {
