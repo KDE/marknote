@@ -157,28 +157,22 @@ Kirigami.Page {
         Layout.fillWidth: true
 
         ToolButton {
-            icon.name: "edit-undo"
-            text: KI18n.i18n("Undo")
+            action: EditorActions.undoAction
             display: AbstractButton.IconOnly
             Layout.leftMargin: Kirigami.Units.smallSpacing
-            // onClicked: root.textArea.undo()
-            // enabled: root.textArea.canUndo
             visible: root.singleDocumentMode
 
-            ToolTip.text: text
+            ToolTip.text: action.text
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
 
         ToolButton {
-            icon.name: "edit-redo"
-            text: KI18n.i18n("Redo")
+            action: EditorActions.redoAction
             display: AbstractButton.IconOnly
-            // onClicked: root.textArea.redo()
-            // enabled: root.textArea.canRedo
             visible: root.singleDocumentMode
 
-            ToolTip.text: text
+            ToolTip.text: action.text
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
