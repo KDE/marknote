@@ -61,6 +61,62 @@ Item {
         onActivated: EditorActions.deleteBlockAction.trigger()
     }
 
+    property Item activeItem: root.Window.activeFocusItem
+    
+    onActiveItemChanged: {
+        if (activeItem) {
+            if ("cursorRectangle" in activeItem) {
+                ensureVisible(activeItem, activeItem.cursorRectangle.y, activeItem.cursorRectangle.height);
+            } else {
+                ensureVisible(activeItem, 0, activeItem.height);
+            }
+        }
+    }
+
+    Connections {
+        target: root.activeItem
+        ignoreUnknownSignals: true
+        function onCursorRectangleChanged() {
+            if (root.activeItem && "cursorRectangle" in root.activeItem) {
+                ensureVisible(root.activeItem, root.activeItem.cursorRectangle.y, root.activeItem.cursorRectangle.height);
+            }
+        }
+    }
+
+    function ensureVisible(item, itemY, itemHeight) {
+        if (!item || !blockListView.contentItem) return;
+        
+        let ancestorNode = item;
+        let isInsideListView = false;
+        while (ancestorNode) {
+            if (ancestorNode === blockListView.contentItem) {
+                isInsideListView = true;
+                break;
+            }
+            ancestorNode = ancestorNode.parent;
+        }
+        
+        if (!isInsideListView) return;
+        
+        let mappedPosition = item.mapToItem(blockListView.contentItem, 0, itemY);
+        let itemTop = mappedPosition.y;
+        let itemBottom = mappedPosition.y + itemHeight;
+        
+        let viewTop = blockListView.contentY;
+        let viewBottom = blockListView.contentY + blockListView.height;
+        
+        let topPadding = Kirigami.Units.largeSpacing * 2;
+        let bottomPadding = Kirigami.Units.gridUnit * 6;
+        
+        let minContentY = blockListView.originY;
+        
+        if (itemBottom + bottomPadding > viewBottom) {
+            blockListView.contentY = (itemBottom + bottomPadding) - blockListView.height;
+        } else if (itemTop - topPadding < viewTop) {
+            blockListView.contentY = Math.max(minContentY, itemTop - topPadding);
+        }
+    }
+
     property real selectionStartContentX: 0
     property real selectionStartContentY: 0
     property real selectionCurrentContentX: 0
