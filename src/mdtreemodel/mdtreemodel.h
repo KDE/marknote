@@ -17,6 +17,7 @@ class MDTreeModel : public QAbstractItemModel
     QML_ELEMENT
 
     Q_PROPERTY(QVariantList selectedIndices READ selectedIndices WRITE setSelectedIndices NOTIFY selectedIndicesChanged)
+    Q_PROPERTY(bool hasSelection READ hasSelection NOTIFY hasSelectionChanged)
 
 public:
     enum Roles {
@@ -82,14 +83,20 @@ public:
     QVariantList selectedIndices() const;
     void setSelectedIndices(const QVariantList &indices);
     Q_INVOKABLE QList<TreeItem *> selectedBlocks() const;
+    Q_INVOKABLE void selectBlock(TreeItem *block);
     Q_INVOKABLE void selectAll();
     Q_INVOKABLE void clearSelection();
     Q_INVOKABLE void clearFocus();
+
+    bool hasSelection() const;
+    Q_INVOKABLE bool isBlockSelected(TreeItem *block) const;
 
 Q_SIGNALS:
     void focusRequested(TreeItem *block, int cursorPosition);
     void focusRequestedOnTable(TreeItem *block, int row, int column, int cursorPosition);
     void selectedIndicesChanged();
+    void hasSelectionChanged();
+    void selectedBlocksChanged();
 
 private:
     std::unique_ptr<TreeItem> m_rootItem;
@@ -98,7 +105,7 @@ private:
     int m_focusedTableRow = -1;
     int m_focusedTableColumn = -1;
 
-    QVariantList m_selectedIndices;
+    QList<TreeItem *> m_selectedBlocksList;
 };
 
 #endif // MDTREEMODEL_H

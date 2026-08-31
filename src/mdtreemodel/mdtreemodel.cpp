@@ -496,46 +496,98 @@ int MDTreeModel::focusedTableColumn() const
     return -1;
 }
 
+bool MDTreeModel::hasSelection() const
+{
+    return !m_selectedBlocksList.isEmpty();
+}
+
+bool MDTreeModel::isBlockSelected(TreeItem *block) const
+{
+    return m_selectedBlocksList.contains(block);
+}
+
 QVariantList MDTreeModel::selectedIndices() const
 {
-    return m_selectedIndices;
+    QVariantList indices;
+    for (TreeItem *block : m_selectedBlocksList) {
+        if (block->parent() == m_rootItem.get()) {
+            indices.append(block->row());
+        }
+    }
+    return indices;
 }
 
 void MDTreeModel::setSelectedIndices(const QVariantList &indices)
 {
-    if (m_selectedIndices != indices) {
-        m_selectedIndices = indices;
+    QList<TreeItem *> newSelected;
+    for (const QVariant &var : indices) {
+        int index = var.toInt();
+        if (index >= 0 && index < m_rootItem->childCount()) {
+            newSelected.append(m_rootItem->child(index));
+        }
+    }
+
+    if (m_selectedBlocksList != newSelected) {
+        bool hadSelection = hasSelection();
+        m_selectedBlocksList = newSelected;
         Q_EMIT selectedIndicesChanged();
+        Q_EMIT selectedBlocksChanged();
+        if (hadSelection != hasSelection()) {
+            Q_EMIT hasSelectionChanged();
+        }
     }
 }
 
 QList<TreeItem *> MDTreeModel::selectedBlocks() const
 {
-    QList<TreeItem *> blocks;
-    for (const QVariant &var : m_selectedIndices) {
-        int index = var.toInt();
-        if (index >= 0 && index < m_rootItem->childCount()) {
-            blocks.append(m_rootItem->child(index));
-        }
+    return m_selectedBlocksList;
+}
+
+void MDTreeModel::selectBlock(TreeItem *block)
+{
+    if (!block || !m_rootItem || block == m_rootItem.get()) {
+        clearSelection();
+        return;
     }
-    return blocks;
+
+    bool hadSelection = hasSelection();
+    m_selectedBlocksList = {block};
+    Q_EMIT selectedIndicesChanged();
+    Q_EMIT selectedBlocksChanged();
+    if (hadSelection != hasSelection()) {
+        Q_EMIT hasSelectionChanged();
+    }
 }
 
 void MDTreeModel::selectAll()
 {
-    QVariantList allIndices;
+    QList<TreeItem *> allBlocks;
     if (m_rootItem) {
         int count = m_rootItem->childCount();
         for (int i = 0; i < count; ++i) {
-            allIndices.append(i);
+            allBlocks.append(m_rootItem->child(i));
         }
     }
-    setSelectedIndices(allIndices);
+
+    if (m_selectedBlocksList != allBlocks) {
+        bool hadSelection = hasSelection();
+        m_selectedBlocksList = allBlocks;
+        Q_EMIT selectedIndicesChanged();
+        Q_EMIT selectedBlocksChanged();
+        if (hadSelection != hasSelection()) {
+            Q_EMIT hasSelectionChanged();
+        }
+    }
 }
 
 void MDTreeModel::clearSelection()
 {
-    setSelectedIndices({});
+    if (!m_selectedBlocksList.isEmpty()) {
+        m_selectedBlocksList.clear();
+        Q_EMIT selectedIndicesChanged();
+        Q_EMIT selectedBlocksChanged();
+        Q_EMIT hasSelectionChanged();
+    }
 }
 
 void MDTreeModel::clearFocus()
