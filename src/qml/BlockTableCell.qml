@@ -102,6 +102,22 @@ Item {
         font.family: root.fontFamily
         color: root.color
 
+        MouseArea {
+            anchors.fill: parent
+            acceptedButtons: Qt.RightButton
+            cursorShape: Qt.IBeamCursor
+            onClicked: (mouse) => {
+                let p = root;
+                while (p) {
+                    if (p.openContextMenu) {
+                        p.openContextMenu(textEdit, mouse.x, mouse.y);
+                        break;
+                    }
+                    p = p.parent;
+                }
+            }
+        }
+
         property bool isProgrammaticUpdate: false
 
         onTextChanged: {

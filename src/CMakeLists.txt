@@ -22,6 +22,8 @@ target_include_directories(marknote_static PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/commands
 )
 
+set_source_files_properties(qml/EditorActions.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
+
 ecm_add_qml_module(marknote_static
     URI org.kde.marknote
     GENERATE_PLUGIN_SOURCE
@@ -60,6 +62,7 @@ ecm_add_qml_module(marknote_static
         qml/NativeEditMenu.qml
         qml/GlobalMenuBar.qml
         # Block Editor
+        qml/EditorActions.qml
         qml/BlockContextMenu.qml
         qml/BlockView.qml
         qml/BlockTemplate.qml
@@ -120,6 +123,7 @@ ecm_add_qml_module(marknote_static
         commands/insertcolumnintablecommand.h commands/insertcolumnintablecommand.cpp
         commands/removerowfromtablecommand.h commands/removerowfromtablecommand.cpp
         commands/removecolumnfromtablecommand.h commands/removecolumnfromtablecommand.cpp
+        commands/removeblockscommand.h commands/removeblockscommand.cpp
 )
 
 kconfig_target_kcfg_file(marknote_static

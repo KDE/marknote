@@ -11,9 +11,6 @@ QQC2.Menu {
     property var currentBlock: null
 
     QQC2.MenuItem {
-        text: "Global Action Placeholder"
-        onTriggered: {
-            console.log("Menu triggered on block type:", root.currentBlock ? root.currentBlock.data.type : "Unknown")
-        }
+        action: EditorActions.deleteBlockAction
     }
 }
