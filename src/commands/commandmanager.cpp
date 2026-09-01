@@ -10,6 +10,7 @@
 #include "insertcolumnintablecommand.h"
 #include "insertparagraphbelow.h"
 #include "insertrowintablecommand.h"
+#include "mdserializer/mdserializer.h"
 #include "mergewithpreviousblock.h"
 #include "moveblockcommand.h"
 #include "moveoutsideblockquote.h"
@@ -262,6 +263,19 @@ void CommandManager::removeBlocks(const QList<TreeItem *> &blocks)
     }
 
     m_undoStack.push(new RemoveBlocksCommand(blocks, m_model));
+}
+
+QString CommandManager::blocksToMarkdown(const QList<TreeItem *> &blocks) const
+{
+    auto doc = QSharedPointer<MD::Document>::create();
+    for (TreeItem *block : blocks) {
+        if (block && block->item()) {
+            doc->appendItem(block->item());
+        }
+    }
+
+    MDSerializer serializer;
+    return serializer.processDoc(doc).trimmed();
 }
 
 void CommandManager::moveBlock(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex)

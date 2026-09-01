@@ -11,6 +11,10 @@ QQC2.Menu {
     property var currentBlock: null
 
     QQC2.MenuItem {
+        action: EditorActions.copyAction
+    }
+
+    QQC2.MenuItem {
         action: EditorActions.deleteBlockAction
     }
 }

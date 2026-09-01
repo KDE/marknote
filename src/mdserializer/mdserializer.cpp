@@ -105,7 +105,7 @@ void MDSerializer::onMath(MD::Math *m)
 
 void MDSerializer::onLineBreak(MD::LineBreak *)
 {
-    m_Md->push_back(u"<br>"_s);
+    m_Md->push_back(u"  "_s);
 }
 
 void MDSerializer::onParagraph(MD::Paragraph *p, bool wrap, bool skipOpeningWrap)

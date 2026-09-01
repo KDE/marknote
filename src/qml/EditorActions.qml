@@ -5,9 +5,14 @@ pragma Singleton
 import QtQuick
 import org.kde.kirigami as Kirigami
 import org.kde.marknote // For CommandManager
+import org.kde.kquickcontrolsaddons as KQuickControlsAddons
 
 Item {
     id: root
+
+    KQuickControlsAddons.Clipboard {
+        id: clipboard
+    }
 
     property Kirigami.Action deleteBlockAction: Kirigami.Action {
         text: i18n("Delete")
@@ -34,6 +39,20 @@ Item {
         icon.name: "edit-redo"
         enabled: CommandManager.canRedo
         onTriggered: CommandManager.redo()
+    }
+
+    property Kirigami.Action copyAction: Kirigami.Action {
+        text: i18n("Copy")
+        icon.name: "edit-copy"
+        enabled: CommandManager.model !== null && CommandManager.model.hasSelection
+        
+        onTriggered: {
+            if (CommandManager.model && CommandManager.model.hasSelection) {
+                var blocks = CommandManager.model.selectedBlocks();
+                var mdText = CommandManager.blocksToMarkdown(blocks);
+                clipboard.content = mdText;
+            }
+        }
     }
 
 }
