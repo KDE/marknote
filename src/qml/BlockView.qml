@@ -61,6 +61,12 @@ Item {
         onActivated: EditorActions.deleteBlockAction.trigger()
     }
 
+    Shortcut {
+        sequence: StandardKey.Copy
+        enabled: EditorActions.copyAction.enabled
+        onActivated: EditorActions.copyAction.trigger()
+    }
+
     property Item activeItem: root.Window.activeFocusItem
     
     onActiveItemChanged: {

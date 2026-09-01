@@ -55,6 +55,7 @@ public:
     Q_INVOKABLE bool isValidMove(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex);
 
     Q_INVOKABLE void removeBlocks(const QList<TreeItem *> &blocks);
+    Q_INVOKABLE QString blocksToMarkdown(const QList<TreeItem *> &blocks) const;
 
     Q_INVOKABLE void moveToPreviousBlock(TreeItem *block, const QString &currentText, int cursorPosition);
     Q_INVOKABLE void moveToNextBlock(TreeItem *block, const QString &currentText, int cursorPosition);
