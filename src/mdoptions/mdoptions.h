@@ -44,6 +44,14 @@ enum ListType {
 };
 Q_ENUM_NS(ListType)
 
+enum InlineStyle {
+    None = 0,
+    Emphasis = 1,
+    Strong = 2,
+    Strikethrough = 3,
+    CodeSpan = 4
+};
+Q_ENUM_NS(InlineStyle)
 };
 
 #endif // MDOPTIONS_H

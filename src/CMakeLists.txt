@@ -20,6 +20,7 @@ target_include_directories(marknote_static PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/mdoptions
     ${CMAKE_CURRENT_SOURCE_DIR}/mdtreemodel
     ${CMAKE_CURRENT_SOURCE_DIR}/commands
+    ${CMAKE_CURRENT_SOURCE_DIR}/mdinlineparser
 )
 
 set_source_files_properties(qml/EditorActions.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
@@ -100,6 +101,7 @@ ecm_add_qml_module(marknote_static
         mdtreemodel/mdtreemodel.h mdtreemodel/mdtreemodel.cpp
         mdtreemodel/mddatagenerator.h mdtreemodel/mddatagenerator.cpp
         mdserializer/mdserializer.h mdserializer/mdserializer.cpp
+        mdinlineparser/mdinlineparser.h mdinlineparser/mdinlineparser.cpp
         commands/commandmanager.h commands/commandmanager.cpp
         commands/mergewithpreviousblock.h commands/mergewithpreviousblock.cpp
         commands/edittext.h commands/edittext.cpp
