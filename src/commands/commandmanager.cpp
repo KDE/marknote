@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "commandmanager.h"
+#include "changelisttypecommand.h"
 #include "deindentlistitem.h"
 #include "editcelltext.h"
 #include "editcode.h"
@@ -223,6 +224,20 @@ void CommandManager::splitListItem(TreeItem *block, const QString &text, int spl
     }
 
     pushCommand(new SplitListItemCommand(block, text, splitIndex, m_model));
+}
+
+void CommandManager::changeListType(TreeItem *block, int listType)
+{
+    pushCommand(new ChangeListTypeCommand(block, static_cast<MDOptions::ListType>(listType), m_model));
+}
+
+bool CommandManager::isListItem(TreeItem *block) const
+{
+    if (!block) {
+        return false;
+    }
+    TreeItem *parent = block->parent();
+    return parent && parent->type() == MDOptions::ElementType::ListItem;
 }
 
 bool CommandManager::canDeIndentListItem(TreeItem *block) const

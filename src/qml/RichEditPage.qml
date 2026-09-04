@@ -502,20 +502,67 @@ EditPage {
     }
     Component{
         id: listStyleGroup
-        ComboBox {
-            id: listStyleComboBox
-            onActivated: (index) => {
-                root.document.setListStyle(currentValue);
+        RowLayout {
+            spacing: Kirigami.Units.smallSpacing
+            enabled: activeTextArea !== null
+
+            ToolButton {
+                icon.name: "format-list-unordered"
+                text: KI18n.i18nc("@action:button", "Unordered list")
+                display: AbstractButton.IconOnly
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+                focusPolicy: Qt.NoFocus
+                onClicked: {
+                    let block = richdochandler.treeModel.focusedBlock();
+                    if (!block) return;
+                    if (CommandManager.isListItem(block)) {
+                        CommandManager.changeListType(block, 1);
+                    } else {
+                        CommandManager.transformToList(block, false, 1, activeTextArea.text);
+                    }
+                }
             }
-            currentIndex: root.listStyle ?? 0
-            enabled: indentAction.enabled || dedentAction.enabled
-            textRole: "text"
-            valueRole: "value"
-            model: [
-                { text: KI18n.i18nc("@item:inmenu no list style", "No list"), value: 0 },
-                { text: KI18n.i18nc("@item:inmenu unordered style", "Unordered list"), value: 1 },
-                { text: KI18n.i18nc("@item:inmenu ordered style", "Ordered list"), value: 4 },
-            ]
+
+            ToolButton {
+                icon.name: "format-list-ordered"
+                text: KI18n.i18nc("@action:button", "Ordered list")
+                display: AbstractButton.IconOnly
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+                focusPolicy: Qt.NoFocus
+                onClicked: {
+                    let block = richdochandler.treeModel.focusedBlock();
+                    if (!block) return;
+                    if (CommandManager.isListItem(block)) {
+                        CommandManager.changeListType(block, 0);
+                    } else {
+                        CommandManager.transformToList(block, true, 1, activeTextArea.text);
+                    }
+                }
+            }
+
+            ToolButton {
+                icon.name: "view-list-details"
+                text: KI18n.i18nc("@action:button", "Checklist")
+                display: AbstractButton.IconOnly
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+                focusPolicy: Qt.NoFocus
+                onClicked: {
+                    let block = richdochandler.treeModel.focusedBlock();
+                    if (!block) return;
+                    if (CommandManager.isListItem(block)) {
+                        CommandManager.changeListType(block, 2);
+                    } else {
+                        CommandManager.transformToList(block, false, 1, activeTextArea.text);
+                        CommandManager.transformToChecklist(block, false, activeTextArea.text);
+                    }
+                }
+            }
         }
     }
     Component{
@@ -986,3 +1033,4 @@ EditPage {
         onTriggered: root.copyMessage.visible = false
     }
 }
+// 

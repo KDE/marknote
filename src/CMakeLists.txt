@@ -118,6 +118,7 @@ ecm_add_qml_module(marknote_static
         commands/transformtoblockquote.h commands/transformtoblockquote.cpp
         commands/transformtolist.h commands/transformtolist.cpp
         commands/transformtochecklist.h commands/transformtochecklist.cpp
+        commands/changelisttypecommand.h commands/changelisttypecommand.cpp
         commands/insertparagraphbelow.h commands/insertparagraphbelow.cpp
         commands/moveblockcommand.h commands/moveblockcommand.cpp
         commands/splitcode.h commands/splitcode.cpp
