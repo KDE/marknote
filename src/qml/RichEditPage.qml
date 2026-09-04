@@ -417,6 +417,7 @@ EditPage {
                 display: AbstractButton.IconOnly
                 checkable: true
                 focusPolicy: Qt.NoFocus
+                enabled: activeTextArea !== null
 
                 checked: currentSpan.type == MDOptions.InlineStyle.Strong
 
@@ -438,6 +439,7 @@ EditPage {
                 display: AbstractButton.IconOnly
                 checkable: true
                 focusPolicy: Qt.NoFocus
+                enabled: activeTextArea !== null
 
                 checked: currentSpan.type == MDOptions.InlineStyle.Emphasis
 
@@ -454,6 +456,7 @@ EditPage {
                 display: AbstractButton.IconOnly
                 checkable: true
                 focusPolicy: Qt.NoFocus
+                enabled: activeTextArea !== null
 
                 checked: currentSpan.type == MDOptions.InlineStyle.Strikethrough
 
@@ -624,24 +627,124 @@ EditPage {
         }
     }
 
+    function setHeadingLevel(level: int) {
+        if (!activeTextArea) {
+            return;
+        }
+
+        let str = activeTextArea["text"];
+
+        const match = str.match(/^( *)#{0,6}( ?)/);
+        const spaces = match[1];
+        const content = str.slice(match[0].length);
+
+        activeTextArea["text"] = spaces + (level ? '#'.repeat(level) + ' ' : '') + content;
+    }
+
+    property var currentHeadingLevel: {
+        if (!activeTextArea) {
+            return 0;
+        }
+
+        let str = activeTextArea["text"];
+
+        let i = 0;
+        while (i < str.length && str[i] === ' ') {
+            i++;
+        }
+
+        let level = 0;
+        while (i < str.length && str[i] === '#' && level < 6) {
+            level++;
+            i++;
+        }
+
+        return level;
+    }
+
     Component {
         id: headingGroup
-        ComboBox {
-            id: headingLevelComboBox
-            currentIndex: root.heading ?? 0
 
-            model: [
-                KI18n.i18nc("@item:inmenu no heading", "Basic text"),
-                KI18n.i18nc("@item:inmenu heading level 1 (largest)", "Title"),
-                KI18n.i18nc("@item:inmenu heading level 2", "Subtitle"),
-                KI18n.i18nc("@item:inmenu heading level 3", "Section"),
-                KI18n.i18nc("@item:inmenu heading level 4", "Subsection"),
-                KI18n.i18nc("@item:inmenu heading level 5", "Paragraph"),
-                KI18n.i18nc("@item:inmenu heading level 6 (smallest)", "Subparagraph")
-            ]
+        RowLayout {
+            spacing: Kirigami.Units.smallSpacing
+            enabled: activeTextArea !== null
 
-            onActivated: (index) => {
-                root.document.setHeadingLevel(index);
+            ToolButton {
+                text: "¶"
+                display: AbstractButton.TextOnly
+                focusPolicy: Qt.NoFocus
+                checkable: true
+                checked: currentHeadingLevel === 0
+                onClicked: setHeadingLevel(0)
+                ToolTip.text: KI18n.i18nc("@item:inmenu no heading", "Paragraph")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            ToolButton {
+                text: "H1"
+                display: AbstractButton.TextOnly
+                focusPolicy: Qt.NoFocus
+                checkable: true
+                checked: currentHeadingLevel === 1
+                onClicked: setHeadingLevel(1)
+                ToolTip.text: KI18n.i18nc("@item:inmenu heading level 1 (largest)", "Heading 1")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            ToolButton {
+                text: "H2"
+                display: AbstractButton.TextOnly
+                focusPolicy: Qt.NoFocus
+                checkable: true
+                checked: currentHeadingLevel === 2
+                onClicked: setHeadingLevel(2)
+                ToolTip.text: KI18n.i18nc("@item:inmenu heading level 2", "Heading 2")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            ToolButton {
+                text: "H3"
+                display: AbstractButton.TextOnly
+                focusPolicy: Qt.NoFocus
+                checkable: true
+                checked: currentHeadingLevel === 3
+                onClicked: setHeadingLevel(3)
+                ToolTip.text: KI18n.i18nc("@item:inmenu heading level 3", "Heading 3")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            ToolButton {
+                text: "H4"
+                display: AbstractButton.TextOnly
+                focusPolicy: Qt.NoFocus
+                checkable: true
+                checked: currentHeadingLevel === 4
+                onClicked: setHeadingLevel(4)
+                ToolTip.text: KI18n.i18nc("@item:inmenu heading level 4", "Heading 4")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            ToolButton {
+                text: "H5"
+                display: AbstractButton.TextOnly
+                focusPolicy: Qt.NoFocus
+                checkable: true
+                checked: currentHeadingLevel === 5
+                onClicked: setHeadingLevel(5)
+                ToolTip.text: KI18n.i18nc("@item:inmenu heading level 5", "Heading 5")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            ToolButton {
+                text: "H6"
+                display: AbstractButton.TextOnly
+                focusPolicy: Qt.NoFocus
+                checkable: true
+                checked: currentHeadingLevel === 6
+                onClicked: setHeadingLevel(6)
+                ToolTip.text: KI18n.i18nc("@item:inmenu heading level 6 (smallest)", "Heading 6")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
             }
         }
     }
