@@ -260,7 +260,145 @@ EditPage {
         height: parent.height - topMargin
     }
 
-    // TODO: add emojierpopup
+    property Item activeTextArea: {
+        const window = root.Window.window
+        if (!window) {
+            return null;
+        }
+
+        const textArea = window.activeFocusItem
+        if (!textArea || !(textArea instanceof TextArea)) {
+            return null;
+        }
+
+        return textArea;
+    }
+
+    property var textAreaSpans: {
+        if (!activeTextArea) {
+            return [];
+        }
+
+        const txt = activeTextArea["text"];
+        if (txt == "") {
+            return [];
+        }
+
+        return MDInlineStyleParser.parse(txt);
+    }
+
+    property var currentSpan: {
+        if (!activeTextArea) {
+            return {start: -1, end: -1, type: MDOptions.InlineStyle.None};
+        }
+
+        let cursorPos = activeTextArea["cursorPosition"];
+        let obj = getCurrentWord(activeTextArea["text"], cursorPos);
+
+        for (let span of textAreaSpans) {
+            if (span.start <= cursorPos && cursorPos <= span.end) {
+                return span;
+            }
+        }
+
+        return {start: -1, end: -1, type: MDOptions.InlineStyle.None};
+    }
+
+    function getCurrentWord(txt, cursorPosition) {
+        const leftSpace = Math.max(0, txt.lastIndexOf(" ", cursorPosition));
+        const leftNewline = Math.max(0, txt.lastIndexOf("\n", cursorPosition));
+
+        let rightSpace = txt.indexOf(" ", cursorPosition);
+        if (rightSpace === -1) {
+            rightSpace = txt.length - 1
+        }
+
+        let rightNewline = txt.indexOf("\n", cursorPosition);
+        if (rightNewline === -1) {
+            rightNewline = txt.length - 1
+        }
+
+        return {left: Math.max(leftSpace, leftNewline), right: Math.min(rightSpace, rightNewline)};
+    }
+
+    function removeCurrentStyle() {
+        if (!activeTextArea || currentSpan.type == MDOptions.InlineStyle.None) {
+            return;
+        }
+
+        let cursorPos = activeTextArea["cursorPosition"];
+
+        let txt = activeTextArea["text"];
+        let first = currentSpan.start;
+        let second = currentSpan.start + 1;
+        let third = currentSpan.end;
+        let fourth = currentSpan.end + 1;
+
+        if (currentSpan.type == MDOptions.InlineStyle.Strong) {
+            second++;
+            third--;
+            cursorPos--;
+        }
+
+        activeTextArea["text"] = txt.slice(0, first) + txt.slice(second, third) + txt.slice(fourth);
+        activeTextArea["cursorPosition"] = cursorPos - 1;
+    }
+
+    function getMarkerForStyle(styleType) {
+        if (styleType === MDOptions.InlineStyle.Emphasis) return "*";
+        if (styleType === MDOptions.InlineStyle.Strong) return "**";
+        if (styleType === MDOptions.InlineStyle.Strikethrough) return "~";
+        return "";
+    }
+
+    function addInlineStyle(styleType) {
+        if (!activeTextArea) return;
+
+        const marker = getMarkerForStyle(styleType);
+        if (!marker) return;
+
+        const txt = activeTextArea.text;
+        const selStart = activeTextArea.selectionStart;
+        const selEnd = activeTextArea.selectionEnd;
+
+        if (selStart !== selEnd) {
+            activeTextArea.text = txt.slice(0, selStart) + marker + txt.slice(selStart, selEnd) + marker + txt.slice(selEnd);
+            activeTextArea.select(selStart + marker.length, selEnd + marker.length);
+        } else {
+            let cursorPos = activeTextArea.cursorPosition;
+            let bounds = getCurrentWord(txt, cursorPos);
+            
+            let left = bounds.left;
+            if (txt[left] === ' ' || txt[left] === '\n') {
+                left += 1;
+            }
+            let right = bounds.right;
+            if (txt[right] === ' ' || txt[right] === '\n') {
+                right -= 1;
+            }
+            
+            if (left > right) {
+                // Empty word (cursor on space or empty text)
+                activeTextArea.text = txt.slice(0, cursorPos) + marker + marker + txt.slice(cursorPos);
+                activeTextArea.cursorPosition = cursorPos + marker.length;
+                return;
+            }
+            
+            activeTextArea.text = txt.slice(0, left) + marker + txt.slice(left, right + 1) + marker + txt.slice(right + 1);
+            activeTextArea.cursorPosition = cursorPos + marker.length;
+        }
+    }
+
+    function toggleInlineStyle(styleType) {
+        if (currentSpan.type === styleType) {
+            removeCurrentStyle();
+        } else {
+            if (currentSpan.type !== MDOptions.InlineStyle.None) {
+                removeCurrentStyle();
+            }
+            addInlineStyle(styleType);
+        }
+    }
 
     Component {
         id: textFormatGroup
@@ -278,17 +416,17 @@ EditPage {
                 text: KI18n.i18nc("@action:button", "Bold")
                 display: AbstractButton.IconOnly
                 checkable: true
+                focusPolicy: Qt.NoFocus
 
-                checked: root.document.bold ?? false
+                checked: currentSpan.type == MDOptions.InlineStyle.Strong
 
-                onClicked: {
-                    root.document.bold = !root.document.bold
-                }
+                onClicked: toggleInlineStyle(MDOptions.InlineStyle.Strong)
 
                 ToolTip.text: text
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
             }
+
             ToolButton {
                 id: italicButton
                 Shortcut {
@@ -299,43 +437,27 @@ EditPage {
                 text: KI18n.i18nc("@action:button", "Italic")
                 display: AbstractButton.IconOnly
                 checkable: true
-                checked: root.document.italic ?? false
-                onClicked: {
-                    root.document.italic = !root.document.italic;
-                }
+                focusPolicy: Qt.NoFocus
+
+                checked: currentSpan.type == MDOptions.InlineStyle.Emphasis
+
+                onClicked: toggleInlineStyle(MDOptions.InlineStyle.Emphasis)
 
                 ToolTip.text: text
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
             }
-            ToolButton {
-                id: underlineButton
-                Shortcut {
-                    sequence: StandardKey.Underline
-                    onActivated: underlineButton.clicked()
-                }
-                icon.name: "format-text-underline"
-                text: KI18n.i18nc("@action:button", "Underline")
-                display: AbstractButton.IconOnly
-                checkable: true
-                checked: root.document.underline ?? false
-                onClicked: {
-                    root.document.underline = !root.document.underline;
-                }
 
-                ToolTip.text: text
-                ToolTip.visible: hovered
-                ToolTip.delay: Kirigami.Units.toolTipDelay
-            }
             ToolButton {
                 icon.name: "format-text-strikethrough"
                 text: KI18n.i18nc("@action:button", "Strikethrough")
                 display: AbstractButton.IconOnly
                 checkable: true
-                checked: root.document.strikethrough ?? false
-                onClicked: {
-                    root.document.strikethrough = !root.document.strikethrough;
-                }
+                focusPolicy: Qt.NoFocus
+
+                checked: currentSpan.type == MDOptions.InlineStyle.Strikethrough
+
+                onClicked: toggleInlineStyle(MDOptions.InlineStyle.Strikethrough)
 
                 ToolTip.text: text
                 ToolTip.visible: hovered
