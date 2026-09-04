@@ -20,12 +20,6 @@ import org.kde.kirigamiaddons.components as Components
 EditPage {
     id: root
 
-    property bool listIndent: true
-    property bool listDedent: true
-    property bool checkbox: false
-    property int listStyle: 0
-    property int heading: 0
-
     canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2
 
     mobileToolBarHidden: mobileToolBarContainer.hidden
@@ -73,21 +67,6 @@ EditPage {
 
         onTreeModelChanged: {
             CommandManager.setModel(richdochandler.treeModel);
-        }
-
-        onCursorPositionChanged: {
-            root.listIndent = canIndentList;
-            root.listDedent = canDedentList;
-            root.checkbox = checkable;
-
-            if (currentListStyle === 0) {
-                root.listStyle = 0;
-            } else if (currentListStyle === 1) {
-                root.listStyle = 1;
-            } else if (currentListStyle === 4) {
-                root.listStyle = 2;
-            }
-            root.heading = currentHeadingLevel
         }
 
         onInternalLinkActivated: (noteName) => {
@@ -475,9 +454,12 @@ EditPage {
         text: KI18n.i18nc("@action:button", "Increase List Level")
         icon.name: "format-indent-more"
         onTriggered: {
-            root.document.indentListMore();
+            if (richdochandler.treeModel && richdochandler.treeModel.focusedBlock()) {
+                CommandManager.indentListItem(richdochandler.treeModel.focusedBlock(), richdochandler.treeModel.focusedBlockCursorPos());
+            }
         }
-        enabled: root.listIndent
+
+        enabled: activeTextArea && CommandManager.canIndentListItem(richdochandler.treeModel.focusedBlock())
     }
 
     Kirigami.Action {
@@ -485,9 +467,12 @@ EditPage {
         icon.name: "format-indent-less"
         text: KI18n.i18nc("@action:button", "Decrease List Level")
         onTriggered: {
-            root.document.indentListLess();
+            if (richdochandler.treeModel && richdochandler.treeModel.focusedBlock()) {
+                CommandManager.deIndentListItem(richdochandler.treeModel.focusedBlock(), richdochandler.treeModel.focusedBlockCursorPos());
+            }
         }
-        enabled: root.listDedent
+
+        enabled: activeTextArea && CommandManager.canDeIndentListItem(richdochandler.treeModel.focusedBlock())
     }
 
     Component {
@@ -499,6 +484,7 @@ EditPage {
             ToolButton {
                 action: indentAction
                 display: AbstractButton.IconOnly
+                focusPolicy: Qt.NoFocus
                 ToolTip.text: text
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -507,6 +493,7 @@ EditPage {
             ToolButton {
                 action: dedentAction
                 display: AbstractButton.IconOnly
+                focusPolicy: Qt.NoFocus
                 ToolTip.text: text
                 ToolTip.visible: hovered
                 ToolTip.delay: Kirigami.Units.toolTipDelay
