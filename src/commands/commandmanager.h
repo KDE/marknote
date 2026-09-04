@@ -74,10 +74,13 @@ public:
 
     Q_INVOKABLE int getCursorInMdString(const QString &rawString, const QString &mdString, int index);
 
+    Q_INVOKABLE void handleLink(const QString &linkString);
+
 Q_SIGNALS:
     void modelChanged();
     void canUndoChanged();
     void canRedoChanged();
+    void internalLinkActivated(const QString &noteName);
 
 private:
     TreeItem *getPreviousSibling(TreeItem *block);

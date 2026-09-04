@@ -79,9 +79,26 @@ Item {
         anchors.fill: textView
         enabled: !root.editing
         hoverEnabled: true
-        cursorShape: Qt.IBeamCursor
+        cursorShape: hoveringLink ? Qt.PointingHandCursor : Qt.IBeamCursor
+
+        property bool hoveringLink: false
+
+        onPositionChanged: (mouse) => {
+            let link = textView.linkAt(mouse.x, mouse.y);
+            hoveringLink = (link.length > 0) && (mouse.modifiers & Qt.ControlModifier);
+        }
+
+        onExited: {
+            hoveringLink = false;
+        }
 
         onClicked: (mouse) => {
+            let link = textView.linkAt(mouse.x, mouse.y);
+            if (link.length > 0 && (mouse.modifiers & Qt.ControlModifier)) {
+                CommandManager.handleLink(link);
+                return;
+            }
+
             let clickIndex = textView.positionAt(mouse.x, mouse.y);
             const cursorPosition = CommandManager.getCursorInMdString(textView.getText(0, textView.text.length), root.md, clickIndex);
 

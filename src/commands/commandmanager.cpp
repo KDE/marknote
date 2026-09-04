@@ -27,7 +27,9 @@
 #include "transformtoblockquote.h"
 #include "transformtochecklist.h"
 #include "transformtolist.h"
+#include <QDesktopServices>
 #include <QRegularExpression>
+#include <QUrl>
 
 using namespace Qt::StringLiterals;
 
@@ -658,4 +660,21 @@ int CommandManager::getCursorInMdString(const QString &rawString, const QString 
     }
 
     return qMin(mdIndex, static_cast<int>(cleanedMdString.length()));
+}
+
+void CommandManager::handleLink(const QString &linkString)
+{
+    QUrl url(linkString);
+    if (url.scheme() == "marknote"_L1) {
+        const QString prefix = u"marknote://note/"_s;
+        if (linkString.startsWith(prefix)) {
+            QString encodedName = linkString.mid(prefix.length());
+            QString noteName = QUrl::fromPercentEncoding(encodedName.toUtf8());
+            if (!noteName.isEmpty()) {
+                Q_EMIT internalLinkActivated(noteName);
+                return;
+            }
+        }
+    }
+    QDesktopServices::openUrl(url);
 }
