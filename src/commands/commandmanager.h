@@ -5,6 +5,7 @@
 #define COMMANDMANAGER_H
 
 #include "mdtreemodel/mdtreemodel.h"
+#include <QHash>
 #include <QObject>
 #include <QUndoStack>
 #include <QtQmlIntegration/qqmlintegration.h>
@@ -83,7 +84,10 @@ private:
 
     QString getBlockText(TreeItem *block) const;
 
-    QUndoStack m_undoStack;
+    QUndoStack *currentUndoStack() const;
+    void pushCommand(QUndoCommand *command);
+
+    QHash<MDTreeModel *, QUndoStack *> m_undoStacks;
     MDTreeModel *m_model;
 };
 

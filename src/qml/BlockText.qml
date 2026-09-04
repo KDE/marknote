@@ -102,6 +102,10 @@ Item {
         }
 
         placeholderText: {
+            if (!root.block) {
+                return "";
+            }
+
             let currentType = root.block.data.type;
             let parentType = root.block.parent ? root.block.parent.data.type : -1;
 

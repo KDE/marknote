@@ -190,6 +190,7 @@ private:
     QString m_currentEmojicode;
     bool m_popupVisible;
 
+    QHash<QUrl, MDTreeModel *> m_models;
     MDTreeModel *m_mdTreeModel;
 };
 

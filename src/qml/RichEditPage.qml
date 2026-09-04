@@ -71,6 +71,10 @@ EditPage {
             CommandManager.setModel(richdochandler.treeModel);
         }
 
+        onTreeModelChanged: {
+            CommandManager.setModel(richdochandler.treeModel);
+        }
+
         onCursorPositionChanged: {
             root.listIndent = canIndentList;
             root.listDedent = canDedentList;
