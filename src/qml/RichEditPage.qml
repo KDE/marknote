@@ -175,12 +175,50 @@ EditPage {
         }
     }
 
+    property var insertTargetBlock: null
+    property int insertTargetCursorPos: -1
+    property int insertTargetSelectionStart: -1
+    property int insertTargetSelectionEnd: -1
+    property string insertTargetSelectedText: ""
+
+    function saveInsertTarget() {
+        insertTargetBlock = richdochandler.treeModel ? richdochandler.treeModel.focusedBlock() : null;
+        if (activeTextArea) {
+            insertTargetCursorPos = activeTextArea.cursorPosition;
+            insertTargetSelectionStart = activeTextArea.selectionStart;
+            insertTargetSelectionEnd = activeTextArea.selectionEnd;
+            insertTargetSelectedText = activeTextArea.selectedText;
+        } else {
+            insertTargetCursorPos = -1;
+            insertTargetSelectionStart = -1;
+            insertTargetSelectionEnd = -1;
+            insertTargetSelectedText = "";
+        }
+    }
+
+    function restoreInsertTargetAndInsert(markdownText) {
+        if (insertTargetBlock && richdochandler.treeModel) {
+            richdochandler.treeModel.requestFocus(insertTargetBlock, insertTargetCursorPos);
+            Qt.callLater(() => {
+                if (activeTextArea) {
+                    if (insertTargetSelectionStart !== insertTargetSelectionEnd) {
+                        activeTextArea.remove(insertTargetSelectionStart, insertTargetSelectionEnd);
+                    }
+                    activeTextArea.insert(activeTextArea.cursorPosition, markdownText);
+                }
+            });
+        }
+    }
+
     LinkDialog {
         id: linkDialog
         implicitWidth: Kirigami.Units.gridUnit * 20
 
         parent: root.overlay
-        onAccepted: root.document.updateLink(linkUrl, linkText)
+        onAccepted: {
+            let markdownLink = `[${linkText}](${linkUrl})`;
+            restoreInsertTargetAndInsert(markdownLink);
+        }
     }
 
     NoteLinkDialog {
@@ -188,7 +226,11 @@ EditPage {
         implicitWidth: Kirigami.Units.gridUnit * 20
 
         parent: root.overlay
-        onAccepted: root.document.updateNoteLink(noteName, noteAlias)
+        onAccepted: {
+            let alias = noteAlias ? noteAlias : noteName;
+            let markdownLink = `[${alias}](${noteName}.md)`;
+            restoreInsertTargetAndInsert(markdownLink);
+        }
     }
 
     FileDialog {
@@ -202,7 +244,8 @@ EditPage {
         onAccepted: {
             const fileUrl = selectedFile.toString();
             if (fileUrl.length > 0) {
-                root.document.insertImage(fileUrl);
+                let markdownImage = `![](${fileUrl})`;
+                restoreInsertTargetAndInsert(markdownImage);
             }
         }
     }
@@ -212,7 +255,18 @@ EditPage {
         implicitWidth: Kirigami.Units.gridUnit * 20
 
         parent: root.overlay
-        onAccepted: root.document.insertTable(rows, cols)
+        onAccepted: {
+            let tableMd = "\n";
+            for (let r = 0; r < rows + 2; r++) {
+                tableMd += "|";
+                for (let c = 0; c < cols; c++) {
+                    if (r === 1) tableMd += "---|";
+                    else tableMd += "   |";
+                }
+                tableMd += "\n";
+            }
+            restoreInsertTargetAndInsert(tableMd);
+        }
     }
 
     SketchDialog {
@@ -221,7 +275,8 @@ EditPage {
 
         onSaved: imagePath => {
             if (imagePath.toString().length > 0) {
-                root.document.insertImage("file://" + imagePath);
+                let markdownImage = `![](file://${imagePath})`;
+                restoreInsertTargetAndInsert(markdownImage);
             }
         }
     }
@@ -570,28 +625,15 @@ EditPage {
 
         RowLayout {
             ToolButton {
-                id: checkboxAction
-                icon.name: "checkbox-symbolic"
-                text: KI18n.i18nc("@action:button", "Insert checkbox")
-                display: AbstractButton.IconOnly
-                checkable: true
-                onClicked: {
-                    root.document.checkable = !root.document.checkable;
-                }
-                checked: root.checkbox
-                ToolTip.text: text
-                ToolTip.visible: hovered
-                ToolTip.delay: Kirigami.Units.toolTipDelay
-            }
-
-            ToolButton {
                 id: linkAction
                 icon.name: "insert-link-symbolic"
                 text: KI18n.i18nc("@action:button", "Insert link")
                 display: AbstractButton.IconOnly
+                focusPolicy: Qt.NoFocus
                 onClicked: {
-                    linkDialog.linkText = root.document.currentLinkText();
-                    linkDialog.linkUrl = root.document.currentLinkUrl();
+                    saveInsertTarget();
+                    linkDialog.linkText = insertTargetSelectedText;
+                    linkDialog.linkUrl = "";
                     linkDialog.open();
                 }
 
@@ -605,9 +647,11 @@ EditPage {
                 icon.name: "text-frame-link-symbolic"
                 text: KI18n.i18nc("@action:button", "Insert note link")
                 display: AbstractButton.IconOnly
+                focusPolicy: Qt.NoFocus
                 onClicked: {
-                    noteLinkDialog.noteAlias = root.document.currentNoteLinkAlias();
-                    noteLinkDialog.noteName = root.document.currentNoteLinkName();
+                    saveInsertTarget();
+                    noteLinkDialog.noteAlias = insertTargetSelectedText;
+                    noteLinkDialog.noteName = "";
                     noteLinkDialog.open();
                 }
 
@@ -621,7 +665,9 @@ EditPage {
                 icon.name: "insert-image-symbolic"
                 text: KI18n.i18nc("@action:button", "Insert image")
                 display: AbstractButton.IconOnly
+                focusPolicy: Qt.NoFocus
                 onClicked: {
+                    saveInsertTarget();
                     imageDialog.open();
                 }
 
@@ -635,7 +681,9 @@ EditPage {
                 icon.name: "insert-table"
                 text: KI18n.i18nc("@action:button", "Insert table")
                 display: AbstractButton.IconOnly
+                focusPolicy: Qt.NoFocus
                 onClicked: {
+                    saveInsertTarget();
                     tableDialog.open()
                 }
 
@@ -649,8 +697,9 @@ EditPage {
                 icon.name: "draw-freehand"
                 text: KI18n.i18nc("@action:button", "Insert sketch")
                 display: AbstractButton.IconOnly
-
+                focusPolicy: Qt.NoFocus
                 onClicked: {
+                    saveInsertTarget();
                     sketchDialog.open();
                 }
 
