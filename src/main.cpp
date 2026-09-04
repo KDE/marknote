@@ -40,9 +40,7 @@
 #include <QDBusError>
 #endif
 
-#if KI18N_VERSION >= QT_VERSION_CHECK(6, 8, 0)
 #include <KLocalizedQmlContext>
-#endif
 
 #ifdef Q_OS_WINDOWS
 #include <Windows.h>

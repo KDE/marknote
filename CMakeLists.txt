@@ -13,8 +13,7 @@ project(marknote VERSION ${RELEASE_SERVICE_VERSION})
 include(FeatureSummary)
 
 set(QT_MIN_VERSION 6.9)
-set(KF_MIN_VERSION 6.21)
-set(KPIM_MIME_VERSION "6.1.0")
+set(KF_MIN_VERSION 6.27)
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -51,7 +50,7 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
 endif()
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg)
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Kirigami I18n Config CoreAddons IconThemes ColorScheme Notifications ItemModels)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Kirigami I18n Config CoreAddons IconThemes ColorScheme Notifications ItemModels Mime)
 
 if (NOT ANDROID AND KF6CoreAddons_VERSION VERSION_LESS "6.19.0")
     option(WITH_KCRASH "Build with KCrash support as KCoreAddons is not new enough." ON)
@@ -84,12 +83,6 @@ set_package_properties(KF6KirigamiAddons PROPERTIES
 ecm_set_disabled_deprecation_versions(QT 6.9.0
     KF 6.19.0
 )
-
-find_package(KF6Mime ${KF_MIN_VERSION} CONFIG)
-if(NOT TARGET KF6::Mime)
-    find_package(KPim6Mime ${KPIM_MIME_VERSION} CONFIG REQUIRED)
-    add_library(KF6::Mime ALIAS KPim6::Mime)
-endif()
 
 find_package(md4c)
 set_package_properties(md4c PROPERTIES
