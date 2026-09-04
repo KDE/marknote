@@ -68,8 +68,11 @@ EditPage {
         onTreeModelChanged: {
             CommandManager.setModel(richdochandler.treeModel);
         }
+    }
 
-        onInternalLinkActivated: (noteName) => {
+    Connections {
+        target: CommandManager
+        function onInternalLinkActivated(noteName) {
             root.openNoteByName(noteName);
         }
     }
@@ -228,7 +231,7 @@ EditPage {
         parent: root.overlay
         onAccepted: {
             let alias = noteAlias ? noteAlias : noteName;
-            let markdownLink = `[${alias}](${noteName}.md)`;
+            let markdownLink = `[${alias}](marknote://note/${noteName})`;
             restoreInsertTargetAndInsert(markdownLink);
         }
     }
