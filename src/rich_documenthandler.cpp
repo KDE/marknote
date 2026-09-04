@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
+// SPDX-FileCopyrightText: 2017 The Qt Company Ltd.
 // SPDX-FileCopyrightText: 2015-2024 Laurent Montel <montel@kde.org>
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
 // SPDX-FileCopyrightText: 2026 Valentyn Bondarenko <bondarenko@vivaldi.net>
@@ -84,7 +84,7 @@ QString internalLinkNameFromUrl(const QUrl &url)
 
 RichDocumentHandler::RichDocumentHandler(QObject *parent)
     : DocumentHandler(parent)
-    , m_mdTreeModel(new MDTreeModel(this))
+    , m_mdTreeModel(nullptr)
 {
     m_document = nullptr;
     m_textArea = nullptr;
@@ -277,19 +277,28 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
     if (!file.open(QFile::ReadOnly))
         return;
 
-    AsyncDocBuilder *builder = new AsyncDocBuilder(this);
-    builder->loadDocument(fileUrl.toLocalFile());
+    if (m_models.contains(fileUrl)) {
+        m_mdTreeModel = m_models.value(fileUrl);
+        Q_EMIT treeModelChanged();
+    } else {
+        m_mdTreeModel = new MDTreeModel(this);
+        m_models.insert(fileUrl, m_mdTreeModel);
+        Q_EMIT treeModelChanged();
 
-    connect(
-        builder,
-        &AsyncDocBuilder::documentReady,
-        this,
-        [this](const AsyncDocBuilder::DocPointer &doc) {
-            if (m_mdTreeModel) {
-                m_mdTreeModel->setDocument(doc);
-            }
-        },
-        Qt::SingleShotConnection);
+        AsyncDocBuilder *builder = new AsyncDocBuilder(this);
+        builder->loadDocument(fileUrl.toLocalFile());
+
+        connect(
+            builder,
+            &AsyncDocBuilder::documentReady,
+            this,
+            [this, fileUrl](const AsyncDocBuilder::DocPointer &doc) {
+                if (MDTreeModel *model = m_models.value(fileUrl)) {
+                    model->setDocument(doc);
+                }
+            },
+            Qt::SingleShotConnection);
+    }
 
     const QString rawContent = QString::fromUtf8(file.readAll());
 

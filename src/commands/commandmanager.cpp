@@ -34,8 +34,20 @@ CommandManager::CommandManager(QObject *parent)
     : QObject(parent)
     , m_model(nullptr)
 {
-    connect(&m_undoStack, &QUndoStack::canUndoChanged, this, &CommandManager::canUndoChanged);
-    connect(&m_undoStack, &QUndoStack::canRedoChanged, this, &CommandManager::canRedoChanged);
+}
+
+QUndoStack *CommandManager::currentUndoStack() const
+{
+    return m_undoStacks.value(m_model, nullptr);
+}
+
+void CommandManager::pushCommand(QUndoCommand *command)
+{
+    if (auto stack = currentUndoStack()) {
+        stack->push(command);
+    } else {
+        delete command;
+    }
 }
 
 CommandManager::~CommandManager()
@@ -50,54 +62,94 @@ MDTreeModel *CommandManager::model() const
 void CommandManager::setModel(MDTreeModel *model)
 {
     if (m_model != model) {
+        if (m_model) {
+            QUndoStack *oldStack = m_undoStacks.value(m_model);
+            if (oldStack) {
+                disconnect(oldStack, &QUndoStack::canUndoChanged, this, &CommandManager::canUndoChanged);
+                disconnect(oldStack, &QUndoStack::canRedoChanged, this, &CommandManager::canRedoChanged);
+            }
+        }
+
         m_model = model;
+
+        if (m_model) {
+            if (!m_undoStacks.contains(m_model)) {
+                QUndoStack *newStack = new QUndoStack(m_model);
+                m_undoStacks.insert(m_model, newStack);
+                connect(m_model, &QObject::destroyed, this, [this, model]() {
+                    m_undoStacks.remove(model);
+                    if (m_model == model) {
+                        m_model = nullptr;
+                        Q_EMIT canUndoChanged();
+                        Q_EMIT canRedoChanged();
+                        Q_EMIT modelChanged();
+                    }
+                });
+            }
+            QUndoStack *stack = m_undoStacks.value(m_model);
+            connect(stack, &QUndoStack::canUndoChanged, this, &CommandManager::canUndoChanged);
+            connect(stack, &QUndoStack::canRedoChanged, this, &CommandManager::canRedoChanged);
+        }
+
+        Q_EMIT canUndoChanged();
+        Q_EMIT canRedoChanged();
         Q_EMIT modelChanged();
     }
 }
 
 void CommandManager::undo()
 {
-    m_undoStack.undo();
+    if (auto stack = currentUndoStack()) {
+        stack->undo();
+    }
 }
 
 void CommandManager::redo()
 {
-    m_undoStack.redo();
+    if (auto stack = currentUndoStack()) {
+        stack->redo();
+    }
 }
 
 bool CommandManager::canUndo() const
 {
-    return m_undoStack.canUndo();
+    if (auto stack = currentUndoStack()) {
+        return stack->canUndo();
+    }
+    return false;
 }
 
 bool CommandManager::canRedo() const
 {
-    return m_undoStack.canRedo();
+    if (auto stack = currentUndoStack()) {
+        return stack->canRedo();
+    }
+    return false;
 }
 
 void CommandManager::splitBlock(TreeItem *block, const QString &text, int splitIndex)
 {
-    m_undoStack.push(new SplitBlockCommand(block, text, splitIndex, m_model));
+    pushCommand(new SplitBlockCommand(block, text, splitIndex, m_model));
 }
 
 void CommandManager::splitCode(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition)
 {
-    m_undoStack.push(new SplitCodeCommand(block, oldText, text, cursorPosition, m_model));
+    pushCommand(new SplitCodeCommand(block, oldText, text, cursorPosition, m_model));
 }
 
 void CommandManager::insertParagraphBelow(TreeItem *block, const QString &text)
 {
-    m_undoStack.push(new InsertParagraphBelowCommand(block, text, m_model));
+    pushCommand(new InsertParagraphBelowCommand(block, text, m_model));
 }
 
 void CommandManager::editText(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition)
 {
-    m_undoStack.push(new EditTextCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
+    pushCommand(new EditTextCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
 }
 
 void CommandManager::editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition)
 {
-    m_undoStack.push(new EditCodeCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
+    pushCommand(new EditCodeCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
 }
 
 void CommandManager::editTableCellText(TreeItem *block,
@@ -108,32 +160,32 @@ void CommandManager::editTableCellText(TreeItem *block,
                                        int oldCursorPosition,
                                        int newCursorPosition)
 {
-    m_undoStack.push(new EditCellTextCommand(block, row, column, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
+    pushCommand(new EditCellTextCommand(block, row, column, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
 }
 
 void CommandManager::parseBlock(TreeItem *block, const QString &text)
 {
-    m_undoStack.push(new ParseBlockCommand(block, text, m_model));
+    pushCommand(new ParseBlockCommand(block, text, m_model));
 }
 
 void CommandManager::insertRowInTable(TreeItem *block, int index)
 {
-    m_undoStack.push(new InsertRowInTableCommand(block, index, m_model));
+    pushCommand(new InsertRowInTableCommand(block, index, m_model));
 }
 
 void CommandManager::insertColInTable(TreeItem *block, int index)
 {
-    m_undoStack.push(new InsertColumnInTableCommand(block, index, m_model));
+    pushCommand(new InsertColumnInTableCommand(block, index, m_model));
 }
 
 void CommandManager::deleteRowInTable(TreeItem *block, int row)
 {
-    m_undoStack.push(new RemoveRowFromTableCommand(block, row, m_model));
+    pushCommand(new RemoveRowFromTableCommand(block, row, m_model));
 }
 
 void CommandManager::deleteColumnInTable(TreeItem *block, int col)
 {
-    m_undoStack.push(new RemoveColumnFromTableCommand(block, col, m_model));
+    pushCommand(new RemoveColumnFromTableCommand(block, col, m_model));
 }
 
 void CommandManager::mergeWithPreviousBlock(TreeItem *block, const QString &text)
@@ -145,23 +197,23 @@ void CommandManager::mergeWithPreviousBlock(TreeItem *block, const QString &text
     TreeItem *target = getPreviousSibling(block);
 
     if (target) {
-        m_undoStack.push(new MergeWithPreviousBlockCommand(block, text, target, m_model));
+        pushCommand(new MergeWithPreviousBlockCommand(block, text, target, m_model));
     }
 }
 
 void CommandManager::transformToBlockquote(TreeItem *block, int level, const QString &text)
 {
-    m_undoStack.push(new TransformToBlockquoteCommand(block, level, text, m_model));
+    pushCommand(new TransformToBlockquoteCommand(block, level, text, m_model));
 }
 
 void CommandManager::transformToList(TreeItem *block, bool isOrdered, int startNumber, const QString &text)
 {
-    m_undoStack.push(new TransformToListCommand(block, isOrdered, startNumber, text, m_model));
+    pushCommand(new TransformToListCommand(block, isOrdered, startNumber, text, m_model));
 }
 
 void CommandManager::transformToChecklist(TreeItem *block, bool isChecked, const QString &text)
 {
-    m_undoStack.push(new TransformToChecklistCommand(block, isChecked, text, m_model));
+    pushCommand(new TransformToChecklistCommand(block, isChecked, text, m_model));
 }
 
 void CommandManager::splitListItem(TreeItem *block, const QString &text, int splitIndex)
@@ -170,7 +222,7 @@ void CommandManager::splitListItem(TreeItem *block, const QString &text, int spl
         return;
     }
 
-    m_undoStack.push(new SplitListItemCommand(block, text, splitIndex, m_model));
+    pushCommand(new SplitListItemCommand(block, text, splitIndex, m_model));
 }
 
 bool CommandManager::deIndentListItem(TreeItem *block, int cursorPosition)
@@ -195,7 +247,7 @@ bool CommandManager::deIndentListItem(TreeItem *block, int cursorPosition)
         return false;
     }
 
-    m_undoStack.push(new DeIndentListItemCommand(block, m_model, cursorPosition));
+    pushCommand(new DeIndentListItemCommand(block, m_model, cursorPosition));
     return true;
 }
 
@@ -215,7 +267,7 @@ void CommandManager::indentListItem(TreeItem *block, int cursorPosition)
         return;
     }
 
-    m_undoStack.push(new IndentListItemCommand(block, m_model, cursorPosition));
+    pushCommand(new IndentListItemCommand(block, m_model, cursorPosition));
 }
 
 bool CommandManager::convertToParagraph(TreeItem *block, int cursorPosition)
@@ -252,7 +304,7 @@ bool CommandManager::moveOutsideBlockquote(TreeItem *block, int cursorPosition)
         return false;
     }
 
-    m_undoStack.push(new MoveOutsideBlockquoteCommand(block, m_model, cursorPosition));
+    pushCommand(new MoveOutsideBlockquoteCommand(block, m_model, cursorPosition));
     return true;
 }
 
@@ -262,7 +314,7 @@ void CommandManager::removeBlocks(const QList<TreeItem *> &blocks)
         return;
     }
 
-    m_undoStack.push(new RemoveBlocksCommand(blocks, m_model));
+    pushCommand(new RemoveBlocksCommand(blocks, m_model));
 }
 
 QString CommandManager::blocksToMarkdown(const QList<TreeItem *> &blocks) const
@@ -284,7 +336,7 @@ void CommandManager::moveBlock(TreeItem *sourceBlock, TreeItem *targetParent, in
         return;
     }
 
-    m_undoStack.push(new MoveBlockCommand(sourceBlock, targetParent, targetIndex, m_model));
+    pushCommand(new MoveBlockCommand(sourceBlock, targetParent, targetIndex, m_model));
 }
 
 bool CommandManager::isValidMove(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex)
@@ -311,13 +363,13 @@ bool CommandManager::isValidMove(TreeItem *sourceBlock, TreeItem *targetParent, 
 
 bool CommandManager::removeBlockquoteIfAtStart(TreeItem *bqBlock, TreeItem *block, int cursorPosition)
 {
-    m_undoStack.push(new RemoveBlockquoteCommand(bqBlock, block, m_model, cursorPosition));
+    pushCommand(new RemoveBlockquoteCommand(bqBlock, block, m_model, cursorPosition));
     return true;
 }
 
 bool CommandManager::removeFromListIfAtStart(TreeItem *block, int cursorPosition)
 {
-    m_undoStack.push(new RemoveFromListCommand(block, m_model, cursorPosition));
+    pushCommand(new RemoveFromListCommand(block, m_model, cursorPosition));
     return true;
 }
 
