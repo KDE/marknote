@@ -48,7 +48,9 @@ public:
     Q_INVOKABLE void transformToList(TreeItem *block, bool isOrdered, int startNumber, const QString &text);
     Q_INVOKABLE void transformToChecklist(TreeItem *block, bool isChecked, const QString &text);
     Q_INVOKABLE void splitListItem(TreeItem *block, const QString &text, int splitIndex);
+    Q_INVOKABLE bool canDeIndentListItem(TreeItem *block) const;
     Q_INVOKABLE bool deIndentListItem(TreeItem *block, int cursorPosition);
+    Q_INVOKABLE bool canIndentListItem(TreeItem *block) const;
     Q_INVOKABLE void indentListItem(TreeItem *block, int cursorPosition);
     Q_INVOKABLE bool convertToParagraph(TreeItem *block, int cursorPosition);
     Q_INVOKABLE bool moveOutsideBlockquote(TreeItem *block, int cursorPosition);

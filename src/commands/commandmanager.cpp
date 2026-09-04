@@ -225,8 +225,10 @@ void CommandManager::splitListItem(TreeItem *block, const QString &text, int spl
     pushCommand(new SplitListItemCommand(block, text, splitIndex, m_model));
 }
 
-bool CommandManager::deIndentListItem(TreeItem *block, int cursorPosition)
+bool CommandManager::canDeIndentListItem(TreeItem *block) const
 {
+    if (!block)
+        return false;
     const auto listItem = block->parent();
     if (!listItem || listItem->type() != MDOptions::ElementType::ListItem) {
         return false;
@@ -247,23 +249,43 @@ bool CommandManager::deIndentListItem(TreeItem *block, int cursorPosition)
         return false;
     }
 
+    return true;
+}
+
+bool CommandManager::deIndentListItem(TreeItem *block, int cursorPosition)
+{
+    if (!canDeIndentListItem(block)) {
+        return false;
+    }
+
     pushCommand(new DeIndentListItemCommand(block, m_model, cursorPosition));
+    return true;
+}
+
+bool CommandManager::canIndentListItem(TreeItem *block) const
+{
+    if (!block)
+        return false;
+    const auto listItem = block->parent();
+    if (!listItem || listItem->type() != MDOptions::ElementType::ListItem) {
+        return false;
+    }
+
+    const auto curList = listItem->parent();
+    if (!curList || curList->type() != MDOptions::ElementType::List) {
+        return false;
+    }
+
+    if (listItem->row() <= 0) {
+        return false;
+    }
+
     return true;
 }
 
 void CommandManager::indentListItem(TreeItem *block, int cursorPosition)
 {
-    const auto listItem = block->parent();
-    if (!listItem || listItem->type() != MDOptions::ElementType::ListItem) {
-        return;
-    }
-
-    const auto curList = listItem->parent();
-    if (!curList || curList->type() != MDOptions::ElementType::List) {
-        return;
-    }
-
-    if (listItem->row() <= 0) {
+    if (!canIndentListItem(block)) {
         return;
     }
 
