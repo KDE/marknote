@@ -70,10 +70,33 @@ EditPage {
         }
     }
 
+    Timer {
+        id: saveTimer
+        repeat: false
+        interval: 1000
+        onTriggered: {
+            if (root.noteFullPath.toString().length > 0) {
+                root.document.saveAs(root.noteFullPath);
+                root.saved = true;
+            }
+        }
+    }
+
     Connections {
         target: CommandManager
+        function onCanUndoChanged() {
+            root.saved = false;
+            saveTimer.restart();
+        }
         function onInternalLinkActivated(noteName) {
             root.openNoteByName(noteName);
+        }
+    }
+
+    Component.onDestruction: {
+        if (!root.saved && root.noteFullPath.toString().length > 0) {
+            root.document.saveAs(root.noteFullPath);
+            root.saved = true;
         }
     }
 
