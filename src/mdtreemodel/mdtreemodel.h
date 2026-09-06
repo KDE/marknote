@@ -91,6 +91,11 @@ public:
     bool hasSelection() const;
     Q_INVOKABLE bool isBlockSelected(TreeItem *block) const;
 
+    Q_INVOKABLE QString toMarkdown() const;
+    Q_INVOKABLE bool saveToFile(const QUrl &fileUrl);
+    bool saveToFile(const QString &filePath);
+    TreeItem *rootItem() const;
+
 Q_SIGNALS:
     void focusRequested(TreeItem *block, int cursorPosition);
     void focusRequestedOnTable(TreeItem *block, int row, int column, int cursorPosition);

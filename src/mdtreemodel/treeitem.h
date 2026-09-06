@@ -41,6 +41,7 @@ public:
     MDOptions::ElementType type() const;
 
     QSharedPointer<MD::Item> item() const;
+    void setItem(const QSharedPointer<MD::Item> &item);
 
     template<typename T>
     QSharedPointer<T> itemAs() const
@@ -59,6 +60,7 @@ public:
     void setUnparsedMarkdown(const QString &text);
     QString unparsedMarkdown() const;
     void clearUnparsedMarkdown();
+    void commitUnparsedMarkdown();
 
     void setUnparsedMarkdownForTable(const QString &text, int row, int col);
     void clearUnparsedTableMarkdown();

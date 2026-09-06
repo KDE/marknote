@@ -2,6 +2,10 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "mdtreemodel.h"
+#include "mdserializer/mdserializer.h"
+#include <QFile>
+#include <QStringConverter>
+#include <QTextStream>
 #include <QTimer>
 #include <md4qt/parser.h>
 using namespace Qt::StringLiterals;
@@ -10,6 +14,7 @@ MDTreeModel::MDTreeModel(QObject *parent)
     : QAbstractItemModel(parent)
     , m_rootItem(std::make_unique<TreeItem>())
 {
+    m_rootItem->setItem(QSharedPointer<MD::Document>::create());
 }
 
 QModelIndex MDTreeModel::index(int row, int column, const QModelIndex &parent) const
@@ -97,6 +102,9 @@ void MDTreeModel::setDocument(const QSharedPointer<MD::Document> &document)
     if (document) {
         TreeItem *newRoot = TreeItem::buildTree(document);
         m_rootItem.reset(newRoot);
+    } else {
+        m_rootItem = std::make_unique<TreeItem>();
+        m_rootItem->setItem(QSharedPointer<MD::Document>::create());
     }
 
     endResetModel();
@@ -593,4 +601,58 @@ void MDTreeModel::clearSelection()
 void MDTreeModel::clearFocus()
 {
     setFocusedBlock(nullptr, -1);
+}
+
+QString MDTreeModel::toMarkdown() const
+{
+    if (!m_rootItem) {
+        return QString();
+    }
+
+    m_rootItem->commitUnparsedMarkdown();
+
+    auto doc = m_rootItem->itemAs<MD::Document>();
+    if (!doc) {
+        doc = QSharedPointer<MD::Document>::create();
+        for (TreeItem *child : m_rootItem->children()) {
+            if (child && child->item()) {
+                doc->appendItem(child->item());
+            }
+        }
+    }
+
+    MDSerializer serializer;
+    return serializer.processDoc(doc);
+}
+
+bool MDTreeModel::saveToFile(const QUrl &fileUrl)
+{
+    const QString filePath = fileUrl.isLocalFile() ? fileUrl.toLocalFile() : fileUrl.toString();
+    return saveToFile(filePath);
+}
+
+bool MDTreeModel::saveToFile(const QString &filePath)
+{
+    if (filePath.isEmpty()) {
+        return false;
+    }
+
+    const QString markdown = toMarkdown();
+
+    QFile file(filePath);
+    if (!file.open(QFile::WriteOnly | QFile::Truncate | QFile::Text)) {
+        return false;
+    }
+
+    QTextStream out(&file);
+    out.setEncoding(QStringConverter::Utf8);
+    out << markdown;
+    file.close();
+
+    return true;
+}
+
+TreeItem *MDTreeModel::rootItem() const
+{
+    return m_rootItem.get();
 }

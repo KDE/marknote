@@ -19,16 +19,39 @@ TreeItem::~TreeItem()
 
 void TreeItem::appendChild(TreeItem *child)
 {
+    if (!child)
+        return;
+
     m_children.append(child);
     child->m_parent = this;
     child->setParent(this);
+
+    auto block = m_item.dynamicCast<MD::Block>();
+    if (block && child->m_item) {
+        block->appendItem(child->m_item);
+    }
 }
 
 void TreeItem::insertChild(int childRow, TreeItem *child)
 {
+    if (!child)
+        return;
+
+    if (childRow < 0) {
+        childRow = 0;
+    }
+    if (childRow > m_children.size()) {
+        childRow = m_children.size();
+    }
+
     m_children.insert(childRow, child);
     child->m_parent = this;
     child->setParent(this);
+
+    auto block = m_item.dynamicCast<MD::Block>();
+    if (block && child->m_item) {
+        block->insertItem(childRow, child->m_item);
+    }
 }
 
 TreeItem *TreeItem::removeChild(int childRow)
@@ -38,6 +61,12 @@ TreeItem *TreeItem::removeChild(int childRow)
 
     TreeItem *child = m_children.takeAt(childRow);
     child->m_parent = nullptr;
+
+    auto block = m_item.dynamicCast<MD::Block>();
+    if (block && childRow < block->items().size()) {
+        block->removeItemAt(childRow);
+    }
+
     return child;
 }
 
@@ -52,10 +81,16 @@ QList<TreeItem *> TreeItem::takeChildren(int startIndex, int count)
         count = m_children.size() - startIndex;
     }
 
+    auto block = m_item.dynamicCast<MD::Block>();
+
     for (int i = 0; i < count; ++i) {
         TreeItem *child = m_children.takeAt(startIndex);
         child->m_parent = nullptr;
         result.append(child);
+
+        if (block && startIndex < block->items().size()) {
+            block->removeItemAt(startIndex);
+        }
     }
 
     return result;
@@ -70,11 +105,20 @@ void TreeItem::insertChildren(int startIndex, const QList<TreeItem *> &children)
         startIndex = m_children.size();
     }
 
+    auto block = m_item.dynamicCast<MD::Block>();
+
     int i = 0;
     for (TreeItem *child : children) {
+        if (!child)
+            continue;
+
         m_children.insert(startIndex + i, child);
         child->m_parent = this;
         child->setParent(this);
+
+        if (block && child->m_item) {
+            block->insertItem(startIndex + i, child->m_item);
+        }
         i++;
     }
 }
@@ -242,6 +286,11 @@ QSharedPointer<MD::Item> TreeItem::item() const
     return m_item;
 }
 
+void TreeItem::setItem(const QSharedPointer<MD::Item> &item)
+{
+    m_item = item;
+}
+
 QList<TreeItem *> TreeItem::children() const
 {
     return m_children;
@@ -272,7 +321,9 @@ TreeItem *TreeItem::buildTree(const QSharedPointer<MD::Item> &item)
 
     for (auto it = block->items().cbegin(); it != block->items().cend(); ++it) {
         TreeItem *child = buildTree(*it);
-        treeItem->appendChild(child);
+        treeItem->m_children.append(child);
+        child->m_parent = treeItem;
+        child->setParent(treeItem);
     }
 
     if (treeItem->childCount() == 0) {
@@ -285,9 +336,23 @@ TreeItem *TreeItem::buildTree(const QSharedPointer<MD::Item> &item)
 QSharedPointer<MD::Item> TreeItem::createMDItem(MDOptions::ElementType type, const QString &text)
 {
     switch (type) {
+    case MDOptions::ElementType::Document: {
+        return QSharedPointer<MD::Document>::create();
+    }
     case MDOptions::ElementType::Heading: {
         auto heading = QSharedPointer<MD::Heading>::create();
-        heading->setText(createMDItem(MDOptions::ElementType::Paragraph, text).dynamicCast<MD::Paragraph>());
+        int level = 1;
+        QString headingText = text;
+        int hashCount = 0;
+        while (hashCount < headingText.size() && headingText[hashCount] == u'#' && hashCount < 6) {
+            hashCount++;
+        }
+        if (hashCount > 0) {
+            level = hashCount;
+            headingText = headingText.mid(hashCount).trimmed();
+        }
+        heading->setLevel(level);
+        heading->setText(createMDItem(MDOptions::ElementType::Paragraph, headingText).dynamicCast<MD::Paragraph>());
         return heading;
     }
     case MDOptions::ElementType::Paragraph: {
@@ -351,6 +416,45 @@ QString TreeItem::unparsedMarkdown() const
 void TreeItem::clearUnparsedMarkdown()
 {
     m_unparsedMd.clear();
+}
+
+void TreeItem::commitUnparsedMarkdown()
+{
+    if (!m_unparsedMd.isNull()) {
+        const auto parsed = fromMarkdown(m_unparsedMd);
+        if (!parsed.isEmpty() && parsed[0]->m_item) {
+            m_item = parsed[0]->m_item;
+
+            if (m_parent && m_parent->m_item) {
+                auto parentBlock = m_parent->m_item.dynamicCast<MD::Block>();
+                int r = row();
+                if (parentBlock && r >= 0 && r < parentBlock->items().size()) {
+                    parentBlock->removeItemAt(r);
+                    parentBlock->insertItem(r, m_item);
+                }
+            }
+        }
+        qDeleteAll(parsed);
+        m_unparsedMd.clear();
+    }
+
+    if (m_item && m_item->type() == MD::ItemType::Table && m_unparsedTableMd) {
+        for (int r = 0; r < m_unparsedTableMd->size(); ++r) {
+            for (int c = 0; c < (*m_unparsedTableMd)[r].size(); ++c) {
+                const QString &unparsedCell = (*m_unparsedTableMd)[r][c];
+                if (!unparsedCell.isNull()) {
+                    setTableCellMarkdown(r, c, unparsedCell);
+                }
+            }
+        }
+        clearUnparsedTableMarkdown();
+    }
+
+    for (TreeItem *child : m_children) {
+        if (child) {
+            child->commitUnparsedMarkdown();
+        }
+    }
 }
 
 void TreeItem::setUnparsedMarkdownForTable(const QString &text, int row, int col)

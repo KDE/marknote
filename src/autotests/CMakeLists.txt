@@ -26,3 +26,9 @@ ecm_add_test(maildirimporttest.cpp
     LINK_LIBRARIES marknote_static Qt::Test
     NAME_PREFIX "marknote-"
 )
+
+ecm_add_test(treemodelserializertest.cpp
+    TEST_NAME treemodelserializertest
+    LINK_LIBRARIES marknote_static Qt::Test
+    NAME_PREFIX "marknote-"
+)

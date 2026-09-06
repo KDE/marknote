@@ -514,6 +514,20 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
 
 void RichDocumentHandler::saveAs(const QUrl &fileUrl)
 {
+    const QUrl targetUrl = fileUrl.isEmpty() ? m_fileUrl : fileUrl;
+    MDTreeModel *treeModelToSave = m_models.value(targetUrl, m_mdTreeModel);
+
+    if (treeModelToSave && !targetUrl.isEmpty()) {
+        if (treeModelToSave->saveToFile(targetUrl)) {
+            if (targetUrl != m_fileUrl) {
+                m_fileUrl = targetUrl;
+                Q_EMIT fileUrlChanged();
+            }
+            setModified(false);
+            return;
+        }
+    }
+
     QTextDocument *doc = textDocument();
 
     if (!doc || !doc->isModified()) {

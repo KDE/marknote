@@ -369,6 +369,14 @@ QString CommandManager::blocksToMarkdown(const QList<TreeItem *> &blocks) const
     return serializer.processDoc(doc).trimmed();
 }
 
+bool CommandManager::saveFile(const QUrl &fileUrl)
+{
+    if (!m_model) {
+        return false;
+    }
+    return m_model->saveToFile(fileUrl);
+}
+
 void CommandManager::moveBlock(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex)
 {
     if (!isValidMove(sourceBlock, targetParent, targetIndex)) {
