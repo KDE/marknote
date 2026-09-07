@@ -35,6 +35,8 @@ class NavigationController : public QObject
     Q_PROPERTY(bool mobileMode READ mobileMode WRITE setMobileMode NOTIFY mobileModeChanged)
 
     Q_PROPERTY(bool sourceMode READ sourceMode WRITE setSourceMode NOTIFY sourceModeChanged)
+    Q_PROPERTY(bool openReplaceOnSourceMode READ openReplaceOnSourceMode WRITE setOpenReplaceOnSourceMode NOTIFY openReplaceOnSourceModeChanged)
+    Q_PROPERTY(QString initialSearchText READ initialSearchText WRITE setInitialSearchText NOTIFY initialSearchTextChanged)
 
 public:
     explicit NavigationController(QObject *parent = nullptr);
@@ -71,6 +73,12 @@ public:
     bool sourceMode() const;
     void setSourceMode(bool sourceMode);
 
+    bool openReplaceOnSourceMode() const;
+    void setOpenReplaceOnSourceMode(bool open);
+
+    QString initialSearchText() const;
+    void setInitialSearchText(const QString &text);
+
 Q_SIGNALS:
     void notebookPathChanged();
     void notebookIconNameChanged();
@@ -78,10 +86,14 @@ Q_SIGNALS:
     void notePathChanged();
     void mobileModeChanged();
     void sourceModeChanged();
+    void openReplaceOnSourceModeChanged();
+    void initialSearchTextChanged();
 
 private:
     QString m_notebookPath;
     QString m_notePath;
     bool m_mobileMode;
     bool m_sourceMode = false;
+    bool m_openReplaceOnSourceMode = false;
+    QString m_initialSearchText;
 };

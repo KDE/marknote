@@ -103,12 +103,6 @@ EditPage {
                 }
             }
 
-            Keys.onShortcutOverride: (event) => {
-                if (event.matches(StandardKey.Find)) {
-                    event.accepted = true;
-                }
-            }
-
             property int lastKey: -1
             Keys.onPressed: (event) => {
                 if (event.matches(StandardKey.Paste)) {
@@ -117,10 +111,6 @@ EditPage {
                         event.accepted = true;
                         return;
                     }
-                } else if (event.matches(StandardKey.Find)) {
-                    root.toggleSearch();
-                    event.accepted = true;
-                    return;
                 }
 
                 lastKey = event.key;

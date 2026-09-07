@@ -346,7 +346,7 @@ Item {
 
     Component.onCompleted: {
         Qt.callLater(() => {
-            if (root.block === model.focusedBlock()) {
+            if (root && root.block === model.focusedBlock()) {
                 root.editing = true;
 
                 textEdit.cursorPosition = model.focusedBlockCursorPos();

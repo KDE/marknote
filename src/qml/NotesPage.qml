@@ -231,6 +231,7 @@ Kirigami.ScrollablePage {
 
                 Kirigami.SearchField {
                     id: search
+                    focusSequences: []
                     anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom

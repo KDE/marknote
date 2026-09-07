@@ -71,18 +71,18 @@ public:
     bool modified() const;
     void setModified(bool m);
 
-    int searchMatchCount() const;
-    int searchCurrentMatch() const;
+    virtual int searchMatchCount() const;
+    virtual int searchCurrentMatch() const;
 
     Q_INVOKABLE [[nodiscard]] QString anchorAt(const QPointF &p) const;
     Q_INVOKABLE void clearUndoRedoStacks();
 
-    Q_INVOKABLE int findText(const QString &searchTerm);
-    Q_INVOKABLE void findNext();
-    Q_INVOKABLE void findPrevious();
-    Q_INVOKABLE void clearSearch();
-    Q_INVOKABLE void replaceCurrent(const QString &replaceText);
-    Q_INVOKABLE int replaceAll(const QString &replaceText);
+    virtual Q_INVOKABLE int findText(const QString &searchTerm);
+    virtual Q_INVOKABLE void findNext();
+    virtual Q_INVOKABLE void findPrevious();
+    virtual Q_INVOKABLE void clearSearch();
+    virtual Q_INVOKABLE void replaceCurrent(const QString &replaceText);
+    virtual Q_INVOKABLE int replaceAll(const QString &replaceText);
 
     virtual Q_INVOKABLE void pasteFromClipboard() = 0;
 

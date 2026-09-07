@@ -264,6 +264,8 @@ static void fixupTable(QTextFrame *frame)
 
 void RichDocumentHandler::load(const QUrl &fileUrl)
 {
+    clearSearch();
+
     if (fileUrl == m_fileUrl)
         return;
 
@@ -2183,6 +2185,155 @@ void RichDocumentHandler::replaceCurrentEmoji(const QString &emojichar)
 MDTreeModel *RichDocumentHandler::treeModel() const
 {
     return m_mdTreeModel;
+}
+
+int RichDocumentHandler::searchMatchCount() const
+{
+    return m_richSearchMatches.size();
+}
+
+int RichDocumentHandler::searchCurrentMatch() const
+{
+    return m_richSearchCurrentMatch;
+}
+
+TreeItem *RichDocumentHandler::searchMatchedBlock() const
+{
+    if (m_richSearchCurrentMatch >= 0 && m_richSearchCurrentMatch < m_richSearchMatches.size()) {
+        return m_richSearchMatches.at(m_richSearchCurrentMatch).block;
+    }
+    return nullptr;
+}
+
+void RichDocumentHandler::collectMatches(TreeItem *item, int topLevelIndex, const QString &searchTerm, QList<RichSearchMatch> &matches)
+{
+    if (!item) {
+        return;
+    }
+
+    const MDOptions::ElementType type = item->type();
+
+    if (type == MDOptions::ElementType::Paragraph || type == MDOptions::ElementType::Heading) {
+        const QVariantMap map = item->data();
+        const QString text = map.value(u"md"_s).toString();
+        if (!text.isEmpty()) {
+            qsizetype pos = 0;
+            while ((pos = text.indexOf(searchTerm, pos, Qt::CaseInsensitive)) != -1) {
+                matches.append(RichSearchMatch{item, topLevelIndex, static_cast<int>(pos), static_cast<int>(searchTerm.length()), -1, -1});
+                pos += searchTerm.length();
+            }
+        }
+    } else if (type == MDOptions::ElementType::Code) {
+        const QVariantMap map = item->data();
+        const QString text = map.value(u"text"_s).toString();
+        if (!text.isEmpty()) {
+            qsizetype pos = 0;
+            while ((pos = text.indexOf(searchTerm, pos, Qt::CaseInsensitive)) != -1) {
+                matches.append(RichSearchMatch{item, topLevelIndex, static_cast<int>(pos), static_cast<int>(searchTerm.length()), -1, -1});
+                pos += searchTerm.length();
+            }
+        }
+    } else if (type == MDOptions::ElementType::Table) {
+        const QVariantMap map = item->data();
+        if (map.contains(u"mdData"_s)) {
+            const QList<QVariantList> mdData = map[u"mdData"_s].value<QList<QVariantList>>();
+            for (int r = 0; r < mdData.size(); ++r) {
+                for (int c = 0; c < mdData[r].size(); ++c) {
+                    const QString cellText = mdData[r][c].toString();
+                    if (!cellText.isEmpty()) {
+                        qsizetype pos = 0;
+                        while ((pos = cellText.indexOf(searchTerm, pos, Qt::CaseInsensitive)) != -1) {
+                            matches.append(RichSearchMatch{item, topLevelIndex, static_cast<int>(pos), static_cast<int>(searchTerm.length()), r, c});
+                            pos += searchTerm.length();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    const int count = item->childCount();
+    for (int i = 0; i < count; ++i) {
+        collectMatches(item->child(i), topLevelIndex, searchTerm, matches);
+    }
+}
+
+void RichDocumentHandler::updateCurrentMatchNavigation()
+{
+    TreeItem *matchedBlock = searchMatchedBlock();
+    if (m_mdTreeModel) {
+        m_mdTreeModel->setSearchMatchedBlock(matchedBlock);
+    }
+    if (m_richSearchCurrentMatch >= 0 && m_richSearchCurrentMatch < m_richSearchMatches.size()) {
+        const int topLevel = m_richSearchMatches.at(m_richSearchCurrentMatch).topLevelBlockIndex;
+        Q_EMIT requestScrollToBlock(topLevel);
+    }
+}
+
+int RichDocumentHandler::findText(const QString &searchTerm)
+{
+    m_richSearchMatches.clear();
+    m_richSearchCurrentMatch = -1;
+
+    const QString cleanTerm = searchTerm.trimmed();
+    if (cleanTerm.isEmpty() || !m_mdTreeModel || !m_mdTreeModel->rootItem()) {
+        if (m_mdTreeModel) {
+            m_mdTreeModel->setSearchMatchedBlock(nullptr);
+        }
+        Q_EMIT searchMatchCountChanged();
+        Q_EMIT searchCurrentMatchChanged();
+        return 0;
+    }
+
+    TreeItem *root = m_mdTreeModel->rootItem();
+    const int topLevelCount = root->childCount();
+    for (int i = 0; i < topLevelCount; ++i) {
+        collectMatches(root->child(i), i, cleanTerm, m_richSearchMatches);
+    }
+
+    if (!m_richSearchMatches.isEmpty()) {
+        m_richSearchCurrentMatch = 0;
+    }
+
+    updateCurrentMatchNavigation();
+
+    Q_EMIT searchMatchCountChanged();
+    Q_EMIT searchCurrentMatchChanged();
+
+    return m_richSearchMatches.size();
+}
+
+void RichDocumentHandler::findNext()
+{
+    if (m_richSearchMatches.isEmpty()) {
+        return;
+    }
+
+    m_richSearchCurrentMatch = (m_richSearchCurrentMatch + 1) % m_richSearchMatches.size();
+    updateCurrentMatchNavigation();
+    Q_EMIT searchCurrentMatchChanged();
+}
+
+void RichDocumentHandler::findPrevious()
+{
+    if (m_richSearchMatches.isEmpty()) {
+        return;
+    }
+
+    m_richSearchCurrentMatch = (m_richSearchCurrentMatch - 1 + m_richSearchMatches.size()) % m_richSearchMatches.size();
+    updateCurrentMatchNavigation();
+    Q_EMIT searchCurrentMatchChanged();
+}
+
+void RichDocumentHandler::clearSearch()
+{
+    m_richSearchMatches.clear();
+    m_richSearchCurrentMatch = -1;
+    if (m_mdTreeModel) {
+        m_mdTreeModel->setSearchMatchedBlock(nullptr);
+    }
+    Q_EMIT searchMatchCountChanged();
+    Q_EMIT searchCurrentMatchChanged();
 }
 
 #include "moc_rich_documenthandler.cpp"

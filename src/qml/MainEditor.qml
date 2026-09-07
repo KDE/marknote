@@ -69,4 +69,37 @@ Kirigami.ApplicationWindow {
             });
         }
     }
+
+    Connections {
+        target: NavigationController
+
+        function onSourceModeChanged(): void {
+            if (root.pageStack.depth >= 1) {
+                let current = root.pageStack.items[0];
+                let isRaw = current && current.objectName === "RawEditPage";
+                let isRich = current && current.objectName === "RichEditPage";
+                if (NavigationController.sourceMode && isRich) {
+                    let oldPage = root.pageStack.pop();
+                    if (oldPage) oldPage.destroy();
+                    let comp = Qt.createComponent("org.kde.marknote", "RawEditPage");
+                    let newPage = comp.createObject(root.pageStack, {
+                        noteName: cliNoteName,
+                        noteFullPath: cliNoteFullPath,
+                        singleDocumentMode: true
+                    });
+                    root.pageStack.push(newPage);
+                } else if (!NavigationController.sourceMode && isRaw) {
+                    let oldPage = root.pageStack.pop();
+                    if (oldPage) oldPage.destroy();
+                    let comp = Qt.createComponent("org.kde.marknote", "RichEditPage");
+                    let newPage = comp.createObject(root.pageStack, {
+                        noteName: cliNoteName,
+                        noteFullPath: cliNoteFullPath,
+                        singleDocumentMode: true
+                    });
+                    root.pageStack.push(newPage);
+                }
+            }
+        }
+    }
 }

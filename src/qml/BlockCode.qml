@@ -223,6 +223,9 @@ BlockTemplate {
 
                 Component.onCompleted: {
                     Qt.callLater(() => {
+                        if (!root)
+                            return;
+
                         if (root.cppModel && root.block === root.cppModel.focusedBlock()) {
                             codeText.cursorPosition = root.cppModel.focusedBlockCursorPos();
                             codeText.forceActiveFocus();
