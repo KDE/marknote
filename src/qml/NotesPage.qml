@@ -336,6 +336,7 @@ Kirigami.ScrollablePage {
         id: filterModel
         property int sortOrder: Qt.AscendingOrder
         filterCaseSensitivity: Qt.CaseInsensitive
+        sortCaseSensitivity: Qt.CaseInsensitive
         filterRole: NotesModel.Name
         sortRole: NotesModel.Name
         sourceModel: pageNotesModel
