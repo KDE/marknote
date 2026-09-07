@@ -18,6 +18,7 @@ class MDTreeModel : public QAbstractItemModel
 
     Q_PROPERTY(QVariantList selectedIndices READ selectedIndices WRITE setSelectedIndices NOTIFY selectedIndicesChanged)
     Q_PROPERTY(bool hasSelection READ hasSelection NOTIFY hasSelectionChanged)
+    Q_PROPERTY(TreeItem *searchMatchedBlock READ searchMatchedBlock NOTIFY searchMatchedBlockChanged)
 
 public:
     enum Roles {
@@ -91,6 +92,9 @@ public:
     bool hasSelection() const;
     Q_INVOKABLE bool isBlockSelected(TreeItem *block) const;
 
+    Q_INVOKABLE TreeItem *searchMatchedBlock() const;
+    void setSearchMatchedBlock(TreeItem *block);
+
     Q_INVOKABLE QString toMarkdown() const;
     Q_INVOKABLE bool saveToFile(const QUrl &fileUrl);
     bool saveToFile(const QString &filePath);
@@ -102,6 +106,7 @@ Q_SIGNALS:
     void selectedIndicesChanged();
     void hasSelectionChanged();
     void selectedBlocksChanged();
+    void searchMatchedBlockChanged();
 
 private:
     std::unique_ptr<TreeItem> m_rootItem;
@@ -110,6 +115,7 @@ private:
     int m_focusedTableRow = -1;
     int m_focusedTableColumn = -1;
 
+    TreeItem *m_searchMatchedBlock = nullptr;
     QList<TreeItem *> m_selectedBlocksList;
 };
 

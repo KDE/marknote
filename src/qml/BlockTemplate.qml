@@ -50,22 +50,27 @@ Rectangle {
     }
 
     property bool isSelected: false
+    property bool isSearchMatched: false
 
     Connections {
         target: root.cppModel
         function onSelectedBlocksChanged() {
             root.isSelected = root.cppModel ? root.cppModel.isBlockSelected(root.block) : false;
         }
+        function onSearchMatchedBlockChanged() {
+            root.isSearchMatched = root.cppModel ? (root.cppModel.searchMatchedBlock === root.block) : false;
+        }
     }
 
     Component.onCompleted: {
         if (root.cppModel) {
             root.isSelected = root.cppModel.isBlockSelected(root.block);
+            root.isSearchMatched = (root.cppModel.searchMatchedBlock === root.block);
         }
     }
 
     radius: Kirigami.Units.smallSpacing
-    color: isSelected ? Qt.alpha(Kirigami.Theme.highlightColor, 0.2) : "transparent"
+    color: isSelected ? Qt.alpha(Kirigami.Theme.highlightColor, 0.2) : (isSearchMatched ? Qt.alpha(Kirigami.Theme.highlightColor, 0.15) : "transparent")
     Behavior on color { ColorAnimation { duration: Kirigami.Units.shortDuration } }
 
     Behavior on opacity {

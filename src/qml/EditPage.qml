@@ -52,6 +52,18 @@ Kirigami.Page {
 
     background: Item { }
 
+    Shortcut {
+        sequence: StandardKey.Find
+        enabled: root.visible
+        onActivated: root.openSearch()
+    }
+
+    Shortcut {
+        sequence: StandardKey.Replace
+        enabled: root.visible
+        onActivated: root.openReplace()
+    }
+
     onWidthChanged: {
         // 30 grid units gives enough room for the 15-unit drawer + 15 units of text
         // Have nothing to do in the source mode
@@ -76,7 +88,11 @@ Kirigami.Page {
         if (searchBar) {
             searchBar.isSearchOpen = true;
             if (searchField) {
-                // let selText = textArea.selectedText;
+                let selText = "";
+                let activeItem = root.Window.activeFocusItem;
+                if (activeItem && activeItem.selectedText) {
+                    selText = activeItem.selectedText;
+                }
                 if (selText.length > 0) {
                     // Strip out any carriage returns/newlines
                     searchField.text = selText.replace(/[\r\n]+/g, " ").trim();
@@ -96,13 +112,10 @@ Kirigami.Page {
         if (searchBar) {
             searchBar.isSearchOpen = false;
             searchBar.isReplaceVisible = false;
-            // textArea.deselect();
-
-            // if (textArea) {
-            //     Qt.callLater(function() {
-            //         textArea.forceActiveFocus();
-            //     });
-            // }
+            searchField.text = "";
+            if (root.document) {
+                root.document.clearSearch();
+            }
         }
     }
 
@@ -142,7 +155,59 @@ Kirigami.Page {
         }
     }
 
+    function openReplace(): void {
+        if (!NavigationController.sourceMode) {
+            root.forceActiveFocus();
+            root.document.saveAs(root.noteFullPath);
+            root.saved = true;
+            NavigationController.openReplaceOnSourceMode = true;
+            if (searchField && searchField.text.length > 0) {
+                NavigationController.initialSearchText = searchField.text;
+            } else {
+                let selText = "";
+                let activeItem = root.Window.activeFocusItem;
+                if (activeItem && activeItem.selectedText) {
+                    selText = activeItem.selectedText;
+                }
+                if (selText.length > 0) {
+                    NavigationController.initialSearchText = selText.replace(/[\r\n]+/g, " ").trim();
+                }
+            }
+            NavigationController.sourceMode = true;
+            return;
+        }
+
+        searchBar.isSearchOpen = true;
+        searchBar.isReplaceVisible = true;
+
+        if (searchField && searchField.text.length === 0) {
+            let selText = "";
+            let activeItem = root.Window.activeFocusItem;
+            if (activeItem && activeItem.selectedText) {
+                selText = activeItem.selectedText;
+            }
+            if (selText.length > 0) {
+                searchField.text = selText.replace(/[\r\n]+/g, " ").trim();
+            }
+        }
+
+        Qt.callLater(function() {
+            if (searchField && searchField.text.length > 0 && replaceField) {
+                replaceField.forceActiveFocus();
+                replaceField.selectAll();
+            } else if (searchField) {
+                searchField.forceActiveFocus();
+                searchField.selectAll();
+            }
+        });
+    }
+
     function toggleReplace(): void {
+        if (!NavigationController.sourceMode) {
+            root.openReplace();
+            return;
+        }
+
         searchBar.isReplaceVisible = !searchBar.isReplaceVisible
 
         if (!searchBar.isSearchOpen) {
@@ -375,6 +440,7 @@ Kirigami.Page {
 
                     Kirigami.SearchField {
                         id: searchField
+                        focusSequences: []
                         Layout.fillWidth: true
                         placeholderText: KI18n.i18n("Find text…")
                         onTextChanged: {
@@ -402,11 +468,7 @@ Kirigami.Page {
                         }
                         Keys.onReturnPressed: root.document.findNext()
                         Keys.onEscapePressed: {
-                            searchField.text = "";
-                            searchBar.isSearchOpen = false;
-                            searchBar.isReplaceVisible = false;
-                            // textArea.deselect();
-                            // textArea.forceActiveFocus();
+                            root.closeSearch();
                         }
                     }
 
@@ -448,8 +510,10 @@ Kirigami.Page {
 
                     Label {
                         text: {
+                            if (searchField.text.trim().length === 0) {
+                                return "";
+                            }
                             if (root.document.searchMatchCount === 0) {
-                                // textArea.deselect();
                                 return KI18n.i18n("No matches");
                             }
                             return KI18n.i18n("%1/%2", root.document.searchCurrentMatch + 1, root.document.searchMatchCount);
@@ -467,12 +531,6 @@ Kirigami.Page {
                         text: KI18n.i18n("Replace")
                         display: AbstractButton.IconOnly
                         onClicked: root.toggleReplace()
-
-                        Shortcut {
-                            sequence: StandardKey.Replace
-                            enabled: root.visible
-                            onActivated: root.toggleReplace()
-                        }
 
                         ToolTip.text: text
                         ToolTip.visible: hovered
@@ -649,6 +707,17 @@ Kirigami.Page {
     Component.onCompleted: {
         loadNote();
         init = true;
+
+        if (NavigationController.openReplaceOnSourceMode && NavigationController.sourceMode) {
+            NavigationController.openReplaceOnSourceMode = false;
+            if (NavigationController.initialSearchText.length > 0) {
+                searchField.text = NavigationController.initialSearchText;
+                NavigationController.initialSearchText = "";
+            }
+            Qt.callLater(function() {
+                root.openReplace();
+            });
+        }
     }
 
     onDocumentChanged: {

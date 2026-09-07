@@ -300,4 +300,14 @@ Item {
             Layout.fillHeight: true
         }
     }
+
+    Connections {
+        target: root.richDocumentHandler
+        function onRequestScrollToBlock(topLevelBlockIndex) {
+            if (topLevelBlockIndex >= 0 && topLevelBlockIndex < blockListView.count) {
+                blockListView.positionViewAtIndex(topLevelBlockIndex, ListView.Center);
+                blockListView.currentIndex = topLevelBlockIndex;
+            }
+        }
+    }
 }

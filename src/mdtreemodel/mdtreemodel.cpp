@@ -107,6 +107,8 @@ void MDTreeModel::setDocument(const QSharedPointer<MD::Document> &document)
         m_rootItem->setItem(QSharedPointer<MD::Document>::create());
     }
 
+    setSearchMatchedBlock(nullptr);
+
     endResetModel();
 }
 
@@ -655,4 +657,17 @@ bool MDTreeModel::saveToFile(const QString &filePath)
 TreeItem *MDTreeModel::rootItem() const
 {
     return m_rootItem.get();
+}
+
+TreeItem *MDTreeModel::searchMatchedBlock() const
+{
+    return m_searchMatchedBlock;
+}
+
+void MDTreeModel::setSearchMatchedBlock(TreeItem *block)
+{
+    if (m_searchMatchedBlock != block) {
+        m_searchMatchedBlock = block;
+        Q_EMIT searchMatchedBlockChanged();
+    }
 }

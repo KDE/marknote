@@ -42,6 +42,7 @@ class RichDocumentHandler : public DocumentHandler
     Q_PROPERTY(bool modified READ modified WRITE setModified NOTIFY modifiedChanged)
     Q_PROPERTY(int searchMatchCount READ searchMatchCount NOTIFY searchMatchCountChanged)
     Q_PROPERTY(int searchCurrentMatch READ searchCurrentMatch NOTIFY searchCurrentMatchChanged)
+    Q_PROPERTY(TreeItem *searchMatchedBlock READ searchMatchedBlock NOTIFY searchCurrentMatchChanged)
 
     Q_PROPERTY(int blockMargin READ blockMargin WRITE setBlockMargin NOTIFY blockMarginChanged)
     Q_PROPERTY(bool canPaste READ canPaste NOTIFY canPasteChanged)
@@ -105,6 +106,15 @@ public:
 
     MDTreeModel *treeModel() const;
 
+    int searchMatchCount() const override;
+    int searchCurrentMatch() const override;
+    TreeItem *searchMatchedBlock() const;
+
+    Q_INVOKABLE int findText(const QString &searchTerm) override;
+    Q_INVOKABLE void findNext() override;
+    Q_INVOKABLE void findPrevious() override;
+    Q_INVOKABLE void clearSearch() override;
+
 public Q_SLOTS:
     void load(const QUrl &fileUrl) override;
     void saveAs(const QUrl &fileUrl) override;
@@ -137,6 +147,7 @@ Q_SIGNALS:
     void showToast(const QString &message);
 
     void treeModelChanged();
+    void requestScrollToBlock(int topLevelBlockIndex);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
@@ -192,6 +203,21 @@ private:
 
     QHash<QUrl, MDTreeModel *> m_models;
     MDTreeModel *m_mdTreeModel;
+
+    struct RichSearchMatch {
+        TreeItem *block = nullptr;
+        int topLevelBlockIndex = -1;
+        int startPos = 0;
+        int length = 0;
+        int tableRow = -1;
+        int tableCol = -1;
+    };
+
+    void collectMatches(TreeItem *item, int topLevelIndex, const QString &searchTerm, QList<RichSearchMatch> &matches);
+    void updateCurrentMatchNavigation();
+
+    QList<RichSearchMatch> m_richSearchMatches;
+    int m_richSearchCurrentMatch = -1;
 };
 
 #endif // RICHDOCUMENTHANDLER_H

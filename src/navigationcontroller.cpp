@@ -131,8 +131,36 @@ bool NavigationController::sourceMode() const
 
 void NavigationController::setSourceMode(bool sourceMode)
 {
-    m_sourceMode = sourceMode;
-    Q_EMIT sourceModeChanged();
+    if (m_sourceMode != sourceMode) {
+        m_sourceMode = sourceMode;
+        Q_EMIT sourceModeChanged();
+    }
+}
+
+bool NavigationController::openReplaceOnSourceMode() const
+{
+    return m_openReplaceOnSourceMode;
+}
+
+void NavigationController::setOpenReplaceOnSourceMode(bool open)
+{
+    if (m_openReplaceOnSourceMode != open) {
+        m_openReplaceOnSourceMode = open;
+        Q_EMIT openReplaceOnSourceModeChanged();
+    }
+}
+
+QString NavigationController::initialSearchText() const
+{
+    return m_initialSearchText;
+}
+
+void NavigationController::setInitialSearchText(const QString &text)
+{
+    if (m_initialSearchText != text) {
+        m_initialSearchText = text;
+        Q_EMIT initialSearchTextChanged();
+    }
 }
 
 #include "moc_navigationcontroller.cpp"
