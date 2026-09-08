@@ -28,7 +28,6 @@ QQC2.Menu {
     property int restoredSelectionStart
     property int restoredSelectionEnd
     property bool persistentSelectionSetting
-    property TableActionHelper tableActionHelper: null
     property url currentLink
     property var document
 
@@ -273,73 +272,6 @@ QQC2.Menu {
         visible: root.currentLink.toString() !== ""
     }
 
-    Instantiator {
-        id: insertInstantiator
-        active: root.tableActionHelper?.actionInsertRowAbove?.enabled ?? false
-
-        delegate: QQC2.Menu {
-            title: KI18n.i18nc("@action:inmenu", "Insert")
-
-            QQC2.MenuItem {
-                text: root.tableActionHelper.actionInsertRowAbove.text
-                icon.name: "edit-table-insert-row-above"
-                onTriggered: root.tableActionHelper.actionInsertRowAbove.trigger()
-            }
-            QQC2.MenuItem {
-                text: root.tableActionHelper.actionInsertRowBelow.text
-                icon.name: "edit-table-insert-row-below"
-                onTriggered: root.tableActionHelper.actionInsertRowBelow.trigger()
-            }
-
-            QQC2.MenuSeparator {}
-
-            QQC2.MenuItem {
-                text: root.tableActionHelper.actionInsertColumnBefore.text
-                icon.name: "edit-table-insert-column-left"
-                onTriggered: root.tableActionHelper.actionInsertColumnBefore.trigger()
-            }
-            QQC2.MenuItem {
-                text: root.tableActionHelper.actionInsertColumnAfter.text
-                icon.name: "edit-table-insert-column-right"
-                onTriggered: root.tableActionHelper.actionInsertColumnAfter.trigger()
-            }
-        }
-
-        onObjectAdded: (index, object) => root.insertMenu(root.count - 10, object)
-        onObjectRemoved: (index, object) => root.removeMenu(object)
-    }
-
-    Instantiator {
-        id: removeInstantiator
-        active: root.tableActionHelper?.actionRemoveRow?.enabled ?? false
-
-        delegate: QQC2.Menu {
-            title: KI18n.i18nc("@action:inmenu", "Remove")
-
-            QQC2.MenuItem {
-                text: root.tableActionHelper.actionRemoveRow.text
-                icon.name: "edit-table-delete-row"
-                onTriggered: root.tableActionHelper.actionRemoveRow.trigger()
-            }
-            QQC2.MenuItem {
-                text: root.tableActionHelper.actionRemoveColumn.text
-                icon.name: "edit-table-delete-column"
-                onTriggered: root.tableActionHelper.actionRemoveColumn.trigger()
-            }
-            QQC2.MenuItem {
-                text: root.tableActionHelper.actionRemoveCellContents.text
-                icon.name: "deletecell-symbolic"
-                onTriggered: root.tableActionHelper.actionRemoveCellContents.trigger()
-            }
-        }
-
-        onObjectAdded: (index, object) => root.insertMenu(root.count - 10, object)
-        onObjectRemoved: (index, object) => root.removeMenu(object)
-    }
-
-    QQC2.MenuSeparator {
-        visible: insertInstantiator.active || removeInstantiator.active
-    }
 
     QQC2.MenuItem {
         action: QQC2.Action {

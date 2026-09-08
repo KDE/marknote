@@ -103,7 +103,6 @@ EditPage {
                 }
             }
 
-            property int lastKey: -1
             Keys.onPressed: (event) => {
                 if (event.matches(StandardKey.Paste)) {
                     if (root.document && typeof root.document.pasteFromClipboard === 'function') {
@@ -112,22 +111,12 @@ EditPage {
                         return;
                     }
                 }
-
-                lastKey = event.key;
                 event.accepted = false;
             }
 
             onTextChanged: {
-                if (!NavigationController.sourceMode) {
-                    if (lastKey !== -1) {
-                        let key = lastKey;
-                        lastKey = -1;
-                        root.document.slotKeyPressed(key);
-                    }
-                }
                 root.saved = false;
-                saveTimer.restart()
-
+                saveTimer.restart();
             }
 
             DropArea {
@@ -154,7 +143,7 @@ EditPage {
                     if (drop.hasUrls) {
                         for (let i = 0; i < drop.urls.length; i++) {
                             const path = drop.urls[i].toString();
-                            root.document.insertImage(path);
+                            textArea.insert(textArea.cursorPosition, "![](" + path + ")");
                         }
                     }
                 }
@@ -196,24 +185,18 @@ EditPage {
         selectionEnd: root.textArea.selectionEnd
         textArea: root.textArea
 
-        onCopy: root.textArea.copy()
-
-        onCut: root.textArea.cut()
         onError: message => {
             console.error("Error message from document handler", message);
         }
-        // textColor: TODO
         onLoaded: text => {
             root.textArea.text = text;
         }
         onMoveCursor: position => {
             root.textArea.cursorPosition = position;
         }
-        onRedo: root.textArea.redo()
         onSelectCursor: (start, end) => {
             root.textArea.select(start, end);
         }
-        onUndo: root.textArea.undo()
     }
 
     SyntaxHighlighter {

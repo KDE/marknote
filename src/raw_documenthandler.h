@@ -20,7 +20,7 @@ class RawDocumentHandler : public DocumentHandler
 public:
     explicit RawDocumentHandler(QObject *parent = nullptr);
 
-    Q_INVOKABLE void pasteFromClipboard() override;
+    Q_INVOKABLE void pasteFromClipboard();
 
 public Q_SLOTS:
     void load(const QUrl &fileUrl) override;

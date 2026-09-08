@@ -34,9 +34,6 @@ RawDocumentHandler::RawDocumentHandler(QObject *parent)
     m_cursorPosition = -1;
     m_selectionStart = 0;
     m_selectionEnd = 0;
-    m_lastFontFamily = fontFamily();
-    m_lastFontSize = fontSize();
-    m_lastTextColor = textColor();
 }
 
 void RawDocumentHandler::load(const QUrl &fileUrl)
@@ -97,19 +94,6 @@ void RawDocumentHandler::saveAs(const QUrl &fileUrl)
 
 void RawDocumentHandler::reset()
 {
-    if (fontFamily() != m_lastFontFamily) {
-        Q_EMIT fontFamilyChanged();
-    }
-    if (fontSize() != m_lastFontSize) {
-        Q_EMIT fontSizeChanged();
-    }
-    if (textColor() != m_lastTextColor) {
-        Q_EMIT textColorChanged();
-    }
-
-    m_lastFontFamily = fontFamily();
-    m_lastFontSize = fontSize();
-    m_lastTextColor = textColor();
 }
 
 void RawDocumentHandler::pasteFromClipboard()

@@ -53,8 +53,6 @@ ecm_add_qml_module(marknote_static
         qml/TextFieldContextMenu.qml
         qml/TocDrawer.qml
         # Components
-        qml/components/ActionButton.qml
-        qml/components/DoubleActionButton.qml
         qml/components/EmojierPopup.qml
         # Native menu
         qml/NativeHelpMenu.qml
@@ -84,10 +82,8 @@ ecm_add_qml_module(marknote_static
         raw_documenthandler.cpp raw_documenthandler.h
         notesmodel.cpp notesmodel.h
         notebooksmodel.cpp notebooksmodel.h
-        nestedlisthelper.cpp nestedlisthelper_p.h
         navigationcontroller.cpp navigationcontroller.h
         application.cpp application.h
-        tableactionhelper.cpp tableactionhelper.h
         colorschemer.cpp colorschemer.h
         maildirimport.cpp maildirimport.h
         sketchhistory.cpp sketchhistory.h
@@ -119,9 +115,9 @@ ecm_add_qml_module(marknote_static
         commands/transformtolist.h commands/transformtolist.cpp
         commands/transformtochecklist.h commands/transformtochecklist.cpp
         commands/changelisttypecommand.h commands/changelisttypecommand.cpp
-        commands/insertparagraphbelow.h commands/insertparagraphbelow.cpp
         commands/moveblockcommand.h commands/moveblockcommand.cpp
         commands/splitcode.h commands/splitcode.cpp
+        commands/insertparagraphbelow.h commands/insertparagraphbelow.cpp
         commands/insertrowintablecommand.h commands/insertrowintablecommand.cpp
         commands/insertcolumnintablecommand.h commands/insertcolumnintablecommand.cpp
         commands/removerowfromtablecommand.h commands/removerowfromtablecommand.cpp
@@ -207,8 +203,6 @@ endif()
 if (TARGET md4c::md4c-html)
     target_link_libraries(marknote_static PUBLIC md4c::md4c-html)
 endif()
-
-include_directories(${md4qt_INCLUDE_DIRECTORIES}/../..)
 
 add_executable(marknote main.cpp)
 

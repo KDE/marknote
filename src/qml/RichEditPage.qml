@@ -27,16 +27,7 @@ EditPage {
 
     supportsToc: true
     isTocOpened: tocDrawer.opened
-    tocPosition: tocDrawer.position
     tocDrawer: tocDrawer
-
-    function toggleToc() {
-        if (tocDrawer.opened) {
-            tocDrawer.close()
-        } else {
-            tocDrawer.open()
-        }
-    }
 
     objectName: "RichEditPage"
 
@@ -49,15 +40,10 @@ EditPage {
     document: RichDocumentHandler {
         id: richdochandler
 
-        blockMargin: Kirigami.Units.largeSpacing
-
         onError: message => {
             console.error("Error message from document handler", message);
         }
 
-        onCheckableChanged: {
-            root.checkbox = checkable;
-        }
 
         Component.onCompleted: {
             CommandManager.setModel(richdochandler.treeModel);
@@ -179,26 +165,6 @@ EditPage {
         NavigationController.notePath = normalized + ".md";
     }
 
-    function noteNameFromInternalUrl(url): string {
-        if (!url) {
-            return "";
-        }
-        const urlString = url.toString();
-        const prefix = "marknote://note/";
-        if (!urlString.startsWith(prefix)) {
-            return "";
-        }
-        const encodedName = urlString.substring(prefix.length);
-        return decodeURIComponent(encodedName);
-    }
-
-    function openInternalLinkUrl(url): void {
-        const noteName = noteNameFromInternalUrl(url);
-        if (noteName.length > 0) {
-            openNoteByName(noteName);
-        }
-    }
-
     property var insertTargetBlock: null
     property int insertTargetCursorPos: -1
     property int insertTargetSelectionStart: -1
@@ -316,6 +282,131 @@ EditPage {
         bottomMargin: 0
 
         height: parent ? parent.height - topMargin : 0
+    }
+
+    EmojierPopup {
+        id: emojierPopup
+        parent: root.Overlay.overlay
+        filterText: root.document.currentEmojicode
+
+        x: {
+            if (!root.activeTextArea || !parent) return 0;
+
+            let cursorRect = root.activeTextArea.positionToRectangle(root.activeTextArea.cursorPosition);
+            let mappedPos = root.activeTextArea.mapToItem(parent, cursorRect.x, cursorRect.y);
+
+            let targetX = mappedPos.x + 5;
+
+            let minX = 0;
+            let maxX = parent.width - width;
+
+            return Math.max(minX, Math.min(targetX, maxX));
+        }
+
+        y: {
+            if (!root.activeTextArea || !parent) return 0;
+
+            let cursorRect = root.activeTextArea.positionToRectangle(root.activeTextArea.cursorPosition);
+            let mappedPos = root.activeTextArea.mapToItem(parent, cursorRect.x, cursorRect.y);
+
+            let targetY = mappedPos.y + Config.editorFont.pixelSize * 2;
+
+            let minY = 0;
+            let maxY = parent.height - height;
+
+            if (targetY > maxY) {
+                let aboveY = mappedPos.y;
+                return Math.max(minY, aboveY - height - Config.editorFont.pixelSize);
+            }
+
+            return Math.max(minY, Math.min(targetY, maxY));
+        }
+
+        Connections {
+            target: root.document
+            function onPopupVisibleChanged(): void {
+                if (emojierPopup.visibleItemsCount === 0) {
+                    root.document.popupVisible = false;
+                    return;
+                }
+
+                if (root.document.popupVisible) {
+                    emojierPopup.open();
+                } else {
+                    emojierPopup.close();
+                }
+            }
+        }
+
+        onClosed: {
+            root.document.popupVisible = false;
+        }
+
+        onEmojiSelected: (emojichar) => {
+            if (!root.activeTextArea) return;
+            let charsToReplace = root.document.currentEmojicode.length + 1;
+            let pos = root.activeTextArea.cursorPosition;
+            let text = root.activeTextArea.text;
+            let before = text.substring(0, pos - charsToReplace);
+            let after = text.substring(pos);
+            root.activeTextArea.text = before + emojichar + after;
+            root.activeTextArea.cursorPosition = before.length + emojichar.length;
+            root.document.popupVisible = false;
+            root.document.currentEmojicode = "";
+        }
+    }
+
+    Connections {
+        target: root.activeTextArea
+        function onCursorPositionChanged(): void {
+            if (root.activeTextArea) {
+                root.document.checkForShortcode(root.activeTextArea.text, root.activeTextArea.cursorPosition);
+            }
+        }
+        function onTextChanged(): void {
+            if (root.activeTextArea) {
+                root.document.checkForShortcode(root.activeTextArea.text, root.activeTextArea.cursorPosition);
+            }
+        }
+    }
+
+    Shortcut {
+        enabled: emojierPopup.opened
+        sequence: "Up"
+        onActivated: emojierPopup.moveSelectionUp()
+    }
+    Shortcut {
+        enabled: emojierPopup.opened
+        sequence: "Down"
+        onActivated: emojierPopup.moveSelectionDown()
+    }
+    Shortcut {
+        enabled: emojierPopup.opened
+        sequence: "Return"
+        onActivated: emojierPopup.selectCurrent()
+    }
+    Shortcut {
+        enabled: emojierPopup.opened
+        sequence: "Enter"
+        onActivated: emojierPopup.selectCurrent()
+    }
+    Shortcut {
+        enabled: emojierPopup.opened
+        sequence: "Tab"
+        onActivated: emojierPopup.selectCurrent()
+    }
+    Shortcut {
+        enabled: emojierPopup.opened
+        sequence: "Escape"
+        onActivated: emojierPopup.close()
+    }
+    Shortcut {
+        sequence: "Ctrl+Space"
+        onActivated: {
+            if (root.activeTextArea) {
+                root.document.checkForShortcode(root.activeTextArea.text, root.activeTextArea.cursorPosition);
+            }
+        }
     }
 
     property Item activeTextArea: {
@@ -1116,12 +1207,4 @@ EditPage {
             Loader { sourceComponent: headingGroup }
         }
     }
-
-    Timer {
-        id: copyMessageTimer
-        interval: 3000
-        repeat: false
-        onTriggered: root.copyMessage.visible = false
-    }
 }
-// 

@@ -118,70 +118,6 @@ void DocumentHandler::setSelectionEnd(int position)
     Q_EMIT selectionEndChanged();
 }
 
-QString DocumentHandler::fontFamily() const
-{
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return QString();
-    QTextCharFormat format = cursor.charFormat();
-    return format.font().family();
-}
-
-void DocumentHandler::setFontFamily(const QString &family)
-{
-    QTextCharFormat format;
-    format.setFontFamilies({family});
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT fontFamilyChanged();
-}
-
-QColor DocumentHandler::textColor() const
-{
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return QColor(Qt::black);
-    QTextCharFormat format = cursor.charFormat();
-    return format.foreground().color();
-}
-
-void DocumentHandler::setTextColor(const QColor &color)
-{
-    QTextCharFormat format;
-    format.setForeground(QBrush(color));
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT textColorChanged();
-}
-
-int DocumentHandler::fontSize() const
-{
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return 0;
-    QTextCharFormat format = cursor.charFormat();
-    return format.font().pointSize();
-}
-
-void DocumentHandler::setFontSize(int size)
-{
-    if (size <= 0)
-        return;
-
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return;
-
-    if (!cursor.hasSelection())
-        cursor.select(QTextCursor::WordUnderCursor);
-
-    if (cursor.charFormat().property(QTextFormat::FontPointSize).toInt() == size)
-        return;
-
-    QTextCharFormat format;
-    format.setFontPointSize(size);
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT fontSizeChanged();
-}
-
 QString DocumentHandler::fileName() const
 {
     const QString filePath = QQmlFile::urlToLocalFileOrQrc(m_fileUrl);
@@ -245,36 +181,11 @@ QString DocumentHandler::anchorAt(const QPointF &p) const
     return m_document->textDocument()->documentLayout()->anchorAt(p);
 }
 
-static void deleteWord(QTextCursor cursor, QTextCursor::MoveOperation op)
-{
-    cursor.clearSelection();
-    cursor.movePosition(op, QTextCursor::KeepAnchor);
-    cursor.removeSelectedText();
-}
-
-void DocumentHandler::deleteWordBack()
-{
-    deleteWord(textCursor(), QTextCursor::PreviousWord);
-}
-
-void DocumentHandler::deleteWordForward()
-{
-    deleteWord(textCursor(), QTextCursor::WordRight);
-}
-
 void DocumentHandler::clearUndoRedoStacks()
 {
     if (QTextDocument *doc = textDocument()) {
         doc->clearUndoRedoStacks();
     }
-}
-
-void DocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
-{
-    QTextCursor cursor = textCursor();
-    if (!cursor.hasSelection())
-        cursor.select(QTextCursor::WordUnderCursor);
-    cursor.mergeCharFormat(format);
 }
 
 int DocumentHandler::searchMatchCount() const

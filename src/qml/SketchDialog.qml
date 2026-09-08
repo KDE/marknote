@@ -9,8 +9,6 @@ import org.kde.kirigamiaddons.components as Components
 import org.kde.marknote
 import org.kde.ki18n
 
-import "components"
-
 pragma ComponentBehavior: Bound
 
 Controls.Dialog {
