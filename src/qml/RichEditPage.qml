@@ -25,8 +25,6 @@ EditPage {
     mobileToolBarHidden: mobileToolBarContainer.hidden
     mobileToolBarHeight: mobileToolBarContainer.height
 
-    dynamicRightPadding: tocDrawer.position * tocDrawer.width
-
     supportsToc: true
     isTocOpened: tocDrawer.opened
     tocPosition: tocDrawer.position
@@ -312,12 +310,12 @@ EditPage {
 
         treeModel: root.document.treeModel
         blockView: root.mainContentItem ? root.mainContentItem.listView : null
-        parent: root.overlay
 
         topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
+        y: topMargin
         bottomMargin: 0
 
-        height: parent.height - topMargin
+        height: parent ? parent.height - topMargin : 0
     }
 
     property Item activeTextArea: {
@@ -901,7 +899,6 @@ EditPage {
         anchors {
             left: parent.left
             right: parent.right
-            rightMargin: root.dynamicRightPadding
         }
 
         z: 600000
