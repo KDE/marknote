@@ -156,7 +156,8 @@ QList<TreeItem *> TreeItem::fromMarkdown(const QString &markdown)
         return {createTreeItem(MDOptions::ElementType::Paragraph)};
     }
 
-    QTextStream stream{markdown.toUtf8()};
+    QByteArray utf8 = markdown.toUtf8();
+    QTextStream stream{utf8};
 
     MD::Parser parser;
     auto doc = parser.parse(stream, u""_s, u""_s);
@@ -536,68 +537,6 @@ void TreeItem::setTableCellMarkdown(int row, int col, const QString &markdown)
 
         for (const auto &inlineItem : parsedCell->items()) {
             targetCell->appendItem(inlineItem);
-        }
-    }
-}
-
-void TreeItem::appendRowInTable()
-{
-    if (m_item->type() != MD::ItemType::Table) {
-        return;
-    }
-
-    auto tableItem = m_item.dynamicCast<MD::Table>();
-    auto newRow = QSharedPointer<MD::TableRow>::create();
-
-    int colCount = tableItem->columnsCount();
-    if (colCount == 0 && tableItem->rows().size() > 0) {
-        colCount = tableItem->rows()[0]->cells().size();
-    }
-    if (colCount == 0) {
-        colCount = 1;
-        tableItem->setColumnAlignment(0, MD::Table::AlignLeft);
-    }
-
-    for (int i = 0; i < colCount; ++i) {
-        auto newCell = QSharedPointer<MD::TableCell>::create();
-        auto newText = QSharedPointer<MD::Text>::create();
-        newText->setText(QString());
-        newCell->appendItem(newText);
-        newRow->appendCell(newCell);
-    }
-
-    tableItem->appendRow(newRow);
-
-    if (m_unparsedTableMd) {
-        QList<QString> newMdRow;
-        for (int i = 0; i < colCount; ++i) {
-            newMdRow.append(QString());
-        }
-        m_unparsedTableMd->append(newMdRow);
-    }
-}
-
-void TreeItem::appendColInTable()
-{
-    if (m_item->type() != MD::ItemType::Table) {
-        return;
-    }
-
-    auto tableItem = m_item.dynamicCast<MD::Table>();
-
-    tableItem->setColumnAlignment(tableItem->columnsCount(), MD::Table::AlignLeft);
-
-    for (const auto &row : tableItem->rows()) {
-        auto newCell = QSharedPointer<MD::TableCell>::create();
-        auto newText = QSharedPointer<MD::Text>::create();
-        newText->setText(QString());
-        newCell->appendItem(newText);
-        row->appendCell(newCell);
-    }
-
-    if (m_unparsedTableMd) {
-        for (auto &mdRow : *m_unparsedTableMd) {
-            mdRow.append(QString());
         }
     }
 }

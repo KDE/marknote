@@ -55,8 +55,6 @@ public:
     void setTableCellMD(TreeItem *block, int row, int col, const QString &markdown);
     void setItemCode(TreeItem *block, const QString &code);
 
-    void appendRowInTable(TreeItem *block);
-    void appendColInTable(TreeItem *block);
     void insertRowInTable(TreeItem *block, int row, QSharedPointer<MD::TableRow> rowToInsert = nullptr, const QList<QString> &unparsedRowData = {});
     void insertColInTable(TreeItem *block, int col, const QList<QSharedPointer<MD::TableCell>> &colToInsert = {}, const QList<QString> &unparsedColData = {});
     void removeRowFromTable(TreeItem *block, int row);

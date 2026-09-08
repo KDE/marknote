@@ -211,22 +211,6 @@ void MDTreeModel::setItemCode(TreeItem *block, const QString &code)
     }
 }
 
-void MDTreeModel::appendRowInTable(TreeItem *block)
-{
-    if (block) {
-        block->appendRowInTable();
-        childModified(block->parent(), block->row(), block->row());
-    }
-}
-
-void MDTreeModel::appendColInTable(TreeItem *block)
-{
-    if (block) {
-        block->appendColInTable();
-        childModified(block->parent(), block->row(), block->row());
-    }
-}
-
 void MDTreeModel::insertRowInTable(TreeItem *block, int row, QSharedPointer<MD::TableRow> rowToInsert, const QList<QString> &unparsedRowData)
 {
     if (block) {

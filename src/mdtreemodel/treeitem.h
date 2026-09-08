@@ -68,8 +68,6 @@ public:
     void setCode(const QString &text);
     void setTableCellMarkdown(int row, int col, const QString &markdown);
 
-    void appendRowInTable();
-    void appendColInTable();
     void insertRowInTable(int row, QSharedPointer<MD::TableRow> rowToInsert = nullptr, const QList<QString> &unparsedMdRow = {});
     void insertColInTable(int col, const QList<QSharedPointer<MD::TableCell>> &colToInsert = {}, const QList<QString> &unparsedMdCol = {});
     void removeRowFromTable(int row);

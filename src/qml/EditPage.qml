@@ -31,7 +31,6 @@ Kirigami.Page {
     property string oldPath: ''
     property bool saved: true
     property bool canFitToolbar: true
-    property real dynamicRightPadding: 0
 
     readonly property alias copyMessage: copyMessage
     required property var document
@@ -45,7 +44,6 @@ Kirigami.Page {
 
     property bool supportsToc: false
     property bool isTocOpened: false
-    property real tocPosition: 0
 
     required property Component contentComponent
     readonly property Item mainContentItem: contentLoader.item

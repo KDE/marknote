@@ -24,11 +24,6 @@ class DocumentHandler : public QObject
     Q_PROPERTY(int selectionStart READ selectionStart WRITE setSelectionStart NOTIFY selectionStartChanged)
     Q_PROPERTY(int selectionEnd READ selectionEnd WRITE setSelectionEnd NOTIFY selectionEndChanged)
 
-    Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
-    Q_PROPERTY(QString fontFamily READ fontFamily WRITE setFontFamily NOTIFY fontFamilyChanged)
-
-    Q_PROPERTY(int fontSize READ fontSize WRITE setFontSize NOTIFY fontSizeChanged)
-
     Q_PROPERTY(QString fileName READ fileName NOTIFY fileUrlChanged)
     Q_PROPERTY(QString fileType READ fileType NOTIFY fileUrlChanged)
     Q_PROPERTY(QUrl fileUrl READ fileUrl NOTIFY fileUrlChanged)
@@ -55,15 +50,6 @@ public:
     int selectionEnd() const;
     void setSelectionEnd(int position);
 
-    QString fontFamily() const;
-    void setFontFamily(const QString &family);
-
-    QColor textColor() const;
-    void setTextColor(const QColor &color);
-
-    int fontSize() const;
-    void setFontSize(int size);
-
     QString fileName() const;
     QString fileType() const;
     QUrl fileUrl() const;
@@ -84,8 +70,6 @@ public:
     virtual Q_INVOKABLE void replaceCurrent(const QString &replaceText);
     virtual Q_INVOKABLE int replaceAll(const QString &replaceText);
 
-    virtual Q_INVOKABLE void pasteFromClipboard() = 0;
-
     Q_INVOKABLE void slotMouseMovedWithControl(QPointF position);
     Q_INVOKABLE void slotMouseMovedWithControlReleased();
 
@@ -100,12 +84,6 @@ Q_SIGNALS:
     void selectionStartChanged();
     void selectionEndChanged();
 
-    void fontFamilyChanged();
-    void textColorChanged();
-
-    void fontSizeChanged();
-
-    void textChanged();
     void fileUrlChanged();
     void loaded(const QString &text, int format);
     void error(const QString &message);
@@ -114,25 +92,13 @@ Q_SIGNALS:
     void searchMatchCountChanged();
     void searchCurrentMatchChanged();
 
-    void focusUp();
-    void focusDown();
-    void copy();
-    void cut();
-    void undo();
-    void redo();
     void moveCursor(int position);
     void selectCursor(int start, int end);
-    void internalLinkActivated(const QString &noteName);
 
 protected:
     virtual void reset() = 0;
     QTextCursor textCursor() const;
     QTextDocument *textDocument() const;
-
-    void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
-
-    void deleteWordBack();
-    void deleteWordForward();
 
     QQuickTextDocument *m_document;
     QQuickItem *m_textArea;
@@ -147,12 +113,6 @@ protected:
     QString m_searchTerm;
     int m_searchCurrentMatch = -1;
     QList<QTextCursor> m_searchMatches;
-
-    QString m_lastFontFamily;
-    int m_lastFontSize;
-    Qt::Alignment m_lastAlignment;
-
-    QColor m_lastTextColor;
 };
 
 #endif // MARKNOTE_DOCUMENTHANDLER_H
