@@ -143,7 +143,7 @@ Kirigami.Page {
 
     bottomPadding: 0
     leftPadding: 0
-    rightPadding: dynamicRightPadding
+    rightPadding: 0
     topPadding: 0
 
     function toggleSearch(): void
@@ -260,8 +260,7 @@ Kirigami.Page {
         }
 
         Kirigami.Heading {
-            text: root.isTocOpened && !root.singleDocumentMode && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.SingleColumn ?
-            KI18n.i18nc("@action:button", "Table of Contents") : root.noteName
+            text: root.noteName
             elide: Text.ElideRight
             wrapMode: Text.NoWrap
 
@@ -371,35 +370,6 @@ Kirigami.Page {
                 NavigationController.sourceMode = !NavigationController.sourceMode
             }
         }
-
-        Kirigami.Separator {
-            Layout.fillHeight: true
-            visible: root.tocPosition > 0 && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
-            opacity: root.tocPosition
-        }
-
-        RowLayout {
-            visible: root.tocPosition > 0 && !root.canFitToolbar && root.pageStack.columnView.columnResizeMode === Kirigami.ColumnView.FixedColumns
-
-            readonly property real alignSeparatorWidth: 15.7
-            readonly property real fullWidth: (Kirigami.Units.gridUnit * alignSeparatorWidth) - Kirigami.Units.largeSpacing
-            readonly property real exactWidth: fullWidth * root.tocPosition
-
-            Layout.preferredWidth: exactWidth
-            Layout.maximumWidth: exactWidth
-            Layout.minimumWidth: exactWidth
-
-            opacity: root.tocPosition
-            clip: true
-            spacing: 0
-
-            Item { Layout.fillWidth: true }
-            Kirigami.Heading {
-                text: KI18n.i18nc("@title:window", "Table of Contents")
-                elide: Text.ElideRight
-            }
-            Item { Layout.fillWidth: true }
-        }
     }
 
     header: ColumnLayout {
@@ -429,7 +399,6 @@ Kirigami.Page {
             clip: true
 
             Layout.fillWidth: true
-            Layout.rightMargin: root.dynamicRightPadding
 
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.smallSpacing
@@ -651,7 +620,6 @@ Kirigami.Page {
             showCloseButton: true
 
             Layout.fillWidth: true
-            Layout.rightMargin: root.dynamicRightPadding
 
             visible: false
 
@@ -678,7 +646,6 @@ Kirigami.Page {
             showCloseButton: true
 
             Layout.fillWidth: true
-            Layout.rightMargin: root.dynamicRightPadding
 
             Timer {
                 id: copyMessageTimer

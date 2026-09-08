@@ -38,7 +38,32 @@ Kirigami.OverlayDrawer {
     }
 
     contentItem: ColumnLayout {
-        spacing: Kirigami.Units.mediumSpacing
+        spacing: Kirigami.Units.smallSpacing
+
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: Kirigami.Units.smallSpacing
+            Layout.topMargin: Kirigami.Units.smallSpacing
+
+            Kirigami.Heading {
+                text: KI18n.i18nc("@title:window", "Table of Contents")
+                Layout.fillWidth: true
+                elide: Text.ElideRight
+                type: Kirigami.Heading.Type.Primary
+            }
+
+            ToolButton {
+                icon.name: "dialog-close"
+                text: KI18n.i18nc("@action:button", "Close")
+                display: AbstractButton.IconOnly
+                onClicked: root.close()
+
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+        }
 
         ScrollView {
             Layout.fillWidth: true

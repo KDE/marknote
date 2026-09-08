@@ -129,6 +129,10 @@ void TocModel::updateModel()
 
 int TocModel::headingIndexAtBlock(int blockIndex) const
 {
+    if (m_entries.isEmpty()) {
+        return -1;
+    }
+
     for (int i = rowCount() - 1; i >= 0; --i) {
         int headingPos = index(i, 0).data(Role::BlockIndex).toInt();
 
