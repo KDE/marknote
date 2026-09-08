@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:45+0000\n"
+"POT-Creation-Date: 2026-09-08 00:46+0000\n"
 "PO-Revision-Date: 2026-06-02 15:35+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -355,7 +355,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Crea taccuino"
 
-#: qml/Main.qml:344 qml/NotesPage.qml:816
+#: qml/Main.qml:344 qml/NotesPage.qml:817
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -598,122 +598,122 @@ msgstr ""
 "Sei sicuro di voler eliminare la nota <b> %1 </b>? Questo eliminerà "
 "definitivamente il file <b>%2</b>."
 
-#: qml/NotesPage.qml:477 qml/NotesPage.qml:505
+#: qml/NotesPage.qml:478 qml/NotesPage.qml:506
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:478
+#: qml/NotesPage.qml:479
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "Esportazione di «%1» avvenuta correttamente."
 
-#: qml/NotesPage.qml:491
+#: qml/NotesPage.qml:492
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Apri file"
 
-#: qml/NotesPage.qml:506
+#: qml/NotesPage.qml:507
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "Esportazione di «%1» non riuscita."
 
-#: qml/NotesPage.qml:517
+#: qml/NotesPage.qml:518
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Rinomina"
 
-#: qml/NotesPage.qml:526 qml/TextFieldContextMenu.qml:391
+#: qml/NotesPage.qml:527 qml/TextFieldContextMenu.qml:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Copia"
 
-#: qml/NotesPage.qml:541
+#: qml/NotesPage.qml:542
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Duplica"
 
-#: qml/NotesPage.qml:549
+#: qml/NotesPage.qml:550
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Esporta"
 
-#: qml/NotesPage.qml:553
+#: qml/NotesPage.qml:554
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to HTML"
-msgstr "Esporta in HTML"
-
-#: qml/NotesPage.qml:559
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Esporta in HTML"
 
 #: qml/NotesPage.qml:560
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "Esporta in HTML"
+
+#: qml/NotesPage.qml:561
+#, kde-format
 msgid "HTML file (*.html)"
 msgstr "File HTML (*.html)"
 
-#: qml/NotesPage.qml:566
+#: qml/NotesPage.qml:567
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to PDF"
-msgstr "Esporta in PDF"
-
-#: qml/NotesPage.qml:572
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Esporta in PDF"
 
 #: qml/NotesPage.qml:573
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "Esporta in PDF"
+
+#: qml/NotesPage.qml:574
+#, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "File PDF (*.pdf)"
 
-#: qml/NotesPage.qml:579
+#: qml/NotesPage.qml:580
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to ODT"
-msgstr "Esporta in ODT"
-
-#: qml/NotesPage.qml:585
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Esporta in ODT"
 
 #: qml/NotesPage.qml:586
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to ODT"
+msgstr "Esporta in ODT"
+
+#: qml/NotesPage.qml:587
+#, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Documento di testo ODF (*.odt)"
 
-#: qml/NotesPage.qml:595 qml/TextFieldContextMenu.qml:433
+#: qml/NotesPage.qml:596 qml/TextFieldContextMenu.qml:433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Elimina"
 
-#: qml/NotesPage.qml:868
+#: qml/NotesPage.qml:869
 #, kde-format
 msgid "Add a note!"
 msgstr "Aggiungi una nota!"
 
-#: qml/NotesPage.qml:877
+#: qml/NotesPage.qml:878
 #, kde-format
 msgid "No notes matching the search"
 msgstr "Nessuna nota corrispondente alla ricerca"
 
-#: qml/NotesPage.qml:893 qml/NotesPage.qml:901
+#: qml/NotesPage.qml:894 qml/NotesPage.qml:902
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
@@ -721,7 +721,7 @@ msgid_plural "%1 notes"
 msgstr[0] "%1 nota"
 msgstr[1] "%1 note"
 
-#: qml/NotesPage.qml:897 qml/NotesPage.qml:900
+#: qml/NotesPage.qml:898 qml/NotesPage.qml:901
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -729,7 +729,7 @@ msgid_plural "%1 folders"
 msgstr[0] "%1 cartella"
 msgstr[1] "%1 cartelle"
 
-#: qml/NotesPage.qml:903
+#: qml/NotesPage.qml:904
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
