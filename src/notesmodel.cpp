@@ -193,12 +193,21 @@ QHash<int, QByteArray> NotesModel::roleNames() const
 QString NotesModel::addNote(const QString &name)
 {
     const QString path = m_path + u'/' + name + u".md"_s;
-    QFile file(path);
-    if (file.open(QFile::WriteOnly)) {
-        file.write("# " + name.toUtf8());
-    } else {
-        qDebug() << "Failed to create file at" << path;
+
+    if (QFile::exists(path)) {
+        Q_EMIT errorOccurred(i18nc("@info:status", "Unable to create note. A note already exists with the same name."));
+        return {};
     }
+
+    QFile file(path);
+    // QFile::NewOnly fails if the file already exists, closing the race between the check above and opening the file.
+    if (!file.open(QFile::WriteOnly | QFile::NewOnly)) {
+        Q_EMIT errorOccurred(i18nc("@info:status", "Unable to create note: %1", file.errorString()));
+        return {};
+    }
+
+    file.write("# " + name.toUtf8());
+    file.close();
 
     updateTotalNotesCount();
     return name;
