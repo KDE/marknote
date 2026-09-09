@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:46+0000\n"
+"POT-Creation-Date: 2026-09-09 00:47+0000\n"
 "PO-Revision-Date: 2026-06-01 06:40-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -148,25 +148,39 @@ msgstr "Aplicativo de anotações"
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
 
-#: notesmodel.cpp:225
+#: notesmodel.cpp:198
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to rename note. A note already exists with the same name."
+msgctxt "@info:status"
+msgid "Unable to create note. A note already exists with the same name."
+msgstr "Não foi possível renomear essa nota. Já existe uma com o mesmo nome."
+
+#: notesmodel.cpp:205
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create note: %1"
+msgstr ""
+
+#: notesmodel.cpp:234
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Não foi possível renomear essa nota. Já existe uma com o mesmo nome."
 
-#: notesmodel.cpp:289
+#: notesmodel.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "Operação de movimentação inválida."
 
-#: notesmodel.cpp:296
+#: notesmodel.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "Não é possível mover uma pasta para dentro dela mesma."
 
-#: notesmodel.cpp:302
+#: notesmodel.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -545,23 +559,29 @@ msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
 msgstr "Texto alternativo opcional para exibir em vez do nome da nota."
 
-#: qml/NoteMetadataDialog.qml:24
+#: qml/NoteMetadataDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "New Note"
 msgstr "Nova nota"
 
-#: qml/NoteMetadataDialog.qml:24
+#: qml/NoteMetadataDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
 msgstr "Editar nota"
 
-#: qml/NoteMetadataDialog.qml:55
+#: qml/NoteMetadataDialog.qml:73
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Nome:"
+
+#: qml/NoteMetadataDialog.qml:78
+#, kde-format
+msgctxt "@info"
+msgid "A note with this name already exists."
+msgstr ""
 
 #: qml/NotesPage.qml:116
 #, kde-format

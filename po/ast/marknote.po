@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:46+0000\n"
+"POT-Creation-Date: 2026-09-09 00:47+0000\n"
 "PO-Revision-Date: 2024-03-27 22:39+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -143,25 +143,37 @@ msgstr ""
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr ""
 
-#: notesmodel.cpp:225
+#: notesmodel.cpp:198
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create note. A note already exists with the same name."
+msgstr ""
+
+#: notesmodel.cpp:205
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create note: %1"
+msgstr ""
+
+#: notesmodel.cpp:234
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 
-#: notesmodel.cpp:289
+#: notesmodel.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr ""
 
-#: notesmodel.cpp:296
+#: notesmodel.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr ""
 
-#: notesmodel.cpp:302
+#: notesmodel.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -536,22 +548,28 @@ msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
 msgstr ""
 
-#: qml/NoteMetadataDialog.qml:24
+#: qml/NoteMetadataDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "New Note"
 msgstr ""
 
-#: qml/NoteMetadataDialog.qml:24
+#: qml/NoteMetadataDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
 msgstr ""
 
-#: qml/NoteMetadataDialog.qml:55
+#: qml/NoteMetadataDialog.qml:73
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
+msgstr ""
+
+#: qml/NoteMetadataDialog.qml:78
+#, kde-format
+msgctxt "@info"
+msgid "A note with this name already exists."
 msgstr ""
 
 #: qml/NotesPage.qml:116

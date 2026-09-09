@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:46+0000\n"
+"POT-Creation-Date: 2026-09-09 00:47+0000\n"
 "PO-Revision-Date: 2026-06-01 05:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -144,26 +144,41 @@ msgstr "შენიშვნების აპლიკაცია"
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023-2026 Mathis Brüchert"
 
-#: notesmodel.cpp:225
+#: notesmodel.cpp:198
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to rename note. A note already exists with the same name."
+msgctxt "@info:status"
+msgid "Unable to create note. A note already exists with the same name."
+msgstr ""
+"შენიშვნის სახელის გადარქმევა ჩავარდა. შენიშვნა იგივე სახელით უკვე არსებობს."
+
+#: notesmodel.cpp:205
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create note: %1"
+msgstr ""
+
+#: notesmodel.cpp:234
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "შენიშვნის სახელის გადარქმევა ჩავარდა. შენიშვნა იგივე სახელით უკვე არსებობს."
 
-#: notesmodel.cpp:289
+#: notesmodel.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "არასწორი გადატანის ოპერაცია."
 
-#: notesmodel.cpp:296
+#: notesmodel.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "საქაღალდეს თავის თავში გადატანა შეუძლებელია."
 
-#: notesmodel.cpp:302
+#: notesmodel.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -541,23 +556,29 @@ msgid "Optional alternate text to display instead of the note name."
 msgstr ""
 "არასავალდებული ალტერნატიული ტექსტი შენიშვნის სახელის მაგიერ საჩვენებლად."
 
-#: qml/NoteMetadataDialog.qml:24
+#: qml/NoteMetadataDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "New Note"
 msgstr "ახალი შენიშვნა"
 
-#: qml/NoteMetadataDialog.qml:24
+#: qml/NoteMetadataDialog.qml:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Note"
 msgstr "შენიშვნის ჩასწორება"
 
-#: qml/NoteMetadataDialog.qml:55
+#: qml/NoteMetadataDialog.qml:73
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "სახელი:"
+
+#: qml/NoteMetadataDialog.qml:78
+#, kde-format
+msgctxt "@info"
+msgid "A note with this name already exists."
+msgstr ""
 
 #: qml/NotesPage.qml:116
 #, kde-format
