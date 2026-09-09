@@ -283,7 +283,7 @@
           <li xml:lang="cs">V dialogovém okně rychlého náčrtu můžete nyní změny vrátit zpět a znovu provést</li>
           <li xml:lang="es">Ahora se pueden deshacer y rehacer cambios en el diálogo de boceto rápido.</li>
           <li xml:lang="fi">muutoksia voi nyt kumota ja tehdä uudelleen pikaluonnosteluikkunassa</li>
-          <li xml:lang="fr">Vous pouvez maintenant annuler et rétablir les modifications dans la boîte de dialogue de croquis rapide</li>
+          <li xml:lang="fr">Vous pouvez maintenant annuler et rétablir les modifications dans la boite de dialogue de croquis rapide</li>
           <li xml:lang="he">אפשר להסיג ולבצע מחדש שינויים בחלונית האיור המהיר</li>
           <li xml:lang="ia">Tu pote nunc annullare refacer cambiamentos in le dialogo de schizzo rapide</li>
           <li xml:lang="it">Ora è possibile annullare e ripristinare le modifiche nella finestra dello schizzo rapido</li>
@@ -353,7 +353,7 @@
           <li xml:lang="cs">Byly opraveny problémy s dialogovými okny pro mazání</li>
           <li xml:lang="es">Se han solucionado los problemas con los diálogos de borrado.</li>
           <li xml:lang="fi">poistamisikkunoiden ongelmat on korjattu</li>
-          <li xml:lang="fr">Les problèmes avec les boîtes de dialogue de suppression ont été corrigés</li>
+          <li xml:lang="fr">Les problèmes avec les boites de dialogue de suppression ont été corrigés</li>
           <li xml:lang="he">התקלות בחלוניות המחיקה תוקנו</li>
           <li xml:lang="ia">Problemas con ledialogos de delre ha essite corrigite</li>
           <li xml:lang="it">Sono stati risolti i problemi con le finestre di eliminazione</li>
@@ -592,7 +592,7 @@
           <li xml:lang="cs">Zavření dialogového okna po odstranění poznámky</li>
           <li xml:lang="es">Cerrar el diálogo tras borrar notas.</li>
           <li xml:lang="fi">suljetaan ikkuna muistiinpanon poistamisen jälkeen</li>
-          <li xml:lang="fr">Fermer la boîte de dialogue après la suppression de la note</li>
+          <li xml:lang="fr">Fermer la boite de dialogue après la suppression de la note</li>
           <li xml:lang="he">לסגור את החלונית לאחר מחיקת פתקית</li>
           <li xml:lang="ia">Claude dialogo post deler nota</li>
           <li xml:lang="it">Chiude la finestra dopo aver eliminato la nota</li>
@@ -931,7 +931,7 @@
         <p xml:lang="cs">Zavedli jsme také praktickou lištu příkazů podobnou té v aplikaci Merkuro. Ta umožňuje rychlý přístup k základním funkcím v aplikaci Marknote. Momentálně slouží pouze k vytváření nových zápisníků a poznámek, ale v budoucnu plánujeme přidat další funkce. Nakonec jsme přepracovali všechny dialogová okna v Markdownu tak, aby využívala nově zavedený FormCardDialog z balíčku KirigamiAddons.</p>
         <p xml:lang="es">También hemos introducido una práctica barra de órdenes similar a la de Merkuro, que proporciona acceso rápido a acciones esenciales de Marknote. Actualmente solo permite crear nuevos cuadernos y notas, pero planeamos ofrecer más acciones en el futuro. Finalmente, hemos rediseñado todos los diálogos de Marknote para que usen el nuevo FormCardDialog de KirigamiAddons.</p>
         <p xml:lang="fi">Esittelemme Merkuron vastaavaa muistuttavan näppärän komentorivin, joka tarjoaa nopean pääsyn Marknoten keskeisiin toimintoihin. Toistaiseksi siitä voi luoda uuden muistikirjan ja muistiinpanon, mutta tulevaisuuden suunnitelmissamme on lisätä toimintoja. Lopuksi olemme panneet uusiksi kaikki Markdownin kyselyikkunat käyttämään KirigamiAddonsin vasta esiteltyä FormCardDialogia.</p>
-        <p xml:lang="fr">Nous avons également introduit une barre de commandes pratique similaire à celle de Merkuro. Celle-ci offre un accès rapide aux actions essentielles dans Marknote. Pour le moment, elle ne permet que la création d un nouveau carnet et d'une nouvelle note. Cependant, nous prévoyons de rendre d'autres actions disponibles à l'avenir. Enfin, nous avons repensé toutes les boîtes de dialogue dans Markdown pour utiliser la nouvelle fonction « FormCardDialog » introduit dans « KirigamiAddons ».</p>
+        <p xml:lang="fr">Nous avons également introduit une barre de commandes pratique similaire à celle de Merkuro. Celle-ci offre un accès rapide aux actions essentielles dans Marknote. Pour le moment, elle ne permet que la création d un nouveau carnet et d'une nouvelle note. Cependant, nous prévoyons de rendre d'autres actions disponibles à l'avenir. Enfin, nous avons repensé toutes les boites de dialogue dans Markdown pour utiliser la nouvelle fonction « FormCardDialog » introduit dans « KirigamiAddons ».</p>
         <p xml:lang="he">השקנו גם סרגל פקודות נוח בדומה לזה שב־Merkuro. הוא מספק גישה מהירה לפעולות הכרחיות בתוך Marknote. נכון לעכשיו הוא רק יוצר מחברות ופתקיות חדשים, אך אנו מתכננים להנגיש פעולות נוספות בעתיד. סוף סוף עבדנו מחדש על כל החלוניות ב־Markdown כדי שתשתמשנה ב־FormCardDialog מתוך KirigamiAddons שהושק לאחרונה.</p>
         <p xml:lang="ia">Nos ha anque introducite un barra de commando convenibile simile a lo de Merkuro. Isto forni rapide accesso a actiones essential intra Marknote. Currentemente il crea solmente un nove quaderno e nota,ma nos planifica facer disponibile plus actiones in le futuro. Al fin nos ha re-elaborate tote le dialogos in Markdown per usar le recentemente introducite FormCArdDialog ex KirigamiAddons.</p>
         <p xml:lang="it">Abbiamo anche introdotto una comoda barra dei comandi simile a quella di Merkuro. Questa fornisce un rapido accesso alle azioni essenziali all'interno di Marknote. Attualmente crea solo un nuovo taccuino e una nuova nota, ma prevediamo di rendere disponibili altre azioni in futuro. Infine, abbiamo rielaborato tutte le finestre in Markdown per utilizzare il nuovo FormCardDialog di KirigamiAddons.</p>
