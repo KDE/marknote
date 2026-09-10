@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-09 00:47+0000\n"
-"PO-Revision-Date: 2026-06-01 07:29+0200\n"
+"PO-Revision-Date: 2026-09-09 07:39+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -149,18 +149,16 @@ msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
 
 #: notesmodel.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to rename note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note. A note already exists with the same name."
-msgstr "Zabeležke ni mogoče preimenovati. Zabeležka z istim imenom že obstaja."
+msgstr "Ni mogoče ustvariti zabeležke. Zabeležka z istim imenom že obstaja."
 
 #: notesmodel.cpp:205
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note: %1"
-msgstr ""
+msgstr "Ni mogoče ustvariti zabeležke: %1"
 
 #: notesmodel.cpp:234
 #, kde-format
@@ -582,7 +580,7 @@ msgstr "Ime:"
 #, kde-format
 msgctxt "@info"
 msgid "A note with this name already exists."
-msgstr ""
+msgstr "Zabeležka s tem imenom že obstaja."
 
 #: qml/NotesPage.qml:116
 #, kde-format

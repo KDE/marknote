@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-09 00:47+0000\n"
-"PO-Revision-Date: 2026-06-04 12:09+0200\n"
-"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
+"PO-Revision-Date: 2026-09-09 12:31+0200\n"
+"Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -145,18 +145,16 @@ msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
 
 #: notesmodel.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to rename note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note. A note already exists with the same name."
-msgstr "Poznámku nelze přejmenovat. Poznámka se stejným názvem již existuje."
+msgstr "Poznámku nelze vytvořit. Poznámka se stejným názvem již existuje."
 
 #: notesmodel.cpp:205
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note: %1"
-msgstr ""
+msgstr "Nelze vytvořit poznámku: %1"
 
 #: notesmodel.cpp:234
 #, kde-format
@@ -577,7 +575,7 @@ msgstr "Název:"
 #, kde-format
 msgctxt "@info"
 msgid "A note with this name already exists."
-msgstr ""
+msgstr "Poznámka s tímto názvem již existuje."
 
 #: qml/NotesPage.qml:116
 #, kde-format
