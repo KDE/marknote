@@ -39,6 +39,7 @@ public:
 
     void markDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);
     void setDocument(const QSharedPointer<MD::Document> &document);
+    bool isEmpty() const;
 
 public:
     void childAddBegin(TreeItem *parent, int row);
@@ -99,6 +100,7 @@ public:
     TreeItem *rootItem() const;
 
 Q_SIGNALS:
+    void modelEmpty();
     void focusRequested(TreeItem *block, int cursorPosition);
     void focusRequestedOnTable(TreeItem *block, int row, int column, int cursorPosition);
     void selectedIndicesChanged();
