@@ -407,6 +407,7 @@ TreeItem *TreeItem::createTreeItem(MDOptions::ElementType type, const QString &t
 void TreeItem::setUnparsedMarkdown(const QString &text)
 {
     m_unparsedMd = text;
+    Q_EMIT dataChanged();
 }
 
 QString TreeItem::unparsedMarkdown() const
@@ -417,6 +418,7 @@ QString TreeItem::unparsedMarkdown() const
 void TreeItem::clearUnparsedMarkdown()
 {
     m_unparsedMd.clear();
+    Q_EMIT dataChanged();
 }
 
 void TreeItem::commitUnparsedMarkdown()
@@ -456,6 +458,8 @@ void TreeItem::commitUnparsedMarkdown()
             child->commitUnparsedMarkdown();
         }
     }
+
+    Q_EMIT dataChanged();
 }
 
 void TreeItem::setUnparsedMarkdownForTable(const QString &text, int row, int col)
@@ -485,11 +489,14 @@ void TreeItem::setUnparsedMarkdownForTable(const QString &text, int row, int col
     if (row >= 0 && row < m_unparsedTableMd->size() && col >= 0 && col < (*m_unparsedTableMd)[row].size()) {
         (*m_unparsedTableMd)[row][col] = text;
     }
+
+    Q_EMIT dataChanged();
 }
 
 void TreeItem::clearUnparsedTableMarkdown()
 {
     m_unparsedTableMd.reset();
+    Q_EMIT dataChanged();
 }
 
 void TreeItem::setCode(const QString &text)
@@ -539,6 +546,8 @@ void TreeItem::setTableCellMarkdown(int row, int col, const QString &markdown)
             targetCell->appendItem(inlineItem);
         }
     }
+
+    Q_EMIT dataChanged();
 }
 
 void TreeItem::insertRowInTable(int rowToInsert, QSharedPointer<MD::TableRow> rowData, const QList<QString> &unparsedMdRow)
@@ -621,6 +630,8 @@ void TreeItem::insertRowInTable(int rowToInsert, QSharedPointer<MD::TableRow> ro
             m_unparsedTableMd->insert(rowToInsert, mdRow);
         }
     }
+
+    Q_EMIT dataChanged();
 }
 
 void TreeItem::insertColInTable(int colToInsert, const QList<QSharedPointer<MD::TableCell>> &colData, const QList<QString> &unparsedMdCol)
@@ -691,6 +702,8 @@ void TreeItem::insertColInTable(int colToInsert, const QList<QSharedPointer<MD::
             }
         }
     }
+
+    Q_EMIT dataChanged();
 }
 
 void TreeItem::removeRowFromTable(int rowToRemove)
@@ -736,6 +749,8 @@ void TreeItem::removeRowFromTable(int rowToRemove)
             m_unparsedTableMd->removeAt(rowToRemove);
         }
     }
+
+    Q_EMIT dataChanged();
 }
 
 void TreeItem::removeColFromTable(int colToRemove)
@@ -790,4 +805,6 @@ void TreeItem::removeColFromTable(int colToRemove)
             }
         }
     }
+
+    Q_EMIT dataChanged();
 }
