@@ -251,6 +251,15 @@ StatetfulApp.StatefulWindow {
         target: NavigationController
 
         function onNotebookPathChanged(): void {
+            if (NavigationController.notePath.length === 0) {
+                while (root.pageStack.depth > 1) {
+                    let oldPage = root.pageStack.pop();
+                    if (oldPage) {
+                        oldPage.saved = true;
+                        oldPage.destroy();
+                    }
+                }
+            }
             // Only clear and push if we aren't already on the NotesPage
             if (root.pageStack.depth === 0 || (root.pageStack.items[0] && root.pageStack.items[0].objectName !== "NotesPage")) {
                 root.pageStack.clear();
@@ -265,6 +274,14 @@ StatetfulApp.StatefulWindow {
                 // If NotesPage is already loading or present, just append the EditPage
                 if (!hasEditPage) {
                     safePush("org.kde.marknote", "RichEditPage");
+                }
+            } else {
+                while (root.pageStack.depth > 1) {
+                    let oldPage = root.pageStack.pop();
+                    if (oldPage) {
+                        oldPage.saved = true;
+                        oldPage.destroy();
+                    }
                 }
             }
         }
