@@ -211,14 +211,18 @@ Rectangle {
             width: dragHandle.implicitWidth * 2
             hoverEnabled: true
             cursorShape: Qt.OpenHandCursor
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+            drag.target: (dragMouseArea.pressedButtons & Qt.LeftButton) ? dragProxy : null
 
-            onPressed: () => {
-                cursorShape = Qt.ClosedHandCursor
-                let mappedPos = root.mapToItem(root.Overlay.overlay, 0, 0)
-                dragProxy.x = mappedPos.x
-                dragProxy.y = mappedPos.y
-                dragProxy.scheduleUpdate()
-                root.opacity = 0.3
+            onPressed: (mouse) => {
+                if (mouse.button === Qt.LeftButton) {
+                    cursorShape = Qt.ClosedHandCursor
+                    let mappedPos = root.mapToItem(root.Overlay.overlay, 0, 0)
+                    dragProxy.x = mappedPos.x
+                    dragProxy.y = mappedPos.y
+                    dragProxy.scheduleUpdate()
+                    root.opacity = 0.3
+                }
                 
                 if (root.cppModel && !root.cppModel.isBlockSelected(root.block)) {
                     root.cppModel.clearFocus();
@@ -226,14 +230,16 @@ Rectangle {
                 }
             }
 
-            onReleased: () => {
+            onReleased: (mouse) => {
                 cursorShape = Qt.OpenHandCursor
                 root.opacity = 1.0
 
                 dragProxy.Drag.drop();
             }
 
-            drag.target: dragProxy
+            onClicked: (mouse) => {
+                root.openContextMenu(dragMouseArea, mouse.x, mouse.y);
+            }
         }
     }
 
