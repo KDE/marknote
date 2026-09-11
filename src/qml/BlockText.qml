@@ -24,6 +24,9 @@ Item {
 
     onMdChanged: {
         if (textEdit) {
+            if (textEdit.text !== root.md) {
+                textEdit.text = root.md;
+            }
             textEdit.lastSavedText = root.md;
         }
     }
@@ -39,6 +42,49 @@ Item {
 
     property bool editing: false
     property int wrapMode: TextEdit.Wrap
+
+    function headingLevel(arg): int {
+        let t = (arg !== undefined) ? arg : (textEdit ? textEdit.text : root.md);
+        if (typeof t === "number") {
+            return (t >= 1 && t <= 6) ? t : 0;
+        }
+        if (!t) return 0;
+        let match = t.match(/^\s*(#{1,6}) /);
+        return match ? match[1].length : 0;
+    }
+
+    function isHeading(arg): bool {
+        return headingLevel(arg) > 0;
+    }
+
+    function getFontPointSize(arg): real {
+        let level = headingLevel(arg);
+        switch (level) {
+        case 1: return root.fontSize * 2.0;
+        case 2: return root.fontSize * 1.5;
+        case 3: return root.fontSize * 1.2;
+        case 4: return root.fontSize * 1.0;
+        case 5: return root.fontSize * 0.8;
+        case 6: return root.fontSize * 1.0;
+        default: return root.fontSize;
+        }
+    }
+
+    function getFontWeight(arg): int {
+        let level = headingLevel(arg);
+        switch (level) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            return Font.Bold;
+        case 6:
+            return Font.Normal;
+        default:
+            return root.fontBold ? Font.Bold : Font.Normal;
+        }
+    }
 
     TextEdit {
         id: textView
@@ -97,8 +143,9 @@ Item {
         wrapMode: root.wrapMode
         background: null
         padding: root.padding
-        font.pointSize: root.fontSize
-        font.bold: root.fontBold
+        font.pointSize: root.editing ? root.getFontPointSize() : root.fontSize
+        font.bold: root.editing ? (root.isHeading() ? (root.getFontWeight() >= Font.Bold) : Boolean(root.fontBold)) : Boolean(root.fontBold)
+        font.weight: root.editing ? root.getFontWeight() : (root.fontBold ? Font.Bold : Font.Normal)
         font.family: root.fontFamily
         color: root.color
 
@@ -175,6 +222,10 @@ Item {
         }
 
         Keys.onReturnPressed: event => {
+            if (EditorActions.handleKeyEvent(event)) {
+                return;
+            }
+
             if (event.modifiers & Qt.ShiftModifier) {
                 event.accepted = false;
                 return;
@@ -207,6 +258,10 @@ Item {
         }
 
         Keys.onPressed: (event) => {
+            if (EditorActions.handleKeyEvent(event)) {
+                return;
+            }
+
             if (event.key === Qt.Key_Escape) {
                 model.clearFocus();
                 model.clearSelection();

@@ -54,6 +54,7 @@ ecm_add_qml_module(marknote_static
         qml/TocDrawer.qml
         # Components
         qml/components/EmojierPopup.qml
+        qml/components/SlashMenuPopup.qml
         # Native menu
         qml/NativeHelpMenu.qml
         qml/NativeWindowMenu.qml
