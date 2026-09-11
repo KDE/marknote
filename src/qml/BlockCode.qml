@@ -95,6 +95,10 @@ BlockTemplate {
                 }
 
                 Keys.onReturnPressed: event => {
+                    if (EditorActions.handleKeyEvent(event)) {
+                        return;
+                    }
+
                     if (event.modifiers & Qt.ShiftModifier) {
                         editTimer.stop();
                         CommandManager.splitCode(root.block, codeText.lastSavedText, codeText.text, codeText.cursorPosition);
@@ -113,6 +117,10 @@ BlockTemplate {
                 }
 
                 Keys.onPressed: (event) => {
+                    if (EditorActions.handleKeyEvent(event)) {
+                        return;
+                    }
+
                     if (event.key === Qt.Key_Escape) {
                         if (root.cppModel) {
                             root.cppModel.clearFocus();

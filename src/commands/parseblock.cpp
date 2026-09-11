@@ -27,6 +27,7 @@ void ParseBlockCommand::undo()
         m_model->takeItem(m_originalParent, m_originalRow);
     }
 
+    m_originalBlock->commitUnparsedMarkdown();
     m_model->insertItem(m_originalParent, m_originalRow, m_originalBlock);
 
     m_model->requestFocus(m_originalBlock);

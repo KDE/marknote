@@ -152,6 +152,10 @@ Item {
         }
 
         Keys.onPressed: (event) => {
+            if (EditorActions.handleKeyEvent(event)) {
+                return;
+            }
+
             if (event.key === Qt.Key_Escape) {
                 model.clearFocus();
                 model.clearSelection();
