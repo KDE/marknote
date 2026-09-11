@@ -59,6 +59,9 @@ EditPage {
         repeat: false
         interval: 1000
         onTriggered: {
+            if (root.activeTextArea && typeof root.activeTextArea.flushTimer === "function") {
+                root.activeTextArea.flushTimer();
+            }
             if (root.noteFullPath.toString().length > 0) {
                 root.document.saveAs(root.noteFullPath);
                 root.saved = true;
@@ -78,6 +81,9 @@ EditPage {
     }
 
     Component.onDestruction: {
+        if (root.activeTextArea && typeof root.activeTextArea.flushTimer === "function") {
+            root.activeTextArea.flushTimer();
+        }
         if (!root.saved && root.noteFullPath.toString().length > 0) {
             root.document.saveAs(root.noteFullPath);
             root.saved = true;
@@ -553,6 +559,8 @@ EditPage {
             }
         }
         function onTextChanged(): void {
+            root.saved = false;
+            saveTimer.restart();
             if (root.activeTextArea) {
                 root.document.checkForShortcode(root.activeTextArea.text, root.activeTextArea.cursorPosition);
                 root.checkForSlashCommand(root.activeTextArea.text, root.activeTextArea.cursorPosition);

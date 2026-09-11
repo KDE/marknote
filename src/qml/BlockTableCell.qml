@@ -137,6 +137,10 @@ Item {
 
         property bool isProgrammaticUpdate: false
 
+        function flushTimer() {
+            root.flushTimer();
+        }
+
         onTextChanged: {
             if (isProgrammaticUpdate) return;
             if (textEdit.activeFocus && textEdit.text !== lastSavedText && !lastSavedTextParsed) {

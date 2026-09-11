@@ -180,7 +180,7 @@ Item {
             } else if (parentType === MDOptions.ElementType.Blockquote) {
                 return "Quote";
             } else {
-                return "Type here...";
+                return "Start typing or press '/' for commands";
             }
         }
 
