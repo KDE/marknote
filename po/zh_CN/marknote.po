@@ -144,12 +144,10 @@ msgid "© 2023–2026 Mathis Brüchert"
 msgstr ""
 
 #: notesmodel.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to rename note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note. A note already exists with the same name."
-msgstr "无法重命名笔记。已经有同名称的笔记。"
+msgstr ""
 
 #: notesmodel.cpp:205
 #, kde-format
