@@ -55,4 +55,37 @@ Item {
         }
     }
 
+    property var activePopup: null
+
+    function handleKeyEvent(event): bool {
+        if (!activePopup || !activePopup.opened) {
+            return false;
+        }
+
+        if (event.key === Qt.Key_Up) {
+            if (activePopup.moveSelectionUp) {
+                activePopup.moveSelectionUp();
+            }
+            event.accepted = true;
+            return true;
+        } else if (event.key === Qt.Key_Down) {
+            if (activePopup.moveSelectionDown) {
+                activePopup.moveSelectionDown();
+            }
+            event.accepted = true;
+            return true;
+        } else if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter || event.key === Qt.Key_Tab) {
+            if (activePopup.selectCurrent) {
+                activePopup.selectCurrent();
+            }
+            event.accepted = true;
+            return true;
+        } else if (event.key === Qt.Key_Escape) {
+            activePopup.close();
+            event.accepted = true;
+            return true;
+        }
+
+        return false;
+    }
 }

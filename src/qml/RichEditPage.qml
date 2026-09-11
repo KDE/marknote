@@ -338,7 +338,14 @@ EditPage {
             }
         }
 
+        onOpened: {
+            EditorActions.activePopup = emojierPopup;
+        }
+
         onClosed: {
+            if (EditorActions.activePopup === emojierPopup) {
+                EditorActions.activePopup = null;
+            }
             root.document.popupVisible = false;
         }
 
@@ -356,16 +363,199 @@ EditPage {
         }
     }
 
+    SlashMenuPopup {
+        id: slashPopup
+        parent: root.Overlay.overlay
+
+        x: {
+            if (!root.activeTextArea || !parent) return 0;
+
+            let cursorRect = root.activeTextArea.positionToRectangle(root.activeTextArea.cursorPosition);
+            let mappedPos = root.activeTextArea.mapToItem(parent, cursorRect.x, cursorRect.y);
+
+            let targetX = mappedPos.x + 5;
+
+            let minX = 0;
+            let maxX = parent.width - width;
+
+            return Math.max(minX, Math.min(targetX, maxX));
+        }
+
+        y: {
+            if (!root.activeTextArea || !parent) return 0;
+
+            let cursorRect = root.activeTextArea.positionToRectangle(root.activeTextArea.cursorPosition);
+            let mappedPos = root.activeTextArea.mapToItem(parent, cursorRect.x, cursorRect.y);
+
+            let targetY = mappedPos.y + Config.editorFont.pixelSize * 2;
+
+            let minY = 0;
+            let maxY = parent.height - height;
+
+            if (targetY > maxY) {
+                let aboveY = mappedPos.y;
+                return Math.max(minY, aboveY - height - Config.editorFont.pixelSize);
+            }
+
+            return Math.max(minY, Math.min(targetY, maxY));
+        }
+
+        onOpened: {
+            EditorActions.activePopup = slashPopup;
+        }
+
+        onClosed: {
+            if (EditorActions.activePopup === slashPopup) {
+                EditorActions.activePopup = null;
+            }
+        }
+
+        onElementSelected: (item) => {
+            root.handleSlashElementSelected(item);
+        }
+    }
+
+    function checkForSlashCommand(text, cursorPosition) {
+        if (!root.activeTextArea || !text || cursorPosition <= 0) {
+            slashPopup.close();
+            return;
+        }
+
+        let focused = CommandManager.model ? CommandManager.model.focusedBlock() : null;
+        if (!focused || focused.type === MDOptions.ElementType.Code) {
+            slashPopup.close();
+            return;
+        }
+
+        let leftText = text.substring(0, cursorPosition);
+        let lineStart = leftText.lastIndexOf('\n');
+        let currentLineText = lineStart === -1 ? leftText : leftText.substring(lineStart + 1);
+
+        let lastSlash = currentLineText.lastIndexOf('/');
+        if (lastSlash === -1) {
+            slashPopup.close();
+            return;
+        }
+
+        if (lastSlash > 0 && currentLineText[lastSlash - 1] !== ' ' && currentLineText[lastSlash - 1] !== '\t') {
+            slashPopup.close();
+            return;
+        }
+
+        let query = currentLineText.substring(lastSlash + 1);
+        let absoluteSlashPos = (lineStart === -1 ? 0 : lineStart + 1) + lastSlash;
+
+        slashPopup.slashPosition = absoluteSlashPos;
+        slashPopup.filterText = query;
+
+        if (!slashPopup.opened) {
+            slashPopup.open();
+        }
+    }
+
+    function handleSlashElementSelected(item) {
+        if (!item || item.type === "close") {
+            slashPopup.close();
+            return;
+        }
+
+        if (!root.activeTextArea) {
+            slashPopup.close();
+            return;
+        }
+
+        let currentBlock = CommandManager.model ? CommandManager.model.focusedBlock() : null;
+        if (!currentBlock) {
+            slashPopup.close();
+            return;
+        }
+
+        let text = root.activeTextArea.text;
+        let pos = root.activeTextArea.cursorPosition;
+        let slashPos = slashPopup.slashPosition;
+
+        let before = text.substring(0, slashPos);
+        let after = text.substring(pos);
+        let cleanText = before + after;
+
+        root.activeTextArea.text = cleanText;
+        root.activeTextArea.cursorPosition = slashPos;
+        CommandManager.editText(currentBlock, text, cleanText, slashPos, slashPos);
+
+        slashPopup.close();
+
+        CommandManager.insertParagraphBelow(currentBlock, "");
+
+        let newBlock = CommandManager.model ? CommandManager.model.focusedBlock() : null;
+        if (!newBlock) {
+            return;
+        }
+
+        let model = richdochandler.treeModel;
+
+        switch (item.type) {
+        case "paragraph":
+            break;
+        case "heading1":
+            model.setItemMD(newBlock, "# ");
+            model.requestFocus(newBlock);
+            break;
+        case "heading2":
+            model.setItemMD(newBlock, "## ");
+            model.requestFocus(newBlock);
+            break;
+        case "heading3":
+            model.setItemMD(newBlock, "### ");
+            model.requestFocus(newBlock);
+            break;
+        case "heading4":
+            model.setItemMD(newBlock, "#### ");
+            model.requestFocus(newBlock);
+            break;
+        case "heading5":
+            model.setItemMD(newBlock, "##### ");
+            model.requestFocus(newBlock);
+            break;
+        case "heading6":
+            model.setItemMD(newBlock, "###### ");
+            model.requestFocus(newBlock);
+            break;
+        case "divider":
+            CommandManager.parseBlock(newBlock, "---");
+            break;
+        case "blockquote":
+            CommandManager.transformToBlockquote(newBlock, 1, "");
+            break;
+        case "code":
+            CommandManager.parseBlock(newBlock, "```\n\n```");
+            break;
+        case "unordered_list":
+            CommandManager.transformToList(newBlock, false, 0, "");
+            break;
+        case "ordered_list":
+            CommandManager.transformToList(newBlock, true, 1, "");
+            break;
+        case "task_list":
+            CommandManager.transformToChecklist(newBlock, false, "");
+            break;
+        case "table":
+            CommandManager.parseBlock(newBlock, "|  |  |  |\n| --- | --- | --- |\n|  |  |  |");
+            break;
+        }
+    }
+
     Connections {
         target: root.activeTextArea
         function onCursorPositionChanged(): void {
             if (root.activeTextArea) {
                 root.document.checkForShortcode(root.activeTextArea.text, root.activeTextArea.cursorPosition);
+                root.checkForSlashCommand(root.activeTextArea.text, root.activeTextArea.cursorPosition);
             }
         }
         function onTextChanged(): void {
             if (root.activeTextArea) {
                 root.document.checkForShortcode(root.activeTextArea.text, root.activeTextArea.cursorPosition);
+                root.checkForSlashCommand(root.activeTextArea.text, root.activeTextArea.cursorPosition);
             }
         }
     }
