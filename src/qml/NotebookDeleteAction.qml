@@ -29,6 +29,8 @@ Controls.Action {
             return;
         }
 
+        NavigationController.notePath = "";
+
         if (root.model.rowCount() !== 0) {
             NavigationController.notebookPath = root.model.data(root.model.index(0, 0), NoteBooksModel.Path);
         } else {

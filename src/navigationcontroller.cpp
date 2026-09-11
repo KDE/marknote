@@ -50,7 +50,10 @@ void NavigationController::setNotebookPath(const QString &notebookPath)
         return;
     }
     m_notebookPath = notebookPath;
-    m_notePath = QString{};
+    if (!m_notePath.isEmpty()) {
+        m_notePath = QString{};
+        Q_EMIT notePathChanged();
+    }
     Q_EMIT notebookPathChanged();
 
     if (m_mobileMode) {
@@ -62,8 +65,6 @@ void NavigationController::setNotebookPath(const QString &notebookPath)
         const auto lastEntry = KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-LastEntry");
         if (lastEntry.length() > 0 && QFileInfo::exists(QDir::cleanPath(m_notebookPath + u'/' + lastEntry))) {
             setNotePath(lastEntry);
-        } else {
-            setNotePath(QString{});
         }
     }
 }
@@ -83,31 +84,24 @@ QString NavigationController::absoluteNotePath() const
 
 void NavigationController::setNotePath(const QString &notePath)
 {
-    QString path = notePath;
-    if (notePath.isEmpty()) {
-        QDir dir(m_notebookPath);
-        const auto entries = dir.entryInfoList(QDir::Files);
-        if (entries.isEmpty()) {
-            path = QString();
-        } else {
-            for (const auto &entry : entries) {
-                if (entry.fileName().endsWith(u".md"_s)) {
-                    path = entry.fileName();
-                }
-            }
-        }
-    }
-
-    if (m_notePath == path) {
+    if (m_notePath == notePath) {
         return;
     }
-    m_notePath = path;
+    m_notePath = notePath;
     Q_EMIT notePathChanged();
+
+    if (m_notebookPath.isEmpty()) {
+        return;
+    }
 
     const QString dotDirectory = QDir::cleanPath(m_notebookPath + u'/' + u".directory"_s);
     KConfig desktopFile(dotDirectory, KConfig::SimpleConfig);
     auto desktopEntry = desktopFile.group(u"Desktop Entry"_s);
-    desktopEntry.writeEntry("X-MarkNote-LastEntry", path);
+    if (notePath.isEmpty()) {
+        desktopEntry.deleteEntry("X-MarkNote-LastEntry");
+    } else {
+        desktopEntry.writeEntry("X-MarkNote-LastEntry", notePath);
+    }
     desktopFile.sync();
 }
 

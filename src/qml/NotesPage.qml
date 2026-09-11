@@ -315,8 +315,10 @@ Kirigami.ScrollablePage {
         title: KI18n.i18nc("@title:window", "Delete Note")
         onRejected: close()
         onAccepted: {
+            let isCurrentNote = (cleanPath(notePath) === root.activeAbsolutePath)
+                             || (fileUrl.toString() === NavigationController.noteFullPath.toString());
             pageNotesModel.deleteNote(fileUrl);
-            if (notePath === NavigationController.notePath) {
+            if (isCurrentNote) {
                 NavigationController.notePath = '';
             }
             close();
