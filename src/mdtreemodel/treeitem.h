@@ -13,7 +13,7 @@ class TreeItem : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QVariantMap data READ data CONSTANT)
+    Q_PROPERTY(QVariantMap data READ data NOTIFY dataChanged)
     Q_PROPERTY(TreeItem *parent READ parent CONSTANT)
     Q_PROPERTY(QList<TreeItem *> children READ children CONSTANT)
 
@@ -57,6 +57,7 @@ public:
     static TreeItem *createTreeItem(MDOptions::ElementType type, const QString &text = QString());
     static QList<TreeItem *> fromMarkdown(const QString &markdown);
 
+    bool isParsed() const;
     void setUnparsedMarkdown(const QString &text);
     QString unparsedMarkdown() const;
     void clearUnparsedMarkdown();
@@ -72,6 +73,9 @@ public:
     void insertColInTable(int col, const QList<QSharedPointer<MD::TableCell>> &colToInsert = {}, const QList<QString> &unparsedMdCol = {});
     void removeRowFromTable(int row);
     void removeColFromTable(int col);
+
+    Q_SIGNAL
+    void dataChanged();
 
 private:
     QSharedPointer<MD::Item> m_item;
