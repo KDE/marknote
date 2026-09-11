@@ -15,6 +15,36 @@ MDTreeModel::MDTreeModel(QObject *parent)
     , m_rootItem(std::make_unique<TreeItem>())
 {
     m_rootItem->setItem(QSharedPointer<MD::Document>::create());
+    m_rootItem->appendChild(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph));
+
+    connect(this, &MDTreeModel::rowsRemoved, this, [this](const QModelIndex &parent) {
+        if (!parent.isValid() && isEmpty()) {
+            Q_EMIT modelEmpty();
+        }
+    });
+
+    connect(this, &MDTreeModel::modelReset, this, [this]() {
+        if (m_rootItem && isEmpty()) {
+            Q_EMIT modelEmpty();
+        }
+    });
+
+    // TODO: Delete all blocks and then undo it. You will now see an extra paragraph which shouldn't
+    // have been there after undoing.
+    connect(
+        this,
+        &MDTreeModel::modelEmpty,
+        this,
+        [this]() {
+            if (m_rootItem && isEmpty()) {
+                const int pos = m_rootItem->childCount();
+                insertItem(m_rootItem.get(), pos, TreeItem::createTreeItem(MDOptions::ElementType::Paragraph));
+                if (!m_focusedBlock) {
+                    requestFocus(m_rootItem->child(pos), 0);
+                }
+            }
+        },
+        Qt::QueuedConnection);
 }
 
 QModelIndex MDTreeModel::index(int row, int column, const QModelIndex &parent) const
@@ -277,6 +307,7 @@ TreeItem *MDTreeModel::takeItem(TreeItem *parent, int row)
     beginRemoveRows(parentIndex, row, row);
     TreeItem *child = parent->removeChild(row);
     endRemoveRows();
+
     return child;
 }
 
@@ -290,6 +321,7 @@ QList<TreeItem *> MDTreeModel::takeItems(TreeItem *parent, int row, int count)
     beginRemoveRows(parentIndex, row, row + count - 1);
     QList<TreeItem *> children = parent->takeChildren(row, count);
     endRemoveRows();
+
     return children;
 }
 
@@ -654,4 +686,14 @@ void MDTreeModel::setSearchMatchedBlock(TreeItem *block)
         m_searchMatchedBlock = block;
         Q_EMIT searchMatchedBlockChanged();
     }
+}
+
+bool MDTreeModel::isEmpty() const
+{
+    if (!m_rootItem) {
+        return true;
+    }
+
+    const int childCount = m_rootItem->childCount();
+    return childCount == 0 || (childCount == 1 && m_rootItem->child(0)->item()->type() == MD::ItemType::Anchor);
 }
