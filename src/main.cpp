@@ -92,17 +92,17 @@ void setupAboutCredits(KAboutData &about)
                     u"https://invent.kde.org/users/siddharthc"_s,
                     QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/22002/avatar.png?width=256"_s));
 
+    about.addCredit(i18n("Prayag Jain"),
+                    i18n("Block Editor"),
+                    u"prayagjain2@gmail.com"_s,
+                    u"https://invent.kde.org/prayag"_s,
+                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/4468/avatar.png?width=256"_s));
+
     about.addCredit(i18n("Joshua Goins"),
                     i18n("Bug fixes"),
                     u"josh@redstrate.com"_s,
                     u"https://invent.kde.org/redstrate"_s,
                     QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/5782/avatar.png?width=256"_s));
-
-    about.addCredit(i18n("Prayag Jain"),
-                    i18n("Bug fixes"),
-                    u"prayagjain2@gmail.com"_s,
-                    u"https://invent.kde.org/prayag"_s,
-                    QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/4468/avatar.png?width=256"_s));
 
     about.addCredit(i18n("Laurent Montel"), i18n("Bug fixes"), u"montel@kde.org"_s, u"https://invent.kde.org/mlaurent"_s);
 }
