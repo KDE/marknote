@@ -1303,7 +1303,7 @@ EditPage {
 
                     Item{ Layout.fillWidth: true }
 
-                    RowLayout {
+                    Components.RadioSelector {
                         id: categorySelector
 
                         Layout.leftMargin: Kirigami.Units.mediumSpacing
@@ -1313,37 +1313,23 @@ EditPage {
                         Layout.maximumWidth: Kirigami.Units.gridUnit * 20
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 20
                         Layout.alignment: Qt.AlignHCenter
-                        spacing: Kirigami.Units.smallSpacing
 
-                        property int selectedIndex: 0
+                        consistentWidth: true
 
-                        ToolButton {
-                            text: KI18n.i18n("Format")
-                            focusPolicy: Qt.NoFocus
-                            checkable: true
-                            autoExclusive: true
-                            checked: categorySelector.selectedIndex === 0
-                            onClicked: categorySelector.selectedIndex = 0
-                            Layout.fillWidth: true
-                        }
-                        ToolButton {
-                            text: KI18n.i18n("Lists")
-                            focusPolicy: Qt.NoFocus
-                            checkable: true
-                            autoExclusive: true
-                            checked: categorySelector.selectedIndex === 1
-                            onClicked: categorySelector.selectedIndex = 1
-                            Layout.fillWidth: true
-                        }
-                        ToolButton {
-                            text: KI18n.i18n("Insert")
-                            focusPolicy: Qt.NoFocus
-                            checkable: true
-                            autoExclusive: true
-                            checked: categorySelector.selectedIndex === 2
-                            onClicked: categorySelector.selectedIndex = 2
-                            Layout.fillWidth: true
-                        }
+                        actions: [
+                           Kirigami.Action {
+                               text: KI18n.i18n("Format")
+                                //icon.name: "format-border-style"
+                           },
+                           Kirigami.Action {
+                               text: KI18n.i18n("Lists")
+                                //icon.name: "media-playlist-append"
+                           },
+                           Kirigami.Action {
+                               text: KI18n.i18n("Insert")
+                                // icon.name: "kdenlive-add-text-clip"
+                            }
+                        ]
                     }
 
                     Item {
