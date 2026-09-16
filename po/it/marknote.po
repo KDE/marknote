@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-09 00:47+0000\n"
+"POT-Creation-Date: 2026-09-16 00:46+0000\n"
 "PO-Revision-Date: 2026-09-09 15:00+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -57,88 +57,93 @@ msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "Si è verificato un errore durante la scrittura su «%1»"
 
-#: main.cpp:57
+#: main.cpp:60
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:58 main.cpp:63 main.cpp:66
+#: main.cpp:61 main.cpp:66 main.cpp:69
 #, kde-format
 msgid "Maintainer"
 msgstr "Responsabile"
 
-#: main.cpp:63
+#: main.cpp:66
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:65
+#: main.cpp:68
 #, kde-format
 msgid "Valentyn Bondarenko"
 msgstr "Valentyn Bondarenko"
 
-#: main.cpp:74
+#: main.cpp:77
 #, kde-format
 msgid "Justin Zobel"
 msgstr "Justin Zobel"
 
-#: main.cpp:75
+#: main.cpp:78
 #, kde-format
 msgid "Flatpak support"
 msgstr "Supporto Flatpak"
 
-#: main.cpp:80
+#: main.cpp:83
 #, kde-format
 msgid "Shubham Shinde"
 msgstr "Shubham Shinde"
 
-#: main.cpp:81
+#: main.cpp:84
 #, kde-format
 msgid "Table of Contents"
 msgstr "Indice"
 
-#: main.cpp:86
+#: main.cpp:89
 #, kde-format
 msgid "Siddharth Chopra"
 msgstr "Siddharth Chopra"
 
-#: main.cpp:87
+#: main.cpp:90
 #, kde-format
 msgid "Source Mode"
 msgstr "Modalità sorgente"
 
-#: main.cpp:92
-#, kde-format
-msgid "Joshua Goins"
-msgstr "Joshua Goins"
-
-#: main.cpp:93 main.cpp:99 main.cpp:104
-#, kde-format
-msgid "Bug fixes"
-msgstr "Correzioni di bug"
-
-#: main.cpp:98
+#: main.cpp:95
 #, kde-format
 msgid "Prayag Jain"
 msgstr "Prayag Jain"
 
-#: main.cpp:104
+#: main.cpp:96
+#, kde-format
+msgid "Block Editor"
+msgstr ""
+
+#: main.cpp:101
+#, kde-format
+msgid "Joshua Goins"
+msgstr "Joshua Goins"
+
+#: main.cpp:102 main.cpp:107
+#, kde-format
+msgid "Bug fixes"
+msgstr "Correzioni di bug"
+
+#: main.cpp:107
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: main.cpp:125 qml/Main.qml:450
+#: main.cpp:128 qml/Main.qml:466
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:127
+#: main.cpp:130
 #, kde-format
 msgid "Note taking application"
 msgstr "Applicazione per prendere appunti"
 
-#: main.cpp:129
+#: main.cpp:132
 #, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
@@ -180,103 +185,284 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Spostamento file non riuscita."
 
-#: qml/EditPage.qml:162 qml/RichEditPage.qml:741
+#: qml/BlockCode.qml:276
+#, kde-format
+msgid "Copied to clipboard!"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:20
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 1"
+msgstr "Intestazione %1"
+
+#: qml/components/SlashMenuPopup.qml:20
+#, kde-format
+msgid "Large section heading"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:21
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 2"
+msgstr "Intestazione %1"
+
+#: qml/components/SlashMenuPopup.qml:21
+#, kde-format
+msgid "Medium section heading"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:22
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 3"
+msgstr "Intestazione %1"
+
+#: qml/components/SlashMenuPopup.qml:22
+#, kde-format
+msgid "Small section heading"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:23
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 4"
+msgstr "Intestazione %1"
+
+#: qml/components/SlashMenuPopup.qml:23
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Sub-heading 4"
+msgstr "Intestazione %1"
+
+#: qml/components/SlashMenuPopup.qml:24
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 5"
+msgstr "Intestazione %1"
+
+#: qml/components/SlashMenuPopup.qml:24
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Sub-heading 5"
+msgstr "Intestazione %1"
+
+#: qml/components/SlashMenuPopup.qml:25
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 6"
+msgstr "Intestazione %1"
+
+#: qml/components/SlashMenuPopup.qml:25
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Sub-heading 6"
+msgstr "Intestazione %1"
+
+#: qml/components/SlashMenuPopup.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu heading level 5"
+#| msgid "Paragraph"
+msgid "Paragraph"
+msgstr "Paragrafo"
+
+#: qml/components/SlashMenuPopup.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu heading level 5"
+#| msgid "Paragraph"
+msgid "Plain text paragraph"
+msgstr "Paragrafo"
+
+#: qml/components/SlashMenuPopup.qml:27
+#, kde-format
+msgid "Bullet List"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu unordered style"
+#| msgid "Unordered list"
+msgid "Unordered bulleted list"
+msgstr "Elenco non ordinato"
+
+#: qml/components/SlashMenuPopup.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu ordered style"
+#| msgid "Ordered list"
+msgid "Numbered List"
+msgstr "Elenco ordinato"
+
+#: qml/components/SlashMenuPopup.qml:28
+#, kde-format
+msgid "Numbered sequential list"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:29
+#, kde-format
+msgid "Checklist"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:29
+#, kde-format
+msgid "Task list with checkboxes"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:30
+#, kde-format
+msgid "Quote"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:30
+#, kde-format
+msgid "Quote or callout block"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:31
+#, kde-format
+msgid "Code Block"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:31
+#, kde-format
+msgid "Code snippet with syntax"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:32
+#, kde-format
+msgid "Divider"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:32
+#, kde-format
+msgid "Horizontal dividing line"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:33
+#, kde-format
+msgid "Table"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:33
+#, kde-format
+msgid "Tabular data grid"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:34
+#, fuzzy, kde-format
+#| msgid "Close"
+msgid "Close menu"
+msgstr "Chiudi"
+
+#: qml/components/SlashMenuPopup.qml:34
+#, kde-format
+msgid "Dismiss this menu"
+msgstr ""
+
+#: qml/EditorActions.qml:18
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgid "Delete"
+msgstr "Elimina"
+
+#: qml/EditorActions.qml:31
 #, kde-format
 msgid "Undo"
 msgstr "Annulla"
 
-#: qml/EditPage.qml:176 qml/RichEditPage.qml:752
+#: qml/EditorActions.qml:38
 #, kde-format
 msgid "Redo"
 msgstr "Rifai"
 
-#: qml/EditPage.qml:206 qml/EditPage.qml:241
-#, kde-format
-msgctxt "@action:button"
-msgid "Table of Contents"
-msgstr "Indice"
+#: qml/EditorActions.qml:45
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgid "Copy"
+msgstr "Copia"
 
-#: qml/EditPage.qml:226
+#: qml/EditPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Cerca nota"
 
-#: qml/EditPage.qml:234
+#: qml/EditPage.qml:289
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Cerca nella note"
 
-#: qml/EditPage.qml:270
+#: qml/EditPage.qml:296
+#, kde-format
+msgctxt "@action:button"
+msgid "Table of Contents"
+msgstr "Indice"
+
+#: qml/EditPage.qml:325
 #, kde-format
 msgid "Focus Mode"
 msgstr "Modalità di messa a fuoco"
 
-#: qml/EditPage.qml:287 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
+#: qml/EditPage.qml:342 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Esci da schermo intero"
 
-#: qml/EditPage.qml:300
+#: qml/EditPage.qml:355
 #, kde-format
 msgid "Switch editor mode"
 msgstr "Cambia la modalità dell'editor"
 
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:360
 #, kde-format
 msgid "Source View"
 msgstr "Vista sorgente"
 
-#: qml/EditPage.qml:340
-#, kde-format
-msgctxt "@title:window"
-msgid "Table of Contents"
-msgstr "Indice"
-
-#: qml/EditPage.qml:386
+#: qml/EditPage.qml:412
 #, kde-format
 msgid "Find text…"
 msgstr "Trova testo…"
 
-#: qml/EditPage.qml:426
+#: qml/EditPage.qml:448
 #, kde-format
 msgid "Previous"
 msgstr "Precedente"
 
-#: qml/EditPage.qml:442
+#: qml/EditPage.qml:464
 #, kde-format
 msgid "Next"
 msgstr "Successivo"
 
-#: qml/EditPage.qml:460 qml/EditPage.qml:572
+#: qml/EditPage.qml:484 qml/EditPage.qml:590
 #, kde-format
 msgid "No matches"
 msgstr "Nessuna corrispondenza"
 
-#: qml/EditPage.qml:462 qml/EditPage.qml:574
+#: qml/EditPage.qml:486 qml/EditPage.qml:592
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:474 qml/EditPage.qml:543
+#: qml/EditPage.qml:498 qml/EditPage.qml:561
 #, kde-format
 msgid "Replace"
 msgstr "Sostituisci"
 
-#: qml/EditPage.qml:492
+#: qml/EditPage.qml:510
 #, kde-format
 msgid "Close"
 msgstr "Chiudi"
 
-#: qml/EditPage.qml:514
+#: qml/EditPage.qml:532
 #, kde-format
 msgid "Replace with…"
 msgstr "Sostituisci con…"
 
-#: qml/EditPage.qml:519 qml/EditPage.qml:559
+#: qml/EditPage.qml:537 qml/EditPage.qml:577
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -284,12 +470,12 @@ msgid_plural "Replaced %1 occurrences"
 msgstr[0] "Sostituisci %1 occorrenza"
 msgstr[1] "Sostituisci %1 occorrenze"
 
-#: qml/EditPage.qml:555
+#: qml/EditPage.qml:573
 #, kde-format
 msgid "Replace All"
 msgstr "Sostituisci tutto"
 
-#: qml/EditPage.qml:623
+#: qml/EditPage.qml:640
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -355,57 +541,57 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "URL del collegamento:"
 
-#: qml/Main.qml:158
+#: qml/Main.qml:157
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "Impossibile creare una nuova nota, devi prima creare un taccuino."
 
-#: qml/Main.qml:160
+#: qml/Main.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Crea taccuino"
 
-#: qml/Main.qml:344 qml/NotesPage.qml:817
+#: qml/Main.qml:360 qml/NotesPage.qml:821
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Mostra il menu"
 
-#: qml/Main.qml:390
+#: qml/Main.qml:406
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "Importa"
 
-#: qml/Main.qml:399
+#: qml/Main.qml:415
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "Ordina l'elenco delle note"
 
-#: qml/Main.qml:405
+#: qml/Main.qml:421
 #, kde-format
 msgid "by Name"
 msgstr "per nome"
 
-#: qml/Main.qml:418
+#: qml/Main.qml:434
 #, kde-format
 msgid "by Date"
 msgstr "per data"
 
-#: qml/Main.qml:435
+#: qml/Main.qml:451
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "Contrai la barra laterale"
 
-#: qml/Main.qml:435
+#: qml/Main.qml:451
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "Espandi la barra laterale"
 
-#: qml/Main.qml:573
+#: qml/Main.qml:589
 #, kde-format
 msgid "Your Notebooks"
 msgstr "I tuoi taccuini"
@@ -591,23 +777,23 @@ msgstr "Contrai tutto"
 msgid "Expand All"
 msgstr "Espandi tutto"
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Esci dalla ricerca (%1)"
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Cerca note (%1)"
 
-#: qml/NotesPage.qml:313
+#: qml/NotesPage.qml:315
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Elimina nota"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:327
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -616,122 +802,122 @@ msgstr ""
 "Sei sicuro di voler eliminare la nota <b> %1 </b>? Questo eliminerà "
 "definitivamente il file <b>%2</b>."
 
-#: qml/NotesPage.qml:478 qml/NotesPage.qml:506
+#: qml/NotesPage.qml:482 qml/NotesPage.qml:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:479
+#: qml/NotesPage.qml:483
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "Esportazione di «%1» avvenuta correttamente."
 
-#: qml/NotesPage.qml:492
+#: qml/NotesPage.qml:496
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Apri file"
 
-#: qml/NotesPage.qml:507
+#: qml/NotesPage.qml:511
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "Esportazione di «%1» non riuscita."
 
-#: qml/NotesPage.qml:518
+#: qml/NotesPage.qml:522
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Rinomina"
 
-#: qml/NotesPage.qml:527 qml/TextFieldContextMenu.qml:391
+#: qml/NotesPage.qml:531 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Copia"
 
-#: qml/NotesPage.qml:542
+#: qml/NotesPage.qml:546
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Duplica"
 
-#: qml/NotesPage.qml:550
+#: qml/NotesPage.qml:554
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Esporta"
 
-#: qml/NotesPage.qml:554
+#: qml/NotesPage.qml:558
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Esporta in HTML"
 
-#: qml/NotesPage.qml:560
+#: qml/NotesPage.qml:564
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Esporta in HTML"
 
-#: qml/NotesPage.qml:561
+#: qml/NotesPage.qml:565
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "File HTML (*.html)"
 
-#: qml/NotesPage.qml:567
+#: qml/NotesPage.qml:571
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Esporta in PDF"
 
-#: qml/NotesPage.qml:573
+#: qml/NotesPage.qml:577
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Esporta in PDF"
 
-#: qml/NotesPage.qml:574
+#: qml/NotesPage.qml:578
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "File PDF (*.pdf)"
 
-#: qml/NotesPage.qml:580
+#: qml/NotesPage.qml:584
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Esporta in ODT"
 
-#: qml/NotesPage.qml:586
+#: qml/NotesPage.qml:590
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Esporta in ODT"
 
-#: qml/NotesPage.qml:587
+#: qml/NotesPage.qml:591
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Documento di testo ODF (*.odt)"
 
-#: qml/NotesPage.qml:596 qml/TextFieldContextMenu.qml:433
+#: qml/NotesPage.qml:600 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Elimina"
 
-#: qml/NotesPage.qml:869
+#: qml/NotesPage.qml:873
 #, kde-format
 msgid "Add a note!"
 msgstr "Aggiungi una nota!"
 
-#: qml/NotesPage.qml:878
+#: qml/NotesPage.qml:882
 #, kde-format
 msgid "No notes matching the search"
 msgstr "Nessuna nota corrispondente alla ricerca"
 
-#: qml/NotesPage.qml:894 qml/NotesPage.qml:902
+#: qml/NotesPage.qml:898 qml/NotesPage.qml:906
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
@@ -739,7 +925,7 @@ msgid_plural "%1 notes"
 msgstr[0] "%1 nota"
 msgstr[1] "%1 note"
 
-#: qml/NotesPage.qml:898 qml/NotesPage.qml:901
+#: qml/NotesPage.qml:902 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -747,182 +933,182 @@ msgid_plural "%1 folders"
 msgstr[0] "%1 cartella"
 msgstr[1] "%1 cartelle"
 
-#: qml/NotesPage.qml:904
+#: qml/NotesPage.qml:908
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: qml/RichEditPage.qml:224
+#: qml/RichEditPage.qml:235
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
 msgstr "Seleziona un'immagine"
 
-#: qml/RichEditPage.qml:227
+#: qml/RichEditPage.qml:238
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgstr "File immagine (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
-#: qml/RichEditPage.qml:227
+#: qml/RichEditPage.qml:238
 #, kde-format
 msgid "All files (*)"
 msgstr "Tutti i file (*)"
 
-#: qml/RichEditPage.qml:356
+#: qml/RichEditPage.qml:763
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Grassetto"
 
-#: qml/RichEditPage.qml:377
+#: qml/RichEditPage.qml:785
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Corsivo"
 
-#: qml/RichEditPage.qml:396
-#, kde-format
-msgctxt "@action:button"
-msgid "Underline"
-msgstr "Sottolineato"
-
-#: qml/RichEditPage.qml:410
+#: qml/RichEditPage.qml:802
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Barrato"
 
-#: qml/RichEditPage.qml:428
+#: qml/RichEditPage.qml:822
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Aumenta livello dell'elenco"
 
-#: qml/RichEditPage.qml:439
+#: qml/RichEditPage.qml:836
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Riduci livello dell'elenco"
 
-#: qml/RichEditPage.qml:481
-#, kde-format
-msgctxt "@item:inmenu no list style"
-msgid "No list"
-msgstr "Nessun elenco"
-
-#: qml/RichEditPage.qml:482
-#, kde-format
-msgctxt "@item:inmenu unordered style"
+#: qml/RichEditPage.qml:879
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu unordered style"
+#| msgid "Unordered list"
+msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Elenco non ordinato"
 
-#: qml/RichEditPage.qml:483
-#, kde-format
-msgctxt "@item:inmenu ordered style"
+#: qml/RichEditPage.qml:898
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu ordered style"
+#| msgid "Ordered list"
+msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Elenco ordinato"
 
-#: qml/RichEditPage.qml:494
+#: qml/RichEditPage.qml:917
 #, kde-format
 msgctxt "@action:button"
-msgid "Insert checkbox"
-msgstr "Inserisci casella di selezione"
+msgid "Checklist"
+msgstr ""
 
-#: qml/RichEditPage.qml:509
+#: qml/RichEditPage.qml:943
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Inserisci collegamento"
 
-#: qml/RichEditPage.qml:525
+#: qml/RichEditPage.qml:962
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Inserisci collegamento della nota"
 
-#: qml/RichEditPage.qml:541
+#: qml/RichEditPage.qml:981
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Inserisci immagine"
 
-#: qml/RichEditPage.qml:555
+#: qml/RichEditPage.qml:998
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Inserisci tabella"
 
-#: qml/RichEditPage.qml:569
+#: qml/RichEditPage.qml:1015
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Inserisci uno schizzo"
 
-#: qml/RichEditPage.qml:590
-#, kde-format
+#: qml/RichEditPage.qml:1080
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu heading level 5"
+#| msgid "Paragraph"
 msgctxt "@item:inmenu no heading"
-msgid "Basic text"
-msgstr "Testo semplice"
-
-#: qml/RichEditPage.qml:591
-#, kde-format
-msgctxt "@item:inmenu heading level 1 (largest)"
-msgid "Title"
-msgstr "Titolo"
-
-#: qml/RichEditPage.qml:592
-#, kde-format
-msgctxt "@item:inmenu heading level 2"
-msgid "Subtitle"
-msgstr "Sottotitolo"
-
-#: qml/RichEditPage.qml:593
-#, kde-format
-msgctxt "@item:inmenu heading level 3"
-msgid "Section"
-msgstr "Sezione"
-
-#: qml/RichEditPage.qml:594
-#, kde-format
-msgctxt "@item:inmenu heading level 4"
-msgid "Subsection"
-msgstr "Sottosezione"
-
-#: qml/RichEditPage.qml:595
-#, kde-format
-msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "Paragrafo"
 
-#: qml/RichEditPage.qml:596
-#, kde-format
-msgctxt "@item:inmenu heading level 6 (smallest)"
-msgid "Subparagraph"
-msgstr "Sottoparagrafo"
+#: qml/RichEditPage.qml:1091
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 1 (largest)"
+msgid "Heading 1"
+msgstr "Intestazione %1"
 
-#: qml/RichEditPage.qml:784
+#: qml/RichEditPage.qml:1102
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 2"
+msgid "Heading 2"
+msgstr "Intestazione %1"
+
+#: qml/RichEditPage.qml:1113
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 3"
+msgid "Heading 3"
+msgstr "Intestazione %1"
+
+#: qml/RichEditPage.qml:1124
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 4"
+msgid "Heading 4"
+msgstr "Intestazione %1"
+
+#: qml/RichEditPage.qml:1135
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 5"
+msgid "Heading 5"
+msgstr "Intestazione %1"
+
+#: qml/RichEditPage.qml:1146
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 6 (smallest)"
+msgid "Heading 6"
+msgstr "Intestazione %1"
+
+#: qml/RichEditPage.qml:1321
 #, kde-format
 msgid "Format"
 msgstr "Formato"
 
-#: qml/RichEditPage.qml:788
+#: qml/RichEditPage.qml:1330
 #, kde-format
 msgid "Lists"
 msgstr "Elenchi"
 
-#: qml/RichEditPage.qml:792
+#: qml/RichEditPage.qml:1339
 #, kde-format
 msgid "Insert"
 msgstr "Inserisci"
 
-#: qml/SketchDialog.qml:295
+#: qml/SketchDialog.qml:293
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
 msgstr "Gomma"
 
-#: qml/SketchDialog.qml:310
+#: qml/SketchDialog.qml:308
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
@@ -934,73 +1120,73 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "Inserisci tabella"
 
-#: qml/TextFieldContextMenu.qml:230
+#: qml/TextFieldContextMenu.qml:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: qml/TextFieldContextMenu.qml:245
+#: qml/TextFieldContextMenu.qml:244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Controllo ortografico"
 
-#: qml/TextFieldContextMenu.qml:261
+#: qml/TextFieldContextMenu.qml:260
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "Apri nota"
 
-#: qml/TextFieldContextMenu.qml:261
+#: qml/TextFieldContextMenu.qml:260
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Apri collegamento"
 
-#: qml/TextFieldContextMenu.qml:281
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Insert"
-msgstr "Inserisci"
-
-#: qml/TextFieldContextMenu.qml:317
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Remove"
-msgstr "Rimuovi"
-
-#: qml/TextFieldContextMenu.qml:347
+#: qml/TextFieldContextMenu.qml:279
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Annulla"
 
-#: qml/TextFieldContextMenu.qml:361
+#: qml/TextFieldContextMenu.qml:293
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Rifai"
 
-#: qml/TextFieldContextMenu.qml:376
+#: qml/TextFieldContextMenu.qml:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Taglia"
 
-#: qml/TextFieldContextMenu.qml:405
+#: qml/TextFieldContextMenu.qml:337
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Incolla"
 
-#: qml/TextFieldContextMenu.qml:451
+#: qml/TextFieldContextMenu.qml:383
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Seleziona tutto"
 
-#: qml/TocDrawer.qml:121
+#: qml/TocDrawer.qml:50
+#, kde-format
+msgctxt "@title:window"
+msgid "Table of Contents"
+msgstr "Indice"
+
+#: qml/TocDrawer.qml:58
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr "Chiudi"
+
+#: qml/TocDrawer.qml:151
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
@@ -1010,11 +1196,6 @@ msgstr "Nessuna intestazione trovata"
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "Inizia creando il tuo primo taccuino!"
-
-#: rich_documenthandler.cpp:1098
-#, kde-format
-msgid "Failed to save pasted image"
-msgstr "Impossibile salvare l'immagine incollata"
 
 #: settings/MarkNoteGeneralPage.qml:18
 #, kde-format
@@ -1091,40 +1272,73 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Informazioni su KDE"
 
-#: tableactionhelper.cpp:119
-#, kde-format
-msgid "Row Below"
-msgstr "Riga sotto"
+#~ msgctxt "@action:button"
+#~ msgid "Underline"
+#~ msgstr "Sottolineato"
 
-#: tableactionhelper.cpp:125
-#, kde-format
-msgid "Row Above"
-msgstr "Riga sopra"
+#~ msgctxt "@item:inmenu no list style"
+#~ msgid "No list"
+#~ msgstr "Nessun elenco"
 
-#: tableactionhelper.cpp:131
-#, kde-format
-msgid "Column Before"
-msgstr "Colonna prima"
+#~ msgctxt "@action:button"
+#~ msgid "Insert checkbox"
+#~ msgstr "Inserisci casella di selezione"
 
-#: tableactionhelper.cpp:137
-#, kde-format
-msgid "Column After"
-msgstr "Colonna dopo"
+#~ msgctxt "@item:inmenu no heading"
+#~ msgid "Basic text"
+#~ msgstr "Testo semplice"
 
-#: tableactionhelper.cpp:143
-#, kde-format
-msgid "Row"
-msgstr "Riga"
+#~ msgctxt "@item:inmenu heading level 1 (largest)"
+#~ msgid "Title"
+#~ msgstr "Titolo"
 
-#: tableactionhelper.cpp:149
-#, kde-format
-msgid "Column"
-msgstr "Colonna"
+#~ msgctxt "@item:inmenu heading level 2"
+#~ msgid "Subtitle"
+#~ msgstr "Sottotitolo"
 
-#: tableactionhelper.cpp:155
-#, kde-format
-msgid "Cell Contents"
-msgstr "Contenuti celle"
+#~ msgctxt "@item:inmenu heading level 3"
+#~ msgid "Section"
+#~ msgstr "Sezione"
+
+#~ msgctxt "@item:inmenu heading level 4"
+#~ msgid "Subsection"
+#~ msgstr "Sottosezione"
+
+#~ msgctxt "@item:inmenu heading level 6 (smallest)"
+#~ msgid "Subparagraph"
+#~ msgstr "Sottoparagrafo"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Insert"
+#~ msgstr "Inserisci"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "Rimuovi"
+
+#~ msgid "Failed to save pasted image"
+#~ msgstr "Impossibile salvare l'immagine incollata"
+
+#~ msgid "Row Below"
+#~ msgstr "Riga sotto"
+
+#~ msgid "Row Above"
+#~ msgstr "Riga sopra"
+
+#~ msgid "Column Before"
+#~ msgstr "Colonna prima"
+
+#~ msgid "Column After"
+#~ msgstr "Colonna dopo"
+
+#~ msgid "Row"
+#~ msgstr "Riga"
+
+#~ msgid "Column"
+#~ msgstr "Colonna"
+
+#~ msgid "Cell Contents"
+#~ msgstr "Contenuti celle"
 
 #~ msgctxt "@action:button"
 #~ msgid "Table of Content"
@@ -1145,10 +1359,6 @@ msgstr "Contenuti celle"
 #~ msgctxt "@label:textbox"
 #~ msgid "Quick Sketch"
 #~ msgstr "Schizzo rapido"
-
-#~ msgctxt "@action:button"
-#~ msgid "Close"
-#~ msgstr "Chiudi"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Delete Note"
@@ -1247,6 +1457,3 @@ msgstr "Contenuti celle"
 #~ msgctxt "@item:inmenu upper case roman numerals"
 #~ msgid "I II III"
 #~ msgstr "I II III"
-
-#~ msgid "Heading %1"
-#~ msgstr "Intestazione %1"

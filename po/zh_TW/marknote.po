@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-09 00:47+0000\n"
-"PO-Revision-Date: 2026-06-07 16:13+0900\n"
+"POT-Creation-Date: 2026-09-16 00:46+0000\n"
+"PO-Revision-Date: 2026-09-15 13:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -57,105 +57,108 @@ msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "寫入「%1」時發生錯誤"
 
-#: main.cpp:57
+#: main.cpp:60
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:58 main.cpp:63 main.cpp:66
+#: main.cpp:61 main.cpp:66 main.cpp:69
 #, kde-format
 msgid "Maintainer"
 msgstr "維護者"
 
-#: main.cpp:63
+#: main.cpp:66
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:65
+#: main.cpp:68
 #, kde-format
 msgid "Valentyn Bondarenko"
 msgstr "Valentyn Bondarenko"
 
-#: main.cpp:74
+#: main.cpp:77
 #, kde-format
 msgid "Justin Zobel"
 msgstr "Justin Zobel"
 
-#: main.cpp:75
+#: main.cpp:78
 #, kde-format
 msgid "Flatpak support"
 msgstr "Flatpak 支援"
 
-#: main.cpp:80
+#: main.cpp:83
 #, kde-format
 msgid "Shubham Shinde"
 msgstr "Shubham Shinde"
 
-#: main.cpp:81
+#: main.cpp:84
 #, kde-format
 msgid "Table of Contents"
 msgstr "目錄"
 
-#: main.cpp:86
+#: main.cpp:89
 #, kde-format
 msgid "Siddharth Chopra"
 msgstr "Siddharth Chopra"
 
-#: main.cpp:87
+#: main.cpp:90
 #, kde-format
 msgid "Source Mode"
 msgstr "原始碼模式"
 
-#: main.cpp:92
-#, kde-format
-msgid "Joshua Goins"
-msgstr "Joshua Goins"
-
-#: main.cpp:93 main.cpp:99 main.cpp:104
-#, kde-format
-msgid "Bug fixes"
-msgstr "錯誤修正"
-
-#: main.cpp:98
+#: main.cpp:95
 #, kde-format
 msgid "Prayag Jain"
 msgstr "Prayag Jain"
 
-#: main.cpp:104
+#: main.cpp:96
+#, kde-format
+msgid "Block Editor"
+msgstr ""
+
+#: main.cpp:101
+#, kde-format
+msgid "Joshua Goins"
+msgstr "Joshua Goins"
+
+#: main.cpp:102 main.cpp:107
+#, kde-format
+msgid "Bug fixes"
+msgstr "錯誤修正"
+
+#: main.cpp:107
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: main.cpp:125 qml/Main.qml:450
+#: main.cpp:128 qml/Main.qml:466
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:127
+#: main.cpp:130
 #, kde-format
 msgid "Note taking application"
 msgstr "筆記本應用程式"
 
-#: main.cpp:129
+#: main.cpp:132
 #, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
 
 #: notesmodel.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to rename note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note. A note already exists with the same name."
-msgstr "無法重新命名筆記。已經有另一個筆記使用該名稱。"
+msgstr "無法建立筆記。已經有另一個筆記使用該名稱。"
 
 #: notesmodel.cpp:205
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note: %1"
-msgstr ""
+msgstr "無法建立筆記：%1"
 
 #: notesmodel.cpp:234
 #, kde-format
@@ -181,115 +184,296 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "移動檔案失敗。"
 
-#: qml/EditPage.qml:162 qml/RichEditPage.qml:741
+#: qml/BlockCode.qml:276
+#, kde-format
+msgid "Copied to clipboard!"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:20
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 1"
+msgstr "標題 %1"
+
+#: qml/components/SlashMenuPopup.qml:20
+#, kde-format
+msgid "Large section heading"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:21
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 2"
+msgstr "標題 %1"
+
+#: qml/components/SlashMenuPopup.qml:21
+#, kde-format
+msgid "Medium section heading"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:22
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 3"
+msgstr "標題 %1"
+
+#: qml/components/SlashMenuPopup.qml:22
+#, kde-format
+msgid "Small section heading"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:23
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 4"
+msgstr "標題 %1"
+
+#: qml/components/SlashMenuPopup.qml:23
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Sub-heading 4"
+msgstr "標題 %1"
+
+#: qml/components/SlashMenuPopup.qml:24
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 5"
+msgstr "標題 %1"
+
+#: qml/components/SlashMenuPopup.qml:24
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Sub-heading 5"
+msgstr "標題 %1"
+
+#: qml/components/SlashMenuPopup.qml:25
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Heading 6"
+msgstr "標題 %1"
+
+#: qml/components/SlashMenuPopup.qml:25
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgid "Sub-heading 6"
+msgstr "標題 %1"
+
+#: qml/components/SlashMenuPopup.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu heading level 5"
+#| msgid "Paragraph"
+msgid "Paragraph"
+msgstr "段落"
+
+#: qml/components/SlashMenuPopup.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu heading level 5"
+#| msgid "Paragraph"
+msgid "Plain text paragraph"
+msgstr "段落"
+
+#: qml/components/SlashMenuPopup.qml:27
+#, kde-format
+msgid "Bullet List"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu unordered style"
+#| msgid "Unordered list"
+msgid "Unordered bulleted list"
+msgstr "無序列表"
+
+#: qml/components/SlashMenuPopup.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu ordered style"
+#| msgid "Ordered list"
+msgid "Numbered List"
+msgstr "有序列表"
+
+#: qml/components/SlashMenuPopup.qml:28
+#, kde-format
+msgid "Numbered sequential list"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:29
+#, kde-format
+msgid "Checklist"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:29
+#, kde-format
+msgid "Task list with checkboxes"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:30
+#, kde-format
+msgid "Quote"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:30
+#, kde-format
+msgid "Quote or callout block"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:31
+#, kde-format
+msgid "Code Block"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:31
+#, kde-format
+msgid "Code snippet with syntax"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:32
+#, kde-format
+msgid "Divider"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:32
+#, kde-format
+msgid "Horizontal dividing line"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:33
+#, kde-format
+msgid "Table"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:33
+#, kde-format
+msgid "Tabular data grid"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:34
+#, fuzzy, kde-format
+#| msgid "Close"
+msgid "Close menu"
+msgstr "關閉"
+
+#: qml/components/SlashMenuPopup.qml:34
+#, kde-format
+msgid "Dismiss this menu"
+msgstr ""
+
+#: qml/EditorActions.qml:18
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgid "Delete"
+msgstr "刪除"
+
+#: qml/EditorActions.qml:31
 #, kde-format
 msgid "Undo"
 msgstr "復原"
 
-#: qml/EditPage.qml:176 qml/RichEditPage.qml:752
+#: qml/EditorActions.qml:38
 #, kde-format
 msgid "Redo"
 msgstr "重做"
 
-#: qml/EditPage.qml:206 qml/EditPage.qml:241
-#, kde-format
-msgctxt "@action:button"
-msgid "Table of Contents"
-msgstr "目錄"
+#: qml/EditorActions.qml:45
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgid "Copy"
+msgstr "複製"
 
-#: qml/EditPage.qml:226
+#: qml/EditPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "搜尋筆記"
 
-#: qml/EditPage.qml:234
+#: qml/EditPage.qml:289
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "在筆記中搜尋"
 
-#: qml/EditPage.qml:270
+#: qml/EditPage.qml:296
+#, kde-format
+msgctxt "@action:button"
+msgid "Table of Contents"
+msgstr "目錄"
+
+#: qml/EditPage.qml:325
 #, kde-format
 msgid "Focus Mode"
 msgstr "專注模式"
 
-#: qml/EditPage.qml:287 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
+#: qml/EditPage.qml:342 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "離開全螢幕"
 
-#: qml/EditPage.qml:300
+#: qml/EditPage.qml:355
 #, kde-format
 msgid "Switch editor mode"
 msgstr "切換編輯器模式"
 
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:360
 #, kde-format
 msgid "Source View"
 msgstr "原始碼檢視"
 
-#: qml/EditPage.qml:340
-#, kde-format
-msgctxt "@title:window"
-msgid "Table of Contents"
-msgstr "目錄"
-
-#: qml/EditPage.qml:386
+#: qml/EditPage.qml:412
 #, kde-format
 msgid "Find text…"
 msgstr "尋找文字…"
 
-#: qml/EditPage.qml:426
+#: qml/EditPage.qml:448
 #, kde-format
 msgid "Previous"
 msgstr "上一個"
 
-#: qml/EditPage.qml:442
+#: qml/EditPage.qml:464
 #, kde-format
 msgid "Next"
 msgstr "下一個"
 
-#: qml/EditPage.qml:460 qml/EditPage.qml:572
+#: qml/EditPage.qml:484 qml/EditPage.qml:590
 #, kde-format
 msgid "No matches"
 msgstr "無相符項目"
 
-#: qml/EditPage.qml:462 qml/EditPage.qml:574
+#: qml/EditPage.qml:486 qml/EditPage.qml:592
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:474 qml/EditPage.qml:543
+#: qml/EditPage.qml:498 qml/EditPage.qml:561
 #, kde-format
 msgid "Replace"
 msgstr "取代"
 
-#: qml/EditPage.qml:492
+#: qml/EditPage.qml:510
 #, kde-format
 msgid "Close"
 msgstr "關閉"
 
-#: qml/EditPage.qml:514
+#: qml/EditPage.qml:532
 #, kde-format
 msgid "Replace with…"
 msgstr "替換為…"
 
-#: qml/EditPage.qml:519 qml/EditPage.qml:559
+#: qml/EditPage.qml:537 qml/EditPage.qml:577
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
 msgstr[0] "已取代 %1 處"
 
-#: qml/EditPage.qml:555
+#: qml/EditPage.qml:573
 #, kde-format
 msgid "Replace All"
 msgstr "全部取代"
 
-#: qml/EditPage.qml:623
+#: qml/EditPage.qml:640
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -355,57 +539,57 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "連結網址："
 
-#: qml/Main.qml:158
+#: qml/Main.qml:157
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr "無法建立新筆記，您必須先建立筆記本。"
 
-#: qml/Main.qml:160
+#: qml/Main.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "建立筆記本"
 
-#: qml/Main.qml:344 qml/NotesPage.qml:817
+#: qml/Main.qml:360 qml/NotesPage.qml:821
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "顯示選單"
 
-#: qml/Main.qml:390
+#: qml/Main.qml:406
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "匯入"
 
-#: qml/Main.qml:399
+#: qml/Main.qml:415
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "排序筆記列表"
 
-#: qml/Main.qml:405
+#: qml/Main.qml:421
 #, kde-format
 msgid "by Name"
 msgstr "以名稱"
 
-#: qml/Main.qml:418
+#: qml/Main.qml:434
 #, kde-format
 msgid "by Date"
 msgstr "以日期"
 
-#: qml/Main.qml:435
+#: qml/Main.qml:451
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr "收合側邊欄"
 
-#: qml/Main.qml:435
+#: qml/Main.qml:451
 #, kde-format
 msgid "Expand Sidebar"
 msgstr "展開側邊欄"
 
-#: qml/Main.qml:573
+#: qml/Main.qml:589
 #, kde-format
 msgid "Your Notebooks"
 msgstr "您的筆記本"
@@ -571,7 +755,7 @@ msgstr "名稱："
 #, kde-format
 msgctxt "@info"
 msgid "A note with this name already exists."
-msgstr ""
+msgstr "已經存在相同名稱的筆記。"
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -588,334 +772,334 @@ msgstr "全部收起"
 msgid "Expand All"
 msgstr "全部展開"
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "離開搜尋 (%1)"
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "搜尋筆記 (%1)"
 
-#: qml/NotesPage.qml:313
+#: qml/NotesPage.qml:315
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "刪除筆記"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:327
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr "您確定要刪除筆記 <b>%1</b> 嗎？這會永久完全刪除檔案 <b>%2</b>。"
 
-#: qml/NotesPage.qml:478 qml/NotesPage.qml:506
+#: qml/NotesPage.qml:482 qml/NotesPage.qml:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:479
+#: qml/NotesPage.qml:483
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "匯出「%1」成功。"
 
-#: qml/NotesPage.qml:492
+#: qml/NotesPage.qml:496
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "開啟檔案"
 
-#: qml/NotesPage.qml:507
+#: qml/NotesPage.qml:511
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "匯出「%1」失敗。"
 
-#: qml/NotesPage.qml:518
+#: qml/NotesPage.qml:522
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "重新命名"
 
-#: qml/NotesPage.qml:527 qml/TextFieldContextMenu.qml:391
+#: qml/NotesPage.qml:531 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "複製"
 
-#: qml/NotesPage.qml:542
+#: qml/NotesPage.qml:546
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "建立複本"
 
-#: qml/NotesPage.qml:550
+#: qml/NotesPage.qml:554
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "匯出"
 
-#: qml/NotesPage.qml:554
+#: qml/NotesPage.qml:558
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "匯出為 HTML"
 
-#: qml/NotesPage.qml:560
+#: qml/NotesPage.qml:564
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "匯出為 HTML"
 
-#: qml/NotesPage.qml:561
+#: qml/NotesPage.qml:565
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML 檔案 (*.html)"
 
-#: qml/NotesPage.qml:567
+#: qml/NotesPage.qml:571
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "匯出為 PDF"
 
-#: qml/NotesPage.qml:573
+#: qml/NotesPage.qml:577
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "匯出為 PDF"
 
-#: qml/NotesPage.qml:574
+#: qml/NotesPage.qml:578
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF 檔案 (*.pdf)"
 
-#: qml/NotesPage.qml:580
+#: qml/NotesPage.qml:584
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "匯出為 ODT"
 
-#: qml/NotesPage.qml:586
+#: qml/NotesPage.qml:590
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "匯出為 ODT"
 
-#: qml/NotesPage.qml:587
+#: qml/NotesPage.qml:591
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF 文字文件 (*.odt)"
 
-#: qml/NotesPage.qml:596 qml/TextFieldContextMenu.qml:433
+#: qml/NotesPage.qml:600 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "刪除"
 
-#: qml/NotesPage.qml:869
+#: qml/NotesPage.qml:873
 #, kde-format
 msgid "Add a note!"
 msgstr "新增筆記！"
 
-#: qml/NotesPage.qml:878
+#: qml/NotesPage.qml:882
 #, kde-format
 msgid "No notes matching the search"
 msgstr "沒有符合搜尋的筆記"
 
-#: qml/NotesPage.qml:894 qml/NotesPage.qml:902
+#: qml/NotesPage.qml:898 qml/NotesPage.qml:906
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 個筆記"
 
-#: qml/NotesPage.qml:898 qml/NotesPage.qml:901
+#: qml/NotesPage.qml:902 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
 msgstr[0] "%1 個資料夾"
 
-#: qml/NotesPage.qml:904
+#: qml/NotesPage.qml:908
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: qml/RichEditPage.qml:224
+#: qml/RichEditPage.qml:235
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
 msgstr "選擇影像"
 
-#: qml/RichEditPage.qml:227
+#: qml/RichEditPage.qml:238
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgstr "影像檔 (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
-#: qml/RichEditPage.qml:227
+#: qml/RichEditPage.qml:238
 #, kde-format
 msgid "All files (*)"
 msgstr "所有檔案 (*)"
 
-#: qml/RichEditPage.qml:356
+#: qml/RichEditPage.qml:763
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "粗體"
 
-#: qml/RichEditPage.qml:377
+#: qml/RichEditPage.qml:785
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "斜體"
 
-#: qml/RichEditPage.qml:396
-#, kde-format
-msgctxt "@action:button"
-msgid "Underline"
-msgstr "底線"
-
-#: qml/RichEditPage.qml:410
+#: qml/RichEditPage.qml:802
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "刪除線"
 
-#: qml/RichEditPage.qml:428
+#: qml/RichEditPage.qml:822
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "提高列表等級"
 
-#: qml/RichEditPage.qml:439
+#: qml/RichEditPage.qml:836
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "降低列表等級"
 
-#: qml/RichEditPage.qml:481
-#, kde-format
-msgctxt "@item:inmenu no list style"
-msgid "No list"
-msgstr "無列表"
-
-#: qml/RichEditPage.qml:482
-#, kde-format
-msgctxt "@item:inmenu unordered style"
+#: qml/RichEditPage.qml:879
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu unordered style"
+#| msgid "Unordered list"
+msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "無序列表"
 
-#: qml/RichEditPage.qml:483
-#, kde-format
-msgctxt "@item:inmenu ordered style"
+#: qml/RichEditPage.qml:898
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu ordered style"
+#| msgid "Ordered list"
+msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "有序列表"
 
-#: qml/RichEditPage.qml:494
+#: qml/RichEditPage.qml:917
 #, kde-format
 msgctxt "@action:button"
-msgid "Insert checkbox"
-msgstr "插入核取方塊"
+msgid "Checklist"
+msgstr ""
 
-#: qml/RichEditPage.qml:509
+#: qml/RichEditPage.qml:943
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "插入連結"
 
-#: qml/RichEditPage.qml:525
+#: qml/RichEditPage.qml:962
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "插入筆記連結"
 
-#: qml/RichEditPage.qml:541
+#: qml/RichEditPage.qml:981
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "插入影像"
 
-#: qml/RichEditPage.qml:555
+#: qml/RichEditPage.qml:998
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "插入表格"
 
-#: qml/RichEditPage.qml:569
+#: qml/RichEditPage.qml:1015
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "插入塗鴉"
 
-#: qml/RichEditPage.qml:590
-#, kde-format
+#: qml/RichEditPage.qml:1080
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu heading level 5"
+#| msgid "Paragraph"
 msgctxt "@item:inmenu no heading"
-msgid "Basic text"
-msgstr "基本文字"
-
-#: qml/RichEditPage.qml:591
-#, kde-format
-msgctxt "@item:inmenu heading level 1 (largest)"
-msgid "Title"
-msgstr "標題"
-
-#: qml/RichEditPage.qml:592
-#, kde-format
-msgctxt "@item:inmenu heading level 2"
-msgid "Subtitle"
-msgstr "副標題"
-
-#: qml/RichEditPage.qml:593
-#, kde-format
-msgctxt "@item:inmenu heading level 3"
-msgid "Section"
-msgstr "區段"
-
-#: qml/RichEditPage.qml:594
-#, kde-format
-msgctxt "@item:inmenu heading level 4"
-msgid "Subsection"
-msgstr "子區段"
-
-#: qml/RichEditPage.qml:595
-#, kde-format
-msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "段落"
 
-#: qml/RichEditPage.qml:596
-#, kde-format
-msgctxt "@item:inmenu heading level 6 (smallest)"
-msgid "Subparagraph"
-msgstr "子段落"
+#: qml/RichEditPage.qml:1091
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 1 (largest)"
+msgid "Heading 1"
+msgstr "標題 %1"
 
-#: qml/RichEditPage.qml:784
+#: qml/RichEditPage.qml:1102
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 2"
+msgid "Heading 2"
+msgstr "標題 %1"
+
+#: qml/RichEditPage.qml:1113
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 3"
+msgid "Heading 3"
+msgstr "標題 %1"
+
+#: qml/RichEditPage.qml:1124
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 4"
+msgid "Heading 4"
+msgstr "標題 %1"
+
+#: qml/RichEditPage.qml:1135
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 5"
+msgid "Heading 5"
+msgstr "標題 %1"
+
+#: qml/RichEditPage.qml:1146
+#, fuzzy, kde-format
+#| msgid "Heading %1"
+msgctxt "@item:inmenu heading level 6 (smallest)"
+msgid "Heading 6"
+msgstr "標題 %1"
+
+#: qml/RichEditPage.qml:1321
 #, kde-format
 msgid "Format"
 msgstr "格式"
 
-#: qml/RichEditPage.qml:788
+#: qml/RichEditPage.qml:1330
 #, kde-format
 msgid "Lists"
 msgstr "列表"
 
-#: qml/RichEditPage.qml:792
+#: qml/RichEditPage.qml:1339
 #, kde-format
 msgid "Insert"
 msgstr "插入"
 
-#: qml/SketchDialog.qml:295
+#: qml/SketchDialog.qml:293
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
 msgstr "橡皮擦"
 
-#: qml/SketchDialog.qml:310
+#: qml/SketchDialog.qml:308
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
@@ -927,73 +1111,73 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "插入表格"
 
-#: qml/TextFieldContextMenu.qml:230
+#: qml/TextFieldContextMenu.qml:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "忽略"
 
-#: qml/TextFieldContextMenu.qml:245
+#: qml/TextFieldContextMenu.qml:244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "拼字檢查"
 
-#: qml/TextFieldContextMenu.qml:261
+#: qml/TextFieldContextMenu.qml:260
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "開啟筆記"
 
-#: qml/TextFieldContextMenu.qml:261
+#: qml/TextFieldContextMenu.qml:260
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "開啟連結"
 
-#: qml/TextFieldContextMenu.qml:281
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Insert"
-msgstr "插入"
-
-#: qml/TextFieldContextMenu.qml:317
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Remove"
-msgstr "移除"
-
-#: qml/TextFieldContextMenu.qml:347
+#: qml/TextFieldContextMenu.qml:279
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "復原"
 
-#: qml/TextFieldContextMenu.qml:361
+#: qml/TextFieldContextMenu.qml:293
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "重做"
 
-#: qml/TextFieldContextMenu.qml:376
+#: qml/TextFieldContextMenu.qml:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "剪下"
 
-#: qml/TextFieldContextMenu.qml:405
+#: qml/TextFieldContextMenu.qml:337
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "貼上"
 
-#: qml/TextFieldContextMenu.qml:451
+#: qml/TextFieldContextMenu.qml:383
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "全部選取"
 
-#: qml/TocDrawer.qml:121
+#: qml/TocDrawer.qml:50
+#, kde-format
+msgctxt "@title:window"
+msgid "Table of Contents"
+msgstr "目錄"
+
+#: qml/TocDrawer.qml:58
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr "關閉"
+
+#: qml/TocDrawer.qml:151
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
@@ -1003,11 +1187,6 @@ msgstr "找不到標題"
 #, kde-format
 msgid "Start by creating your first notebook!"
 msgstr "從建立您的第一本筆記本開始吧！"
-
-#: rich_documenthandler.cpp:1098
-#, kde-format
-msgid "Failed to save pasted image"
-msgstr "儲存貼上的影像失敗"
 
 #: settings/MarkNoteGeneralPage.qml:18
 #, kde-format
@@ -1084,40 +1263,73 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "關於 KDE"
 
-#: tableactionhelper.cpp:119
-#, kde-format
-msgid "Row Below"
-msgstr "下方列"
+#~ msgctxt "@action:button"
+#~ msgid "Underline"
+#~ msgstr "底線"
 
-#: tableactionhelper.cpp:125
-#, kde-format
-msgid "Row Above"
-msgstr "上方列"
+#~ msgctxt "@item:inmenu no list style"
+#~ msgid "No list"
+#~ msgstr "無列表"
 
-#: tableactionhelper.cpp:131
-#, kde-format
-msgid "Column Before"
-msgstr "前方欄"
+#~ msgctxt "@action:button"
+#~ msgid "Insert checkbox"
+#~ msgstr "插入核取方塊"
 
-#: tableactionhelper.cpp:137
-#, kde-format
-msgid "Column After"
-msgstr "後方欄"
+#~ msgctxt "@item:inmenu no heading"
+#~ msgid "Basic text"
+#~ msgstr "基本文字"
 
-#: tableactionhelper.cpp:143
-#, kde-format
-msgid "Row"
-msgstr "列"
+#~ msgctxt "@item:inmenu heading level 1 (largest)"
+#~ msgid "Title"
+#~ msgstr "標題"
 
-#: tableactionhelper.cpp:149
-#, kde-format
-msgid "Column"
-msgstr "欄"
+#~ msgctxt "@item:inmenu heading level 2"
+#~ msgid "Subtitle"
+#~ msgstr "副標題"
 
-#: tableactionhelper.cpp:155
-#, kde-format
-msgid "Cell Contents"
-msgstr "儲存格內容"
+#~ msgctxt "@item:inmenu heading level 3"
+#~ msgid "Section"
+#~ msgstr "區段"
+
+#~ msgctxt "@item:inmenu heading level 4"
+#~ msgid "Subsection"
+#~ msgstr "子區段"
+
+#~ msgctxt "@item:inmenu heading level 6 (smallest)"
+#~ msgid "Subparagraph"
+#~ msgstr "子段落"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Insert"
+#~ msgstr "插入"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "移除"
+
+#~ msgid "Failed to save pasted image"
+#~ msgstr "儲存貼上的影像失敗"
+
+#~ msgid "Row Below"
+#~ msgstr "下方列"
+
+#~ msgid "Row Above"
+#~ msgstr "上方列"
+
+#~ msgid "Column Before"
+#~ msgstr "前方欄"
+
+#~ msgid "Column After"
+#~ msgstr "後方欄"
+
+#~ msgid "Row"
+#~ msgstr "列"
+
+#~ msgid "Column"
+#~ msgstr "欄"
+
+#~ msgid "Cell Contents"
+#~ msgstr "儲存格內容"
 
 #~ msgctxt "@action:button"
 #~ msgid "Table of Content"
@@ -1138,10 +1350,6 @@ msgstr "儲存格內容"
 #~ msgctxt "@label:textbox"
 #~ msgid "Quick Sketch"
 #~ msgstr "快速草稿"
-
-#~ msgctxt "@action:button"
-#~ msgid "Close"
-#~ msgstr "關閉"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Delete Note"
@@ -1237,6 +1445,3 @@ msgstr "儲存格內容"
 #~ msgctxt "@item:inmenu upper case roman numerals"
 #~ msgid "I II III"
 #~ msgstr "I II III"
-
-#~ msgid "Heading %1"
-#~ msgstr "標題 %1"

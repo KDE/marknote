@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-09 00:47+0000\n"
+"POT-Creation-Date: 2026-09-16 00:46+0000\n"
 "PO-Revision-Date: 2025-09-15 10:25-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -57,90 +57,95 @@ msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr ""
 
-#: main.cpp:57
+#: main.cpp:60
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr ""
 
-#: main.cpp:58 main.cpp:63 main.cpp:66
+#: main.cpp:61 main.cpp:66 main.cpp:69
 #, kde-format
 msgid "Maintainer"
 msgstr "ਪਰਬੰਧਕ"
 
-#: main.cpp:63
+#: main.cpp:66
 #, kde-format
 msgid "Carl Schwan"
 msgstr ""
 
-#: main.cpp:65
+#: main.cpp:68
 #, kde-format
 msgid "Valentyn Bondarenko"
 msgstr ""
 
-#: main.cpp:74
+#: main.cpp:77
 #, kde-format
 msgid "Justin Zobel"
 msgstr ""
 
-#: main.cpp:75
+#: main.cpp:78
 #, kde-format
 msgid "Flatpak support"
 msgstr ""
 
-#: main.cpp:80
+#: main.cpp:83
 #, kde-format
 msgid "Shubham Shinde"
 msgstr ""
 
-#: main.cpp:81
+#: main.cpp:84
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgid "Table of Contents"
 msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
 
-#: main.cpp:86
+#: main.cpp:89
 #, kde-format
 msgid "Siddharth Chopra"
 msgstr ""
 
-#: main.cpp:87
+#: main.cpp:90
 #, fuzzy, kde-format
 #| msgid "Focus Mode"
 msgid "Source Mode"
 msgstr "ਫੋਕਸ ਢੰਗ"
 
-#: main.cpp:92
-#, kde-format
-msgid "Joshua Goins"
-msgstr ""
-
-#: main.cpp:93 main.cpp:99 main.cpp:104
-#, kde-format
-msgid "Bug fixes"
-msgstr ""
-
-#: main.cpp:98
+#: main.cpp:95
 #, kde-format
 msgid "Prayag Jain"
 msgstr ""
 
-#: main.cpp:104
+#: main.cpp:96
+#, kde-format
+msgid "Block Editor"
+msgstr ""
+
+#: main.cpp:101
+#, kde-format
+msgid "Joshua Goins"
+msgstr ""
+
+#: main.cpp:102 main.cpp:107
+#, kde-format
+msgid "Bug fixes"
+msgstr ""
+
+#: main.cpp:107
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:125 qml/Main.qml:450
+#: main.cpp:128 qml/Main.qml:466
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "ਮਾਰਕਨੋਟ"
 
-#: main.cpp:127
+#: main.cpp:130
 #, kde-format
 msgid "Note taking application"
 msgstr "ਨੋਟ ਲੈਣ ਵਾਲੀ ਐਪਲੀਕੇਸ਼ਨ"
 
-#: main.cpp:129
+#: main.cpp:132
 #, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr ""
@@ -183,109 +188,279 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr ""
 
-#: qml/EditPage.qml:162 qml/RichEditPage.qml:741
+#: qml/BlockCode.qml:276
+#, kde-format
+msgid "Copied to clipboard!"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:20
+#, kde-format
+msgid "Heading 1"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:20
+#, kde-format
+msgid "Large section heading"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:21
+#, kde-format
+msgid "Heading 2"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:21
+#, kde-format
+msgid "Medium section heading"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:22
+#, kde-format
+msgid "Heading 3"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:22
+#, kde-format
+msgid "Small section heading"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:23
+#, kde-format
+msgid "Heading 4"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:23
+#, kde-format
+msgid "Sub-heading 4"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:24
+#, kde-format
+msgid "Heading 5"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:24
+#, kde-format
+msgid "Sub-heading 5"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:25
+#, kde-format
+msgid "Heading 6"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:25
+#, kde-format
+msgid "Sub-heading 6"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu heading level 5"
+#| msgid "Paragraph"
+msgid "Paragraph"
+msgstr "ਪ੍ਹੈਰਾਗਰਾਫ਼"
+
+#: qml/components/SlashMenuPopup.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu heading level 5"
+#| msgid "Paragraph"
+msgid "Plain text paragraph"
+msgstr "ਪ੍ਹੈਰਾਗਰਾਫ਼"
+
+#: qml/components/SlashMenuPopup.qml:27
+#, kde-format
+msgid "Bullet List"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu ordered style"
+#| msgid "Ordered list"
+msgid "Unordered bulleted list"
+msgstr "ਲੜੀਬੱਧ ਸੂਚੀ"
+
+#: qml/components/SlashMenuPopup.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu ordered style"
+#| msgid "Ordered list"
+msgid "Numbered List"
+msgstr "ਲੜੀਬੱਧ ਸੂਚੀ"
+
+#: qml/components/SlashMenuPopup.qml:28
+#, kde-format
+msgid "Numbered sequential list"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:29
+#, kde-format
+msgid "Checklist"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:29
+#, kde-format
+msgid "Task list with checkboxes"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:30
+#, kde-format
+msgid "Quote"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:30
+#, kde-format
+msgid "Quote or callout block"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:31
+#, kde-format
+msgid "Code Block"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:31
+#, kde-format
+msgid "Code snippet with syntax"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:32
+#, kde-format
+msgid "Divider"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:32
+#, kde-format
+msgid "Horizontal dividing line"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:33
+#, kde-format
+msgid "Table"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:33
+#, kde-format
+msgid "Tabular data grid"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:34
+#, kde-format
+msgid "Close menu"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:34
+#, kde-format
+msgid "Dismiss this menu"
+msgstr ""
+
+#: qml/EditorActions.qml:18
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgid "Delete"
+msgstr "ਹਟਾਓ"
+
+#: qml/EditorActions.qml:31
 #, kde-format
 msgid "Undo"
 msgstr "ਵਾਪਸ"
 
-#: qml/EditPage.qml:176 qml/RichEditPage.qml:752
+#: qml/EditorActions.qml:38
 #, kde-format
 msgid "Redo"
 msgstr "ਪਰਤਾਓ"
 
-#: qml/EditPage.qml:206 qml/EditPage.qml:241
+#: qml/EditorActions.qml:45
 #, fuzzy, kde-format
-#| msgid "Cell Contents"
-msgctxt "@action:button"
-msgid "Table of Contents"
-msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgid "Copy"
+msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: qml/EditPage.qml:226
+#: qml/EditPage.qml:281
 #, fuzzy, kde-format
 #| msgid "Search notes (%1)"
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "ਖੋਜ ਨੋਟਿਸ (%1)"
 
-#: qml/EditPage.qml:234
+#: qml/EditPage.qml:289
 #, fuzzy, kde-format
 #| msgid "Search notes (%1)"
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "ਖੋਜ ਨੋਟਿਸ (%1)"
 
-#: qml/EditPage.qml:270
+#: qml/EditPage.qml:296
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgctxt "@action:button"
+msgid "Table of Contents"
+msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
+
+#: qml/EditPage.qml:325
 #, kde-format
 msgid "Focus Mode"
 msgstr "ਫੋਕਸ ਢੰਗ"
 
-#: qml/EditPage.qml:287 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
+#: qml/EditPage.qml:342 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "ਪੂਰੀ ਸਕਰੀਨ ਤੋਂ ਬਾਹਰ ਆਓ"
 
-#: qml/EditPage.qml:300
+#: qml/EditPage.qml:355
 #, kde-format
 msgid "Switch editor mode"
 msgstr ""
 
-#: qml/EditPage.qml:305
+#: qml/EditPage.qml:360
 #, kde-format
 msgid "Source View"
 msgstr ""
 
-#: qml/EditPage.qml:340
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
-msgctxt "@title:window"
-msgid "Table of Contents"
-msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
-
-#: qml/EditPage.qml:386
+#: qml/EditPage.qml:412
 #, kde-format
 msgid "Find text…"
 msgstr ""
 
-#: qml/EditPage.qml:426
+#: qml/EditPage.qml:448
 #, kde-format
 msgid "Previous"
 msgstr ""
 
-#: qml/EditPage.qml:442
+#: qml/EditPage.qml:464
 #, kde-format
 msgid "Next"
 msgstr ""
 
-#: qml/EditPage.qml:460 qml/EditPage.qml:572
+#: qml/EditPage.qml:484 qml/EditPage.qml:590
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: qml/EditPage.qml:462 qml/EditPage.qml:574
+#: qml/EditPage.qml:486 qml/EditPage.qml:592
 #, kde-format
 msgid "%1/%2"
 msgstr ""
 
-#: qml/EditPage.qml:474 qml/EditPage.qml:543
+#: qml/EditPage.qml:498 qml/EditPage.qml:561
 #, kde-format
 msgid "Replace"
 msgstr ""
 
-#: qml/EditPage.qml:492
+#: qml/EditPage.qml:510
 #, kde-format
 msgid "Close"
 msgstr ""
 
-#: qml/EditPage.qml:514
+#: qml/EditPage.qml:532
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
 msgid "Replace with…"
 msgstr "ਸਭ ਨੂੰ ਚੁਣੋ"
 
-#: qml/EditPage.qml:519 qml/EditPage.qml:559
+#: qml/EditPage.qml:537 qml/EditPage.qml:577
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -293,14 +468,14 @@ msgid_plural "Replaced %1 occurrences"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/EditPage.qml:555
+#: qml/EditPage.qml:573
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
 msgid "Replace All"
 msgstr "ਸਭ ਨੂੰ ਚੁਣੋ"
 
-#: qml/EditPage.qml:623
+#: qml/EditPage.qml:640
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -366,57 +541,57 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "ਲਿੰਕ URL:"
 
-#: qml/Main.qml:158
+#: qml/Main.qml:157
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create a new note, you need to create a notebook first."
 msgstr ""
 
-#: qml/Main.qml:160
+#: qml/Main.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "ਨੋਟਬੁੱਕ ਬਣਾਓ"
 
-#: qml/Main.qml:344 qml/NotesPage.qml:817
+#: qml/Main.qml:360 qml/NotesPage.qml:821
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr ""
 
-#: qml/Main.qml:390
+#: qml/Main.qml:406
 #, kde-format
 msgctxt "@title:menu"
 msgid "Import"
 msgstr "ਇੰਪੋਰਟ"
 
-#: qml/Main.qml:399
+#: qml/Main.qml:415
 #, kde-format
 msgctxt "@title:menu"
 msgid "Sort Notes List"
 msgstr "ਨੋਟ ਸੂਚੀ ਨੂੰ ਲੜੀਬੱਧ ਕਰੋ"
 
-#: qml/Main.qml:405
+#: qml/Main.qml:421
 #, kde-format
 msgid "by Name"
 msgstr "ਨਾਂ ਨਾਲ"
 
-#: qml/Main.qml:418
+#: qml/Main.qml:434
 #, kde-format
 msgid "by Date"
 msgstr "ਤਾਰੀਖ ਨਾਲ"
 
-#: qml/Main.qml:435
+#: qml/Main.qml:451
 #, kde-format
 msgid "Collapse Sidebar"
 msgstr ""
 
-#: qml/Main.qml:435
+#: qml/Main.qml:451
 #, kde-format
 msgid "Expand Sidebar"
 msgstr ""
 
-#: qml/Main.qml:573
+#: qml/Main.qml:589
 #, kde-format
 msgid "Your Notebooks"
 msgstr "ਤੁਹਾਡੀਆਂ ਨੋਟਬੁੱਕਾਂ"
@@ -607,30 +782,30 @@ msgstr "ਸਭ ਨੂੰ ਚੁਣੋ"
 msgid "Expand All"
 msgstr ""
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr ""
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "ਖੋਜ ਨੋਟਿਸ (%1)"
 
-#: qml/NotesPage.qml:313
+#: qml/NotesPage.qml:315
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "ਨੋਟ ਨੂੰ ਹਟਾਓ"
 
-#: qml/NotesPage.qml:323
+#: qml/NotesPage.qml:327
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr ""
 
-#: qml/NotesPage.qml:478 qml/NotesPage.qml:506
+#: qml/NotesPage.qml:482 qml/NotesPage.qml:510
 #, fuzzy, kde-format
 #| msgctxt "Application name"
 #| msgid "Marknote"
@@ -638,13 +813,13 @@ msgctxt "@title:window"
 msgid "Marknote"
 msgstr "ਮਾਰਕਨੋਟ"
 
-#: qml/NotesPage.qml:479
+#: qml/NotesPage.qml:483
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr ""
 
-#: qml/NotesPage.qml:492
+#: qml/NotesPage.qml:496
 #, fuzzy, kde-format
 #| msgctxt "@inmenu"
 #| msgid "Open Link"
@@ -652,13 +827,13 @@ msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "ਲਿੰਕ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: qml/NotesPage.qml:507
+#: qml/NotesPage.qml:511
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr ""
 
-#: qml/NotesPage.qml:518
+#: qml/NotesPage.qml:522
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Rename Note"
@@ -666,13 +841,13 @@ msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "ਨੋਟ ਦਾ ਨਾਂ ਬਦਲੋ"
 
-#: qml/NotesPage.qml:527 qml/TextFieldContextMenu.qml:391
+#: qml/NotesPage.qml:531 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: qml/NotesPage.qml:542
+#: qml/NotesPage.qml:546
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Delete Note"
@@ -680,7 +855,7 @@ msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "ਨੋਟ ਨੂੰ ਹਟਾਓ"
 
-#: qml/NotesPage.qml:550
+#: qml/NotesPage.qml:554
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Import"
@@ -688,74 +863,74 @@ msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "ਇੰਪੋਰਟ ਕਰੋ"
 
-#: qml/NotesPage.qml:554
+#: qml/NotesPage.qml:558
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr ""
 
-#: qml/NotesPage.qml:560
+#: qml/NotesPage.qml:564
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr ""
 
-#: qml/NotesPage.qml:561
+#: qml/NotesPage.qml:565
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML ਫ਼ਾਇਲ (*.html)"
 
-#: qml/NotesPage.qml:567
+#: qml/NotesPage.qml:571
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr ""
 
-#: qml/NotesPage.qml:573
+#: qml/NotesPage.qml:577
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr ""
 
-#: qml/NotesPage.qml:574
+#: qml/NotesPage.qml:578
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF ਫ਼ਾਇਲ (*.pdf)"
 
-#: qml/NotesPage.qml:580
+#: qml/NotesPage.qml:584
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr ""
 
-#: qml/NotesPage.qml:586
+#: qml/NotesPage.qml:590
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr ""
 
-#: qml/NotesPage.qml:587
+#: qml/NotesPage.qml:591
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF ਲਿਖਤ ਦਸਤਾਵੇਜ਼ (*.odt)"
 
-#: qml/NotesPage.qml:596 qml/TextFieldContextMenu.qml:433
+#: qml/NotesPage.qml:600 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "ਹਟਾਓ"
 
-#: qml/NotesPage.qml:869
+#: qml/NotesPage.qml:873
 #, kde-format
 msgid "Add a note!"
 msgstr "ਨੋਟ ਨੂੰ ਜੋੜੋ!"
 
-#: qml/NotesPage.qml:878
+#: qml/NotesPage.qml:882
 #, kde-format
 msgid "No notes matching the search"
 msgstr ""
 
-#: qml/NotesPage.qml:894 qml/NotesPage.qml:902
+#: qml/NotesPage.qml:898 qml/NotesPage.qml:906
 #, fuzzy, kde-format
 #| msgid "Add note"
 msgctxt "@info:status"
@@ -764,7 +939,7 @@ msgid_plural "%1 notes"
 msgstr[0] "ਨੋਟ ਜੋੜੋ"
 msgstr[1] "ਨੋਟ ਜੋੜੋ"
 
-#: qml/NotesPage.qml:898 qml/NotesPage.qml:901
+#: qml/NotesPage.qml:902 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -772,96 +947,88 @@ msgid_plural "%1 folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/NotesPage.qml:904
+#: qml/NotesPage.qml:908
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
 msgstr ""
 
-#: qml/RichEditPage.qml:224
+#: qml/RichEditPage.qml:235
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
 msgstr "ਚਿੱਤਰ ਨੂੰ ਚੁਣੋ"
 
-#: qml/RichEditPage.qml:227
+#: qml/RichEditPage.qml:238
 #, fuzzy, kde-format
 #| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgstr "ਚਿੱਤਰ ਫਾਇਲਾਂ (*.jpg *.jpeg *.png *.svg *.webp)"
 
-#: qml/RichEditPage.qml:227
+#: qml/RichEditPage.qml:238
 #, kde-format
 msgid "All files (*)"
 msgstr "ਸਭ ਫਾਇਲਾਂ (*)"
 
-#: qml/RichEditPage.qml:356
+#: qml/RichEditPage.qml:763
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "ਗੂੜੇ"
 
-#: qml/RichEditPage.qml:377
+#: qml/RichEditPage.qml:785
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "ਤਿਰਛੇ"
 
-#: qml/RichEditPage.qml:396
-#, kde-format
-msgctxt "@action:button"
-msgid "Underline"
-msgstr "ਹੇਠਾਂ ਲਾਈਨ"
-
-#: qml/RichEditPage.qml:410
+#: qml/RichEditPage.qml:802
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "ਵਿੰਨ੍ਹੋ"
 
-#: qml/RichEditPage.qml:428
+#: qml/RichEditPage.qml:822
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr ""
 
-#: qml/RichEditPage.qml:439
+#: qml/RichEditPage.qml:836
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr ""
 
-#: qml/RichEditPage.qml:481
-#, kde-format
-msgctxt "@item:inmenu no list style"
-msgid "No list"
-msgstr "ਕੋਈ ਸੂਚੀ ਨਹੀਂ"
-
-#: qml/RichEditPage.qml:482
-#, kde-format
-msgctxt "@item:inmenu unordered style"
+#: qml/RichEditPage.qml:879
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu ordered style"
+#| msgid "Ordered list"
+msgctxt "@action:button"
 msgid "Unordered list"
-msgstr ""
+msgstr "ਲੜੀਬੱਧ ਸੂਚੀ"
 
-#: qml/RichEditPage.qml:483
-#, kde-format
-msgctxt "@item:inmenu ordered style"
+#: qml/RichEditPage.qml:898
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu ordered style"
+#| msgid "Ordered list"
+msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "ਲੜੀਬੱਧ ਸੂਚੀ"
 
-#: qml/RichEditPage.qml:494
+#: qml/RichEditPage.qml:917
 #, kde-format
 msgctxt "@action:button"
-msgid "Insert checkbox"
+msgid "Checklist"
 msgstr ""
 
-#: qml/RichEditPage.qml:509
+#: qml/RichEditPage.qml:943
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "ਲਿੰਕ ਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: qml/RichEditPage.qml:525
+#: qml/RichEditPage.qml:962
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -869,19 +1036,19 @@ msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "ਲਿੰਕ ਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: qml/RichEditPage.qml:541
+#: qml/RichEditPage.qml:981
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "ਚਿੱਤਰ ਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: qml/RichEditPage.qml:555
+#: qml/RichEditPage.qml:998
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "ਸਾਰਣੀ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: qml/RichEditPage.qml:569
+#: qml/RichEditPage.qml:1015
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -889,70 +1056,72 @@ msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "ਲਿੰਕ ਨੂੰ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: qml/RichEditPage.qml:590
-#, kde-format
+#: qml/RichEditPage.qml:1080
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu heading level 5"
+#| msgid "Paragraph"
 msgctxt "@item:inmenu no heading"
-msgid "Basic text"
-msgstr "ਮੂਲ ਲਿਖਤ"
-
-#: qml/RichEditPage.qml:591
-#, kde-format
-msgctxt "@item:inmenu heading level 1 (largest)"
-msgid "Title"
-msgstr "ਟਾਈਟਲ"
-
-#: qml/RichEditPage.qml:592
-#, kde-format
-msgctxt "@item:inmenu heading level 2"
-msgid "Subtitle"
-msgstr ""
-
-#: qml/RichEditPage.qml:593
-#, kde-format
-msgctxt "@item:inmenu heading level 3"
-msgid "Section"
-msgstr "ਭਾਗ"
-
-#: qml/RichEditPage.qml:594
-#, kde-format
-msgctxt "@item:inmenu heading level 4"
-msgid "Subsection"
-msgstr ""
-
-#: qml/RichEditPage.qml:595
-#, kde-format
-msgctxt "@item:inmenu heading level 5"
 msgid "Paragraph"
 msgstr "ਪ੍ਹੈਰਾਗਰਾਫ਼"
 
-#: qml/RichEditPage.qml:596
+#: qml/RichEditPage.qml:1091
 #, kde-format
-msgctxt "@item:inmenu heading level 6 (smallest)"
-msgid "Subparagraph"
+msgctxt "@item:inmenu heading level 1 (largest)"
+msgid "Heading 1"
 msgstr ""
 
-#: qml/RichEditPage.qml:784
+#: qml/RichEditPage.qml:1102
+#, kde-format
+msgctxt "@item:inmenu heading level 2"
+msgid "Heading 2"
+msgstr ""
+
+#: qml/RichEditPage.qml:1113
+#, kde-format
+msgctxt "@item:inmenu heading level 3"
+msgid "Heading 3"
+msgstr ""
+
+#: qml/RichEditPage.qml:1124
+#, kde-format
+msgctxt "@item:inmenu heading level 4"
+msgid "Heading 4"
+msgstr ""
+
+#: qml/RichEditPage.qml:1135
+#, kde-format
+msgctxt "@item:inmenu heading level 5"
+msgid "Heading 5"
+msgstr ""
+
+#: qml/RichEditPage.qml:1146
+#, kde-format
+msgctxt "@item:inmenu heading level 6 (smallest)"
+msgid "Heading 6"
+msgstr ""
+
+#: qml/RichEditPage.qml:1321
 #, kde-format
 msgid "Format"
 msgstr "ਫਾਰਮੈਟ"
 
-#: qml/RichEditPage.qml:788
+#: qml/RichEditPage.qml:1330
 #, kde-format
 msgid "Lists"
 msgstr "ਸੂਚੀ"
 
-#: qml/RichEditPage.qml:792
+#: qml/RichEditPage.qml:1339
 #, kde-format
 msgid "Insert"
 msgstr "ਸ਼ਾਮਲ"
 
-#: qml/SketchDialog.qml:295
+#: qml/SketchDialog.qml:293
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
 msgstr ""
 
-#: qml/SketchDialog.qml:310
+#: qml/SketchDialog.qml:308
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
@@ -964,19 +1133,19 @@ msgctxt "@title:window"
 msgid "Insert Table"
 msgstr "ਸਾਰਣੀ ਸ਼ਾਮਲ ਕਰੋ"
 
-#: qml/TextFieldContextMenu.qml:230
+#: qml/TextFieldContextMenu.qml:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "ਅਣਡਿੱਠ"
 
-#: qml/TextFieldContextMenu.qml:245
+#: qml/TextFieldContextMenu.qml:244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "ਸ਼ਬਦ-ਜੋੜ ਦੀ ਜਾਂਚ"
 
-#: qml/TextFieldContextMenu.qml:261
+#: qml/TextFieldContextMenu.qml:260
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "New Note"
@@ -984,7 +1153,7 @@ msgctxt "@action:inmenu"
 msgid "Open Note"
 msgstr "ਨਵਾਂ ਨੋਟ"
 
-#: qml/TextFieldContextMenu.qml:261
+#: qml/TextFieldContextMenu.qml:260
 #, fuzzy, kde-format
 #| msgctxt "@inmenu"
 #| msgid "Open Link"
@@ -992,52 +1161,50 @@ msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "ਲਿੰਕ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: qml/TextFieldContextMenu.qml:281
-#, fuzzy, kde-format
-#| msgid "Insert"
-msgctxt "@action:inmenu"
-msgid "Insert"
-msgstr "ਸ਼ਾਮਲ"
-
-#: qml/TextFieldContextMenu.qml:317
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Remove"
-msgctxt "@action:inmenu"
-msgid "Remove"
-msgstr "ਹਟਾਓ"
-
-#: qml/TextFieldContextMenu.qml:347
+#: qml/TextFieldContextMenu.qml:279
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "ਵਾਪਸ"
 
-#: qml/TextFieldContextMenu.qml:361
+#: qml/TextFieldContextMenu.qml:293
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "ਪਰਤਾਓ"
 
-#: qml/TextFieldContextMenu.qml:376
+#: qml/TextFieldContextMenu.qml:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "ਕੱਟੋ"
 
-#: qml/TextFieldContextMenu.qml:405
+#: qml/TextFieldContextMenu.qml:337
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "ਚੇਪੋ"
 
-#: qml/TextFieldContextMenu.qml:451
+#: qml/TextFieldContextMenu.qml:383
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "ਸਭ ਨੂੰ ਚੁਣੋ"
 
-#: qml/TocDrawer.qml:121
+#: qml/TocDrawer.qml:50
+#, fuzzy, kde-format
+#| msgid "Cell Contents"
+msgctxt "@title:window"
+msgid "Table of Contents"
+msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
+
+#: qml/TocDrawer.qml:58
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr ""
+
+#: qml/TocDrawer.qml:151
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
@@ -1046,11 +1213,6 @@ msgstr ""
 #: qml/WelcomePage.qml:22
 #, kde-format
 msgid "Start by creating your first notebook!"
-msgstr ""
-
-#: rich_documenthandler.cpp:1098
-#, kde-format
-msgid "Failed to save pasted image"
 msgstr ""
 
 #: settings/MarkNoteGeneralPage.qml:18
@@ -1128,40 +1290,59 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "ਕੇਡੀਈ ਬਾਰੇ"
 
-#: tableactionhelper.cpp:119
-#, kde-format
-msgid "Row Below"
-msgstr "ਕਤਾਰ ਉੱਤੇ"
+#~ msgctxt "@action:button"
+#~ msgid "Underline"
+#~ msgstr "ਹੇਠਾਂ ਲਾਈਨ"
 
-#: tableactionhelper.cpp:125
-#, kde-format
-msgid "Row Above"
-msgstr "ਕਤਾਰ ਹੇਠਾਂ"
+#~ msgctxt "@item:inmenu no list style"
+#~ msgid "No list"
+#~ msgstr "ਕੋਈ ਸੂਚੀ ਨਹੀਂ"
 
-#: tableactionhelper.cpp:131
-#, kde-format
-msgid "Column Before"
-msgstr "ਕਾਲਮ ਪਹਿਲਾਂ"
+#~ msgctxt "@item:inmenu no heading"
+#~ msgid "Basic text"
+#~ msgstr "ਮੂਲ ਲਿਖਤ"
 
-#: tableactionhelper.cpp:137
-#, kde-format
-msgid "Column After"
-msgstr "ਕਾਲਮ ਬਾਦ ਵਿੱਚ"
+#~ msgctxt "@item:inmenu heading level 1 (largest)"
+#~ msgid "Title"
+#~ msgstr "ਟਾਈਟਲ"
 
-#: tableactionhelper.cpp:143
-#, kde-format
-msgid "Row"
-msgstr "ਕਤਾਰ"
+#~ msgctxt "@item:inmenu heading level 3"
+#~ msgid "Section"
+#~ msgstr "ਭਾਗ"
 
-#: tableactionhelper.cpp:149
-#, kde-format
-msgid "Column"
-msgstr "ਕਾਲਮ"
+#, fuzzy
+#~| msgid "Insert"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Insert"
+#~ msgstr "ਸ਼ਾਮਲ"
 
-#: tableactionhelper.cpp:155
-#, kde-format
-msgid "Cell Contents"
-msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
+#, fuzzy
+#~| msgctxt "@inmenu"
+#~| msgid "Remove"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "ਹਟਾਓ"
+
+#~ msgid "Row Below"
+#~ msgstr "ਕਤਾਰ ਉੱਤੇ"
+
+#~ msgid "Row Above"
+#~ msgstr "ਕਤਾਰ ਹੇਠਾਂ"
+
+#~ msgid "Column Before"
+#~ msgstr "ਕਾਲਮ ਪਹਿਲਾਂ"
+
+#~ msgid "Column After"
+#~ msgstr "ਕਾਲਮ ਬਾਦ ਵਿੱਚ"
+
+#~ msgid "Row"
+#~ msgstr "ਕਤਾਰ"
+
+#~ msgid "Column"
+#~ msgstr "ਕਾਲਮ"
+
+#~ msgid "Cell Contents"
+#~ msgstr "ਸੈੱਲ ਸਮੱਗਰੀ"
 
 #, fuzzy
 #~| msgid "Cell Contents"
