@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-09-09 18:20+0400\n"
+"PO-Revision-Date: 2026-09-17 08:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -116,7 +116,7 @@ msgstr "براياغ جاين"
 #: main.cpp:96
 #, kde-format
 msgid "Block Editor"
-msgstr ""
+msgstr "محرر الكتل"
 
 #: main.cpp:101
 #, kde-format
@@ -188,171 +188,160 @@ msgstr "فشل نقل الملف."
 #: qml/BlockCode.qml:276
 #, kde-format
 msgid "Copied to clipboard!"
-msgstr ""
+msgstr "نُسخ إلى الحافظة!"
 
 #: qml/components/SlashMenuPopup.qml:20
 #, kde-format
 msgid "Heading 1"
-msgstr ""
+msgstr "عنوان 1"
 
 #: qml/components/SlashMenuPopup.qml:20
 #, kde-format
 msgid "Large section heading"
-msgstr ""
+msgstr "عنوان قسم كبير"
 
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
 msgid "Heading 2"
-msgstr ""
+msgstr "عنوان 2"
 
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
 msgid "Medium section heading"
-msgstr ""
+msgstr "عنوان قسم متوسط"
 
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
 msgid "Heading 3"
-msgstr ""
+msgstr "عنوان 3"
 
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
 msgid "Small section heading"
-msgstr ""
+msgstr "عنوان قسم صغير"
 
 #: qml/components/SlashMenuPopup.qml:23
 #, kde-format
 msgid "Heading 4"
-msgstr ""
+msgstr "عنوان 4"
 
 #: qml/components/SlashMenuPopup.qml:23
 #, kde-format
 msgid "Sub-heading 4"
-msgstr ""
+msgstr "عنوان فرعي 4"
 
 #: qml/components/SlashMenuPopup.qml:24
 #, kde-format
 msgid "Heading 5"
-msgstr ""
+msgstr "عنوان 5"
 
 #: qml/components/SlashMenuPopup.qml:24
 #, kde-format
 msgid "Sub-heading 5"
-msgstr ""
+msgstr "عنوان فرعي 5"
 
 #: qml/components/SlashMenuPopup.qml:25
 #, kde-format
 msgid "Heading 6"
-msgstr ""
+msgstr "عنوان 6"
 
 #: qml/components/SlashMenuPopup.qml:25
 #, kde-format
 msgid "Sub-heading 6"
-msgstr ""
+msgstr "عنوان فرعي 6"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Paragraph"
 msgstr "الفقرة"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Plain text paragraph"
-msgstr "الفقرة"
+msgstr "فقرة نص عادي"
 
 #: qml/components/SlashMenuPopup.qml:27
 #, kde-format
 msgid "Bullet List"
-msgstr ""
+msgstr "قائمة نقطية"
 
 #: qml/components/SlashMenuPopup.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgid "Unordered bulleted list"
-msgstr "قائمة غير مرتّبة"
+msgstr "قائمة نقطية غير مرتبة"
 
 #: qml/components/SlashMenuPopup.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgid "Numbered List"
-msgstr "قائمة مرتّبة"
+msgstr "قائمة مرقّمة"
 
 #: qml/components/SlashMenuPopup.qml:28
 #, kde-format
 msgid "Numbered sequential list"
-msgstr ""
+msgstr "قائمة تسلسلية مرقمة"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Checklist"
-msgstr ""
+msgstr "قائمة تحقق"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Task list with checkboxes"
-msgstr ""
+msgstr "قائمة مهام مع مربعات اختيار"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "اقتباس"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote or callout block"
-msgstr ""
+msgstr "كتلة اقتباس أو تنبيه"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code Block"
-msgstr ""
+msgstr "كتلة شفرة"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code snippet with syntax"
-msgstr ""
+msgstr "مقتطف شفرة مع تلوين نحوي"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Divider"
-msgstr ""
+msgstr "فاصل"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Horizontal dividing line"
-msgstr ""
+msgstr "خط فاصل أفقي"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "جدول"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Tabular data grid"
-msgstr ""
+msgstr "شبكة بيانات جدولية"
 
 #: qml/components/SlashMenuPopup.qml:34
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Close menu"
-msgstr "أغلق"
+msgstr "أغلق القائمة"
 
 #: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Dismiss this menu"
-msgstr ""
+msgstr "أغلق هذه القائمة"
 
 #: qml/EditorActions.qml:18
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete"
 msgstr "احذف"
 
@@ -367,9 +356,7 @@ msgid "Redo"
 msgstr "كرّر"
 
 #: qml/EditorActions.qml:45
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgid "Copy"
 msgstr "انسخ"
 
@@ -988,17 +975,13 @@ msgid "Decrease List Level"
 msgstr "أنقص مستوى القائمة"
 
 #: qml/RichEditPage.qml:879
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "قائمة غير مرتّبة"
 
 #: qml/RichEditPage.qml:898
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "قائمة مرتّبة"
@@ -1007,7 +990,7 @@ msgstr "قائمة مرتّبة"
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
-msgstr ""
+msgstr "قائمة تحقق"
 
 #: qml/RichEditPage.qml:943
 #, kde-format
@@ -1040,48 +1023,46 @@ msgid "Insert sketch"
 msgstr "أدرج رسم تخطيطي"
 
 #: qml/RichEditPage.qml:1080
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
-msgstr "الفقرة"
+msgstr "فقرة"
 
 #: qml/RichEditPage.qml:1091
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
-msgstr ""
+msgstr "عنوان 1"
 
 #: qml/RichEditPage.qml:1102
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
-msgstr ""
+msgstr "عنوان 2"
 
 #: qml/RichEditPage.qml:1113
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
-msgstr ""
+msgstr "عنوان 3"
 
 #: qml/RichEditPage.qml:1124
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
-msgstr ""
+msgstr "عنوان 4"
 
 #: qml/RichEditPage.qml:1135
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
-msgstr ""
+msgstr "عنوان 5"
 
 #: qml/RichEditPage.qml:1146
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
-msgstr ""
+msgstr "عنوان 6"
 
 #: qml/RichEditPage.qml:1321
 #, kde-format
