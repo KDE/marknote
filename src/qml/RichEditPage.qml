@@ -590,6 +590,7 @@ EditPage {
         let before = text.substring(0, slashPos);
         let after = text.substring(pos);
         let cleanText = before + after;
+        let wasEmpty = cleanText.trim().length === 0;
 
         root.activeTextArea.text = cleanText;
         root.activeTextArea.cursorPosition = slashPos;
@@ -649,11 +650,16 @@ EditPage {
             CommandManager.transformToList(newBlock, true, 1, "");
             break;
         case "task_list":
+            CommandManager.transformToList(newBlock, false, 1, "");
             CommandManager.transformToChecklist(newBlock, false, "");
             break;
         case "table":
             CommandManager.parseBlock(newBlock, "|  |  |  |\n| --- | --- | --- |\n|  |  |  |");
             break;
+        }
+
+        if (wasEmpty) {
+            CommandManager.removeBlocks([currentBlock]);
         }
     }
 
