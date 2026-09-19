@@ -627,8 +627,6 @@ QString MDTreeModel::toMarkdown() const
         return QString();
     }
 
-    m_rootItem->commitUnparsedMarkdown();
-
     auto doc = m_rootItem->itemAs<MD::Document>();
     if (!doc) {
         doc = QSharedPointer<MD::Document>::create();
