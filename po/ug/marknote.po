@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-05-31 20:26-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -71,7 +71,7 @@ msgstr "ئاسرىغۇچى"
 #: main.cpp:66
 #, kde-format
 msgid "Carl Schwan"
-msgstr "Carl Schwan"
+msgstr ""
 
 #: main.cpp:68
 #, kde-format
@@ -121,7 +121,7 @@ msgstr ""
 #: main.cpp:101
 #, kde-format
 msgid "Joshua Goins"
-msgstr "Joshua Goins"
+msgstr ""
 
 #: main.cpp:102 main.cpp:107
 #, kde-format
@@ -131,13 +131,13 @@ msgstr "كەمتۈك تۈزىتىش"
 #: main.cpp:107
 #, kde-format
 msgid "Laurent Montel"
-msgstr "Laurent Montel"
+msgstr ""
 
 #: main.cpp:128 qml/Main.qml:466
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
-msgstr "Marknote"
+msgstr ""
 
 #: main.cpp:130
 #, kde-format
@@ -251,18 +251,14 @@ msgid "Sub-heading 6"
 msgstr ""
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Paragraph"
 msgstr "ئابزاس"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Plain text paragraph"
-msgstr "ئابزاس"
+msgstr ""
 
 #: qml/components/SlashMenuPopup.qml:27
 #, kde-format
@@ -297,7 +293,7 @@ msgstr ""
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "نەقىل"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
@@ -327,7 +323,7 @@ msgstr ""
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "جەدۋەل"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
@@ -335,10 +331,9 @@ msgid "Tabular data grid"
 msgstr ""
 
 #: qml/components/SlashMenuPopup.qml:34
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Close menu"
-msgstr "ياپ"
+msgstr ""
 
 #: qml/components/SlashMenuPopup.qml:34
 #, kde-format
@@ -346,9 +341,7 @@ msgid "Dismiss this menu"
 msgstr ""
 
 #: qml/EditorActions.qml:18
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete"
 msgstr "ئۆچۈر"
 
@@ -363,9 +356,7 @@ msgid "Redo"
 msgstr "قايتىلا"
 
 #: qml/EditorActions.qml:45
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgid "Copy"
 msgstr "كۆچۈر"
 
@@ -570,12 +561,12 @@ msgstr ""
 #: qml/Main.qml:451
 #, kde-format
 msgid "Collapse Sidebar"
-msgstr ""
+msgstr "يان بالداقنى يىغ"
 
 #: qml/Main.qml:451
 #, kde-format
 msgid "Expand Sidebar"
-msgstr ""
+msgstr "يان بالداقنى ياي"
 
 #: qml/Main.qml:589
 #, kde-format
@@ -751,15 +742,14 @@ msgid "Add note"
 msgstr "ئىزاھ قوش"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Replace All"
+#, kde-format
 msgid "Collapse All"
-msgstr "ھەممىنى ئالماشتۇر"
+msgstr "ھەممىنى يىغ"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "ھەممىنى ياي"
 
 #: qml/NotesPage.qml:259
 #, kde-format
@@ -788,7 +778,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
-msgstr "Marknote"
+msgstr ""
 
 #: qml/NotesPage.qml:483
 #, kde-format
@@ -900,25 +890,24 @@ msgid "No notes matching the search"
 msgstr ""
 
 #: qml/NotesPage.qml:898 qml/NotesPage.qml:906
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "ئىزاھ قوش"
+msgstr[0] ""
 
 #: qml/NotesPage.qml:902 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
+msgstr[0] "%1 قىسقۇچ"
 
 #: qml/NotesPage.qml:908
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1، %2"
 
 #: qml/RichEditPage.qml:235
 #, kde-format
@@ -1015,9 +1004,7 @@ msgid "Insert sketch"
 msgstr ""
 
 #: qml/RichEditPage.qml:1080
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "ئابزاس"
@@ -1152,8 +1139,7 @@ msgid "Table of Contents"
 msgstr "مەزمۇن مۇندەرىجىسى"
 
 #: qml/TocDrawer.qml:58
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "ياپ"
