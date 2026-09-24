@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-09-10 14:51+0300\n"
+"PO-Revision-Date: 2026-09-23 16:35+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -117,7 +117,7 @@ msgstr "Prayag Jain"
 #: main.cpp:96
 #, kde-format
 msgid "Block Editor"
-msgstr ""
+msgstr "Blokų redaktorius"
 
 #: main.cpp:101
 #, kde-format
@@ -189,171 +189,160 @@ msgstr "Nepavyko perkelti failą."
 #: qml/BlockCode.qml:276
 #, kde-format
 msgid "Copied to clipboard!"
-msgstr ""
+msgstr "Nukopijuota į iškarpinę!"
 
 #: qml/components/SlashMenuPopup.qml:20
 #, kde-format
 msgid "Heading 1"
-msgstr ""
+msgstr "Antraštė 1"
 
 #: qml/components/SlashMenuPopup.qml:20
 #, kde-format
 msgid "Large section heading"
-msgstr ""
+msgstr "Didelio skyriaus antraštė"
 
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
 msgid "Heading 2"
-msgstr ""
+msgstr "Antraštė 2"
 
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
 msgid "Medium section heading"
-msgstr ""
+msgstr "Vidutinio skyriaus antraštė"
 
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
 msgid "Heading 3"
-msgstr ""
+msgstr "Antraštė 3"
 
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
 msgid "Small section heading"
-msgstr ""
+msgstr "Mažo skyriaus antraštė"
 
 #: qml/components/SlashMenuPopup.qml:23
 #, kde-format
 msgid "Heading 4"
-msgstr ""
+msgstr "Antraštė 4"
 
 #: qml/components/SlashMenuPopup.qml:23
 #, kde-format
 msgid "Sub-heading 4"
-msgstr ""
+msgstr "Paantraštė 4"
 
 #: qml/components/SlashMenuPopup.qml:24
 #, kde-format
 msgid "Heading 5"
-msgstr ""
+msgstr "Antraštė 5"
 
 #: qml/components/SlashMenuPopup.qml:24
 #, kde-format
 msgid "Sub-heading 5"
-msgstr ""
+msgstr "Paantraštė 5"
 
 #: qml/components/SlashMenuPopup.qml:25
 #, kde-format
 msgid "Heading 6"
-msgstr ""
+msgstr "Antraštė 6"
 
 #: qml/components/SlashMenuPopup.qml:25
 #, kde-format
 msgid "Sub-heading 6"
-msgstr ""
+msgstr "Paantraštė 6"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Paragraph"
 msgstr "Pastraipa"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Plain text paragraph"
-msgstr "Pastraipa"
+msgstr "Grynojo teksto pastraipa"
 
 #: qml/components/SlashMenuPopup.qml:27
 #, kde-format
 msgid "Bullet List"
-msgstr ""
+msgstr "Suženklintasis sąrašas"
 
 #: qml/components/SlashMenuPopup.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgid "Unordered bulleted list"
-msgstr "Netvarkusis sąrašas"
+msgstr "Netvarkusis suženklintasis sąrašas"
 
 #: qml/components/SlashMenuPopup.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgid "Numbered List"
-msgstr "Tvarkusis sąrašas"
+msgstr "Sąrašas su numeriais"
 
 #: qml/components/SlashMenuPopup.qml:28
 #, kde-format
 msgid "Numbered sequential list"
-msgstr ""
+msgstr "Nuoseklus sąrašas su numeriais"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Checklist"
-msgstr ""
+msgstr "Kontrolinis sąrašas"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Task list with checkboxes"
-msgstr ""
+msgstr "Užduočių sąrašas su žymimaisiais langeliais"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "Citata"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote or callout block"
-msgstr ""
+msgstr "Citata arba paaiškinimo blokas"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code Block"
-msgstr ""
+msgstr "Kodo blokas"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code snippet with syntax"
-msgstr ""
+msgstr "Kodo fragmentas su sintakse"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Divider"
-msgstr ""
+msgstr "Dalytuvas"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Horizontal dividing line"
-msgstr ""
+msgstr "Horizontali atskirianti linija"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Lentelė"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Tabular data grid"
-msgstr ""
+msgstr "Lentelinis duomenų tinklelis"
 
 #: qml/components/SlashMenuPopup.qml:34
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Close menu"
-msgstr "Užverti"
+msgstr "Užverti meniu"
 
 #: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Dismiss this menu"
-msgstr ""
+msgstr "Atmesti šį meniu"
 
 #: qml/EditorActions.qml:18
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete"
 msgstr "Ištrinti"
 
@@ -368,9 +357,7 @@ msgid "Redo"
 msgstr "Grąžinti"
 
 #: qml/EditorActions.qml:45
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgid "Copy"
 msgstr "Kopijuoti"
 
@@ -705,7 +692,7 @@ msgstr "Taisyti bloknotą"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "Įterpti nuoroda į užrašus"
+msgstr "Įterpti nuorodą į užrašus"
 
 #: qml/NoteLinkDialog.qml:48
 #, kde-format
@@ -984,17 +971,13 @@ msgid "Decrease List Level"
 msgstr "Sumažinti sąrašo lygį"
 
 #: qml/RichEditPage.qml:879
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Netvarkusis sąrašas"
 
 #: qml/RichEditPage.qml:898
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Tvarkusis sąrašas"
@@ -1003,7 +986,7 @@ msgstr "Tvarkusis sąrašas"
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
-msgstr ""
+msgstr "Kontrolinis sąrašas"
 
 #: qml/RichEditPage.qml:943
 #, kde-format
@@ -1036,9 +1019,7 @@ msgid "Insert sketch"
 msgstr "Įterpti eskizą"
 
 #: qml/RichEditPage.qml:1080
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Pastraipa"
@@ -1047,37 +1028,37 @@ msgstr "Pastraipa"
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
-msgstr ""
+msgstr "Antraštė 1"
 
 #: qml/RichEditPage.qml:1102
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
-msgstr ""
+msgstr "Antraštė 2"
 
 #: qml/RichEditPage.qml:1113
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
-msgstr ""
+msgstr "Antraštė 3"
 
 #: qml/RichEditPage.qml:1124
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
-msgstr ""
+msgstr "Antraštė 4"
 
 #: qml/RichEditPage.qml:1135
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
-msgstr ""
+msgstr "Antraštė 5"
 
 #: qml/RichEditPage.qml:1146
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
-msgstr ""
+msgstr "Antraštė 6"
 
 #: qml/RichEditPage.qml:1321
 #, kde-format
@@ -1173,8 +1154,7 @@ msgid "Table of Contents"
 msgstr "Turinys"
 
 #: qml/TocDrawer.qml:58
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Užverti"

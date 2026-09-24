@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-06-27 15:45+0200\n"
+"PO-Revision-Date: 2026-09-23 21:29+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -117,7 +117,7 @@ msgstr "Prayag Jain"
 #: main.cpp:96
 #, kde-format
 msgid "Block Editor"
-msgstr ""
+msgstr "Блочный редактор"
 
 #: main.cpp:101
 #, kde-format
@@ -151,19 +151,16 @@ msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© Mathis Brüchert, 2023–2026"
 
 #: notesmodel.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to rename note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note. A note already exists with the same name."
-msgstr ""
-"Не удалось переименовать заметку. Заметка с таким именем уже существует."
+msgstr "Не удалось создать заметку. Заметка с таким именем уже существует."
 
 #: notesmodel.cpp:205
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note: %1"
-msgstr ""
+msgstr "Не удалось создать заметку: %1"
 
 #: notesmodel.cpp:234
 #, kde-format
@@ -193,171 +190,160 @@ msgstr "Не удалось переместить файл."
 #: qml/BlockCode.qml:276
 #, kde-format
 msgid "Copied to clipboard!"
-msgstr ""
+msgstr "Скопировано в буфер обмена"
 
 #: qml/components/SlashMenuPopup.qml:20
 #, kde-format
 msgid "Heading 1"
-msgstr ""
+msgstr "Заголовок 1"
 
 #: qml/components/SlashMenuPopup.qml:20
 #, kde-format
 msgid "Large section heading"
-msgstr ""
+msgstr "Крупный заголовок раздела"
 
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
 msgid "Heading 2"
-msgstr ""
+msgstr "Заголовок 2"
 
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
 msgid "Medium section heading"
-msgstr ""
+msgstr "Средний заголовок раздела"
 
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
 msgid "Heading 3"
-msgstr ""
+msgstr "Заголовок 3"
 
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
 msgid "Small section heading"
-msgstr ""
+msgstr "Мелкий заголовок раздела"
 
 #: qml/components/SlashMenuPopup.qml:23
 #, kde-format
 msgid "Heading 4"
-msgstr ""
+msgstr "Заголовок 4"
 
 #: qml/components/SlashMenuPopup.qml:23
 #, kde-format
 msgid "Sub-heading 4"
-msgstr ""
+msgstr "Подзаголовок 4-го уровня"
 
 #: qml/components/SlashMenuPopup.qml:24
 #, kde-format
 msgid "Heading 5"
-msgstr ""
+msgstr "Заголовок 5"
 
 #: qml/components/SlashMenuPopup.qml:24
 #, kde-format
 msgid "Sub-heading 5"
-msgstr ""
+msgstr "Подзаголовок 5-го уровня"
 
 #: qml/components/SlashMenuPopup.qml:25
 #, kde-format
 msgid "Heading 6"
-msgstr ""
+msgstr "Заголовок 6"
 
 #: qml/components/SlashMenuPopup.qml:25
 #, kde-format
 msgid "Sub-heading 6"
-msgstr ""
+msgstr "Подзаголовок 6-го уровня"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Paragraph"
-msgstr "Параграф"
+msgstr "Абзац"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Plain text paragraph"
-msgstr "Параграф"
+msgstr "Обычный текстовый абзац"
 
 #: qml/components/SlashMenuPopup.qml:27
 #, kde-format
 msgid "Bullet List"
-msgstr ""
+msgstr "Маркированный список"
 
 #: qml/components/SlashMenuPopup.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgid "Unordered bulleted list"
-msgstr "Неупорядоченный список"
+msgstr "Неупорядоченный маркированный список"
 
 #: qml/components/SlashMenuPopup.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgid "Numbered List"
-msgstr "Упорядоченный список"
+msgstr "Нумерованный список"
 
 #: qml/components/SlashMenuPopup.qml:28
 #, kde-format
 msgid "Numbered sequential list"
-msgstr ""
+msgstr "Нумерованный последовательный список"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Checklist"
-msgstr ""
+msgstr "Список задач"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Task list with checkboxes"
-msgstr ""
+msgstr "Список задач с флажками"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "Цитата"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote or callout block"
-msgstr ""
+msgstr "Блок цитаты или врезки"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code Block"
-msgstr ""
+msgstr "Блок кода"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code snippet with syntax"
-msgstr ""
+msgstr "Фрагмент кода с подсветкой синтаксиса"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Divider"
-msgstr ""
+msgstr "Разделитель"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Horizontal dividing line"
-msgstr ""
+msgstr "Горизонтальная разделительная линия"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Таблица"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Tabular data grid"
-msgstr ""
+msgstr "Таблица с табличными данными"
 
 #: qml/components/SlashMenuPopup.qml:34
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Close menu"
-msgstr "Закрыть"
+msgstr "Закрыть меню"
 
 #: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Dismiss this menu"
-msgstr ""
+msgstr "Закрыть это меню"
 
 #: qml/EditorActions.qml:18
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete"
 msgstr "Удалить"
 
@@ -372,9 +358,7 @@ msgid "Redo"
 msgstr "Повторить"
 
 #: qml/EditorActions.qml:45
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgid "Copy"
 msgstr "Копировать"
 
@@ -759,7 +743,7 @@ msgstr "Название:"
 #, kde-format
 msgctxt "@info"
 msgid "A note with this name already exists."
-msgstr ""
+msgstr "Заметка с таким названием уже существует."
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -961,7 +945,7 @@ msgstr "Все файлы (*)"
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
-msgstr "Жирный"
+msgstr "Полужирный"
 
 #: qml/RichEditPage.qml:785
 #, kde-format
@@ -988,26 +972,22 @@ msgid "Decrease List Level"
 msgstr "Понизить уровень в списке"
 
 #: qml/RichEditPage.qml:879
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
-msgstr "Неупорядоченный список"
+msgstr "Маркированный список"
 
 #: qml/RichEditPage.qml:898
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
-msgstr "Упорядоченный список"
+msgstr "Нумерованный список"
 
 #: qml/RichEditPage.qml:917
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
-msgstr ""
+msgstr "Список задач"
 
 #: qml/RichEditPage.qml:943
 #, kde-format
@@ -1040,48 +1020,46 @@ msgid "Insert sketch"
 msgstr "Вставить эскиз"
 
 #: qml/RichEditPage.qml:1080
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
-msgstr "Параграф"
+msgstr "Абзац"
 
 #: qml/RichEditPage.qml:1091
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
-msgstr ""
+msgstr "Заголовок 1"
 
 #: qml/RichEditPage.qml:1102
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
-msgstr ""
+msgstr "Заголовок 2"
 
 #: qml/RichEditPage.qml:1113
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
-msgstr ""
+msgstr "Заголовок 3"
 
 #: qml/RichEditPage.qml:1124
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
-msgstr ""
+msgstr "Заголовок 4"
 
 #: qml/RichEditPage.qml:1135
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
-msgstr ""
+msgstr "Заголовок 5"
 
 #: qml/RichEditPage.qml:1146
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
-msgstr ""
+msgstr "Заголовок 6"
 
 #: qml/RichEditPage.qml:1321
 #, kde-format
