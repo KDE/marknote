@@ -379,7 +379,7 @@ Controls.Dialog {
 
         contentItem: RowLayout{
             Controls.ToolButton {
-                text: "Cancel"
+                text: i18nc("@action:button", "Cancel")
                 icon.name: "dialog-close"
                 onClicked:{
                     root.close()
@@ -388,7 +388,7 @@ Controls.Dialog {
             Controls.ToolButton {
                 id: saveButton
                 property string imagePath
-                text: "Save"
+                text: i18nc("@action:button", "Save")
                 icon.name: "answer-correct"
                 onClicked: {
                     let base = root.notePath.toString().replace(/^file:\/\//, "").replace(/\.md$/, "");
