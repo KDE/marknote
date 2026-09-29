@@ -2,7 +2,7 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the marknote package.
 # SPDX-FileCopyrightText: 2023 Frederik Schwarzer <schwarzer@kde.org>
-# SPDX-FileCopyrightText: 2024 Alois.spitzbart <spitz234@hotmail.com>
+# SPDX-FileCopyrightText: 2024, 2026 Alois.spitzbart <spitz234@hotmail.com>
 # SPDX-FileCopyrightText: 2025-2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 # SPDX-FileCopyrightText: 2026 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 msgid ""
@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-05-09 14:13+0200\n"
-"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
+"PO-Revision-Date: 2026-09-27 13:02+0200\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -118,7 +118,7 @@ msgstr "Prayag Jain"
 #: main.cpp:96
 #, kde-format
 msgid "Block Editor"
-msgstr ""
+msgstr "Block-Editor"
 
 #: main.cpp:101
 #, kde-format
@@ -152,20 +152,18 @@ msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
 
 #: notesmodel.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to rename note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note. A note already exists with the same name."
 msgstr ""
-"Notiz kann nicht umbenannt werden. Es existiert bereits eine Notiz mit "
+"Notiz kann nicht erstellt werden. Es existiert bereits eine Notiz mit "
 "demselben Namen."
 
 #: notesmodel.cpp:205
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note: %1"
-msgstr ""
+msgstr "Notiz kann nicht erstellt werden: %1"
 
 #: notesmodel.cpp:234
 #, kde-format
@@ -179,198 +177,177 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "Ungültiger Verschiebevorgang"
 
 #: notesmodel.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "Verschieben eines Ordners in sich selbst nicht möglich."
 
 #: notesmodel.cpp:311
-#, fuzzy, kde-format
-#| msgid "Failed to save pasted image"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr "Das Speichern des eingefügten Bildes ist fehlgeschlagen"
+msgstr "Verschieben der Datei fehlgeschlagen."
 
 #: qml/BlockCode.qml:276
 #, kde-format
 msgid "Copied to clipboard!"
-msgstr ""
+msgstr "In die Zwischenablage kopiert!"
 
 #: qml/components/SlashMenuPopup.qml:20
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 1"
-msgstr "Überschrift %1"
+msgstr "Überschrift 1"
 
 #: qml/components/SlashMenuPopup.qml:20
 #, kde-format
 msgid "Large section heading"
-msgstr ""
+msgstr "Große Überschrift"
 
 #: qml/components/SlashMenuPopup.qml:21
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 2"
-msgstr "Überschrift %1"
+msgstr "Überschrift 2"
 
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
 msgid "Medium section heading"
-msgstr ""
+msgstr "Mittlere Überschrift"
 
 #: qml/components/SlashMenuPopup.qml:22
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 3"
-msgstr "Überschrift %1"
+msgstr "Überschrift 3"
 
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
 msgid "Small section heading"
-msgstr ""
+msgstr "Kleine Überschrift"
 
 #: qml/components/SlashMenuPopup.qml:23
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 4"
-msgstr "Überschrift %1"
+msgstr "Überschrift 4"
 
 #: qml/components/SlashMenuPopup.qml:23
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Sub-heading 4"
-msgstr "Überschrift %1"
+msgstr "Überschrift der 4. Ebene"
 
 #: qml/components/SlashMenuPopup.qml:24
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 5"
-msgstr "Überschrift %1"
+msgstr "Überschrift 5"
 
 #: qml/components/SlashMenuPopup.qml:24
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Sub-heading 5"
-msgstr "Überschrift %1"
+msgstr "Überschrift der 5. Ebene"
 
 #: qml/components/SlashMenuPopup.qml:25
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 6"
-msgstr "Überschrift %1"
+msgstr "Überschrift 6"
 
 #: qml/components/SlashMenuPopup.qml:25
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Sub-heading 6"
-msgstr "Überschrift %1"
+msgstr "Überschrift der 6. Ebene"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Paragraph"
 msgstr "Absatz"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Plain text paragraph"
-msgstr "Absatz"
+msgstr "Absatz im einfachen Textformat"
 
 #: qml/components/SlashMenuPopup.qml:27
 #, kde-format
 msgid "Bullet List"
-msgstr ""
+msgstr "Aufzählung"
 
 #: qml/components/SlashMenuPopup.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgid "Unordered bulleted list"
-msgstr "Unsortierte Liste"
+msgstr "Unsortierte Aufzählungsliste"
 
 #: qml/components/SlashMenuPopup.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgid "Numbered List"
-msgstr "Sortierte Liste"
+msgstr "Nummerierte Liste"
 
 #: qml/components/SlashMenuPopup.qml:28
 #, kde-format
 msgid "Numbered sequential list"
-msgstr ""
+msgstr "Fortlaufend nummerierte Liste"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Checklist"
-msgstr ""
+msgstr "Checkliste"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Task list with checkboxes"
-msgstr ""
+msgstr "Aufgabenliste mit Ankreuzfeldern"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "Zitat"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote or callout block"
-msgstr ""
+msgstr "Zitat- oder Erläuterungsblock"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code Block"
-msgstr ""
+msgstr "Quelltextblock"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code snippet with syntax"
-msgstr ""
+msgstr "Quelltextausschnitt mit Syntax"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Divider"
-msgstr ""
+msgstr "Trenner"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Horizontal dividing line"
-msgstr ""
+msgstr "Horizontale Trennlinie"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Tabelle"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Tabular data grid"
-msgstr ""
+msgstr "Tabellarisches Datenraster"
 
 #: qml/components/SlashMenuPopup.qml:34
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Close menu"
-msgstr "Schließen"
+msgstr "Menü schließen"
 
 #: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Dismiss this menu"
-msgstr ""
+msgstr "Dieses Menü schließen"
 
 #: qml/EditorActions.qml:18
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete"
 msgstr "Löschen"
 
@@ -385,9 +362,7 @@ msgid "Redo"
 msgstr "Wiederherstellen"
 
 #: qml/EditorActions.qml:45
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgid "Copy"
 msgstr "Kopieren"
 
@@ -770,7 +745,7 @@ msgstr "Name:"
 #, kde-format
 msgctxt "@info"
 msgid "A note with this name already exists."
-msgstr ""
+msgstr "Eine Notiz mit diesem Namen existiert bereits."
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -778,15 +753,14 @@ msgid "Add note"
 msgstr "Notiz hinzufügen"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "Seitenleiste einklappen"
+msgstr "Alle einklappen"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "Alle aufklappen"
 
 #: qml/NotesPage.qml:259
 #, kde-format
@@ -926,30 +900,29 @@ msgstr "Eine Notiz hinzufügen."
 #: qml/NotesPage.qml:882
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "Keine passenden Notizen für die Suche"
 
 #: qml/NotesPage.qml:898 qml/NotesPage.qml:906
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "Notiz hinzufügen"
-msgstr[1] "Notiz hinzufügen"
+msgstr[0] "%1 Notiz"
+msgstr[1] "%1 Notizen"
 
 #: qml/NotesPage.qml:902 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 Ordner"
+msgstr[1] "%1 Ordner"
 
 #: qml/NotesPage.qml:908
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:235
 #, kde-format
@@ -958,10 +931,9 @@ msgid "Select an image"
 msgstr "Wählen Sie ein Bild aus"
 
 #: qml/RichEditPage.qml:238
-#, fuzzy, kde-format
-#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
-msgstr "Bilddateien (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "Bilddateien (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
@@ -999,17 +971,13 @@ msgid "Decrease List Level"
 msgstr "Listenebene verringern"
 
 #: qml/RichEditPage.qml:879
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Unsortierte Liste"
 
 #: qml/RichEditPage.qml:898
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Sortierte Liste"
@@ -1018,7 +986,7 @@ msgstr "Sortierte Liste"
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
-msgstr ""
+msgstr "Checkliste"
 
 #: qml/RichEditPage.qml:943
 #, kde-format
@@ -1051,54 +1019,46 @@ msgid "Insert sketch"
 msgstr "Zeichnung einfügen"
 
 #: qml/RichEditPage.qml:1080
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Absatz"
 
 #: qml/RichEditPage.qml:1091
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
-msgstr "Überschrift %1"
+msgstr "Überschrift 1"
 
 #: qml/RichEditPage.qml:1102
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
-msgstr "Überschrift %1"
+msgstr "Überschrift 2"
 
 #: qml/RichEditPage.qml:1113
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
-msgstr "Überschrift %1"
+msgstr "Überschrift 3"
 
 #: qml/RichEditPage.qml:1124
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
-msgstr "Überschrift %1"
+msgstr "Überschrift 4"
 
 #: qml/RichEditPage.qml:1135
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
-msgstr "Überschrift %1"
+msgstr "Überschrift 5"
 
 #: qml/RichEditPage.qml:1146
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
-msgstr "Überschrift %1"
+msgstr "Überschrift 6"
 
 #: qml/RichEditPage.qml:1321
 #, kde-format
@@ -1194,8 +1154,7 @@ msgid "Table of Contents"
 msgstr "Inhaltsverzeichnis"
 
 #: qml/TocDrawer.qml:58
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Schließen"
@@ -1230,21 +1189,20 @@ msgstr "Farbschema"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "Transparente Editorseite verwenden"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "Deckkraft des Hintergrunds"
 
 #: settings/MarkNoteGeneralPage.qml:77
-#, fuzzy, kde-format
-#| msgid "%1/%2"
+#, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1/%2"
+msgstr "%1 %"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format
