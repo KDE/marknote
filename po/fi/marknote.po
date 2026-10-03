@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-02-25 16:28+0200\n"
+"PO-Revision-Date: 2026-08-30 23:04+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -52,9 +52,7 @@ msgid "Import from Maildir"
 msgstr "Tuo postikansiosta"
 
 #: maildirimport.cpp:92
-#, fuzzy, kde-format
-#| msgctxt "@status"
-#| msgid "An error occurred while writing to '%1'"
+#, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "Sattui virhe kirjoitettaessa kohteeseen ”%1”"
@@ -77,44 +75,42 @@ msgstr "Carl Schwan"
 #: main.cpp:68
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "Valentyn Bondarenko"
 
 #: main.cpp:77
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Justin Zobel"
 
 #: main.cpp:78
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Flatpak-tuki"
 
 #: main.cpp:83
 #, kde-format
 msgid "Shubham Shinde"
-msgstr ""
+msgstr "Shubham Shinde"
 
 #: main.cpp:84
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgid "Table of Contents"
-msgstr "Solun sisältö"
+msgstr "Sisällysluettelo"
 
 #: main.cpp:89
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
 #: main.cpp:90
-#, fuzzy, kde-format
-#| msgid "Focus Mode"
+#, kde-format
 msgid "Source Mode"
-msgstr "Keskittymistila"
+msgstr "Lähdetila"
 
 #: main.cpp:95
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
 #: main.cpp:96
 #, kde-format
@@ -124,17 +120,17 @@ msgstr ""
 #: main.cpp:101
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: main.cpp:102 main.cpp:107
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "Viankorjauksia"
 
 #: main.cpp:107
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:128 qml/Main.qml:466
 #, kde-format
@@ -148,10 +144,9 @@ msgid "Note taking application"
 msgstr "Muistiinpanosovellus"
 
 #: main.cpp:132
-#, fuzzy, kde-format
-#| msgid "© 2023-2024 Mathis Brüchert"
+#, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
-msgstr "© 2023–2024 Mathis Brüchert"
+msgstr "© 2023–2026 Mathis Brüchert"
 
 #: notesmodel.cpp:198
 #, fuzzy, kde-format
@@ -181,19 +176,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "Virheellinen siirtotoimenpide."
 
 #: notesmodel.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "Kansiota ei voi siirtää itseensä."
 
 #: notesmodel.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr ""
+msgstr "Tiedostoa ei voitu siirtää."
 
 #: qml/BlockCode.qml:276
 #, kde-format
@@ -405,11 +400,10 @@ msgid "Search in Note"
 msgstr "Etsi muistiinpanosta"
 
 #: qml/EditPage.qml:296
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Contents"
-msgstr "Solun sisältö"
+msgstr "Sisällysluettelo"
 
 #: qml/EditPage.qml:325
 #, kde-format
@@ -426,17 +420,17 @@ msgstr "Poistu koko näytöltä"
 #: qml/EditPage.qml:355
 #, kde-format
 msgid "Switch editor mode"
-msgstr ""
+msgstr "Vaihda muokkaintilaa"
 
 #: qml/EditPage.qml:360
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "Lähdenäkymä"
 
 #: qml/EditPage.qml:412
 #, kde-format
 msgid "Find text…"
-msgstr ""
+msgstr "Etsi tekstiä…"
 
 #: qml/EditPage.qml:448
 #, kde-format
@@ -461,7 +455,7 @@ msgstr "%1/%2"
 #: qml/EditPage.qml:498 qml/EditPage.qml:561
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "Korvaa"
 
 #: qml/EditPage.qml:510
 #, kde-format
@@ -469,24 +463,20 @@ msgid "Close"
 msgstr "Sulje"
 
 #: qml/EditPage.qml:532
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace with…"
-msgstr "Valitse kaikki"
+msgstr "Korvaa…"
 
 #: qml/EditPage.qml:537 qml/EditPage.qml:577
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Korvattiin %1 esiintymä"
+msgstr[1] "Korvattiin %1 esiintymää"
 
 #: qml/EditPage.qml:573
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace All"
 msgstr "Valitse kaikki"
 
@@ -723,39 +713,35 @@ msgid "Edit Notebook"
 msgstr "Muokkaa muistikirjaa"
 
 #: qml/NoteLinkDialog.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "Lisää linkki"
+msgstr "Lisää muistiinpanolinkki"
 
 #: qml/NoteLinkDialog.qml:48
-#, fuzzy, kde-format
-#| msgid "Notebook name"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr "Muistikirjan nimi"
+msgstr "Muistiinpanon nimi:"
 
 #: qml/NoteLinkDialog.qml:50
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "Sen muistiinpanon nimi, johon halutaan linkittää."
 
 #: qml/NoteLinkDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Link Text:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "Linkin teksti:"
+msgstr "Näytä teksti:"
 
 #: qml/NoteLinkDialog.qml:69
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
 msgstr ""
+"Valinnainen vaihtoehtoinen teksti näytettäväksi muistiinpanon nimen sijaan."
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -787,15 +773,14 @@ msgid "Add note"
 msgstr "Lisää muistiinpano"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "Supista sivupaneeli"
+msgstr "Supista kaikki"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "Laajenna kaikki"
 
 #: qml/NotesPage.qml:259
 #, kde-format
@@ -823,9 +808,7 @@ msgstr ""
 "%2</b> pysyvästi."
 
 #: qml/NotesPage.qml:482 qml/NotesPage.qml:510
-#, fuzzy, kde-format
-#| msgctxt "Application name"
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
@@ -834,29 +817,25 @@ msgstr "Marknote"
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
-msgstr ""
+msgstr "”%1”: vienti onnistui."
 
 #: qml/NotesPage.qml:496
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr "Avaa linkki"
+msgstr "Avaa tiedosto"
 
 #: qml/NotesPage.qml:511
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
-msgstr ""
+msgstr "”%1”: vienti epäonnistui."
 
 #: qml/NotesPage.qml:522
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
-msgstr "Muuta muistiinpanon nimeä"
+msgstr "Muuta nimeä"
 
 #: qml/NotesPage.qml:531 qml/TextFieldContextMenu.qml:323
 #, kde-format
@@ -865,20 +844,16 @@ msgid "Copy"
 msgstr "Kopioi"
 
 #: qml/NotesPage.qml:546
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
-msgstr "Poista muistiinpano"
+msgstr "Monista"
 
 #: qml/NotesPage.qml:554
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Import"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
-msgstr "Tuo"
+msgstr "Vie"
 
 #: qml/NotesPage.qml:558
 #, kde-format
@@ -945,30 +920,29 @@ msgstr "Lisää muistiinpano!"
 #: qml/NotesPage.qml:882
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "Ei hakua vastaavia muistiinpanoja"
 
 #: qml/NotesPage.qml:898 qml/NotesPage.qml:906
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "Lisää muistiinpano"
-msgstr[1] "Lisää muistiinpano"
+msgstr[0] "%1 muistiinpano"
+msgstr[1] "%1 muistiinpanoa"
 
 #: qml/NotesPage.qml:902 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 kansio"
+msgstr[1] "%1 kansiota"
 
 #: qml/NotesPage.qml:908
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:235
 #, kde-format
@@ -977,10 +951,9 @@ msgid "Select an image"
 msgstr "Valitse kuva"
 
 #: qml/RichEditPage.qml:238
-#, fuzzy, kde-format
-#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
-msgstr "Kuvatiedostot (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "Kuvatiedostot (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
@@ -1046,12 +1019,10 @@ msgid "Insert link"
 msgstr "Lisää linkki"
 
 #: qml/RichEditPage.qml:962
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr "Lisää linkki"
+msgstr "Lisää muistiinpanolinkki"
 
 #: qml/RichEditPage.qml:981
 #, kde-format
@@ -1066,12 +1037,10 @@ msgid "Insert table"
 msgstr "Lisää taulukko"
 
 #: qml/RichEditPage.qml:1015
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "Lisää linkki"
+msgstr "Lisää luonnos"
 
 #: qml/RichEditPage.qml:1080
 #, fuzzy, kde-format
@@ -1142,13 +1111,13 @@ msgstr "Lisää"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "Pyyhekumi"
 
 #: qml/SketchDialog.qml:308
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "Tyhjennä kangas"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1169,17 +1138,13 @@ msgid "Spell Check"
 msgstr "Oikeinkirjoituksen tarkistus"
 
 #: qml/TextFieldContextMenu.qml:260
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
-msgstr "Uusi muistiinpano"
+msgstr "Avaa muistiinpano"
 
 #: qml/TextFieldContextMenu.qml:260
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Avaa linkki"
@@ -1221,17 +1186,17 @@ msgid "Table of Contents"
 msgstr "Sisällysluettelo"
 
 #: qml/TocDrawer.qml:58
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Sulje"
 
+# *** TARKISTA: ”Header” voisi olla myös otsikko tai ylätunniste tai jotakin ihan muuta
 #: qml/TocDrawer.qml:151
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
-msgstr ""
+msgstr "Otsakkeita ei löytynyt"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -1257,20 +1222,20 @@ msgstr "Väriteema"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "Käytä läpikuultavaa muokkainsivua"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "Taustan peittävyys"
 
 #: settings/MarkNoteGeneralPage.qml:77
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr ""
+msgstr "%1 %"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format

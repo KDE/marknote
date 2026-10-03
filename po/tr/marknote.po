@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-09-16 18:38+0300\n"
+"PO-Revision-Date: 2026-10-02 19:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -136,7 +136,7 @@ msgstr "Laurent Montel"
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
-msgstr "Marknot"
+msgstr "Marknote"
 
 #: main.cpp:130
 #, kde-format
@@ -782,7 +782,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
-msgstr "Marknot"
+msgstr "Marknote"
 
 #: qml/NotesPage.qml:483
 #, kde-format
@@ -1228,7 +1228,7 @@ msgstr "Genel"
 #, kde-format
 msgctxt "@action:button"
 msgid "About Marknote"
-msgstr "Marknot Hakkında"
+msgstr "Marknote Hakkında"
 
 #: settings/MarkNoteSettings.qml:32
 #, kde-format
