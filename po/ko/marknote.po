@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:46+0000\n"
-"PO-Revision-Date: 2026-02-03 23:43+0100\n"
+"PO-Revision-Date: 2026-10-02 00:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -52,12 +52,10 @@ msgid "Import from Maildir"
 msgstr "Maildir에서 가져오기"
 
 #: maildirimport.cpp:92
-#, fuzzy, kde-format
-#| msgctxt "@status"
-#| msgid "An error occurred while writing to '%1'"
+#, kde-format
 msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
-msgstr "'%1'에 쓰는 중 오류 발생"
+msgstr "“%1”에 쓰는 중 오류 발생"
 
 #: main.cpp:60
 #, kde-format
@@ -77,64 +75,62 @@ msgstr "Carl Schwan"
 #: main.cpp:68
 #, kde-format
 msgid "Valentyn Bondarenko"
-msgstr ""
+msgstr "Valentyn Bondarenko"
 
 #: main.cpp:77
 #, kde-format
 msgid "Justin Zobel"
-msgstr ""
+msgstr "Justin Zobel"
 
 #: main.cpp:78
 #, kde-format
 msgid "Flatpak support"
-msgstr ""
+msgstr "Flatpak 지원"
 
 #: main.cpp:83
 #, kde-format
 msgid "Shubham Shinde"
-msgstr ""
+msgstr "Shubham Shinde"
 
 #: main.cpp:84
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgid "Table of Contents"
-msgstr "셀 내용"
+msgstr "목차"
 
 #: main.cpp:89
 #, kde-format
 msgid "Siddharth Chopra"
-msgstr ""
+msgstr "Siddharth Chopra"
 
 #: main.cpp:90
-#, fuzzy, kde-format
-#| msgid "Focus Mode"
+#, kde-format
 msgid "Source Mode"
-msgstr "초점 모드"
+msgstr "소스 모드"
 
 #: main.cpp:95
 #, kde-format
 msgid "Prayag Jain"
-msgstr ""
+msgstr "Prayag Jain"
 
 #: main.cpp:96
 #, kde-format
 msgid "Block Editor"
-msgstr ""
+msgstr "블록 편집기"
 
 #: main.cpp:101
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: main.cpp:102 main.cpp:107
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "버그 수정"
 
 #: main.cpp:107
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:128 qml/Main.qml:466
 #, kde-format
@@ -148,24 +144,21 @@ msgid "Note taking application"
 msgstr "메모 작성 프로그램"
 
 #: main.cpp:132
-#, fuzzy, kde-format
-#| msgid "© 2023-2026 Mathis Brüchert"
+#, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
-msgstr "© 2023-2026 Mathis Brüchert"
+msgstr "© 2023–2026 Mathis Brüchert"
 
 #: notesmodel.cpp:198
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to rename note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note. A note already exists with the same name."
-msgstr "노트의 이름을 바꿀 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
+msgstr "노트를 만들 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
 
 #: notesmodel.cpp:205
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note: %1"
-msgstr ""
+msgstr "노트를 생성할 수 없음: %1"
 
 #: notesmodel.cpp:234
 #, kde-format
@@ -177,196 +170,177 @@ msgstr "노트의 이름을 바꿀 수 없습니다. 같은 이름의 노트가 
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
-msgstr ""
+msgstr "잘못된 이동 작업입니다."
 
 #: notesmodel.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr ""
+msgstr "폴더를 자기 자신으로 이동할 수 없습니다."
 
 #: notesmodel.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
-msgstr ""
+msgstr "파일을 이동할 수 없습니다."
 
 #: qml/BlockCode.qml:276
 #, kde-format
 msgid "Copied to clipboard!"
-msgstr ""
+msgstr "클립보드에 복사됨!"
 
 #: qml/components/SlashMenuPopup.qml:20
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 1"
-msgstr "머리글 %1"
+msgstr "머리글 1"
 
 #: qml/components/SlashMenuPopup.qml:20
 #, kde-format
 msgid "Large section heading"
-msgstr ""
+msgstr "큰 섹션 머리글"
 
 #: qml/components/SlashMenuPopup.qml:21
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 2"
-msgstr "머리글 %1"
+msgstr "머리글 2"
 
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
 msgid "Medium section heading"
-msgstr ""
+msgstr "중간 섹션 머리글"
 
 #: qml/components/SlashMenuPopup.qml:22
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 3"
-msgstr "머리글 %1"
+msgstr "머리글 3"
 
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
 msgid "Small section heading"
-msgstr ""
+msgstr "작은 섹션 머리글"
 
 #: qml/components/SlashMenuPopup.qml:23
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 4"
-msgstr "머리글 %1"
+msgstr "머리글 4"
 
 #: qml/components/SlashMenuPopup.qml:23
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Sub-heading 4"
-msgstr "머리글 %1"
+msgstr "보조 머리글 4"
 
 #: qml/components/SlashMenuPopup.qml:24
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 5"
-msgstr "머리글 %1"
+msgstr "머리글 5"
 
 #: qml/components/SlashMenuPopup.qml:24
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Sub-heading 5"
-msgstr "머리글 %1"
+msgstr "보조 머리글 5"
 
 #: qml/components/SlashMenuPopup.qml:25
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 6"
-msgstr "머리글 %1"
+msgstr "머리글 6"
 
 #: qml/components/SlashMenuPopup.qml:25
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Sub-heading 6"
-msgstr "머리글 %1"
+msgstr "보조 머리글 6"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Paragraph"
 msgstr "문단"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Plain text paragraph"
-msgstr "문단"
+msgstr "일반 텍스트 문단"
 
 #: qml/components/SlashMenuPopup.qml:27
 #, kde-format
 msgid "Bullet List"
-msgstr ""
+msgstr "글머리 기호 목록"
 
 #: qml/components/SlashMenuPopup.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgid "Unordered bulleted list"
-msgstr "순서 없는 목록"
+msgstr "순서 없는 불릿 목록"
 
 #: qml/components/SlashMenuPopup.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgid "Numbered List"
-msgstr "정렬된 목록"
+msgstr "번호 매긴 목록"
 
 #: qml/components/SlashMenuPopup.qml:28
 #, kde-format
 msgid "Numbered sequential list"
-msgstr ""
+msgstr "순서대로 번호 매긴 목록"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Checklist"
-msgstr ""
+msgstr "체크리스트"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Task list with checkboxes"
-msgstr ""
+msgstr "체크 상자가 있는 할 일 목록"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "인용문"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote or callout block"
-msgstr ""
+msgstr "인용문이나 돌출된 블록"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code Block"
-msgstr ""
+msgstr "코드 블록"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code snippet with syntax"
-msgstr ""
+msgstr "구문 강조가 있는 코드 스니펫"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Divider"
-msgstr ""
+msgstr "구분자"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Horizontal dividing line"
-msgstr ""
+msgstr "수평 구분선"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "표"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Tabular data grid"
-msgstr ""
+msgstr "표 형태 데이터 그리드"
 
 #: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Close menu"
-msgstr ""
+msgstr "메뉴 닫기"
 
 #: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Dismiss this menu"
-msgstr ""
+msgstr "이 메뉴 끄기"
 
 #: qml/EditorActions.qml:18
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete"
 msgstr "삭제"
 
@@ -381,32 +355,27 @@ msgid "Redo"
 msgstr "다시 실행"
 
 #: qml/EditorActions.qml:45
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgid "Copy"
 msgstr "복사"
 
 #: qml/EditPage.qml:281
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
-msgstr "노트 검색(%1)"
+msgstr "노트 검색"
 
 #: qml/EditPage.qml:289
-#, fuzzy, kde-format
-#| msgid "Search notes (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
-msgstr "노트 검색(%1)"
+msgstr "노트에서 검색"
 
 #: qml/EditPage.qml:296
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@action:button"
 msgid "Table of Contents"
-msgstr "셀 내용"
+msgstr "목차"
 
 #: qml/EditPage.qml:325
 #, kde-format
@@ -423,74 +392,70 @@ msgstr "전체 화면 나가기"
 #: qml/EditPage.qml:355
 #, kde-format
 msgid "Switch editor mode"
-msgstr ""
+msgstr "편집기 모드 전환"
 
 #: qml/EditPage.qml:360
 #, kde-format
 msgid "Source View"
-msgstr ""
+msgstr "소스 보기"
 
 #: qml/EditPage.qml:412
 #, kde-format
 msgid "Find text…"
-msgstr ""
+msgstr "텍스트 찾기…"
 
 #: qml/EditPage.qml:448
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "이전"
 
 #: qml/EditPage.qml:464
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "다음"
 
 #: qml/EditPage.qml:484 qml/EditPage.qml:590
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "검색 결과 없음"
 
 #: qml/EditPage.qml:486 qml/EditPage.qml:592
 #, kde-format
 msgid "%1/%2"
-msgstr ""
+msgstr "%1/%2"
 
 #: qml/EditPage.qml:498 qml/EditPage.qml:561
 #, kde-format
 msgid "Replace"
-msgstr ""
+msgstr "바꾸기"
 
 #: qml/EditPage.qml:510
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: qml/EditPage.qml:532
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace with…"
-msgstr "모두 선택"
+msgstr "바꿀 문자열…"
 
 #: qml/EditPage.qml:537 qml/EditPage.qml:577
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
-msgstr[0] ""
+msgstr[0] "%1회 바뀜"
 
 #: qml/EditPage.qml:573
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Replace All"
-msgstr "모두 선택"
+msgstr "모두 바꾸기"
 
 #: qml/EditPage.qml:640
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
-msgstr ""
+msgstr "노트를 클립보드에 복사했습니다."
 
 #: qml/GlobalMenuBar.qml:27
 #, kde-format
@@ -718,39 +683,34 @@ msgid "Edit Notebook"
 msgstr "공책 편집"
 
 #: qml/NoteLinkDialog.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Insert Link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Note Link"
-msgstr "링크 삽입"
+msgstr "노트 링크 삽입"
 
 #: qml/NoteLinkDialog.qml:48
-#, fuzzy, kde-format
-#| msgid "Notebook name"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Note Name:"
-msgstr "공책 이름"
+msgstr "노트 이름:"
 
 #: qml/NoteLinkDialog.qml:50
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "The name of the note you want to link to."
-msgstr ""
+msgstr "링크하려고 하는 노트의 이름입니다."
 
 #: qml/NoteLinkDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Link Text:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Text:"
-msgstr "링크 텍스트:"
+msgstr "표시 텍스트:"
 
 #: qml/NoteLinkDialog.qml:69
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Optional alternate text to display instead of the note name."
-msgstr ""
+msgstr "노트 이름 대신 표시할 대체 텍스트(선택 사항)입니다."
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -774,7 +734,7 @@ msgstr "이름:"
 #, kde-format
 msgctxt "@info"
 msgid "A note with this name already exists."
-msgstr ""
+msgstr "같은 이름의 노트가 이미 존재합니다."
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -782,15 +742,14 @@ msgid "Add note"
 msgstr "노트 추가"
 
 #: qml/NotesPage.qml:187
-#, fuzzy, kde-format
-#| msgid "Collapse Sidebar"
+#, kde-format
 msgid "Collapse All"
-msgstr "사이드바 접기"
+msgstr "모두 접기"
 
 #: qml/NotesPage.qml:187
 #, kde-format
 msgid "Expand All"
-msgstr ""
+msgstr "모두 펴기"
 
 #: qml/NotesPage.qml:259
 #, kde-format
@@ -816,9 +775,7 @@ msgid ""
 msgstr "<b>%1</b> 노트를 삭제하시겠습니까? <b>%2</b> 파일을 영원히 삭제합니다."
 
 #: qml/NotesPage.qml:482 qml/NotesPage.qml:510
-#, fuzzy, kde-format
-#| msgctxt "Application name"
-#| msgid "Marknote"
+#, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
@@ -827,29 +784,25 @@ msgstr "Marknote"
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
-msgstr ""
+msgstr "“%1” 내보내기에 성공했습니다."
 
 #: qml/NotesPage.qml:496
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
-msgstr "링크 열기"
+msgstr "파일 열기"
 
 #: qml/NotesPage.qml:511
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
-msgstr ""
+msgstr "“%1” 내보내기에 실패했습니다."
 
 #: qml/NotesPage.qml:522
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Rename Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
-msgstr "노트 이름 바꾸기"
+msgstr "이름 바꾸기"
 
 #: qml/NotesPage.qml:531 qml/TextFieldContextMenu.qml:323
 #, kde-format
@@ -858,20 +811,16 @@ msgid "Copy"
 msgstr "복사"
 
 #: qml/NotesPage.qml:546
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
-msgstr "노트 삭제"
+msgstr "복제"
 
 #: qml/NotesPage.qml:554
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Import"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
-msgstr "가져오기"
+msgstr "내보내기"
 
 #: qml/NotesPage.qml:558
 #, kde-format
@@ -938,28 +887,27 @@ msgstr "새 노트 추가!"
 #: qml/NotesPage.qml:882
 #, kde-format
 msgid "No notes matching the search"
-msgstr ""
+msgstr "검색과 일치하는 노트 없음"
 
 #: qml/NotesPage.qml:898 qml/NotesPage.qml:906
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] "노트 추가"
+msgstr[0] "노트 %1개"
 
 #: qml/NotesPage.qml:902 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
-msgstr[0] ""
+msgstr[0] "폴더 %1개"
 
 #: qml/NotesPage.qml:908
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: qml/RichEditPage.qml:235
 #, kde-format
@@ -968,10 +916,9 @@ msgid "Select an image"
 msgstr "그림 선택"
 
 #: qml/RichEditPage.qml:238
-#, fuzzy, kde-format
-#| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
+#, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
-msgstr "그림 파일 (*.jpg *.jpeg *.png *.svg *.webp)"
+msgstr "그림 파일 (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
@@ -1009,17 +956,13 @@ msgid "Decrease List Level"
 msgstr "목록 단계 감소"
 
 #: qml/RichEditPage.qml:879
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "순서 없는 목록"
 
 #: qml/RichEditPage.qml:898
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "정렬된 목록"
@@ -1028,7 +971,7 @@ msgstr "정렬된 목록"
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
-msgstr ""
+msgstr "체크리스트"
 
 #: qml/RichEditPage.qml:943
 #, kde-format
@@ -1037,12 +980,10 @@ msgid "Insert link"
 msgstr "링크 삽입"
 
 #: qml/RichEditPage.qml:962
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
-msgstr "링크 삽입"
+msgstr "노트 링크 삽입"
 
 #: qml/RichEditPage.qml:981
 #, kde-format
@@ -1057,62 +998,52 @@ msgid "Insert table"
 msgstr "표 삽입"
 
 #: qml/RichEditPage.qml:1015
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
-msgstr "링크 삽입"
+msgstr "스케치 삽입"
 
 #: qml/RichEditPage.qml:1080
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "문단"
 
 #: qml/RichEditPage.qml:1091
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
-msgstr "머리글 %1"
+msgstr "머리글 1"
 
 #: qml/RichEditPage.qml:1102
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
-msgstr "머리글 %1"
+msgstr "머리글 2"
 
 #: qml/RichEditPage.qml:1113
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
-msgstr "머리글 %1"
+msgstr "머리글 3"
 
 #: qml/RichEditPage.qml:1124
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
-msgstr "머리글 %1"
+msgstr "머리글 4"
 
 #: qml/RichEditPage.qml:1135
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
-msgstr "머리글 %1"
+msgstr "머리글 5"
 
 #: qml/RichEditPage.qml:1146
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
-msgstr "머리글 %1"
+msgstr "머리글 6"
 
 #: qml/RichEditPage.qml:1321
 #, kde-format
@@ -1133,13 +1064,13 @@ msgstr "삽입"
 #, kde-format
 msgctxt "Tool that removes selected parts of image from canvas"
 msgid "Eraser"
-msgstr ""
+msgstr "지우개"
 
 #: qml/SketchDialog.qml:308
 #, kde-format
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
-msgstr ""
+msgstr "캔버스 지우기"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1160,17 +1091,13 @@ msgid "Spell Check"
 msgstr "맞춤법 검사"
 
 #: qml/TextFieldContextMenu.qml:260
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Note"
-msgstr "새 노트"
+msgstr "노트 열기"
 
 #: qml/TextFieldContextMenu.qml:260
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "링크 열기"
@@ -1206,23 +1133,22 @@ msgid "Select All"
 msgstr "모두 선택"
 
 #: qml/TocDrawer.qml:50
-#, fuzzy, kde-format
-#| msgid "Cell Contents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "셀 내용"
+msgstr "목차"
 
 #: qml/TocDrawer.qml:58
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: qml/TocDrawer.qml:151
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
-msgstr ""
+msgstr "머리글을 찾을 수 없음"
 
 #: qml/WelcomePage.qml:22
 #, kde-format
@@ -1248,20 +1174,20 @@ msgstr "색 테마"
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
 msgid "Use transparent editor page"
-msgstr ""
+msgstr "투명한 편집기 페이지 사용"
 
 #: settings/MarkNoteGeneralPage.qml:72
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
-msgstr ""
+msgstr "배경 불투명도"
 
 #: settings/MarkNoteGeneralPage.qml:77
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: settings/MarkNoteGeneralPage.qml:102
 #, kde-format
