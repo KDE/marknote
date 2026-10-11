@@ -1,0 +1,44 @@
+{
+  "nodes": {
+    "md4qt-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790594218,
+        "narHash": "sha256-WxjSEOMVV7Aw86JMkpORvi5T2+Ztz4FrX8ripdlcYN8=",
+        "ref": "refs/heads/master",
+        "rev": "21b4ce8bcbec4a9f14c4c59bd930c5c7e458920e",
+        "revCount": 286,
+        "type": "git",
+        "url": "https://invent.kde.org/libraries/md4qt.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://invent.kde.org/libraries/md4qt.git"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1790822859,
+        "narHash": "sha256-69xHQhAeMAD2wDXO7T2pcOZIF9Sga2W+JkmY2a11Ops=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "md4qt-src": "md4qt-src",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

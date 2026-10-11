@@ -4,4 +4,5 @@
 .clang-format
 compile_commands.json
 .qtcreator
-
+.envrc
+.direnv
