@@ -10,8 +10,8 @@
 
 namespace MDDataGenerator
 {
-QVariantMap fromHeading(const QSharedPointer<MD::Item> &item);
-QVariantMap fromParagraph(const QSharedPointer<MD::Item> &item);
+QVariantMap fromHeading(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc);
+QVariantMap fromParagraph(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc);
 QVariantMap fromList(const QSharedPointer<MD::Item> &item);
 QVariantMap fromListItem(const QSharedPointer<MD::Item> &item);
 QVariantMap fromCodeBlock(const QSharedPointer<MD::Item> &item);
@@ -20,9 +20,9 @@ QVariantMap fromPageBreak(const QSharedPointer<MD::Item> &item);
 QVariantMap fromAnchor(const QSharedPointer<MD::Item> &item);
 QVariantMap fromHorizontalLine(const QSharedPointer<MD::Item> &item);
 QVariantMap fromFootnote(const QSharedPointer<MD::Item> &item);
-QVariantMap fromTable(const QSharedPointer<MD::Item> &item);
+QVariantMap fromTable(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc);
 
-QString toHtml(const QSharedPointer<MD::Item> &item);
+QString toHtml(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc);
 }
 
 #endif // MDDATAGENERATOR_H

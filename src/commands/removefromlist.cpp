@@ -19,7 +19,7 @@ RemoveFromListCommand::RemoveFromListCommand(TreeItem *block, MDTreeModel *model
     m_nextSiblingsCount = m_list->childCount() - m_listItemRow - 1;
 
     if (m_nextSiblingsCount > 0) {
-        m_newList = TreeItem::createTreeItem(MDOptions::ElementType::List);
+        m_newList = TreeItem::createTreeItem(MDOptions::ElementType::List, block->doc());
         delete m_newList->removeChild(0);
         m_ownsNewList = true;
         m_newListCreated = true;

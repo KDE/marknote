@@ -18,14 +18,14 @@ SplitBlockCommand::SplitBlockCommand(TreeItem *block, const QString &text, int s
     const QString leftText = m_text.left(m_splitIndex);
     const QString rightText = m_text.mid(m_splitIndex);
 
-    m_leftBlocks = TreeItem::fromMarkdown(leftText);
+    m_leftBlocks = TreeItem::fromMarkdown(leftText, block->doc());
     if (m_leftBlocks.empty()) {
-        m_leftBlocks.append(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph));
+        m_leftBlocks.append(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph, block->doc()));
     }
 
-    m_rightBlocks = TreeItem::fromMarkdown(rightText);
+    m_rightBlocks = TreeItem::fromMarkdown(rightText, block->doc());
     if (m_rightBlocks.empty()) {
-        m_rightBlocks.append(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph));
+        m_rightBlocks.append(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph, block->doc()));
     }
 
     m_ownsNewBlocks = true;

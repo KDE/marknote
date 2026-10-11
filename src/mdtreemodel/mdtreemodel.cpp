@@ -12,10 +12,10 @@ using namespace Qt::StringLiterals;
 
 MDTreeModel::MDTreeModel(QObject *parent)
     : QAbstractItemModel(parent)
-    , m_rootItem(std::make_unique<TreeItem>())
+    , m_rootItem(std::make_unique<TreeItem>(QSharedPointer<MD::Document>::create()))
 {
-    m_rootItem->setItem(QSharedPointer<MD::Document>::create());
-    m_rootItem->appendChild(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph));
+    m_rootItem->setItem(m_rootItem->doc());
+    m_rootItem->appendChild(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph, m_rootItem->doc()));
 
     connect(this, &MDTreeModel::rowsRemoved, this, [this](const QModelIndex &parent) {
         if (!parent.isValid() && isEmpty()) {
@@ -38,7 +38,7 @@ MDTreeModel::MDTreeModel(QObject *parent)
         [this]() {
             if (m_rootItem && isEmpty()) {
                 const int pos = m_rootItem->childCount();
-                insertItem(m_rootItem.get(), pos, TreeItem::createTreeItem(MDOptions::ElementType::Paragraph));
+                insertItem(m_rootItem.get(), pos, TreeItem::createTreeItem(MDOptions::ElementType::Paragraph, m_rootItem->doc()));
                 if (!m_focusedBlock) {
                     requestFocus(m_rootItem->child(pos), 0);
                 }
@@ -130,11 +130,11 @@ void MDTreeModel::setDocument(const QSharedPointer<MD::Document> &document)
     beginResetModel();
 
     if (document) {
-        TreeItem *newRoot = TreeItem::buildTree(document);
+        TreeItem *newRoot = TreeItem::buildTree(document, document);
         m_rootItem.reset(newRoot);
     } else {
-        m_rootItem = std::make_unique<TreeItem>();
-        m_rootItem->setItem(QSharedPointer<MD::Document>::create());
+        m_rootItem = std::make_unique<TreeItem>(QSharedPointer<MD::Document>::create());
+        m_rootItem->setItem(m_rootItem->doc());
     }
 
     setSearchMatchedBlock(nullptr);

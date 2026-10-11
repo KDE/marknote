@@ -18,7 +18,7 @@ TransformToListCommand::TransformToListCommand(TreeItem *block, bool isOrdered, 
 {
     m_oldText = block->data().value(u"md"_s).toString();
 
-    m_outerList = TreeItem::createTreeItem(MDOptions::ElementType::List);
+    m_outerList = TreeItem::createTreeItem(MDOptions::ElementType::List, block->doc());
     TreeItem *listItem = m_outerList->child(0);
     delete listItem->removeChild(0); // Remove the auto-generated paragraph
 

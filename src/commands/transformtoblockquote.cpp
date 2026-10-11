@@ -17,12 +17,12 @@ TransformToBlockquoteCommand::TransformToBlockquoteCommand(TreeItem *block, int 
 {
     m_oldText = block->data().value(u"md"_s).toString();
 
-    m_outerBlockquote = TreeItem::createTreeItem(MDOptions::ElementType::Blockquote);
+    m_outerBlockquote = TreeItem::createTreeItem(MDOptions::ElementType::Blockquote, block->doc());
     delete m_outerBlockquote->removeChild(0);
 
     TreeItem *inner = m_outerBlockquote;
     for (int i = 1; i < m_level; ++i) {
-        TreeItem *b = TreeItem::createTreeItem(MDOptions::ElementType::Blockquote);
+        TreeItem *b = TreeItem::createTreeItem(MDOptions::ElementType::Blockquote, block->doc());
         delete b->removeChild(0);
         inner->appendChild(b);
         inner = b;

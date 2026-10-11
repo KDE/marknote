@@ -5,6 +5,7 @@
 
 MoveBlockCommand::MoveBlockCommand(TreeItem *sourceBlock, TreeItem *targetParent, int targetIndex, MDTreeModel *model, QUndoCommand *parent)
     : QUndoCommand(parent)
+    , m_doc(sourceBlock->doc())
     , m_sourceBlock(sourceBlock)
     , m_targetParent(targetParent)
     , m_targetIndex(targetIndex)
@@ -67,7 +68,7 @@ void MoveBlockCommand::redo()
         const auto prevListType = m_targetParent->child(0)->item().dynamicCast<MD::ListItem>()->listType();
 
         if (!m_wrappedListItem) {
-            m_wrappedListItem = TreeItem::createTreeItem(MDOptions::ElementType::ListItem);
+            m_wrappedListItem = TreeItem::createTreeItem(MDOptions::ElementType::ListItem, m_doc);
             m_wrappedListItem->removeChild(0);
         }
 
@@ -77,7 +78,7 @@ void MoveBlockCommand::redo()
         itemToInsert = m_wrappedListItem;
     } else if (m_sourceBlock->type() == MDOptions::ElementType::ListItem && m_targetParent->type() != MDOptions::ElementType::List) {
         if (!m_wrappedList) {
-            m_wrappedList = TreeItem::createTreeItem(MDOptions::ElementType::List);
+            m_wrappedList = TreeItem::createTreeItem(MDOptions::ElementType::List, m_doc);
             m_wrappedList->removeChild(0);
         }
         m_wrappedList->appendChild(m_sourceBlock);

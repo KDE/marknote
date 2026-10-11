@@ -9,6 +9,8 @@
 #include <md4qt/visitor.h>
 #include <memory>
 
+void applyIntermediateData(QSharedPointer<MD::Document> to, QSharedPointer<MD::Document> from);
+
 class MDSerializer : public MD::Visitor
 {
 public:
@@ -17,7 +19,7 @@ public:
 
     virtual QString processDoc(QSharedPointer<MD::Document> doc);
 
-    static QString toMd(QSharedPointer<MD::Item> item);
+    static QString toMd(QSharedPointer<MD::Item> item, QSharedPointer<MD::Document> fullDoc);
 
 protected:
     virtual void openStyle(const typename MD::ItemWithOpts::Styles &styles);

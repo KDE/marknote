@@ -49,7 +49,7 @@ DeIndentListItemCommand::DeIndentListItemCommand(TreeItem *block, MDTreeModel *m
         m_subListCreated = false;
         m_ownsSubList = false;
     } else {
-        m_listItemSubList = TreeItem::createTreeItem(MDOptions::ElementType::List);
+        m_listItemSubList = TreeItem::createTreeItem(MDOptions::ElementType::List, block->doc());
         delete m_listItemSubList->removeChild(0);
         m_subListCreated = true;
         m_ownsSubList = true;

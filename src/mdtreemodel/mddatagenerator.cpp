@@ -9,15 +9,16 @@ using namespace Qt::StringLiterals;
 
 namespace MDDataGenerator
 {
-QString toHtml(const QSharedPointer<MD::Item> &item)
+QString toHtml(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc)
 {
     auto doc = QSharedPointer<MD::Document>::create();
     doc->appendItem(item);
+    applyIntermediateData(doc, fullDoc);
 
     return MD::toHtml(doc, false, {}, false);
 }
 
-QVariantMap fromHeading(const QSharedPointer<MD::Item> &item)
+QVariantMap fromHeading(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc)
 {
     QVariantMap map;
 
@@ -25,18 +26,18 @@ QVariantMap fromHeading(const QSharedPointer<MD::Item> &item)
 
     map[u"type"_s] = QVariant::fromValue(MDOptions::ElementType::Heading);
     map[u"level"_s] = heading->level();
-    map[u"html"_s] = toHtml(item);
-    map[u"md"_s] = MDSerializer::toMd(item);
+    map[u"html"_s] = toHtml(item, fullDoc);
+    map[u"md"_s] = MDSerializer::toMd(item, fullDoc);
 
     return map;
 }
 
-QVariantMap fromParagraph(const QSharedPointer<MD::Item> &item)
+QVariantMap fromParagraph(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc)
 {
     QVariantMap map;
     map[u"type"_s] = QVariant::fromValue(MDOptions::ElementType::Paragraph);
-    map[u"html"_s] = toHtml(item);
-    map[u"md"_s] = MDSerializer::toMd(item);
+    map[u"html"_s] = toHtml(item, fullDoc);
+    map[u"md"_s] = MDSerializer::toMd(item, fullDoc);
 
     return map;
 }
@@ -89,7 +90,7 @@ QVariantMap fromCodeBlock(const QSharedPointer<MD::Item> &item)
     return map;
 }
 
-QVariantMap fromTable(const QSharedPointer<MD::Item> &item)
+QVariantMap fromTable(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc)
 {
     QVariantMap map;
     map[u"type"_s] = QVariant::fromValue(MDOptions::ElementType::Table);
@@ -115,8 +116,8 @@ QVariantMap fromTable(const QSharedPointer<MD::Item> &item)
                 p->appendItem(item);
             }
 
-            rowHtmlData.append(toHtml(p));
-            rowMdData.append(MDSerializer::toMd(p));
+            rowHtmlData.append(toHtml(p, fullDoc));
+            rowMdData.append(MDSerializer::toMd(p, fullDoc));
         }
 
         htmlData.append(rowHtmlData);

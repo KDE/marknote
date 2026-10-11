@@ -17,6 +17,7 @@ public:
     void redo() override;
 
 private:
+    QSharedPointer<MD::Document> m_doc;
     TreeItem *m_sourceBlock;
     TreeItem *m_oldParent;
     int m_oldIndex;

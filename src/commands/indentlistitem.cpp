@@ -21,7 +21,7 @@ IndentListItemCommand::IndentListItemCommand(TreeItem *block, MDTreeModel *model
             m_targetSubListCreated = false;
             m_ownsTargetSubList = false;
         } else {
-            m_targetSubList = TreeItem::createTreeItem(MDOptions::ElementType::List);
+            m_targetSubList = TreeItem::createTreeItem(MDOptions::ElementType::List, block->doc());
             delete m_targetSubList->removeChild(0);
             m_targetSubListCreated = true;
             m_ownsTargetSubList = true;

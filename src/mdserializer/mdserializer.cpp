@@ -5,6 +5,18 @@
 #include <QRegularExpression>
 using namespace Qt::StringLiterals;
 
+void applyIntermediateData(QSharedPointer<MD::Document> to, QSharedPointer<MD::Document> from)
+{
+    if ((to->items().isEmpty() || to->items().first()->type() != MD::ItemType::Anchor) && !from->items().isEmpty()) {
+        to->insertItem(0, from->items().at(0));
+    }
+
+    to->setAuxLabelsMap(from->auxLabelsMap());
+    to->setFootnotesMap(from->footnotesMap());
+    to->setLabeledHeadings(from->labeledHeadings());
+    to->setLabeledLinks(from->labeledLinks());
+}
+
 MDSerializer::MDSerializer() = default;
 
 MDSerializer::~MDSerializer() = default;
@@ -18,12 +30,13 @@ QString MDSerializer::processDoc(QSharedPointer<MD::Document> doc)
     return *m_Md;
 }
 
-QString MDSerializer::toMd(QSharedPointer<MD::Item> item)
+QString MDSerializer::toMd(QSharedPointer<MD::Item> item, QSharedPointer<MD::Document> fullDoc)
 {
     MDSerializer visitor;
 
     auto doc = QSharedPointer<MD::Document>::create();
     doc->appendItem(item);
+    applyIntermediateData(doc, fullDoc);
 
     auto result = visitor.processDoc(doc);
 
@@ -376,25 +389,14 @@ void MDSerializer::onLink(MD::Link *l)
 {
     QString url = l->url();
 
-    const auto lit = this->m_doc->labeledLinks().find(url);
+    if (url.startsWith(u"#"_s)) {
+        auto path = static_cast<MD::Anchor *>(this->m_doc->items().at(0).get())->label();
+        const auto sp = path.lastIndexOf(u"/"_s);
+        path.remove(sp, path.length() - sp);
+        const auto p = url.indexOf(path) - 1;
 
-    if (lit != this->m_doc->labeledLinks().cend()) {
-        url = (*lit)->url();
-    }
-
-    if (std::find(this->m_anchors.cbegin(), this->m_anchors.cend(), url) != this->m_anchors.cend()) {
-        url = u"#"_s + url;
-    } else if (url.startsWith(u"#"_s)) {
-        const auto it = this->m_doc->labeledHeadings().find(url);
-
-        if (it == this->m_doc->labeledHeadings().cend()) {
-            auto path = static_cast<MD::Anchor *>(this->m_doc->items().at(0).get())->label();
-            const auto sp = path.lastIndexOf(u"/"_s);
-            path.remove(sp, path.length() - sp);
-            const auto p = url.indexOf(path) - 1;
-            url.remove(p, url.length() - p);
-        } else {
-            url = (*it)->label();
+        if (p >= 0) {
+            url = url.sliced(0, p);
         }
     }
 

@@ -18,7 +18,7 @@ class TreeItem : public QObject
     Q_PROPERTY(QList<TreeItem *> children READ children CONSTANT)
 
 public:
-    explicit TreeItem(TreeItem *parent = nullptr, QObject *parentObject = nullptr);
+    explicit TreeItem(QSharedPointer<MD::Document> doc, TreeItem *parent = nullptr, QObject *parentObject = nullptr);
     ~TreeItem();
 
     void appendChild(TreeItem *child);
@@ -52,10 +52,10 @@ public:
     QList<TreeItem *> children() const;
     bool isDescendantOf(TreeItem *other) const;
 
-    static TreeItem *buildTree(const QSharedPointer<MD::Item> &item);
+    static TreeItem *buildTree(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> doc);
     static QSharedPointer<MD::Item> createMDItem(MDOptions::ElementType type, const QString &text = QString());
-    static TreeItem *createTreeItem(MDOptions::ElementType type, const QString &text = QString());
-    static QList<TreeItem *> fromMarkdown(const QString &markdown);
+    static TreeItem *createTreeItem(MDOptions::ElementType type, QSharedPointer<MD::Document> doc, const QString &text = QString());
+    static QList<TreeItem *> fromMarkdown(const QString &markdown, QSharedPointer<MD::Document> doc);
 
     bool isParsed() const;
     void setUnparsedMarkdown(const QString &text);
@@ -74,10 +74,13 @@ public:
     void removeRowFromTable(int row);
     void removeColFromTable(int col);
 
+    QSharedPointer<MD::Document> doc() const;
+
     Q_SIGNAL
     void dataChanged();
 
 private:
+    QSharedPointer<MD::Document> m_doc;
     QSharedPointer<MD::Item> m_item;
     QString m_unparsedMd;
     std::unique_ptr<QList<QList<QString>>> m_unparsedTableMd;

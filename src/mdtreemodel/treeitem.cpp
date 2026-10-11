@@ -3,12 +3,14 @@
 
 #include "treeitem.h"
 #include "mddatagenerator.h"
+#include <QFileInfo>
 #include <md4qt/html.h>
 #include <md4qt/parser.h>
 using namespace Qt::StringLiterals;
 
-TreeItem::TreeItem(TreeItem *parent, QObject *parentObject)
+TreeItem::TreeItem(QSharedPointer<MD::Document> doc, TreeItem *parent, QObject *parentObject)
     : QObject(parent ? parent : parentObject)
+    , m_doc(doc)
     , m_parent(parent)
 {
 }
@@ -150,25 +152,35 @@ void TreeItem::moveChildren(int sourceRow, int count, TreeItem *destination, int
     destination->insertChildren(destRow, itemsToMove);
 }
 
-QList<TreeItem *> TreeItem::fromMarkdown(const QString &markdown)
+QList<TreeItem *> TreeItem::fromMarkdown(const QString &markdown, QSharedPointer<MD::Document> doc)
 {
     if (markdown.isEmpty()) {
-        return {createTreeItem(MDOptions::ElementType::Paragraph)};
+        return {createTreeItem(MDOptions::ElementType::Paragraph, doc)};
     }
 
     QByteArray utf8 = markdown.toUtf8();
     QTextStream stream{utf8};
 
     MD::Parser parser;
-    auto doc = parser.parse(stream, u""_s, u""_s);
+    QString path;
+    QString fileName;
+
+    if (!doc->isEmpty() && doc->items().at(0)->type() == MD::ItemType::Anchor) {
+        QFileInfo fileInfo(doc->items().at(0).staticCast<MD::Anchor>()->label());
+
+        path = fileInfo.absolutePath();
+        fileName = fileInfo.fileName();
+    }
+
+    auto tmpDoc = parser.parse(stream, path, fileName);
 
     QList<TreeItem *> items;
-    for (const auto &item : doc->items()) {
+    for (const auto &item : tmpDoc->items()) {
         if (item->type() == MD::ItemType::Anchor) {
             continue;
         }
 
-        items.append(buildTree(item));
+        items.append(buildTree(item, doc));
     }
 
     return items;
@@ -202,10 +214,10 @@ QVariantMap TreeItem::data() const
 
     switch (m_item->type()) {
     case MD::ItemType::Heading:
-        map = MDDataGenerator::fromHeading(m_item);
+        map = MDDataGenerator::fromHeading(m_item, doc());
         break;
     case MD::ItemType::Paragraph:
-        map = MDDataGenerator::fromParagraph(m_item);
+        map = MDDataGenerator::fromParagraph(m_item, doc());
         break;
     case MD::ItemType::Blockquote:
         map = MDDataGenerator::fromBlockquote(m_item);
@@ -220,7 +232,7 @@ QVariantMap TreeItem::data() const
         map = MDDataGenerator::fromCodeBlock(m_item);
         break;
     case MD::ItemType::Table:
-        map = MDDataGenerator::fromTable(m_item);
+        map = MDDataGenerator::fromTable(m_item, doc());
         break;
     case MD::ItemType::Footnote:
         map = MDDataGenerator::fromFootnote(m_item);
@@ -308,9 +320,9 @@ bool TreeItem::isDescendantOf(TreeItem *other) const
     return false;
 }
 
-TreeItem *TreeItem::buildTree(const QSharedPointer<MD::Item> &item)
+TreeItem *TreeItem::buildTree(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> doc)
 {
-    TreeItem *treeItem = new TreeItem();
+    TreeItem *treeItem = new TreeItem(doc);
     treeItem->m_item = item;
 
     // items that are not "blocks" don't have any children, so we can return early
@@ -321,14 +333,14 @@ TreeItem *TreeItem::buildTree(const QSharedPointer<MD::Item> &item)
     }
 
     for (auto it = block->items().cbegin(); it != block->items().cend(); ++it) {
-        TreeItem *child = buildTree(*it);
+        TreeItem *child = buildTree(*it, doc);
         treeItem->m_children.append(child);
         child->m_parent = treeItem;
         child->setParent(treeItem);
     }
 
     if (treeItem->childCount() == 0) {
-        treeItem->appendChild(createTreeItem(MDOptions::ElementType::Paragraph));
+        treeItem->appendChild(createTreeItem(MDOptions::ElementType::Paragraph, doc));
     }
 
     return treeItem;
@@ -399,9 +411,9 @@ QSharedPointer<MD::Item> TreeItem::createMDItem(MDOptions::ElementType type, con
     }
 }
 
-TreeItem *TreeItem::createTreeItem(MDOptions::ElementType type, const QString &text)
+TreeItem *TreeItem::createTreeItem(MDOptions::ElementType type, QSharedPointer<MD::Document> doc, const QString &text)
 {
-    return buildTree(createMDItem(type, text));
+    return buildTree(createMDItem(type, text), doc);
 }
 
 void TreeItem::setUnparsedMarkdown(const QString &text)
@@ -424,7 +436,7 @@ void TreeItem::clearUnparsedMarkdown()
 void TreeItem::commitUnparsedMarkdown()
 {
     if (!m_unparsedMd.isNull()) {
-        const auto parsed = fromMarkdown(m_unparsedMd);
+        const auto parsed = fromMarkdown(m_unparsedMd, doc());
         if (!parsed.isEmpty() && parsed[0]->m_item) {
             m_item = parsed[0]->m_item;
 
@@ -527,7 +539,7 @@ void TreeItem::setTableCellMarkdown(int row, int col, const QString &markdown)
     }
 
     QString markdownInTable{QString(u"|%1|\n|-|"_s).arg(markdown)};
-    const auto output = fromMarkdown(markdownInTable);
+    const auto output = fromMarkdown(markdownInTable, doc());
 
     if (output.empty()) {
         return;
@@ -807,4 +819,9 @@ void TreeItem::removeColFromTable(int colToRemove)
     }
 
     Q_EMIT dataChanged();
+}
+
+QSharedPointer<MD::Document> TreeItem::doc() const
+{
+    return m_doc;
 }

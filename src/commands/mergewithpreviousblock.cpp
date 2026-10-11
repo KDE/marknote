@@ -22,9 +22,9 @@ MergeWithPreviousBlockCommand::MergeWithPreviousBlockCommand(TreeItem *block, co
 
     QString combinedMd = targetMd + text;
 
-    m_newBlocks = TreeItem::fromMarkdown(combinedMd);
+    m_newBlocks = TreeItem::fromMarkdown(combinedMd, block->doc());
     if (m_newBlocks.empty()) {
-        m_newBlocks.append(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph));
+        m_newBlocks.append(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph, block->doc()));
     }
 }
 

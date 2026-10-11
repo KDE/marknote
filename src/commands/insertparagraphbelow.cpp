@@ -11,7 +11,7 @@ InsertParagraphBelowCommand::InsertParagraphBelowCommand(TreeItem *block, const 
 {
     m_parent = block->parent();
     m_row = block->row() + 1;
-    m_newBlock = TreeItem::createTreeItem(MDOptions::ElementType::Paragraph, text);
+    m_newBlock = TreeItem::createTreeItem(MDOptions::ElementType::Paragraph, block->doc(), text);
 }
 
 InsertParagraphBelowCommand::~InsertParagraphBelowCommand()

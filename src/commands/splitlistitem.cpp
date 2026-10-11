@@ -16,6 +16,7 @@ List:
 
 SplitListItemCommand::SplitListItemCommand(TreeItem *block, const QString &text, int splitIndex, MDTreeModel *model, QUndoCommand *parent)
     : QUndoCommand(parent)
+    , m_doc(block->doc())
     , m_parent(block->parent())
     , m_row(block->row())
     , m_text(text)
@@ -26,8 +27,8 @@ SplitListItemCommand::SplitListItemCommand(TreeItem *block, const QString &text,
     const QString leftText = m_text.left(m_splitIndex);
     const QString rightText = m_text.mid(m_splitIndex);
 
-    m_leftBlocks = TreeItem::fromMarkdown(leftText);
-    m_rightBlocks = TreeItem::fromMarkdown(rightText);
+    m_leftBlocks = TreeItem::fromMarkdown(leftText, block->doc());
+    m_rightBlocks = TreeItem::fromMarkdown(rightText, block->doc());
 
     m_ownsNewBlocks = true;
 }
@@ -72,7 +73,7 @@ void SplitListItemCommand::redo()
             newListItem->setChecked(false);
         }
 
-        m_removedList = TreeItem::buildTree(newListItem);
+        m_removedList = TreeItem::buildTree(newListItem, m_doc);
         if (m_removedList->childCount() > 0) {
             m_removedList->takeChildren(0, m_removedList->childCount());
         }

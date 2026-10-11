@@ -11,9 +11,9 @@ ParseBlockCommand::ParseBlockCommand(TreeItem *block, const QString &text, MDTre
     , m_originalBlock(block)
     , m_firstTime(true)
 {
-    m_newBlocks = TreeItem::fromMarkdown(text);
+    m_newBlocks = TreeItem::fromMarkdown(text, block->doc());
     if (m_newBlocks.empty()) {
-        m_newBlocks.append(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph));
+        m_newBlocks.append(TreeItem::createTreeItem(MDOptions::ElementType::Paragraph, block->doc()));
     }
 }
 
