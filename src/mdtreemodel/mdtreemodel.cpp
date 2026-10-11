@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "mdtreemodel.h"
-#include "mdserializer/mdserializer.h"
 #include <QFile>
 #include <QStringConverter>
 #include <QTextStream>
@@ -637,8 +636,11 @@ QString MDTreeModel::toMarkdown() const
         }
     }
 
-    MDSerializer serializer;
-    return serializer.processDoc(doc);
+    QString markdown;
+    QTextStream stream(&markdown);
+    MD::SerialiseHelper helper;
+    doc->write(stream, &helper);
+    return markdown;
 }
 
 bool MDTreeModel::saveToFile(const QUrl &fileUrl)

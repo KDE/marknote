@@ -22,7 +22,8 @@ QVariantMap fromHorizontalLine(const QSharedPointer<MD::Item> &item);
 QVariantMap fromFootnote(const QSharedPointer<MD::Item> &item);
 QVariantMap fromTable(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc);
 
-QString toHtml(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc);
+QString toHtml(const QSharedPointer<MD::Item> &item);
+QString toMd(const QSharedPointer<MD::Item> &item);
 }
 
 #endif // MDDATAGENERATOR_H

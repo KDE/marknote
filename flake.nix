@@ -36,7 +36,6 @@
               pkgs.kdePackages.qtdeclarative
             ];
 
-            # Tell qtPreHook that this is a library and does not require binary wrapping
             dontWrapQtApps = true;
 
             cmakeFlags = [

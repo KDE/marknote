@@ -3,7 +3,6 @@
 
 #include "mddatagenerator.h"
 #include "mdoptions/mdoptions.h"
-#include "mdserializer/mdserializer.h"
 #include <md4qt/html.h>
 using namespace Qt::StringLiterals;
 
@@ -18,7 +17,25 @@ QString toHtml(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document
     return MD::toHtml(doc, false, {}, false);
 }
 
-QVariantMap fromHeading(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc)
+QString toMd(const QSharedPointer<MD::Item> &item)
+{
+    if (!item) {
+        return QString();
+    }
+
+    QString md;
+    QTextStream stream(&md);
+    MD::SerialiseHelper helper;
+    item->write(stream, &helper);
+
+    while (md.endsWith(u'\n')) {
+        md.chop(1);
+    }
+
+    return md;
+}
+
+QVariantMap fromHeading(const QSharedPointer<MD::Item> &item)
 {
     QVariantMap map;
 
@@ -26,8 +43,8 @@ QVariantMap fromHeading(const QSharedPointer<MD::Item> &item, QSharedPointer<MD:
 
     map[u"type"_s] = QVariant::fromValue(MDOptions::ElementType::Heading);
     map[u"level"_s] = heading->level();
-    map[u"html"_s] = toHtml(item, fullDoc);
-    map[u"md"_s] = MDSerializer::toMd(item, fullDoc);
+    map[u"html"_s] = toHtml(item);
+    map[u"md"_s] = toMd(item);
 
     return map;
 }
@@ -36,8 +53,8 @@ QVariantMap fromParagraph(const QSharedPointer<MD::Item> &item, QSharedPointer<M
 {
     QVariantMap map;
     map[u"type"_s] = QVariant::fromValue(MDOptions::ElementType::Paragraph);
-    map[u"html"_s] = toHtml(item, fullDoc);
-    map[u"md"_s] = MDSerializer::toMd(item, fullDoc);
+    map[u"html"_s] = toHtml(item);
+    map[u"md"_s] = toMd(item);
 
     return map;
 }
@@ -116,8 +133,8 @@ QVariantMap fromTable(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::D
                 p->appendItem(item);
             }
 
-            rowHtmlData.append(toHtml(p, fullDoc));
-            rowMdData.append(MDSerializer::toMd(p, fullDoc));
+            rowHtmlData.append(toHtml(p));
+            rowMdData.append(toMd(p));
         }
 
         htmlData.append(rowHtmlData);

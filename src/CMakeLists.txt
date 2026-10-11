@@ -98,7 +98,6 @@ ecm_add_qml_module(marknote_static
         mdtreemodel/treeitem.h mdtreemodel/treeitem.cpp
         mdtreemodel/mdtreemodel.h mdtreemodel/mdtreemodel.cpp
         mdtreemodel/mddatagenerator.h mdtreemodel/mddatagenerator.cpp
-        mdserializer/mdserializer.h mdserializer/mdserializer.cpp
         mdinlineparser/mdinlineparser.h mdinlineparser/mdinlineparser.cpp
         commands/commandmanager.h commands/commandmanager.cpp
         commands/mergewithpreviousblock.h commands/mergewithpreviousblock.cpp
