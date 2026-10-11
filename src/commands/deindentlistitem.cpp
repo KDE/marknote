@@ -54,6 +54,18 @@ DeIndentListItemCommand::DeIndentListItemCommand(TreeItem *block, MDTreeModel *m
         m_subListCreated = true;
         m_ownsSubList = true;
     }
+
+    auto curMdItem = m_listItem->itemAs<MD::ListItem>();
+    if (curMdItem) {
+        m_originalListType = curMdItem->listType();
+        m_originalIsTaskList = curMdItem->isTaskList();
+    }
+
+    auto targetMdItem = m_curListParent->itemAs<MD::ListItem>();
+    if (targetMdItem) {
+        m_targetListType = targetMdItem->listType();
+        m_targetIsTaskList = targetMdItem->isTaskList();
+    }
 }
 
 DeIndentListItemCommand::~DeIndentListItemCommand()
@@ -77,14 +89,30 @@ void DeIndentListItemCommand::undo()
         }
     }
 
+    auto mdListItem = m_listItem->itemAs<MD::ListItem>();
+    if (mdListItem) {
+        mdListItem->setListType(m_originalListType);
+        mdListItem->setTaskList(m_originalIsTaskList);
+    }
+
     m_model->moveItem(m_listItem, m_curList, m_listItemRow);
     m_model->updateListNumbers(m_curList, true);
     m_model->updateListNumbers(m_targetList);
+    m_model->childModified(m_curList, m_listItem->row(), m_listItem->row());
     m_model->requestFocus(m_listItem->child(0), m_cursorPosition);
 }
 
 void DeIndentListItemCommand::redo()
 {
+    auto mdListItem = m_listItem->itemAs<MD::ListItem>();
+    if (mdListItem) {
+        mdListItem->setListType(m_targetListType);
+        mdListItem->setTaskList(m_targetIsTaskList);
+        if (m_targetIsTaskList && !m_originalIsTaskList) {
+            mdListItem->setChecked(false);
+        }
+    }
+
     m_model->moveItem(m_listItem, m_targetList, m_parentListItemRow + 1);
 
     if (m_curList->childCount() == 0) {
@@ -109,6 +137,7 @@ void DeIndentListItemCommand::redo()
     }
 
     m_model->updateListNumbers(m_targetList);
+    m_model->childModified(m_targetList, m_listItem->row(), m_listItem->row());
     m_model->requestFocus(m_listItem->child(0), m_cursorPosition);
 }
 

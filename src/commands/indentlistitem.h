@@ -28,6 +28,12 @@ private:
     bool m_targetSubListCreated = false;
     bool m_ownsTargetSubList = false;
     int m_cursorPosition = -1;
+
+    MD::ListItem::ListType m_originalListType = MD::ListItem::Unordered;
+    bool m_originalIsTaskList = false;
+    MD::ListItem::ListType m_targetListType = MD::ListItem::Unordered;
+    bool m_targetIsTaskList = false;
+    bool m_shouldChangeType = false;
 };
 
 #endif // INDENTLISTITEM_H

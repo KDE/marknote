@@ -36,6 +36,11 @@ private:
     bool m_ownsSubList = false;
     int m_cursorPosition = -1;
 
+    MD::ListItem::ListType m_originalListType = MD::ListItem::Unordered;
+    bool m_originalIsTaskList = false;
+    MD::ListItem::ListType m_targetListType = MD::ListItem::Unordered;
+    bool m_targetIsTaskList = false;
+
     static bool isListOrdered(TreeItem *listItem);
 };
 

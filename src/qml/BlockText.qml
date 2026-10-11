@@ -43,18 +43,15 @@ Item {
     property bool editing: false
     property int wrapMode: TextEdit.Wrap
 
-    function headingLevel(arg): int {
-        let t = (arg !== undefined) ? arg : (textEdit ? textEdit.text : root.md);
-        if (typeof t === "number") {
-            return (t >= 1 && t <= 6) ? t : 0;
-        }
+    function headingLevel(): int {
+        let t = root.md;
         if (!t) return 0;
         let match = t.match(/^\s*(#{1,6}) /);
         return match ? match[1].length : 0;
     }
 
-    function isHeading(arg): bool {
-        return headingLevel(arg) > 0;
+    function isHeading(): bool {
+        return headingLevel() > 0;
     }
 
     function getFontPointSize(arg): real {
