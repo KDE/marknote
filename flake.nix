@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Prayag Jain <prayagjain2@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 {
   description = "Development environment with KDE Frameworks 6 and md4qt";
 
@@ -55,6 +59,7 @@
               cmake
               ninja
               pkg-config
+              reuse
               kdePackages.extra-cmake-modules
               kdePackages.wrapQtAppsHook
             ];
