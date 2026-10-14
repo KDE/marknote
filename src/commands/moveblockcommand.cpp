@@ -65,14 +65,17 @@ void MoveBlockCommand::redo()
     TreeItem *itemToInsert = m_sourceBlock;
 
     if (m_targetParent->type() == MDOptions::ElementType::List && m_sourceBlock->type() != MDOptions::ElementType::ListItem) {
-        const auto prevListType = m_targetParent->child(0)->item().dynamicCast<MD::ListItem>()->listType();
+        const auto prevListItem = m_targetParent->child(0)->item().dynamicCast<MD::ListItem>();
+        const auto prevListType = prevListItem->listType();
 
         if (!m_wrappedListItem) {
             m_wrappedListItem = TreeItem::createTreeItem(MDOptions::ElementType::ListItem, m_doc);
             m_wrappedListItem->removeChild(0);
         }
 
-        m_wrappedListItem->item().dynamicCast<MD::ListItem>()->setListType(prevListType);
+        auto wrappedMdItem = m_wrappedListItem->item().dynamicCast<MD::ListItem>();
+        wrappedMdItem->setListType(prevListType);
+        wrappedMdItem->setSymbol(prevListItem->symbol());
 
         m_wrappedListItem->appendChild(m_sourceBlock);
         itemToInsert = m_wrappedListItem;

@@ -26,8 +26,10 @@ TransformToListCommand::TransformToListCommand(TreeItem *block, bool isOrdered, 
     if (m_isOrdered) {
         mdListItem->setListType(MD::ListItem::Ordered);
         mdListItem->setStartNumber(m_startNumber);
+        mdListItem->setSymbol(MD::ListItemSymbol::Dot);
     } else {
         mdListItem->setListType(MD::ListItem::Unordered);
+        mdListItem->setSymbol(MD::ListItemSymbol::Asterisk);
     }
 }
 

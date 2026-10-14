@@ -35,6 +35,7 @@ ChangeListTypeCommand::ChangeListTypeCommand(TreeItem *block, MDOptions::ListTyp
                 OriginalState state;
                 state.listItem = child;
                 state.listType = mdListItem->listType();
+                state.symbol = mdListItem->symbol();
                 state.isTaskList = mdListItem->isTaskList();
                 m_originalStates.append(state);
             }
@@ -58,6 +59,7 @@ void ChangeListTypeCommand::undo()
         auto mdListItem = state.listItem->itemAs<MD::ListItem>();
         if (mdListItem) {
             mdListItem->setListType(state.listType);
+            mdListItem->setSymbol(state.symbol);
             mdListItem->setTaskList(state.isTaskList);
         }
     }
@@ -80,11 +82,14 @@ void ChangeListTypeCommand::redo()
             if (mdListItem) {
                 if (m_targetType == MDOptions::OrderedList) {
                     mdListItem->setListType(MD::ListItem::Ordered);
+                    mdListItem->setSymbol(MD::ListItemSymbol::Dot);
                     mdListItem->setTaskList(false);
                 } else if (m_targetType == MDOptions::UnorderedList) {
                     mdListItem->setListType(MD::ListItem::Unordered);
+                    mdListItem->setSymbol(MD::ListItemSymbol::Asterisk);
                     mdListItem->setTaskList(false);
                 } else if (m_targetType == MDOptions::TaskList) {
+                    mdListItem->setSymbol(MD::ListItemSymbol::Asterisk);
                     mdListItem->setTaskList(true);
                 }
             }

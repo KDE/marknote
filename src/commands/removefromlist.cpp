@@ -56,7 +56,7 @@ void RemoveFromListCommand::undo()
                 m_ownsNewList = true;
             }
 
-            m_model->updateListNumbers(m_list, true);
+            m_model->updateListNumbers(m_list, false);
             m_model->requestFocus(m_block, m_cursorPosition);
         });
     });
@@ -88,7 +88,7 @@ void RemoveFromListCommand::redo()
         }
 
         if (!m_ownsList) {
-            m_model->updateListNumbers(m_list, true);
+            m_model->updateListNumbers(m_list, false);
         }
 
         if (!m_ownsNewList && m_newList) {

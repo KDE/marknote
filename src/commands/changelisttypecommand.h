@@ -27,6 +27,7 @@ private:
     struct OriginalState {
         TreeItem *listItem;
         MD::ListItem::ListType listType;
+        MD::ListItemSymbol symbol;
         bool isTaskList;
     };
     QList<OriginalState> m_originalStates;

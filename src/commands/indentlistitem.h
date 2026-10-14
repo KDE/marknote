@@ -30,8 +30,10 @@ private:
     int m_cursorPosition = -1;
 
     MD::ListItem::ListType m_originalListType = MD::ListItem::Unordered;
+    MD::ListItemSymbol m_originalSymbol = MD::ListItemSymbol::Unknown;
     bool m_originalIsTaskList = false;
     MD::ListItem::ListType m_targetListType = MD::ListItem::Unordered;
+    MD::ListItemSymbol m_targetSymbol = MD::ListItemSymbol::Unknown;
     bool m_targetIsTaskList = false;
     bool m_shouldChangeType = false;
 };

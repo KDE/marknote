@@ -30,6 +30,7 @@ IndentListItemCommand::IndentListItemCommand(TreeItem *block, MDTreeModel *model
         auto curMdItem = m_listItem->itemAs<MD::ListItem>();
         if (curMdItem) {
             m_originalListType = curMdItem->listType();
+            m_originalSymbol = curMdItem->symbol();
             m_originalIsTaskList = curMdItem->isTaskList();
         }
 
@@ -37,6 +38,7 @@ IndentListItemCommand::IndentListItemCommand(TreeItem *block, MDTreeModel *model
             auto targetMdItem = m_targetSubList->child(0)->itemAs<MD::ListItem>();
             if (targetMdItem) {
                 m_targetListType = targetMdItem->listType();
+                m_targetSymbol = targetMdItem->symbol();
                 m_targetIsTaskList = targetMdItem->isTaskList();
                 m_shouldChangeType = true;
             }
@@ -58,6 +60,7 @@ void IndentListItemCommand::undo()
         auto mdListItem = m_listItem->itemAs<MD::ListItem>();
         if (mdListItem) {
             mdListItem->setListType(m_originalListType);
+            mdListItem->setSymbol(m_originalSymbol);
             mdListItem->setTaskList(m_originalIsTaskList);
         }
     }
@@ -68,10 +71,10 @@ void IndentListItemCommand::undo()
         m_model->takeItem(m_prevListItem, m_targetSubList->row());
         m_ownsTargetSubList = true;
     } else {
-        m_model->updateListNumbers(m_targetSubList, true);
+        m_model->updateListNumbers(m_targetSubList, false);
     }
 
-    m_model->updateListNumbers(m_curList, true);
+    m_model->updateListNumbers(m_curList, false);
     if (m_shouldChangeType) {
         m_model->childModified(m_curList, m_listItem->row(), m_listItem->row());
     }
@@ -88,6 +91,7 @@ void IndentListItemCommand::redo()
         auto mdListItem = m_listItem->itemAs<MD::ListItem>();
         if (mdListItem) {
             mdListItem->setListType(m_targetListType);
+            mdListItem->setSymbol(m_targetSymbol);
             mdListItem->setTaskList(m_targetIsTaskList);
             if (m_targetIsTaskList && !m_originalIsTaskList) {
                 mdListItem->setChecked(false);
@@ -102,8 +106,8 @@ void IndentListItemCommand::redo()
 
     m_model->moveItem(m_listItem, m_targetSubList, m_targetSubList->childCount());
 
-    m_model->updateListNumbers(m_curList, true);
-    m_model->updateListNumbers(m_targetSubList, true);
+    m_model->updateListNumbers(m_curList, false);
+    m_model->updateListNumbers(m_targetSubList, m_targetSubListCreated);
     if (m_shouldChangeType) {
         m_model->childModified(m_targetSubList, m_listItem->row(), m_listItem->row());
     }

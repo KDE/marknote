@@ -64,6 +64,7 @@ void SplitListItemCommand::redo()
         auto newListItem = QSharedPointer<MD::ListItem>::create();
 
         newListItem->setListType(curListItem->listType());
+        newListItem->setSymbol(curListItem->symbol());
         if (curListItem->listType() == MD::ListItem::ListType::Ordered) {
             newListItem->setStartNumber(curListItem->startNumber() + 1);
         }
