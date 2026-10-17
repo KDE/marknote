@@ -866,8 +866,8 @@ Kirigami.ScrollablePage {
                     down: pressed || (menu.opened && menu.delegateItem === delegateItem)
                     display: ToolButton.IconOnly
 
-                    opacity: {Kirigami.Settings.isMobile ? 1 : delegateItem.hovered || menu.opened ? 1 : 0 }
-                    Layout.maximumWidth: {Kirigami.Settings.isMobile ? implicitWidth : delegateItem.hovered || menu.opened ? implicitWidth : 0 }
+                    opacity: {Kirigami.Settings.isMobile ? 1 : delegateItem.hovered || down ? 1 : 0 }
+                    Layout.maximumWidth: {Kirigami.Settings.isMobile ? implicitWidth : delegateItem.hovered || down ? implicitWidth : 0 }
 
                     Behavior on opacity {
                         PropertyAnimation {
