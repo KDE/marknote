@@ -40,7 +40,7 @@ void App::setupActions()
     actionName = "add_note"_L1;
     if (KAuthorized::authorizeAction(actionName)) {
         auto action = mainCollection()->addAction(actionName, this, &App::newNote);
-        action->setText(i18nc("@action:inmenu", "New Note"));
+        action->setText(i18nc("@action:inmenu", "New Note or Folder"));
         action->setIcon(QIcon::fromTheme(QStringLiteral("list-add-symbolic")));
         mainCollection()->addAction(action->objectName(), action);
         mainCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_N));

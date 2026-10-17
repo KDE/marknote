@@ -76,9 +76,11 @@ FormCard.FormCardDialog {
           actions: [
               Kirigami.Action {
                   text: i18nc("@option:radio", "Note")
+                  icon.name: "note-symbolic"
               },
               Kirigami.Action {
                   text: i18nc("@option:radio", "Folder")
+                  icon.name: "folder-symbolic"
               }
           ]
     }
