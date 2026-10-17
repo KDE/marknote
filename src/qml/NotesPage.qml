@@ -343,6 +343,7 @@ Kirigami.ScrollablePage {
         sortCaseSensitivity: Qt.CaseInsensitive
         filterRole: NotesModel.Name
         sortRole: NotesModel.Name
+        recursiveFilteringEnabled : true
         sourceModel: pageNotesModel
         Component.onCompleted: filterModel.sort(0, filterModel.sortOrder)
     }
