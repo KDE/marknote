@@ -80,10 +80,21 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
         }
     }
     case Role::NoteCount: {
-        const QDir dir(entry.filePath());
-        const auto entries = dir.entryList(QStringList() << QStringLiteral("*.md"), QDir::Files);
-        return entries.count();
+        QDirIterator it(entry.filePath(),
+                        QStringList{QStringLiteral("*.md")},
+                        QDir::Files,
+                        QDirIterator::Subdirectories);
+
+        int noteCount = 0;
+
+        while (it.hasNext()) {
+            it.next();
+            ++noteCount;
+        }
+        return noteCount;
     }
+
+
     case Role::Name:
     case Qt::DisplayRole:
         return m_directory->entryList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row());

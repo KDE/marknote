@@ -796,7 +796,7 @@ Kirigami.ScrollablePage {
                         text: delegateItem.name
                         elide: Qt.ElideRight
                         visible: !renameField.enabled
-                        color: textcolorItem.textcolor
+                        color: delegateItem.isFolder? Kirigami.Theme.disabledTextColor : textcolorItem.textcolor
                         font.bold: delegateItem.isFolder
                     }
 
