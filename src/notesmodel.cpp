@@ -9,7 +9,9 @@
 #include <QClipboard>
 #include <QDebug>
 #include <QDirIterator>
+#include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QImage>
 #include <QMimeData>
 #include <QMimeDatabase>
@@ -208,6 +210,24 @@ QString NotesModel::addNote(const QString &name)
 
     file.write("# " + name.toUtf8());
     file.close();
+
+    updateTotalNotesCount();
+    return name;
+}
+
+QString NotesModel::addFolder(const QString &name)
+{
+    const QString path = m_path + u'/' + name;
+
+    QDir dir;
+    if (!dir.mkdir(path)) {
+        if (QFileInfo::exists(path)) {
+            Q_EMIT errorOccurred(i18nc("@info:status", "Unable to create folder. A folder already exists with the same name."));
+        } else {
+            Q_EMIT errorOccurred(i18nc("@info:status", "Unable to create folder: %1", path));
+        }
+        return {};
+    }
 
     updateTotalNotesCount();
     return name;

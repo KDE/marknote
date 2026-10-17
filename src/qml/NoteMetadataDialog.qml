@@ -27,7 +27,7 @@ FormCard.FormCardDialog {
         && !!model
         && model.noteExists(nameInput.text)
 
-    title: mode === NotebookMetadataDialog.Mode.Add ? KI18n.i18nc("@title:window", "New Note") : KI18n.i18nc("@title:window", "Edit Note")
+    title: mode === NotebookMetadataDialog.Mode.Add ? KI18n.i18nc("@title:window", "Add New") : KI18n.i18nc("@title:window", "Edit Note")
     standardButtons: Controls.Dialog.Save | Controls.Dialog.Cancel
 
     function updateSaveButton(): void {
@@ -57,16 +57,31 @@ FormCard.FormCardDialog {
             return;
         }
         if (mode === NoteMetadataDialog.Mode.Add) {
-            const createdName = root.model.addNote(root.name);
-            if (createdName.length === 0) {
-                return;
+            if (typeSelector.selectedIndex === 0) {
+                const createdName = root.model.addNote(root.name);
+                if (createdName.length === 0) {
+                    return;
+                }
+                NavigationController.notePath = createdName + '.md';
+            } else if (typeSelector.selectedIndex === 1) {
+                const createdName = root.model.addFolder(root.name);
             }
-            NavigationController.notePath = createdName + '.md';
         }
 
         close();
     }
-
+    FormCard.FormRadioSelectorDelegate {
+        id: typeSelector
+        consistentWidth: true
+          actions: [
+              Kirigami.Action {
+                  text: i18nc("@option:radio", "Note")
+              },
+              Kirigami.Action {
+                  text: i18nc("@option:radio", "Folder")
+              }
+          ]
+    }
     FormCard.FormTextFieldDelegate {
         id: nameInput
 
@@ -75,7 +90,7 @@ FormCard.FormCardDialog {
             regularExpression: /^[^./\\][^/\\]*$/
         }
         status: root.duplicateName ? Kirigami.MessageType.Error : Kirigami.MessageType.Information
-        statusMessage: root.duplicateName ? KI18n.i18nc("@info", "A note with this name already exists.") : ""
+        statusMessage: root.duplicateName ? KI18n.i18nc("@info", "A note or folder with this name already exists.") : ""
         onTextChanged: root.updateSaveButton()
 
         onAccepted: root.accepted()

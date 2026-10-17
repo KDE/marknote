@@ -89,6 +89,8 @@ public:
     Q_INVOKABLE void fetchMore(const QString &path);
 
     Q_INVOKABLE QString addNote(const QString &name);
+    Q_INVOKABLE QString addFolder(const QString &name);
+
     Q_INVOKABLE void deleteNote(const QUrl &path);
     Q_INVOKABLE void renameNote(const QUrl &path, const QString &name);
     Q_INVOKABLE void duplicateNote(const QUrl &path);

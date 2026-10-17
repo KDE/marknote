@@ -632,6 +632,8 @@ Kirigami.ScrollablePage {
             readonly property bool isRelevant: normPath !== root.normRoot && normPath.startsWith(root.normRoot)
             readonly property int visualLevel: Math.max(1, (normPath.match(/\//g) || []).length - root.rootDepth)
 
+            property bool isDropTarget: false
+
             visible: isRelevant
             height: isRelevant ? implicitHeight : 0
             enabled: isRelevant
@@ -702,6 +704,43 @@ Kirigami.ScrollablePage {
 
             opacity: dragHandler.active ? 0.5 : 1
 
+            DropArea {
+                id: dropArea
+
+                anchors.fill: parent
+                anchors.margins: -Kirigami.Units.gridUnit * 1.5
+                z: 99
+                keys: ["application/x-marknote-note"]
+                enabled: delegateItem.isFolder
+
+                onEntered: (drag) => {
+                    delegateItem.isDropTarget = true;
+                    drag.accept(Qt.MoveAction);
+                }
+
+                onPositionChanged: (drag) => {
+                    drag.accept(Qt.MoveAction);
+                }
+
+                onExited: {
+                    delegateItem.isDropTarget = false;
+                }
+
+                onDropped: (drop) => {
+                    if (drop.keys.indexOf("application/x-marknote-note") !== -1) {
+                        const noteUri = drop.getDataAsString("application/x-marknote-note");
+                        print(noteUri);
+                        pageNotesModel.moveEntry(noteUri, delegateItem.fileUrl);
+                        drop.acceptProposedAction();
+                    } else if (drop.keys.indexOf("text/uri-list") !== -1) {
+                        const uriList = drop.getDataAsString("text/uri-list");
+                        const noteUri = uriList.split("\n")[0].trim();
+                        pageNotesModel.moveEntry(noteUri, delegateItem.fileUrl);
+                        drop.acceptProposedAction();
+                    }
+                    delegateItem.isDropTarget = false;
+                }
+            }
             ContextMenu.onRequested: (position) => {
                 menu.delegateItem = delegateItem;
 
@@ -730,12 +769,12 @@ Kirigami.ScrollablePage {
                     kDescendantExpanded: delegateItem.kDescendantExpanded
                 }
 
-                Kirigami.Icon {
-                    source: delegateItem.kDescendantExpandable || delegateItem.isFolder ? "folder" : "note-symbolic"
-                    implicitWidth: Kirigami.Units.iconSizes.medium
-                    implicitHeight: Kirigami.Units.iconSizes.medium
-                    Layout.alignment: Qt.AlignVCenter
-                }
+                // Kirigami.Icon {
+                //     source: delegateItem.kDescendantExpandable || delegateItem.isFolder ? "folder" : "note-symbolic"
+                //     implicitWidth: Kirigami.Units.iconSizes.medium
+                //     implicitHeight: Kirigami.Units.iconSizes.medium
+                //     Layout.alignment: Qt.AlignVCenter
+                // }
 
                 ColumnLayout {
                     Layout.fillWidth: true
@@ -758,6 +797,7 @@ Kirigami.ScrollablePage {
                         elide: Qt.ElideRight
                         visible: !renameField.enabled
                         color: textcolorItem.textcolor
+                        font.bold: delegateItem.isFolder
                     }
 
                     Kirigami.ActionTextField {
@@ -774,6 +814,7 @@ Kirigami.ScrollablePage {
                         topPadding: enabled ? Kirigami.Units.smallSpacing : 0
                         leftPadding: enabled ? Kirigami.Units.smallSpacing : 0
                         color: textcolorItem.textcolor
+
 
                         rightActions: [
                             Kirigami.Action {
@@ -808,7 +849,7 @@ Kirigami.ScrollablePage {
                     Label {
                         Layout.leftMargin: Kirigami.Units.smallSpacing
                         text: delegateItem.date ? Qt.formatDateTime(delegateItem.date, Qt.DefaultLocaleShortDate) : ""
-                        font.pointSize: Kirigami.Theme.smallFont.pointSize
+                        // font.pointSize: Kirigami.Theme.smallFont.pointSize
                         color: Kirigami.Theme.disabledTextColor
                         Layout.fillWidth: true
                         Layout.bottomMargin: Kirigami.Units.smallSpacing
@@ -860,7 +901,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            highlighted: NavigationController.absoluteNotePath === delegateItem.normPath
+            highlighted: NavigationController.absoluteNotePath === delegateItem.normPath || delegateItem.isDropTarget
             topPadding: Kirigami.Units.mediumSpacing
             bottomPadding: Kirigami.Units.mediumSpacing
         }
