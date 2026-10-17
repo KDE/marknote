@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:46+0000\n"
+"POT-Creation-Date: 2026-10-17 00:50+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1115,6 +1115,16 @@ msgstr "Guma"
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
 msgstr "Clear Canvas"
+
+#: qml/SketchDialog.qml:382
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: qml/SketchDialog.qml:391
+#, kde-format
+msgid "Save"
+msgstr ""
 
 #: qml/TableDialog.qml:21
 #, kde-format

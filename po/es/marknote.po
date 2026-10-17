@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:46+0000\n"
+"POT-Creation-Date: 2026-10-17 00:50+0000\n"
 "PO-Revision-Date: 2026-09-17 00:38+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1083,6 +1083,16 @@ msgstr "Borrador"
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
 msgstr "Borrar el lienzo"
+
+#: qml/SketchDialog.qml:382
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: qml/SketchDialog.qml:391
+#, kde-format
+msgid "Save"
+msgstr ""
 
 #: qml/TableDialog.qml:21
 #, kde-format

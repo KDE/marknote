@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:46+0000\n"
+"POT-Creation-Date: 2026-10-17 00:50+0000\n"
 "PO-Revision-Date: 2026-10-02 00:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1071,6 +1071,16 @@ msgstr "지우개"
 msgctxt "Button that clears the canvas"
 msgid "Clear Canvas"
 msgstr "캔버스 지우기"
+
+#: qml/SketchDialog.qml:382
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: qml/SketchDialog.qml:391
+#, kde-format
+msgid "Save"
+msgstr ""
 
 #: qml/TableDialog.qml:21
 #, kde-format
