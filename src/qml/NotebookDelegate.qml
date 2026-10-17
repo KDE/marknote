@@ -136,8 +136,10 @@ Delegates.RoundedItemDelegate {
                 }) as Controls.Menu;
                 menu.popup();
             }
-            opacity: Config.expandedSidebar ? 1 : 0
-            enabled: Config.expandedSidebar
+
+            opacity: Config.expandedSidebar ? Kirigami.Settings.isMobile ? 1 : root.hovered  ? 1 : 0  : 0
+            enabled: Config.expandedSidebar ? Kirigami.Settings.isMobile ? true : root.hovered  ? true : false  : false
+
             Behavior on opacity {
                 NumberAnimation {
                     duration: mainAnim.duration
@@ -149,7 +151,7 @@ Delegates.RoundedItemDelegate {
         Controls.Label {
             id: countLabel
 
-            visible: Config.expandedSidebar
+            visible: Config.expandedSidebar && !menuButton.enabled
             opacity: visible ? 1 : 0
 
             text: root.noteCount
@@ -157,8 +159,10 @@ Delegates.RoundedItemDelegate {
             color: Kirigami.Theme.textColor
 
             anchors.verticalCenter: parent.verticalCenter
-            anchors.right: menuButton.left
-            anchors.rightMargin: Kirigami.Units.smallSpacing
+            anchors.right: menuButton.enabled? menuButton.left :menuButton.right
+            anchors.rightMargin: menuButton.enabled? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
+
+
 
             Behavior on opacity {
                 NumberAnimation {

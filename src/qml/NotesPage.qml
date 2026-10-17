@@ -759,6 +759,7 @@ Kirigami.ScrollablePage {
                     Layout.topMargin: -delegateItem.topPadding
                     Layout.bottomMargin: -delegateItem.bottomPadding
 
+
                     model: notesProxyModel
                     parentDelegate: delegateItem
                     index: delegateItem.index
@@ -859,17 +860,27 @@ Kirigami.ScrollablePage {
                 }
 
                 ToolButton{
+                    id: menuButton
                     text: KI18n.i18nc("@action:button", "Show Menu")
                     icon.name: "overflow-menu"
                     down: pressed || (menu.opened && menu.delegateItem === delegateItem)
                     display: ToolButton.IconOnly
 
+                    opacity: {Kirigami.Settings.isMobile ? 1 : delegateItem.hovered || menu.opened ? 1 : 0 }
+                    Layout.maximumWidth: {Kirigami.Settings.isMobile ? implicitWidth : delegateItem.hovered || menu.opened ? implicitWidth : 0 }
+
+                    Behavior on opacity {
+                        PropertyAnimation {
+                            duration: Kirigami.Units.shortDuration
+                        }
+                    }
+
                     onPressed: openMenu()
                     Keys.onReturnPressed: openMenu()
                     Keys.onEnterPressed: openMenu()
 
-                    Layout.alignment: Qt.AlignTop
-                    Layout.margins: Kirigami.Units.smallSpacing
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.margins: 0
 
                     Accessible.role: Accessible.ButtonMenu
                     Accessible.onPressAction: openMenu()
