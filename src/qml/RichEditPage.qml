@@ -289,7 +289,7 @@ EditPage {
 
         topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
         y: topMargin
-        bottomMargin: 0
+        bottomMargin: Kirigami.Units.gridUnit
         onAboutToShow: miniTocItem.anchors.rightMargin = Kirigami.Units.gridUnit * 3
         onAboutToHide: miniTocItem.anchors.rightMargin = Kirigami.Units.gridUnit * 1.5
 

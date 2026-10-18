@@ -38,9 +38,7 @@ Kirigami.OverlayDrawer {
     // If the window is too narrow (i.e., less than 15 units of text + 15 units of drawer),
     // fill the whole parent width; otherwise, clip it to the editor.
     width: (parent && parent.width < (Kirigami.Units.gridUnit * 30)) ? parent.width : Kirigami.Units.gridUnit * 15
-    height: rec.height + 2*Kirigami.Units.gridUnit
     opacity: 0
-
     onAboutToShow: opacity = 1
     onAboutToHide: opacity = 0
 
@@ -65,12 +63,17 @@ Kirigami.OverlayDrawer {
 
 
         ScrollView {
-
+            id: tocScrollView
             Layout.fillWidth: true
             Layout.fillHeight: true
 
             Layout.rightMargin: Kirigami.Units.gridUnit * 2
             Layout.topMargin: Kirigami.Units.gridUnit
+            Layout.bottomMargin: Kirigami.Units.gridUnit * 2
+
+            rightPadding: Kirigami.Units.largeSpacing
+
+
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             background: Item{
                 Kirigami.ShadowedRectangle {
@@ -103,14 +106,15 @@ Kirigami.OverlayDrawer {
                         color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
                         width: 1
                     }
-                    width: tocListView.width + 2 * Kirigami.Units.smallSpacing
-                    height: tocListView.contentHeight + 2 * Kirigami.Units.largeSpacing
+                    width: tocScrollView.width
+                    height: Math.min(tocScrollView.height,tocScrollView.contentHeight + 2 * Kirigami.Units.largeSpacing)
                     // anchors.top: parent.top
                     anchors.horizontalCenter: tocListView.horizontalCenter
                 }
             }
             ListView {
                 id: tocListView
+
                 header: RowLayout {
                     width: parent.width
                     Kirigami.Heading {
@@ -135,15 +139,14 @@ Kirigami.OverlayDrawer {
                         ToolTip.visible: hovered
                         ToolTip.delay: Kirigami.Units.toolTipDelay
                         Layout.alignment: Qt.AlignRight
-                        Layout.rightMargin: -Kirigami.Units.smallSpacing // This is very illegal I know
+                        Layout.rightMargin: 0
                         Layout.bottomMargin: Kirigami.Units.largeSpacing
 
                     }
                 }
                 topMargin: Kirigami.Units.largeSpacing
-                bottomMargin: Kirigami.Units.smallSpacing
                 leftMargin: Kirigami.Units.smallSpacing
-                rightMargin: Kirigami.Units.smallSpacing
+                bottomMargin: Kirigami.Units.largeSpacing
 
 
                 clip: true
