@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:50+0000\n"
-"PO-Revision-Date: 2026-09-17 00:38+0100\n"
+"POT-Creation-Date: 2026-10-18 00:49+0000\n"
+"PO-Revision-Date: 2026-10-18 00:07+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,10 +36,12 @@ msgid "New Notebook"
 msgstr "Nuevo bloc de notas"
 
 #: application.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Notebook"
 msgctxt "@action:inmenu"
-msgid "New Note"
-msgstr "Nueva nota"
+msgid "New Note or Folder"
+msgstr "Nuevo bloc de notas"
 
 #: application.cpp:59
 #, kde-format
@@ -150,19 +152,35 @@ msgstr "Aplicación para tomar notas"
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
 
-#: notesmodel.cpp:198
+#: notesmodel.cpp:200
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note. A note already exists with the same name."
 msgstr "No se puede crear la nota. Ya existe otra nota con el mismo nombre."
 
-#: notesmodel.cpp:205
+#: notesmodel.cpp:207
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note: %1"
 msgstr "No se puede crear la nota: %1"
 
-#: notesmodel.cpp:234
+#: notesmodel.cpp:225
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to create note. A note already exists with the same name."
+msgctxt "@info:status"
+msgid "Unable to create folder. A folder already exists with the same name."
+msgstr "No se puede crear la nota. Ya existe otra nota con el mismo nombre."
+
+#: notesmodel.cpp:227
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to create note: %1"
+msgctxt "@info:status"
+msgid "Unable to create folder: %1"
+msgstr "No se puede crear la nota: %1"
+
+#: notesmodel.cpp:254
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
@@ -170,19 +188,19 @@ msgstr ""
 "No se puede cambiar el nombre de la nota. Ya existe otra nota con el mismo "
 "nombre."
 
-#: notesmodel.cpp:298
+#: notesmodel.cpp:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "Operación de movimiento no válida."
 
-#: notesmodel.cpp:305
+#: notesmodel.cpp:325
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "No se puede mover una carpeta dentro de sí misma."
 
-#: notesmodel.cpp:311
+#: notesmodel.cpp:331
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -535,7 +553,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Crear bloc de notas"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:821
+#: qml/Main.qml:360 qml/NotesPage.qml:865
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -721,10 +739,11 @@ msgstr ""
 "Texto alternativo opcional que se mostrará en lugar del nombre de la nota."
 
 #: qml/NoteMetadataDialog.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add note"
 msgctxt "@title:window"
-msgid "New Note"
-msgstr "Nueva nota"
+msgid "Add New"
+msgstr "Añadir nota"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -732,16 +751,35 @@ msgctxt "@title:window"
 msgid "Edit Note"
 msgstr "Editar nota"
 
-#: qml/NoteMetadataDialog.qml:73
+#: qml/NoteMetadataDialog.qml:78
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Note"
+msgctxt "@option:radio"
+msgid "Note"
+msgstr "Nueva nota"
+
+#: qml/NoteMetadataDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "%1 folder"
+#| msgid_plural "%1 folders"
+msgctxt "@option:radio"
+msgid "Folder"
+msgstr "%1 carpeta"
+
+#: qml/NoteMetadataDialog.qml:90
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Nombre:"
 
-#: qml/NoteMetadataDialog.qml:78
-#, kde-format
+#: qml/NoteMetadataDialog.qml:95
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "A note with this name already exists."
 msgctxt "@info"
-msgid "A note with this name already exists."
+msgid "A note or folder with this name already exists."
 msgstr "Ya existe una nota con este nombre."
 
 #: qml/NotesPage.qml:116
@@ -784,122 +822,122 @@ msgstr ""
 "¿Seguro que quiere borrar la nota <b>%1</b>? Esto borrará el archivo <b>%2</"
 "b> de forma definitiva."
 
-#: qml/NotesPage.qml:482 qml/NotesPage.qml:510
+#: qml/NotesPage.qml:483 qml/NotesPage.qml:511
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:483
+#: qml/NotesPage.qml:484
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "Se ha exportado «%1» correctamente."
 
-#: qml/NotesPage.qml:496
+#: qml/NotesPage.qml:497
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Abrir archivo"
 
-#: qml/NotesPage.qml:511
+#: qml/NotesPage.qml:512
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "La exportación de «%1» ha fallado."
 
-#: qml/NotesPage.qml:522
+#: qml/NotesPage.qml:523
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Cambiar nombre"
 
-#: qml/NotesPage.qml:531 qml/TextFieldContextMenu.qml:323
+#: qml/NotesPage.qml:532 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Copiar"
 
-#: qml/NotesPage.qml:546
+#: qml/NotesPage.qml:547
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Duplicar"
 
-#: qml/NotesPage.qml:554
+#: qml/NotesPage.qml:555
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Exportar"
 
-#: qml/NotesPage.qml:558
+#: qml/NotesPage.qml:559
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to HTML"
-msgstr "Exportar a HTML"
-
-#: qml/NotesPage.qml:564
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exportar a HTML"
 
 #: qml/NotesPage.qml:565
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "Exportar a HTML"
+
+#: qml/NotesPage.qml:566
+#, kde-format
 msgid "HTML file (*.html)"
 msgstr "Archivo HTML (*.html)"
 
-#: qml/NotesPage.qml:571
+#: qml/NotesPage.qml:572
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to PDF"
-msgstr "Exportar a PDF"
-
-#: qml/NotesPage.qml:577
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exportar a PDF"
 
 #: qml/NotesPage.qml:578
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "Exportar a PDF"
+
+#: qml/NotesPage.qml:579
+#, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Archivo PDF (*.pdf)"
 
-#: qml/NotesPage.qml:584
+#: qml/NotesPage.qml:585
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to ODT"
-msgstr "Exportar a ODT"
-
-#: qml/NotesPage.qml:590
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exportar a ODT"
 
 #: qml/NotesPage.qml:591
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to ODT"
+msgstr "Exportar a ODT"
+
+#: qml/NotesPage.qml:592
+#, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Documento de texto ODF (*.odt)"
 
-#: qml/NotesPage.qml:600 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:601 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Borrar"
 
-#: qml/NotesPage.qml:873
+#: qml/NotesPage.qml:926
 #, kde-format
 msgid "Add a note!"
 msgstr "Añada una nota"
 
-#: qml/NotesPage.qml:882
+#: qml/NotesPage.qml:935
 #, kde-format
 msgid "No notes matching the search"
 msgstr "Ninguna nota coincide con la búsqueda"
 
-#: qml/NotesPage.qml:898 qml/NotesPage.qml:906
+#: qml/NotesPage.qml:951 qml/NotesPage.qml:959
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
@@ -907,7 +945,7 @@ msgid_plural "%1 notes"
 msgstr[0] "%1 nota"
 msgstr[1] "%1 notas"
 
-#: qml/NotesPage.qml:902 qml/NotesPage.qml:905
+#: qml/NotesPage.qml:955 qml/NotesPage.qml:958
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -915,7 +953,7 @@ msgid_plural "%1 folders"
 msgstr[0] "%1 carpeta"
 msgstr[1] "%1 carpetas"
 
-#: qml/NotesPage.qml:908
+#: qml/NotesPage.qml:961
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
@@ -1087,12 +1125,12 @@ msgstr "Borrar el lienzo"
 #: qml/SketchDialog.qml:382
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: qml/SketchDialog.qml:391
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1251,3 +1289,7 @@ msgstr "Acerca de Marknote"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Acerca de KDE"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Note"
+#~ msgstr "Nueva nota"

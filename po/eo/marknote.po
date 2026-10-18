@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:50+0000\n"
+"POT-Creation-Date: 2026-10-18 00:49+0000\n"
 "PO-Revision-Date: 2025-02-12 22:59+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -35,10 +35,12 @@ msgid "New Notebook"
 msgstr "Nova Notlibro"
 
 #: application.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Notebook"
 msgctxt "@action:inmenu"
-msgid "New Note"
-msgstr "Nova Noto"
+msgid "New Note or Folder"
+msgstr "Nova Notlibro"
 
 #: application.cpp:59
 #, kde-format
@@ -154,7 +156,7 @@ msgstr "Notprena aplikaĵo"
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023-2024 Mathis Brüchert"
 
-#: notesmodel.cpp:198
+#: notesmodel.cpp:200
 #, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "Unable to rename note. A note already exists with the same name."
@@ -162,31 +164,45 @@ msgctxt "@info:status"
 msgid "Unable to create note. A note already exists with the same name."
 msgstr "Ne eblas alinomi noton. Noto de sama nomo jam ekzistas."
 
-#: notesmodel.cpp:205
+#: notesmodel.cpp:207
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note: %1"
 msgstr ""
 
-#: notesmodel.cpp:234
+#: notesmodel.cpp:225
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to rename note. A note already exists with the same name."
+msgctxt "@info:status"
+msgid "Unable to create folder. A folder already exists with the same name."
+msgstr "Ne eblas alinomi noton. Noto de sama nomo jam ekzistas."
+
+#: notesmodel.cpp:227
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create folder: %1"
+msgstr ""
+
+#: notesmodel.cpp:254
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Ne eblas alinomi noton. Noto de sama nomo jam ekzistas."
 
-#: notesmodel.cpp:298
+#: notesmodel.cpp:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr ""
 
-#: notesmodel.cpp:305
+#: notesmodel.cpp:325
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr ""
 
-#: notesmodel.cpp:311
+#: notesmodel.cpp:331
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -557,7 +573,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Krei Notlibron"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:821
+#: qml/Main.qml:360 qml/NotesPage.qml:865
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -751,10 +767,11 @@ msgid "Optional alternate text to display instead of the note name."
 msgstr ""
 
 #: qml/NoteMetadataDialog.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add note"
 msgctxt "@title:window"
-msgid "New Note"
-msgstr "Nova Noto"
+msgid "Add New"
+msgstr "Aldoni noton"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -762,16 +779,30 @@ msgctxt "@title:window"
 msgid "Edit Note"
 msgstr "Redakti Noton"
 
-#: qml/NoteMetadataDialog.qml:73
+#: qml/NoteMetadataDialog.qml:78
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Note"
+msgctxt "@option:radio"
+msgid "Note"
+msgstr "Nova Noto"
+
+#: qml/NoteMetadataDialog.qml:82
+#, kde-format
+msgctxt "@option:radio"
+msgid "Folder"
+msgstr ""
+
+#: qml/NoteMetadataDialog.qml:90
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Nomo:"
 
-#: qml/NoteMetadataDialog.qml:78
+#: qml/NoteMetadataDialog.qml:95
 #, kde-format
 msgctxt "@info"
-msgid "A note with this name already exists."
+msgid "A note or folder with this name already exists."
 msgstr ""
 
 #: qml/NotesPage.qml:116
@@ -815,7 +846,7 @@ msgstr ""
 "Ĉu vi certas, ke vi volas forigi la noton <b> %1 </b>? Tio definitive "
 "forigos la dosieron <b>%2</b>"
 
-#: qml/NotesPage.qml:482 qml/NotesPage.qml:510
+#: qml/NotesPage.qml:483 qml/NotesPage.qml:511
 #, fuzzy, kde-format
 #| msgctxt "Application name"
 #| msgid "Marknote"
@@ -823,13 +854,13 @@ msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:483
+#: qml/NotesPage.qml:484
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr ""
 
-#: qml/NotesPage.qml:496
+#: qml/NotesPage.qml:497
 #, fuzzy, kde-format
 #| msgctxt "@inmenu"
 #| msgid "Open Link"
@@ -837,13 +868,13 @@ msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Malfermi Ligilon"
 
-#: qml/NotesPage.qml:511
+#: qml/NotesPage.qml:512
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr ""
 
-#: qml/NotesPage.qml:522
+#: qml/NotesPage.qml:523
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Rename Note"
@@ -851,13 +882,13 @@ msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Alinomi Noton"
 
-#: qml/NotesPage.qml:531 qml/TextFieldContextMenu.qml:323
+#: qml/NotesPage.qml:532 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopii"
 
-#: qml/NotesPage.qml:546
+#: qml/NotesPage.qml:547
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Delete Note"
@@ -865,7 +896,7 @@ msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Forigi Noton"
 
-#: qml/NotesPage.qml:554
+#: qml/NotesPage.qml:555
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Import"
@@ -873,74 +904,74 @@ msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Enporti"
 
-#: qml/NotesPage.qml:558
+#: qml/NotesPage.qml:559
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to HTML"
-msgstr "Elporti al HTML"
-
-#: qml/NotesPage.qml:564
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Elporti al HTML"
 
 #: qml/NotesPage.qml:565
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "Elporti al HTML"
+
+#: qml/NotesPage.qml:566
+#, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-dosiero (*.html)"
 
-#: qml/NotesPage.qml:571
+#: qml/NotesPage.qml:572
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to PDF"
-msgstr "Elporti al PDF"
-
-#: qml/NotesPage.qml:577
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Elporti al PDF"
 
 #: qml/NotesPage.qml:578
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "Elporti al PDF"
+
+#: qml/NotesPage.qml:579
+#, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-dosiero (*.pdf)"
 
-#: qml/NotesPage.qml:584
+#: qml/NotesPage.qml:585
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to ODT"
-msgstr "Elporti al ODT"
-
-#: qml/NotesPage.qml:590
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Elporti al ODT"
 
 #: qml/NotesPage.qml:591
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to ODT"
+msgstr "Elporti al ODT"
+
+#: qml/NotesPage.qml:592
+#, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-Tekstdokumento (*.odt)"
 
-#: qml/NotesPage.qml:600 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:601 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Forigi"
 
-#: qml/NotesPage.qml:873
+#: qml/NotesPage.qml:926
 #, kde-format
 msgid "Add a note!"
 msgstr "Aldonu noton!"
 
-#: qml/NotesPage.qml:882
+#: qml/NotesPage.qml:935
 #, kde-format
 msgid "No notes matching the search"
 msgstr ""
 
-#: qml/NotesPage.qml:898 qml/NotesPage.qml:906
+#: qml/NotesPage.qml:951 qml/NotesPage.qml:959
 #, fuzzy, kde-format
 #| msgid "Add note"
 msgctxt "@info:status"
@@ -949,7 +980,7 @@ msgid_plural "%1 notes"
 msgstr[0] "Aldoni noton"
 msgstr[1] "Aldoni noton"
 
-#: qml/NotesPage.qml:902 qml/NotesPage.qml:905
+#: qml/NotesPage.qml:955 qml/NotesPage.qml:958
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -957,7 +988,7 @@ msgid_plural "%1 folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/NotesPage.qml:908
+#: qml/NotesPage.qml:961
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
@@ -1311,6 +1342,10 @@ msgstr "Pri Marknote"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Pri KDE"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Note"
+#~ msgstr "Nova Noto"
 
 #~ msgctxt "@action:button"
 #~ msgid "Underline"

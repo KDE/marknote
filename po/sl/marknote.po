@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:50+0000\n"
-"PO-Revision-Date: 2026-09-16 09:11+0200\n"
+"POT-Creation-Date: 2026-10-18 00:49+0000\n"
+"PO-Revision-Date: 2026-10-17 21:04+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -39,10 +39,12 @@ msgid "New Notebook"
 msgstr "Nova beležnica"
 
 #: application.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Notebook"
 msgctxt "@action:inmenu"
-msgid "New Note"
-msgstr "Nova zabeležka"
+msgid "New Note or Folder"
+msgstr "Nova beležnica"
 
 #: application.cpp:59
 #, kde-format
@@ -153,37 +155,53 @@ msgstr "Program za pisanje zabeležk"
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
 
-#: notesmodel.cpp:198
+#: notesmodel.cpp:200
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note. A note already exists with the same name."
 msgstr "Ni mogoče ustvariti zabeležke. Zabeležka z istim imenom že obstaja."
 
-#: notesmodel.cpp:205
+#: notesmodel.cpp:207
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note: %1"
 msgstr "Ni mogoče ustvariti zabeležke: %1"
 
-#: notesmodel.cpp:234
+#: notesmodel.cpp:225
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to create note. A note already exists with the same name."
+msgctxt "@info:status"
+msgid "Unable to create folder. A folder already exists with the same name."
+msgstr "Ni mogoče ustvariti zabeležke. Zabeležka z istim imenom že obstaja."
+
+#: notesmodel.cpp:227
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to create note: %1"
+msgctxt "@info:status"
+msgid "Unable to create folder: %1"
+msgstr "Ni mogoče ustvariti zabeležke: %1"
+
+#: notesmodel.cpp:254
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Zabeležke ni mogoče preimenovati. Zabeležka z istim imenom že obstaja."
 
-#: notesmodel.cpp:298
+#: notesmodel.cpp:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "Neveljavna operacija premikanja."
 
-#: notesmodel.cpp:305
+#: notesmodel.cpp:325
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "Mape ni mogoče premakniti same vase."
 
-#: notesmodel.cpp:311
+#: notesmodel.cpp:331
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -538,7 +556,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Ustvari beležnico"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:821
+#: qml/Main.qml:360 qml/NotesPage.qml:865
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -723,10 +741,11 @@ msgid "Optional alternate text to display instead of the note name."
 msgstr "Izbirno nadomestno besedilo, ki se prikaže namesto imena zabeležke."
 
 #: qml/NoteMetadataDialog.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add note"
 msgctxt "@title:window"
-msgid "New Note"
-msgstr "Nova zabeležka"
+msgid "Add New"
+msgstr "Dodaj zabeležko"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -734,16 +753,35 @@ msgctxt "@title:window"
 msgid "Edit Note"
 msgstr "Uredi zabeležko"
 
-#: qml/NoteMetadataDialog.qml:73
+#: qml/NoteMetadataDialog.qml:78
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Note"
+msgctxt "@option:radio"
+msgid "Note"
+msgstr "Nova zabeležka"
+
+#: qml/NoteMetadataDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "%1 folder"
+#| msgid_plural "%1 folders"
+msgctxt "@option:radio"
+msgid "Folder"
+msgstr "%1 map"
+
+#: qml/NoteMetadataDialog.qml:90
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Ime:"
 
-#: qml/NoteMetadataDialog.qml:78
-#, kde-format
+#: qml/NoteMetadataDialog.qml:95
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "A note with this name already exists."
 msgctxt "@info"
-msgid "A note with this name already exists."
+msgid "A note or folder with this name already exists."
 msgstr "Zabeležka s tem imenom že obstaja."
 
 #: qml/NotesPage.qml:116
@@ -786,122 +824,122 @@ msgstr ""
 "Ali ste prepričani, da želite izbrisati zabeležko <b>»%1«</b>? S tem boste "
 "dokončno izbrisali datoteko <b>%2</b>."
 
-#: qml/NotesPage.qml:482 qml/NotesPage.qml:510
+#: qml/NotesPage.qml:483 qml/NotesPage.qml:511
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:483
+#: qml/NotesPage.qml:484
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "Izvoz \"%1\" je bil uspešen."
 
-#: qml/NotesPage.qml:496
+#: qml/NotesPage.qml:497
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: qml/NotesPage.qml:511
+#: qml/NotesPage.qml:512
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "Izvoz \"%1\" ni uspel."
 
-#: qml/NotesPage.qml:522
+#: qml/NotesPage.qml:523
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Preimenuj"
 
-#: qml/NotesPage.qml:531 qml/TextFieldContextMenu.qml:323
+#: qml/NotesPage.qml:532 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: qml/NotesPage.qml:546
+#: qml/NotesPage.qml:547
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Podvoji"
 
-#: qml/NotesPage.qml:554
+#: qml/NotesPage.qml:555
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Izvozi"
 
-#: qml/NotesPage.qml:558
+#: qml/NotesPage.qml:559
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to HTML"
-msgstr "Izvozi v HTML"
-
-#: qml/NotesPage.qml:564
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Izvozi v HTML"
 
 #: qml/NotesPage.qml:565
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "Izvozi v HTML"
+
+#: qml/NotesPage.qml:566
+#, kde-format
 msgid "HTML file (*.html)"
 msgstr "Datoteka HTML (*.html)"
 
-#: qml/NotesPage.qml:571
+#: qml/NotesPage.qml:572
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to PDF"
-msgstr "Izvozi v PDF"
-
-#: qml/NotesPage.qml:577
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Izvozi v PDF"
 
 #: qml/NotesPage.qml:578
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "Izvozi v PDF"
+
+#: qml/NotesPage.qml:579
+#, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Datoteka PDF (*.pdf)"
 
-#: qml/NotesPage.qml:584
+#: qml/NotesPage.qml:585
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to ODT"
-msgstr "Izvozi v ODT"
-
-#: qml/NotesPage.qml:590
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Izvozi v ODT"
 
 #: qml/NotesPage.qml:591
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to ODT"
+msgstr "Izvozi v ODT"
+
+#: qml/NotesPage.qml:592
+#, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Besedilni dokument ODT (*.odt)"
 
-#: qml/NotesPage.qml:600 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:601 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: qml/NotesPage.qml:873
+#: qml/NotesPage.qml:926
 #, kde-format
 msgid "Add a note!"
 msgstr "Dodaj zabeležko!"
 
-#: qml/NotesPage.qml:882
+#: qml/NotesPage.qml:935
 #, kde-format
 msgid "No notes matching the search"
 msgstr "Ni zabeležk, ki bi ustrezale iskanju"
 
-#: qml/NotesPage.qml:898 qml/NotesPage.qml:906
+#: qml/NotesPage.qml:951 qml/NotesPage.qml:959
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
@@ -911,7 +949,7 @@ msgstr[1] "%1 zabeležka"
 msgstr[2] "%1 zabeležki"
 msgstr[3] "%1 zabeležke"
 
-#: qml/NotesPage.qml:902 qml/NotesPage.qml:905
+#: qml/NotesPage.qml:955 qml/NotesPage.qml:958
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -921,7 +959,7 @@ msgstr[1] "%1 mapa"
 msgstr[2] "%1 mapi"
 msgstr[3] "%1 mape"
 
-#: qml/NotesPage.qml:908
+#: qml/NotesPage.qml:961
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
@@ -1093,12 +1131,12 @@ msgstr "Počisti platno"
 #: qml/SketchDialog.qml:382
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Prekliči"
 
 #: qml/SketchDialog.qml:391
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Shrani"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1257,6 +1295,10 @@ msgstr "O Marknote"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "O KDE"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Note"
+#~ msgstr "Nova zabeležka"
 
 #~ msgctxt "@action:button"
 #~ msgid "Underline"

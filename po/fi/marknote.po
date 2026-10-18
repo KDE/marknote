@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:50+0000\n"
+"POT-Creation-Date: 2026-10-18 00:49+0000\n"
 "PO-Revision-Date: 2026-08-30 23:04+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -34,10 +34,12 @@ msgid "New Notebook"
 msgstr "Uusi muistikirja"
 
 #: application.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Notebook"
 msgctxt "@action:inmenu"
-msgid "New Note"
-msgstr "Uusi muistiinpano"
+msgid "New Note or Folder"
+msgstr "Uusi muistikirja"
 
 #: application.cpp:59
 #, kde-format
@@ -148,7 +150,7 @@ msgstr "Muistiinpanosovellus"
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
 
-#: notesmodel.cpp:198
+#: notesmodel.cpp:200
 #, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "Unable to rename note. A note already exists with the same name."
@@ -158,13 +160,29 @@ msgstr ""
 "Muistiinpanon nimeä ei voida muuttaa. Samanniminen muistiinpano on jo "
 "olemassa."
 
-#: notesmodel.cpp:205
+#: notesmodel.cpp:207
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to create note: %1"
 msgstr ""
 
-#: notesmodel.cpp:234
+#: notesmodel.cpp:225
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to rename note. A note already exists with the same name."
+msgctxt "@info:status"
+msgid "Unable to create folder. A folder already exists with the same name."
+msgstr ""
+"Muistiinpanon nimeä ei voida muuttaa. Samanniminen muistiinpano on jo "
+"olemassa."
+
+#: notesmodel.cpp:227
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to create folder: %1"
+msgstr ""
+
+#: notesmodel.cpp:254
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
@@ -172,19 +190,19 @@ msgstr ""
 "Muistiinpanon nimeä ei voida muuttaa. Samanniminen muistiinpano on jo "
 "olemassa."
 
-#: notesmodel.cpp:298
+#: notesmodel.cpp:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "Virheellinen siirtotoimenpide."
 
-#: notesmodel.cpp:305
+#: notesmodel.cpp:325
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "Kansiota ei voi siirtää itseensä."
 
-#: notesmodel.cpp:311
+#: notesmodel.cpp:331
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -558,7 +576,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Luo muistikirja"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:821
+#: qml/Main.qml:360 qml/NotesPage.qml:865
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -744,10 +762,11 @@ msgstr ""
 "Valinnainen vaihtoehtoinen teksti näytettäväksi muistiinpanon nimen sijaan."
 
 #: qml/NoteMetadataDialog.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add note"
 msgctxt "@title:window"
-msgid "New Note"
-msgstr "Uusi muistiinpano"
+msgid "Add New"
+msgstr "Lisää muistiinpano"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -755,16 +774,33 @@ msgctxt "@title:window"
 msgid "Edit Note"
 msgstr "Muokkaa muistiinpanoa"
 
-#: qml/NoteMetadataDialog.qml:73
+#: qml/NoteMetadataDialog.qml:78
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Note"
+msgctxt "@option:radio"
+msgid "Note"
+msgstr "Uusi muistiinpano"
+
+#: qml/NoteMetadataDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "%1 folder"
+#| msgid_plural "%1 folders"
+msgctxt "@option:radio"
+msgid "Folder"
+msgstr "%1 kansio"
+
+#: qml/NoteMetadataDialog.qml:90
 #, kde-format
 msgctxt "@label:textbox Note name"
 msgid "Name:"
 msgstr "Nimi:"
 
-#: qml/NoteMetadataDialog.qml:78
+#: qml/NoteMetadataDialog.qml:95
 #, kde-format
 msgctxt "@info"
-msgid "A note with this name already exists."
+msgid "A note or folder with this name already exists."
 msgstr ""
 
 #: qml/NotesPage.qml:116
@@ -807,122 +843,122 @@ msgstr ""
 "Haluatko varmasti poistaa muistiinpanon <b>%1</b>? Tämä poistaa tiedoston <b>"
 "%2</b> pysyvästi."
 
-#: qml/NotesPage.qml:482 qml/NotesPage.qml:510
+#: qml/NotesPage.qml:483 qml/NotesPage.qml:511
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:483
+#: qml/NotesPage.qml:484
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "”%1”: vienti onnistui."
 
-#: qml/NotesPage.qml:496
+#: qml/NotesPage.qml:497
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Avaa tiedosto"
 
-#: qml/NotesPage.qml:511
+#: qml/NotesPage.qml:512
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "”%1”: vienti epäonnistui."
 
-#: qml/NotesPage.qml:522
+#: qml/NotesPage.qml:523
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Muuta nimeä"
 
-#: qml/NotesPage.qml:531 qml/TextFieldContextMenu.qml:323
+#: qml/NotesPage.qml:532 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopioi"
 
-#: qml/NotesPage.qml:546
+#: qml/NotesPage.qml:547
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Monista"
 
-#: qml/NotesPage.qml:554
+#: qml/NotesPage.qml:555
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Vie"
 
-#: qml/NotesPage.qml:558
+#: qml/NotesPage.qml:559
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to HTML"
-msgstr "Vie HTML:ksi"
-
-#: qml/NotesPage.qml:564
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Vie HTML:ksi"
 
 #: qml/NotesPage.qml:565
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to HTML"
+msgstr "Vie HTML:ksi"
+
+#: qml/NotesPage.qml:566
+#, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-tiedosto (*.html)"
 
-#: qml/NotesPage.qml:571
+#: qml/NotesPage.qml:572
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to PDF"
-msgstr "Vie PDF:ksi"
-
-#: qml/NotesPage.qml:577
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Vie PDF:ksi"
 
 #: qml/NotesPage.qml:578
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to PDF"
+msgstr "Vie PDF:ksi"
+
+#: qml/NotesPage.qml:579
+#, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-tiedosto (*.pdf)"
 
-#: qml/NotesPage.qml:584
+#: qml/NotesPage.qml:585
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Export to ODT"
-msgstr "Vie ODT:ksi"
-
-#: qml/NotesPage.qml:590
-#, kde-format
-msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Vie ODT:ksi"
 
 #: qml/NotesPage.qml:591
 #, kde-format
+msgctxt "@title:window"
+msgid "Export to ODT"
+msgstr "Vie ODT:ksi"
+
+#: qml/NotesPage.qml:592
+#, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF-tekstitiedosto (*.odt)"
 
-#: qml/NotesPage.qml:600 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:601 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Poista muistiinpano"
 
-#: qml/NotesPage.qml:873
+#: qml/NotesPage.qml:926
 #, kde-format
 msgid "Add a note!"
 msgstr "Lisää muistiinpano!"
 
-#: qml/NotesPage.qml:882
+#: qml/NotesPage.qml:935
 #, kde-format
 msgid "No notes matching the search"
 msgstr "Ei hakua vastaavia muistiinpanoja"
 
-#: qml/NotesPage.qml:898 qml/NotesPage.qml:906
+#: qml/NotesPage.qml:951 qml/NotesPage.qml:959
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
@@ -930,7 +966,7 @@ msgid_plural "%1 notes"
 msgstr[0] "%1 muistiinpano"
 msgstr[1] "%1 muistiinpanoa"
 
-#: qml/NotesPage.qml:902 qml/NotesPage.qml:905
+#: qml/NotesPage.qml:955 qml/NotesPage.qml:958
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -938,7 +974,7 @@ msgid_plural "%1 folders"
 msgstr[0] "%1 kansio"
 msgstr[1] "%1 kansiota"
 
-#: qml/NotesPage.qml:908
+#: qml/NotesPage.qml:961
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
@@ -1287,6 +1323,10 @@ msgstr "Tietoa Marknotesta"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Tietoa KDE:stä"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Note"
+#~ msgstr "Uusi muistiinpano"
 
 #~ msgctxt "@action:button"
 #~ msgid "Underline"
