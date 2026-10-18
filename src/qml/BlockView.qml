@@ -306,7 +306,7 @@ Item {
             Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
 
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 50
+            Layout.maximumWidth: Config.fullWidth ? Infinity : Kirigami.Units.gridUnit * Config.textWidth
 
 
             Layout.alignment: if (root.tocPinned) {

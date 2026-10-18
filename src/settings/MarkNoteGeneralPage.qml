@@ -41,6 +41,24 @@ FormCard.FormCardPage {
             visible: Qt.platform.os === 'linux'
         }
 
+        FormCard.FormFolderDelegate {
+            id: notesFolderDelegate
+            label: i18nc("@label:textbox", "Notes Directory:")
+            enabled: !Config.isStorageImmutable
+
+            currentFolder: Config.storage || StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+
+            onAccepted: {
+                Config.storage = selectedFolder.toString().replace("file://", "");
+                console.log(Config.storage);
+                Config.save();
+            }
+        }
+
+        FormCard.FormDelegateSeparator {
+            visible: Qt.platform.os === 'linux'
+        }
+
         FormCard.FormSwitchDelegate {
             id: translucentSwitch
             text: i18n("Use transparent editor page")
@@ -67,23 +85,24 @@ FormCard.FormCardPage {
 
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.smallSpacing
+                RowLayout {
+                    QQC2.Label {
+                        text: i18nc("@label:slider", "Background opacity")
+                        Layout.fillWidth: true
+                    }
 
-                QQC2.Label {
-                    text: i18nc("@label:slider", "Background opacity")
-                    Layout.fillWidth: true
+                    QQC2.Label {
+                        text: i18nc("@label:slider Current opacity percentage. %1 is the numeric percentage value", "%1%", Math.round(opacitySlider.value))
+                        Layout.fillWidth: true
+                        opacity: 0.75
+                        horizontalAlignment: Text.AlignRight
+
+                    }
                 }
-
-                QQC2.Label {
-                    text: i18nc("@label:slider Current opacity percentage. %1 is the numeric percentage value", "%1%", Math.round(opacitySlider.value))
-                    Layout.fillWidth: true
-                    opacity: 0.75
-                }
-
                 QQC2.Slider {
                     id: opacitySlider
                     from: 5
                     to: 100
-                    stepSize: 5
                     Layout.fillWidth: true
 
                     // Map the backend 0.75-0.95 range to a UI value of 1%-100%
@@ -103,40 +122,23 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormCard {
-        FormCard.FormFolderDelegate {
-            id: notesFolderDelegate
-            label: i18nc("@label:textbox", "Notes Directory:")
-            enabled: !Config.isStorageImmutable
 
-            currentFolder: Config.storage || StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+        FormCard.FormComboBoxDelegate {
+            id: fontFamilyComboBox
+            text: i18nc("@label:spinbox", "Font family:")
+            enabled: !Config.isEditorFontImmutable
 
-            onAccepted: {
-                Config.storage = selectedFolder.toString().replace("file://", "");
-                console.log(Config.storage);
+            model: appFontList
+
+            Component.onCompleted: currentIndex = indexOfValue(Config.editorFont.family)
+
+            onActivated: (index) => {
+                if (index < 0) return;
+
+                var tempFont = Config.editorFont;
+                tempFont.family = currentValue;
+                Config.editorFont = tempFont;
                 Config.save();
-            }
-        }
-
-        FormCard.FormDelegateSeparator {}
-
-        FormCard.FormCard {
-            FormCard.FormComboBoxDelegate {
-                id: fontFamilyComboBox
-                text: i18nc("@label:spinbox", "Font family:")
-                enabled: !Config.isEditorFontImmutable
-
-                model: appFontList
-
-                Component.onCompleted: currentIndex = indexOfValue(Config.editorFont.family)
-
-                onActivated: (index) => {
-                    if (index < 0) return;
-
-                    var tempFont = Config.editorFont;
-                    tempFont.family = currentValue;
-                    Config.editorFont = tempFont;
-                    Config.save();
-                }
             }
         }
 
@@ -161,5 +163,61 @@ FormCard.FormCardPage {
                 }
             }
         }
+
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormSwitchDelegate {
+            id: fullWidthSwitch
+            text: i18n("Use full editor width for the content")
+            checked: Config.fullWidth
+
+            onCheckedChanged: {
+                if (Config.fullWidth !== checked) {
+                    Config.fullWidth = checked;
+                    Config.save();
+                }
+            }
+        }
+
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.AbstractFormDelegate {
+            id: widthDelegate
+            background: Item {}
+            enabled: !Config.fullWidth
+
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                RowLayout {
+                    QQC2.Label {
+                        text: i18nc("@label:slider", "Text Width")
+                        Layout.fillWidth: true
+                    }
+
+                    QQC2.Label {
+                        text: i18nc("@label:slider Current opacity percentage. %1 is the numeric percentage value", "%1 gU", Math.round(widthSlider.value))
+                        Layout.fillWidth: true
+                        opacity: 0.75
+                        horizontalAlignment: Text.AlignRight
+
+                    }
+                }
+                QQC2.Slider {
+                    id: widthSlider
+                    from: 10
+                    to: 100
+                    Layout.fillWidth: true
+
+                    // Map the backend 0.75-0.95 range to a UI value of 1%-100%
+                    value: Config.textWidth
+
+                    onMoved: {
+                        Config.textWidth = value;
+                        Config.save();
+                    }
+                }
+            }
+        }
+
     }
 }

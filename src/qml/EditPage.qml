@@ -75,9 +75,12 @@ Kirigami.Page {
     function toggleToc(): void {
         if (root.tocDrawer) {
             if (root.tocDrawer.opened) {
+                root.tocDrawer.pinned = false
                 root.tocDrawer.close();
             } else {
+                root.tocDrawer.pinned = true
                 root.tocDrawer.open();
+
             }
         }
     }
@@ -290,26 +293,31 @@ Kirigami.Page {
             ToolTip.visible: hovered
             ToolTip.delay: Kirigami.Units.toolTipDelay
         }
-
-        ToolButton {
-            icon.name: "view-list-details"
-            text: KI18n.i18nc("@action:button", "Table of Contents")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: root.isTocOpened
-            visible: root.supportsToc
-            onClicked: root.toggleToc()
-
-            Shortcut {
-                sequence: "Ctrl+T"
-                enabled: root.supportsToc
-                onActivated: root.toggleToc()
-            }
-
-            ToolTip.text: KI18n.i18nc("@info:tooltip", text)
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
+        Shortcut {
+            sequence: "Ctrl+T"
+            enabled: root.supportsToc
+            onActivated: root.toggleToc()
         }
+
+        // ToolButton {
+        //     icon.name: "view-list-details"
+        //     text: KI18n.i18nc("@action:button", "Table of Contents")
+        //     display: AbstractButton.IconOnly
+        //     checkable: true
+        //     checked: root.isTocOpened
+        //     visible: root.supportsToc
+        //     onClicked: root.toggleToc()
+
+        //     Shortcut {
+        //         sequence: "Ctrl+T"
+        //         enabled: root.supportsToc
+        //         onActivated: root.toggleToc()
+        //     }
+
+        //     ToolTip.text: KI18n.i18nc("@info:tooltip", text)
+        //     ToolTip.visible: hovered
+        //     ToolTip.delay: Kirigami.Units.toolTipDelay
+        // }
 
         ToolButton {
             id: fillWindowButton
