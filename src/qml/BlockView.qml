@@ -18,6 +18,10 @@ Item {
 
     property var globalBlockContextMenu: contextMenuObj
 
+    required property bool tocPinned
+
+
+
     BlockContextMenu {
         id: contextMenuObj
     }
@@ -287,17 +291,43 @@ Item {
             synchronousDrag: true
 
             Layout.leftMargin: Kirigami.Units.largeSpacing * 3
-            Layout.rightMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: {
+                    if (root.tocPinned) {
+                        if ((parent.width - Layout.maximumWidth - Kirigami.Units.largeSpacing * 4) * 0.5 > Kirigami.Units.gridUnit * 14.5) {
+                            return Kirigami.Units.largeSpacing
+                        } else {
+                            return Kirigami.Units.gridUnit * 14.5
+                        }
+                    } else {
+                        return Kirigami.Units.largeSpacing
+                    }
+                }
+
             Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
 
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 50
+
+
+            Layout.alignment: if (root.tocPinned) {
+                                  if ((parent.width - Layout.maximumWidth - Kirigami.Units.largeSpacing * 3 - Kirigami.Units.largeSpacing) * 0.5 > Kirigami.Units.gridUnit * 14.5 ) {
+                                      Qt.AlignCenter
+                                  } else {
+                                      Qt.AlignRight
+                                  }
+                             } else {
+                                  Qt.AlignCenter
+                             }
+
             bottomMargin: parent.height / 2.0
+
         }
 
         ScrollBar {
             id: verticalScrollBar
             policy: ScrollBar.AlwaysOn
             Layout.fillHeight: true
+            Layout.alignment: Qt.AlignRight
         }
     }
 
