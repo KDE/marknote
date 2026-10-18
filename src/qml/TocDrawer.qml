@@ -16,21 +16,42 @@ import org.kde.ki18n
 
 Kirigami.OverlayDrawer {
     id: root
-
+    HoverHandler {
+        id: tocArea
+        enabled: true
+        onHoveredChanged: {
+            if (!hovered && !pinned) {
+                root.close()
+            }
+        }
+    }
     required property var treeModel
     required property var blockView
+    property bool pinned: false
 
     drawerOpen: false
     modal: false
     handleVisible: false
     edge: Qt.RightEdge
 
-    rightPadding: 0
 
     // If the window is too narrow (i.e., less than 15 units of text + 15 units of drawer),
     // fill the whole parent width; otherwise, clip it to the editor.
     width: (parent && parent.width < (Kirigami.Units.gridUnit * 30)) ? parent.width : Kirigami.Units.gridUnit * 15
+    height: rec.height + 2*Kirigami.Units.gridUnit
+    opacity: 0
 
+    onAboutToShow: opacity = 1
+    onAboutToHide: opacity = 0
+
+    Behavior on opacity {
+        NumberAnimation {
+            duration: Kirigami.Units.longDuration * 2
+            easing.type: Easing.InOutQuad
+        }
+    }
+
+    background: Item{}
     onDrawerOpenChanged: {
         if (drawerOpen) {
             tocListView.forceActiveFocus()
@@ -38,46 +59,92 @@ Kirigami.OverlayDrawer {
     }
 
     contentItem: ColumnLayout {
+        id: contentItem
         spacing: Kirigami.Units.smallSpacing
 
-        RowLayout {
-            Layout.fillWidth: true
-            Layout.leftMargin: Kirigami.Units.largeSpacing
-            Layout.rightMargin: Kirigami.Units.smallSpacing
-            Layout.topMargin: Kirigami.Units.smallSpacing
 
-            Kirigami.Heading {
-                text: KI18n.i18nc("@title:window", "Table of Contents")
-                Layout.fillWidth: true
-                elide: Text.ElideRight
-                type: Kirigami.Heading.Type.Primary
-            }
-
-            ToolButton {
-                icon.name: "dialog-close"
-                text: KI18n.i18nc("@action:button", "Close")
-                display: AbstractButton.IconOnly
-                onClicked: root.close()
-
-                ToolTip.text: text
-                ToolTip.visible: hovered
-                ToolTip.delay: Kirigami.Units.toolTipDelay
-            }
-        }
 
         ScrollView {
+
             Layout.fillWidth: true
             Layout.fillHeight: true
 
+            Layout.rightMargin: Kirigami.Units.gridUnit * 2
+            Layout.topMargin: Kirigami.Units.gridUnit
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+            background: Item{
+                Kirigami.ShadowedRectangle {
+                    id: rec
 
+                    Kirigami.Theme.colorSet: Kirigami.Theme.View
+                    Kirigami.Theme.inherit: false
+                    color: Kirigami.Theme.backgroundColor
+                    radius: Kirigami.Units.cornerRadius *2
+                    shadow {
+                        size: root.pinned ? 0 : 15
+                        yOffset: root.pinned ? 0 : 3
+                        color: Qt.rgba(0, 0, 0, 0.2)
+
+                        Behavior on size {
+                            NumberAnimation {
+                                duration: Kirigami.Units.longDuration
+                                easing.type: Easing.InOutQuad
+                            }
+                        }
+                        Behavior on yOffset {
+                            NumberAnimation {
+                                duration: Kirigami.Units.longDuration
+                                easing.type: Easing.InOutQuad
+                            }
+                        }
+                    }
+
+                    border {
+                        color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
+                        width: 1
+                    }
+                    width: tocListView.width + 2 * Kirigami.Units.smallSpacing
+                    height: tocListView.contentHeight + 2 * Kirigami.Units.largeSpacing
+                    // anchors.top: parent.top
+                    anchors.horizontalCenter: tocListView.horizontalCenter
+                }
+            }
             ListView {
                 id: tocListView
+                header: RowLayout {
+                    width: parent.width
+                    Kirigami.Heading {
+                        text: KI18n.i18nc("@title:window", "Table of Contents")
+                        Layout.fillWidth: true
+                        elide: Text.ElideRight
+                        type: Kirigami.Heading.Type.Primary
+                        Layout.leftMargin: Kirigami.Units.largeSpacing
+                        Layout.bottomMargin: Kirigami.Units.largeSpacing
 
-                topMargin: Kirigami.Units.smallSpacing
+                    }
+
+                    ToolButton {
+                        icon.name: "pin"
+                        text: KI18n.i18nc("@action:button", "pin")
+                        display: AbstractButton.IconOnly
+                        checkable: true
+
+                        onClicked: root.pinned = !root.pinned
+                        checked: root.pinned
+                        ToolTip.text: text
+                        ToolTip.visible: hovered
+                        ToolTip.delay: Kirigami.Units.toolTipDelay
+                        Layout.alignment: Qt.AlignRight
+                        Layout.rightMargin: -Kirigami.Units.smallSpacing // This is very illegal I know
+                        Layout.bottomMargin: Kirigami.Units.largeSpacing
+
+                    }
+                }
+                topMargin: Kirigami.Units.largeSpacing
                 bottomMargin: Kirigami.Units.smallSpacing
                 leftMargin: Kirigami.Units.smallSpacing
-                rightMargin: Kirigami.Units.largeSpacing
+                rightMargin: Kirigami.Units.smallSpacing
+
 
                 clip: true
                 focus: true
@@ -109,8 +176,8 @@ Kirigami.OverlayDrawer {
                     required property int blockIndex
 
                     text: title
-                    leftPadding: ((level - 1) * Kirigami.Units.largeSpacing) + Kirigami.Units.largeSpacing
-                    rightPadding: Kirigami.Units.smallSpacing
+                    leftPadding: ((level - 1) * 1.5 * Kirigami.Units.largeSpacing) + Kirigami.Units.largeSpacing
+                    rightPadding: Kirigami.Units.largeSpacing
 
                     topPadding: Kirigami.Units.smallSpacing
                     bottomPadding: Kirigami.Units.smallSpacing

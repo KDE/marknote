@@ -35,6 +35,7 @@ EditPage {
         id: blockView
         anchors.fill: parent
         richDocumentHandler: richdochandler
+        tocPinned: tocDrawer.pinned
     }
 
     document: RichDocumentHandler {
@@ -79,7 +80,9 @@ EditPage {
             root.openNoteByName(noteName);
         }
     }
-
+    // Component.onCompleted: {
+    //     applicationWindow().contextDrawer = tocDrawer
+    // }
     Component.onDestruction: {
         if (root.activeTextArea && typeof root.activeTextArea.flushTimer === "function") {
             root.activeTextArea.flushTimer();
@@ -277,6 +280,7 @@ EditPage {
         }
     }
 
+
     TocDrawer {
         id: tocDrawer
 
@@ -286,8 +290,97 @@ EditPage {
         topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
         y: topMargin
         bottomMargin: 0
+        onAboutToShow: miniTocItem.anchors.rightMargin = Kirigami.Units.gridUnit * 3
+        onAboutToHide: miniTocItem.anchors.rightMargin = Kirigami.Units.gridUnit * 1.5
 
-        height: parent ? parent.height - topMargin : 0
+    }
+
+    Item {
+        id: miniTocItem
+        parent: root.overlay
+
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.rightMargin: Kirigami.Units.gridUnit * 1.5
+        anchors.topMargin: Kirigami.Units.gridUnit * 3
+
+
+
+        height: miniTocListView.contentHeight
+        width: Kirigami.Units.gridUnit *3
+
+        Behavior on anchors.rightMargin {
+            NumberAnimation {
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.InOutQuad
+            }
+        }
+
+        HoverHandler {
+            enabled: true
+            onHoveredChanged: {
+                if (hovered) {
+                    tocDrawer.open()
+                }
+            }
+        }
+
+        ListView {
+            id: miniTocListView
+            interactive: false
+            anchors.fill: parent
+            model: TocModel {
+                id: tocModel
+                treeModel: root.document.treeModel
+            }
+
+
+            onCountChanged: {
+                if (count > 0 && root.blockView) {
+                    let activeIndex = tocModel.headingIndexAtBlock(root.blockView.currentIndex)
+                    currentIndex = activeIndex !== -1 ? activeIndex : 0
+                }
+            }
+
+            onCurrentIndexChanged: {
+                positionViewAtIndex(currentIndex, ListView.Contain)
+            }
+
+            delegate: Item{
+                id: miniTocDelegate
+                required property string title
+                required property int level
+                required property int index
+                required property int blockIndex
+                width: Kirigami.Units.gridUnit *3
+                height: Kirigami.Units.mediumSpacing * 2
+
+
+                Rectangle {
+                    id: tocDelegate
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    color: index === tocModel.headingIndexAtBlock(tocDrawer.blockView.currentIndex) ? Kirigami.Theme.textColor : Kirigami.Theme.disabledTextColor
+                    width:  Kirigami.Units.gridUnit *1.5 - ((miniTocDelegate.level - 1) *  Kirigami.Units.smallSpacing)
+                    height: Kirigami.Units.smallSpacing / 2
+
+                    radius: 50
+                // highlighted: ListView.isCurrentItem
+                }
+            }
+
+
+            Connections {
+                target: tocDrawer.blockView
+                function onCurrentIndexChanged() {
+                    if (!tocDrawer.blockView) return;
+                    let activeIndex = tocModel.headingIndexAtBlock(tocDrawer.blockView.currentIndex);
+                    if (activeIndex !== -1 && activeIndex !== miniTocListView.currentIndex) {
+                        miniTocListView.currentIndex = activeIndex
+                    }
+                }
+            }
+        }
     }
 
     EmojierPopup {
