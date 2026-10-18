@@ -23,6 +23,7 @@
 #include "splitblock.h"
 #include "splitcode.h"
 #include "splitlistitem.h"
+#include "togglecheckboxcommand.h"
 #include "transformtoblockquote.h"
 #include "transformtochecklist.h"
 #include "transformtolist.h"
@@ -216,6 +217,14 @@ void CommandManager::transformToList(TreeItem *block, bool isOrdered, int startN
 void CommandManager::transformToChecklist(TreeItem *block, bool isChecked, const QString &text)
 {
     pushCommand(new TransformToChecklistCommand(block, isChecked, text, m_model));
+}
+
+void CommandManager::toggleCheckbox(TreeItem *block)
+{
+    if (!block || !m_model) {
+        return;
+    }
+    pushCommand(new ToggleCheckboxCommand(block, m_model));
 }
 
 void CommandManager::splitListItem(TreeItem *block, const QString &text, int splitIndex)

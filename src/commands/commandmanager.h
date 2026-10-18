@@ -47,6 +47,7 @@ public:
     Q_INVOKABLE void transformToBlockquote(TreeItem *block, int level, const QString &text);
     Q_INVOKABLE void transformToList(TreeItem *block, bool isOrdered, int startNumber, const QString &text);
     Q_INVOKABLE void transformToChecklist(TreeItem *block, bool isChecked, const QString &text);
+    Q_INVOKABLE void toggleCheckbox(TreeItem *block);
     Q_INVOKABLE void splitListItem(TreeItem *block, const QString &text, int splitIndex);
     Q_INVOKABLE void changeListType(TreeItem *block, int listType);
     Q_INVOKABLE bool isListItem(TreeItem *block) const;

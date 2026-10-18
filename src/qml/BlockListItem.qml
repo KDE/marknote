@@ -6,6 +6,7 @@ import QtQuick.Layouts
 import QtQuick.Controls as Controls
 
 import org.kde.kirigami as Kirigami
+import org.kde.marknote
 
 BlockTemplate {
     id: root
@@ -32,6 +33,9 @@ BlockTemplate {
 
             sourceComponent: Controls.CheckBox {
                 checked: blockData.isChecked
+                onClicked: {
+                    CommandManager.toggleCheckbox(root.block);
+                }
             }
         }
 
