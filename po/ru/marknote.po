@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-18 00:49+0000\n"
-"PO-Revision-Date: 2026-09-23 21:29+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"POT-Creation-Date: 2026-10-19 00:47+0000\n"
+"PO-Revision-Date: 2026-10-18 19:06+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -36,12 +36,10 @@ msgid "New Notebook"
 msgstr "Создать записную книжку"
 
 #: application.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note or Folder"
-msgstr "Создать записную книжку"
+msgstr "Создать заметку или папку"
 
 #: application.cpp:59
 #, kde-format
@@ -165,20 +163,16 @@ msgid "Unable to create note: %1"
 msgstr "Не удалось создать заметку: %1"
 
 #: notesmodel.cpp:225
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder. A folder already exists with the same name."
-msgstr "Не удалось создать заметку. Заметка с таким именем уже существует."
+msgstr "Не удалось создать папку. Папка с таким именем уже существует."
 
 #: notesmodel.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder: %1"
-msgstr "Не удалось создать заметку: %1"
+msgstr "Не удалось создать папку: %1"
 
 #: notesmodel.cpp:254
 #, kde-format
@@ -380,87 +374,81 @@ msgstr "Повторить"
 msgid "Copy"
 msgstr "Копировать"
 
-#: qml/EditPage.qml:281
+#: qml/EditPage.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Поиск заметок"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Поиск в заметке"
 
-#: qml/EditPage.qml:296
-#, kde-format
-msgctxt "@action:button"
-msgid "Table of Contents"
-msgstr "Содержание"
-
-#: qml/EditPage.qml:325
+#: qml/EditPage.qml:333
 #, kde-format
 msgid "Focus Mode"
 msgstr "Режим фокуса"
 
-#: qml/EditPage.qml:342 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
+#: qml/EditPage.qml:350 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Выйти из полноэкранного режима"
 
-#: qml/EditPage.qml:355
+#: qml/EditPage.qml:363
 #, kde-format
 msgid "Switch editor mode"
 msgstr "Переключение режима редактора"
 
-#: qml/EditPage.qml:360
+#: qml/EditPage.qml:368
 #, kde-format
 msgid "Source View"
 msgstr "Просмотр исходного кода"
 
-#: qml/EditPage.qml:412
+#: qml/EditPage.qml:420
 #, kde-format
 msgid "Find text…"
 msgstr "Найти текст…"
 
-#: qml/EditPage.qml:448
+#: qml/EditPage.qml:456
 #, kde-format
 msgid "Previous"
 msgstr "Назад"
 
-#: qml/EditPage.qml:464
+#: qml/EditPage.qml:472
 #, kde-format
 msgid "Next"
 msgstr "Далее"
 
-#: qml/EditPage.qml:484 qml/EditPage.qml:590
+#: qml/EditPage.qml:492 qml/EditPage.qml:598
 #, kde-format
 msgid "No matches"
 msgstr "Совпадений не найдено"
 
-#: qml/EditPage.qml:486 qml/EditPage.qml:592
+#: qml/EditPage.qml:494 qml/EditPage.qml:600
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:498 qml/EditPage.qml:561
+#: qml/EditPage.qml:506 qml/EditPage.qml:569
 #, kde-format
 msgid "Replace"
 msgstr "Заменить"
 
-#: qml/EditPage.qml:510
+#: qml/EditPage.qml:518
 #, kde-format
 msgid "Close"
 msgstr "Закрыть"
 
-#: qml/EditPage.qml:532
+#: qml/EditPage.qml:540
 #, kde-format
 msgid "Replace with…"
 msgstr "Заменить на…"
 
-#: qml/EditPage.qml:537 qml/EditPage.qml:577
+#: qml/EditPage.qml:545 qml/EditPage.qml:585
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -470,12 +458,12 @@ msgstr[1] "Заменено %1 вхождения"
 msgstr[2] "Заменено %1 вхождений"
 msgstr[3] "Заменён %1 экземпляр"
 
-#: qml/EditPage.qml:573
+#: qml/EditPage.qml:581
 #, kde-format
 msgid "Replace All"
 msgstr "Заменить все"
 
-#: qml/EditPage.qml:640
+#: qml/EditPage.qml:648
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -740,11 +728,10 @@ msgstr ""
 "Необязательный альтернативный текст для вывода вместо названия заметки."
 
 #: qml/NoteMetadataDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New"
-msgstr "Добавить заметку"
+msgstr "Добавить"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -753,21 +740,16 @@ msgid "Edit Note"
 msgstr "Правка заметки"
 
 #: qml/NoteMetadataDialog.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Note"
-msgstr "Создать заметку"
+msgstr "Заметка"
 
 #: qml/NoteMetadataDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "%1 folder"
-#| msgid_plural "%1 folders"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Folder"
-msgstr "%1 папка"
+msgstr "Папка"
 
 #: qml/NoteMetadataDialog.qml:90
 #, kde-format
@@ -776,12 +758,10 @@ msgid "Name:"
 msgstr "Название:"
 
 #: qml/NoteMetadataDialog.qml:95
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "A note with this name already exists."
+#, kde-format
 msgctxt "@info"
 msgid "A note or folder with this name already exists."
-msgstr "Заметка с таким названием уже существует."
+msgstr "Заметка или папка с таким названием уже существует."
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -963,153 +943,153 @@ msgctxt "@info:status"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: qml/RichEditPage.qml:235
+#: qml/RichEditPage.qml:238
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
 msgstr "Выбрать изображение"
 
-#: qml/RichEditPage.qml:238
+#: qml/RichEditPage.qml:241
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgstr "Файлы изображений (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
-#: qml/RichEditPage.qml:238
+#: qml/RichEditPage.qml:241
 #, kde-format
 msgid "All files (*)"
 msgstr "Все файлы (*)"
 
-#: qml/RichEditPage.qml:763
+#: qml/RichEditPage.qml:856
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Полужирный"
 
-#: qml/RichEditPage.qml:785
+#: qml/RichEditPage.qml:878
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Курсив"
 
-#: qml/RichEditPage.qml:802
+#: qml/RichEditPage.qml:895
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Зачёркнутый"
 
-#: qml/RichEditPage.qml:822
+#: qml/RichEditPage.qml:915
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Повысить уровень в списке"
 
-#: qml/RichEditPage.qml:836
+#: qml/RichEditPage.qml:929
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Понизить уровень в списке"
 
-#: qml/RichEditPage.qml:879
+#: qml/RichEditPage.qml:972
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Маркированный список"
 
-#: qml/RichEditPage.qml:898
+#: qml/RichEditPage.qml:991
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Нумерованный список"
 
-#: qml/RichEditPage.qml:917
+#: qml/RichEditPage.qml:1010
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr "Список задач"
 
-#: qml/RichEditPage.qml:943
+#: qml/RichEditPage.qml:1036
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Вставить ссылку"
 
-#: qml/RichEditPage.qml:962
+#: qml/RichEditPage.qml:1055
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Вставить ссылку на заметку"
 
-#: qml/RichEditPage.qml:981
+#: qml/RichEditPage.qml:1074
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Вставить изображение"
 
-#: qml/RichEditPage.qml:998
+#: qml/RichEditPage.qml:1091
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Вставить таблицу"
 
-#: qml/RichEditPage.qml:1015
+#: qml/RichEditPage.qml:1108
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Вставить эскиз"
 
-#: qml/RichEditPage.qml:1080
+#: qml/RichEditPage.qml:1173
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Абзац"
 
-#: qml/RichEditPage.qml:1091
+#: qml/RichEditPage.qml:1184
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "Заголовок 1"
 
-#: qml/RichEditPage.qml:1102
+#: qml/RichEditPage.qml:1195
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "Заголовок 2"
 
-#: qml/RichEditPage.qml:1113
+#: qml/RichEditPage.qml:1206
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "Заголовок 3"
 
-#: qml/RichEditPage.qml:1124
+#: qml/RichEditPage.qml:1217
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "Заголовок 4"
 
-#: qml/RichEditPage.qml:1135
+#: qml/RichEditPage.qml:1228
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "Заголовок 5"
 
-#: qml/RichEditPage.qml:1146
+#: qml/RichEditPage.qml:1239
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "Заголовок 6"
 
-#: qml/RichEditPage.qml:1321
+#: qml/RichEditPage.qml:1414
 #, kde-format
 msgid "Format"
 msgstr "Формат"
 
-#: qml/RichEditPage.qml:1330
+#: qml/RichEditPage.qml:1423
 #, kde-format
 msgid "Lists"
 msgstr "Списки"
 
-#: qml/RichEditPage.qml:1339
+#: qml/RichEditPage.qml:1432
 #, kde-format
 msgid "Insert"
 msgstr "Вставка"
@@ -1129,12 +1109,12 @@ msgstr "Очистить холст"
 #: qml/SketchDialog.qml:382
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: qml/SketchDialog.qml:391
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1196,19 +1176,19 @@ msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Выбрать всё"
 
-#: qml/TocDrawer.qml:50
+#: qml/TocDrawer.qml:121
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "Содержание"
 
-#: qml/TocDrawer.qml:58
+#: qml/TocDrawer.qml:132
 #, kde-format
 msgctxt "@action:button"
-msgid "Close"
-msgstr "Закрыть"
+msgid "pin"
+msgstr ""
 
-#: qml/TocDrawer.qml:151
+#: qml/TocDrawer.qml:221
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
@@ -1237,44 +1217,62 @@ msgstr "Цветовая тема"
 
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
+msgctxt "@label:textbox"
+msgid "Notes Directory:"
+msgstr "Каталог заметок:"
+
+#: settings/MarkNoteGeneralPage.qml:64
+#, kde-format
 msgid "Use transparent editor page"
 msgstr "Использовать прозрачную страницу редактора"
 
-#: settings/MarkNoteGeneralPage.qml:72
+#: settings/MarkNoteGeneralPage.qml:90
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
 msgstr "Непрозрачность фона"
 
-#: settings/MarkNoteGeneralPage.qml:77
+#: settings/MarkNoteGeneralPage.qml:95
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
 msgstr "%1 %"
 
-#: settings/MarkNoteGeneralPage.qml:102
+#: settings/MarkNoteGeneralPage.qml:121
 #, kde-format
 msgid "Editor Settings"
 msgstr "Настройка редактора"
 
-#: settings/MarkNoteGeneralPage.qml:108
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Notes Directory:"
-msgstr "Каталог заметок:"
-
-#: settings/MarkNoteGeneralPage.qml:125
+#: settings/MarkNoteGeneralPage.qml:128
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "Гарнитура шрифта:"
 
-#: settings/MarkNoteGeneralPage.qml:150
+#: settings/MarkNoteGeneralPage.qml:152
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
 msgstr "Размер шрифта:"
+
+#: settings/MarkNoteGeneralPage.qml:171
+#, kde-format
+msgid "Use full editor width for the content"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:193
+#, kde-format
+msgctxt "@label:slider"
+msgid "Text Width"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:198
+#, kde-format
+msgctxt ""
+"@label:slider Current opacity percentage. %1 is the numeric percentage value"
+msgid "%1 gU"
+msgstr ""
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
@@ -1293,6 +1291,14 @@ msgstr "О Marknote"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "О KDE"
+
+#~ msgctxt "@action:button"
+#~ msgid "Table of Contents"
+#~ msgstr "Содержание"
+
+#~ msgctxt "@action:button"
+#~ msgid "Close"
+#~ msgstr "Закрыть"
 
 #~ msgctxt "@title:window"
 #~ msgid "New Note"

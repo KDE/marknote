@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-18 00:49+0000\n"
+"POT-Creation-Date: 2026-10-19 00:47+0000\n"
 "PO-Revision-Date: 2026-09-17 01:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -377,99 +377,93 @@ msgstr "重做"
 msgid "Copy"
 msgstr "複製"
 
-#: qml/EditPage.qml:281
+#: qml/EditPage.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "搜尋筆記"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "在筆記中搜尋"
 
-#: qml/EditPage.qml:296
-#, kde-format
-msgctxt "@action:button"
-msgid "Table of Contents"
-msgstr "目錄"
-
-#: qml/EditPage.qml:325
+#: qml/EditPage.qml:333
 #, kde-format
 msgid "Focus Mode"
 msgstr "專注模式"
 
-#: qml/EditPage.qml:342 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
+#: qml/EditPage.qml:350 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "離開全螢幕"
 
-#: qml/EditPage.qml:355
+#: qml/EditPage.qml:363
 #, kde-format
 msgid "Switch editor mode"
 msgstr "切換編輯器模式"
 
-#: qml/EditPage.qml:360
+#: qml/EditPage.qml:368
 #, kde-format
 msgid "Source View"
 msgstr "原始碼檢視"
 
-#: qml/EditPage.qml:412
+#: qml/EditPage.qml:420
 #, kde-format
 msgid "Find text…"
 msgstr "尋找文字…"
 
-#: qml/EditPage.qml:448
+#: qml/EditPage.qml:456
 #, kde-format
 msgid "Previous"
 msgstr "上一個"
 
-#: qml/EditPage.qml:464
+#: qml/EditPage.qml:472
 #, kde-format
 msgid "Next"
 msgstr "下一個"
 
-#: qml/EditPage.qml:484 qml/EditPage.qml:590
+#: qml/EditPage.qml:492 qml/EditPage.qml:598
 #, kde-format
 msgid "No matches"
 msgstr "無相符項目"
 
-#: qml/EditPage.qml:486 qml/EditPage.qml:592
+#: qml/EditPage.qml:494 qml/EditPage.qml:600
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:498 qml/EditPage.qml:561
+#: qml/EditPage.qml:506 qml/EditPage.qml:569
 #, kde-format
 msgid "Replace"
 msgstr "取代"
 
-#: qml/EditPage.qml:510
+#: qml/EditPage.qml:518
 #, kde-format
 msgid "Close"
 msgstr "關閉"
 
-#: qml/EditPage.qml:532
+#: qml/EditPage.qml:540
 #, kde-format
 msgid "Replace with…"
 msgstr "替換為…"
 
-#: qml/EditPage.qml:537 qml/EditPage.qml:577
+#: qml/EditPage.qml:545 qml/EditPage.qml:585
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
 msgstr[0] "已取代 %1 處"
 
-#: qml/EditPage.qml:573
+#: qml/EditPage.qml:581
 #, kde-format
 msgid "Replace All"
 msgstr "全部取代"
 
-#: qml/EditPage.qml:640
+#: qml/EditPage.qml:648
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -946,153 +940,153 @@ msgctxt "@info:status"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: qml/RichEditPage.qml:235
+#: qml/RichEditPage.qml:238
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
 msgstr "選擇影像"
 
-#: qml/RichEditPage.qml:238
+#: qml/RichEditPage.qml:241
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgstr "影像檔 (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
-#: qml/RichEditPage.qml:238
+#: qml/RichEditPage.qml:241
 #, kde-format
 msgid "All files (*)"
 msgstr "所有檔案 (*)"
 
-#: qml/RichEditPage.qml:763
+#: qml/RichEditPage.qml:856
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "粗體"
 
-#: qml/RichEditPage.qml:785
+#: qml/RichEditPage.qml:878
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "斜體"
 
-#: qml/RichEditPage.qml:802
+#: qml/RichEditPage.qml:895
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "刪除線"
 
-#: qml/RichEditPage.qml:822
+#: qml/RichEditPage.qml:915
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "提高清單等級"
 
-#: qml/RichEditPage.qml:836
+#: qml/RichEditPage.qml:929
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "降低清單等級"
 
-#: qml/RichEditPage.qml:879
+#: qml/RichEditPage.qml:972
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "無序清單"
 
-#: qml/RichEditPage.qml:898
+#: qml/RichEditPage.qml:991
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "有序清單"
 
-#: qml/RichEditPage.qml:917
+#: qml/RichEditPage.qml:1010
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr "勾選清單"
 
-#: qml/RichEditPage.qml:943
+#: qml/RichEditPage.qml:1036
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "插入連結"
 
-#: qml/RichEditPage.qml:962
+#: qml/RichEditPage.qml:1055
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "插入筆記連結"
 
-#: qml/RichEditPage.qml:981
+#: qml/RichEditPage.qml:1074
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "插入影像"
 
-#: qml/RichEditPage.qml:998
+#: qml/RichEditPage.qml:1091
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "插入表格"
 
-#: qml/RichEditPage.qml:1015
+#: qml/RichEditPage.qml:1108
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "插入塗鴉"
 
-#: qml/RichEditPage.qml:1080
+#: qml/RichEditPage.qml:1173
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "段落"
 
-#: qml/RichEditPage.qml:1091
+#: qml/RichEditPage.qml:1184
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "標題 1"
 
-#: qml/RichEditPage.qml:1102
+#: qml/RichEditPage.qml:1195
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "標題 2"
 
-#: qml/RichEditPage.qml:1113
+#: qml/RichEditPage.qml:1206
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "標題 3"
 
-#: qml/RichEditPage.qml:1124
+#: qml/RichEditPage.qml:1217
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "標題 4"
 
-#: qml/RichEditPage.qml:1135
+#: qml/RichEditPage.qml:1228
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "標題 5"
 
-#: qml/RichEditPage.qml:1146
+#: qml/RichEditPage.qml:1239
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "標題 6"
 
-#: qml/RichEditPage.qml:1321
+#: qml/RichEditPage.qml:1414
 #, kde-format
 msgid "Format"
 msgstr "格式"
 
-#: qml/RichEditPage.qml:1330
+#: qml/RichEditPage.qml:1423
 #, kde-format
 msgid "Lists"
 msgstr "清單"
 
-#: qml/RichEditPage.qml:1339
+#: qml/RichEditPage.qml:1432
 #, kde-format
 msgid "Insert"
 msgstr "插入"
@@ -1179,19 +1173,19 @@ msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "全部選取"
 
-#: qml/TocDrawer.qml:50
+#: qml/TocDrawer.qml:121
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "目錄"
 
-#: qml/TocDrawer.qml:58
+#: qml/TocDrawer.qml:132
 #, kde-format
 msgctxt "@action:button"
-msgid "Close"
-msgstr "關閉"
+msgid "pin"
+msgstr ""
 
-#: qml/TocDrawer.qml:151
+#: qml/TocDrawer.qml:221
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
@@ -1220,44 +1214,62 @@ msgstr "顏色主題"
 
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
+msgctxt "@label:textbox"
+msgid "Notes Directory:"
+msgstr "筆記目錄："
+
+#: settings/MarkNoteGeneralPage.qml:64
+#, kde-format
 msgid "Use transparent editor page"
 msgstr "使用透明編輯器頁面"
 
-#: settings/MarkNoteGeneralPage.qml:72
+#: settings/MarkNoteGeneralPage.qml:90
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
 msgstr "背景不透明度"
 
-#: settings/MarkNoteGeneralPage.qml:77
+#: settings/MarkNoteGeneralPage.qml:95
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
 msgstr "%1%"
 
-#: settings/MarkNoteGeneralPage.qml:102
+#: settings/MarkNoteGeneralPage.qml:121
 #, kde-format
 msgid "Editor Settings"
 msgstr "編輯器設定"
 
-#: settings/MarkNoteGeneralPage.qml:108
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Notes Directory:"
-msgstr "筆記目錄："
-
-#: settings/MarkNoteGeneralPage.qml:125
+#: settings/MarkNoteGeneralPage.qml:128
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "字型家族："
 
-#: settings/MarkNoteGeneralPage.qml:150
+#: settings/MarkNoteGeneralPage.qml:152
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
 msgstr "字型大小："
+
+#: settings/MarkNoteGeneralPage.qml:171
+#, kde-format
+msgid "Use full editor width for the content"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:193
+#, kde-format
+msgctxt "@label:slider"
+msgid "Text Width"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:198
+#, kde-format
+msgctxt ""
+"@label:slider Current opacity percentage. %1 is the numeric percentage value"
+msgid "%1 gU"
+msgstr ""
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
@@ -1276,6 +1288,14 @@ msgstr "關於 Marknote"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "關於 KDE"
+
+#~ msgctxt "@action:button"
+#~ msgid "Table of Contents"
+#~ msgstr "目錄"
+
+#~ msgctxt "@action:button"
+#~ msgid "Close"
+#~ msgstr "關閉"
 
 #~ msgctxt "@title:window"
 #~ msgid "New Note"

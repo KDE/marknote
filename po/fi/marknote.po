@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-18 00:49+0000\n"
+"POT-Creation-Date: 2026-10-19 00:47+0000\n"
 "PO-Revision-Date: 2026-08-30 23:04+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -405,87 +405,81 @@ msgstr "Tee uudelleen"
 msgid "Copy"
 msgstr "Kopioi"
 
-#: qml/EditPage.qml:281
+#: qml/EditPage.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Etsi muistiinpanoa"
 
-#: qml/EditPage.qml:289
+#: qml/EditPage.qml:292
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Etsi muistiinpanosta"
 
-#: qml/EditPage.qml:296
-#, kde-format
-msgctxt "@action:button"
-msgid "Table of Contents"
-msgstr "Sisällysluettelo"
-
-#: qml/EditPage.qml:325
+#: qml/EditPage.qml:333
 #, kde-format
 msgid "Focus Mode"
 msgstr "Keskittymistila"
 
-#: qml/EditPage.qml:342 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
+#: qml/EditPage.qml:350 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Poistu koko näytöltä"
 
-#: qml/EditPage.qml:355
+#: qml/EditPage.qml:363
 #, kde-format
 msgid "Switch editor mode"
 msgstr "Vaihda muokkaintilaa"
 
-#: qml/EditPage.qml:360
+#: qml/EditPage.qml:368
 #, kde-format
 msgid "Source View"
 msgstr "Lähdenäkymä"
 
-#: qml/EditPage.qml:412
+#: qml/EditPage.qml:420
 #, kde-format
 msgid "Find text…"
 msgstr "Etsi tekstiä…"
 
-#: qml/EditPage.qml:448
+#: qml/EditPage.qml:456
 #, kde-format
 msgid "Previous"
 msgstr "Edellinen"
 
-#: qml/EditPage.qml:464
+#: qml/EditPage.qml:472
 #, kde-format
 msgid "Next"
 msgstr "Seuraava"
 
-#: qml/EditPage.qml:484 qml/EditPage.qml:590
+#: qml/EditPage.qml:492 qml/EditPage.qml:598
 #, kde-format
 msgid "No matches"
 msgstr "Ei osumia"
 
-#: qml/EditPage.qml:486 qml/EditPage.qml:592
+#: qml/EditPage.qml:494 qml/EditPage.qml:600
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:498 qml/EditPage.qml:561
+#: qml/EditPage.qml:506 qml/EditPage.qml:569
 #, kde-format
 msgid "Replace"
 msgstr "Korvaa"
 
-#: qml/EditPage.qml:510
+#: qml/EditPage.qml:518
 #, kde-format
 msgid "Close"
 msgstr "Sulje"
 
-#: qml/EditPage.qml:532
+#: qml/EditPage.qml:540
 #, kde-format
 msgid "Replace with…"
 msgstr "Korvaa…"
 
-#: qml/EditPage.qml:537 qml/EditPage.qml:577
+#: qml/EditPage.qml:545 qml/EditPage.qml:585
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -493,12 +487,12 @@ msgid_plural "Replaced %1 occurrences"
 msgstr[0] "Korvattiin %1 esiintymä"
 msgstr[1] "Korvattiin %1 esiintymää"
 
-#: qml/EditPage.qml:573
+#: qml/EditPage.qml:581
 #, kde-format
 msgid "Replace All"
 msgstr "Valitse kaikki"
 
-#: qml/EditPage.qml:640
+#: qml/EditPage.qml:648
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -980,53 +974,53 @@ msgctxt "@info:status"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: qml/RichEditPage.qml:235
+#: qml/RichEditPage.qml:238
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
 msgstr "Valitse kuva"
 
-#: qml/RichEditPage.qml:238
+#: qml/RichEditPage.qml:241
 #, kde-format
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgstr "Kuvatiedostot (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 
-#: qml/RichEditPage.qml:238
+#: qml/RichEditPage.qml:241
 #, kde-format
 msgid "All files (*)"
 msgstr "Kaikki tiedostot (*)"
 
-#: qml/RichEditPage.qml:763
+#: qml/RichEditPage.qml:856
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Lihavointi"
 
-#: qml/RichEditPage.qml:785
+#: qml/RichEditPage.qml:878
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kursiivi"
 
-#: qml/RichEditPage.qml:802
+#: qml/RichEditPage.qml:895
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Yliviivaus"
 
-#: qml/RichEditPage.qml:822
+#: qml/RichEditPage.qml:915
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Lisää luettelotasoa"
 
-#: qml/RichEditPage.qml:836
+#: qml/RichEditPage.qml:929
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Vähennä luettelotasoa"
 
-#: qml/RichEditPage.qml:879
+#: qml/RichEditPage.qml:972
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu unordered style"
 #| msgid "Unordered list"
@@ -1034,7 +1028,7 @@ msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Luetelma"
 
-#: qml/RichEditPage.qml:898
+#: qml/RichEditPage.qml:991
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu ordered style"
 #| msgid "Ordered list"
@@ -1042,43 +1036,43 @@ msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Numeroitu luettelo"
 
-#: qml/RichEditPage.qml:917
+#: qml/RichEditPage.qml:1010
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr ""
 
-#: qml/RichEditPage.qml:943
+#: qml/RichEditPage.qml:1036
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Lisää linkki"
 
-#: qml/RichEditPage.qml:962
+#: qml/RichEditPage.qml:1055
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Lisää muistiinpanolinkki"
 
-#: qml/RichEditPage.qml:981
+#: qml/RichEditPage.qml:1074
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Lisää kuva"
 
-#: qml/RichEditPage.qml:998
+#: qml/RichEditPage.qml:1091
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Lisää taulukko"
 
-#: qml/RichEditPage.qml:1015
+#: qml/RichEditPage.qml:1108
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Lisää luonnos"
 
-#: qml/RichEditPage.qml:1080
+#: qml/RichEditPage.qml:1173
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu heading level 5"
 #| msgid "Paragraph"
@@ -1086,59 +1080,59 @@ msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Kappale"
 
-#: qml/RichEditPage.qml:1091
+#: qml/RichEditPage.qml:1184
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1102
+#: qml/RichEditPage.qml:1195
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1113
+#: qml/RichEditPage.qml:1206
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1124
+#: qml/RichEditPage.qml:1217
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1135
+#: qml/RichEditPage.qml:1228
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1146
+#: qml/RichEditPage.qml:1239
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1321
+#: qml/RichEditPage.qml:1414
 #, kde-format
 msgid "Format"
 msgstr "Muotoilu"
 
-#: qml/RichEditPage.qml:1330
+#: qml/RichEditPage.qml:1423
 #, kde-format
 msgid "Lists"
 msgstr "Luetelmat"
 
-#: qml/RichEditPage.qml:1339
+#: qml/RichEditPage.qml:1432
 #, kde-format
 msgid "Insert"
 msgstr "Lisää"
@@ -1225,20 +1219,20 @@ msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: qml/TocDrawer.qml:50
+#: qml/TocDrawer.qml:121
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "Sisällysluettelo"
 
-#: qml/TocDrawer.qml:58
+#: qml/TocDrawer.qml:132
 #, kde-format
 msgctxt "@action:button"
-msgid "Close"
-msgstr "Sulje"
+msgid "pin"
+msgstr ""
 
 # *** TARKISTA: ”Header” voisi olla myös otsikko tai ylätunniste tai jotakin ihan muuta
-#: qml/TocDrawer.qml:151
+#: qml/TocDrawer.qml:221
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
@@ -1267,44 +1261,62 @@ msgstr "Väriteema"
 
 #: settings/MarkNoteGeneralPage.qml:46
 #, kde-format
+msgctxt "@label:textbox"
+msgid "Notes Directory:"
+msgstr "Muistiinpanokansio:"
+
+#: settings/MarkNoteGeneralPage.qml:64
+#, kde-format
 msgid "Use transparent editor page"
 msgstr "Käytä läpikuultavaa muokkainsivua"
 
-#: settings/MarkNoteGeneralPage.qml:72
+#: settings/MarkNoteGeneralPage.qml:90
 #, kde-format
 msgctxt "@label:slider"
 msgid "Background opacity"
 msgstr "Taustan peittävyys"
 
-#: settings/MarkNoteGeneralPage.qml:77
+#: settings/MarkNoteGeneralPage.qml:95
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
 msgstr "%1 %"
 
-#: settings/MarkNoteGeneralPage.qml:102
+#: settings/MarkNoteGeneralPage.qml:121
 #, kde-format
 msgid "Editor Settings"
 msgstr "Muokkaimen asetukset"
 
-#: settings/MarkNoteGeneralPage.qml:108
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Notes Directory:"
-msgstr "Muistiinpanokansio:"
-
-#: settings/MarkNoteGeneralPage.qml:125
+#: settings/MarkNoteGeneralPage.qml:128
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font family:"
 msgstr "Fonttiperhe:"
 
-#: settings/MarkNoteGeneralPage.qml:150
+#: settings/MarkNoteGeneralPage.qml:152
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size:"
 msgstr "Fonttikoko:"
+
+#: settings/MarkNoteGeneralPage.qml:171
+#, kde-format
+msgid "Use full editor width for the content"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:193
+#, kde-format
+msgctxt "@label:slider"
+msgid "Text Width"
+msgstr ""
+
+#: settings/MarkNoteGeneralPage.qml:198
+#, kde-format
+msgctxt ""
+"@label:slider Current opacity percentage. %1 is the numeric percentage value"
+msgid "%1 gU"
+msgstr ""
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
@@ -1323,6 +1335,14 @@ msgstr "Tietoa Marknotesta"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Tietoa KDE:stä"
+
+#~ msgctxt "@action:button"
+#~ msgid "Table of Contents"
+#~ msgstr "Sisällysluettelo"
+
+#~ msgctxt "@action:button"
+#~ msgid "Close"
+#~ msgstr "Sulje"
 
 #~ msgctxt "@title:window"
 #~ msgid "New Note"
