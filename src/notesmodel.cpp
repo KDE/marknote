@@ -245,6 +245,20 @@ void NotesModel::renameNote(const QUrl &path, const QString &name)
 {
     QFileInfo info(path.toLocalFile());
     QString cleanName = name;
+
+    if (info.isDir()) {
+        QString newPath = info.absolutePath() + u'/' + cleanName;
+        if (QFile::exists(newPath)) {
+            Q_EMIT errorOccurred(i18nc("@info:status",
+                                       "Unable to rename folder. A folder already "
+                                       "exists with the same name."));
+            return;
+        }
+        QFile::rename(path.toLocalFile(), newPath);
+        return;
+    }
+
+
     if (cleanName.endsWith(u".md"_s))
         cleanName.chop(3);
 

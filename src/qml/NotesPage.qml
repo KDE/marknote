@@ -531,6 +531,7 @@ Kirigami.ScrollablePage {
             Kirigami.Action {
                 text: KI18n.i18nc("@action:inmenu", "Copy")
                 icon.name: "edit-copy"
+                visible: !menu.delegateItem.isFolder
                 onTriggered: {
                     pageNotesModel.copyWholeNote(menu.delegateItem.fileUrl)
                     if (root._window && root.pageStack) {
@@ -546,6 +547,7 @@ Kirigami.ScrollablePage {
             Kirigami.Action {
                 text: KI18n.i18nc("@action:inmenu", "Duplicate")
                 icon.name: "edit-duplicate-symbolic"
+                visible: !menu.delegateItem.isFolder
                 onTriggered: {
                     pageNotesModel.duplicateNote(menu.delegateItem.fileUrl)
                 }
@@ -554,7 +556,7 @@ Kirigami.ScrollablePage {
             Kirigami.Action {
                 text: KI18n.i18nc("@action:inmenu", "Export")
                 icon.name: "document-export"
-
+                visible: !menu.delegateItem.isFolder
                 Kirigami.Action {
                     text: KI18n.i18nc("@action:inmenu", "Export to HTML")
                     icon.name: "text-html"
