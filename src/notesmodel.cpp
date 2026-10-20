@@ -258,7 +258,6 @@ void NotesModel::renameNote(const QUrl &path, const QString &name)
         return;
     }
 
-
     if (cleanName.endsWith(u".md"_s))
         cleanName.chop(3);
 

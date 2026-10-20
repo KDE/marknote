@@ -91,7 +91,6 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
         return noteCount;
     }
 
-
     case Role::Name:
     case Qt::DisplayRole:
         return m_directory->entryList(QDir::AllDirs | QDir::NoDotAndDotDot).at(index.row());
