@@ -8,8 +8,8 @@
 #include <KLocalizedString>
 #include <QClipboard>
 #include <QDebug>
-#include <QDirIterator>
 #include <QDir>
+#include <QDirIterator>
 #include <QFile>
 #include <QFileInfo>
 #include <QImage>

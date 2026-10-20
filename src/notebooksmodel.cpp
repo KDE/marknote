@@ -80,10 +80,7 @@ QVariant NoteBooksModel::data(const QModelIndex &index, int role) const
         }
     }
     case Role::NoteCount: {
-        QDirIterator it(entry.filePath(),
-                        QStringList{QStringLiteral("*.md")},
-                        QDir::Files,
-                        QDirIterator::Subdirectories);
+        QDirIterator it(entry.filePath(), QStringList{QStringLiteral("*.md")}, QDir::Files, QDirIterator::Subdirectories);
 
         int noteCount = 0;
 
