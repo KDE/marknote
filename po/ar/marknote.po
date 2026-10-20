@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:47+0000\n"
+"POT-Creation-Date: 2026-10-20 00:53+0000\n"
 "PO-Revision-Date: 2026-09-17 08:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -179,25 +179,33 @@ msgctxt "@info:status"
 msgid "Unable to create folder: %1"
 msgstr "تعذر إنشاء الملاحظة: %1"
 
-#: notesmodel.cpp:254
+#: notesmodel.cpp:253
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to create note. A note already exists with the same name."
+msgctxt "@info:status"
+msgid "Unable to rename folder. A folder already exists with the same name."
+msgstr "تعذر إنشاء الملاحظة. الملاحظة بنفس الاسم موجودة فعلًا."
+
+#: notesmodel.cpp:268
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "تعذر إعادة تسمية الملاحظة. الملف أو المجلد موجودان فعلًا بنفس الاسم."
 
-#: notesmodel.cpp:318
+#: notesmodel.cpp:332
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "عملية نقل غير الصالحة"
 
-#: notesmodel.cpp:325
+#: notesmodel.cpp:339
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "لا يمكن نقل مجلد إلى داخله."
 
-#: notesmodel.cpp:331
+#: notesmodel.cpp:345
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -547,7 +555,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "أنشئ دفتر"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:865
+#: qml/Main.qml:360 qml/NotesPage.qml:867
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -851,86 +859,86 @@ msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "انسخ"
 
-#: qml/NotesPage.qml:547
+#: qml/NotesPage.qml:548
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "كرّر"
 
-#: qml/NotesPage.qml:555
+#: qml/NotesPage.qml:557
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "صدّر"
 
-#: qml/NotesPage.qml:559
+#: qml/NotesPage.qml:561
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "صدّر إلى HTML"
 
-#: qml/NotesPage.qml:565
+#: qml/NotesPage.qml:567
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "صدّر إلى HTML"
 
-#: qml/NotesPage.qml:566
+#: qml/NotesPage.qml:568
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "ملفّ HTML ‏(‎*.html)"
 
-#: qml/NotesPage.qml:572
+#: qml/NotesPage.qml:574
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "صدر إلى بي دي اف"
 
-#: qml/NotesPage.qml:578
+#: qml/NotesPage.qml:580
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "صدر إلى بي دي اف"
 
-#: qml/NotesPage.qml:579
+#: qml/NotesPage.qml:581
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "ملف بي دي اف (*.pdf)"
 
-#: qml/NotesPage.qml:585
+#: qml/NotesPage.qml:587
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "صدر إلى ODT"
 
-#: qml/NotesPage.qml:591
+#: qml/NotesPage.qml:593
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "صدر إلى ODT"
 
-#: qml/NotesPage.qml:592
+#: qml/NotesPage.qml:594
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "مستند نصي ODF (*.odt)"
 
-#: qml/NotesPage.qml:601 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:603 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "احذف"
 
-#: qml/NotesPage.qml:926
+#: qml/NotesPage.qml:928
 #, kde-format
 msgid "Add a note!"
 msgstr "أضف ملاحظة!"
 
-#: qml/NotesPage.qml:935
+#: qml/NotesPage.qml:937
 #, kde-format
 msgid "No notes matching the search"
 msgstr "لا توجد ملاحظات مطابقة لبحثك"
 
-#: qml/NotesPage.qml:951 qml/NotesPage.qml:959
+#: qml/NotesPage.qml:953 qml/NotesPage.qml:961
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
@@ -942,7 +950,7 @@ msgstr[3] "%1 ملاحظات"
 msgstr[4] "%1 ملاحظة"
 msgstr[5] "%1 ملاحظة"
 
-#: qml/NotesPage.qml:955 qml/NotesPage.qml:958
+#: qml/NotesPage.qml:957 qml/NotesPage.qml:960
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -954,7 +962,7 @@ msgstr[3] "%1 مجلدات"
 msgstr[4] "%1 مجلدًا"
 msgstr[5] "%1 مجلد"
 
-#: qml/NotesPage.qml:961
+#: qml/NotesPage.qml:963
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"

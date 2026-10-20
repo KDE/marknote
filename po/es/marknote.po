@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:47+0000\n"
-"PO-Revision-Date: 2026-10-18 11:09+0100\n"
+"POT-Creation-Date: 2026-10-20 00:53+0000\n"
+"PO-Revision-Date: 2026-10-19 12:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -175,7 +175,16 @@ msgctxt "@info:status"
 msgid "Unable to create folder: %1"
 msgstr "No se puede crear la carpeta: %1"
 
-#: notesmodel.cpp:254
+#: notesmodel.cpp:253
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to create folder. A folder already exists with the same name."
+msgctxt "@info:status"
+msgid "Unable to rename folder. A folder already exists with the same name."
+msgstr ""
+"No se puede crear la carpeta. Ya existe otra carpeta con el mismo nombre."
+
+#: notesmodel.cpp:268
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
@@ -183,19 +192,19 @@ msgstr ""
 "No se puede cambiar el nombre de la nota. Ya existe otra nota con el mismo "
 "nombre."
 
-#: notesmodel.cpp:318
+#: notesmodel.cpp:332
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "Operación de movimiento no válida."
 
-#: notesmodel.cpp:325
+#: notesmodel.cpp:339
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "No se puede mover una carpeta dentro de sí misma."
 
-#: notesmodel.cpp:331
+#: notesmodel.cpp:345
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -542,7 +551,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Crear bloc de notas"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:865
+#: qml/Main.qml:360 qml/NotesPage.qml:867
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -839,86 +848,86 @@ msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Copiar"
 
-#: qml/NotesPage.qml:547
+#: qml/NotesPage.qml:548
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Duplicar"
 
-#: qml/NotesPage.qml:555
+#: qml/NotesPage.qml:557
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Exportar"
 
-#: qml/NotesPage.qml:559
+#: qml/NotesPage.qml:561
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Exportar a HTML"
 
-#: qml/NotesPage.qml:565
+#: qml/NotesPage.qml:567
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exportar a HTML"
 
-#: qml/NotesPage.qml:566
+#: qml/NotesPage.qml:568
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Archivo HTML (*.html)"
 
-#: qml/NotesPage.qml:572
+#: qml/NotesPage.qml:574
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Exportar a PDF"
 
-#: qml/NotesPage.qml:578
+#: qml/NotesPage.qml:580
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exportar a PDF"
 
-#: qml/NotesPage.qml:579
+#: qml/NotesPage.qml:581
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Archivo PDF (*.pdf)"
 
-#: qml/NotesPage.qml:585
+#: qml/NotesPage.qml:587
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Exportar a ODT"
 
-#: qml/NotesPage.qml:591
+#: qml/NotesPage.qml:593
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exportar a ODT"
 
-#: qml/NotesPage.qml:592
+#: qml/NotesPage.qml:594
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Documento de texto ODF (*.odt)"
 
-#: qml/NotesPage.qml:601 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:603 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Borrar"
 
-#: qml/NotesPage.qml:926
+#: qml/NotesPage.qml:928
 #, kde-format
 msgid "Add a note!"
 msgstr "Añada una nota"
 
-#: qml/NotesPage.qml:935
+#: qml/NotesPage.qml:937
 #, kde-format
 msgid "No notes matching the search"
 msgstr "Ninguna nota coincide con la búsqueda"
 
-#: qml/NotesPage.qml:951 qml/NotesPage.qml:959
+#: qml/NotesPage.qml:953 qml/NotesPage.qml:961
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
@@ -926,7 +935,7 @@ msgid_plural "%1 notes"
 msgstr[0] "%1 nota"
 msgstr[1] "%1 notas"
 
-#: qml/NotesPage.qml:955 qml/NotesPage.qml:958
+#: qml/NotesPage.qml:957 qml/NotesPage.qml:960
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -934,7 +943,7 @@ msgid_plural "%1 folders"
 msgstr[0] "%1 carpeta"
 msgstr[1] "%1 carpetas"
 
-#: qml/NotesPage.qml:961
+#: qml/NotesPage.qml:963
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
@@ -1183,7 +1192,7 @@ msgstr "Tabla de contenidos"
 #, kde-format
 msgctxt "@action:button"
 msgid "pin"
-msgstr ""
+msgstr "fijar"
 
 #: qml/TocDrawer.qml:221
 #, kde-format
@@ -1256,20 +1265,20 @@ msgstr "Tamaño del tipo de letra:"
 #: settings/MarkNoteGeneralPage.qml:171
 #, kde-format
 msgid "Use full editor width for the content"
-msgstr ""
+msgstr "Usar la anchura completa del editor para el contenido"
 
 #: settings/MarkNoteGeneralPage.qml:193
 #, kde-format
 msgctxt "@label:slider"
 msgid "Text Width"
-msgstr ""
+msgstr "Anchura del texto"
 
 #: settings/MarkNoteGeneralPage.qml:198
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1 gU"
-msgstr ""
+msgstr "%1 gU"
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
@@ -1288,11 +1297,3 @@ msgstr "Acerca de Marknote"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Acerca de KDE"
-
-#~ msgctxt "@action:button"
-#~ msgid "Table of Contents"
-#~ msgstr "Tabla de contenido"
-
-#~ msgctxt "@action:button"
-#~ msgid "Close"
-#~ msgstr "Cerrar"

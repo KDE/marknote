@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:47+0000\n"
-"PO-Revision-Date: 2026-10-18 06:41+0200\n"
+"POT-Creation-Date: 2026-10-20 00:53+0000\n"
+"PO-Revision-Date: 2026-10-19 09:50+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -177,25 +177,33 @@ msgctxt "@info:status"
 msgid "Unable to create folder: %1"
 msgstr "Ni mogoče ustvariti mape: %1"
 
-#: notesmodel.cpp:254
+#: notesmodel.cpp:253
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unable to create folder. A folder already exists with the same name."
+msgctxt "@info:status"
+msgid "Unable to rename folder. A folder already exists with the same name."
+msgstr "Ni mogoče ustvariti mape. Mapa z istim imenom že obstaja."
+
+#: notesmodel.cpp:268
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Zabeležke ni mogoče preimenovati. Zabeležka z istim imenom že obstaja."
 
-#: notesmodel.cpp:318
+#: notesmodel.cpp:332
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "Neveljavna operacija premikanja."
 
-#: notesmodel.cpp:325
+#: notesmodel.cpp:339
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "Mape ni mogoče premakniti same vase."
 
-#: notesmodel.cpp:331
+#: notesmodel.cpp:345
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -544,7 +552,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Ustvari beležnico"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:865
+#: qml/Main.qml:360 qml/NotesPage.qml:867
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -840,86 +848,86 @@ msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: qml/NotesPage.qml:547
+#: qml/NotesPage.qml:548
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Podvoji"
 
-#: qml/NotesPage.qml:555
+#: qml/NotesPage.qml:557
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Izvozi"
 
-#: qml/NotesPage.qml:559
+#: qml/NotesPage.qml:561
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Izvozi v HTML"
 
-#: qml/NotesPage.qml:565
+#: qml/NotesPage.qml:567
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Izvozi v HTML"
 
-#: qml/NotesPage.qml:566
+#: qml/NotesPage.qml:568
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Datoteka HTML (*.html)"
 
-#: qml/NotesPage.qml:572
+#: qml/NotesPage.qml:574
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Izvozi v PDF"
 
-#: qml/NotesPage.qml:578
+#: qml/NotesPage.qml:580
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Izvozi v PDF"
 
-#: qml/NotesPage.qml:579
+#: qml/NotesPage.qml:581
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Datoteka PDF (*.pdf)"
 
-#: qml/NotesPage.qml:585
+#: qml/NotesPage.qml:587
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Izvozi v ODT"
 
-#: qml/NotesPage.qml:591
+#: qml/NotesPage.qml:593
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Izvozi v ODT"
 
-#: qml/NotesPage.qml:592
+#: qml/NotesPage.qml:594
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Besedilni dokument ODT (*.odt)"
 
-#: qml/NotesPage.qml:601 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:603 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: qml/NotesPage.qml:926
+#: qml/NotesPage.qml:928
 #, kde-format
 msgid "Add a note!"
 msgstr "Dodaj zabeležko!"
 
-#: qml/NotesPage.qml:935
+#: qml/NotesPage.qml:937
 #, kde-format
 msgid "No notes matching the search"
 msgstr "Ni zabeležk, ki bi ustrezale iskanju"
 
-#: qml/NotesPage.qml:951 qml/NotesPage.qml:959
+#: qml/NotesPage.qml:953 qml/NotesPage.qml:961
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
@@ -929,7 +937,7 @@ msgstr[1] "%1 zabeležka"
 msgstr[2] "%1 zabeležki"
 msgstr[3] "%1 zabeležke"
 
-#: qml/NotesPage.qml:955 qml/NotesPage.qml:958
+#: qml/NotesPage.qml:957 qml/NotesPage.qml:960
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -939,7 +947,7 @@ msgstr[1] "%1 mapa"
 msgstr[2] "%1 mapi"
 msgstr[3] "%1 mape"
 
-#: qml/NotesPage.qml:961
+#: qml/NotesPage.qml:963
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
@@ -1188,7 +1196,7 @@ msgstr "Kazalo vsebine"
 #, kde-format
 msgctxt "@action:button"
 msgid "pin"
-msgstr ""
+msgstr "pripni"
 
 #: qml/TocDrawer.qml:221
 #, kde-format
@@ -1261,20 +1269,20 @@ msgstr "Velikost pisave:"
 #: settings/MarkNoteGeneralPage.qml:171
 #, kde-format
 msgid "Use full editor width for the content"
-msgstr ""
+msgstr "Uporabi celotno širino urejevalnika za vsebino"
 
 #: settings/MarkNoteGeneralPage.qml:193
 #, kde-format
 msgctxt "@label:slider"
 msgid "Text Width"
-msgstr ""
+msgstr "Širina besedila"
 
 #: settings/MarkNoteGeneralPage.qml:198
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1 gU"
-msgstr ""
+msgstr "%1 gU"
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
