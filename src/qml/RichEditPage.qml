@@ -290,8 +290,16 @@ EditPage {
         topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
         y: topMargin
         bottomMargin: Kirigami.Units.gridUnit
-        onAboutToShow: miniTocItem.anchors.rightMargin = Kirigami.Units.gridUnit * 3
-        onAboutToHide: miniTocItem.anchors.rightMargin = Kirigami.Units.gridUnit * 1.5
+        onAboutToShow: {
+            miniTocItem.anchors.rightMargin = Kirigami.Units.gridUnit * 3
+            miniTocItem.opacity = 0
+
+        }
+        onAboutToHide: {
+            miniTocItem.anchors.rightMargin = Kirigami.Units.gridUnit * 1.5
+            miniTocItem.opacity = 1
+
+        }
 
     }
 
@@ -310,6 +318,12 @@ EditPage {
         width: Kirigami.Units.gridUnit *3
 
         Behavior on anchors.rightMargin {
+            NumberAnimation {
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.InOutQuad
+            }
+        }
+        Behavior on opacity {
             NumberAnimation {
                 duration: Kirigami.Units.longDuration
                 easing.type: Easing.InOutQuad

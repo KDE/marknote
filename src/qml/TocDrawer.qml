@@ -81,8 +81,17 @@ Kirigami.OverlayDrawer {
 
                     Kirigami.Theme.colorSet: Kirigami.Theme.View
                     Kirigami.Theme.inherit: false
-                    color: Kirigami.Theme.backgroundColor
+                    color.r: Kirigami.Theme.backgroundColor.r
+                    color.g: Kirigami.Theme.backgroundColor.g
+                    color.b: Kirigami.Theme.backgroundColor.b
+                    color.a: root.pinned ? 0 : 1
                     radius: Kirigami.Units.cornerRadius *2
+                    Behavior on color.a {
+                        NumberAnimation {
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
                     shadow {
                         size: root.pinned ? 0 : 15
                         yOffset: root.pinned ? 0 : 3
@@ -94,6 +103,8 @@ Kirigami.OverlayDrawer {
                                 easing.type: Easing.InOutQuad
                             }
                         }
+
+
                         Behavior on yOffset {
                             NumberAnimation {
                                 duration: Kirigami.Units.longDuration
