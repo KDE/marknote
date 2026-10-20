@@ -19,6 +19,9 @@ BlockTemplate {
     readonly property var blockData: root.block.data
     readonly property var text: blockData.text
 
+    property int fontSize: Config.editorFont.pointSize
+
+
     blockComponent: Item {
         implicitWidth: parent.width
         implicitHeight: scrollView.implicitHeight
@@ -43,6 +46,7 @@ BlockTemplate {
                 id: codeText
                 text: blockData.text
                 font.family: Kirigami.Theme.fixedWidthFont.family
+                font.pointSize: root.fontSize
                 color: Kirigami.Theme.textColor
                 padding: Kirigami.Units.largeSpacing
 

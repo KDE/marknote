@@ -36,9 +36,9 @@ Item {
 
     property var color: Kirigami.Theme.textColor
     property int padding: 0
-    property int fontSize: Kirigami.Theme.defaultFont.pointSize
     property int fontBold: Kirigami.Theme.defaultFont.bold
-    property string fontFamily: Kirigami.Theme.defaultFont.family
+    property int fontSize: Config.editorFont.pointSize
+    property string fontFamily: Config.editorFont.family
 
     property bool editing: false
     property int wrapMode: TextEdit.Wrap
@@ -101,6 +101,7 @@ Item {
         font.pointSize: root.fontSize
         font.bold: root.fontBold
         font.family: root.fontFamily
+
     }
 
     MouseArea {

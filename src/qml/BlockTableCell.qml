@@ -24,8 +24,8 @@ Item {
 
     property var color: Kirigami.Theme.textColor
     property int padding: 0
-    property int fontSize: Kirigami.Theme.defaultFont.pointSize
-    property string fontFamily: Kirigami.Theme.defaultFont.family
+    property int fontSize: Config.editorFont.pointSize
+    property string fontFamily: Config.editorFont.family
 
     property bool editing: false
     property int wrapMode: TextEdit.Wrap
