@@ -10,7 +10,8 @@ Marknote supports a wide range of formatting options useful for taking everyday 
 
 <a href='https://flathub.org/apps/details/org.kde.marknote'><img width='190px' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
 
-[![Snap Store Link](https://snapcraft.io/en/light/install.svg)](https://snapcraft.io/marknote)
+<a href='https://snapcraft.io/marknote'><img width='190px' alt='Download on Snap Store' src='https://snapcraft.io/en/light/install.svg'/></a>
+
 
 ## Build Instructions
 
