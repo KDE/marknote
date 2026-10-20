@@ -69,7 +69,7 @@ Kirigami.OverlayDrawer {
 
             Layout.rightMargin: Kirigami.Units.gridUnit * 2
             Layout.topMargin: Kirigami.Units.gridUnit
-            Layout.bottomMargin: Kirigami.Units.gridUnit * 2
+            Layout.bottomMargin: Kirigami.Units.gridUnit * 4
 
             rightPadding: Kirigami.Units.largeSpacing
 
