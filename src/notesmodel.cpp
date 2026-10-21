@@ -241,6 +241,14 @@ void NotesModel::deleteNote(const QUrl &path)
     updateTotalNotesCount();
 }
 
+void NotesModel::deleteFolder(const QUrl &path)
+{
+    if (path.isLocalFile()) {
+        QDir(path.toLocalFile()).removeRecursively();
+    }
+    updateTotalNotesCount();
+}
+
 void NotesModel::renameNote(const QUrl &path, const QString &name)
 {
     QFileInfo info(path.toLocalFile());

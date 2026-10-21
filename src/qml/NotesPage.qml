@@ -186,10 +186,8 @@ Kirigami.ScrollablePage {
                     icon.name: root.isTreeExpanded ? "collapse-all" : "expand-all"
                     text: root.isTreeExpanded ? KI18n.i18n("Collapse All") : KI18n.i18n("Expand All")
                     display: AbstractButton.IconOnly
-                    visible: root.isWideScreen
-
+                    visible: false
                     onClicked: root.toggleExpandAll()
-
                     ToolTip.visible: hovered
                     ToolTip.text: text
                 }
@@ -310,21 +308,45 @@ Kirigami.ScrollablePage {
         property string notePath
         property url fileUrl
         property string noteName
+        property bool isFolder
 
         dialogType: Components.MessageDialog.Warning
-        title: KI18n.i18nc("@title:window", "Delete Note")
+        title: isFolder? KI18n.i18nc("@title:window", "Delete Folder") : KI18n.i18nc("@title:window", "Delete Note")
         onRejected: close()
         onAccepted: {
-            let isCurrentNote = (cleanPath(notePath) === root.activeAbsolutePath)
-                             || (fileUrl.toString() === NavigationController.noteFullPath.toString());
-            pageNotesModel.deleteNote(fileUrl);
-            if (isCurrentNote) {
-                NavigationController.notePath = '';
+            if (isFolder) {
+                let folderPath = cleanPath(notePath);
+                let activePath = cleanPath(root.activeAbsolutePath);
+
+                let isInsideFolder = (path) =>
+                    path === folderPath || path.startsWith(folderPath + "/");
+
+                pageNotesModel.deleteFolder(fileUrl);
+
+                if (isInsideFolder(activePath)) {
+                    NavigationController.notePath = '';
+                }
+            } else {
+                let isCurrentNote = (cleanPath(notePath) === root.activeAbsolutePath)
+                                 || (fileUrl.toString() === NavigationController.noteFullPath.toString());
+
+                pageNotesModel.deleteNote(fileUrl);
+
+                if (isCurrentNote) {
+                    NavigationController.notePath = '';
+                }
             }
+
             close();
         }
         standardButtons: Dialog.Ok | Dialog.Cancel
-        subtitle: KI18n.i18n("Are you sure you want to delete the note <b> %1 </b>? This will delete the file <b>%2</b> definitively.", removeDialog.noteName, removeDialog.notePath)
+        subtitle: { if (isFolder) {
+                    KI18n.i18n("Are you sure you want to delete the folder <b> %1 </b>? This will delete all notes contained in <b>%2</b> definitively.", removeDialog.noteName, removeDialog.notePath)
+                } else {
+                    KI18n.i18n("Are you sure you want to delete the note <b> %1 </b>? This will delete the file <b>%2</b> definitively.", removeDialog.noteName, removeDialog.notePath)
+
+                }
+            }
     }
 
     NotesModel {
@@ -606,6 +628,7 @@ Kirigami.ScrollablePage {
                     removeDialog.noteName = menu.delegateItem.name;
                     removeDialog.notePath = menu.delegateItem.path;
                     removeDialog.fileUrl = menu.delegateItem.fileUrl;
+                    removeDialog.isFolder = menu.delegateItem.isFolder;
                     removeDialog.open()
                 }
             }
@@ -617,14 +640,14 @@ Kirigami.ScrollablePage {
             Kirigami.Theme.inherit: false
             Kirigami.Theme.backgroundColor: root.backgroundColor
 
-            required property string name;
-            required property string path;
-            required property string color;
-            required property var date;
-            required property int index;
+            required property string name
+            required property string path
+            required property string color
+            required property var date
+            required property int index
             required property url fileUrl
             required property bool isFolder
-            property alias renameField: renameField;
+            property alias renameField: renameField
 
             required property int kDescendantLevel
             required property bool kDescendantExpandable

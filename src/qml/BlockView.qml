@@ -307,8 +307,6 @@ Item {
             Layout.bottomMargin: Kirigami.Units.largeSpacing
 
             Layout.maximumWidth: Config.fullWidth ? Infinity : Kirigami.Units.gridUnit * Config.textWidth
-
-
             Layout.alignment: if (root.tocPinned) {
                                   if ((parent.width - Layout.maximumWidth - Kirigami.Units.largeSpacing * 3 - Kirigami.Units.largeSpacing) * 0.5 > Kirigami.Units.gridUnit * 14.5 ) {
                                       Qt.AlignCenter
@@ -320,7 +318,6 @@ Item {
                              }
 
             bottomMargin: parent.height / 2.0
-
         }
 
         ScrollBar {

@@ -92,6 +92,8 @@ public:
     Q_INVOKABLE QString addFolder(const QString &name);
 
     Q_INVOKABLE void deleteNote(const QUrl &path);
+    Q_INVOKABLE void deleteFolder(const QUrl &path);
+
     Q_INVOKABLE void renameNote(const QUrl &path, const QString &name);
     Q_INVOKABLE void duplicateNote(const QUrl &path);
     Q_INVOKABLE void copyWholeNote(const QUrl &path);
