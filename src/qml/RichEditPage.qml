@@ -280,14 +280,16 @@ EditPage {
         }
     }
 
-
     TocDrawer {
         id: tocDrawer
 
         treeModel: root.document.treeModel
         blockView: root.mainContentItem ? root.mainContentItem.listView : null
 
-        topMargin: (root.pageStack && root.pageStack.globalToolBar) ? root.pageStack.globalToolBar.height : (root.ApplicationWindow.window && root.ApplicationWindow.window.header ? root.ApplicationWindow.window.header.height : 0)
+        topMargin: ((root.pageStack && root.pageStack.globalToolBar) ?
+                        root.pageStack.globalToolBar.height :
+                        (root.ApplicationWindow.window && root.ApplicationWindow.window.header ?
+                             root.ApplicationWindow.window.header.height : 0)) + root.searchBar.Layout.preferredHeight
         y: topMargin
         bottomMargin: Kirigami.Units.gridUnit
         onAboutToShow: {
@@ -310,9 +312,7 @@ EditPage {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.rightMargin: Kirigami.Units.gridUnit * 1.5
-        anchors.topMargin: Kirigami.Units.gridUnit * 3
-
-
+        anchors.topMargin: Kirigami.Units.gridUnit * 3 + root.searchBar.Layout.preferredHeight
 
         height: miniTocListView.contentHeight
         width: Kirigami.Units.gridUnit *3
