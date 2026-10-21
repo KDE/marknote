@@ -385,6 +385,7 @@ Kirigami.Page {
         ToolBar {
             id: searchBar
 
+
             property bool isSearchOpen: false
             property bool isReplaceVisible: false
 
@@ -405,6 +406,9 @@ Kirigami.Page {
             clip: true
 
             Layout.fillWidth: true
+
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            Kirigami.Theme.inherit: false
 
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.smallSpacing
