@@ -52,6 +52,7 @@ ecm_add_qml_module(marknote_static
         qml/SketchDialog.qml
         qml/TextFieldContextMenu.qml
         qml/TocDrawer.qml
+        qml/NoteStyleMenu.qml
         # Components
         qml/components/EmojierPopup.qml
         qml/components/SlashMenuPopup.qml

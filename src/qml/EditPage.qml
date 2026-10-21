@@ -226,7 +226,7 @@ Kirigami.Page {
             action: EditorActions.undoAction
             display: AbstractButton.IconOnly
             Layout.leftMargin: Kirigami.Units.smallSpacing
-            visible: root.singleDocumentMode
+            // visible: root.singleDocumentMode
 
             ToolTip.text: action.text
             ToolTip.visible: hovered
@@ -236,7 +236,7 @@ Kirigami.Page {
         ToolButton {
             action: EditorActions.redoAction
             display: AbstractButton.IconOnly
-            visible: root.singleDocumentMode
+            // visible: root.singleDocumentMode
 
             ToolTip.text: action.text
             ToolTip.visible: hovered
@@ -318,6 +318,23 @@ Kirigami.Page {
         //     ToolTip.visible: hovered
         //     ToolTip.delay: Kirigami.Units.toolTipDelay
         // }
+
+        ToolButton {
+            id: styleMenuButton
+            text: KI18n.i18n("Note Style")
+            icon.name: "font"
+            display: AbstractButton.IconOnly
+            checkable: true
+            checked: noteStyleMenu.opened
+            onClicked: {
+                if (noteStyleMenu.opened) {
+                    noteStyleMenu.close()
+                } else {
+                    noteStyleMenu.open();
+                }
+            }
+        }
+
 
         ToolButton {
             id: fillWindowButton
@@ -669,6 +686,12 @@ Kirigami.Page {
                 }
             }
         }
+    }
+
+    NoteStyleMenu {
+        id: noteStyleMenu
+        leftMargin: parent.width - width - Kirigami.Units.gridUnit * 1
+        bottomMargin: parent.height - height - Kirigami.Units.gridUnit * 3
     }
 
     contentItem: ColumnLayout {
