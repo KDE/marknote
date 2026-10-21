@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:53+0000\n"
+"POT-Creation-Date: 2026-10-21 00:51+0000\n"
 "PO-Revision-Date: 2025-05-27 17:01+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -191,31 +191,31 @@ msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "Gat ekki endurnefnt glósu. Glósa með þessu heiti er nú þegar til."
 
-#: notesmodel.cpp:268
+#: notesmodel.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Gat ekki endurnefnt glósu. Glósa með þessu heiti er nú þegar til."
 
-#: notesmodel.cpp:332
+#: notesmodel.cpp:331
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr ""
 
-#: notesmodel.cpp:339
+#: notesmodel.cpp:338
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr ""
 
-#: notesmodel.cpp:345
+#: notesmodel.cpp:344
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr ""
 
-#: qml/BlockCode.qml:276
+#: qml/BlockCode.qml:280
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr ""
@@ -1011,37 +1011,37 @@ msgstr "Myndskrár (*.jpg *.jpeg *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "Allar skrár (*)"
 
-#: qml/RichEditPage.qml:856
+#: qml/RichEditPage.qml:870
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Feitletrað"
 
-#: qml/RichEditPage.qml:878
+#: qml/RichEditPage.qml:892
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Skáletrað"
 
-#: qml/RichEditPage.qml:895
+#: qml/RichEditPage.qml:909
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Gegnumstrikað"
 
-#: qml/RichEditPage.qml:915
+#: qml/RichEditPage.qml:929
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Auka inndrátt lista"
 
-#: qml/RichEditPage.qml:929
+#: qml/RichEditPage.qml:943
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Minnka inndrátt lista"
 
-#: qml/RichEditPage.qml:972
+#: qml/RichEditPage.qml:986
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu unordered style"
 #| msgid "Unordered list"
@@ -1049,7 +1049,7 @@ msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Óraðaður listi"
 
-#: qml/RichEditPage.qml:991
+#: qml/RichEditPage.qml:1005
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu ordered style"
 #| msgid "Ordered list"
@@ -1057,19 +1057,19 @@ msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Raðaður listi"
 
-#: qml/RichEditPage.qml:1010
+#: qml/RichEditPage.qml:1024
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr ""
 
-#: qml/RichEditPage.qml:1036
+#: qml/RichEditPage.qml:1050
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Setja inn tengil"
 
-#: qml/RichEditPage.qml:1055
+#: qml/RichEditPage.qml:1069
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -1077,19 +1077,19 @@ msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Setja inn tengil"
 
-#: qml/RichEditPage.qml:1074
+#: qml/RichEditPage.qml:1088
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Setja inn mynd"
 
-#: qml/RichEditPage.qml:1091
+#: qml/RichEditPage.qml:1105
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Setja inn töflu"
 
-#: qml/RichEditPage.qml:1108
+#: qml/RichEditPage.qml:1122
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -1097,7 +1097,7 @@ msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Setja inn tengil"
 
-#: qml/RichEditPage.qml:1173
+#: qml/RichEditPage.qml:1187
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu heading level 5"
 #| msgid "Paragraph"
@@ -1105,53 +1105,53 @@ msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Efnisgrein"
 
-#: qml/RichEditPage.qml:1184
+#: qml/RichEditPage.qml:1198
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr ""
 
-#: qml/RichEditPage.qml:1195
+#: qml/RichEditPage.qml:1209
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr ""
 
-#: qml/RichEditPage.qml:1206
+#: qml/RichEditPage.qml:1220
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr ""
 
-#: qml/RichEditPage.qml:1217
+#: qml/RichEditPage.qml:1231
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr ""
 
-#: qml/RichEditPage.qml:1228
+#: qml/RichEditPage.qml:1242
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr ""
 
-#: qml/RichEditPage.qml:1239
+#: qml/RichEditPage.qml:1253
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr ""
 
-#: qml/RichEditPage.qml:1414
+#: qml/RichEditPage.qml:1428
 #, kde-format
 msgid "Format"
 msgstr "Snið"
 
-#: qml/RichEditPage.qml:1423
+#: qml/RichEditPage.qml:1437
 #, kde-format
 msgid "Lists"
 msgstr "Listar"
 
-#: qml/RichEditPage.qml:1432
+#: qml/RichEditPage.qml:1446
 #, kde-format
 msgid "Insert"
 msgstr "Setja inn"
@@ -1242,20 +1242,20 @@ msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Velja allt"
 
-#: qml/TocDrawer.qml:121
+#: qml/TocDrawer.qml:132
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "Innihald hólfs"
 
-#: qml/TocDrawer.qml:132
+#: qml/TocDrawer.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "pin"
 msgstr ""
 
-#: qml/TocDrawer.qml:221
+#: qml/TocDrawer.qml:232
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"

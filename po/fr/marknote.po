@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:53+0000\n"
-"PO-Revision-Date: 2026-10-18 10:38+0200\n"
+"POT-Creation-Date: 2026-10-21 00:51+0000\n"
+"PO-Revision-Date: 2026-10-19 09:06+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -32,12 +32,10 @@ msgid "New Notebook"
 msgstr "Nouveau carnet de notes"
 
 #: application.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note or Folder"
-msgstr "Nouveau carnet de notes"
+msgstr "Nouvelle note ou nouveau dossier"
 
 #: application.cpp:59
 #, kde-format
@@ -161,20 +159,17 @@ msgid "Unable to create note: %1"
 msgstr "Impossible de créer la note : %1"
 
 #: notesmodel.cpp:225
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder. A folder already exists with the same name."
-msgstr "Impossible de créer la note. Une note existe déjà avec le même nom."
+msgstr ""
+"Impossible de créer le dossier. Un dossier avec le même nom existe déjà."
 
 #: notesmodel.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder: %1"
-msgstr "Impossible de créer la note : %1"
+msgstr "Impossible de créer le dossier : %1"
 
 #: notesmodel.cpp:253
 #, fuzzy, kde-format
@@ -184,32 +179,32 @@ msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "Impossible de créer la note. Une note existe déjà avec le même nom."
 
-#: notesmodel.cpp:268
+#: notesmodel.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr ""
 "Impossible de renommer une note. Une note existe déjà avec le même nom."
 
-#: notesmodel.cpp:332
+#: notesmodel.cpp:331
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "Opération de déplacement non valable."
 
-#: notesmodel.cpp:339
+#: notesmodel.cpp:338
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "Impossible de déplacer un dossier dans lui-même."
 
-#: notesmodel.cpp:345
+#: notesmodel.cpp:344
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Impossible de déplacer le fichier"
 
-#: qml/BlockCode.qml:276
+#: qml/BlockCode.qml:280
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Copié dans le presse-papier !"
@@ -737,11 +732,10 @@ msgstr ""
 "Texte alternatif optionnel à afficher en remplacement du nom de la note."
 
 #: qml/NoteMetadataDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New"
-msgstr "Ajouter une remarque"
+msgstr "Ajouter un nouveau"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -750,21 +744,16 @@ msgid "Edit Note"
 msgstr "Modifier une note"
 
 #: qml/NoteMetadataDialog.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Note"
-msgstr "Nouvelle note"
+msgstr "Note"
 
 #: qml/NoteMetadataDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "%1 folder"
-#| msgid_plural "%1 folders"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Folder"
-msgstr "Dossier %1"
+msgstr "Dossier"
 
 #: qml/NoteMetadataDialog.qml:90
 #, kde-format
@@ -773,12 +762,10 @@ msgid "Name:"
 msgstr "Nom :"
 
 #: qml/NoteMetadataDialog.qml:95
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "A note with this name already exists."
+#, kde-format
 msgctxt "@info"
 msgid "A note or folder with this name already exists."
-msgstr "Une note portant ce nom existe déjà."
+msgstr "Une note ou un dossier portant ce nom existe déjà."
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -973,137 +960,137 @@ msgstr "Fichiers d'image (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "Tous les fichiers (*)"
 
-#: qml/RichEditPage.qml:856
+#: qml/RichEditPage.qml:870
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Gras"
 
-#: qml/RichEditPage.qml:878
+#: qml/RichEditPage.qml:892
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Italique"
 
-#: qml/RichEditPage.qml:895
+#: qml/RichEditPage.qml:909
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Barré"
 
-#: qml/RichEditPage.qml:915
+#: qml/RichEditPage.qml:929
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Accroître le niveau de la liste"
 
-#: qml/RichEditPage.qml:929
+#: qml/RichEditPage.qml:943
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Réduire le niveau de la liste"
 
-#: qml/RichEditPage.qml:972
+#: qml/RichEditPage.qml:986
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Liste non triée"
 
-#: qml/RichEditPage.qml:991
+#: qml/RichEditPage.qml:1005
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Liste triée"
 
-#: qml/RichEditPage.qml:1010
+#: qml/RichEditPage.qml:1024
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr "Liste de vérification"
 
-#: qml/RichEditPage.qml:1036
+#: qml/RichEditPage.qml:1050
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Insérer un lien"
 
-#: qml/RichEditPage.qml:1055
+#: qml/RichEditPage.qml:1069
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Insérer un lien vers une note"
 
-#: qml/RichEditPage.qml:1074
+#: qml/RichEditPage.qml:1088
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Insérer une image"
 
-#: qml/RichEditPage.qml:1091
+#: qml/RichEditPage.qml:1105
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Insérer un tableau"
 
-#: qml/RichEditPage.qml:1108
+#: qml/RichEditPage.qml:1122
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Insérer un croquis"
 
-#: qml/RichEditPage.qml:1173
+#: qml/RichEditPage.qml:1187
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Paragraphe"
 
-#: qml/RichEditPage.qml:1184
+#: qml/RichEditPage.qml:1198
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "En-tête 1"
 
-#: qml/RichEditPage.qml:1195
+#: qml/RichEditPage.qml:1209
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "En-tête 2"
 
-#: qml/RichEditPage.qml:1206
+#: qml/RichEditPage.qml:1220
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "En-tête 3"
 
-#: qml/RichEditPage.qml:1217
+#: qml/RichEditPage.qml:1231
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "En-tête 4"
 
-#: qml/RichEditPage.qml:1228
+#: qml/RichEditPage.qml:1242
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "En-tête 5"
 
-#: qml/RichEditPage.qml:1239
+#: qml/RichEditPage.qml:1253
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "En-tête 6"
 
-#: qml/RichEditPage.qml:1414
+#: qml/RichEditPage.qml:1428
 #, kde-format
 msgid "Format"
 msgstr "Formater"
 
-#: qml/RichEditPage.qml:1423
+#: qml/RichEditPage.qml:1437
 #, kde-format
 msgid "Lists"
 msgstr "Listes"
 
-#: qml/RichEditPage.qml:1432
+#: qml/RichEditPage.qml:1446
 #, kde-format
 msgid "Insert"
 msgstr "Insérer"
@@ -1190,19 +1177,19 @@ msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Tout sélectionner"
 
-#: qml/TocDrawer.qml:121
+#: qml/TocDrawer.qml:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
 msgstr "Table des matières"
 
-#: qml/TocDrawer.qml:132
+#: qml/TocDrawer.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "pin"
 msgstr ""
 
-#: qml/TocDrawer.qml:221
+#: qml/TocDrawer.qml:232
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
