@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:51+0000\n"
+"POT-Creation-Date: 2026-10-22 00:50+0000\n"
 "PO-Revision-Date: 2026-10-02 00:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -178,7 +178,7 @@ msgctxt "@info:status"
 msgid "Unable to create folder: %1"
 msgstr "노트를 생성할 수 없음: %1"
 
-#: notesmodel.cpp:253
+#: notesmodel.cpp:261
 #, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "Unable to create note. A note already exists with the same name."
@@ -186,25 +186,25 @@ msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "노트를 만들 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
 
-#: notesmodel.cpp:267
+#: notesmodel.cpp:275
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "노트의 이름을 바꿀 수 없습니다. 같은 이름의 노트가 이미 존재합니다."
 
-#: notesmodel.cpp:331
+#: notesmodel.cpp:339
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "잘못된 이동 작업입니다."
 
-#: notesmodel.cpp:338
+#: notesmodel.cpp:346
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "폴더를 자기 자신으로 이동할 수 없습니다."
 
-#: notesmodel.cpp:344
+#: notesmodel.cpp:352
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -397,81 +397,86 @@ msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "노트에서 검색"
 
-#: qml/EditPage.qml:333
+#: qml/EditPage.qml:324
+#, kde-format
+msgid "Note Style"
+msgstr ""
+
+#: qml/EditPage.qml:350
 #, kde-format
 msgid "Focus Mode"
 msgstr "초점 모드"
 
-#: qml/EditPage.qml:350 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
+#: qml/EditPage.qml:367 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "전체 화면 나가기"
 
-#: qml/EditPage.qml:363
+#: qml/EditPage.qml:380
 #, kde-format
 msgid "Switch editor mode"
 msgstr "편집기 모드 전환"
 
-#: qml/EditPage.qml:368
+#: qml/EditPage.qml:385
 #, kde-format
 msgid "Source View"
 msgstr "소스 보기"
 
-#: qml/EditPage.qml:420
+#: qml/EditPage.qml:441
 #, kde-format
 msgid "Find text…"
 msgstr "텍스트 찾기…"
 
-#: qml/EditPage.qml:456
+#: qml/EditPage.qml:477
 #, kde-format
 msgid "Previous"
 msgstr "이전"
 
-#: qml/EditPage.qml:472
+#: qml/EditPage.qml:493
 #, kde-format
 msgid "Next"
 msgstr "다음"
 
-#: qml/EditPage.qml:492 qml/EditPage.qml:598
+#: qml/EditPage.qml:513 qml/EditPage.qml:619
 #, kde-format
 msgid "No matches"
 msgstr "검색 결과 없음"
 
-#: qml/EditPage.qml:494 qml/EditPage.qml:600
+#: qml/EditPage.qml:515 qml/EditPage.qml:621
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:506 qml/EditPage.qml:569
+#: qml/EditPage.qml:527 qml/EditPage.qml:590
 #, kde-format
 msgid "Replace"
 msgstr "바꾸기"
 
-#: qml/EditPage.qml:518
+#: qml/EditPage.qml:539
 #, kde-format
 msgid "Close"
 msgstr "닫기"
 
-#: qml/EditPage.qml:540
+#: qml/EditPage.qml:561
 #, kde-format
 msgid "Replace with…"
 msgstr "바꿀 문자열…"
 
-#: qml/EditPage.qml:545 qml/EditPage.qml:585
+#: qml/EditPage.qml:566 qml/EditPage.qml:606
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
 msgstr[0] "%1회 바뀜"
 
-#: qml/EditPage.qml:581
+#: qml/EditPage.qml:602
 #, kde-format
 msgid "Replace All"
 msgstr "모두 바꾸기"
 
-#: qml/EditPage.qml:648
+#: qml/EditPage.qml:669
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -549,7 +554,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "공책 만들기"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:867
+#: qml/Main.qml:360 qml/NotesPage.qml:890
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -791,163 +796,235 @@ msgstr "모두 접기"
 msgid "Expand All"
 msgstr "모두 펴기"
 
-#: qml/NotesPage.qml:259
+#: qml/NotesPage.qml:257
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "검색 종료(%1)"
 
-#: qml/NotesPage.qml:259
+#: qml/NotesPage.qml:257
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "노트 검색(%1)"
 
-#: qml/NotesPage.qml:315
+#: qml/NotesPage.qml:314
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Delete Note"
+msgctxt "@title:window"
+msgid "Delete Folder"
+msgstr "노트 삭제"
+
+#: qml/NotesPage.qml:314
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "노트 삭제"
 
-#: qml/NotesPage.qml:327
+#: qml/NotesPage.qml:344
+#, fuzzy, kde-format
+#| msgid ""
+#| "Are you sure you want to delete the note <b> %1 </b>? This will delete "
+#| "the file <b>%2</b> definitively."
+msgid ""
+"Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
+"notes contained in <b>%2</b> definitively."
+msgstr "<b>%1</b> 노트를 삭제하시겠습니까? <b>%2</b> 파일을 영원히 삭제합니다."
+
+#: qml/NotesPage.qml:346
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr "<b>%1</b> 노트를 삭제하시겠습니까? <b>%2</b> 파일을 영원히 삭제합니다."
 
-#: qml/NotesPage.qml:483 qml/NotesPage.qml:511
+#: qml/NotesPage.qml:505 qml/NotesPage.qml:533
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:484
+#: qml/NotesPage.qml:506
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "“%1” 내보내기에 성공했습니다."
 
-#: qml/NotesPage.qml:497
+#: qml/NotesPage.qml:519
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "파일 열기"
 
-#: qml/NotesPage.qml:512
+#: qml/NotesPage.qml:534
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "“%1” 내보내기에 실패했습니다."
 
-#: qml/NotesPage.qml:523
+#: qml/NotesPage.qml:545
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "이름 바꾸기"
 
-#: qml/NotesPage.qml:532 qml/TextFieldContextMenu.qml:323
+#: qml/NotesPage.qml:554 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "복사"
 
-#: qml/NotesPage.qml:548
+#: qml/NotesPage.qml:570
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "복제"
 
-#: qml/NotesPage.qml:557
+#: qml/NotesPage.qml:579
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "내보내기"
 
-#: qml/NotesPage.qml:561
+#: qml/NotesPage.qml:583
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "HTML로 내보내기"
 
-#: qml/NotesPage.qml:567
+#: qml/NotesPage.qml:589
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "HTML로 내보내기"
 
-#: qml/NotesPage.qml:568
+#: qml/NotesPage.qml:590
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML 파일 (*.html)"
 
-#: qml/NotesPage.qml:574
+#: qml/NotesPage.qml:596
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "PDF로 내보내기"
 
-#: qml/NotesPage.qml:580
+#: qml/NotesPage.qml:602
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "PDF로 내보내기"
 
-#: qml/NotesPage.qml:581
+#: qml/NotesPage.qml:603
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF 파일 (*.pdf)"
 
-#: qml/NotesPage.qml:587
+#: qml/NotesPage.qml:609
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "ODT로 내보내기"
 
-#: qml/NotesPage.qml:593
+#: qml/NotesPage.qml:615
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "ODT로 내보내기"
 
-#: qml/NotesPage.qml:594
+#: qml/NotesPage.qml:616
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF 텍스트 문서 (*.odt)"
 
-#: qml/NotesPage.qml:603 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:625 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "삭제"
 
-#: qml/NotesPage.qml:928
+#: qml/NotesPage.qml:951
 #, kde-format
 msgid "Add a note!"
 msgstr "새 노트 추가!"
 
-#: qml/NotesPage.qml:937
+#: qml/NotesPage.qml:960
 #, kde-format
 msgid "No notes matching the search"
 msgstr "검색과 일치하는 노트 없음"
 
-#: qml/NotesPage.qml:953 qml/NotesPage.qml:961
+#: qml/NotesPage.qml:976 qml/NotesPage.qml:984
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "노트 %1개"
 
-#: qml/NotesPage.qml:957 qml/NotesPage.qml:960
+#: qml/NotesPage.qml:980 qml/NotesPage.qml:983
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
 msgstr[0] "폴더 %1개"
 
-#: qml/NotesPage.qml:963
+#: qml/NotesPage.qml:986
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
 msgstr "%1, %2"
+
+#: qml/NoteStyleMenu.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@label:spinbox"
+#| msgid "Font family:"
+msgid "Font Family"
+msgstr "글꼴 종류:"
+
+#: qml/NoteStyleMenu.qml:26
+#, kde-format
+msgid "Sans"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:31
+#, kde-format
+msgid "Serif"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:42
+#, fuzzy, kde-format
+#| msgctxt "@label:spinbox"
+#| msgid "Font size:"
+msgid "Font Size"
+msgstr "글꼴 크기:"
+
+#: qml/NoteStyleMenu.qml:49
+#, kde-format
+msgid "Small"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:54
+#, kde-format
+msgid "Medium"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:59
+#, kde-format
+msgid "Large"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:77
+#, kde-format
+msgid "Text Width"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:84
+#, kde-format
+msgid "Restricted"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:89
+#, kde-format
+msgid "Full"
+msgstr ""
 
 #: qml/RichEditPage.qml:238
 #, kde-format

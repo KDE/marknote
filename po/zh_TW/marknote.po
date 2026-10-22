@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:51+0000\n"
+"POT-Creation-Date: 2026-10-22 00:50+0000\n"
 "PO-Revision-Date: 2026-09-17 01:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -178,7 +178,7 @@ msgctxt "@info:status"
 msgid "Unable to create folder: %1"
 msgstr "無法建立筆記：%1"
 
-#: notesmodel.cpp:253
+#: notesmodel.cpp:261
 #, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "Unable to create note. A note already exists with the same name."
@@ -186,25 +186,25 @@ msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "無法建立筆記。已經有另一個筆記使用該名稱。"
 
-#: notesmodel.cpp:267
+#: notesmodel.cpp:275
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "無法重新命名筆記。已經有另一個筆記使用該名稱。"
 
-#: notesmodel.cpp:331
+#: notesmodel.cpp:339
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "無效移動操作。"
 
-#: notesmodel.cpp:338
+#: notesmodel.cpp:346
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "無法將資料夾移動到自己當中。"
 
-#: notesmodel.cpp:344
+#: notesmodel.cpp:352
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -397,81 +397,86 @@ msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "在筆記中搜尋"
 
-#: qml/EditPage.qml:333
+#: qml/EditPage.qml:324
+#, kde-format
+msgid "Note Style"
+msgstr ""
+
+#: qml/EditPage.qml:350
 #, kde-format
 msgid "Focus Mode"
 msgstr "專注模式"
 
-#: qml/EditPage.qml:350 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:295
+#: qml/EditPage.qml:367 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "離開全螢幕"
 
-#: qml/EditPage.qml:363
+#: qml/EditPage.qml:380
 #, kde-format
 msgid "Switch editor mode"
 msgstr "切換編輯器模式"
 
-#: qml/EditPage.qml:368
+#: qml/EditPage.qml:385
 #, kde-format
 msgid "Source View"
 msgstr "原始碼檢視"
 
-#: qml/EditPage.qml:420
+#: qml/EditPage.qml:441
 #, kde-format
 msgid "Find text…"
 msgstr "尋找文字…"
 
-#: qml/EditPage.qml:456
+#: qml/EditPage.qml:477
 #, kde-format
 msgid "Previous"
 msgstr "上一個"
 
-#: qml/EditPage.qml:472
+#: qml/EditPage.qml:493
 #, kde-format
 msgid "Next"
 msgstr "下一個"
 
-#: qml/EditPage.qml:492 qml/EditPage.qml:598
+#: qml/EditPage.qml:513 qml/EditPage.qml:619
 #, kde-format
 msgid "No matches"
 msgstr "無相符項目"
 
-#: qml/EditPage.qml:494 qml/EditPage.qml:600
+#: qml/EditPage.qml:515 qml/EditPage.qml:621
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:506 qml/EditPage.qml:569
+#: qml/EditPage.qml:527 qml/EditPage.qml:590
 #, kde-format
 msgid "Replace"
 msgstr "取代"
 
-#: qml/EditPage.qml:518
+#: qml/EditPage.qml:539
 #, kde-format
 msgid "Close"
 msgstr "關閉"
 
-#: qml/EditPage.qml:540
+#: qml/EditPage.qml:561
 #, kde-format
 msgid "Replace with…"
 msgstr "替換為…"
 
-#: qml/EditPage.qml:545 qml/EditPage.qml:585
+#: qml/EditPage.qml:566 qml/EditPage.qml:606
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
 msgstr[0] "已取代 %1 處"
 
-#: qml/EditPage.qml:581
+#: qml/EditPage.qml:602
 #, kde-format
 msgid "Replace All"
 msgstr "全部取代"
 
-#: qml/EditPage.qml:648
+#: qml/EditPage.qml:669
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -549,7 +554,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "建立筆記本"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:867
+#: qml/Main.qml:360 qml/NotesPage.qml:890
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -790,163 +795,235 @@ msgstr "全部收起"
 msgid "Expand All"
 msgstr "全部展開"
 
-#: qml/NotesPage.qml:259
+#: qml/NotesPage.qml:257
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "離開搜尋 (%1)"
 
-#: qml/NotesPage.qml:259
+#: qml/NotesPage.qml:257
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "搜尋筆記 (%1)"
 
-#: qml/NotesPage.qml:315
+#: qml/NotesPage.qml:314
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Delete Note"
+msgctxt "@title:window"
+msgid "Delete Folder"
+msgstr "刪除筆記"
+
+#: qml/NotesPage.qml:314
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "刪除筆記"
 
-#: qml/NotesPage.qml:327
+#: qml/NotesPage.qml:344
+#, fuzzy, kde-format
+#| msgid ""
+#| "Are you sure you want to delete the note <b> %1 </b>? This will delete "
+#| "the file <b>%2</b> definitively."
+msgid ""
+"Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
+"notes contained in <b>%2</b> definitively."
+msgstr "您確定要刪除筆記 <b>%1</b> 嗎？這會永久完全刪除檔案 <b>%2</b>。"
+
+#: qml/NotesPage.qml:346
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr "您確定要刪除筆記 <b>%1</b> 嗎？這會永久完全刪除檔案 <b>%2</b>。"
 
-#: qml/NotesPage.qml:483 qml/NotesPage.qml:511
+#: qml/NotesPage.qml:505 qml/NotesPage.qml:533
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:484
+#: qml/NotesPage.qml:506
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "匯出「%1」成功。"
 
-#: qml/NotesPage.qml:497
+#: qml/NotesPage.qml:519
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "開啟檔案"
 
-#: qml/NotesPage.qml:512
+#: qml/NotesPage.qml:534
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "匯出「%1」失敗。"
 
-#: qml/NotesPage.qml:523
+#: qml/NotesPage.qml:545
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "重新命名"
 
-#: qml/NotesPage.qml:532 qml/TextFieldContextMenu.qml:323
+#: qml/NotesPage.qml:554 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "複製"
 
-#: qml/NotesPage.qml:548
+#: qml/NotesPage.qml:570
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "建立複本"
 
-#: qml/NotesPage.qml:557
+#: qml/NotesPage.qml:579
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "匯出"
 
-#: qml/NotesPage.qml:561
+#: qml/NotesPage.qml:583
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "匯出為 HTML"
 
-#: qml/NotesPage.qml:567
+#: qml/NotesPage.qml:589
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "匯出為 HTML"
 
-#: qml/NotesPage.qml:568
+#: qml/NotesPage.qml:590
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML 檔案 (*.html)"
 
-#: qml/NotesPage.qml:574
+#: qml/NotesPage.qml:596
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "匯出為 PDF"
 
-#: qml/NotesPage.qml:580
+#: qml/NotesPage.qml:602
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "匯出為 PDF"
 
-#: qml/NotesPage.qml:581
+#: qml/NotesPage.qml:603
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF 檔案 (*.pdf)"
 
-#: qml/NotesPage.qml:587
+#: qml/NotesPage.qml:609
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "匯出為 ODT"
 
-#: qml/NotesPage.qml:593
+#: qml/NotesPage.qml:615
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "匯出為 ODT"
 
-#: qml/NotesPage.qml:594
+#: qml/NotesPage.qml:616
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF 文字文件 (*.odt)"
 
-#: qml/NotesPage.qml:603 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:625 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "刪除"
 
-#: qml/NotesPage.qml:928
+#: qml/NotesPage.qml:951
 #, kde-format
 msgid "Add a note!"
 msgstr "新增筆記！"
 
-#: qml/NotesPage.qml:937
+#: qml/NotesPage.qml:960
 #, kde-format
 msgid "No notes matching the search"
 msgstr "沒有符合搜尋的筆記"
 
-#: qml/NotesPage.qml:953 qml/NotesPage.qml:961
+#: qml/NotesPage.qml:976 qml/NotesPage.qml:984
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 個筆記"
 
-#: qml/NotesPage.qml:957 qml/NotesPage.qml:960
+#: qml/NotesPage.qml:980 qml/NotesPage.qml:983
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
 msgstr[0] "%1 個資料夾"
 
-#: qml/NotesPage.qml:963
+#: qml/NotesPage.qml:986
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
 msgstr "%1, %2"
+
+#: qml/NoteStyleMenu.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@label:spinbox"
+#| msgid "Font family:"
+msgid "Font Family"
+msgstr "字型家族："
+
+#: qml/NoteStyleMenu.qml:26
+#, kde-format
+msgid "Sans"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:31
+#, kde-format
+msgid "Serif"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:42
+#, fuzzy, kde-format
+#| msgctxt "@label:spinbox"
+#| msgid "Font size:"
+msgid "Font Size"
+msgstr "字型大小："
+
+#: qml/NoteStyleMenu.qml:49
+#, kde-format
+msgid "Small"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:54
+#, kde-format
+msgid "Medium"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:59
+#, kde-format
+msgid "Large"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:77
+#, kde-format
+msgid "Text Width"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:84
+#, kde-format
+msgid "Restricted"
+msgstr ""
+
+#: qml/NoteStyleMenu.qml:89
+#, kde-format
+msgid "Full"
+msgstr ""
 
 #: qml/RichEditPage.qml:238
 #, kde-format
