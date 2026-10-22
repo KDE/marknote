@@ -18,6 +18,7 @@ FormCard.FormCardDialog {
     header: Item {}
     width: Kirigami.Units.gridUnit * 18
     onClosed: Config.save()
+
     FormCard.FormHeader {
         title: KI18n.i18n("Font Family")
     }
@@ -82,6 +83,7 @@ FormCard.FormCardDialog {
 
     FormCard.FormRadioSelectorDelegate {
         consistentWidth: true
+        Layout.bottomMargin: Kirigami.Units.mediumSpacing
         actions: [
             Kirigami.Action {
                 text: KI18n.i18n("Restricted")

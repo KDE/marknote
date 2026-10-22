@@ -320,19 +320,13 @@ Kirigami.Page {
         // }
 
         ToolButton {
-            id: styleMenuButton
+            id: noteStyleMenuButton
             text: KI18n.i18n("Note Style")
             icon.name: "font"
             display: AbstractButton.IconOnly
             checkable: true
             checked: noteStyleMenu.opened
-            onClicked: {
-                if (noteStyleMenu.opened) {
-                    noteStyleMenu.close()
-                } else {
-                    noteStyleMenu.open();
-                }
-            }
+            onClicked: noteStyleMenu.open()
         }
 
 
