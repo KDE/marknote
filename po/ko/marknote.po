@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:50+0000\n"
+"POT-Creation-Date: 2026-10-23 00:49+0000\n"
 "PO-Revision-Date: 2026-10-02 00:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -402,81 +402,81 @@ msgstr "노트에서 검색"
 msgid "Note Style"
 msgstr ""
 
-#: qml/EditPage.qml:350
+#: qml/EditPage.qml:344
 #, kde-format
 msgid "Focus Mode"
 msgstr "초점 모드"
 
-#: qml/EditPage.qml:367 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
+#: qml/EditPage.qml:361 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "전체 화면 나가기"
 
-#: qml/EditPage.qml:380
+#: qml/EditPage.qml:374
 #, kde-format
 msgid "Switch editor mode"
 msgstr "편집기 모드 전환"
 
-#: qml/EditPage.qml:385
+#: qml/EditPage.qml:379
 #, kde-format
 msgid "Source View"
 msgstr "소스 보기"
 
-#: qml/EditPage.qml:441
+#: qml/EditPage.qml:435
 #, kde-format
 msgid "Find text…"
 msgstr "텍스트 찾기…"
 
-#: qml/EditPage.qml:477
+#: qml/EditPage.qml:471
 #, kde-format
 msgid "Previous"
 msgstr "이전"
 
-#: qml/EditPage.qml:493
+#: qml/EditPage.qml:487
 #, kde-format
 msgid "Next"
 msgstr "다음"
 
-#: qml/EditPage.qml:513 qml/EditPage.qml:619
+#: qml/EditPage.qml:507 qml/EditPage.qml:613
 #, kde-format
 msgid "No matches"
 msgstr "검색 결과 없음"
 
-#: qml/EditPage.qml:515 qml/EditPage.qml:621
+#: qml/EditPage.qml:509 qml/EditPage.qml:615
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:527 qml/EditPage.qml:590
+#: qml/EditPage.qml:521 qml/EditPage.qml:584
 #, kde-format
 msgid "Replace"
 msgstr "바꾸기"
 
-#: qml/EditPage.qml:539
+#: qml/EditPage.qml:533
 #, kde-format
 msgid "Close"
 msgstr "닫기"
 
-#: qml/EditPage.qml:561
+#: qml/EditPage.qml:555
 #, kde-format
 msgid "Replace with…"
 msgstr "바꿀 문자열…"
 
-#: qml/EditPage.qml:566 qml/EditPage.qml:606
+#: qml/EditPage.qml:560 qml/EditPage.qml:600
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
 msgid_plural "Replaced %1 occurrences"
 msgstr[0] "%1회 바뀜"
 
-#: qml/EditPage.qml:602
+#: qml/EditPage.qml:596
 #, kde-format
 msgid "Replace All"
 msgstr "모두 바꾸기"
 
-#: qml/EditPage.qml:669
+#: qml/EditPage.qml:663
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -972,56 +972,56 @@ msgctxt "@info:status"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: qml/NoteStyleMenu.qml:19
+#: qml/NoteStyleMenu.qml:23
 #, fuzzy, kde-format
 #| msgctxt "@label:spinbox"
 #| msgid "Font family:"
 msgid "Font Family"
 msgstr "글꼴 종류:"
 
-#: qml/NoteStyleMenu.qml:26
+#: qml/NoteStyleMenu.qml:30
 #, kde-format
 msgid "Sans"
 msgstr ""
 
-#: qml/NoteStyleMenu.qml:31
+#: qml/NoteStyleMenu.qml:35
 #, kde-format
 msgid "Serif"
 msgstr ""
 
-#: qml/NoteStyleMenu.qml:42
+#: qml/NoteStyleMenu.qml:46
 #, fuzzy, kde-format
 #| msgctxt "@label:spinbox"
 #| msgid "Font size:"
 msgid "Font Size"
 msgstr "글꼴 크기:"
 
-#: qml/NoteStyleMenu.qml:49
+#: qml/NoteStyleMenu.qml:53
 #, kde-format
 msgid "Small"
 msgstr ""
 
-#: qml/NoteStyleMenu.qml:54
+#: qml/NoteStyleMenu.qml:58
 #, kde-format
 msgid "Medium"
 msgstr ""
 
-#: qml/NoteStyleMenu.qml:59
+#: qml/NoteStyleMenu.qml:63
 #, kde-format
 msgid "Large"
 msgstr ""
 
-#: qml/NoteStyleMenu.qml:77
+#: qml/NoteStyleMenu.qml:81
 #, kde-format
 msgid "Text Width"
 msgstr ""
 
-#: qml/NoteStyleMenu.qml:84
+#: qml/NoteStyleMenu.qml:89
 #, kde-format
 msgid "Restricted"
 msgstr ""
 
-#: qml/NoteStyleMenu.qml:89
+#: qml/NoteStyleMenu.qml:94
 #, kde-format
 msgid "Full"
 msgstr ""

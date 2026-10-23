@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:50+0000\n"
+"POT-Creation-Date: 2026-10-23 00:49+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -32,12 +32,10 @@ msgid "New Notebook"
 msgstr "Nová poznámka"
 
 #: application.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note or Folder"
-msgstr "Nová poznámka"
+msgstr "Nová poznámka alebo priečinok"
 
 #: application.cpp:59
 #, kde-format
@@ -115,7 +113,7 @@ msgstr "Prayag Jain"
 #: main.cpp:96
 #, kde-format
 msgid "Block Editor"
-msgstr ""
+msgstr "Blokový editor"
 
 #: main.cpp:101
 #, kde-format
@@ -162,30 +160,24 @@ msgid "Unable to create note: %1"
 msgstr "Nie je možné vytvoriť poznámku: %1"
 
 #: notesmodel.cpp:225
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder. A folder already exists with the same name."
 msgstr ""
-"Nie je možné vytvoriť poznámku. Poznámka s rovnakým názvom už existuje."
+"Nie je možné vytvoriť priečinok. Priečinok s rovnakým názvom už existuje."
 
 #: notesmodel.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder: %1"
-msgstr "Nie je možné vytvoriť poznámku: %1"
+msgstr "Nie je možné vytvoriť priečinok: %1"
 
 #: notesmodel.cpp:261
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr ""
-"Nie je možné vytvoriť poznámku. Poznámka s rovnakým názvom už existuje."
+"Nie je možné premenovať priečinok. Priečinok s rovnakým názvom už existuje."
 
 #: notesmodel.cpp:275
 #, kde-format
@@ -215,180 +207,160 @@ msgstr "Nepodarilo sa presunúť súbor."
 #: qml/BlockCode.qml:280
 #, kde-format
 msgid "Copied to clipboard!"
-msgstr ""
+msgstr "Skopírované do schránky!"
 
 #: qml/components/SlashMenuPopup.qml:20
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 1"
-msgstr "Nadpis %1"
+msgstr "Nadpis 1"
 
 #: qml/components/SlashMenuPopup.qml:20
 #, kde-format
 msgid "Large section heading"
-msgstr ""
+msgstr "Veľký nadpis sekcie"
 
 #: qml/components/SlashMenuPopup.qml:21
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 2"
-msgstr "Nadpis %1"
+msgstr "Nadpis 2"
 
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
 msgid "Medium section heading"
-msgstr ""
+msgstr "Stredný nadpis sekcie"
 
 #: qml/components/SlashMenuPopup.qml:22
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 3"
-msgstr "Nadpis %1"
+msgstr "Nadpis 3"
 
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
 msgid "Small section heading"
-msgstr ""
+msgstr "Malý nadpis sekcie"
 
 #: qml/components/SlashMenuPopup.qml:23
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 4"
-msgstr "Nadpis %1"
+msgstr "Nadpis 4"
 
 #: qml/components/SlashMenuPopup.qml:23
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Sub-heading 4"
-msgstr "Nadpis %1"
+msgstr "Podnadpis 4"
 
 #: qml/components/SlashMenuPopup.qml:24
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 5"
-msgstr "Nadpis %1"
+msgstr "Nadpis 5"
 
 #: qml/components/SlashMenuPopup.qml:24
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Sub-heading 5"
-msgstr "Nadpis %1"
+msgstr "Podnadpis 5"
 
 #: qml/components/SlashMenuPopup.qml:25
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Heading 6"
-msgstr "Nadpis %1"
+msgstr "Nadpis 6"
 
 #: qml/components/SlashMenuPopup.qml:25
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgid "Sub-heading 6"
-msgstr "Nadpis %1"
+msgstr "Podnadpis 6"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Paragraph"
 msgstr "Odsek"
 
 #: qml/components/SlashMenuPopup.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgid "Plain text paragraph"
-msgstr "Odsek"
+msgstr "Odsek obyčajného textu"
 
 #: qml/components/SlashMenuPopup.qml:27
 #, kde-format
 msgid "Bullet List"
-msgstr ""
+msgstr "Odrážkový zoznam"
 
 #: qml/components/SlashMenuPopup.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgid "Unordered bulleted list"
-msgstr "Neusporiadaný zoznam"
+msgstr "Neusporiadaný zoznam s odrážkami"
 
 #: qml/components/SlashMenuPopup.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgid "Numbered List"
-msgstr "Usporiadaný zoznam"
+msgstr "Číslovaný zoznam"
 
 #: qml/components/SlashMenuPopup.qml:28
 #, kde-format
 msgid "Numbered sequential list"
-msgstr ""
+msgstr "Postupne číslovaný zoznam"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Checklist"
-msgstr ""
+msgstr "Kontrolný zoznam"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Task list with checkboxes"
-msgstr ""
+msgstr "Zoznam úloh so zaškrtávacími políčkami"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "Citácia"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote or callout block"
-msgstr ""
+msgstr "Blok citácie alebo zvýraznenia"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code Block"
-msgstr ""
+msgstr "Blok kódu"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code snippet with syntax"
-msgstr ""
+msgstr "Úryvok kódu so zvýraznením syntaxe"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Divider"
-msgstr ""
+msgstr "Oddeľovač"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Horizontal dividing line"
-msgstr ""
+msgstr "Vodorovná deliaca čiara"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Tabuľka"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Tabular data grid"
-msgstr ""
+msgstr "Tabuľková mriežka údajov"
 
 #: qml/components/SlashMenuPopup.qml:34
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Close menu"
-msgstr "Zavrieť"
+msgstr "Zavrieť ponuku"
 
 #: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Dismiss this menu"
-msgstr ""
+msgstr "Zavrieť túto ponuku"
 
 #: qml/EditorActions.qml:18
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete"
 msgstr "Vymazať"
 
@@ -403,9 +375,7 @@ msgid "Redo"
 msgstr "Znovu"
 
 #: qml/EditorActions.qml:45
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Copy"
+#, kde-format
 msgid "Copy"
 msgstr "Kopírovať"
 
@@ -424,71 +394,71 @@ msgstr "Hľadať v poznámke"
 #: qml/EditPage.qml:324
 #, kde-format
 msgid "Note Style"
-msgstr ""
+msgstr "Štýl poznámky"
 
-#: qml/EditPage.qml:350
+#: qml/EditPage.qml:344
 #, kde-format
 msgid "Focus Mode"
 msgstr "Maska"
 
-#: qml/EditPage.qml:367 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
+#: qml/EditPage.qml:361 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Ukončiť režim celej obrazovky"
 
-#: qml/EditPage.qml:380
+#: qml/EditPage.qml:374
 #, kde-format
 msgid "Switch editor mode"
 msgstr "Prepnúť režim editora"
 
-#: qml/EditPage.qml:385
+#: qml/EditPage.qml:379
 #, kde-format
 msgid "Source View"
 msgstr "Source View"
 
-#: qml/EditPage.qml:441
+#: qml/EditPage.qml:435
 #, kde-format
 msgid "Find text…"
 msgstr "Nájsť text…"
 
-#: qml/EditPage.qml:477
+#: qml/EditPage.qml:471
 #, kde-format
 msgid "Previous"
 msgstr "Predošlý"
 
-#: qml/EditPage.qml:493
+#: qml/EditPage.qml:487
 #, kde-format
 msgid "Next"
 msgstr "Ďalej"
 
-#: qml/EditPage.qml:513 qml/EditPage.qml:619
+#: qml/EditPage.qml:507 qml/EditPage.qml:613
 #, kde-format
 msgid "No matches"
 msgstr "Žiadne zhody"
 
-#: qml/EditPage.qml:515 qml/EditPage.qml:621
+#: qml/EditPage.qml:509 qml/EditPage.qml:615
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:527 qml/EditPage.qml:590
+#: qml/EditPage.qml:521 qml/EditPage.qml:584
 #, kde-format
 msgid "Replace"
 msgstr "Nahradiť"
 
-#: qml/EditPage.qml:539
+#: qml/EditPage.qml:533
 #, kde-format
 msgid "Close"
 msgstr "Zavrieť"
 
-#: qml/EditPage.qml:561
+#: qml/EditPage.qml:555
 #, kde-format
 msgid "Replace with…"
 msgstr "Nahradiť čím…"
 
-#: qml/EditPage.qml:566 qml/EditPage.qml:606
+#: qml/EditPage.qml:560 qml/EditPage.qml:600
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -497,12 +467,12 @@ msgstr[0] "Nahradený %1 výskyt"
 msgstr[1] "Nahradené %1 výskyty"
 msgstr[2] "Nahradených %1 výskytov"
 
-#: qml/EditPage.qml:602
+#: qml/EditPage.qml:596
 #, kde-format
 msgid "Replace All"
 msgstr "Nahradiť všetko"
 
-#: qml/EditPage.qml:669
+#: qml/EditPage.qml:663
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -766,11 +736,10 @@ msgid "Optional alternate text to display instead of the note name."
 msgstr "Voliteľný alternatívny text na zobrazenie namiesto názvu poznámky."
 
 #: qml/NoteMetadataDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New"
-msgstr "Pridať poznámku"
+msgstr "Pridať nové"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -779,21 +748,16 @@ msgid "Edit Note"
 msgstr "Odstrániť poznámku"
 
 #: qml/NoteMetadataDialog.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Note"
-msgstr "Nová poznámka"
+msgstr "Poznámka"
 
 #: qml/NoteMetadataDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "%1 folder"
-#| msgid_plural "%1 folders"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Folder"
-msgstr "%1 priečinok"
+msgstr "Priečinok"
 
 #: qml/NoteMetadataDialog.qml:90
 #, kde-format
@@ -802,12 +766,10 @@ msgid "Name:"
 msgstr "Názov:"
 
 #: qml/NoteMetadataDialog.qml:95
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "A note with this name already exists."
+#, kde-format
 msgctxt "@info"
 msgid "A note or folder with this name already exists."
-msgstr "Poznámka s týmto názvom už existuje."
+msgstr "Poznámka alebo priečinok s týmto názvom už existuje."
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -835,12 +797,10 @@ msgid "Search notes (%1)"
 msgstr "Prehľadať poznámky (%1)"
 
 #: qml/NotesPage.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Folder"
-msgstr "Odstrániť poznámku"
+msgstr "Odstrániť priečinok"
 
 #: qml/NotesPage.qml:314
 #, kde-format
@@ -849,16 +809,13 @@ msgid "Delete Note"
 msgstr "Odstrániť poznámku"
 
 #: qml/NotesPage.qml:344
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the note <b> %1 </b>? This will delete "
-#| "the file <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
 "notes contained in <b>%2</b> definitively."
 msgstr ""
-"Are you sure you want to delete the note <b> %1 </b>? This will delete the "
-"file <b>%2</b> definitively."
+"Naozaj chcete odstrániť priečinok <b> %1 </b>? Týmto sa natrvalo odstránia "
+"všetky poznámky v <b>%2</b>."
 
 #: qml/NotesPage.qml:346
 #, kde-format
@@ -1008,59 +965,55 @@ msgctxt "@info:status"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: qml/NoteStyleMenu.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font family:"
+#: qml/NoteStyleMenu.qml:23
+#, kde-format
 msgid "Font Family"
-msgstr "Rodina písma:"
+msgstr "Rodina písma"
 
-#: qml/NoteStyleMenu.qml:26
+#: qml/NoteStyleMenu.qml:30
 #, kde-format
 msgid "Sans"
-msgstr ""
+msgstr "Bezpätkové"
 
-#: qml/NoteStyleMenu.qml:31
+#: qml/NoteStyleMenu.qml:35
 #, kde-format
 msgid "Serif"
-msgstr ""
+msgstr "Pätkové"
 
-#: qml/NoteStyleMenu.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font size:"
+#: qml/NoteStyleMenu.qml:46
+#, kde-format
 msgid "Font Size"
-msgstr "Veľkosť písma:"
+msgstr "Veľkosť písma"
 
-#: qml/NoteStyleMenu.qml:49
+#: qml/NoteStyleMenu.qml:53
 #, kde-format
 msgid "Small"
-msgstr ""
+msgstr "Malé"
 
-#: qml/NoteStyleMenu.qml:54
+#: qml/NoteStyleMenu.qml:58
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "Stredné"
 
-#: qml/NoteStyleMenu.qml:59
+#: qml/NoteStyleMenu.qml:63
 #, kde-format
 msgid "Large"
-msgstr ""
+msgstr "Veľké"
 
-#: qml/NoteStyleMenu.qml:77
+#: qml/NoteStyleMenu.qml:81
 #, kde-format
 msgid "Text Width"
-msgstr ""
-
-#: qml/NoteStyleMenu.qml:84
-#, kde-format
-msgid "Restricted"
-msgstr ""
+msgstr "Šírka textu"
 
 #: qml/NoteStyleMenu.qml:89
 #, kde-format
+msgid "Restricted"
+msgstr "Obmedzená"
+
+#: qml/NoteStyleMenu.qml:94
+#, kde-format
 msgid "Full"
-msgstr ""
+msgstr "Plná"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
@@ -1109,17 +1062,13 @@ msgid "Decrease List Level"
 msgstr "Decrease List Level"
 
 #: qml/RichEditPage.qml:986
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Neusporiadaný zoznam"
 
 #: qml/RichEditPage.qml:1005
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Usporiadaný zoznam"
@@ -1128,7 +1077,7 @@ msgstr "Usporiadaný zoznam"
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
-msgstr ""
+msgstr "Kontrolný zoznam"
 
 #: qml/RichEditPage.qml:1050
 #, kde-format
@@ -1161,54 +1110,46 @@ msgid "Insert sketch"
 msgstr "Vložiť náčrt"
 
 #: qml/RichEditPage.qml:1187
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu heading level 5"
-#| msgid "Paragraph"
+#, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Odsek"
 
 #: qml/RichEditPage.qml:1198
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
-msgstr "Nadpis %1"
+msgstr "Nadpis 1"
 
 #: qml/RichEditPage.qml:1209
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
-msgstr "Nadpis %1"
+msgstr "Nadpis 2"
 
 #: qml/RichEditPage.qml:1220
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
-msgstr "Nadpis %1"
+msgstr "Nadpis 3"
 
 #: qml/RichEditPage.qml:1231
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
-msgstr "Nadpis %1"
+msgstr "Nadpis 4"
 
 #: qml/RichEditPage.qml:1242
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
-msgstr "Nadpis %1"
+msgstr "Nadpis 5"
 
 #: qml/RichEditPage.qml:1253
-#, fuzzy, kde-format
-#| msgid "Heading %1"
+#, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
-msgstr "Nadpis %1"
+msgstr "Nadpis 6"
 
 #: qml/RichEditPage.qml:1428
 #, kde-format
@@ -1240,12 +1181,12 @@ msgstr "Clear Canvas"
 #: qml/SketchDialog.qml:382
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #: qml/SketchDialog.qml:391
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Uložiť"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1317,7 +1258,7 @@ msgstr "Obsah"
 #, kde-format
 msgctxt "@action:button"
 msgid "pin"
-msgstr ""
+msgstr "pripnúť"
 
 #: qml/TocDrawer.qml:232
 #, kde-format
@@ -1390,20 +1331,20 @@ msgstr "Veľkosť písma:"
 #: settings/MarkNoteGeneralPage.qml:171
 #, kde-format
 msgid "Use full editor width for the content"
-msgstr ""
+msgstr "Použiť pre obsah celú šírku editora"
 
 #: settings/MarkNoteGeneralPage.qml:193
 #, kde-format
 msgctxt "@label:slider"
 msgid "Text Width"
-msgstr ""
+msgstr "Šírka textu"
 
 #: settings/MarkNoteGeneralPage.qml:198
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1 gU"
-msgstr ""
+msgstr "%1 gU"
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
@@ -1428,7 +1369,6 @@ msgstr "O KDE"
 #~ msgstr "Obsah"
 
 #, fuzzy
-#~| msgid "Close"
 #~ msgctxt "@action:button"
 #~ msgid "Close"
 #~ msgstr "Zavrieť"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:50+0000\n"
-"PO-Revision-Date: 2026-10-20 12:19+0100\n"
+"POT-Creation-Date: 2026-10-23 00:49+0000\n"
+"PO-Revision-Date: 2026-10-22 17:16+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -399,71 +399,71 @@ msgstr "Buscar en nota"
 #: qml/EditPage.qml:324
 #, kde-format
 msgid "Note Style"
-msgstr ""
+msgstr "Estilo de la nota"
 
-#: qml/EditPage.qml:350
+#: qml/EditPage.qml:344
 #, kde-format
 msgid "Focus Mode"
 msgstr "Modo de concentración"
 
-#: qml/EditPage.qml:367 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
+#: qml/EditPage.qml:361 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Salir de pantalla completa"
 
-#: qml/EditPage.qml:380
+#: qml/EditPage.qml:374
 #, kde-format
 msgid "Switch editor mode"
 msgstr "Cambiar modo del editor"
 
-#: qml/EditPage.qml:385
+#: qml/EditPage.qml:379
 #, kde-format
 msgid "Source View"
 msgstr "Vista del código fuente"
 
-#: qml/EditPage.qml:441
+#: qml/EditPage.qml:435
 #, kde-format
 msgid "Find text…"
 msgstr "Buscar texto…"
 
-#: qml/EditPage.qml:477
+#: qml/EditPage.qml:471
 #, kde-format
 msgid "Previous"
 msgstr "Anterior"
 
-#: qml/EditPage.qml:493
+#: qml/EditPage.qml:487
 #, kde-format
 msgid "Next"
 msgstr "Siguiente"
 
-#: qml/EditPage.qml:513 qml/EditPage.qml:619
+#: qml/EditPage.qml:507 qml/EditPage.qml:613
 #, kde-format
 msgid "No matches"
 msgstr "No hay coincidencias"
 
-#: qml/EditPage.qml:515 qml/EditPage.qml:621
+#: qml/EditPage.qml:509 qml/EditPage.qml:615
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:527 qml/EditPage.qml:590
+#: qml/EditPage.qml:521 qml/EditPage.qml:584
 #, kde-format
 msgid "Replace"
 msgstr "Sustituir"
 
-#: qml/EditPage.qml:539
+#: qml/EditPage.qml:533
 #, kde-format
 msgid "Close"
 msgstr "Cerrar"
 
-#: qml/EditPage.qml:561
+#: qml/EditPage.qml:555
 #, kde-format
 msgid "Replace with…"
 msgstr "Sustituir con…"
 
-#: qml/EditPage.qml:566 qml/EditPage.qml:606
+#: qml/EditPage.qml:560 qml/EditPage.qml:600
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -471,12 +471,12 @@ msgid_plural "Replaced %1 occurrences"
 msgstr[0] "%1 coincidencia sustituida"
 msgstr[1] "%1 coincidencias sustituidas"
 
-#: qml/EditPage.qml:602
+#: qml/EditPage.qml:596
 #, kde-format
 msgid "Replace All"
 msgstr "Sustituir todo"
 
-#: qml/EditPage.qml:669
+#: qml/EditPage.qml:663
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -802,12 +802,10 @@ msgid "Search notes (%1)"
 msgstr "Buscar notas (%1)"
 
 #: qml/NotesPage.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Folder"
-msgstr "Borrar nota"
+msgstr "Borrar carpeta"
 
 #: qml/NotesPage.qml:314
 #, kde-format
@@ -816,16 +814,13 @@ msgid "Delete Note"
 msgstr "Borrar nota"
 
 #: qml/NotesPage.qml:344
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the note <b> %1 </b>? This will delete "
-#| "the file <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
 "notes contained in <b>%2</b> definitively."
 msgstr ""
-"¿Seguro que quiere borrar la nota <b>%1</b>? Esto borrará el archivo <b>%2</"
-"b> de forma definitiva."
+"¿Seguro que quiere borrar la carpeta <b>%1</b>? Esto borrará todas las notas "
+"contenidas en <b>%2</b> de forma definitiva."
 
 #: qml/NotesPage.qml:346
 #, kde-format
@@ -973,61 +968,55 @@ msgctxt "@info:status"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: qml/NoteStyleMenu.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font family:"
+#: qml/NoteStyleMenu.qml:23
+#, kde-format
 msgid "Font Family"
-msgstr "Familia del tipo de letra:"
+msgstr "Familia del tipo de letra"
 
-#: qml/NoteStyleMenu.qml:26
+#: qml/NoteStyleMenu.qml:30
 #, kde-format
 msgid "Sans"
-msgstr ""
+msgstr "Sans"
 
-#: qml/NoteStyleMenu.qml:31
+#: qml/NoteStyleMenu.qml:35
 #, kde-format
 msgid "Serif"
-msgstr ""
+msgstr "Serif"
 
-#: qml/NoteStyleMenu.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font size:"
+#: qml/NoteStyleMenu.qml:46
+#, kde-format
 msgid "Font Size"
-msgstr "Tamaño del tipo de letra:"
+msgstr "Tamaño del tipo de letra"
 
-#: qml/NoteStyleMenu.qml:49
+#: qml/NoteStyleMenu.qml:53
 #, kde-format
 msgid "Small"
-msgstr ""
+msgstr "Pequeño"
 
-#: qml/NoteStyleMenu.qml:54
+#: qml/NoteStyleMenu.qml:58
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "Medio"
 
-#: qml/NoteStyleMenu.qml:59
+#: qml/NoteStyleMenu.qml:63
 #, kde-format
 msgid "Large"
-msgstr ""
+msgstr "Grande"
 
-#: qml/NoteStyleMenu.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@label:slider"
-#| msgid "Text Width"
+#: qml/NoteStyleMenu.qml:81
+#, kde-format
 msgid "Text Width"
 msgstr "Anchura del texto"
 
-#: qml/NoteStyleMenu.qml:84
-#, kde-format
-msgid "Restricted"
-msgstr ""
-
 #: qml/NoteStyleMenu.qml:89
 #, kde-format
+msgid "Restricted"
+msgstr "Restringida"
+
+#: qml/NoteStyleMenu.qml:94
+#, kde-format
 msgid "Full"
-msgstr ""
+msgstr "Completa"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
