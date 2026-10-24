@@ -368,10 +368,6 @@ QString CommandManager::blocksToMarkdown(const QList<TreeItem *> &blocks) const
 {
     auto doc = QSharedPointer<MD::Document>::create();
 
-    if (!blocks.isEmpty()) {
-        applyIntermediateData(doc, blocks.first()->doc());
-    }
-
     for (TreeItem *block : blocks) {
         if (block && block->item()) {
             doc->appendItem(block->item());

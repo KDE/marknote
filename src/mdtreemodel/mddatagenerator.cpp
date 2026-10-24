@@ -8,6 +8,22 @@ using namespace Qt::StringLiterals;
 
 namespace MDDataGenerator
 {
+void applyIntermediateData(QSharedPointer<MD::Document> to, QSharedPointer<MD::Document> from)
+{
+    if (!from) {
+        return;
+    }
+
+    if ((to->items().isEmpty() || to->items().first()->type() != MD::ItemType::Anchor) && !from->items().isEmpty()) {
+        to->insertItem(0, from->items().at(0));
+    }
+
+    to->setAuxLabelsMap(from->auxLabelsMap());
+    to->setFootnotesMap(from->footnotesMap());
+    to->setLabeledHeadings(from->labeledHeadings());
+    to->setLabeledLinks(from->labeledLinks());
+}
+
 QString toHtml(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc)
 {
     auto doc = QSharedPointer<MD::Document>::create();
@@ -35,7 +51,7 @@ QString toMd(const QSharedPointer<MD::Item> &item)
     return md;
 }
 
-QVariantMap fromHeading(const QSharedPointer<MD::Item> &item)
+QVariantMap fromHeading(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document> fullDoc)
 {
     QVariantMap map;
 
@@ -43,7 +59,7 @@ QVariantMap fromHeading(const QSharedPointer<MD::Item> &item)
 
     map[u"type"_s] = QVariant::fromValue(MDOptions::ElementType::Heading);
     map[u"level"_s] = heading->level();
-    map[u"html"_s] = toHtml(item);
+    map[u"html"_s] = toHtml(item, fullDoc);
     map[u"md"_s] = toMd(item);
 
     return map;
@@ -53,7 +69,7 @@ QVariantMap fromParagraph(const QSharedPointer<MD::Item> &item, QSharedPointer<M
 {
     QVariantMap map;
     map[u"type"_s] = QVariant::fromValue(MDOptions::ElementType::Paragraph);
-    map[u"html"_s] = toHtml(item);
+    map[u"html"_s] = toHtml(item, fullDoc);
     map[u"md"_s] = toMd(item);
 
     return map;
@@ -133,7 +149,7 @@ QVariantMap fromTable(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::D
                 p->appendItem(item);
             }
 
-            rowHtmlData.append(toHtml(p));
+            rowHtmlData.append(toHtml(p, fullDoc));
             rowMdData.append(toMd(p));
         }
 
