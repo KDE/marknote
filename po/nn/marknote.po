@@ -1447,13 +1447,3 @@ msgstr "Om Marknote"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Om KDE"
-
-#, fuzzy
-#~| msgid "Cell Contents"
-#~ msgctxt "@action:button"
-#~ msgid "Table of Contents"
-#~ msgstr "Celleinnhald"
-
-#~ msgctxt "@title:window"
-#~ msgid "New Note"
-#~ msgstr "Nytt notat"

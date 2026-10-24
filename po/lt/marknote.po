@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-23 00:49+0000\n"
-"PO-Revision-Date: 2026-10-18 19:17+0300\n"
+"PO-Revision-Date: 2026-10-23 23:02+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -175,12 +175,10 @@ msgid "Unable to create folder: %1"
 msgstr "Nepavyko sukurti aplanko: %1"
 
 #: notesmodel.cpp:261
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create folder. A folder already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
-msgstr "Nepavyko sukurti aplanko. Aplankas tokiu pačiu pavadinimu jau yra."
+msgstr "Nepavyko pervadinti aplanko. Aplankas tokiu pačiu pavadinimu jau yra."
 
 #: notesmodel.cpp:275
 #, kde-format
@@ -396,7 +394,7 @@ msgstr "Ieškoti užrašuose"
 #: qml/EditPage.qml:324
 #, kde-format
 msgid "Note Style"
-msgstr ""
+msgstr "Užrašų stilius"
 
 #: qml/EditPage.qml:344
 #, kde-format
@@ -800,12 +798,10 @@ msgid "Search notes (%1)"
 msgstr "Ieškoti užrašų (%1)"
 
 #: qml/NotesPage.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Folder"
-msgstr "Ištrinti užrašus"
+msgstr "Ištrinti aplanką"
 
 #: qml/NotesPage.qml:314
 #, kde-format
@@ -814,16 +810,13 @@ msgid "Delete Note"
 msgstr "Ištrinti užrašus"
 
 #: qml/NotesPage.qml:344
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the note <b> %1 </b>? This will delete "
-#| "the file <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
 "notes contained in <b>%2</b> definitively."
 msgstr ""
-"Ar tikrai norite ištrinti užrašus <b> %1 </b>? Tai galutinai ištrins failą "
-"<b>%2</b>."
+"Ar tikrai norite ištrinti aplanką <b>%1</b>? Tai galutinai ištrins visus "
+"užrašus, esančius <b>%2</b>."
 
 #: qml/NotesPage.qml:346
 #, kde-format
@@ -976,58 +969,54 @@ msgid "%1, %2"
 msgstr "%1, %2"
 
 #: qml/NoteStyleMenu.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font family:"
+#, kde-format
 msgid "Font Family"
-msgstr "Šriftas:"
+msgstr "Šriftas"
 
 #: qml/NoteStyleMenu.qml:30
 #, kde-format
 msgid "Sans"
-msgstr ""
+msgstr "Neserifinis"
 
 #: qml/NoteStyleMenu.qml:35
 #, kde-format
 msgid "Serif"
-msgstr ""
+msgstr "Serifinis"
 
 #: qml/NoteStyleMenu.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font size:"
+#, kde-format
 msgid "Font Size"
-msgstr "Šrifto dydis:"
+msgstr "Šrifto dydis"
 
 #: qml/NoteStyleMenu.qml:53
 #, kde-format
 msgid "Small"
-msgstr ""
+msgstr "Mažas"
 
 #: qml/NoteStyleMenu.qml:58
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "Vidutinis"
 
 #: qml/NoteStyleMenu.qml:63
 #, kde-format
 msgid "Large"
-msgstr ""
+msgstr "Didelis"
 
 #: qml/NoteStyleMenu.qml:81
 #, kde-format
 msgid "Text Width"
-msgstr ""
+msgstr "Teksto plotis"
 
 #: qml/NoteStyleMenu.qml:89
 #, kde-format
 msgid "Restricted"
-msgstr ""
+msgstr "Apribotas"
 
 #: qml/NoteStyleMenu.qml:94
 #, kde-format
 msgid "Full"
-msgstr ""
+msgstr "Visas"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
@@ -1272,7 +1261,7 @@ msgstr "Turinys"
 #, kde-format
 msgctxt "@action:button"
 msgid "pin"
-msgstr ""
+msgstr "prisegti"
 
 #: qml/TocDrawer.qml:232
 #, kde-format
@@ -1345,20 +1334,20 @@ msgstr "Šrifto dydis:"
 #: settings/MarkNoteGeneralPage.qml:171
 #, kde-format
 msgid "Use full editor width for the content"
-msgstr ""
+msgstr "Naudoti turiniui visą redaktoriaus plotį"
 
 #: settings/MarkNoteGeneralPage.qml:193
 #, kde-format
 msgctxt "@label:slider"
 msgid "Text Width"
-msgstr ""
+msgstr "Teksto plotis"
 
 #: settings/MarkNoteGeneralPage.qml:198
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1 gU"
-msgstr ""
+msgstr "%1 gU"
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
