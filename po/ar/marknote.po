@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:51+0000\n"
 "PO-Revision-Date: 2026-09-17 08:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1063,137 +1063,137 @@ msgstr "ملفات الصور (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "كلّ الملفّات (*)"
 
-#: qml/RichEditPage.qml:870
+#: qml/RichEditPage.qml:876
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "ثخين"
 
-#: qml/RichEditPage.qml:892
+#: qml/RichEditPage.qml:898
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "مائل"
 
-#: qml/RichEditPage.qml:909
+#: qml/RichEditPage.qml:915
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "شطب"
 
-#: qml/RichEditPage.qml:929
+#: qml/RichEditPage.qml:935
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "زد مستوى القائمة"
 
-#: qml/RichEditPage.qml:943
+#: qml/RichEditPage.qml:949
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "أنقص مستوى القائمة"
 
-#: qml/RichEditPage.qml:986
+#: qml/RichEditPage.qml:992
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "قائمة غير مرتّبة"
 
-#: qml/RichEditPage.qml:1005
+#: qml/RichEditPage.qml:1011
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "قائمة مرتّبة"
 
-#: qml/RichEditPage.qml:1024
+#: qml/RichEditPage.qml:1030
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr "قائمة تحقق"
 
-#: qml/RichEditPage.qml:1050
+#: qml/RichEditPage.qml:1056
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "أدرج رابط"
 
-#: qml/RichEditPage.qml:1069
+#: qml/RichEditPage.qml:1075
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "أدرج رابط الملاحظة"
 
-#: qml/RichEditPage.qml:1088
+#: qml/RichEditPage.qml:1094
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "أدرج صورة"
 
-#: qml/RichEditPage.qml:1105
+#: qml/RichEditPage.qml:1111
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "أدرِج جدول"
 
-#: qml/RichEditPage.qml:1122
+#: qml/RichEditPage.qml:1128
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "أدرج رسم تخطيطي"
 
-#: qml/RichEditPage.qml:1187
+#: qml/RichEditPage.qml:1193
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "فقرة"
 
-#: qml/RichEditPage.qml:1198
+#: qml/RichEditPage.qml:1204
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "عنوان 1"
 
-#: qml/RichEditPage.qml:1209
+#: qml/RichEditPage.qml:1215
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "عنوان 2"
 
-#: qml/RichEditPage.qml:1220
+#: qml/RichEditPage.qml:1226
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "عنوان 3"
 
-#: qml/RichEditPage.qml:1231
+#: qml/RichEditPage.qml:1237
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "عنوان 4"
 
-#: qml/RichEditPage.qml:1242
+#: qml/RichEditPage.qml:1248
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "عنوان 5"
 
-#: qml/RichEditPage.qml:1253
+#: qml/RichEditPage.qml:1259
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "عنوان 6"
 
-#: qml/RichEditPage.qml:1428
+#: qml/RichEditPage.qml:1434
 #, kde-format
 msgid "Format"
 msgstr "التنسيق"
 
-#: qml/RichEditPage.qml:1437
+#: qml/RichEditPage.qml:1443
 #, kde-format
 msgid "Lists"
 msgstr "القوائم"
 
-#: qml/RichEditPage.qml:1446
+#: qml/RichEditPage.qml:1452
 #, kde-format
 msgid "Insert"
 msgstr "أدرج"

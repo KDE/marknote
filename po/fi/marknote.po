@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:51+0000\n"
 "PO-Revision-Date: 2026-08-30 23:04+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1079,37 +1079,37 @@ msgstr "Kuvatiedostot (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "Kaikki tiedostot (*)"
 
-#: qml/RichEditPage.qml:870
+#: qml/RichEditPage.qml:876
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Lihavointi"
 
-#: qml/RichEditPage.qml:892
+#: qml/RichEditPage.qml:898
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kursiivi"
 
-#: qml/RichEditPage.qml:909
+#: qml/RichEditPage.qml:915
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Yliviivaus"
 
-#: qml/RichEditPage.qml:929
+#: qml/RichEditPage.qml:935
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Lisää luettelotasoa"
 
-#: qml/RichEditPage.qml:943
+#: qml/RichEditPage.qml:949
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Vähennä luettelotasoa"
 
-#: qml/RichEditPage.qml:986
+#: qml/RichEditPage.qml:992
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu unordered style"
 #| msgid "Unordered list"
@@ -1117,7 +1117,7 @@ msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Luetelma"
 
-#: qml/RichEditPage.qml:1005
+#: qml/RichEditPage.qml:1011
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu ordered style"
 #| msgid "Ordered list"
@@ -1125,43 +1125,43 @@ msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Numeroitu luettelo"
 
-#: qml/RichEditPage.qml:1024
+#: qml/RichEditPage.qml:1030
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr ""
 
-#: qml/RichEditPage.qml:1050
+#: qml/RichEditPage.qml:1056
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Lisää linkki"
 
-#: qml/RichEditPage.qml:1069
+#: qml/RichEditPage.qml:1075
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Lisää muistiinpanolinkki"
 
-#: qml/RichEditPage.qml:1088
+#: qml/RichEditPage.qml:1094
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Lisää kuva"
 
-#: qml/RichEditPage.qml:1105
+#: qml/RichEditPage.qml:1111
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Lisää taulukko"
 
-#: qml/RichEditPage.qml:1122
+#: qml/RichEditPage.qml:1128
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Lisää luonnos"
 
-#: qml/RichEditPage.qml:1187
+#: qml/RichEditPage.qml:1193
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu heading level 5"
 #| msgid "Paragraph"
@@ -1169,59 +1169,59 @@ msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Kappale"
 
-#: qml/RichEditPage.qml:1198
+#: qml/RichEditPage.qml:1204
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1209
+#: qml/RichEditPage.qml:1215
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1220
+#: qml/RichEditPage.qml:1226
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1231
+#: qml/RichEditPage.qml:1237
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1242
+#: qml/RichEditPage.qml:1248
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1253
+#: qml/RichEditPage.qml:1259
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "Otsikko %1"
 
-#: qml/RichEditPage.qml:1428
+#: qml/RichEditPage.qml:1434
 #, kde-format
 msgid "Format"
 msgstr "Muotoilu"
 
-#: qml/RichEditPage.qml:1437
+#: qml/RichEditPage.qml:1443
 #, kde-format
 msgid "Lists"
 msgstr "Luetelmat"
 
-#: qml/RichEditPage.qml:1446
+#: qml/RichEditPage.qml:1452
 #, kde-format
 msgid "Insert"
 msgstr "Lisää"
