@@ -52,6 +52,30 @@
         let
           pkgs = import nixpkgs { inherit system; };
           md4qt = self.packages.${system}.md4qt;
+          devInputs = (with pkgs.kdePackages; [
+            qtbase
+            qtdeclarative
+            kconfig
+            ki18n
+            kiconthemes
+            kirigami
+            kirigami-addons
+            kcoreaddons
+            kcolorscheme
+            knotifications
+            syntax-highlighting
+            kmime
+            kitemmodels
+            kwindowsystem
+            kcrash
+            kdeclarative
+            qqc2-desktop-style
+            sonnet
+            breeze-icons
+          ]) ++ [
+            md4qt
+          ];
+          qtSearchInputs = map (p: p.unwrapped or p) devInputs;
         in
         {
           default = pkgs.mkShell {
@@ -64,29 +88,14 @@
               kdePackages.wrapQtAppsHook
             ];
 
-            buildInputs = (with pkgs.kdePackages; [
-              qtbase
-              qtdeclarative
-              kconfig
-              ki18n
-              kiconthemes
-              kirigami
-              kirigami-addons
-              kcoreaddons
-              kcolorscheme
-              knotifications
-              syntax-highlighting
-              kmime
-              kitemmodels
-              kwindowsystem
-              kcrash
-            ]) ++ [
-              md4qt
-            ];
+            buildInputs = devInputs;
 
             shellHook = ''
               export CMAKE_PREFIX_PATH="${md4qt}:$CMAKE_PREFIX_PATH"
-              echo "KF6 development environment ready."
+              export QT_PLUGIN_PATH="${pkgs.lib.makeSearchPath "lib/qt-6/plugins" qtSearchInputs}"
+              export QML2_IMPORT_PATH="${pkgs.lib.makeSearchPath "lib/qt-6/qml" qtSearchInputs}"
+              export NIXPKGS_QT6_QML_IMPORT_PATH="$QML2_IMPORT_PATH"
+              echo "KF6 development environment ready (isolated Qt runtime)."
             '';
           };
         });

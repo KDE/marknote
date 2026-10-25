@@ -30,6 +30,12 @@ Item {
     property bool editing: false
     property int wrapMode: TextEdit.Wrap
 
+    onEditingChanged: {
+        if (editing) {
+            highlighter.rehighlight();
+        }
+    }
+
     property string lastSavedText: ""
     property int lastSavedCursorPos: 0
     property bool lastSavedTextParsed: false
@@ -118,6 +124,14 @@ Item {
         font.pointSize: root.fontSize
         font.family: root.fontFamily
         color: root.color
+
+        MDInlineHighlighter {
+            id: highlighter
+            document: textEdit.textDocument
+            textColor: root.color
+            dimmedColor: Kirigami.Theme.disabledTextColor
+            active: root.editing
+        }
 
         MouseArea {
             anchors.fill: parent
@@ -249,6 +263,7 @@ Item {
                 flushTimer();
                 root.editing = false;
             } else {
+                highlighter.rehighlight();
                 lastSavedText = textEdit.text;
                 lastSavedCursorPos = textEdit.cursorPosition;
                 model.setFocusedBlockToTable(root.block, root.rowIndex, root.columnIndex, textEdit.cursorPosition);
