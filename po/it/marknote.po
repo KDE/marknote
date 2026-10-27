@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:51+0000\n"
-"PO-Revision-Date: 2026-10-22 14:26+0200\n"
+"PO-Revision-Date: 2026-10-26 07:15+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -972,12 +972,12 @@ msgstr "Famiglia di caratteri"
 #: qml/NoteStyleMenu.qml:30
 #, kde-format
 msgid "Sans"
-msgstr ""
+msgstr "Senza grazie"
 
 #: qml/NoteStyleMenu.qml:35
 #, kde-format
 msgid "Serif"
-msgstr ""
+msgstr "Con grazie"
 
 #: qml/NoteStyleMenu.qml:46
 #, kde-format
@@ -987,17 +987,17 @@ msgstr "Dimensione dei caratteri"
 #: qml/NoteStyleMenu.qml:53
 #, kde-format
 msgid "Small"
-msgstr ""
+msgstr "Piccolo"
 
 #: qml/NoteStyleMenu.qml:58
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "Medio"
 
 #: qml/NoteStyleMenu.qml:63
 #, kde-format
 msgid "Large"
-msgstr ""
+msgstr "Grande"
 
 #: qml/NoteStyleMenu.qml:81
 #, kde-format
@@ -1007,12 +1007,12 @@ msgstr "Larghezza del testo"
 #: qml/NoteStyleMenu.qml:89
 #, kde-format
 msgid "Restricted"
-msgstr ""
+msgstr "Limitato"
 
 #: qml/NoteStyleMenu.qml:94
 #, kde-format
 msgid "Full"
-msgstr ""
+msgstr "Completo"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
