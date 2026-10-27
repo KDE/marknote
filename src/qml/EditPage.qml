@@ -221,174 +221,183 @@ Kirigami.Page {
     titleDelegate: RowLayout {
         visible: root.noteName
         Layout.fillWidth: true
+        spacing: 0
 
-        ToolButton {
-            action: EditorActions.undoAction
-            display: AbstractButton.IconOnly
-            Layout.leftMargin: Kirigami.Units.smallSpacing
-            // visible: root.singleDocumentMode
+        RowLayout {
+            id: leftHeaderGroup
+            Layout.alignment: Qt.AlignLeft
 
-            ToolTip.text: action.text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
+            ToolButton {
+                id: undoButton
+                action: EditorActions.undoAction
+                display: AbstractButton.IconOnly
+                visible: root.canFitToolbar
 
-        ToolButton {
-            action: EditorActions.redoAction
-            display: AbstractButton.IconOnly
-            // visible: root.singleDocumentMode
+                ToolTip.text: action.text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
 
-            ToolTip.text: action.text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
+            ToolButton {
+                id: redoButton
+                action: EditorActions.redoAction
+                display: AbstractButton.IconOnly
+                visible: root.canFitToolbar
 
-        Item { Layout.fillWidth: true }
-
-        Rectangle {
-            color: Kirigami.Theme.textColor
-            Layout.preferredHeight: 5
-            Layout.preferredWidth: 5
-            radius: Kirigami.Units.cornerRadius
-            scale: root.saved ? 0 : 1
-
-            Behavior on scale {
-                NumberAnimation {
-                    duration: Kirigami.Units.shortDuration * 2
-                    easing.type: Easing.InOutQuart
-                }
+                ToolTip.text: action.text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
             }
         }
-
-        Kirigami.Heading {
-            text: root.noteName
-            elide: Text.ElideRight
-            wrapMode: Text.NoWrap
-
-            Layout.rightMargin: Kirigami.Units.mediumSpacing
-            Layout.leftMargin: Kirigami.Units.mediumSpacing
-            Layout.fillWidth: true
-            Layout.maximumWidth: implicitWidth + Kirigami.Units.mediumSpacing * 2
-            Layout.minimumWidth: 0
-        }
-
-        Item { Layout.fillWidth: true }
 
         Item {
             visible: root.isWideScreen
-            Layout.preferredWidth: fillWindowButton.width
+            Layout.preferredWidth: rightHeaderGroup.width - leftHeaderGroup.width
         }
 
-        ToolButton {
-            icon.name: "search"
-            text: KI18n.i18nc("@action:button", "Search Note")
-            display: AbstractButton.IconOnly
-            visible: true
-            checkable: true
-            checked: root.searchBar.isSearchOpen
-
-            onClicked: root.toggleSearch()
-
-            ToolTip.text: KI18n.i18nc("@info:tooltip", "Search in Note")
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-        Shortcut {
-            sequence: "Ctrl+T"
-            enabled: root.supportsToc
-            onActivated: root.toggleToc()
+        Item {
+            Layout.fillWidth: true
         }
 
-        // ToolButton {
-        //     icon.name: "view-list-details"
-        //     text: KI18n.i18nc("@action:button", "Table of Contents")
-        //     display: AbstractButton.IconOnly
-        //     checkable: true
-        //     checked: root.isTocOpened
-        //     visible: root.supportsToc
-        //     onClicked: root.toggleToc()
+        RowLayout {
+            id: centerHeaderGroup
+            Layout.alignment: Qt.AlignCenter
+            Layout.fillWidth: true
 
-        //     Shortcut {
-        //         sequence: "Ctrl+T"
-        //         enabled: root.supportsToc
-        //         onActivated: root.toggleToc()
-        //     }
+            Rectangle {
+                id: saveDot
+                color: Kirigami.Theme.textColor
+                Layout.preferredHeight: 5
+                Layout.preferredWidth: 5
+                radius: Kirigami.Units.cornerRadius
+                scale: root.saved ? 0 : 1
 
-        //     ToolTip.text: KI18n.i18nc("@info:tooltip", text)
-        //     ToolTip.visible: hovered
-        //     ToolTip.delay: Kirigami.Units.toolTipDelay
-        // }
-
-        ToolButton {
-            id: noteStyleMenuButton
-            text: KI18n.i18n("Note Style")
-            icon.name: "font"
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: noteStyleMenu.opened
-            onClicked: noteStyleMenu.open()
-        }
-
-
-        ToolButton {
-            id: fillWindowButton
-            property int columnWidth: Config.fillWindow ? 0 : Kirigami.Units.gridUnit * 15
-
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            checkable: true
-            checked: Config.fillWindow
-            display: AbstractButton.IconOnly
-            icon.name: "view-fullscreen"
-            text: KI18n.i18n("Focus Mode")
-            visible: (root.isWideScreen || Config.fillWindow) && !root.singleDocumentMode && !Kirigami.Settings.isMobile
-
-            Behavior on columnWidth {
-                NumberAnimation {
-                    duration: Kirigami.Units.shortDuration * 2
-                    easing.type: Easing.InOutQuart
+                Behavior on scale {
+                    NumberAnimation {
+                        duration: Kirigami.Units.shortDuration * 2
+                        easing.type: Easing.InOutQuart
+                    }
                 }
             }
 
-            onClicked: Config.fillWindow = !Config.fillWindow
-            onColumnWidthChanged: root.pageStack.defaultColumnWidth = columnWidth
+            Kirigami.Heading {
+                text: root.noteName
+                elide: Text.ElideRight
+                wrapMode: Text.NoWrap
+                horizontalAlignment: Text.AlignHCenter
+
+                Layout.rightMargin: Kirigami.Units.mediumSpacing
+                Layout.leftMargin: Kirigami.Units.mediumSpacing
+
+            }
+
+            Item {
+                width: saveDot.preferredWidth
+            }
         }
 
-        ToolButton {
-            visible: root.Window.window.visibility === Window.FullScreen
-            icon.name: "window-restore-symbolic"
-            text: KI18n.i18nc("@action:menu", "Exit Full Screen")
-            display: AbstractButton.IconOnly
-            checkable: true
-            checked: true
-            onClicked: root.Window.window.showNormal()
-
-            ToolTip.text: text
-            ToolTip.visible: hovered
-            ToolTip.delay: Kirigami.Units.toolTipDelay
+        Item {
+            Layout.fillWidth: true
         }
 
-        Button {
-            ToolTip.delay: Kirigami.Units.toolTipDelay
-            ToolTip.text: KI18n.i18n("Switch editor mode")
-            ToolTip.visible: hovered
-            icon.name: "code-context-symbolic"
-            checkable: true
-            checked: NavigationController.sourceMode
-            text: KI18n.i18n("Source View")
-            padding: 0
-            flat: true
-            spacing: Kirigami.Units.mediumSpacing
-            display: AbstractButton.IconOnly
+        RowLayout {
+            id: rightHeaderGroup
+            Layout.alignment: Qt.AlignRight
 
-            onClicked: {
-                root.document.saveAs(root.noteFullPath)
-                NavigationController.sourceMode = !NavigationController.sourceMode
+            ToolButton {
+                id: searchButton
+                icon.name: "search"
+                text: KI18n.i18nc("@action:button", "Search Note")
+                display: AbstractButton.IconOnly
+                visible: true
+                checkable: true
+                checked: root.searchBar.isSearchOpen
+                onClicked: root.toggleSearch()
+
+                ToolTip.text: KI18n.i18nc("@info:tooltip", "Search in Note")
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+
+            ToolButton {
+                id: noteStyleMenuButton
+
+                text: KI18n.i18n("Note Style")
+                icon.name: "font"
+                display: AbstractButton.IconOnly
+                checkable: true
+                checked: noteStyleMenu.opened
+                onClicked: noteStyleMenu.open()
+            }
+
+            ToolButton {
+                id: fillWindowButton
+
+                property int columnWidth: Config.fillWindow ? 0 : Kirigami.Units.gridUnit * 15
+
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                checkable: true
+                checked: Config.fillWindow
+                display: AbstractButton.IconOnly
+                icon.name: "view-fullscreen"
+                text: KI18n.i18n("Focus Mode")
+                visible: (root.isWideScreen || Config.fillWindow) && !root.singleDocumentMode && !Kirigami.Settings.isMobile
+
+                Behavior on columnWidth {
+                    NumberAnimation {
+                        duration: Kirigami.Units.shortDuration * 2
+                        easing.type: Easing.InOutQuart
+                    }
+                }
+
+                onClicked: Config.fillWindow = !Config.fillWindow
+                onColumnWidthChanged: root.pageStack.defaultColumnWidth = columnWidth
+            }
+
+            ToolButton {
+                id: exitFullscreenButton
+
+                visible: root.Window.window.visibility === Window.FullScreen
+                icon.name: "window-restore-symbolic"
+                text: KI18n.i18nc("@action:menu", "Exit Full Screen")
+                display: AbstractButton.IconOnly
+                checkable: true
+                checked: true
+                onClicked: root.Window.window.showNormal()
+
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+
+            ToolButton {
+                id: modeButton
+
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+                ToolTip.text: KI18n.i18n("Switch editor mode")
+                ToolTip.visible: hovered
+
+                icon.name: "code-context-symbolic"
+                checkable: true
+                checked: NavigationController.sourceMode
+                text: KI18n.i18n("Source View")
+                display: AbstractButton.IconOnly
+
+                onClicked: {
+                    root.document.saveAs(root.noteFullPath)
+                    NavigationController.sourceMode = !NavigationController.sourceMode
+                }
             }
         }
     }
 
+    Shortcut {
+        sequence: "Ctrl+T"
+        enabled: root.supportsToc
+        onActivated: root.toggleToc()
+    }
     header: ColumnLayout {
 
         spacing: 0
