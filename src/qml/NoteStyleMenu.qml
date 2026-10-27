@@ -16,7 +16,7 @@ import org.kde.kirigami as Kirigami
 FormCard.FormCardDialog {
     modal: false
     header: Item {}
-    width: Kirigami.Units.gridUnit * 18
+    width: fontSizeSelector.implicitWidth + 2 * margins
     onClosed: Config.save()
 
     FormCard.FormHeader {
@@ -47,6 +47,7 @@ FormCard.FormCardDialog {
     }
 
     FormCard.FormRadioSelectorDelegate {
+        id: fontSizeSelector
         consistentWidth: true
         actions: [
             Kirigami.Action {
