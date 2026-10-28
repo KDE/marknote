@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:51+0000\n"
+"POT-Creation-Date: 2026-10-28 01:01+0000\n"
 "PO-Revision-Date: 2026-10-23 23:02+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -379,86 +379,86 @@ msgstr "Grąžinti"
 msgid "Copy"
 msgstr "Kopijuoti"
 
-#: qml/EditPage.qml:284
+#: qml/EditPage.qml:310
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Note"
 msgstr "Ieškoti užrašų"
 
-#: qml/EditPage.qml:292
+#: qml/EditPage.qml:317
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search in Note"
 msgstr "Ieškoti užrašuose"
 
-#: qml/EditPage.qml:324
+#: qml/EditPage.qml:325
 #, kde-format
 msgid "Note Style"
 msgstr "Užrašų stilius"
 
-#: qml/EditPage.qml:344
+#: qml/EditPage.qml:345
 #, kde-format
 msgid "Focus Mode"
 msgstr "Susikaupimo veiksena"
 
-#: qml/EditPage.qml:361 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
+#: qml/EditPage.qml:364 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
 msgid "Exit Full Screen"
 msgstr "Išjungti viso ekrano veikseną"
 
-#: qml/EditPage.qml:374
+#: qml/EditPage.qml:379
 #, kde-format
 msgid "Switch editor mode"
 msgstr "Perjungti redaktoriaus veikseną"
 
-#: qml/EditPage.qml:379
+#: qml/EditPage.qml:385
 #, kde-format
 msgid "Source View"
 msgstr "Šaltinio rodinys"
 
-#: qml/EditPage.qml:435
+#: qml/EditPage.qml:444
 #, kde-format
 msgid "Find text…"
 msgstr "Rasti tekstą…"
 
-#: qml/EditPage.qml:471
+#: qml/EditPage.qml:480
 #, kde-format
 msgid "Previous"
 msgstr "Ankstesnis"
 
-#: qml/EditPage.qml:487
+#: qml/EditPage.qml:496
 #, kde-format
 msgid "Next"
 msgstr "Kitas"
 
-#: qml/EditPage.qml:507 qml/EditPage.qml:613
+#: qml/EditPage.qml:516 qml/EditPage.qml:622
 #, kde-format
 msgid "No matches"
 msgstr "Nėra atitikčių"
 
-#: qml/EditPage.qml:509 qml/EditPage.qml:615
+#: qml/EditPage.qml:518 qml/EditPage.qml:624
 #, kde-format
 msgid "%1/%2"
 msgstr "%1/%2"
 
-#: qml/EditPage.qml:521 qml/EditPage.qml:584
+#: qml/EditPage.qml:530 qml/EditPage.qml:593
 #, kde-format
 msgid "Replace"
 msgstr "Pakeisti"
 
-#: qml/EditPage.qml:533
+#: qml/EditPage.qml:542
 #, kde-format
 msgid "Close"
 msgstr "Užverti"
 
-#: qml/EditPage.qml:555
+#: qml/EditPage.qml:564
 #, kde-format
 msgid "Replace with…"
 msgstr "Pakeisti į…"
 
-#: qml/EditPage.qml:560 qml/EditPage.qml:600
+#: qml/EditPage.qml:569 qml/EditPage.qml:609
 #, kde-format
 msgctxt "@info:status"
 msgid "Replaced %1 occurrence"
@@ -468,12 +468,12 @@ msgstr[1] "Pakeistos %1 atitiktys"
 msgstr[2] "Pakeista %1 atitikčių"
 msgstr[3] "Pakeista %1 atitiktis"
 
-#: qml/EditPage.qml:596
+#: qml/EditPage.qml:605
 #, kde-format
 msgid "Replace All"
 msgstr "Pakeisti visus"
 
-#: qml/EditPage.qml:663
+#: qml/EditPage.qml:672
 #, kde-format
 msgctxt "@info:status"
 msgid "The note has been copied to the clipboard."
@@ -988,32 +988,32 @@ msgstr "Serifinis"
 msgid "Font Size"
 msgstr "Šrifto dydis"
 
-#: qml/NoteStyleMenu.qml:53
+#: qml/NoteStyleMenu.qml:54
 #, kde-format
 msgid "Small"
 msgstr "Mažas"
 
-#: qml/NoteStyleMenu.qml:58
+#: qml/NoteStyleMenu.qml:59
 #, kde-format
 msgid "Medium"
 msgstr "Vidutinis"
 
-#: qml/NoteStyleMenu.qml:63
+#: qml/NoteStyleMenu.qml:64
 #, kde-format
 msgid "Large"
 msgstr "Didelis"
 
-#: qml/NoteStyleMenu.qml:81
+#: qml/NoteStyleMenu.qml:82
 #, kde-format
 msgid "Text Width"
 msgstr "Teksto plotis"
 
-#: qml/NoteStyleMenu.qml:89
+#: qml/NoteStyleMenu.qml:90
 #, kde-format
 msgid "Restricted"
 msgstr "Apribotas"
 
-#: qml/NoteStyleMenu.qml:94
+#: qml/NoteStyleMenu.qml:95
 #, kde-format
 msgid "Full"
 msgstr "Visas"
