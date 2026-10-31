@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-28 01:01+0000\n"
-"PO-Revision-Date: 2026-09-23 11:09+0200\n"
+"PO-Revision-Date: 2026-10-30 16:13+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -34,12 +34,10 @@ msgid "New Notebook"
 msgstr "Nove quaderno"
 
 #: application.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note or Folder"
-msgstr "Nove quaderno"
+msgstr "Nove Nota o Dossier"
 
 #: application.cpp:59
 #, kde-format
@@ -117,7 +115,7 @@ msgstr "Prayag Jain"
 #: main.cpp:96
 #, kde-format
 msgid "Block Editor"
-msgstr ""
+msgstr "Editor de Bloco"
 
 #: main.cpp:101
 #, kde-format
@@ -163,28 +161,23 @@ msgid "Unable to create note: %1"
 msgstr "Incapace de crear nota: %1"
 
 #: notesmodel.cpp:225
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder. A folder already exists with the same name."
-msgstr "Incapace a crear nota. Un nota ja existe con le mesme nomine."
+msgstr "Incapace a crear dossier. Un dossier ja existe con le mesme nomine."
 
 #: notesmodel.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder: %1"
-msgstr "Incapace de crear nota: %1"
+msgstr "Il non pote crear dossier  %1"
 
 #: notesmodel.cpp:261
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
-msgstr "Incapace a crear nota. Un nota ja existe con le mesme nomine."
+msgstr ""
+"Incapace a renominar dossier. Un dossier ja existe con le mesme nomine."
 
 #: notesmodel.cpp:275
 #, kde-format
@@ -223,7 +216,7 @@ msgstr "Capite 1"
 #: qml/components/SlashMenuPopup.qml:20
 #, kde-format
 msgid "Large section heading"
-msgstr ""
+msgstr "Capite de grande section"
 
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
@@ -233,7 +226,7 @@ msgstr "Capite 2"
 #: qml/components/SlashMenuPopup.qml:21
 #, kde-format
 msgid "Medium section heading"
-msgstr ""
+msgstr "Capite de medie section"
 
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
@@ -243,7 +236,7 @@ msgstr "Capite 3"
 #: qml/components/SlashMenuPopup.qml:22
 #, kde-format
 msgid "Small section heading"
-msgstr ""
+msgstr "Capite de parve section"
 
 #: qml/components/SlashMenuPopup.qml:23
 #, kde-format
@@ -303,17 +296,17 @@ msgstr "Lista numerate"
 #: qml/components/SlashMenuPopup.qml:28
 #, kde-format
 msgid "Numbered sequential list"
-msgstr ""
+msgstr "Lista numerate sequential"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Checklist"
-msgstr ""
+msgstr "Lista de controlo"
 
 #: qml/components/SlashMenuPopup.qml:29
 #, kde-format
 msgid "Task list with checkboxes"
-msgstr ""
+msgstr "Lista de carga con quadratos de selection"
 
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
@@ -323,7 +316,7 @@ msgstr "Cita"
 #: qml/components/SlashMenuPopup.qml:30
 #, kde-format
 msgid "Quote or callout block"
-msgstr ""
+msgstr "Bloco de citation o de attention"
 
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
@@ -333,17 +326,17 @@ msgstr "Bloco de codice"
 #: qml/components/SlashMenuPopup.qml:31
 #, kde-format
 msgid "Code snippet with syntax"
-msgstr ""
+msgstr "Fragmento de codice con syntaxe"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Divider"
-msgstr ""
+msgstr "Dividente "
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
 msgid "Horizontal dividing line"
-msgstr ""
+msgstr "Linea dividente horizontal"
 
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
@@ -353,7 +346,7 @@ msgstr "Tabella"
 #: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Tabular data grid"
-msgstr ""
+msgstr "Grillia de datos tabular"
 
 #: qml/components/SlashMenuPopup.qml:34
 #, kde-format
@@ -363,7 +356,7 @@ msgstr "Claude menu"
 #: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Dismiss this menu"
-msgstr ""
+msgstr "Abbandona iste menu"
 
 #: qml/EditorActions.qml:18
 #, kde-format
@@ -400,7 +393,7 @@ msgstr "Cerca in Nota"
 #: qml/EditPage.qml:325
 #, kde-format
 msgid "Note Style"
-msgstr ""
+msgstr "Stilo de Nota"
 
 #: qml/EditPage.qml:345
 #, kde-format
@@ -740,11 +733,10 @@ msgid "Optional alternate text to display instead of the note name."
 msgstr "Texto alterne optional a monstrar in loco del nomine de nota."
 
 #: qml/NoteMetadataDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New"
-msgstr "Adde nota..."
+msgstr "Adde nove"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -753,21 +745,16 @@ msgid "Edit Note"
 msgstr "Editar Nota"
 
 #: qml/NoteMetadataDialog.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Note"
-msgstr "Nove Nota"
+msgstr "Nota"
 
 #: qml/NoteMetadataDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "%1 folder"
-#| msgid_plural "%1 folders"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Folder"
-msgstr "%1 dossier"
+msgstr "Dossier"
 
 #: qml/NoteMetadataDialog.qml:90
 #, kde-format
@@ -776,12 +763,10 @@ msgid "Name:"
 msgstr "Nomine:"
 
 #: qml/NoteMetadataDialog.qml:95
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "A note with this name already exists."
+#, kde-format
 msgctxt "@info"
 msgid "A note or folder with this name already exists."
-msgstr "Un nota con iste nomine ja existe."
+msgstr "Un notao un dosier con iste nomine ja existe."
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -809,12 +794,10 @@ msgid "Search notes (%1)"
 msgstr "Cerca notas (%1)"
 
 #: qml/NotesPage.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Folder"
-msgstr "Dele Nota"
+msgstr "Dele dossier"
 
 #: qml/NotesPage.qml:314
 #, kde-format
@@ -823,16 +806,13 @@ msgid "Delete Note"
 msgstr "Dele Nota"
 
 #: qml/NotesPage.qml:344
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the note <b> %1 </b>? This will delete "
-#| "the file <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
 "notes contained in <b>%2</b> definitively."
 msgstr ""
-" Tu es secur que tu vole deler le nota <b> %1 </b>? Isto delera le file <b>"
-"%2</b> definitivemente."
+" Tu es secur que tu vole deler le dossier <b> %1 </b>? Isto delera tote le "
+"notas continite in<b>%2</b> definitivemente."
 
 #: qml/NotesPage.qml:346
 #, kde-format
@@ -981,58 +961,54 @@ msgid "%1, %2"
 msgstr "%1, %2"
 
 #: qml/NoteStyleMenu.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font family:"
+#, kde-format
 msgid "Font Family"
-msgstr "Familia de Font:"
+msgstr "Familia de Font"
 
 #: qml/NoteStyleMenu.qml:30
 #, kde-format
 msgid "Sans"
-msgstr ""
+msgstr "Sans"
 
 #: qml/NoteStyleMenu.qml:35
 #, kde-format
 msgid "Serif"
-msgstr ""
+msgstr "Serif"
 
 #: qml/NoteStyleMenu.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font size:"
+#, kde-format
 msgid "Font Size"
-msgstr "Dimension de Font:"
+msgstr "Dimension de Font"
 
 #: qml/NoteStyleMenu.qml:54
 #, kde-format
 msgid "Small"
-msgstr ""
+msgstr "Parve"
 
 #: qml/NoteStyleMenu.qml:59
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "Medie"
 
 #: qml/NoteStyleMenu.qml:64
 #, kde-format
 msgid "Large"
-msgstr ""
+msgstr "Grande (Large)"
 
 #: qml/NoteStyleMenu.qml:82
 #, kde-format
 msgid "Text Width"
-msgstr ""
+msgstr "Largessa de texto"
 
 #: qml/NoteStyleMenu.qml:90
 #, kde-format
 msgid "Restricted"
-msgstr ""
+msgstr "Restricte"
 
 #: qml/NoteStyleMenu.qml:95
 #, kde-format
 msgid "Full"
-msgstr ""
+msgstr "Plen"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
@@ -1096,7 +1072,7 @@ msgstr "Lista ordinate"
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
-msgstr ""
+msgstr "Lista de controlo"
 
 #: qml/RichEditPage.qml:1056
 #, kde-format
@@ -1200,12 +1176,12 @@ msgstr "Netta telas (canvas)"
 #: qml/SketchDialog.qml:382
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Cancella"
 
 #: qml/SketchDialog.qml:391
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Salveguarda"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1277,7 +1253,7 @@ msgstr "Tabella de contentos (Index)"
 #, kde-format
 msgctxt "@action:button"
 msgid "pin"
-msgstr ""
+msgstr "Pin"
 
 #: qml/TocDrawer.qml:232
 #, kde-format
@@ -1350,20 +1326,20 @@ msgstr "Dimension de Font:"
 #: settings/MarkNoteGeneralPage.qml:171
 #, kde-format
 msgid "Use full editor width for the content"
-msgstr ""
+msgstr "Usa largessa complete de editor pro le contento"
 
 #: settings/MarkNoteGeneralPage.qml:193
 #, kde-format
 msgctxt "@label:slider"
 msgid "Text Width"
-msgstr ""
+msgstr "Largessa de texto"
 
 #: settings/MarkNoteGeneralPage.qml:198
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1 gU"
-msgstr ""
+msgstr "%1 gU"
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
