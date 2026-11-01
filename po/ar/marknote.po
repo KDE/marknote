@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the marknote package.
-# SPDX-FileCopyrightText: 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-28 01:01+0000\n"
-"PO-Revision-Date: 2026-09-17 08:59+0400\n"
+"PO-Revision-Date: 2026-10-31 20:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -35,12 +35,10 @@ msgid "New Notebook"
 msgstr "دفتر جديد"
 
 #: application.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note or Folder"
-msgstr "دفتر جديد"
+msgstr "ملاحظة أو مجلد جديد"
 
 #: application.cpp:59
 #, kde-format
@@ -164,28 +162,22 @@ msgid "Unable to create note: %1"
 msgstr "تعذر إنشاء الملاحظة: %1"
 
 #: notesmodel.cpp:225
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder. A folder already exists with the same name."
-msgstr "تعذر إنشاء الملاحظة. الملاحظة بنفس الاسم موجودة فعلًا."
+msgstr "تعذّر إنشاء المجلد. يوجد مجلد بالاسم نفسه."
 
 #: notesmodel.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder: %1"
-msgstr "تعذر إنشاء الملاحظة: %1"
+msgstr "تعذّر إنشاء المجلد: %1"
 
 #: notesmodel.cpp:261
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
-msgstr "تعذر إنشاء الملاحظة. الملاحظة بنفس الاسم موجودة فعلًا."
+msgstr "تعذّرت إعادة تسمية المجلد. يوجد مجلد بالاسم نفسه."
 
 #: notesmodel.cpp:275
 #, kde-format
@@ -401,7 +393,7 @@ msgstr "ابحث في ملاحظة"
 #: qml/EditPage.qml:325
 #, kde-format
 msgid "Note Style"
-msgstr ""
+msgstr "نمط الملاحظة"
 
 #: qml/EditPage.qml:345
 #, kde-format
@@ -745,11 +737,10 @@ msgid "Optional alternate text to display instead of the note name."
 msgstr "نص بديل اختياري لعرضه بدلًا من اسم الملاحظة."
 
 #: qml/NoteMetadataDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New"
-msgstr "أضف ملاحظة"
+msgstr "أضف أيضاً"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -758,21 +749,16 @@ msgid "Edit Note"
 msgstr "حرّر الملاحظة"
 
 #: qml/NoteMetadataDialog.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Note"
-msgstr "ملاحظة جديدة"
+msgstr "ملاحظة"
 
 #: qml/NoteMetadataDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "%1 folder"
-#| msgid_plural "%1 folders"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Folder"
-msgstr "%1 مجلد"
+msgstr "مجلّد"
 
 #: qml/NoteMetadataDialog.qml:90
 #, kde-format
@@ -781,12 +767,10 @@ msgid "Name:"
 msgstr "الاسم:"
 
 #: qml/NoteMetadataDialog.qml:95
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "A note with this name already exists."
+#, kde-format
 msgctxt "@info"
 msgid "A note or folder with this name already exists."
-msgstr "ملاحظة بهذا الاسم موجودة فعلًا."
+msgstr "توجد ملاحظة أو مجلد بهذا الاسم."
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -814,12 +798,10 @@ msgid "Search notes (%1)"
 msgstr "ابحث في الملاحظات (%1)"
 
 #: qml/NotesPage.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Folder"
-msgstr "احذف الملاحظة"
+msgstr "احذف المجلد"
 
 #: qml/NotesPage.qml:314
 #, kde-format
@@ -828,16 +810,13 @@ msgid "Delete Note"
 msgstr "احذف الملاحظة"
 
 #: qml/NotesPage.qml:344
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the note <b> %1 </b>? This will delete "
-#| "the file <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
 "notes contained in <b>%2</b> definitively."
 msgstr ""
-"هل أنت متأكد من أنك تريد حذف الملاحظة <b> %1 </b>؟ سيؤدي هذا إلى حذف الملف "
-"<b>%2</b> نهائيًا."
+"أمتأكد من أنك تريد حذف المجلد <b> %1 </b>؟ سيحذف هذا كل الملاحظات الموجودة "
+"في <b>%2</b> نهائيًا."
 
 #: qml/NotesPage.qml:346
 #, kde-format
@@ -994,58 +973,54 @@ msgid "%1, %2"
 msgstr "%1، %2"
 
 #: qml/NoteStyleMenu.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font family:"
+#, kde-format
 msgid "Font Family"
-msgstr "عائلة الخطوط:"
+msgstr "عائلة الخطّ"
 
 #: qml/NoteStyleMenu.qml:30
 #, kde-format
 msgid "Sans"
-msgstr ""
+msgstr "Sans"
 
 #: qml/NoteStyleMenu.qml:35
 #, kde-format
 msgid "Serif"
-msgstr ""
+msgstr "Serif"
 
 #: qml/NoteStyleMenu.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font size:"
+#, kde-format
 msgid "Font Size"
-msgstr "حجم الخطّ:"
+msgstr "حجم الخط"
 
 #: qml/NoteStyleMenu.qml:54
 #, kde-format
 msgid "Small"
-msgstr ""
+msgstr "صغير"
 
 #: qml/NoteStyleMenu.qml:59
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "متوسط"
 
 #: qml/NoteStyleMenu.qml:64
 #, kde-format
 msgid "Large"
-msgstr ""
+msgstr "كبير"
 
 #: qml/NoteStyleMenu.qml:82
 #, kde-format
 msgid "Text Width"
-msgstr ""
+msgstr "عرض النص"
 
 #: qml/NoteStyleMenu.qml:90
 #, kde-format
 msgid "Restricted"
-msgstr ""
+msgstr "مقيد"
 
 #: qml/NoteStyleMenu.qml:95
 #, kde-format
 msgid "Full"
-msgstr ""
+msgstr "كامل"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
@@ -1213,12 +1188,12 @@ msgstr "امحُ الرقعة"
 #: qml/SketchDialog.qml:382
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ألغِ"
 
 #: qml/SketchDialog.qml:391
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "احفظ"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1290,7 +1265,7 @@ msgstr "جدول المحتويات"
 #, kde-format
 msgctxt "@action:button"
 msgid "pin"
-msgstr ""
+msgstr "دبوس"
 
 #: qml/TocDrawer.qml:232
 #, kde-format
@@ -1363,20 +1338,20 @@ msgstr "حجم الخطّ:"
 #: settings/MarkNoteGeneralPage.qml:171
 #, kde-format
 msgid "Use full editor width for the content"
-msgstr ""
+msgstr "استخدم عرض المحرر الكامل للمحتوى"
 
 #: settings/MarkNoteGeneralPage.qml:193
 #, kde-format
 msgctxt "@label:slider"
 msgid "Text Width"
-msgstr ""
+msgstr "عرض النص"
 
 #: settings/MarkNoteGeneralPage.qml:198
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1 gU"
-msgstr ""
+msgstr "%1 gU"
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format
