@@ -3,11 +3,55 @@
 
 #include "mddatagenerator.h"
 #include "mdoptions/mdoptions.h"
+#include <QImageReader>
+#include <QRegularExpression>
+#include <QUrl>
 #include <md4qt/html.h>
 using namespace Qt::StringLiterals;
 
 namespace MDDataGenerator
 {
+namespace
+{
+constexpr int maxImageWidth = 512;
+
+// Qt rich text stretches wide images to the full width of the text. Cap their size and keep the aspect ratio.
+QString capImageWidth(const QString &html)
+{
+    static const QRegularExpression imgRe(u"<img\\b[^>]*>"_s);
+    static const QRegularExpression srcRe(u"\\bsrc=\"([^\"]*)\""_s);
+
+    QString result;
+    qsizetype last = 0;
+    auto it = imgRe.globalMatch(html);
+    while (it.hasNext()) {
+        const auto match = it.next();
+        const auto srcMatch = srcRe.match(match.captured());
+        if (!srcMatch.hasMatch()) {
+            continue;
+        }
+
+        const QUrl url(srcMatch.captured(1));
+        if (!url.isLocalFile()) {
+            continue;
+        }
+
+        const QSize size = QImageReader(url.toLocalFile()).size();
+        if (size.width() <= maxImageWidth) {
+            continue;
+        }
+
+        const int height = qRound(size.height() * double(maxImageWidth) / size.width());
+        result += QStringView(html).mid(last, match.capturedStart() - last);
+        result += u"<img width=\"%1\" height=\"%2\""_s.arg(maxImageWidth).arg(height);
+        result += QStringView(html).mid(match.capturedStart() + 4, match.capturedLength() - 4);
+        last = match.capturedEnd();
+    }
+    result += QStringView(html).mid(last);
+    return result;
+}
+}
+
 void applyIntermediateData(QSharedPointer<MD::Document> to, QSharedPointer<MD::Document> from)
 {
     if (!from) {
@@ -30,7 +74,7 @@ QString toHtml(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::Document
     doc->appendItem(item);
     applyIntermediateData(doc, fullDoc);
 
-    return MD::toHtml(doc, false, {}, false);
+    return capImageWidth(MD::toHtml(doc, false, {}, false));
 }
 
 QString toMd(const QSharedPointer<MD::Item> &item)
