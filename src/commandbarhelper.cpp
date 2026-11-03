@@ -89,7 +89,7 @@ void CommandBarHelper::removeStaleActions(const QSet<QString> &previousNames, co
 
     for (const QString &staleActionName : previousNames - currentNames) {
         if (QAction *staleAction = actionCollection->action(staleActionName)) {
-            actionCollection->removeAction(staleAction);
+            actionCollection->takeAction(staleAction);
             if (staleAction->parent() == this) {
                 staleAction->deleteLater();
             }
