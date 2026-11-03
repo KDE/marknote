@@ -1129,17 +1129,13 @@ msgid "Decrease List Level"
 msgstr "Diminuír o nivel da lista"
 
 #: qml/RichEditPage.qml:992
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu unordered style"
-#| msgid "Unordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Lista desordenada"
 
 #: qml/RichEditPage.qml:1011
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu ordered style"
-#| msgid "Ordered list"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Lista ordenada"
@@ -1298,9 +1294,7 @@ msgid "Open Note"
 msgstr "Nova nota"
 
 #: qml/TextFieldContextMenu.qml:260
-#, fuzzy, kde-format
-#| msgctxt "@inmenu"
-#| msgid "Open Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Link"
 msgstr "Abrir a ligazón"
