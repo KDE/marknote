@@ -39,7 +39,7 @@ Q_SIGNALS:
     void navigateToNote(const QString &notebookPath, const QString &notePath);
 
 private:
-    static QString actionNameForNote(const QString &notebookPath, const QString &noteFileName);
+    static QString actionNameForNote(const QString &notebookPath, const QString &notePath);
     void updateNoteActions();
     void removeStaleActions(const QSet<QString> &previousNames, const QSet<QString> &currentNames);
     void scheduleRefresh();

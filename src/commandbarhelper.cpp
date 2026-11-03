@@ -8,6 +8,7 @@
 #include <QAction>
 #include <QCryptographicHash>
 #include <QDir>
+#include <QDirIterator>
 #include <QFileInfo>
 #include <QFileSystemWatcher>
 #include <QIcon>
@@ -72,9 +73,9 @@ void CommandBarHelper::refreshNoteActions()
     scheduleRefresh();
 }
 
-QString CommandBarHelper::actionNameForNote(const QString &notebookPath, const QString &noteFileName)
+QString CommandBarHelper::actionNameForNote(const QString &notebookPath, const QString &notePath)
 {
-    const QByteArray key = (notebookPath + u'/' + noteFileName).toUtf8();
+    const QByteArray key = (notebookPath + u'/' + notePath).toUtf8();
     const QByteArray digest = QCryptographicHash::hash(key, QCryptographicHash::Sha1).toHex();
     return u"dynamic_note_"_s + QString::fromLatin1(digest);
 }
@@ -136,22 +137,33 @@ void CommandBarHelper::updateNoteActions()
         const QString notebookPath = notebook.filePath();
         const QString notebookName = notebook.fileName();
 
-        QDir notebookDir(notebookPath);
-        const auto notes = notebookDir.entryInfoList({u"*.md"_s}, QDir::Files, QDir::Name);
+        const QDir notebookDir(notebookPath);
+        QStringList notes;
+        QDirIterator noteIt(notebookPath, {u"*.md"_s}, QDir::Files, QDirIterator::Subdirectories);
+        while (noteIt.hasNext()) {
+            notes << notebookDir.relativeFilePath(noteIt.next());
+        }
+        notes.sort();
 
-        for (const QFileInfo &note : notes) {
+        for (const QString &notePath : std::as_const(notes)) {
             if (actionIndex >= maxResults) {
                 break;
             }
 
+            const QFileInfo note(notePath);
             const QString noteName = note.completeBaseName();
             QString actionText = noteName;
 
-            if (!notebookName.isEmpty()) {
-                actionText += u" · "_s + notebookName;
+            QString location = notebookName;
+            const QString subFolder = note.path();
+            if (subFolder != u"."_s) {
+                location += u'/' + subFolder;
+            }
+            if (!location.isEmpty()) {
+                actionText += u" · "_s + location;
             }
 
-            const QString actionName = actionNameForNote(notebookPath, note.fileName());
+            const QString actionName = actionNameForNote(notebookPath, notePath);
             currentActionNames.insert(actionName);
 
             if (auto *existingAction = actionCollection->action(actionName)) {
@@ -166,7 +178,7 @@ void CommandBarHelper::updateNoteActions()
             auto *action = new QAction(m_noteIcon, actionText, this);
 
             const QString capturedNotebookPath = notebookPath;
-            const QString capturedNotePath = note.fileName();
+            const QString capturedNotePath = notePath;
             connect(
                 action,
                 &QAction::triggered,
@@ -221,6 +233,11 @@ void CommandBarHelper::rebuildWatchPaths()
     const auto notebooks = storageDir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
     for (const QFileInfo &notebook : notebooks) {
         watchDirs.append(notebook.absoluteFilePath());
+
+        QDirIterator folderIt(notebook.absoluteFilePath(), QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+        while (folderIt.hasNext()) {
+            watchDirs.append(folderIt.next());
+        }
     }
 
     m_storageWatcher->addPaths(watchDirs);
