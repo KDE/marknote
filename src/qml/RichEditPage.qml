@@ -1269,7 +1269,6 @@ EditPage {
         parent: root.Overlay.overlay
         visible: !root.canFitToolbar && !NavigationController.sourceMode
         scale: mobileToolBarContainer.hidden ? 1.0 : 0.0
-
         property int defaultSpacing: Kirigami.Units.largeSpacing * 2
 
         Behavior on scale {
@@ -1488,7 +1487,7 @@ EditPage {
         visible: root.canFitToolbar && !NavigationController.sourceMode
         z: 600000
         parent: root.overlay
-
+        padding: Kirigami.Units.mediumSpacing
         anchors {
             bottom: parent.bottom
             margins: Kirigami.Units.largeSpacing
