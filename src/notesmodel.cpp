@@ -340,14 +340,17 @@ bool NotesModel::moveEntry(const QUrl &source, const QUrl &destination)
         return false;
     }
 
-    QString newPath = destInfo.absoluteFilePath() + QDir::separator() + sourceInfo.fileName();
+    const QString srcPath = sourceInfo.absoluteFilePath();
+    const QString destPath = destInfo.absoluteFilePath();
 
-    if (destInfo.absoluteFilePath().startsWith(sourceInfo.absoluteFilePath())) {
+    if (sourceInfo.isDir() && (destPath == srcPath || destPath.startsWith(srcPath + u'/'))) {
         Q_EMIT errorOccurred(i18nc("@info:status", "Cannot move a folder into itself."));
         return false;
     }
 
-    bool success = QFile::rename(sourceInfo.absoluteFilePath(), newPath);
+    QString newPath = destPath + QDir::separator() + sourceInfo.fileName();
+
+    bool success = QFile::rename(srcPath, newPath);
     if (!success) {
         Q_EMIT errorOccurred(i18nc("@info:status", "Failed to move file."));
     }
