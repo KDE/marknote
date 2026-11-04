@@ -37,6 +37,8 @@
 
 #include "commands/commandmanager.h"
 
+#include <md4qt/config-md4qt.h>
+
 #ifdef HAVE_KRUNNER
 #include "runner.h"
 #include <QDBusConnection>
@@ -133,6 +135,13 @@ int main(int argc, char *argv[])
 
     setupAboutAuthors(about);
     setupAboutCredits(about);
+
+    about.addComponent(u"md4qt"_s,
+                       i18n("Markdown parsing library"),
+                       QStringLiteral(MD4QT_VERSION_STRING),
+                       u"https://invent.kde.org/libraries/md4qt"_s,
+                       KAboutLicense::MIT);
+
 
     KAboutData::setApplicationData(about);
 
