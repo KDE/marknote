@@ -16,6 +16,9 @@ Marknote supports a wide range of formatting options useful for taking everyday 
 Nightly flatpak: [https://cdn.kde.org/flatpak/marknote-nightly/org.kde.marknote.flatpakref](https://cdn.kde.org/flatpak/marknote-nightly/org.kde.marknote.flatpakref)
 
 
+## Get in touch
+Join our matrix room: [#marknote:kde.org](https://matrix.to/#/#marknote:kde.org)
+
 ## Build Instructions
 
 ### flatpak builder (with kde sdk)
