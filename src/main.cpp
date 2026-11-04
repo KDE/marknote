@@ -142,7 +142,6 @@ int main(int argc, char *argv[])
                        u"https://invent.kde.org/libraries/md4qt"_s,
                        KAboutLicense::MIT);
 
-
     KAboutData::setApplicationData(about);
 
 #ifdef HAVE_KCRASH
