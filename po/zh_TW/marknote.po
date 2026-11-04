@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:01+0000\n"
-"PO-Revision-Date: 2026-09-17 01:11+0900\n"
+"POT-Creation-Date: 2026-11-04 01:03+0000\n"
+"PO-Revision-Date: 2026-11-03 22:07+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -34,12 +34,10 @@ msgid "New Notebook"
 msgstr "新增筆記本"
 
 #: application.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note or Folder"
-msgstr "新增筆記本"
+msgstr "新增筆記或資料夾"
 
 #: application.cpp:59
 #, kde-format
@@ -163,28 +161,22 @@ msgid "Unable to create note: %1"
 msgstr "無法建立筆記：%1"
 
 #: notesmodel.cpp:225
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder. A folder already exists with the same name."
-msgstr "無法建立筆記。已經有另一個筆記使用該名稱。"
+msgstr "無法建立資料夾。已經有另一個資料夾使用該名稱。"
 
 #: notesmodel.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder: %1"
-msgstr "無法建立筆記：%1"
+msgstr "無法建立資料夾：%1"
 
 #: notesmodel.cpp:261
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
-msgstr "無法建立筆記。已經有另一個筆記使用該名稱。"
+msgstr "無法重新命名資料夾。已經有另一個資料夾使用該名稱。"
 
 #: notesmodel.cpp:275
 #, kde-format
@@ -198,13 +190,13 @@ msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "無效移動操作。"
 
-#: notesmodel.cpp:346
+#: notesmodel.cpp:347
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "無法將資料夾移動到自己當中。"
 
-#: notesmodel.cpp:352
+#: notesmodel.cpp:355
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -400,7 +392,7 @@ msgstr "在筆記中搜尋"
 #: qml/EditPage.qml:325
 #, kde-format
 msgid "Note Style"
-msgstr ""
+msgstr "筆記風格"
 
 #: qml/EditPage.qml:345
 #, kde-format
@@ -737,11 +729,10 @@ msgid "Optional alternate text to display instead of the note name."
 msgstr "若有提供，顯示此文字而非目標筆記的名稱。"
 
 #: qml/NoteMetadataDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New"
-msgstr "新增筆記"
+msgstr "新增"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -750,21 +741,16 @@ msgid "Edit Note"
 msgstr "編輯筆記"
 
 #: qml/NoteMetadataDialog.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Note"
-msgstr "新增筆記"
+msgstr "筆記"
 
 #: qml/NoteMetadataDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "%1 folder"
-#| msgid_plural "%1 folders"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Folder"
-msgstr "%1 個資料夾"
+msgstr "資料夾"
 
 #: qml/NoteMetadataDialog.qml:90
 #, kde-format
@@ -773,12 +759,10 @@ msgid "Name:"
 msgstr "名稱："
 
 #: qml/NoteMetadataDialog.qml:95
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "A note with this name already exists."
+#, kde-format
 msgctxt "@info"
 msgid "A note or folder with this name already exists."
-msgstr "已經存在相同名稱的筆記。"
+msgstr "已經存在相同名稱的筆記或資料夾。"
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -806,12 +790,10 @@ msgid "Search notes (%1)"
 msgstr "搜尋筆記 (%1)"
 
 #: qml/NotesPage.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Folder"
-msgstr "刪除筆記"
+msgstr "刪除資料夾"
 
 #: qml/NotesPage.qml:314
 #, kde-format
@@ -820,14 +802,12 @@ msgid "Delete Note"
 msgstr "刪除筆記"
 
 #: qml/NotesPage.qml:344
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the note <b> %1 </b>? This will delete "
-#| "the file <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
 "notes contained in <b>%2</b> definitively."
-msgstr "您確定要刪除筆記 <b>%1</b> 嗎？這會永久完全刪除檔案 <b>%2</b>。"
+msgstr ""
+"您確定要刪除資料夾 <b>%1</b> 嗎？這會永久完全刪除 <b>%2</b> 當中的所有筆記。"
 
 #: qml/NotesPage.qml:346
 #, kde-format
@@ -972,58 +952,54 @@ msgid "%1, %2"
 msgstr "%1, %2"
 
 #: qml/NoteStyleMenu.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font family:"
+#, kde-format
 msgid "Font Family"
-msgstr "字型家族："
+msgstr "字型家族"
 
 #: qml/NoteStyleMenu.qml:30
 #, kde-format
 msgid "Sans"
-msgstr ""
+msgstr "無襯線字體"
 
 #: qml/NoteStyleMenu.qml:35
 #, kde-format
 msgid "Serif"
-msgstr ""
+msgstr "有襯線字體"
 
 #: qml/NoteStyleMenu.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font size:"
+#, kde-format
 msgid "Font Size"
-msgstr "字型大小："
+msgstr "字型大小"
 
 #: qml/NoteStyleMenu.qml:54
 #, kde-format
 msgid "Small"
-msgstr ""
+msgstr "小"
 
 #: qml/NoteStyleMenu.qml:59
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "中"
 
 #: qml/NoteStyleMenu.qml:64
 #, kde-format
 msgid "Large"
-msgstr ""
+msgstr "大"
 
 #: qml/NoteStyleMenu.qml:82
 #, kde-format
 msgid "Text Width"
-msgstr ""
+msgstr "文字寬度"
 
 #: qml/NoteStyleMenu.qml:90
 #, kde-format
 msgid "Restricted"
-msgstr ""
+msgstr "受限"
 
 #: qml/NoteStyleMenu.qml:95
 #, kde-format
 msgid "Full"
-msgstr ""
+msgstr "完整"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
@@ -1161,17 +1137,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "標題 6"
 
-#: qml/RichEditPage.qml:1434
+#: qml/RichEditPage.qml:1433
 #, kde-format
 msgid "Format"
 msgstr "格式"
 
-#: qml/RichEditPage.qml:1443
+#: qml/RichEditPage.qml:1442
 #, kde-format
 msgid "Lists"
 msgstr "清單"
 
-#: qml/RichEditPage.qml:1452
+#: qml/RichEditPage.qml:1451
 #, kde-format
 msgid "Insert"
 msgstr "插入"
@@ -1191,12 +1167,12 @@ msgstr "清空畫布"
 #: qml/SketchDialog.qml:382
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: qml/SketchDialog.qml:391
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1268,7 +1244,7 @@ msgstr "目錄"
 #, kde-format
 msgctxt "@action:button"
 msgid "pin"
-msgstr ""
+msgstr "釘選"
 
 #: qml/TocDrawer.qml:232
 #, kde-format
@@ -1341,20 +1317,20 @@ msgstr "字型大小："
 #: settings/MarkNoteGeneralPage.qml:171
 #, kde-format
 msgid "Use full editor width for the content"
-msgstr ""
+msgstr "為內容使用完整編輯器寬度"
 
 #: settings/MarkNoteGeneralPage.qml:193
 #, kde-format
 msgctxt "@label:slider"
 msgid "Text Width"
-msgstr ""
+msgstr "文字寬度"
 
 #: settings/MarkNoteGeneralPage.qml:198
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1 gU"
-msgstr ""
+msgstr "%1 gU"
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format

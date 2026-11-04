@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:01+0000\n"
+"POT-Creation-Date: 2026-11-04 01:03+0000\n"
 "PO-Revision-Date: 2025-02-12 22:59+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -204,13 +204,13 @@ msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr ""
 
-#: notesmodel.cpp:346
+#: notesmodel.cpp:347
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr ""
 
-#: notesmodel.cpp:352
+#: notesmodel.cpp:355
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -1221,17 +1221,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr ""
 
-#: qml/RichEditPage.qml:1434
+#: qml/RichEditPage.qml:1433
 #, kde-format
 msgid "Format"
 msgstr "Formato"
 
-#: qml/RichEditPage.qml:1443
+#: qml/RichEditPage.qml:1442
 #, kde-format
 msgid "Lists"
 msgstr "Listoj"
 
-#: qml/RichEditPage.qml:1452
+#: qml/RichEditPage.qml:1451
 #, kde-format
 msgid "Insert"
 msgstr "Enmeti"

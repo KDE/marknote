@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:01+0000\n"
+"POT-Creation-Date: 2026-11-04 01:03+0000\n"
 "PO-Revision-Date: 2026-10-02 00:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -198,13 +198,13 @@ msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr "잘못된 이동 작업입니다."
 
-#: notesmodel.cpp:346
+#: notesmodel.cpp:347
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr "폴더를 자기 자신으로 이동할 수 없습니다."
 
-#: notesmodel.cpp:352
+#: notesmodel.cpp:355
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -1162,17 +1162,17 @@ msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "머리글 6"
 
-#: qml/RichEditPage.qml:1434
+#: qml/RichEditPage.qml:1433
 #, kde-format
 msgid "Format"
 msgstr "형식"
 
-#: qml/RichEditPage.qml:1443
+#: qml/RichEditPage.qml:1442
 #, kde-format
 msgid "Lists"
 msgstr "목록"
 
-#: qml/RichEditPage.qml:1452
+#: qml/RichEditPage.qml:1451
 #, kde-format
 msgid "Insert"
 msgstr "삽입"
