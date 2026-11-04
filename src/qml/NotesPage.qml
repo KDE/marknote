@@ -923,6 +923,11 @@ Kirigami.ScrollablePage {
             }
 
             onClicked: {
+                // Ignore the click that a drag release emits.
+                if (dragHandler.active) {
+                    return;
+                }
+
                 if (highlighted) {
                     root.pageStack.currentIndex = root.pageStack.depth - 1;
                     return;
