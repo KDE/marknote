@@ -135,7 +135,12 @@ void CommandManager::splitBlock(TreeItem *block, const QString &text, int splitI
     pushCommand(new SplitBlockCommand(block, text, splitIndex, m_model));
 }
 
-void CommandManager::splitCode(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition, const QString &oldLanguage, const QString &language)
+void CommandManager::splitCode(TreeItem *block,
+                               const QString &oldText,
+                               const QString &text,
+                               int cursorPosition,
+                               const QString &oldLanguage,
+                               const QString &language)
 {
     pushCommand(new SplitCodeCommand(block, oldText, text, cursorPosition, oldLanguage, language, m_model));
 }
