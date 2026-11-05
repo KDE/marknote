@@ -5,13 +5,13 @@
 #include "editcode.h"
 #include "insertparagraphbelow.h"
 
-SplitCodeCommand::SplitCodeCommand(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition, MDTreeModel *model, QUndoCommand *parent)
+SplitCodeCommand::SplitCodeCommand(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition, const QString &oldLanguage, const QString &language,  MDTreeModel *model, QUndoCommand *parent)
     : QUndoCommand(parent)
 {
     QString leftText = text.left(cursorPosition);
     QString rightText = text.mid(cursorPosition);
 
-    new EditCodeCommand(block, oldText, leftText, cursorPosition, cursorPosition, model, this);
+    new EditCodeCommand(block, oldText, leftText, cursorPosition, cursorPosition, oldLanguage, language, model, this);
     new InsertParagraphBelowCommand(block, rightText, model, this);
 }
 

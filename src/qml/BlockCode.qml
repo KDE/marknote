@@ -8,6 +8,7 @@ import QtQuick.Window
 import org.kde.kquickcontrolsaddons as KQuickControlsAddons
 
 import org.kde.kirigami as Kirigami
+import org.kde.syntaxhighlighting
 
 BlockTemplate {
     id: root
@@ -17,7 +18,9 @@ BlockTemplate {
     bottomMargin: Kirigami.Units.largeSpacing
 
     readonly property var blockData: root.block.data
+
     readonly property var text: blockData.text
+    property var language: blockData.lang
 
     property int fontSize: Config.editorFont.pointSize
 
@@ -76,10 +79,11 @@ BlockTemplate {
                     interval: 500
                     repeat: false
                     onTriggered: {
-                        if (codeText.lastSavedText !== codeText.text) {
-                            CommandManager.editCode(root.block, codeText.lastSavedText, codeText.text, codeText.lastSavedCursorPos, codeText.cursorPosition);
+                        if (codeText.lastSavedText !== codeText.text || languageTextField.lastSavedLanguage !== languageTextField.text) {
+                            CommandManager.editCode(root.block, codeText.lastSavedText, codeText.text, codeText.lastSavedCursorPos, codeText.cursorPosition, languageTextField.text, languageTextField.text);
                             codeText.lastSavedText = codeText.text;
                             codeText.lastSavedCursorPos = codeText.cursorPosition;
+                            languageTextField.lastSavedLanguage = languageTextField.text;
                         }
                     }
                 }
@@ -105,7 +109,7 @@ BlockTemplate {
 
                     if (event.modifiers & Qt.ShiftModifier) {
                         editTimer.stop();
-                        CommandManager.splitCode(root.block, codeText.lastSavedText, codeText.text, codeText.cursorPosition);
+                        CommandManager.splitCode(root.block, codeText.lastSavedText, codeText.text, codeText.cursorPosition, languageTextField.text, languageTextField.text);
                         codeText.lastSavedText = codeText.text.substring(0, codeText.cursorPosition);
                         event.accepted = true;
                     } else {
@@ -246,6 +250,13 @@ BlockTemplate {
                 }
             }
 
+            SyntaxHighlighter {
+                textEdit: root.language.length > 0
+                          ? codeText : none
+                definition: root.language
+            }
+
+
             MouseArea {
                 anchors.fill: codeText
                 enabled: !codeText.activeFocus
@@ -272,6 +283,47 @@ BlockTemplate {
             }
 
             KQuickControlsAddons.Clipboard { id: clipboard }
+
+            TextField {
+                id: languageTextField
+
+                text: root.blockData.lang
+                placeholderText: "</>"
+                color: Kirigami.Theme.disabledTextColor
+                horizontalAlignment: Text.AlignHCenter
+
+                TextMetrics {
+                    id: textMetrics
+                    font: languageTextField.font
+                    text: languageTextField.text.length > 0
+                          ? languageTextField.text
+                          : languageTextField.placeholderText
+                }
+
+                Layout.maximumWidth: textMetrics.width + leftPadding + rightPadding + Kirigami.Units.smallSpacing
+
+                background: Rectangle {
+                    color: Kirigami.Theme.backgroundColor
+                    radius: Kirigami.Units.cornerRadius
+                    opacity: languageTextField.hovered || languageTextField.activeFocus ? 0.5 : 0
+
+                    Behavior on opacity {
+                        NumberAnimation {
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InOutQuart
+                        }
+                    }
+                }
+
+                onTextChanged: {
+                    root.language = text
+                    if (codeText.isProgrammaticUpdate) return;
+                    if (languageTextField.activeFocus && languageTextField.text !== languageTextField.lastSavedLanguage) {
+                        editTimer.restart();
+                    }
+                }
+                property string lastSavedLanguage: root.blockData.lang
+            }
 
             Button {
                 icon.source: "edit-copy-symbolic"

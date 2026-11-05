@@ -66,7 +66,7 @@ public:
     void setUnparsedMarkdownForTable(const QString &text, int row, int col);
     void clearUnparsedTableMarkdown();
 
-    void setCode(const QString &text);
+    void setCode(const QString &text, const QString &lang);
     void setTableCellMarkdown(int row, int col, const QString &markdown);
 
     void insertRowInTable(int row, QSharedPointer<MD::TableRow> rowToInsert = nullptr, const QList<QString> &unparsedMdRow = {});

@@ -54,7 +54,7 @@ public:
     Q_INVOKABLE void setItemMD(TreeItem *block, const QString &md);
     Q_INVOKABLE void setItemTableMD(TreeItem *block, int row, int col, const QString &md);
     Q_INVOKABLE void setTableCellMD(TreeItem *block, int row, int col, const QString &markdown);
-    Q_INVOKABLE void setItemCode(TreeItem *block, const QString &code);
+    Q_INVOKABLE void setItemCode(TreeItem *block, const QString &code, const QString &lang);
 
     void insertRowInTable(TreeItem *block, int row, QSharedPointer<MD::TableRow> rowToInsert = nullptr, const QList<QString> &unparsedRowData = {});
     void insertColInTable(TreeItem *block, int col, const QList<QSharedPointer<MD::TableCell>> &colToInsert = {}, const QList<QString> &unparsedColData = {});

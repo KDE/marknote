@@ -511,7 +511,7 @@ void TreeItem::clearUnparsedTableMarkdown()
     Q_EMIT dataChanged();
 }
 
-void TreeItem::setCode(const QString &text)
+void TreeItem::setCode(const QString &text, const QString &lang)
 {
     if (m_item->type() != MD::ItemType::Code) {
         return;
@@ -519,6 +519,7 @@ void TreeItem::setCode(const QString &text)
 
     auto codeItem = m_item.dynamicCast<MD::Code>();
     codeItem->setText(text);
+    codeItem->setSyntax(lang);
 }
 
 void TreeItem::setTableCellMarkdown(int row, int col, const QString &markdown)

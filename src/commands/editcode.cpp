@@ -8,6 +8,8 @@ EditCodeCommand::EditCodeCommand(TreeItem *block,
                                  const QString &newText,
                                  int oldCursorPosition,
                                  int newCursorPosition,
+                                 const QString &oldLanguage,
+                                 const QString &newLanguage,
                                  MDTreeModel *model,
                                  QUndoCommand *parent)
     : QUndoCommand(parent)
@@ -17,6 +19,8 @@ EditCodeCommand::EditCodeCommand(TreeItem *block,
     , m_newText(newText)
     , m_oldCursorPosition(oldCursorPosition)
     , m_newCursorPosition(newCursorPosition)
+    , m_oldLanguage(oldLanguage)
+    , m_newLanguage(newLanguage)
     , m_isFirstTime(true)
 {
 }
@@ -27,13 +31,13 @@ EditCodeCommand::~EditCodeCommand()
 
 void EditCodeCommand::undo()
 {
-    m_model->setItemCode(m_block, m_oldText);
+    m_model->setItemCode(m_block, m_oldText, m_oldLanguage);
     m_model->requestFocus(m_block, m_oldCursorPosition);
 }
 
 void EditCodeCommand::redo()
 {
-    m_model->setItemCode(m_block, m_newText);
+    m_model->setItemCode(m_block, m_newText, m_newLanguage);
 
     if (!m_isFirstTime) {
         m_model->requestFocus(m_block, m_newCursorPosition);

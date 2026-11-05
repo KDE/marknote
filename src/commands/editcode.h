@@ -15,6 +15,8 @@ public:
                     const QString &newText,
                     int oldCursorPosition,
                     int newCursorPosition,
+                    const QString &m_oldLanguage,
+                    const QString &m_newLanguage,
                     MDTreeModel *model,
                     QUndoCommand *parent = nullptr);
     ~EditCodeCommand();
@@ -29,6 +31,8 @@ private:
     QString m_newText;
     int m_oldCursorPosition;
     int m_newCursorPosition;
+    QString m_oldLanguage;
+    QString m_newLanguage;
     bool m_isFirstTime;
 };
 

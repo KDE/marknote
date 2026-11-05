@@ -30,7 +30,7 @@ public:
     bool canRedo() const;
 
     Q_INVOKABLE void editText(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
-    Q_INVOKABLE void editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
+    Q_INVOKABLE void editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition, const QString &oldLanguage, const QString &newLanguage);
     Q_INVOKABLE void
     editTableCellText(TreeItem *block, int row, int column, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
     Q_INVOKABLE void parseBlock(TreeItem *block, const QString &text);
@@ -41,7 +41,7 @@ public:
     Q_INVOKABLE void deleteColumnInTable(TreeItem *block, int col);
 
     Q_INVOKABLE void splitBlock(TreeItem *block, const QString &text, int splitIndex);
-    Q_INVOKABLE void splitCode(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition);
+    Q_INVOKABLE void splitCode(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition, const QString &oldLanguage, const QString &language);
     Q_INVOKABLE void insertParagraphBelow(TreeItem *block, const QString &text);
     Q_INVOKABLE void mergeWithPreviousBlock(TreeItem *block, const QString &text);
     Q_INVOKABLE void transformToBlockquote(TreeItem *block, int level, const QString &text);

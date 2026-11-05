@@ -229,12 +229,12 @@ void MDTreeModel::setTableCellMD(TreeItem *block, int row, int col, const QStrin
     }
 }
 
-void MDTreeModel::setItemCode(TreeItem *block, const QString &code)
+void MDTreeModel::setItemCode(TreeItem *block, const QString &code, const QString &lang)
 {
     if (block->type() != MDOptions::ElementType::Code) {
         return;
     }
-    block->setCode(code);
+    block->setCode(code, lang);
     if (block->parent()) {
         childModified(block->parent(), block->row(), block->row());
     }

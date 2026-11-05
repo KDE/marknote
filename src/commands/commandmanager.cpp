@@ -135,9 +135,9 @@ void CommandManager::splitBlock(TreeItem *block, const QString &text, int splitI
     pushCommand(new SplitBlockCommand(block, text, splitIndex, m_model));
 }
 
-void CommandManager::splitCode(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition)
+void CommandManager::splitCode(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition, const QString &oldLanguage, const QString &language)
 {
-    pushCommand(new SplitCodeCommand(block, oldText, text, cursorPosition, m_model));
+    pushCommand(new SplitCodeCommand(block, oldText, text, cursorPosition, oldLanguage, language, m_model));
 }
 
 void CommandManager::insertParagraphBelow(TreeItem *block, const QString &text)
@@ -150,9 +150,9 @@ void CommandManager::editText(TreeItem *block, const QString &oldText, const QSt
     pushCommand(new EditTextCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
 }
 
-void CommandManager::editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition)
+void CommandManager::editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition, const QString &oldLanguage, const QString &newLanguage)
 {
-    pushCommand(new EditCodeCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
+    pushCommand(new EditCodeCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, oldLanguage, newLanguage,  m_model));
 }
 
 void CommandManager::editTableCellText(TreeItem *block,
