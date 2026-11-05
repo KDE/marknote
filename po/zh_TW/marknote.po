@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:03+0000\n"
+"POT-Creation-Date: 2026-11-05 00:56+0000\n"
 "PO-Revision-Date: 2026-11-03 22:07+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -57,96 +57,101 @@ msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "寫入「%1」時發生錯誤"
 
-#: main.cpp:60
+#: main.cpp:62
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:61 main.cpp:66 main.cpp:69
+#: main.cpp:63 main.cpp:68 main.cpp:71
 #, kde-format
 msgid "Maintainer"
 msgstr "維護者"
 
-#: main.cpp:66
+#: main.cpp:68
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:68
+#: main.cpp:70
 #, kde-format
 msgid "Valentyn Bondarenko"
 msgstr "Valentyn Bondarenko"
 
-#: main.cpp:77
+#: main.cpp:79
 #, kde-format
 msgid "Justin Zobel"
 msgstr "Justin Zobel"
 
-#: main.cpp:78
+#: main.cpp:80
 #, kde-format
 msgid "Flatpak support"
 msgstr "Flatpak 支援"
 
-#: main.cpp:83
+#: main.cpp:85
 #, kde-format
 msgid "Shubham Shinde"
 msgstr "Shubham Shinde"
 
-#: main.cpp:84
+#: main.cpp:86
 #, kde-format
 msgid "Table of Contents"
 msgstr "目錄"
 
-#: main.cpp:89
+#: main.cpp:91
 #, kde-format
 msgid "Siddharth Chopra"
 msgstr "Siddharth Chopra"
 
-#: main.cpp:90
+#: main.cpp:92
 #, kde-format
 msgid "Source Mode"
 msgstr "原始碼模式"
 
-#: main.cpp:95
+#: main.cpp:97
 #, kde-format
 msgid "Prayag Jain"
 msgstr "Prayag Jain"
 
-#: main.cpp:96
+#: main.cpp:98
 #, kde-format
 msgid "Block Editor"
 msgstr "區塊編輯器"
 
-#: main.cpp:101
+#: main.cpp:103
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: main.cpp:102 main.cpp:107
+#: main.cpp:104 main.cpp:109
 #, kde-format
 msgid "Bug fixes"
 msgstr "錯誤修正"
 
-#: main.cpp:107
+#: main.cpp:109
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: main.cpp:128 qml/Main.qml:466
+#: main.cpp:130 qml/Main.qml:466
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:130
+#: main.cpp:132
 #, kde-format
 msgid "Note taking application"
 msgstr "筆記本應用程式"
 
-#: main.cpp:132
+#: main.cpp:134
 #, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
+
+#: main.cpp:140
+#, kde-format
+msgid "Markdown parsing library"
+msgstr ""
 
 #: notesmodel.cpp:200
 #, kde-format
@@ -921,31 +926,31 @@ msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "刪除"
 
-#: qml/NotesPage.qml:951
+#: qml/NotesPage.qml:956
 #, kde-format
 msgid "Add a note!"
 msgstr "新增筆記！"
 
-#: qml/NotesPage.qml:960
+#: qml/NotesPage.qml:965
 #, kde-format
 msgid "No notes matching the search"
 msgstr "沒有符合搜尋的筆記"
 
-#: qml/NotesPage.qml:976 qml/NotesPage.qml:984
+#: qml/NotesPage.qml:981 qml/NotesPage.qml:989
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 個筆記"
 
-#: qml/NotesPage.qml:980 qml/NotesPage.qml:983
+#: qml/NotesPage.qml:985 qml/NotesPage.qml:988
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
 msgid_plural "%1 folders"
 msgstr[0] "%1 個資料夾"
 
-#: qml/NotesPage.qml:986
+#: qml/NotesPage.qml:991
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
