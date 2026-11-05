@@ -10,7 +10,14 @@
 class SplitCodeCommand : public QUndoCommand
 {
 public:
-    SplitCodeCommand(TreeItem *block, const QString &oldText, const QString &text, int cursorPosition, const QString &oldLanguage, const QString &language, MDTreeModel *model, QUndoCommand *parent = nullptr);
+    SplitCodeCommand(TreeItem *block,
+                     const QString &oldText,
+                     const QString &text,
+                     int cursorPosition,
+                     const QString &oldLanguage,
+                     const QString &language,
+                     MDTreeModel *model,
+                     QUndoCommand *parent = nullptr);
     ~SplitCodeCommand();
 };
 

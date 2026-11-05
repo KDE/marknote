@@ -150,9 +150,15 @@ void CommandManager::editText(TreeItem *block, const QString &oldText, const QSt
     pushCommand(new EditTextCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, m_model));
 }
 
-void CommandManager::editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition, const QString &oldLanguage, const QString &newLanguage)
+void CommandManager::editCode(TreeItem *block,
+                              const QString &oldText,
+                              const QString &newText,
+                              int oldCursorPosition,
+                              int newCursorPosition,
+                              const QString &oldLanguage,
+                              const QString &newLanguage)
 {
-    pushCommand(new EditCodeCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, oldLanguage, newLanguage,  m_model));
+    pushCommand(new EditCodeCommand(block, oldText, newText, oldCursorPosition, newCursorPosition, oldLanguage, newLanguage, m_model));
 }
 
 void CommandManager::editTableCellText(TreeItem *block,

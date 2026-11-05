@@ -30,7 +30,13 @@ public:
     bool canRedo() const;
 
     Q_INVOKABLE void editText(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
-    Q_INVOKABLE void editCode(TreeItem *block, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition, const QString &oldLanguage, const QString &newLanguage);
+    Q_INVOKABLE void editCode(TreeItem *block,
+                              const QString &oldText,
+                              const QString &newText,
+                              int oldCursorPosition,
+                              int newCursorPosition,
+                              const QString &oldLanguage,
+                              const QString &newLanguage);
     Q_INVOKABLE void
     editTableCellText(TreeItem *block, int row, int column, const QString &oldText, const QString &newText, int oldCursorPosition, int newCursorPosition);
     Q_INVOKABLE void parseBlock(TreeItem *block, const QString &text);
