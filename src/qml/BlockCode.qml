@@ -80,7 +80,7 @@ BlockTemplate {
                     repeat: false
                     onTriggered: {
                         if (codeText.lastSavedText !== codeText.text || languageTextField.lastSavedLanguage !== languageTextField.text) {
-                            CommandManager.editCode(root.block, codeText.lastSavedText, codeText.text, codeText.lastSavedCursorPos, codeText.cursorPosition, languageTextField.text, languageTextField.text);
+                            CommandManager.editCode(root.block, codeText.lastSavedText, codeText.text, codeText.lastSavedCursorPos, codeText.cursorPosition, languageTextField.lastSavedLanguage, languageTextField.text);
                             codeText.lastSavedText = codeText.text;
                             codeText.lastSavedCursorPos = codeText.cursorPosition;
                             languageTextField.lastSavedLanguage = languageTextField.text;
@@ -109,7 +109,7 @@ BlockTemplate {
 
                     if (event.modifiers & Qt.ShiftModifier) {
                         editTimer.stop();
-                        CommandManager.splitCode(root.block, codeText.lastSavedText, codeText.text, codeText.cursorPosition, languageTextField.text, languageTextField.text);
+                        CommandManager.splitCode(root.block, codeText.lastSavedText, codeText.text, codeText.cursorPosition, languageTextField.lastSavedLanguage, languageTextField.text);
                         codeText.lastSavedText = codeText.text.substring(0, codeText.cursorPosition);
                         event.accepted = true;
                     } else {
@@ -251,8 +251,7 @@ BlockTemplate {
             }
 
             SyntaxHighlighter {
-                textEdit: root.language.length > 0
-                          ? codeText : none
+                textEdit: root.language.length > 0 ? codeText : null
                 definition: root.language
             }
 
