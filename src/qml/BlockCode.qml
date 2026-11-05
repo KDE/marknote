@@ -251,7 +251,7 @@ BlockTemplate {
             }
 
             SyntaxHighlighter {
-                textEdit: root.language.length > 0 ? codeText : null
+                textEdit: root.language.length > 0 ? codeText : none
                 definition: root.language
             }
 
