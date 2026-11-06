@@ -559,14 +559,19 @@ void CommandManager::moveToTopTableCell(TreeItem *block, int row, int column, in
     }
 }
 
-void CommandManager::moveToBottomTableCell(TreeItem *block, int row, int column, int cursorPosition)
+void CommandManager::moveToBottomTableCell(TreeItem *block, int row, int column, int cursorPosition, bool createParagraphBelow)
 {
     int rowCount = block->data()[u"rowCount"_s].toInt();
 
     if (row < rowCount - 1) {
         m_model->requestFocusOnTable(block, row + 1, column, cursorPosition);
     } else {
-        moveToNextBlock(block, u""_s, cursorPosition);
+        TreeItem *next = getNextSibling(block);
+        if (next) {
+            moveToNextBlock(block, u""_s, cursorPosition);
+        } else if (createParagraphBelow) {
+            pushCommand(new InsertParagraphBelowCommand(block, QString(), m_model));
+        }
     }
 }
 

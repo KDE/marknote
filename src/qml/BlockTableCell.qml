@@ -194,7 +194,8 @@ Item {
                     return;
                 }
 
-                CommandManager.moveToBottomTableCell(root.block, root.rowIndex, root.columnIndex, textEdit.cursorPosition);
+                flushTimer();
+                CommandManager.moveToBottomTableCell(root.block, root.rowIndex, root.columnIndex, textEdit.cursorPosition, true);
                 event.accepted = true;
                 return;
             }

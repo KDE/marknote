@@ -77,7 +77,7 @@ public:
     Q_INVOKABLE void moveToLeftTableCell(TreeItem *block, int row, int column);
     Q_INVOKABLE void moveToRightTableCell(TreeItem *block, int row, int column);
     Q_INVOKABLE void moveToTopTableCell(TreeItem *block, int row, int column, int cursorPosition);
-    Q_INVOKABLE void moveToBottomTableCell(TreeItem *block, int row, int column, int cursorPosition);
+    Q_INVOKABLE void moveToBottomTableCell(TreeItem *block, int row, int column, int cursorPosition, bool createParagraphBelow = false);
 
     Q_INVOKABLE bool autoTransform(TreeItem *block, const QString &text, int cursorPosition, int index);
 
