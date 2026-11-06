@@ -105,8 +105,9 @@ void TocModel::updateModel()
             QString title = html;
             title.remove(QRegularExpression(QStringLiteral("<[^>]*>")));
             title = title.trimmed();
-
-            newEntries.append({title, level, i});
+            if (level > 0) {
+                newEntries.append({title, level, i});
+            }
         }
     }
 
