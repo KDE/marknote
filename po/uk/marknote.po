@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:56+0000\n"
-"PO-Revision-Date: 2026-10-22 13:07+0300\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"PO-Revision-Date: 2026-11-05 18:05+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -152,7 +152,7 @@ msgstr "© Mathis Brüchert, 2023–2026"
 #: main.cpp:140
 #, kde-format
 msgid "Markdown parsing library"
-msgstr ""
+msgstr "Бібліотека для обробки коду Markdown"
 
 #: notesmodel.cpp:200
 #, kde-format
@@ -208,7 +208,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Не вдалося пересунути файл."
 
-#: qml/BlockCode.qml:280
+#: qml/BlockCode.qml:331
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Скопійовано в буфер обміну!"

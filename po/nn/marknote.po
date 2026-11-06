@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:56+0000\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
 "PO-Revision-Date: 2026-07-05 16:30+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -227,7 +227,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr ""
 
-#: qml/BlockCode.qml:280
+#: qml/BlockCode.qml:331
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr ""

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:56+0000\n"
-"PO-Revision-Date: 2026-10-22 17:16+0100\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"PO-Revision-Date: 2026-11-05 12:19+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -153,7 +153,7 @@ msgstr "© 2023–2026 Mathis Brüchert"
 #: main.cpp:140
 #, kde-format
 msgid "Markdown parsing library"
-msgstr ""
+msgstr "Biblioteca de análisis de Markdown"
 
 #: notesmodel.cpp:200
 #, kde-format
@@ -214,7 +214,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "No se ha podido mover el archivo."
 
-#: qml/BlockCode.qml:280
+#: qml/BlockCode.qml:331
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Copiado al portapapeles"

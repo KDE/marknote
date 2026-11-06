@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:56+0000\n"
-"PO-Revision-Date: 2026-10-22 18:22+0200\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"PO-Revision-Date: 2026-11-05 15:53+0100\n"
+"Last-Translator: freek <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -151,7 +151,7 @@ msgstr "© 2023–2026 Mathis Brüchert"
 #: main.cpp:140
 #, kde-format
 msgid "Markdown parsing library"
-msgstr ""
+msgstr "Bibliotheek voor ontleden van Markdown"
 
 #: notesmodel.cpp:200
 #, kde-format
@@ -209,7 +209,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Verplaatsen van bestand is mislukt."
 
-#: qml/BlockCode.qml:280
+#: qml/BlockCode.qml:331
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Gekopieerd naar klembord!"

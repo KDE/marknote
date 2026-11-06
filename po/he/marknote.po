@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:56+0000\n"
-"PO-Revision-Date: 2026-09-17 08:50+0300\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"PO-Revision-Date: 2026-11-05 13:54+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -35,12 +35,10 @@ msgid "New Notebook"
 msgstr "מחברת חדשה"
 
 #: application.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Notebook"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Note or Folder"
-msgstr "מחברת חדשה"
+msgstr "תיקייה או פתקית חדשה"
 
 #: application.cpp:59
 #, kde-format
@@ -154,7 +152,7 @@ msgstr "© 2023-‏2026 מתיס בריכרט"
 #: main.cpp:140
 #, kde-format
 msgid "Markdown parsing library"
-msgstr ""
+msgstr "ספרייה לפיענוח Markdown"
 
 #: notesmodel.cpp:200
 #, kde-format
@@ -169,28 +167,22 @@ msgid "Unable to create note: %1"
 msgstr "לא ניתן ליצור פתקית: %1"
 
 #: notesmodel.cpp:225
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder. A folder already exists with the same name."
-msgstr "לא ניתן ליצור פתקית. כבר קיימת פתקית בשם הזה."
+msgstr "לא ניתן ליצור תיקייה. כבר קיימת תיקייה בשם הזה."
 
 #: notesmodel.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to create folder: %1"
-msgstr "לא ניתן ליצור פתקית: %1"
+msgstr "לא ניתן ליצור תיקייה: %1"
 
 #: notesmodel.cpp:261
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unable to create note. A note already exists with the same name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
-msgstr "לא ניתן ליצור פתקית. כבר קיימת פתקית בשם הזה."
+msgstr "לא ניתן לשנות שם של תיקייה. כבר קיימת תיקייה בשם הזה."
 
 #: notesmodel.cpp:275
 #, kde-format
@@ -216,7 +208,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "העברת הקובץ נכשלה."
 
-#: qml/BlockCode.qml:280
+#: qml/BlockCode.qml:331
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "הועתק ללוח הגזירים!"
@@ -406,7 +398,7 @@ msgstr "חיפוש בפתקית"
 #: qml/EditPage.qml:325
 #, kde-format
 msgid "Note Style"
-msgstr ""
+msgstr "סגנון פתקית"
 
 #: qml/EditPage.qml:345
 #, kde-format
@@ -747,11 +739,10 @@ msgid "Optional alternate text to display instead of the note name."
 msgstr "טקסט חלופי כרשות להצגה במקום שם הפתקית."
 
 #: qml/NoteMetadataDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Add note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New"
-msgstr "הוספת פתקית"
+msgstr "הוספת חדשה"
 
 #: qml/NoteMetadataDialog.qml:30
 #, kde-format
@@ -760,18 +751,13 @@ msgid "Edit Note"
 msgstr "עריכת פתקית"
 
 #: qml/NoteMetadataDialog.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Note"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Note"
-msgstr "פתקית חדשה"
+msgstr "פתקית"
 
 #: qml/NoteMetadataDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "%1 folder"
-#| msgid_plural "%1 folders"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Folder"
 msgstr "תיקייה"
@@ -783,12 +769,10 @@ msgid "Name:"
 msgstr "שם:"
 
 #: qml/NoteMetadataDialog.qml:95
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "A note with this name already exists."
+#, kde-format
 msgctxt "@info"
 msgid "A note or folder with this name already exists."
-msgstr "כבר קיימת פתקית בשם הזה."
+msgstr "כבר קיימת פתקית או תיקייה בשם הזה."
 
 #: qml/NotesPage.qml:116
 #, kde-format
@@ -816,12 +800,10 @@ msgid "Search notes (%1)"
 msgstr "חיפוש בפתקיות (%1)"
 
 #: qml/NotesPage.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Delete Note"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Folder"
-msgstr "מחיקת פתקית"
+msgstr "מחיקת תיקייה"
 
 #: qml/NotesPage.qml:314
 #, kde-format
@@ -830,15 +812,13 @@ msgid "Delete Note"
 msgstr "מחיקת פתקית"
 
 #: qml/NotesPage.qml:344
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to delete the note <b> %1 </b>? This will delete "
-#| "the file <b>%2</b> definitively."
+#, kde-format
 msgid ""
 "Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
 "notes contained in <b>%2</b> definitively."
 msgstr ""
-"למחוק את הפתקית <b> %1 </b>? הפעולה הזאת תמחק את הקובץ <b>%2</b> לצמיתות."
+"למחוק את התיקייה <b> %1 </b>? הפעולה הזאת תמחק את כל הפתקיות שבתוך <b>%2</b> "
+"לצמיתות."
 
 #: qml/NotesPage.qml:346
 #, kde-format
@@ -990,58 +970,54 @@ msgid "%1, %2"
 msgstr "%1, %2"
 
 #: qml/NoteStyleMenu.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font family:"
+#, kde-format
 msgid "Font Family"
-msgstr "משפחת גופנים:"
+msgstr "משפחת גופנים"
 
 #: qml/NoteStyleMenu.qml:30
 #, kde-format
 msgid "Sans"
-msgstr ""
+msgstr "ללא עיטורים"
 
 #: qml/NoteStyleMenu.qml:35
 #, kde-format
 msgid "Serif"
-msgstr ""
+msgstr "עם עיטורים"
 
 #: qml/NoteStyleMenu.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid "Font size:"
+#, kde-format
 msgid "Font Size"
-msgstr "גודל כתב:"
+msgstr "גודל כתב"
 
 #: qml/NoteStyleMenu.qml:54
 #, kde-format
 msgid "Small"
-msgstr ""
+msgstr "קטן"
 
 #: qml/NoteStyleMenu.qml:59
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "בינוני"
 
 #: qml/NoteStyleMenu.qml:64
 #, kde-format
 msgid "Large"
-msgstr ""
+msgstr "גדול"
 
 #: qml/NoteStyleMenu.qml:82
 #, kde-format
 msgid "Text Width"
-msgstr ""
+msgstr "רוחב כתב"
 
 #: qml/NoteStyleMenu.qml:90
 #, kde-format
 msgid "Restricted"
-msgstr ""
+msgstr "מוגבל"
 
 #: qml/NoteStyleMenu.qml:95
 #, kde-format
 msgid "Full"
-msgstr ""
+msgstr "מלא"
 
 #: qml/RichEditPage.qml:238
 #, kde-format
@@ -1209,12 +1185,12 @@ msgstr "פינוי משטח ציור"
 #: qml/SketchDialog.qml:382
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ביטול"
 
 #: qml/SketchDialog.qml:391
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "שמירה"
 
 #: qml/TableDialog.qml:21
 #, kde-format
@@ -1286,7 +1262,7 @@ msgstr "תוכן העניינים"
 #, kde-format
 msgctxt "@action:button"
 msgid "pin"
-msgstr ""
+msgstr "נעיצה"
 
 #: qml/TocDrawer.qml:232
 #, kde-format
@@ -1359,20 +1335,20 @@ msgstr "גודל כתב:"
 #: settings/MarkNoteGeneralPage.qml:171
 #, kde-format
 msgid "Use full editor width for the content"
-msgstr ""
+msgstr "להשתמש ברוחב המרבי של העורך לטובת התוכן"
 
 #: settings/MarkNoteGeneralPage.qml:193
 #, kde-format
 msgctxt "@label:slider"
 msgid "Text Width"
-msgstr ""
+msgstr "רוחב כתב"
 
 #: settings/MarkNoteGeneralPage.qml:198
 #, kde-format
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1 gU"
-msgstr ""
+msgstr "%1 gU"
 
 #: settings/MarkNoteSettings.qml:17
 #, kde-format

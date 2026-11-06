@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:56+0000\n"
-"PO-Revision-Date: 2026-10-22 06:22+0200\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"PO-Revision-Date: 2026-11-05 05:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -152,7 +152,7 @@ msgstr "© 2023-2026 Mathis Brüchert"
 #: main.cpp:140
 #, kde-format
 msgid "Markdown parsing library"
-msgstr ""
+msgstr "Markdown-ის დამუშავების ბიბლიოთეკა"
 
 #: notesmodel.cpp:200
 #, kde-format
@@ -211,7 +211,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "ფაილის გადატანის შეცდომა."
 
-#: qml/BlockCode.qml:280
+#: qml/BlockCode.qml:331
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "დაკოპირდა გაცვლის ბაფერში!"
