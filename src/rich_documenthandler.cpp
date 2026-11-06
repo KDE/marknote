@@ -107,6 +107,7 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
     } else {
         m_mdTreeModel = new MDTreeModel(this);
         m_models.insert(fileUrl, m_mdTreeModel);
+        m_pendingLoads.insert(fileUrl);
         Q_EMIT treeModelChanged();
 
         AsyncDocBuilder *builder = new AsyncDocBuilder(this);
@@ -120,6 +121,7 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
                 if (MDTreeModel *model = m_models.value(fileUrl)) {
                     model->setDocument(doc);
                 }
+                m_pendingLoads.remove(fileUrl);
             },
             Qt::SingleShotConnection);
     }
@@ -128,7 +130,12 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
 void RichDocumentHandler::saveAs(const QUrl &fileUrl)
 {
     const QUrl targetUrl = fileUrl.isEmpty() ? m_fileUrl : fileUrl;
-    MDTreeModel *treeModelToSave = m_models.value(targetUrl, m_mdTreeModel);
+
+    // The placeholder model is empty until the parse finishes. Saving it would wipe the file.
+    if (m_pendingLoads.contains(targetUrl))
+        return;
+
+    MDTreeModel *treeModelToSave = m_models.value(targetUrl);
 
     if (treeModelToSave && !targetUrl.isEmpty()) {
         if (treeModelToSave->saveToFile(targetUrl)) {

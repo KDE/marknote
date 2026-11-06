@@ -7,6 +7,7 @@
 #include "documenthandler.h"
 #include "mdtreemodel/mdtreemodel.h"
 #include <QHash>
+#include <QSet>
 #include <QString>
 
 class RichDocumentHandler : public DocumentHandler
@@ -70,6 +71,7 @@ private:
     void updateCurrentMatchNavigation();
 
     QHash<QUrl, MDTreeModel *> m_models;
+    QSet<QUrl> m_pendingLoads;
     MDTreeModel *m_mdTreeModel;
     QList<RichSearchMatch> m_richSearchMatches;
     int m_richSearchCurrentMatch = -1;

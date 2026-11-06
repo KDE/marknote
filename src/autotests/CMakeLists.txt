@@ -21,3 +21,9 @@ ecm_add_test(maildirimporttest.cpp
     LINK_LIBRARIES marknote_static Qt::Test
     NAME_PREFIX "marknote-"
 )
+
+ecm_add_test(richdocumenthandlertest.cpp
+    TEST_NAME richdocumenthandlertest
+    LINK_LIBRARIES marknote_static Qt::Test
+    NAME_PREFIX "marknote-"
+)
