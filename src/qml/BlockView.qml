@@ -278,20 +278,31 @@ Item {
     }
 
     RowLayout {
+        id: blockRowLayout
         anchors.fill: parent
 
-        ListView {
-            id: blockListView
-            property var selectedIndices: richDocumentHandler.treeModel ? richDocumentHandler.treeModel.selectedIndices : []
-            model: treeDelegateModel
-            Layout.fillWidth: true
+        ScrollView {
+            id: blockScrollView
             Layout.fillHeight: true
-
-            ScrollBar.vertical: verticalScrollBar
-            synchronousDrag: true
-
-            Layout.leftMargin: Kirigami.Units.largeSpacing * 3
-            Layout.rightMargin: {
+            contentChildren: ListView {
+                id: blockListView
+                property var selectedIndices: richDocumentHandler.treeModel ? richDocumentHandler.treeModel.selectedIndices : []
+                model: treeDelegateModel
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                synchronousDrag: true
+                bottomMargin: parent.height / 2.0
+            }
+            Layout.fillWidth: true
+            ScrollBar.vertical: ScrollBar {
+                id: verticalScrollBar
+                parent: blockRowLayout
+                policy: ScrollBar.AlwaysOn
+                Layout.alignment: Qt.AlignRight
+                Layout.fillHeight: true
+            }
+            Layout.leftMargin: Kirigami.Units.largeSpacing * 3 + verticalScrollBar.width
+            Layout.rightMargin:  {
                     if (root.tocPinned) {
                         if ((parent.width - Layout.maximumWidth - Kirigami.Units.largeSpacing * 4) * 0.5 > Kirigami.Units.gridUnit * 14.5) {
                             return Kirigami.Units.largeSpacing
@@ -299,32 +310,23 @@ Item {
                             return Kirigami.Units.gridUnit * 14.5
                         }
                     } else {
-                        return Kirigami.Units.largeSpacing
+                        Kirigami.Units.largeSpacing
                     }
                 }
-
             Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
-
             Layout.maximumWidth: Config.fullWidth ? Infinity : Kirigami.Units.gridUnit * Config.textWidth
-            Layout.alignment: if (root.tocPinned) {
-                                  if ((parent.width - Layout.maximumWidth - Kirigami.Units.largeSpacing * 3 - Kirigami.Units.largeSpacing) * 0.5 > Kirigami.Units.gridUnit * 14.5 ) {
-                                      Qt.AlignCenter
-                                  } else {
-                                      Qt.AlignRight
-                                  }
-                             } else {
-                                  Qt.AlignCenter
-                             }
+            Layout.alignment: { if (root.tocPinned) {
+                                    if ((parent.width - Layout.maximumWidth - Kirigami.Units.largeSpacing * 3 - Kirigami.Units.largeSpacing) * 0.5 > Kirigami.Units.gridUnit * 14.5 ) {
+                                        Qt.AlignCenter
+                                    } else {
+                                        Qt.AlignRight
+                                    }
+                                } else {
+                                    Qt.AlignCenter
+                                }
+                            }
 
-            bottomMargin: parent.height / 2.0
-        }
-
-        ScrollBar {
-            id: verticalScrollBar
-            policy: ScrollBar.AlwaysOn
-            Layout.fillHeight: true
-            Layout.alignment: Qt.AlignRight
         }
     }
 
