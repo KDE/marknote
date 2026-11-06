@@ -22,7 +22,7 @@ Delegates.RoundedItemDelegate {
     required property int noteCount
     required property var model
 
-    icon.name: iconName
+    icon.name: iconName ? iconName : "adress-book-new-symbolic"
     text: name
     highlighted: NavigationController.notebookPath === path || isDropTarget
     property bool isDropTarget: false
