@@ -30,6 +30,10 @@ public:
 
     QTextCharFormat formatForInline(MDOptions::InlineStyle type) const;
     QTextCharFormat delimiterFormat() const;
+    QTextCharFormat formatForHeading(int level, qreal basePointSize) const;
+    QTextCharFormat formatForBlockquote() const;
+    QTextCharFormat formatForCodeBlock() const;
+    QTextCharFormat formatForLink() const;
 
 private:
     QColor m_textColor;

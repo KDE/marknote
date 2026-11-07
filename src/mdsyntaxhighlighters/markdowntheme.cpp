@@ -91,3 +91,72 @@ QTextCharFormat MarkdownTheme::delimiterFormat() const
     format.setFontStrikeOut(false);
     return format;
 }
+
+QTextCharFormat MarkdownTheme::formatForHeading(int level, qreal basePointSize) const
+{
+    QTextCharFormat format;
+    qreal multiplier = 1.0;
+    switch (level) {
+    case 1:
+        multiplier = 2.0;
+        break;
+    case 2:
+        multiplier = 1.5;
+        break;
+    case 3:
+        multiplier = 1.2;
+        break;
+    case 4:
+        multiplier = 1.0;
+        break;
+    case 5:
+        multiplier = 0.8;
+        break;
+    case 6:
+        multiplier = 1.0;
+        break;
+    default:
+        multiplier = 1.0;
+        break;
+    }
+
+    if (basePointSize > 0) {
+        format.setFontPointSize(basePointSize * multiplier);
+    }
+    format.setFontWeight(QFont::Bold);
+    if (m_textColor.isValid()) {
+        format.setForeground(m_textColor);
+    }
+    return format;
+}
+
+QTextCharFormat MarkdownTheme::formatForBlockquote() const
+{
+    QTextCharFormat format;
+    format.setFontItalic(true);
+    return format;
+}
+
+QTextCharFormat MarkdownTheme::formatForCodeBlock() const
+{
+    QTextCharFormat format;
+    if (!m_fixedFontFamily.isEmpty()) {
+        format.setFontFamilies({m_fixedFontFamily});
+    } else {
+        format.setFontFamilies({QFontDatabase::systemFont(QFontDatabase::FixedFont).family()});
+    }
+    if (m_codeColor.isValid()) {
+        format.setForeground(m_codeColor);
+    }
+    return format;
+}
+
+QTextCharFormat MarkdownTheme::formatForLink() const
+{
+    QTextCharFormat format;
+    format.setFontUnderline(true);
+    if (m_textColor.isValid()) {
+        format.setForeground(m_textColor);
+    }
+    return format;
+}
