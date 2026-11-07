@@ -553,7 +553,7 @@ Kirigami.ScrollablePage {
             Kirigami.Action {
                 text: KI18n.i18nc("@action:inmenu", "Copy")
                 icon.name: "edit-copy"
-                visible: !menu.delegateItem.isFolder
+                visible: menu.delegateItem ? !menu.delegateItem.isFolder : false
                 onTriggered: {
                     pageNotesModel.copyWholeNote(menu.delegateItem.fileUrl)
                     if (root._window && root.pageStack) {
@@ -569,7 +569,7 @@ Kirigami.ScrollablePage {
             Kirigami.Action {
                 text: KI18n.i18nc("@action:inmenu", "Duplicate")
                 icon.name: "edit-duplicate-symbolic"
-                visible: !menu.delegateItem.isFolder
+                visible: menu.delegateItem ? !menu.delegateItem.isFolder : false
                 onTriggered: {
                     pageNotesModel.duplicateNote(menu.delegateItem.fileUrl)
                 }
@@ -578,7 +578,7 @@ Kirigami.ScrollablePage {
             Kirigami.Action {
                 text: KI18n.i18nc("@action:inmenu", "Export")
                 icon.name: "document-export"
-                visible: !menu.delegateItem.isFolder
+                visible: menu.delegateItem ? !menu.delegateItem.isFolder : false
                 Kirigami.Action {
                     text: KI18n.i18nc("@action:inmenu", "Export to HTML")
                     icon.name: "text-html"
@@ -648,6 +648,7 @@ Kirigami.ScrollablePage {
             required property url fileUrl
             required property bool isFolder
             property alias renameField: renameField
+            property bool isRenaming: false
 
             required property int kDescendantLevel
             required property bool kDescendantExpandable
@@ -699,7 +700,8 @@ Kirigami.ScrollablePage {
             Keys.onLeftPressed: if (kDescendantExpandable && kDescendantExpanded) {
                 notesProxyModel.toggleChildren(index);
             }
-            Keys.onReturnPressed: root.activateItem(delegateItem.index, kDescendantExpandable, path)
+            Keys.onReturnPressed: if (!delegateItem.isRenaming && !renameField.enabled) { root.activateItem(delegateItem.index, kDescendantExpandable, path) }
+            Keys.onEnterPressed: if (!delegateItem.isRenaming && !renameField.enabled) { root.activateItem(delegateItem.index, kDescendantExpandable, path) }
 
             DragHandler {
                 id: dragHandler
@@ -834,7 +836,6 @@ Kirigami.ScrollablePage {
                         Layout.leftMargin: Kirigami.Units.smallSpacing
 
                         text: delegateItem.name
-                        onAccepted: acceptedAction.triggered();
                         visible: enabled
                         enabled: false
                         background.visible: enabled
@@ -842,6 +843,18 @@ Kirigami.ScrollablePage {
                         leftPadding: enabled ? Kirigami.Units.smallSpacing : 0
                         color: textcolorItem.textcolor
 
+                        Keys.onReturnPressed: (event) => {
+                            acceptedAction.trigger();
+                            event.accepted = true;
+                        }
+                        Keys.onEnterPressed: (event) => {
+                            acceptedAction.trigger();
+                            event.accepted = true;
+                        }
+                        Keys.onEscapePressed: (event) => {
+                            renameField.enabled = false;
+                            event.accepted = true;
+                        }
 
                         rightActions: [
                             Kirigami.Action {
@@ -855,19 +868,17 @@ Kirigami.ScrollablePage {
                                         return;
                                     }
 
-                                    pageNotesModel.renameNote(delegateItem.fileUrl, renameField.text);
-
-                                    if (root.activeAbsolutePath === delegateItem.normPath) {
-                                        let relPath = NavigationController.notePath;
-                                        let lastSlash = relPath.lastIndexOf("/");
-
-                                        if (lastSlash !== -1) {
-                                            NavigationController.notePath = relPath.substring(0, lastSlash + 1) + renameField.text + '.md';
-                                        } else {
-                                            NavigationController.notePath = renameField.text + '.md';
-                                        }
-                                    }
+                                    delegateItem.isRenaming = true;
                                     renameField.enabled = false;
+                                    const oldUrl = delegateItem.fileUrl;
+                                    const renamedUrl = pageNotesModel.renameNote(oldUrl, renameField.text);
+
+                                    if (renamedUrl && renamedUrl.toString().length > 0) {
+                                        NavigationController.noteRenamed(oldUrl, renamedUrl);
+                                    }
+                                    Qt.callLater(() => {
+                                        delegateItem.isRenaming = false;
+                                    });
                                 }
                             }
                         ]
@@ -923,8 +934,8 @@ Kirigami.ScrollablePage {
             }
 
             onClicked: {
-                // Ignore the click that a drag release emits.
-                if (dragHandler.active) {
+                // Ignore the click that a drag release or rename emits.
+                if (dragHandler.active || delegateItem.isRenaming || renameField.enabled) {
                     return;
                 }
 

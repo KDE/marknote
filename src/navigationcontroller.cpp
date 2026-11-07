@@ -87,6 +87,14 @@ void NavigationController::setNotePath(const QString &notePath)
     if (m_notePath == notePath) {
         return;
     }
+
+    if (!notePath.isEmpty() && !m_notebookPath.isEmpty()) {
+        const QString fullPath = QDir::cleanPath(m_notebookPath + QDir::separator() + notePath);
+        if (!QFileInfo::exists(fullPath)) {
+            return;
+        }
+    }
+
     m_notePath = notePath;
     Q_EMIT notePathChanged();
 
@@ -115,7 +123,7 @@ QUrl NavigationController::noteFullPath() const
     if (m_notebookPath.isEmpty() || m_notePath.isEmpty()) {
         return {};
     }
-    return QUrl::fromLocalFile(m_notebookPath + u'/' + m_notePath);
+    return QUrl::fromLocalFile(QDir::cleanPath(m_notebookPath + u'/' + m_notePath));
 }
 
 bool NavigationController::sourceMode() const
@@ -154,6 +162,28 @@ void NavigationController::setInitialSearchText(const QString &text)
     if (m_initialSearchText != text) {
         m_initialSearchText = text;
         Q_EMIT initialSearchTextChanged();
+    }
+}
+
+void NavigationController::noteRenamed(const QUrl &oldUrl, const QUrl &newUrl)
+{
+    const QString oldAbsPath = oldUrl.isLocalFile() ? oldUrl.toLocalFile() : oldUrl.toString();
+    const QString newAbsPath = newUrl.isLocalFile() ? newUrl.toLocalFile() : newUrl.toString();
+
+    const QString cleanOld = QDir::cleanPath(oldAbsPath);
+    const QString currentAbs = absoluteNotePath();
+
+    if (!cleanOld.isEmpty() && cleanOld == currentAbs) {
+        QString newRel = QDir::cleanPath(newAbsPath);
+        const QString cleanNotebook = QDir::cleanPath(m_notebookPath);
+        if (newRel.startsWith(cleanNotebook)) {
+            newRel = newRel.mid(cleanNotebook.length());
+            if (newRel.startsWith(u'/')) {
+                newRel = newRel.mid(1);
+            }
+        }
+        Q_EMIT noteRenamedSignal(oldUrl, newUrl);
+        setNotePath(newRel);
     }
 }
 

@@ -249,7 +249,7 @@ void NotesModel::deleteFolder(const QUrl &path)
     updateTotalNotesCount();
 }
 
-void NotesModel::renameNote(const QUrl &path, const QString &name)
+QUrl NotesModel::renameNote(const QUrl &path, const QString &name)
 {
     QFileInfo info(path.toLocalFile());
     QString cleanName = name;
@@ -260,10 +260,13 @@ void NotesModel::renameNote(const QUrl &path, const QString &name)
             Q_EMIT errorOccurred(i18nc("@info:status",
                                        "Unable to rename folder. A folder already "
                                        "exists with the same name."));
-            return;
+            return {};
         }
-        QFile::rename(path.toLocalFile(), newPath);
-        return;
+        if (!QFile::rename(path.toLocalFile(), newPath)) {
+            Q_EMIT errorOccurred(i18nc("@info:status", "Failed to rename folder."));
+            return {};
+        }
+        return QUrl::fromLocalFile(newPath);
     }
 
     if (cleanName.endsWith(u".md"_s))
@@ -273,9 +276,13 @@ void NotesModel::renameNote(const QUrl &path, const QString &name)
 
     if (QFile::exists(newPath)) {
         Q_EMIT errorOccurred(i18nc("@info:status", "Unable to rename note. A note already exists with the same name."));
-        return;
+        return {};
     }
-    QFile::rename(path.toLocalFile(), newPath);
+    if (!QFile::rename(path.toLocalFile(), newPath)) {
+        Q_EMIT errorOccurred(i18nc("@info:status", "Failed to rename note."));
+        return {};
+    }
+    return QUrl::fromLocalFile(newPath);
 }
 
 void NotesModel::duplicateNote(const QUrl &path)

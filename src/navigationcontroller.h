@@ -79,11 +79,14 @@ public:
     QString initialSearchText() const;
     void setInitialSearchText(const QString &text);
 
+    Q_INVOKABLE void noteRenamed(const QUrl &oldUrl, const QUrl &newUrl);
+
 Q_SIGNALS:
     void notebookPathChanged();
     void notebookIconNameChanged();
     void notebookColorChanged();
     void notePathChanged();
+    void noteRenamedSignal(const QUrl &oldUrl, const QUrl &newUrl);
     void mobileModeChanged();
     void sourceModeChanged();
     void openReplaceOnSourceModeChanged();

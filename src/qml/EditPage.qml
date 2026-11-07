@@ -754,6 +754,16 @@ Kirigami.Page {
         }
     }
 
+    Connections {
+        target: NavigationController
+        function onNoteRenamedSignal(oldUrl, newUrl) {
+            root.oldPath = newUrl.toString();
+            if (root.document) {
+                root.document.updateFileUrl(newUrl);
+            }
+        }
+    }
+
     onNoteFullPathChanged: () => {
         if (!init) {
             return;

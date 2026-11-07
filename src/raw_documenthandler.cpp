@@ -41,11 +41,11 @@ void RawDocumentHandler::load(const QUrl &fileUrl)
     if (fileUrl == m_fileUrl)
         return;
 
-    m_fileUrl = fileUrl;
-    Q_EMIT fileUrlChanged();
-
     if (!QFile::exists(fileUrl.toLocalFile()))
         return;
+
+    m_fileUrl = fileUrl;
+    Q_EMIT fileUrlChanged();
 
     QFile file(fileUrl.toLocalFile());
     if (!file.open(QFile::ReadOnly))

@@ -95,11 +95,11 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
     if (fileUrl == m_fileUrl)
         return;
 
-    m_fileUrl = fileUrl;
-    Q_EMIT fileUrlChanged();
-
     if (!QFile::exists(fileUrl.toLocalFile()))
         return;
+
+    m_fileUrl = fileUrl;
+    Q_EMIT fileUrlChanged();
 
     if (m_models.contains(fileUrl)) {
         m_mdTreeModel = m_models.value(fileUrl);
@@ -139,6 +139,23 @@ void RichDocumentHandler::saveAs(const QUrl &fileUrl)
             return;
         }
     }
+}
+
+void RichDocumentHandler::updateFileUrl(const QUrl &newUrl)
+{
+    if (m_fileUrl == newUrl || newUrl.isEmpty()) {
+        return;
+    }
+
+    if (m_models.contains(m_fileUrl)) {
+        MDTreeModel *model = m_models.take(m_fileUrl);
+        m_models.insert(newUrl, model);
+    } else if (m_mdTreeModel) {
+        m_models.insert(newUrl, m_mdTreeModel);
+    }
+
+    m_fileUrl = newUrl;
+    Q_EMIT fileUrlChanged();
 }
 
 MDTreeModel *RichDocumentHandler::treeModel() const

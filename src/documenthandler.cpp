@@ -137,6 +137,16 @@ QUrl DocumentHandler::fileUrl() const
     return m_fileUrl;
 }
 
+void DocumentHandler::updateFileUrl(const QUrl &newUrl)
+{
+    if (m_fileUrl == newUrl || newUrl.isEmpty()) {
+        return;
+    }
+
+    m_fileUrl = newUrl;
+    Q_EMIT fileUrlChanged();
+}
+
 QTextCursor DocumentHandler::textCursor() const
 {
     QTextDocument *doc = textDocument();

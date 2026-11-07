@@ -76,6 +76,7 @@ public:
 public Q_SLOTS:
     virtual void load(const QUrl &fileUrl) = 0;
     virtual void saveAs(const QUrl &fileUrl) = 0;
+    virtual void updateFileUrl(const QUrl &newUrl);
 
 Q_SIGNALS:
     void documentChanged();
