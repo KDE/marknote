@@ -251,7 +251,10 @@ BlockTemplate {
             }
 
             SyntaxHighlighter {
-                textEdit: root.language.length > 0 ? codeText : none
+                textEdit: (root.language.length > 0
+                           && (Repository.definitionForName(root.language).isValid ?? (Repository.definitionForName(root.language).section.length > 0)))
+                          ? codeText
+                          : none
                 definition: root.language
             }
 
