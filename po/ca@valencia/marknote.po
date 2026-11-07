@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-06 00:51+0000\n"
-"PO-Revision-Date: 2026-10-22 09:38+0200\n"
+"PO-Revision-Date: 2026-11-05 08:48+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -153,7 +153,7 @@ msgstr "© 2023–2026 Mathis Brüchert"
 #: main.cpp:140
 #, kde-format
 msgid "Markdown parsing library"
-msgstr ""
+msgstr "Biblioteca d'anàlisi de Markdown"
 
 #: notesmodel.cpp:200
 #, kde-format
