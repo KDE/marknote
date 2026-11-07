@@ -36,6 +36,18 @@ Item {
         }
     }
 
+    onMdChanged: {
+        if (textEdit) {
+            let cleanText = root.md ? root.md.replace(/<br\s*\/?>/gi, "\n") : "";
+            if (textEdit.text !== cleanText) {
+                textEdit.isProgrammaticUpdate = true;
+                textEdit.text = cleanText;
+                textEdit.isProgrammaticUpdate = false;
+            }
+            lastSavedText = cleanText;
+        }
+    }
+
     property string lastSavedText: ""
     property int lastSavedCursorPos: 0
     property bool lastSavedTextParsed: false
