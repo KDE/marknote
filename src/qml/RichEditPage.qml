@@ -63,8 +63,9 @@ EditPage {
             if (root.activeTextArea && typeof root.activeTextArea.flushTimer === "function") {
                 root.activeTextArea.flushTimer();
             }
-            if (root.noteFullPath.toString().length > 0) {
-                root.document.saveAs(root.noteFullPath);
+            // The page can outlive the note it edits. Save to the file the model was loaded from.
+            if (root.document.fileUrl.toString().length > 0) {
+                root.document.saveAs(root.document.fileUrl);
                 root.saved = true;
             }
         }
@@ -87,8 +88,8 @@ EditPage {
         if (root.activeTextArea && typeof root.activeTextArea.flushTimer === "function") {
             root.activeTextArea.flushTimer();
         }
-        if (!root.saved && root.noteFullPath.toString().length > 0) {
-            root.document.saveAs(root.noteFullPath);
+        if (!root.saved && root.document.fileUrl.toString().length > 0) {
+            root.document.saveAs(root.document.fileUrl);
             root.saved = true;
         }
     }

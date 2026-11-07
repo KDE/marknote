@@ -120,6 +120,7 @@ void RichDocumentHandler::load(const QUrl &fileUrl)
             [this, fileUrl](const AsyncDocBuilder::DocPointer &doc) {
                 if (MDTreeModel *model = m_models.value(fileUrl)) {
                     model->setDocument(doc);
+                    m_savedMarkdown.insert(fileUrl, model->toMarkdown());
                 }
                 m_pendingLoads.remove(fileUrl);
             },
@@ -138,7 +139,13 @@ void RichDocumentHandler::saveAs(const QUrl &fileUrl)
     MDTreeModel *treeModelToSave = m_models.value(targetUrl);
 
     if (treeModelToSave && !targetUrl.isEmpty()) {
+        // The serializer may reformat a note. Leave a note alone until it changes.
+        const QString markdown = treeModelToSave->toMarkdown();
+        if (m_savedMarkdown.contains(targetUrl) && m_savedMarkdown.value(targetUrl) == markdown)
+            return;
+
         if (treeModelToSave->saveToFile(targetUrl)) {
+            m_savedMarkdown.insert(targetUrl, markdown);
             if (targetUrl != m_fileUrl) {
                 m_fileUrl = targetUrl;
                 Q_EMIT fileUrlChanged();

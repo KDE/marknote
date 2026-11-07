@@ -74,6 +74,63 @@ private Q_SLOTS:
         QVERIFY(!readFile(path).contains("Some content"));
     }
 
+    void testSaveToUnloadedUrlKeepsOtherNote()
+    {
+        QTemporaryDir dir;
+        QVERIFY(dir.isValid());
+        const QString pathA = dir.filePath(u"a.md"_s);
+        const QString pathB = dir.filePath(u"b.md"_s);
+        writeFile(pathA, "Note A\n");
+        writeFile(pathB, "Note B\n");
+
+        RichDocumentHandler handler;
+        handler.load(QUrl::fromLocalFile(pathA));
+        QTRY_VERIFY(handler.treeModel()->toMarkdown().contains(u"Note A"_s));
+
+        // This handler never loaded note B. Its model holds note A.
+        handler.saveAs(QUrl::fromLocalFile(pathB));
+        QCOMPARE(readFile(pathB), QByteArray("Note B\n"));
+    }
+
+    void testUnchangedNoteIsNotRewritten_data()
+    {
+        QTest::addColumn<QByteArray>("markdown");
+
+        QTest::newRow("dash list") << QByteArray("- one\n- two\n");
+        QTest::newRow("star list") << QByteArray("* one\n* two\n");
+        QTest::newRow("ordered list") << QByteArray("1. one\n2. two\n");
+        QTest::newRow("task list") << QByteArray("- [ ] todo\n- [x] done\n");
+        QTest::newRow("headings") << QByteArray("# One\n\n## Two\n\nText\n");
+        QTest::newRow("emphasis") << QByteArray("**bold** and *italic* and `code`\n");
+        QTest::newRow("link") << QByteArray("[KDE](https://kde.org)\n");
+        QTest::newRow("code block") << QByteArray("```cpp\nint main() {}\n```\n");
+        QTest::newRow("blockquote") << QByteArray("> quoted\n> text\n");
+        QTest::newRow("table") << QByteArray("| a | b |\n|---|---|\n| 1 | 2 |\n");
+        QTest::newRow("rule") << QByteArray("one\n\n---\n\ntwo\n");
+        QTest::newRow("no trailing newline") << QByteArray("plain text");
+    }
+
+    void testUnchangedNoteIsNotRewritten()
+    {
+        QFETCH(QByteArray, markdown);
+
+        QTemporaryDir dir;
+        QVERIFY(dir.isValid());
+        const QString path = dir.filePath(u"note.md"_s);
+        writeFile(path, markdown);
+
+        RichDocumentHandler handler;
+        const QUrl url = QUrl::fromLocalFile(path);
+
+        handler.load(url);
+        QSignalSpy parsed(handler.treeModel(), &QAbstractItemModel::modelReset);
+        QVERIFY(parsed.wait(5000));
+
+        // The serializer would reformat some of these notes. Nothing changed, so the file must stay as it is.
+        handler.saveAs(url);
+        QCOMPARE(readFile(path), markdown);
+    }
+
 private:
     static void writeFile(const QString &path, const QByteArray &content)
     {

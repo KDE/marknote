@@ -72,6 +72,7 @@ private:
 
     QHash<QUrl, MDTreeModel *> m_models;
     QSet<QUrl> m_pendingLoads;
+    QHash<QUrl, QString> m_savedMarkdown;
     MDTreeModel *m_mdTreeModel;
     QList<RichSearchMatch> m_richSearchMatches;
     int m_richSearchCurrentMatch = -1;
