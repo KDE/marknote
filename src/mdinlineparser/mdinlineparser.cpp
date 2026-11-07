@@ -25,7 +25,7 @@ QList<MDInlineSpan> MDInlineStyleParser::parse(const QString &text)
     QList<int> lineOffsets;
     lineOffsets.append(0);
     for (int i = 0; i < text.length(); ++i) {
-        if (text[i] == u'\n') {
+        if (text[i] == u'\n' || text[i] == QChar::LineSeparator) {
             lineOffsets.append(i + 1);
         }
     }
@@ -43,6 +43,7 @@ QList<MDInlineSpan> MDInlineStyleParser::parse(const QString &text)
     parser.setInlineParsers(inlineParsers);
 
     QString textCopy = text;
+    textCopy.replace(QChar::LineSeparator, u'\n');
     QTextStream stream(&textCopy);
     QSharedPointer<MD::Document> doc = parser.parse(stream, QString(), QString());
 

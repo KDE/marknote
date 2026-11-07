@@ -15,22 +15,22 @@
 
 struct FormatRange {
     int start = 0;
-    int length = -1;
+    int end = 0;
     QTextCharFormat format;
 };
 
 class MDHighlighterVisitor : public MD::Visitor
 {
 public:
-    MDHighlighterVisitor(const MarkdownTheme &theme, qreal baseFontSize);
+    MDHighlighterVisitor(const MarkdownTheme &theme, qreal baseFontSize, const QList<int> &lineOffsets);
     ~MDHighlighterVisitor() override = default;
 
-    const QHash<int, QList<FormatRange>> &lineFormats() const;
+    const QList<FormatRange> &ranges() const;
 
 protected:
     void onAddLineEnding() override;
     void onText(MD::Text *t) override;
-    void onMath(MD::Math *m) override;
+    void onMath(MD::Math *) override;
     void onLineBreak(MD::LineBreak *b) override;
     void onHeading(MD::Heading *h) override;
     void onCode(MD::Code *c) override;
@@ -44,6 +44,7 @@ protected:
     void onLink(MD::Link *l) override;
     void onImage(MD::Image *i) override;
     void onFootnoteRef(MD::FootnoteRef *ref) override;
+    void onFootnote(MD::Footnote *f) override;
     void onListItem(MD::ListItem *i, bool first, bool skipOpeningWrap = false) override;
 
 private:
@@ -63,7 +64,8 @@ private:
 
     const MarkdownTheme &m_theme;
     qreal m_baseFontSize;
-    QHash<int, QList<FormatRange>> m_lineFormats;
+    const QList<int> &m_lineOffsets;
+    QList<FormatRange> m_ranges;
 };
 
 #endif // MDHIGHLIGHTERVISITOR_H

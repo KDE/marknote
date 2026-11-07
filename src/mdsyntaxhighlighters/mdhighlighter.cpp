@@ -40,7 +40,7 @@ void MDHighlighter::setDocument(QQuickTextDocument *document)
 
     m_dirty = true;
     m_lastParsedText.clear();
-    m_lineFormats.clear();
+    m_ranges.clear();
 
     if (m_active && m_quickDocument) {
         rehighlight();
@@ -165,7 +165,7 @@ void MDHighlighter::setBaseFontSize(qreal size)
 void MDHighlighter::updateDoc()
 {
     if (!m_quickDocument || !m_quickDocument->textDocument()) {
-        m_lineFormats.clear();
+        m_ranges.clear();
         m_lastParsedText.clear();
         return;
     }
@@ -175,7 +175,7 @@ void MDHighlighter::updateDoc()
         return;
     }
 
-    m_lineFormats.clear();
+    m_ranges.clear();
     m_lastParsedText = text;
     m_dirty = false;
 
@@ -183,14 +183,23 @@ void MDHighlighter::updateDoc()
         return;
     }
 
+    QList<int> lineOffsets;
+    lineOffsets.append(0);
+    for (int i = 0; i < text.length(); ++i) {
+        if (text[i] == u'\n' || text[i] == QChar::LineSeparator) {
+            lineOffsets.append(i + 1);
+        }
+    }
+
     QString textCopy = text;
+    textCopy.replace(QChar::LineSeparator, u'\n');
     QTextStream stream(&textCopy);
     MD::Parser parser;
     auto doc = parser.parse(stream, QString(), QString());
     if (doc) {
-        MDHighlighterVisitor visitor(m_theme, m_baseFontSize);
+        MDHighlighterVisitor visitor(m_theme, m_baseFontSize, lineOffsets);
         visitor.process(doc);
-        m_lineFormats = visitor.lineFormats();
+        m_ranges = visitor.ranges();
     }
 }
 
@@ -202,19 +211,25 @@ void MDHighlighter::highlightBlock(const QString &text)
 
     updateDoc();
 
-    const int textLen = text.length();
-    const int lineNum = currentBlock().blockNumber();
+    const int blockStart = currentBlock().position();
+    const int blockEnd = blockStart + text.length();
 
-    const auto ranges = m_lineFormats.value(lineNum);
-    for (const auto &range : ranges) {
-        const int start = qMax(0, range.start);
-        const int len = (range.length < 0) ? (textLen - start) : qMin(range.length, textLen - start);
-        if (start < textLen && len > 0) {
-            for (int i = 0; i < len; ++i) {
-                QTextCharFormat current = format(start + i);
-                current.merge(range.format);
-                setFormat(start + i, 1, current);
-            }
+    for (const auto &range : m_ranges) {
+        if (range.start >= blockEnd || range.end <= blockStart) {
+            continue;
         }
+
+        const int start = qMax(blockStart, range.start) - blockStart;
+        const int length = qMin(blockEnd, range.end) - (start + blockStart);
+        applyFormat(start, length, range.format);
+    }
+}
+
+void MDHighlighter::applyFormat(int start, int length, const QTextCharFormat &fmt)
+{
+    for (int i = 0; i < length; ++i) {
+        QTextCharFormat current = format(start + i);
+        current.merge(fmt);
+        setFormat(start + i, 1, current);
     }
 }

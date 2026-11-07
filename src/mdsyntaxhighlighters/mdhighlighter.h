@@ -63,6 +63,7 @@ Q_SIGNALS:
 
 private:
     void updateDoc();
+    void applyFormat(int start, int length, const QTextCharFormat &fmt);
 
     QQuickTextDocument *m_quickDocument = nullptr;
     bool m_active = true;
@@ -71,7 +72,7 @@ private:
     qreal m_baseFontSize = 10.0;
 
     MarkdownTheme m_theme;
-    QHash<int, QList<FormatRange>> m_lineFormats;
+    QList<FormatRange> m_ranges;
 };
 
 #endif // MDHIGHLIGHTER_H

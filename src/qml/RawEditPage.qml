@@ -199,9 +199,15 @@ EditPage {
         }
     }
 
-    SyntaxHighlighter {
-        textEdit: root.textArea
-        definition: "Markdown"
+    MDHighlighter {
+        id: highlighter
+        document: root.textArea ? root.textArea.textDocument : null
+        textColor: Kirigami.Theme.textColor
+        dimmedColor: Kirigami.Theme.disabledTextColor
+        codeColor: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.textColor, Kirigami.Theme.focusColor, 0.7)
+        fixedFontFamily: Config.editorFont.family
+        baseFontSize: Config.editorFont.pointSize
+        active: true
     }
 
     textFieldContextMenu: TextFieldContextMenu {

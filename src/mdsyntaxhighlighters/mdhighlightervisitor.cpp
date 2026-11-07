@@ -3,15 +3,16 @@
 
 #include "mdhighlightervisitor.h"
 
-MDHighlighterVisitor::MDHighlighterVisitor(const MarkdownTheme &theme, qreal baseFontSize)
+MDHighlighterVisitor::MDHighlighterVisitor(const MarkdownTheme &theme, qreal baseFontSize, const QList<int> &lineOffsets)
     : m_theme(theme)
     , m_baseFontSize(baseFontSize)
+    , m_lineOffsets(lineOffsets)
 {
 }
 
-const QHash<int, QList<FormatRange>> &MDHighlighterVisitor::lineFormats() const
+const QList<FormatRange> &MDHighlighterVisitor::ranges() const
 {
-    return m_lineFormats;
+    return m_ranges;
 }
 
 void MDHighlighterVisitor::onAddLineEnding()
@@ -108,16 +109,34 @@ void MDHighlighterVisitor::onList(MD::List *l)
     }
 }
 
-void MDHighlighterVisitor::onTable(MD::Table *)
+void MDHighlighterVisitor::onTable(MD::Table *t)
 {
+    if (!t) {
+        return;
+    }
+
+    for (const auto &row : t->rows()) {
+        for (const auto &cell : row->cells()) {
+            for (const auto &item : cell->items()) {
+                if (item->type() == MD::ItemType::Paragraph) {
+                    onParagraph(static_cast<MD::Paragraph *>(item.data()), false);
+                }
+            }
+        }
+    }
 }
 
 void MDHighlighterVisitor::onAnchor(MD::Anchor *)
 {
 }
 
-void MDHighlighterVisitor::onRawHtml(MD::RawHtml *)
+void MDHighlighterVisitor::onRawHtml(MD::RawHtml *h)
 {
+    if (!h) {
+        return;
+    }
+
+    addDelim(*h);
 }
 
 void MDHighlighterVisitor::onHorizontalLine(MD::HorizontalLine *l)
@@ -153,10 +172,31 @@ void MDHighlighterVisitor::onImage(MD::Image *i)
     }
 
     addDelim(*i);
+    if (i->urlPos().startLine() >= 0) {
+        addDelim(i->urlPos());
+    }
+    if (i->p()) {
+        onParagraph(i->p().data(), false);
+    }
 }
 
-void MDHighlighterVisitor::onFootnoteRef(MD::FootnoteRef *)
+void MDHighlighterVisitor::onFootnoteRef(MD::FootnoteRef *ref)
 {
+    if (!ref) {
+        return;
+    }
+
+    addDelim(*ref);
+}
+
+void MDHighlighterVisitor::onFootnote(MD::Footnote *f)
+{
+    if (!f) {
+        return;
+    }
+
+    addDelim(*f);
+    MD::Visitor::onFootnote(f);
 }
 
 void MDHighlighterVisitor::onListItem(MD::ListItem *i, bool first, bool skipOpeningWrap)
@@ -198,11 +238,9 @@ void MDHighlighterVisitor::addRange(int startLine, int startCol, int endLine, in
         return;
     }
 
-    for (int line = startLine; line <= endLine; ++line) {
-        const int colStart = (line == startLine) ? qMax(0, startCol) : 0;
-        const int length = (line == endLine) ? (endCol - colStart + 1) : -1;
-        if (length != 0) {
-            m_lineFormats[line].append({colStart, length, fmt});
-        }
+    const int start = m_lineOffsets.value(startLine, 0) + qMax(0, startCol);
+    const int end = m_lineOffsets.value(endLine, 0) + endCol + 1;
+    if (start < end) {
+        m_ranges.append({start, end, fmt});
     }
 }
