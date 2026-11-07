@@ -82,6 +82,8 @@ ecm_add_qml_module(marknote_static
     SOURCES
         mdsyntaxhighlighters/markdowntheme.cpp mdsyntaxhighlighters/markdowntheme.h
         mdsyntaxhighlighters/mdinlinehighlighter.cpp mdsyntaxhighlighters/mdinlinehighlighter.h
+        mdsyntaxhighlighters/mdhighlightervisitor.cpp mdsyntaxhighlighters/mdhighlightervisitor.h
+        mdsyntaxhighlighters/mdhighlighter.cpp mdsyntaxhighlighters/mdhighlighter.h
         documenthandler.cpp documenthandler.h
         rich_documenthandler.cpp rich_documenthandler.h
         raw_documenthandler.cpp raw_documenthandler.h
