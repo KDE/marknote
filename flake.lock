@@ -3,11 +3,11 @@
     "md4qt-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1792058687,
-        "narHash": "sha256-Q/avQLLSSwFhGQLOh/YVagNg3yf8pfiQDO0hMRJNQG4=",
+        "lastModified": 1793854935,
+        "narHash": "sha256-AlmnTNKIkIWNx/DUMo3FZzbtvt+gmE/AvTUHNPTJxSM=",
         "ref": "refs/heads/master",
-        "rev": "81e7c9339442cea01df01f78e828df88057dd82a",
-        "revCount": 287,
+        "rev": "9b322a82ab86c2fc8cd2267241bbad361ff75304",
+        "revCount": 291,
         "type": "git",
         "url": "https://invent.kde.org/libraries/md4qt.git"
       },
