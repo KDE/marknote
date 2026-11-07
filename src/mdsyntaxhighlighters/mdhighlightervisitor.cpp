@@ -104,7 +104,7 @@ void MDHighlighterVisitor::onList(MD::List *l)
 
     for (const auto &item : l->items()) {
         if (item->type() == MD::ItemType::ListItem) {
-            onListItem(static_cast<MD::ListItem *>(item.data()), false);
+            onListItem(static_cast<MD::ListItem *>(item.data()), false, false, l->looseness());
         }
     }
 }
@@ -114,6 +114,8 @@ void MDHighlighterVisitor::onTable(MD::Table *t)
     if (!t) {
         return;
     }
+
+    addRange(t, m_theme.formatForTable());
 
     for (const auto &row : t->rows()) {
         for (const auto &cell : row->cells()) {
@@ -199,7 +201,7 @@ void MDHighlighterVisitor::onFootnote(MD::Footnote *f)
     MD::Visitor::onFootnote(f);
 }
 
-void MDHighlighterVisitor::onListItem(MD::ListItem *i, bool first, bool skipOpeningWrap)
+void MDHighlighterVisitor::onListItem(MD::ListItem *i, bool first, bool skipOpeningWrap, MD::ListLooseness looseness)
 {
     if (!i) {
         return;
@@ -210,7 +212,7 @@ void MDHighlighterVisitor::onListItem(MD::ListItem *i, bool first, bool skipOpen
         addDelim(i->taskDelim());
     }
 
-    MD::Visitor::onListItem(i, first, skipOpeningWrap);
+    MD::Visitor::onListItem(i, first, skipOpeningWrap, looseness);
 }
 
 void MDHighlighterVisitor::addRange(const MD::WithPosition &pos, const QTextCharFormat &fmt)

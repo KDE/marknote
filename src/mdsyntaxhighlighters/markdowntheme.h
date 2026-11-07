@@ -25,6 +25,9 @@ public:
     QColor codeColor() const;
     void setCodeColor(const QColor &color);
 
+    QColor accentColor() const;
+    void setAccentColor(const QColor &color);
+
     QString fixedFontFamily() const;
     void setFixedFontFamily(const QString &family);
 
@@ -34,11 +37,13 @@ public:
     QTextCharFormat formatForBlockquote() const;
     QTextCharFormat formatForCodeBlock() const;
     QTextCharFormat formatForLink() const;
+    QTextCharFormat formatForTable() const;
 
 private:
     QColor m_textColor;
     QColor m_dimmedColor;
     QColor m_codeColor;
+    QColor m_accentColor;
     QString m_fixedFontFamily;
 };
 

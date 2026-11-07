@@ -39,6 +39,16 @@ void MarkdownTheme::setCodeColor(const QColor &color)
     m_codeColor = color;
 }
 
+QColor MarkdownTheme::accentColor() const
+{
+    return m_accentColor;
+}
+
+void MarkdownTheme::setAccentColor(const QColor &color)
+{
+    m_accentColor = color;
+}
+
 QString MarkdownTheme::fixedFontFamily() const
 {
     return m_fixedFontFamily;
@@ -157,6 +167,15 @@ QTextCharFormat MarkdownTheme::formatForLink() const
     format.setFontUnderline(true);
     if (m_textColor.isValid()) {
         format.setForeground(m_textColor);
+    }
+    return format;
+}
+
+QTextCharFormat MarkdownTheme::formatForTable() const
+{
+    QTextCharFormat format;
+    if (m_accentColor.isValid()) {
+        format.setForeground(m_accentColor);
     }
     return format;
 }

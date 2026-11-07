@@ -21,6 +21,7 @@ class MDHighlighter : public QSyntaxHighlighter
     Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
     Q_PROPERTY(QColor dimmedColor READ dimmedColor WRITE setDimmedColor NOTIFY dimmedColorChanged)
     Q_PROPERTY(QColor codeColor READ codeColor WRITE setCodeColor NOTIFY codeColorChanged)
+    Q_PROPERTY(QColor accentColor READ accentColor WRITE setAccentColor NOTIFY accentColorChanged)
     Q_PROPERTY(QString fixedFontFamily READ fixedFontFamily WRITE setFixedFontFamily NOTIFY fixedFontFamilyChanged)
     Q_PROPERTY(qreal baseFontSize READ baseFontSize WRITE setBaseFontSize NOTIFY baseFontSizeChanged)
 
@@ -43,6 +44,9 @@ public:
     QColor codeColor() const;
     void setCodeColor(const QColor &color);
 
+    QColor accentColor() const;
+    void setAccentColor(const QColor &color);
+
     QString fixedFontFamily() const;
     void setFixedFontFamily(const QString &family);
 
@@ -58,6 +62,7 @@ Q_SIGNALS:
     void textColorChanged();
     void dimmedColorChanged();
     void codeColorChanged();
+    void accentColorChanged();
     void fixedFontFamilyChanged();
     void baseFontSizeChanged();
 

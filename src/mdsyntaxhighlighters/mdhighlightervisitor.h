@@ -45,7 +45,7 @@ protected:
     void onImage(MD::Image *i) override;
     void onFootnoteRef(MD::FootnoteRef *ref) override;
     void onFootnote(MD::Footnote *f) override;
-    void onListItem(MD::ListItem *i, bool first, bool skipOpeningWrap = false) override;
+    void onListItem(MD::ListItem *i, bool first, bool skipOpeningWrap = false, MD::ListLooseness looseness = MD::ListLooseness::Unknown) override;
 
 private:
     void addRange(const MD::WithPosition &pos, const QTextCharFormat &fmt);

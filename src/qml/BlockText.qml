@@ -119,6 +119,7 @@ Item {
             textColor: root.color
             dimmedColor: Kirigami.Theme.disabledTextColor
             codeColor: Kirigami.ColorUtils.tintWithAlpha(root.color, Kirigami.Theme.focusColor, 0.7)
+            accentColor: Kirigami.Theme.highlightColor
             fixedFontFamily: Config.editorFont.family
             baseFontSize: root.fontSize
             active: root.editing

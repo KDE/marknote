@@ -124,6 +124,25 @@ void MDHighlighter::setCodeColor(const QColor &color)
     Q_EMIT codeColorChanged();
 }
 
+QColor MDHighlighter::accentColor() const
+{
+    return m_theme.accentColor();
+}
+
+void MDHighlighter::setAccentColor(const QColor &color)
+{
+    if (m_theme.accentColor() == color) {
+        return;
+    }
+
+    m_theme.setAccentColor(color);
+    m_dirty = true;
+    if (m_active) {
+        rehighlight();
+    }
+    Q_EMIT accentColorChanged();
+}
+
 QString MDHighlighter::fixedFontFamily() const
 {
     return m_theme.fixedFontFamily();
