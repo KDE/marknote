@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"POT-Creation-Date: 2026-11-08 02:58+0000\n"
 "PO-Revision-Date: 2026-01-03 11:21+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -199,25 +199,37 @@ msgctxt "@info:status"
 msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "Ezin du oharra berrizendatu. Izen bera duen ohar bat dago."
 
-#: notesmodel.cpp:275
+#: notesmodel.cpp:266
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to rename folder."
+msgstr ""
+
+#: notesmodel.cpp:278
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Ezin du oharra berrizendatu. Izen bera duen ohar bat dago."
 
-#: notesmodel.cpp:339
+#: notesmodel.cpp:282
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed to rename note."
+msgstr ""
+
+#: notesmodel.cpp:346
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid move operation."
 msgstr ""
 
-#: notesmodel.cpp:347
+#: notesmodel.cpp:354
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
 msgstr ""
 
-#: notesmodel.cpp:355
+#: notesmodel.cpp:362
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed to move file."
@@ -595,7 +607,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Sortu koadernoa"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:890
+#: qml/Main.qml:360 qml/NotesPage.qml:901
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -999,17 +1011,17 @@ msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: qml/NotesPage.qml:956
+#: qml/NotesPage.qml:967
 #, kde-format
 msgid "Add a note!"
 msgstr "Gehitu ohar bat!"
 
-#: qml/NotesPage.qml:965
+#: qml/NotesPage.qml:976
 #, kde-format
 msgid "No notes matching the search"
 msgstr ""
 
-#: qml/NotesPage.qml:981 qml/NotesPage.qml:989
+#: qml/NotesPage.qml:992 qml/NotesPage.qml:1000
 #, fuzzy, kde-format
 #| msgid "Add note"
 msgctxt "@info:status"
@@ -1018,7 +1030,7 @@ msgid_plural "%1 notes"
 msgstr[0] "Gehitu oharra"
 msgstr[1] "Gehitu oharra"
 
-#: qml/NotesPage.qml:985 qml/NotesPage.qml:988
+#: qml/NotesPage.qml:996 qml/NotesPage.qml:999
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -1026,7 +1038,7 @@ msgid_plural "%1 folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/NotesPage.qml:991
+#: qml/NotesPage.qml:1002
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
@@ -1086,54 +1098,54 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: qml/RichEditPage.qml:238
+#: qml/RichEditPage.qml:239
 #, kde-format
 msgctxt "@title:window"
 msgid "Select an image"
 msgstr "Hautatu irudi bat"
 
-#: qml/RichEditPage.qml:241
+#: qml/RichEditPage.qml:242
 #, fuzzy, kde-format
 #| msgid "Image files (*.jpg *.jpeg *.png *.svg *.webp)"
 msgid "Image files (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgstr "Irudi-fitxategiak (*.jpg *.jpeg *.png *.svg *.webp)"
 
-#: qml/RichEditPage.qml:241
+#: qml/RichEditPage.qml:242
 #, kde-format
 msgid "All files (*)"
 msgstr "Fitxategi guztiak (*)"
 
-#: qml/RichEditPage.qml:876
+#: qml/RichEditPage.qml:877
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Lodia"
 
-#: qml/RichEditPage.qml:898
+#: qml/RichEditPage.qml:899
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Etzana"
 
-#: qml/RichEditPage.qml:915
+#: qml/RichEditPage.qml:916
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Marratua"
 
-#: qml/RichEditPage.qml:935
+#: qml/RichEditPage.qml:936
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Handiagotu zerrenda-maila"
 
-#: qml/RichEditPage.qml:949
+#: qml/RichEditPage.qml:950
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Txikiagotu zerrenda-maila"
 
-#: qml/RichEditPage.qml:992
+#: qml/RichEditPage.qml:993
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu unordered style"
 #| msgid "Unordered list"
@@ -1141,7 +1153,7 @@ msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Zerrenda ez-ordenatua"
 
-#: qml/RichEditPage.qml:1011
+#: qml/RichEditPage.qml:1012
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu ordered style"
 #| msgid "Ordered list"
@@ -1149,19 +1161,19 @@ msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Zerrenda ordenatua"
 
-#: qml/RichEditPage.qml:1030
+#: qml/RichEditPage.qml:1031
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr ""
 
-#: qml/RichEditPage.qml:1056
+#: qml/RichEditPage.qml:1057
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Txertatu esteka"
 
-#: qml/RichEditPage.qml:1075
+#: qml/RichEditPage.qml:1076
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -1169,19 +1181,19 @@ msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Txertatu esteka"
 
-#: qml/RichEditPage.qml:1094
+#: qml/RichEditPage.qml:1095
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Txertatu irudia"
 
-#: qml/RichEditPage.qml:1111
+#: qml/RichEditPage.qml:1112
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Txertatu taula"
 
-#: qml/RichEditPage.qml:1128
+#: qml/RichEditPage.qml:1129
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -1189,7 +1201,7 @@ msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Txertatu esteka"
 
-#: qml/RichEditPage.qml:1193
+#: qml/RichEditPage.qml:1194
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu heading level 5"
 #| msgid "Paragraph"
@@ -1197,59 +1209,59 @@ msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Paragrafoa"
 
-#: qml/RichEditPage.qml:1204
+#: qml/RichEditPage.qml:1205
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "%1. izenburua"
 
-#: qml/RichEditPage.qml:1215
+#: qml/RichEditPage.qml:1216
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "%1. izenburua"
 
-#: qml/RichEditPage.qml:1226
+#: qml/RichEditPage.qml:1227
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "%1. izenburua"
 
-#: qml/RichEditPage.qml:1237
+#: qml/RichEditPage.qml:1238
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "%1. izenburua"
 
-#: qml/RichEditPage.qml:1248
+#: qml/RichEditPage.qml:1249
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "%1. izenburua"
 
-#: qml/RichEditPage.qml:1259
+#: qml/RichEditPage.qml:1260
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "%1. izenburua"
 
-#: qml/RichEditPage.qml:1433
+#: qml/RichEditPage.qml:1434
 #, kde-format
 msgid "Format"
 msgstr "Formatua"
 
-#: qml/RichEditPage.qml:1442
+#: qml/RichEditPage.qml:1443
 #, kde-format
 msgid "Lists"
 msgstr "Zerrendak"
 
-#: qml/RichEditPage.qml:1451
+#: qml/RichEditPage.qml:1452
 #, kde-format
 msgid "Insert"
 msgstr "Txertatu"
