@@ -19,10 +19,13 @@ class NavigationController : public QObject
     /// This property holds the current notebook name.
     Q_PROPERTY(QString notebookName READ notebookName NOTIFY notebookPathChanged)
 
+    /// This property holds the current notebook color.
+    Q_PROPERTY(QString notebookColor READ notebookColor NOTIFY notebookColorChanged)
+
     /// This property holds the current note path relative to the notebookPath.
     Q_PROPERTY(QString notePath READ notePath WRITE setNotePath NOTIFY notePathChanged)
 
-    // This property holds the normalized absolute path used for note highlighting
+    /// This property holds the normalized absolute path used for note highlighting
     Q_PROPERTY(QString absoluteNotePath READ absoluteNotePath NOTIFY notePathChanged)
 
     /// This property holds the current note name.
@@ -45,6 +48,8 @@ public:
     void setNotebookPath(const QString &notebookPath);
 
     QString notebookName() const;
+
+    QString notebookColor() const;
 
     QString notePath() const;
 

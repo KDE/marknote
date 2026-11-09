@@ -44,6 +44,16 @@ QString NavigationController::notebookName() const
     return m_notebookPath.split(QLatin1Char('/')).constLast();
 }
 
+QString NavigationController::notebookColor() const
+{
+    const QString dotDirectory = m_notebookPath % u'/' % QStringLiteral(".directory");
+    if (QFile::exists(dotDirectory)) {
+        return KDesktopFile(dotDirectory).desktopGroup().readEntry("X-MarkNote-Color");
+    } else {
+        return QStringLiteral("#00000000");
+    }
+}
+
 void NavigationController::setNotebookPath(const QString &notebookPath)
 {
     if (m_notebookPath == notebookPath) {

@@ -60,7 +60,11 @@ BlockTemplate {
                     color: Qt.alpha(Kirigami.Theme.textColor, 0.1)
                     radius: Kirigami.Units.smallSpacing
                 }
-
+                selectionColor: if (NavigationController.notebookColor) {
+                                    Kirigami.ColorUtils.tintWithAlpha(NavigationController.notebookColor, Kirigami.Theme.backgroundColor, 0.4)
+                                } else {
+                                    Kirigami.Theme.highlightColor
+                                }
                 MouseArea {
                     anchors.fill: parent
                     acceptedButtons: Qt.RightButton

@@ -157,6 +157,7 @@ Kirigami.ScrollablePage {
                 opacity: titleLayout.searchOpen ? 0 : 1
                 visible: opacity > 0
                 transformOrigin: Item.Center
+                Layout.fillWidth: true
 
                 Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration } }
                 Behavior on scale { NumberAnimation { duration: Kirigami.Units.longDuration; easing.type: Easing.OutBack } }
@@ -224,6 +225,7 @@ Kirigami.ScrollablePage {
                 anchors.bottom: parent.bottom
                 width: titleLayout.searchOpen ? parent.width : 0
                 clip: true
+                visible: titleLayout.searchOpen
 
                 Behavior on width { NumberAnimation { duration: Kirigami.Units.longDuration; easing.type: Easing.InOutCubic } }
 
@@ -261,13 +263,15 @@ Kirigami.ScrollablePage {
             ToolTip.visible: hovered
             ToolTip.text: text
 
-            transform: Rotation {
-                origin.x: searchButton.width / 2
-                origin.y: searchButton.height / 2
-                axis { x: 0; y: 1; z: 0 }
-                angle: titleLayout.searchOpen ? 180 : 0
-                Behavior on angle { NumberAnimation { duration: Kirigami.Units.veryLongDuration; easing.type: Easing.InOutQuart } }
-            }
+            Layout.alignment: Qt.AlignRight
+
+            // transform: Rotation {
+            //     origin.x: searchButton.width / 2
+            //     origin.y: searchButton.height / 2
+            //     axis { x: 0; y: 1; z: 0 }
+            //     angle: titleLayout.searchOpen ? 180 : 0
+            //     Behavior on angle { NumberAnimation { duration: Kirigami.Units.veryLongDuration; easing.type: Easing.InOutQuart } }
+            // }
 
             onClicked: {
                 titleLayout.searchOpen = !titleLayout.searchOpen;
