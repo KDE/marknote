@@ -39,14 +39,15 @@ kdesrc-build marknote
 
 ### Nix
 #### Dev path:
-
-1. `nix develop`
-2. `cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug`
-3. `cmake --build build`
-4. `./build/bin/marknote`
-
+```
+nix develop
+cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
+cmake --build build
+./build/bin/marknote
+```
 #### Package path:
-
-1. `nix build .#marknote`
-2. `./result/bin/marknote`
+```
+nix build .#marknote
+./result/bin/Marknote
+```
 
