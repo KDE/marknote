@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:58+0000\n"
-"PO-Revision-Date: 2026-11-05 12:19+0100\n"
+"POT-Creation-Date: 2026-11-09 00:56+0000\n"
+"PO-Revision-Date: 2026-11-09 01:09+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -189,12 +189,10 @@ msgstr ""
 "mismo nombre."
 
 #: notesmodel.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename folder."
-msgstr "No se ha podido mover el archivo."
+msgstr "No se ha podido cambiar el nombre de la carpeta."
 
 #: notesmodel.cpp:278
 #, kde-format
@@ -205,12 +203,10 @@ msgstr ""
 "nombre."
 
 #: notesmodel.cpp:282
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename note."
-msgstr "No se ha podido mover el archivo."
+msgstr "No se ha podido cambiar el nombre de la nota."
 
 #: notesmodel.cpp:346
 #, kde-format
@@ -230,7 +226,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "No se ha podido mover el archivo."
 
-#: qml/BlockCode.qml:331
+#: qml/BlockCode.qml:334
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Copiado al portapapeles"

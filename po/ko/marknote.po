@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:58+0000\n"
+"POT-Creation-Date: 2026-11-09 00:56+0000\n"
 "PO-Revision-Date: 2026-10-02 00:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -231,7 +231,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "파일을 이동할 수 없습니다."
 
-#: qml/BlockCode.qml:331
+#: qml/BlockCode.qml:334
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "클립보드에 복사됨!"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:58+0000\n"
-"PO-Revision-Date: 2026-11-05 18:05+0200\n"
+"POT-Creation-Date: 2026-11-09 00:56+0000\n"
+"PO-Revision-Date: 2026-11-08 12:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -185,12 +185,10 @@ msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "Не вдалося перейменувати теку. Тека з такою назвою вже існує."
 
 #: notesmodel.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename folder."
-msgstr "Не вдалося пересунути файл."
+msgstr "Не вдалося перейменувати теку."
 
 #: notesmodel.cpp:278
 #, kde-format
@@ -199,12 +197,10 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Не вдалося перейменувати нотатку. Нотатка з такою назвою вже існує."
 
 #: notesmodel.cpp:282
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename note."
-msgstr "Не вдалося пересунути файл."
+msgstr "Не вдалося перейменувати нотатку."
 
 #: notesmodel.cpp:346
 #, kde-format
@@ -224,7 +220,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Не вдалося пересунути файл."
 
-#: qml/BlockCode.qml:331
+#: qml/BlockCode.qml:334
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Скопійовано в буфер обміну!"

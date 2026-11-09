@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:58+0000\n"
-"PO-Revision-Date: 2026-11-05 07:38-0300\n"
+"POT-Creation-Date: 2026-11-09 00:56+0000\n"
+"PO-Revision-Date: 2026-11-08 06:55-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -189,12 +189,10 @@ msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "Não foi possível renomear essa pasta. Já existe uma com o mesmo nome."
 
 #: notesmodel.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename folder."
-msgstr "Falha ao mover o arquivo."
+msgstr "Falha ao renomear a pasta."
 
 #: notesmodel.cpp:278
 #, kde-format
@@ -203,12 +201,10 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Não foi possível renomear essa nota. Já existe uma com o mesmo nome."
 
 #: notesmodel.cpp:282
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename note."
-msgstr "Falha ao mover o arquivo."
+msgstr "Falha ao renomear nota."
 
 #: notesmodel.cpp:346
 #, kde-format
@@ -228,7 +224,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Falha ao mover o arquivo."
 
-#: qml/BlockCode.qml:331
+#: qml/BlockCode.qml:334
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Copiado para a área de transferência!"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:58+0000\n"
-"PO-Revision-Date: 2026-11-05 12:32+0100\n"
+"POT-Creation-Date: 2026-11-09 00:56+0000\n"
+"PO-Revision-Date: 2026-11-08 23:27+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -185,12 +185,10 @@ msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "Nelze přejmenovat složku. Složka se stejným názvem již existuje."
 
 #: notesmodel.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename folder."
-msgstr "Nelze přesunout soubor."
+msgstr "Přejmenování složky se nezdařilo."
 
 #: notesmodel.cpp:278
 #, kde-format
@@ -199,12 +197,10 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Poznámku nelze přejmenovat. Poznámka se stejným názvem již existuje."
 
 #: notesmodel.cpp:282
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename note."
-msgstr "Nelze přesunout soubor."
+msgstr "Přejmenování poznámky se nezdařilo."
 
 #: notesmodel.cpp:346
 #, kde-format
@@ -224,7 +220,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Nelze přesunout soubor."
 
-#: qml/BlockCode.qml:331
+#: qml/BlockCode.qml:334
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Zkopírováno do schránky!"

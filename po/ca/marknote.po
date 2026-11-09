@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:58+0000\n"
-"PO-Revision-Date: 2026-11-05 08:48+0100\n"
+"POT-Creation-Date: 2026-11-09 00:56+0000\n"
+"PO-Revision-Date: 2026-11-08 09:43+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -189,12 +189,10 @@ msgstr ""
 "mateix nom."
 
 #: notesmodel.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename folder."
-msgstr "Ha fallat en moure el fitxer."
+msgstr "Ha fallat en canviar de nom la carpeta."
 
 #: notesmodel.cpp:278
 #, kde-format
@@ -205,12 +203,10 @@ msgstr ""
 "nom."
 
 #: notesmodel.cpp:282
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename note."
-msgstr "Ha fallat en moure el fitxer."
+msgstr "Ha fallat en canviar de nom la nota."
 
 #: notesmodel.cpp:346
 #, kde-format
@@ -230,7 +226,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Ha fallat en moure el fitxer."
 
-#: qml/BlockCode.qml:331
+#: qml/BlockCode.qml:334
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "S'ha copiat al porta-retalls!"

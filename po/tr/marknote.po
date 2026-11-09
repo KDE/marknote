@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:58+0000\n"
-"PO-Revision-Date: 2026-11-07 19:56+0300\n"
+"POT-Creation-Date: 2026-11-09 00:56+0000\n"
+"PO-Revision-Date: 2026-11-08 19:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -184,12 +184,10 @@ msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "Klasör yeniden adlandırılamıyor. Aynı adlı bir klasör hâlihazırda var."
 
 #: notesmodel.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename folder."
-msgstr "Dosya taşınamadı."
+msgstr "Klasör yeniden adlandırılamadı."
 
 #: notesmodel.cpp:278
 #, kde-format
@@ -198,12 +196,10 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr "Not yeniden adlandırılamıyor. Aynı adlı bir not hâlihazırda var."
 
 #: notesmodel.cpp:282
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename note."
-msgstr "Dosya taşınamadı."
+msgstr "Not yeniden adlandırılamadı."
 
 #: notesmodel.cpp:346
 #, kde-format
@@ -223,7 +219,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Dosya taşınamadı."
 
-#: qml/BlockCode.qml:331
+#: qml/BlockCode.qml:334
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Panoya kopyalandı!"
