@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-09 00:56+0000\n"
-"PO-Revision-Date: 2026-11-05 08:48+0100\n"
+"POT-Creation-Date: 2026-11-10 00:58+0000\n"
+"PO-Revision-Date: 2026-11-08 09:43+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -189,12 +189,10 @@ msgstr ""
 "mateix nom."
 
 #: notesmodel.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename folder."
-msgstr "Ha fallat mentre es movia el fitxer."
+msgstr "Ha fallat mentre es canviava de nom la carpeta."
 
 #: notesmodel.cpp:278
 #, kde-format
@@ -205,12 +203,10 @@ msgstr ""
 "nom."
 
 #: notesmodel.cpp:282
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename note."
-msgstr "Ha fallat mentre es movia el fitxer."
+msgstr "Ha fallat mentre es canviava de nom la nota."
 
 #: notesmodel.cpp:346
 #, kde-format
@@ -230,7 +226,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Ha fallat mentre es movia el fitxer."
 
-#: qml/BlockCode.qml:334
+#: qml/BlockCode.qml:338
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "S'ha copiat a dins del porta-retalls!"
@@ -427,7 +423,7 @@ msgstr "Estil de la nota"
 msgid "Focus Mode"
 msgstr "Mode del focus"
 
-#: qml/EditPage.qml:364 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
+#: qml/EditPage.qml:364 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:297
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -575,7 +571,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Crea el bloc de notes"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:901
+#: qml/Main.qml:360 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -800,39 +796,39 @@ msgstr "Ja existix una carpeta amb este nom."
 msgid "Add note"
 msgstr "Afig una nota"
 
-#: qml/NotesPage.qml:187
+#: qml/NotesPage.qml:188
 #, kde-format
 msgid "Collapse All"
 msgstr "Reduïx-ho tot"
 
-#: qml/NotesPage.qml:187
+#: qml/NotesPage.qml:188
 #, kde-format
 msgid "Expand All"
 msgstr "Expandix-ho tot"
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Ix de la busca (%1)"
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Busca notes (%1)"
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:318
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Folder"
 msgstr "Suprimiu la carpeta"
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:318
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Suprimiu la nota"
 
-#: qml/NotesPage.qml:344
+#: qml/NotesPage.qml:348
 #, kde-format
 msgid ""
 "Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
@@ -841,7 +837,7 @@ msgstr ""
 "Segur que voleu suprimir la carpeta <b>%1</b>? Açò suprimirà de manera "
 "permanent totes les notes contingudes a <b>%2</b>."
 
-#: qml/NotesPage.qml:346
+#: qml/NotesPage.qml:350
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -850,122 +846,122 @@ msgstr ""
 "Segur que voleu suprimir la nota <b>%1</b>? Açò suprimirà de manera "
 "permanent el fitxer <b>%2</b>."
 
-#: qml/NotesPage.qml:505 qml/NotesPage.qml:533
+#: qml/NotesPage.qml:509 qml/NotesPage.qml:537
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "MarkNote"
 
-#: qml/NotesPage.qml:506
+#: qml/NotesPage.qml:510
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "L'exportació de «%1» ha sigut correcta."
 
-#: qml/NotesPage.qml:519
+#: qml/NotesPage.qml:523
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Obri un fitxer"
 
-#: qml/NotesPage.qml:534
+#: qml/NotesPage.qml:538
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "No s'ha pogut fer l'exportació de «%1»."
 
-#: qml/NotesPage.qml:545
+#: qml/NotesPage.qml:549
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Canvia el nom"
 
-#: qml/NotesPage.qml:554 qml/TextFieldContextMenu.qml:323
+#: qml/NotesPage.qml:558 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Copia"
 
-#: qml/NotesPage.qml:570
+#: qml/NotesPage.qml:574
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Duplica"
 
-#: qml/NotesPage.qml:579
+#: qml/NotesPage.qml:583
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Exporta"
 
-#: qml/NotesPage.qml:583
+#: qml/NotesPage.qml:587
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Exporta cap a HTML"
 
-#: qml/NotesPage.qml:589
+#: qml/NotesPage.qml:593
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Exporta cap a HTML"
 
-#: qml/NotesPage.qml:590
+#: qml/NotesPage.qml:594
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "Fitxer HTML (*.html)"
 
-#: qml/NotesPage.qml:596
+#: qml/NotesPage.qml:600
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Exporta cap a PDF"
 
-#: qml/NotesPage.qml:602
+#: qml/NotesPage.qml:606
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Exporta cap a PDF"
 
-#: qml/NotesPage.qml:603
+#: qml/NotesPage.qml:607
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "Fitxer PDF (*.pdf)"
 
-#: qml/NotesPage.qml:609
+#: qml/NotesPage.qml:613
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Exporta cap a ODT"
 
-#: qml/NotesPage.qml:615
+#: qml/NotesPage.qml:619
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Exporta cap a ODT"
 
-#: qml/NotesPage.qml:616
+#: qml/NotesPage.qml:620
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Document de text ODF (*.odt)"
 
-#: qml/NotesPage.qml:625 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:629 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Suprimix"
 
-#: qml/NotesPage.qml:967
+#: qml/NotesPage.qml:971
 #, kde-format
 msgid "Add a note!"
 msgstr "Afig una nota!"
 
-#: qml/NotesPage.qml:976
+#: qml/NotesPage.qml:980
 #, kde-format
 msgid "No notes matching the search"
 msgstr "No hi ha cap nota que coincidisca amb la busca"
 
-#: qml/NotesPage.qml:992 qml/NotesPage.qml:1000
+#: qml/NotesPage.qml:996 qml/NotesPage.qml:1004
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
@@ -973,7 +969,7 @@ msgid_plural "%1 notes"
 msgstr[0] "%1 nota"
 msgstr[1] "%1 notes"
 
-#: qml/NotesPage.qml:996 qml/NotesPage.qml:999
+#: qml/NotesPage.qml:1000 qml/NotesPage.qml:1003
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -981,7 +977,7 @@ msgid_plural "%1 folders"
 msgstr[0] "%1 carpeta"
 msgstr[1] "%1 carpetes"
 
-#: qml/NotesPage.qml:1002
+#: qml/NotesPage.qml:1006
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
@@ -1282,7 +1278,7 @@ msgctxt "@action:button"
 msgid "pin"
 msgstr "fixa"
 
-#: qml/TocDrawer.qml:232
+#: qml/TocDrawer.qml:235
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"

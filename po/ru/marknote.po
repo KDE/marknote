@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-09 00:56+0000\n"
+"POT-Creation-Date: 2026-11-10 00:58+0000\n"
 "PO-Revision-Date: 2026-11-08 07:47+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -222,7 +222,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Не удалось переместить файл."
 
-#: qml/BlockCode.qml:334
+#: qml/BlockCode.qml:338
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Скопировано в буфер обмена"
@@ -419,7 +419,7 @@ msgstr "Оформление заметки"
 msgid "Focus Mode"
 msgstr "Режим фокуса"
 
-#: qml/EditPage.qml:364 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
+#: qml/EditPage.qml:364 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:297
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -570,7 +570,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Создать записную книжку"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:901
+#: qml/Main.qml:360 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -796,39 +796,39 @@ msgstr "Заметка или папка с таким названием уже
 msgid "Add note"
 msgstr "Добавить заметку"
 
-#: qml/NotesPage.qml:187
+#: qml/NotesPage.qml:188
 #, kde-format
 msgid "Collapse All"
 msgstr "Свернуть все"
 
-#: qml/NotesPage.qml:187
+#: qml/NotesPage.qml:188
 #, kde-format
 msgid "Expand All"
 msgstr "Развернуть все"
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr "Выйти из поиска (%1)"
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "Поиск заметок (%1)"
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:318
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Folder"
 msgstr "Удаление папки"
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:318
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "Удаление заметки"
 
-#: qml/NotesPage.qml:344
+#: qml/NotesPage.qml:348
 #, kde-format
 msgid ""
 "Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
@@ -837,7 +837,7 @@ msgstr ""
 "Действительно удалить папку <b> %1 </b>? Все заметки в папке <b>%2</b> будут "
 "удалены безвозвратно."
 
-#: qml/NotesPage.qml:346
+#: qml/NotesPage.qml:350
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
@@ -845,122 +845,122 @@ msgid ""
 msgstr ""
 "Удалить заметку <b> %1 </b>? Также будет полностью удалён файл <b>%2</b>."
 
-#: qml/NotesPage.qml:505 qml/NotesPage.qml:533
+#: qml/NotesPage.qml:509 qml/NotesPage.qml:537
 #, kde-format
 msgctxt "@title:window"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: qml/NotesPage.qml:506
+#: qml/NotesPage.qml:510
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr "Экспорт «%1» выполнен успешно."
 
-#: qml/NotesPage.qml:519
+#: qml/NotesPage.qml:523
 #, kde-format
 msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "Открыть файл"
 
-#: qml/NotesPage.qml:534
+#: qml/NotesPage.qml:538
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr "Не удалось экспортировать «%1»."
 
-#: qml/NotesPage.qml:545
+#: qml/NotesPage.qml:549
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "Переименовать"
 
-#: qml/NotesPage.qml:554 qml/TextFieldContextMenu.qml:323
+#: qml/NotesPage.qml:558 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Копировать"
 
-#: qml/NotesPage.qml:570
+#: qml/NotesPage.qml:574
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "Создать копию"
 
-#: qml/NotesPage.qml:579
+#: qml/NotesPage.qml:583
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "Экспорт"
 
-#: qml/NotesPage.qml:583
+#: qml/NotesPage.qml:587
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr "Экспорт в HTML"
 
-#: qml/NotesPage.qml:589
+#: qml/NotesPage.qml:593
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr "Экспорт в HTML"
 
-#: qml/NotesPage.qml:590
+#: qml/NotesPage.qml:594
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML-файл (*.html)"
 
-#: qml/NotesPage.qml:596
+#: qml/NotesPage.qml:600
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr "Экспорт в PDF"
 
-#: qml/NotesPage.qml:602
+#: qml/NotesPage.qml:606
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr "Экспорт в PDF"
 
-#: qml/NotesPage.qml:603
+#: qml/NotesPage.qml:607
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF-файл (*.pdf)"
 
-#: qml/NotesPage.qml:609
+#: qml/NotesPage.qml:613
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr "Экспорт в ODT"
 
-#: qml/NotesPage.qml:615
+#: qml/NotesPage.qml:619
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr "Экспорт в ODT"
 
-#: qml/NotesPage.qml:616
+#: qml/NotesPage.qml:620
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "Текстовый документ ODF (*.odt)"
 
-#: qml/NotesPage.qml:625 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:629 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Удалить"
 
-#: qml/NotesPage.qml:967
+#: qml/NotesPage.qml:971
 #, kde-format
 msgid "Add a note!"
 msgstr "Добавьте заметку!"
 
-#: qml/NotesPage.qml:976
+#: qml/NotesPage.qml:980
 #, kde-format
 msgid "No notes matching the search"
 msgstr "Не найдено ни одной заметки, соответствующей критерию поиска."
 
-#: qml/NotesPage.qml:992 qml/NotesPage.qml:1000
+#: qml/NotesPage.qml:996 qml/NotesPage.qml:1004
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 note"
@@ -970,7 +970,7 @@ msgstr[1] "%1 заметки"
 msgstr[2] "%1 заметок"
 msgstr[3] "%1 заметка"
 
-#: qml/NotesPage.qml:996 qml/NotesPage.qml:999
+#: qml/NotesPage.qml:1000 qml/NotesPage.qml:1003
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -980,7 +980,7 @@ msgstr[1] "%1 папки"
 msgstr[2] "%1 папок"
 msgstr[3] "%1 папка"
 
-#: qml/NotesPage.qml:1002
+#: qml/NotesPage.qml:1006
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
@@ -1281,7 +1281,7 @@ msgctxt "@action:button"
 msgid "pin"
 msgstr "закрепить"
 
-#: qml/TocDrawer.qml:232
+#: qml/TocDrawer.qml:235
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"

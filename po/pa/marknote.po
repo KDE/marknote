@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-09 00:56+0000\n"
+"POT-Creation-Date: 2026-11-10 00:58+0000\n"
 "PO-Revision-Date: 2025-09-15 10:25-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -229,7 +229,7 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr ""
 
-#: qml/BlockCode.qml:334
+#: qml/BlockCode.qml:338
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr ""
@@ -440,7 +440,7 @@ msgstr ""
 msgid "Focus Mode"
 msgstr "ਫੋਕਸ ਢੰਗ"
 
-#: qml/EditPage.qml:364 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:293
+#: qml/EditPage.qml:364 qml/NativeWindowMenu.qml:27 qml/NotesPage.qml:297
 #: qml/WelcomePage.qml:29
 #, kde-format
 msgctxt "@action:menu"
@@ -592,7 +592,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "ਨੋਟਬੁੱਕ ਬਣਾਓ"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:901
+#: qml/Main.qml:360 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -824,29 +824,29 @@ msgstr ""
 msgid "Add note"
 msgstr "ਨੋਟ ਜੋੜੋ"
 
-#: qml/NotesPage.qml:187
+#: qml/NotesPage.qml:188
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
 msgid "Collapse All"
 msgstr "ਸਭ ਨੂੰ ਚੁਣੋ"
 
-#: qml/NotesPage.qml:187
+#: qml/NotesPage.qml:188
 #, kde-format
 msgid "Expand All"
 msgstr ""
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Exit Search (%1)"
 msgstr ""
 
-#: qml/NotesPage.qml:257
+#: qml/NotesPage.qml:259
 #, kde-format
 msgid "Search notes (%1)"
 msgstr "ਖੋਜ ਨੋਟਿਸ (%1)"
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:318
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Delete Note"
@@ -854,27 +854,27 @@ msgctxt "@title:window"
 msgid "Delete Folder"
 msgstr "ਨੋਟ ਨੂੰ ਹਟਾਓ"
 
-#: qml/NotesPage.qml:314
+#: qml/NotesPage.qml:318
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note"
 msgstr "ਨੋਟ ਨੂੰ ਹਟਾਓ"
 
-#: qml/NotesPage.qml:344
+#: qml/NotesPage.qml:348
 #, kde-format
 msgid ""
 "Are you sure you want to delete the folder <b> %1 </b>? This will delete all "
 "notes contained in <b>%2</b> definitively."
 msgstr ""
 
-#: qml/NotesPage.qml:346
+#: qml/NotesPage.qml:350
 #, kde-format
 msgid ""
 "Are you sure you want to delete the note <b> %1 </b>? This will delete the "
 "file <b>%2</b> definitively."
 msgstr ""
 
-#: qml/NotesPage.qml:505 qml/NotesPage.qml:533
+#: qml/NotesPage.qml:509 qml/NotesPage.qml:537
 #, fuzzy, kde-format
 #| msgctxt "Application name"
 #| msgid "Marknote"
@@ -882,13 +882,13 @@ msgctxt "@title:window"
 msgid "Marknote"
 msgstr "ਮਾਰਕਨੋਟ"
 
-#: qml/NotesPage.qml:506
+#: qml/NotesPage.qml:510
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” was successful."
 msgstr ""
 
-#: qml/NotesPage.qml:519
+#: qml/NotesPage.qml:523
 #, fuzzy, kde-format
 #| msgctxt "@inmenu"
 #| msgid "Open Link"
@@ -896,13 +896,13 @@ msgctxt "@action:notifaction"
 msgid "Open File"
 msgstr "ਲਿੰਕ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: qml/NotesPage.qml:534
+#: qml/NotesPage.qml:538
 #, kde-format
 msgctxt "@info"
 msgid "Export of “%1” failed."
 msgstr ""
 
-#: qml/NotesPage.qml:545
+#: qml/NotesPage.qml:549
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Rename Note"
@@ -910,13 +910,13 @@ msgctxt "@action:inmenu"
 msgid "Rename"
 msgstr "ਨੋਟ ਦਾ ਨਾਂ ਬਦਲੋ"
 
-#: qml/NotesPage.qml:554 qml/TextFieldContextMenu.qml:323
+#: qml/NotesPage.qml:558 qml/TextFieldContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: qml/NotesPage.qml:570
+#: qml/NotesPage.qml:574
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Delete Note"
@@ -924,7 +924,7 @@ msgctxt "@action:inmenu"
 msgid "Duplicate"
 msgstr "ਨੋਟ ਨੂੰ ਹਟਾਓ"
 
-#: qml/NotesPage.qml:579
+#: qml/NotesPage.qml:583
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Import"
@@ -932,74 +932,74 @@ msgctxt "@action:inmenu"
 msgid "Export"
 msgstr "ਇੰਪੋਰਟ ਕਰੋ"
 
-#: qml/NotesPage.qml:583
+#: qml/NotesPage.qml:587
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to HTML"
 msgstr ""
 
-#: qml/NotesPage.qml:589
+#: qml/NotesPage.qml:593
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to HTML"
 msgstr ""
 
-#: qml/NotesPage.qml:590
+#: qml/NotesPage.qml:594
 #, kde-format
 msgid "HTML file (*.html)"
 msgstr "HTML ਫ਼ਾਇਲ (*.html)"
 
-#: qml/NotesPage.qml:596
+#: qml/NotesPage.qml:600
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to PDF"
 msgstr ""
 
-#: qml/NotesPage.qml:602
+#: qml/NotesPage.qml:606
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to PDF"
 msgstr ""
 
-#: qml/NotesPage.qml:603
+#: qml/NotesPage.qml:607
 #, kde-format
 msgid "PDF file (*.pdf)"
 msgstr "PDF ਫ਼ਾਇਲ (*.pdf)"
 
-#: qml/NotesPage.qml:609
+#: qml/NotesPage.qml:613
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export to ODT"
 msgstr ""
 
-#: qml/NotesPage.qml:615
+#: qml/NotesPage.qml:619
 #, kde-format
 msgctxt "@title:window"
 msgid "Export to ODT"
 msgstr ""
 
-#: qml/NotesPage.qml:616
+#: qml/NotesPage.qml:620
 #, kde-format
 msgid "ODF Text Document (*.odt)"
 msgstr "ODF ਲਿਖਤ ਦਸਤਾਵੇਜ਼ (*.odt)"
 
-#: qml/NotesPage.qml:625 qml/TextFieldContextMenu.qml:365
+#: qml/NotesPage.qml:629 qml/TextFieldContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "ਹਟਾਓ"
 
-#: qml/NotesPage.qml:967
+#: qml/NotesPage.qml:971
 #, kde-format
 msgid "Add a note!"
 msgstr "ਨੋਟ ਨੂੰ ਜੋੜੋ!"
 
-#: qml/NotesPage.qml:976
+#: qml/NotesPage.qml:980
 #, kde-format
 msgid "No notes matching the search"
 msgstr ""
 
-#: qml/NotesPage.qml:992 qml/NotesPage.qml:1000
+#: qml/NotesPage.qml:996 qml/NotesPage.qml:1004
 #, fuzzy, kde-format
 #| msgid "Add note"
 msgctxt "@info:status"
@@ -1008,7 +1008,7 @@ msgid_plural "%1 notes"
 msgstr[0] "ਨੋਟ ਜੋੜੋ"
 msgstr[1] "ਨੋਟ ਜੋੜੋ"
 
-#: qml/NotesPage.qml:996 qml/NotesPage.qml:999
+#: qml/NotesPage.qml:1000 qml/NotesPage.qml:1003
 #, kde-format
 msgctxt "@info:status"
 msgid "%1 folder"
@@ -1016,7 +1016,7 @@ msgid_plural "%1 folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/NotesPage.qml:1002
+#: qml/NotesPage.qml:1006
 #, kde-format
 msgctxt "@info:status"
 msgid "%1, %2"
@@ -1337,7 +1337,7 @@ msgctxt "@action:button"
 msgid "pin"
 msgstr ""
 
-#: qml/TocDrawer.qml:232
+#: qml/TocDrawer.qml:235
 #, kde-format
 msgctxt "Is shown instead of the table of contents"
 msgid "No headings found"
