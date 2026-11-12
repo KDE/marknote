@@ -17,7 +17,7 @@ Nightly flatpak: [https://cdn.kde.org/flatpak/marknote-nightly/org.kde.marknote.
 
 
 ## Contributing and AI
-Contributers keep this project alive! We very much apreciate contributions.
+Contributors keep this project alive! We greatly appreciate any help. To make it possible for us to review your contributions properly, please respect the following guidelines:
 
 ### Merge Requests
 
