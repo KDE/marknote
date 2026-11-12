@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-10 00:58+0000\n"
-"PO-Revision-Date: 2026-11-08 07:47+0200\n"
+"PO-Revision-Date: 2026-11-11 23:00+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -1330,7 +1330,7 @@ msgstr "Непрозрачность фона"
 msgctxt ""
 "@label:slider Current opacity percentage. %1 is the numeric percentage value"
 msgid "%1%"
-msgstr "%1 %"
+msgstr "%1 %"
 
 #: settings/MarkNoteGeneralPage.qml:121
 #, kde-format

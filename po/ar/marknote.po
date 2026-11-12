@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-10 00:58+0000\n"
-"PO-Revision-Date: 2026-11-06 15:37+0400\n"
+"PO-Revision-Date: 2026-11-11 20:53+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -185,12 +185,10 @@ msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "تعذّرت إعادة تسمية المجلد. يوجد مجلد بالاسم نفسه."
 
 #: notesmodel.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename folder."
-msgstr "فشل نقل الملف."
+msgstr "فشل في إعادة تسمية مجلد."
 
 #: notesmodel.cpp:278
 #, kde-format
@@ -199,12 +197,10 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr "تعذر إعادة تسمية الملاحظة. الملف أو المجلد موجودان فعلًا بنفس الاسم."
 
 #: notesmodel.cpp:282
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename note."
-msgstr "فشل نقل الملف."
+msgstr "فشل في إعادة تسمية ملاحظة."
 
 #: notesmodel.cpp:346
 #, kde-format
