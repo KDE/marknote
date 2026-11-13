@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-10 00:58+0000\n"
-"PO-Revision-Date: 2026-11-03 22:07+0900\n"
+"PO-Revision-Date: 2026-11-12 18:47+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -151,7 +151,7 @@ msgstr "© 2023–2026 Mathis Brüchert"
 #: main.cpp:140
 #, kde-format
 msgid "Markdown parsing library"
-msgstr ""
+msgstr "Markdown 剖析函式庫"
 
 #: notesmodel.cpp:200
 #, kde-format
@@ -184,12 +184,10 @@ msgid "Unable to rename folder. A folder already exists with the same name."
 msgstr "無法重新命名資料夾。已經有另一個資料夾使用該名稱。"
 
 #: notesmodel.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename folder."
-msgstr "移動檔案失敗。"
+msgstr "無法重新命名資料夾。"
 
 #: notesmodel.cpp:278
 #, kde-format
@@ -198,12 +196,10 @@ msgid "Unable to rename note. A note already exists with the same name."
 msgstr "無法重新命名筆記。已經有另一個筆記使用該名稱。"
 
 #: notesmodel.cpp:282
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename note."
-msgstr "移動檔案失敗。"
+msgstr "無法重新命名筆記。"
 
 #: notesmodel.cpp:346
 #, kde-format
