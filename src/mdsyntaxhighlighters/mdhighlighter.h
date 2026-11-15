@@ -16,8 +16,16 @@ class MDHighlighter : public QSyntaxHighlighter
     Q_OBJECT
     QML_ELEMENT
 
+public:
+    enum Mode {
+        Full = static_cast<int>(HighlighterMode::Full),
+        Inline = static_cast<int>(HighlighterMode::Inline)
+    };
+    Q_ENUM(Mode)
+
     Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
     Q_PROPERTY(bool active READ active WRITE setActive NOTIFY activeChanged)
+    Q_PROPERTY(Mode mode READ mode WRITE setMode NOTIFY modeChanged)
     Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
     Q_PROPERTY(QColor dimmedColor READ dimmedColor WRITE setDimmedColor NOTIFY dimmedColorChanged)
     Q_PROPERTY(QColor codeColor READ codeColor WRITE setCodeColor NOTIFY codeColorChanged)
@@ -34,6 +42,9 @@ public:
 
     bool active() const;
     void setActive(bool active);
+
+    Mode mode() const;
+    void setMode(Mode mode);
 
     QColor textColor() const;
     void setTextColor(const QColor &color);
@@ -59,6 +70,7 @@ protected:
 Q_SIGNALS:
     void documentChanged();
     void activeChanged();
+    void modeChanged();
     void textColorChanged();
     void dimmedColorChanged();
     void codeColorChanged();
@@ -73,11 +85,12 @@ private:
     QQuickTextDocument *m_quickDocument = nullptr;
     bool m_active = true;
     bool m_dirty = true;
+    Mode m_mode = Mode::Full;
     QString m_lastParsedText;
     qreal m_baseFontSize = 10.0;
 
     MarkdownTheme m_theme;
-    QList<FormatRange> m_ranges;
+    QList<QList<FormatRange>> m_blockFormats;
 };
 
 #endif // MDHIGHLIGHTER_H

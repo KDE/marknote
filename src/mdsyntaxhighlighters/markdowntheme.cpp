@@ -74,6 +74,7 @@ QTextCharFormat MarkdownTheme::formatForInline(MDOptions::InlineStyle type) cons
         format.setFontStrikeOut(true);
         break;
     case MDOptions::InlineStyle::CodeSpan:
+        format.setFontFixedPitch(true);
         if (!m_fixedFontFamily.isEmpty()) {
             format.setFontFamilies({m_fixedFontFamily});
         } else {
@@ -143,13 +144,16 @@ QTextCharFormat MarkdownTheme::formatForHeading(int level, qreal basePointSize) 
 QTextCharFormat MarkdownTheme::formatForBlockquote() const
 {
     QTextCharFormat format;
-    format.setFontItalic(true);
+    if (m_accentColor.isValid()) {
+        format.setForeground(m_accentColor);
+    }
     return format;
 }
 
 QTextCharFormat MarkdownTheme::formatForCodeBlock() const
 {
     QTextCharFormat format;
+    format.setFontFixedPitch(true);
     if (!m_fixedFontFamily.isEmpty()) {
         format.setFontFamilies({m_fixedFontFamily});
     } else {

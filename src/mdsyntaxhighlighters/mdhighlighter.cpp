@@ -40,7 +40,7 @@ void MDHighlighter::setDocument(QQuickTextDocument *document)
 
     m_dirty = true;
     m_lastParsedText.clear();
-    m_ranges.clear();
+    m_blockFormats.clear();
 
     if (m_active && m_quickDocument) {
         rehighlight();
@@ -65,6 +65,25 @@ void MDHighlighter::setActive(bool active)
         rehighlight();
     }
     Q_EMIT activeChanged();
+}
+
+MDHighlighter::Mode MDHighlighter::mode() const
+{
+    return m_mode;
+}
+
+void MDHighlighter::setMode(Mode mode)
+{
+    if (m_mode == mode) {
+        return;
+    }
+
+    m_mode = mode;
+    m_dirty = true;
+    if (m_active) {
+        rehighlight();
+    }
+    Q_EMIT modeChanged();
 }
 
 QColor MDHighlighter::textColor() const
@@ -184,7 +203,7 @@ void MDHighlighter::setBaseFontSize(qreal size)
 void MDHighlighter::updateDoc()
 {
     if (!m_quickDocument || !m_quickDocument->textDocument()) {
-        m_ranges.clear();
+        m_blockFormats.clear();
         m_lastParsedText.clear();
         return;
     }
@@ -194,7 +213,7 @@ void MDHighlighter::updateDoc()
         return;
     }
 
-    m_ranges.clear();
+    m_blockFormats.clear();
     m_lastParsedText = text;
     m_dirty = false;
 
@@ -216,31 +235,26 @@ void MDHighlighter::updateDoc()
     MD::Parser parser;
     auto doc = parser.parse(stream, QString(), QString());
     if (doc) {
-        MDHighlighterVisitor visitor(m_theme, m_baseFontSize, lineOffsets);
+        MDHighlighterVisitor visitor(m_quickDocument->textDocument(), m_theme, m_baseFontSize, lineOffsets, static_cast<HighlighterMode>(m_mode));
         visitor.process(doc);
-        m_ranges = visitor.ranges();
+        m_blockFormats = visitor.takeBlockFormats();
     }
 }
 
 void MDHighlighter::highlightBlock(const QString &text)
 {
+    Q_UNUSED(text)
     if (!m_quickDocument || !m_quickDocument->textDocument()) {
         return;
     }
 
     updateDoc();
 
-    const int blockStart = currentBlock().position();
-    const int blockEnd = blockStart + text.length();
-
-    for (const auto &range : m_ranges) {
-        if (range.start >= blockEnd || range.end <= blockStart) {
-            continue;
+    const int blockNum = currentBlock().blockNumber();
+    if (blockNum >= 0 && blockNum < m_blockFormats.size()) {
+        for (const auto &range : m_blockFormats.at(blockNum)) {
+            applyFormat(range.start, range.length, range.format);
         }
-
-        const int start = qMax(blockStart, range.start) - blockStart;
-        const int length = qMin(blockEnd, range.end) - (start + blockStart);
-        applyFormat(start, length, range.format);
     }
 }
 

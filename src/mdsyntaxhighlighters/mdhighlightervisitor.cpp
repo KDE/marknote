@@ -3,16 +3,25 @@
 
 #include "mdhighlightervisitor.h"
 
-MDHighlighterVisitor::MDHighlighterVisitor(const MarkdownTheme &theme, qreal baseFontSize, const QList<int> &lineOffsets)
-    : m_theme(theme)
+MDHighlighterVisitor::MDHighlighterVisitor(QTextDocument *doc,
+                                           const MarkdownTheme &theme,
+                                           qreal baseFontSize,
+                                           const QList<int> &lineOffsets,
+                                           HighlighterMode mode)
+    : m_doc(doc)
+    , m_theme(theme)
     , m_baseFontSize(baseFontSize)
     , m_lineOffsets(lineOffsets)
+    , m_mode(mode)
 {
+    if (m_doc) {
+        m_blockFormats.resize(m_doc->blockCount());
+    }
 }
 
-const QList<FormatRange> &MDHighlighterVisitor::ranges() const
+QList<QList<FormatRange>> MDHighlighterVisitor::takeBlockFormats()
 {
-    return m_ranges;
+    return std::move(m_blockFormats);
 }
 
 void MDHighlighterVisitor::onAddLineEnding()
@@ -53,8 +62,10 @@ void MDHighlighterVisitor::onHeading(MD::Heading *h)
         return;
     }
 
-    addRange(h, m_theme.formatForHeading(h->level(), m_baseFontSize));
-    addDelims(h->delims());
+    if (m_mode == HighlighterMode::Full) {
+        addRange(h, m_theme.formatForHeading(h->level(), m_baseFontSize));
+        addDelims(h->delims());
+    }
 
     if (h->text()) {
         onParagraph(h->text().data(), false);
@@ -64,6 +75,10 @@ void MDHighlighterVisitor::onHeading(MD::Heading *h)
 void MDHighlighterVisitor::onCode(MD::Code *c)
 {
     if (!c) {
+        return;
+    }
+
+    if (m_mode != HighlighterMode::Full) {
         return;
     }
 
@@ -90,8 +105,10 @@ void MDHighlighterVisitor::onBlockquote(MD::Blockquote *b)
         return;
     }
 
-    addRange(b, m_theme.formatForBlockquote());
-    addDelims(b->delims());
+    if (m_mode == HighlighterMode::Full) {
+        addRange(b, m_theme.formatForBlockquote());
+        addDelims(b->delims());
+    }
 
     MD::Visitor::onBlockquote(b);
 }
@@ -115,7 +132,9 @@ void MDHighlighterVisitor::onTable(MD::Table *t)
         return;
     }
 
-    addRange(t, m_theme.formatForTable());
+    if (m_mode == HighlighterMode::Full) {
+        addRange(t, m_theme.formatForTable());
+    }
 
     for (const auto &row : t->rows()) {
         for (const auto &cell : row->cells()) {
@@ -143,7 +162,7 @@ void MDHighlighterVisitor::onRawHtml(MD::RawHtml *h)
 
 void MDHighlighterVisitor::onHorizontalLine(MD::HorizontalLine *l)
 {
-    if (!l) {
+    if (!l || m_mode != HighlighterMode::Full) {
         return;
     }
 
@@ -197,7 +216,9 @@ void MDHighlighterVisitor::onFootnote(MD::Footnote *f)
         return;
     }
 
-    addDelim(*f);
+    if (m_mode == HighlighterMode::Full) {
+        addDelim(*f);
+    }
     MD::Visitor::onFootnote(f);
 }
 
@@ -207,9 +228,11 @@ void MDHighlighterVisitor::onListItem(MD::ListItem *i, bool first, bool skipOpen
         return;
     }
 
-    addDelim(i->delim());
-    if (i->isTaskList()) {
-        addDelim(i->taskDelim());
+    if (m_mode == HighlighterMode::Full) {
+        addDelim(i->delim());
+        if (i->isTaskList()) {
+            addDelim(i->taskDelim());
+        }
     }
 
     MD::Visitor::onListItem(i, first, skipOpeningWrap, looseness);
@@ -236,13 +259,21 @@ void MDHighlighterVisitor::addDelim(const MD::WithPosition &pos)
 
 void MDHighlighterVisitor::addRange(int startLine, int startCol, int endLine, int endCol, const QTextCharFormat &fmt)
 {
-    if (startLine < 0 || endLine < 0 || startLine > endLine) {
+    if (!m_doc || startLine < 0 || endLine < 0 || startLine > endLine) {
         return;
     }
 
     const int start = m_lineOffsets.value(startLine, 0) + qMax(0, startCol);
     const int end = m_lineOffsets.value(endLine, 0) + endCol + 1;
-    if (start < end) {
-        m_ranges.append({start, end, fmt});
+    if (start >= end) {
+        return;
+    }
+
+    for (QTextBlock b = m_doc->findBlock(start); b.isValid() && b.position() < end; b = b.next()) {
+        const int rangeStart = qMax(b.position(), start) - b.position();
+        const int rangeLength = qMin(b.position() + b.length() - 1, end) - (rangeStart + b.position());
+        if (rangeLength > 0) {
+            m_blockFormats[b.blockNumber()].append({rangeStart, rangeLength, fmt});
+        }
     }
 }

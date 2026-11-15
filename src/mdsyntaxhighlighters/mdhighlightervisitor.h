@@ -8,24 +8,35 @@
 
 #include <QHash>
 #include <QList>
+#include <QTextBlock>
 #include <QTextCharFormat>
+#include <QTextDocument>
 
 #include <md4qt/doc.h>
 #include <md4qt/visitor.h>
 
+enum class HighlighterMode {
+    Full,
+    Inline
+};
+
 struct FormatRange {
     int start = 0;
-    int end = 0;
+    int length = 0;
     QTextCharFormat format;
 };
 
 class MDHighlighterVisitor : public MD::Visitor
 {
 public:
-    MDHighlighterVisitor(const MarkdownTheme &theme, qreal baseFontSize, const QList<int> &lineOffsets);
+    MDHighlighterVisitor(QTextDocument *doc,
+                         const MarkdownTheme &theme,
+                         qreal baseFontSize,
+                         const QList<int> &lineOffsets,
+                         HighlighterMode mode = HighlighterMode::Full);
     ~MDHighlighterVisitor() override = default;
 
-    const QList<FormatRange> &ranges() const;
+    QList<QList<FormatRange>> takeBlockFormats();
 
 protected:
     void onAddLineEnding() override;
@@ -62,10 +73,12 @@ private:
 
     void addRange(int startLine, int startCol, int endLine, int endCol, const QTextCharFormat &fmt);
 
+    QTextDocument *m_doc = nullptr;
     const MarkdownTheme &m_theme;
     qreal m_baseFontSize;
     const QList<int> &m_lineOffsets;
-    QList<FormatRange> m_ranges;
+    HighlighterMode m_mode;
+    QList<QList<FormatRange>> m_blockFormats;
 };
 
 #endif // MDHIGHLIGHTERVISITOR_H

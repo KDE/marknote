@@ -81,7 +81,6 @@ ecm_add_qml_module(marknote_static
         qml/BlockTableCell.qml
     SOURCES
         mdsyntaxhighlighters/markdowntheme.cpp mdsyntaxhighlighters/markdowntheme.h
-        mdsyntaxhighlighters/mdinlinehighlighter.cpp mdsyntaxhighlighters/mdinlinehighlighter.h
         mdsyntaxhighlighters/mdhighlightervisitor.cpp mdsyntaxhighlighters/mdhighlightervisitor.h
         mdsyntaxhighlighters/mdhighlighter.cpp mdsyntaxhighlighters/mdhighlighter.h
         documenthandler.cpp documenthandler.h

@@ -206,7 +206,7 @@ EditPage {
         dimmedColor: Kirigami.Theme.disabledTextColor
         codeColor: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.textColor, Kirigami.Theme.focusColor, 0.7)
         accentColor: Kirigami.Theme.highlightColor
-        fixedFontFamily: Config.editorFont.family
+        fixedFontFamily: Kirigami.Theme.fixedWidthFont.family
         baseFontSize: Config.editorFont.pointSize
         active: true
     }
