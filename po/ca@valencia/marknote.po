@@ -97,7 +97,7 @@ msgstr "Shubham Shinde"
 #: main.cpp:86
 #, kde-format
 msgid "Table of Contents"
-msgstr "Taula de contingut"
+msgstr "Índex de continguts"
 
 #: main.cpp:91
 #, kde-format
@@ -1270,7 +1270,7 @@ msgstr "Selecciona-ho tot"
 #, kde-format
 msgctxt "@title:window"
 msgid "Table of Contents"
-msgstr "Taula de contingut"
+msgstr "Índex de continguts"
 
 #: qml/TocDrawer.qml:143
 #, kde-format
