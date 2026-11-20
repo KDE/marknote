@@ -149,7 +149,7 @@ msgstr "© 2023–2026 Mathis Brüchert"
 #: main.cpp:140
 #, kde-format
 msgid "Markdown parsing library"
-msgstr ""
+msgstr "Knižnica na spracovanie Markdownu"
 
 #: notesmodel.cpp:200
 #, kde-format
@@ -185,12 +185,10 @@ msgstr ""
 "Nie je možné premenovať priečinok. Priečinok s rovnakým názvom už existuje."
 
 #: notesmodel.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename folder."
-msgstr "Nepodarilo sa presunúť súbor."
+msgstr "Priečinok sa nepodarilo premenovať."
 
 #: notesmodel.cpp:278
 #, kde-format
@@ -200,12 +198,10 @@ msgstr ""
 "Nie je možné premenovať poznámku. Poznámka s rovnakým názvom už existuje."
 
 #: notesmodel.cpp:282
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Failed to move file."
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed to rename note."
-msgstr "Nepodarilo sa presunúť súbor."
+msgstr "Poznámku sa nepodarilo premenovať."
 
 #: notesmodel.cpp:346
 #, kde-format
