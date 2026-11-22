@@ -644,6 +644,9 @@ EditPage {
         case "code":
             CommandManager.parseBlock(newBlock, "```\n\n```");
             break;
+        case "mermaid":
+            CommandManager.parseBlock(newBlock, "```mermaid\nflowchart TD\n    A[Start] --> B[Process]\n    B --> C[Finish]\n```");
+            break;
         case "unordered_list":
             CommandManager.transformToList(newBlock, false, 0, "");
             break;

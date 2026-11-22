@@ -21,6 +21,7 @@ target_include_directories(marknote_static PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/mdtreemodel
     ${CMAKE_CURRENT_SOURCE_DIR}/commands
     ${CMAKE_CURRENT_SOURCE_DIR}/mdinlineparser
+    ${CMAKE_CURRENT_SOURCE_DIR}/mermaid
 )
 
 set_source_files_properties(qml/EditorActions.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
@@ -93,6 +94,12 @@ ecm_add_qml_module(marknote_static
         emojiermodel.h emojiermodel.cpp
         emojierproxymodel.h emojierproxymodel.cpp
         commandbarhelper.cpp commandbarhelper.h
+        mermaid/mermaidrenderer.h
+        mermaid/jsenginemermaidrenderer.h mermaid/jsenginemermaidrenderer.cpp
+        mermaid/mermaidcssflattener.h mermaid/mermaidcssflattener.cpp
+        mermaid/mermaidimageprovider.h mermaid/mermaidimageprovider.cpp
+        mermaid/mermaidhelper.h mermaid/mermaidhelper.cpp
+        mermaid/pele.qrc
         asyncdocbuilder/asyncdocbuilder.h asyncdocbuilder/asyncdocbuilder.cpp
         mdoptions/mdoptions.h
         mdtreemodel/treeitem.h mdtreemodel/treeitem.cpp

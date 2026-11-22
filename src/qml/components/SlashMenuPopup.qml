@@ -29,6 +29,7 @@ Popup {
         { name: i18n("Checklist"), type: "task_list", icon: "view-list-details", description: i18n("Task list with checkboxes") },
         { name: i18n("Quote"), type: "blockquote", icon: "format-text-blockquote", description: i18n("Quote or callout block") },
         { name: i18n("Code Block"), type: "code", icon: "code-context", description: i18n("Code snippet with syntax") },
+        { name: i18n("Mermaid Diagram"), type: "mermaid", icon: "view-preview", description: i18n("Flowchart, sequence, or architecture diagram") },
         { name: i18n("Divider"), type: "divider", icon: "insert-horizontal-rule", description: i18n("Horizontal dividing line") },
         { name: i18n("Table"), type: "table", icon: "insert-table", description: i18n("Tabular data grid") },
         { name: i18n("Close menu"), type: "close", icon: "dialog-close", description: i18n("Dismiss this menu") }

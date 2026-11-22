@@ -9,6 +9,7 @@ import org.kde.kquickcontrolsaddons as KQuickControlsAddons
 
 import org.kde.kirigami as Kirigami
 import org.kde.syntaxhighlighting
+import org.kde.marknote
 
 BlockTemplate {
     id: root
@@ -24,13 +25,91 @@ BlockTemplate {
 
     property int fontSize: Config.editorFont.pointSize
 
+    readonly property bool isMermaid: MermaidHelper.isMermaid(String(root.language || ""), String(root.text || ""))
+    readonly property bool hasCode: String(root.text || "").trim().length > 0
+    property bool sourceVisible: false
+    readonly property bool showDiagram: root.isMermaid && !root.sourceVisible && root.hasCode
+    property string diagramId: root.showDiagram ? MermaidHelper.diagramId(String(root.text || ""), Kirigami.Theme.backgroundColor.hslLightness < 0.5) : ""
+
+    onIsMermaidChanged: {
+        if (root.isMermaid && !root.hasCode) {
+            root.sourceVisible = true;
+        }
+    }
 
     blockComponent: Item {
         implicitWidth: parent.width
-        implicitHeight: scrollView.implicitHeight
-        
+        implicitHeight: root.showDiagram
+                        ? Math.max(diagramContainer.implicitHeight, buttonRow.implicitHeight + buttonRow.anchors.topMargin * 2)
+                        : scrollView.implicitHeight
+
+        Item {
+            id: diagramContainer
+            visible: root.showDiagram
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+            }
+            implicitHeight: Math.max(Kirigami.Units.gridUnit * 6, diagramColumn.implicitHeight + Kirigami.Units.largeSpacing * 2)
+
+            Rectangle {
+                anchors.fill: parent
+                color: Qt.alpha(Kirigami.Theme.textColor, 0.1)
+                radius: Kirigami.Units.smallSpacing
+            }
+
+            ColumnLayout {
+                id: diagramColumn
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    top: parent.top
+                    margins: Kirigami.Units.largeSpacing
+                }
+                spacing: Kirigami.Units.smallSpacing
+
+                Image {
+                    id: diagramImage
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 2
+                    fillMode: Image.PreserveAspectFit
+                    asynchronous: true
+                    source: root.showDiagram && root.diagramId.length > 0 ? ("image://mermaid/" + root.diagramId) : ""
+
+                    BusyIndicator {
+                        anchors.centerIn: parent
+                        running: diagramImage.status === Image.Loading
+                        visible: running
+                    }
+                }
+
+                Kirigami.InlineMessage {
+                    id: errorMessage
+                    Layout.fillWidth: true
+                    type: Kirigami.MessageType.Error
+                    visible: diagramImage.status === Image.Error
+                    text: i18n("Diagram rendering failed. Check Mermaid syntax.")
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: {
+                    root.sourceVisible = true;
+                    if (root.cppModel) {
+                        root.cppModel.requestFocus(root.block, codeText.text.length);
+                    }
+                    codeText.forceActiveFocus();
+                }
+            }
+        }
+
         Flickable {
             id: scrollView
+
+            visible: !root.showDiagram
 
             implicitWidth: parent.width
             implicitHeight: codeText.implicitHeight + (ScrollBar.horizontal.visible ? ScrollBar.horizontal.height : 0)
@@ -134,6 +213,12 @@ BlockTemplate {
                     }
 
                     if (event.key === Qt.Key_Escape) {
+                        if (root.isMermaid && root.hasCode) {
+                            flushTimer();
+                            root.sourceVisible = false;
+                            event.accepted = true;
+                            return;
+                        }
                         if (root.cppModel) {
                             root.cppModel.clearFocus();
                             root.cppModel.clearSelection();
@@ -207,6 +292,14 @@ BlockTemplate {
                             }
                         }
                         flushTimer();
+                        if (root.isMermaid && root.hasCode) {
+                            Qt.callLater(() => {
+                                if (!root) return;
+                                if (!codeText.activeFocus && !languageTextField.activeFocus) {
+                                    root.sourceVisible = false;
+                                }
+                            });
+                        }
                     } else {
                         codeText.lastSavedCursorPos = codeText.cursorPosition;
                         if (root.cppModel) {
@@ -220,10 +313,18 @@ BlockTemplate {
 
                     function onFocusRequested(requestedBlock, cursorPosition) {
                         if (requestedBlock === root.block) {
+                            if (root.showDiagram) {
+                                root.sourceVisible = true;
+                            }
                             if (cursorPosition >= 0) {
                                 codeText.cursorPosition = cursorPosition;
                             }
                             codeText.forceActiveFocus();
+                        } else {
+                            if (root.isMermaid && root.hasCode) {
+                                codeText.flushTimer();
+                                root.sourceVisible = false;
+                            }
                         }
                     }
                 }
@@ -258,7 +359,7 @@ BlockTemplate {
                 textEdit: (root.language.length > 0
                            && (Repository.definitionForName(root.language).isValid ?? (Repository.definitionForName(root.language).section.length > 0)))
                           ? codeText
-                          : none
+                          : null
                 definition: root.language
             }
 
@@ -326,6 +427,16 @@ BlockTemplate {
                     if (codeText.isProgrammaticUpdate) return;
                     if (languageTextField.activeFocus && languageTextField.text !== languageTextField.lastSavedLanguage) {
                         editTimer.restart();
+                    }
+                }
+                onActiveFocusChanged: {
+                    if (!activeFocus && root.isMermaid && root.hasCode) {
+                        Qt.callLater(() => {
+                            if (!root) return;
+                            if (!codeText.activeFocus && !languageTextField.activeFocus) {
+                                root.sourceVisible = false;
+                            }
+                        });
                     }
                 }
                 property string lastSavedLanguage: root.blockData.lang

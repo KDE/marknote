@@ -18,7 +18,6 @@
 #ifndef Q_OS_ANDROID
 #include <QApplication>
 #endif
-#include "mdtreemodel/treeitem.h"
 #include <QCommandLineParser>
 #include <QFile>
 #include <QFontDatabase>
@@ -36,6 +35,9 @@
 #include <marknotesettings.h>
 
 #include "commands/commandmanager.h"
+#include "mdtreemodel/treeitem.h"
+#include "mermaid/jsenginemermaidrenderer.h"
+#include "mermaid/mermaidimageprovider.h"
 
 #include <md4qt/config-md4qt.h>
 
@@ -107,6 +109,11 @@ void setupAboutCredits(KAboutData &about)
                     QUrl(u"https://invent.kde.org/uploads/-/system/user/avatar/5782/avatar.png?width=256"_s));
 
     about.addCredit(i18n("Laurent Montel"), i18n("Bug fixes"), u"montel@kde.org"_s, u"https://invent.kde.org/mlaurent"_s);
+
+    about.addCredit(i18n("Divyanshu"),
+                    i18n("Mermaid diagram support"),
+                    u"divyanshuchandra9027@gmail.com"_s,
+                    u"https://invent.kde.org/DivyanshuVortex"_s);
 }
 
 int main(int argc, char *argv[])
@@ -142,6 +149,12 @@ int main(int argc, char *argv[])
                        u"https://invent.kde.org/libraries/md4qt"_s,
                        KAboutLicense::MIT);
 
+    about.addComponent(u"Pele"_s,
+                       i18n("Diagram rendering library"),
+                       u"1.13.0"_s,
+                       u"https://github.com/obsidianmd/pele"_s,
+                       KAboutLicense::MIT);
+
     KAboutData::setApplicationData(about);
 
 #ifdef HAVE_KCRASH
@@ -160,6 +173,8 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     KLocalization::setupLocalizedContext(&engine);
+    JsEngineMermaidRenderer::instance();
+    engine.addImageProvider(u"mermaid"_s, new MermaidImageProvider());
 
     qRegisterMetaType<Stroke>("Stroke");
     qmlRegisterUncreatableType<TreeItem>("org.kde.marknote", 1, 0, "TreeItem", u"TreeItem should not be created in QML"_s);

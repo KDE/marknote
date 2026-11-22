@@ -520,6 +520,7 @@ void TreeItem::setCode(const QString &text, const QString &lang)
     auto codeItem = m_item.dynamicCast<MD::Code>();
     codeItem->setText(text);
     codeItem->setSyntax(lang);
+    Q_EMIT dataChanged();
 }
 
 void TreeItem::setTableCellMarkdown(int row, int col, const QString &markdown)

@@ -27,3 +27,9 @@ ecm_add_test(richdocumenthandlertest.cpp
     LINK_LIBRARIES marknote_static Qt::Test
     NAME_PREFIX "marknote-"
 )
+
+ecm_add_test(mermaidtest.cpp
+    TEST_NAME mermaidtest
+    LINK_LIBRARIES marknote_static Qt::Test
+    NAME_PREFIX "marknote-"
+)
