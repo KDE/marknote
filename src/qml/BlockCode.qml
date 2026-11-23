@@ -29,7 +29,7 @@ BlockTemplate {
     readonly property bool hasCode: String(root.text || "").trim().length > 0
     property bool sourceVisible: false
     readonly property bool showDiagram: root.isMermaid && !root.sourceVisible && root.hasCode
-    property string diagramId: root.showDiagram ? MermaidHelper.diagramId(String(root.text || ""), Kirigami.Theme.backgroundColor.hslLightness < 0.5) : ""
+    property string diagramId: root.showDiagram ? (Config.editorFont, MermaidHelper.diagramId(String(root.text || ""), Kirigami.Theme.backgroundColor.hslLightness < 0.5)) : ""
 
     onIsMermaidChanged: {
         if (root.isMermaid && !root.hasCode) {

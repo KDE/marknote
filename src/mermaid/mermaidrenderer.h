@@ -9,7 +9,8 @@
 #include <QString>
 #include <functional>
 
-struct MermaidRenderRequest {
+struct MermaidRenderRequest
+{
     QString code;
     QString fontFamily;
     qreal fontSize = 10.0;
@@ -19,7 +20,8 @@ struct MermaidRenderRequest {
     QHash<QString, QString> colorOverrides;
 };
 
-struct MermaidRenderResult {
+struct MermaidRenderResult
+{
     QString svg;
     QSize naturalSize;
     QString errorString;
@@ -30,7 +32,10 @@ class MermaidRenderer : public QObject
 {
     Q_OBJECT
 public:
-    explicit MermaidRenderer(QObject *parent = nullptr) : QObject(parent) {}
+    explicit MermaidRenderer(QObject *parent = nullptr)
+        : QObject(parent)
+    {
+    }
     ~MermaidRenderer() override = default;
 
     using RenderCallback = std::function<void(const MermaidRenderResult &result)>;
@@ -38,4 +43,3 @@ public:
     virtual void renderAsync(const MermaidRenderRequest &request, RenderCallback callback) = 0;
     virtual MermaidRenderResult renderSync(const MermaidRenderRequest &request) = 0;
 };
-

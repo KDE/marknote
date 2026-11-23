@@ -3,8 +3,10 @@
 
 #include "mermaidhelper.h"
 #include "mermaidimageprovider.h"
+#include <marknotesettings.h>
 
 #include <QCryptographicHash>
+#include <QFont>
 #include <QRegularExpression>
 
 using namespace Qt::StringLiterals;
@@ -24,7 +26,9 @@ QString MermaidHelper::diagramId(const QString &code, bool isDark)
     const QString hash = QString::fromLatin1(QCryptographicHash::hash(trimmedCode.toUtf8(), QCryptographicHash::Sha256).toHex().left(16));
     MermaidImageProvider::registerDiagram(hash, trimmedCode);
 
-    return u"%1_%2"_s.arg(hash).arg(isDark ? 1 : 0);
+    const QFont font = Config::editorFont();
+    const qreal fontSize = font.pointSizeF() > 0 ? font.pointSizeF() : (font.pixelSize() > 0 ? font.pixelSize() : 10.0);
+    return u"%1_%2_%3_%4"_s.arg(hash).arg(isDark ? 1 : 0).arg(font.family()).arg(fontSize);
 }
 
 QString MermaidHelper::getCacheKey(const QString &code, bool isDark, int widthBucket, qreal dpr)

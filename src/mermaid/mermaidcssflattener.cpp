@@ -2,10 +2,12 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "mermaidcssflattener.h"
+#include <marknotesettings.h>
 
 #include <KColorScheme>
 
 #include <QColor>
+#include <QFontDatabase>
 #include <QGuiApplication>
 #include <QPalette>
 #include <QRegularExpression>
@@ -25,9 +27,7 @@ QHash<QString, QString> MermaidCssFlattener::defaultVariables(bool isDark)
         KColorScheme buttonScheme(QPalette::Active, KColorScheme::Button);
         KColorScheme selScheme(QPalette::Active, KColorScheme::Selection);
 
-        auto toHex = [](const QColor &c) -> QString {
-            return c.name(QColor::HexRgb);
-        };
+        auto toHex = [](const QColor &c) -> QString { return c.name(QColor::HexRgb); };
 
         vars[u"--pele-bg"_s] = toHex(viewScheme.background(KColorScheme::NormalBackground).color());
         vars[u"--pele-fg"_s] = toHex(viewScheme.foreground(KColorScheme::NormalText).color());
@@ -72,6 +72,12 @@ QHash<QString, QString> MermaidCssFlattener::defaultVariables(bool isDark)
     vars[u"--pele-radius"_s] = u"4px"_s;
     vars[u"--pele-heading-weight"_s] = u"bold"_s;
     vars[u"--pele-title-weight"_s] = u"bold"_s;
+
+    const QFont font = Config::editorFont();
+    const QString family = font.family().isEmpty() ? QFontDatabase::systemFont(QFontDatabase::GeneralFont).family() : font.family();
+    vars[u"--pele-font"_s] = family.isEmpty() ? u"sans-serif"_s : family;
+    vars[u"--pele-font-mono"_s] =
+        QFontDatabase::systemFont(QFontDatabase::FixedFont).family().isEmpty() ? u"monospace"_s : QFontDatabase::systemFont(QFontDatabase::FixedFont).family();
 
     vars[u"--pele-series-1"_s] = vars.value(u"--pele-accent"_s, u"#3daee9"_s);
     vars[u"--pele-series-2"_s] = u"#2ecc71"_s;

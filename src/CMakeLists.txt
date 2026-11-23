@@ -97,6 +97,7 @@ ecm_add_qml_module(marknote_static
         mermaid/mermaidrenderer.h
         mermaid/jsenginemermaidrenderer.h mermaid/jsenginemermaidrenderer.cpp
         mermaid/mermaidcssflattener.h mermaid/mermaidcssflattener.cpp
+        mermaid/mermaidsvgcache.h mermaid/mermaidsvgcache.cpp
         mermaid/mermaidimageprovider.h mermaid/mermaidimageprovider.cpp
         mermaid/mermaidhelper.h mermaid/mermaidhelper.cpp
         mermaid/pele.qrc

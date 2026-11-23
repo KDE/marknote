@@ -3,9 +3,11 @@
 
 #pragma once
 
+#include <QMutex>
 #include <QQuickAsyncImageProvider>
 #include <QQuickImageResponse>
 #include <QQuickTextureFactory>
+#include <atomic>
 
 class MermaidImageResponse : public QQuickImageResponse
 {
@@ -20,11 +22,12 @@ public:
 private:
     void startJob();
 
+    mutable QMutex m_mutex;
     QString m_id;
     QSize m_requestedSize;
     QImage m_image;
     QString m_errorString;
-    bool m_cancelled = false;
+    std::atomic<bool> m_cancelled{false};
 };
 
 class MermaidImageProvider : public QQuickAsyncImageProvider

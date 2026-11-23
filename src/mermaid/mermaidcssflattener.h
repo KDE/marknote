@@ -12,4 +12,3 @@ public:
     static QHash<QString, QString> defaultVariables(bool isDark);
     static QString flattenSvg(const QString &rawSvg, const QHash<QString, QString> &customVariables, bool isDark);
 };
-
