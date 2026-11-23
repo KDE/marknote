@@ -9,6 +9,7 @@
 #include <QColor>
 #include <QFontDatabase>
 #include <QGuiApplication>
+#include <QMap>
 #include <QPalette>
 #include <QRegularExpression>
 
@@ -137,5 +138,75 @@ QString MermaidCssFlattener::flattenSvg(const QString &rawSvg, const QHash<QStri
     radiusVal.remove(u"px"_s);
     svg.replace(rxStyleRegex, u"rx=\"%1\""_s.arg(radiusVal));
 
+    svg = normalizeTspans(svg);
+
     return svg;
+}
+
+QString MermaidCssFlattener::normalizeTspans(const QString &svg)
+{
+    if (!svg.contains(u"<tspan"_s)) {
+        return svg;
+    }
+
+    static const QRegularExpression textRegex(u"<text\\b([^>]*)>([\\s\\S]*?)</text>"_s);
+    static const QRegularExpression tspanWithYRegex(u"<tspan\\b[^>]*\\by="_s);
+    static const QRegularExpression tspanRegex(u"<tspan\\b([^>]*)>([\\s\\S]*?)</tspan>"_s);
+    static const QRegularExpression attrRegex(u"([a-zA-Z0-9:_-]+)=\"([^\"]*)\""_s);
+
+    QString result;
+    result.reserve(svg.size());
+    int lastPos = 0;
+    auto it = textRegex.globalMatch(svg);
+
+    while (it.hasNext()) {
+        auto match = it.next();
+        result.append(QStringView(svg).mid(lastPos, match.capturedStart() - lastPos));
+        lastPos = match.capturedEnd();
+
+        const QString textAttrs = match.captured(1);
+        const QString content = match.captured(2);
+
+        if (!tspanWithYRegex.match(content).hasMatch()) {
+            result.append(match.captured(0));
+            continue;
+        }
+
+        QMap<QString, QString> baseAttrs;
+        auto attrIt = attrRegex.globalMatch(textAttrs);
+        while (attrIt.hasNext()) {
+            auto am = attrIt.next();
+            baseAttrs.insert(am.captured(1), am.captured(2));
+        }
+
+        auto tspanIt = tspanRegex.globalMatch(content);
+        bool hasTspans = false;
+
+        while (tspanIt.hasNext()) {
+            hasTspans = true;
+            auto tm = tspanIt.next();
+            const QString tspanAttrs = tm.captured(1);
+            const QString tspanBody = tm.captured(2);
+
+            QMap<QString, QString> combinedAttrs = baseAttrs;
+            auto tspanAttrIt = attrRegex.globalMatch(tspanAttrs);
+            while (tspanAttrIt.hasNext()) {
+                auto am = tspanAttrIt.next();
+                combinedAttrs.insert(am.captured(1), am.captured(2));
+            }
+
+            result.append(u"<text"_s);
+            for (auto ait = combinedAttrs.constBegin(); ait != combinedAttrs.constEnd(); ++ait) {
+                result.append(u" %1=\"%2\""_s.arg(ait.key(), ait.value()));
+            }
+            result.append(u">%1</text>"_s.arg(tspanBody));
+        }
+
+        if (!hasTspans) {
+            result.append(match.captured(0));
+        }
+    }
+
+    result.append(QStringView(svg).mid(lastPos));
+    return result;
 }

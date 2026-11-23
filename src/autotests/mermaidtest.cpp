@@ -35,6 +35,7 @@ private Q_SLOTS:
     void testDiagramWithTitle();
     void testSvgCacheHitMiss();
     void testSvgCacheEviction();
+    void testNormalizeTspans();
 };
 
 void MermaidTest::testLanguageDetection()
@@ -55,6 +56,8 @@ void MermaidTest::testLanguageDetection()
     QVERIFY(helper.isMermaid(QString(), u"pie title Pets\n  \"Dogs\" : 10"_s));
     QVERIFY(helper.isMermaid(QString(), u"gitGraph\n  commit"_s));
     QVERIFY(helper.isMermaid(QString(), u"mindmap\n  root((R))"_s));
+    QVERIFY(helper.isMermaid(QString(), u"radar-beta\n  axis food[\"Food\"]"_s));
+    QVERIFY(helper.isMermaid(QString(), u"eventmodeling\n  timeframe 01 ui Cart"_s));
 
     QVERIFY(helper.isMermaid(QString(), u"%% A comment\nflowchart TD\n  A --> B"_s));
 
@@ -265,6 +268,30 @@ void MermaidTest::testSvgCacheEviction()
 
     cache->setMaxCost(originalMaxCost);
     cache->clear();
+}
+
+void MermaidTest::testNormalizeTspans()
+{
+    // Single tspan with x and y
+    const QString single = u"<text class=\"title\"><tspan x=\"10\" y=\"20\">Title</tspan></text>"_s;
+    const QString normSingle = MermaidCssFlattener::normalizeTspans(single);
+    QVERIFY(!normSingle.contains(u"<tspan"_s));
+    QVERIFY(normSingle.contains(u"x=\"10\""_s));
+    QVERIFY(normSingle.contains(u"y=\"20\""_s));
+    QVERIFY(normSingle.contains(u"class=\"title\""_s));
+    QVERIFY(normSingle.contains(u">Title</text>"_s));
+
+    // Multi-line tspan
+    const QString multi = u"<text class=\"c4-descr\" font-size=\"13\"><tspan x=\"0\" y=\"10\">Line 1</tspan><tspan x=\"0\" y=\"25\">Line 2</tspan></text>"_s;
+    const QString normMulti = MermaidCssFlattener::normalizeTspans(multi);
+    QVERIFY(!normMulti.contains(u"<tspan"_s));
+    QVERIFY(normMulti.contains(u"<text class=\"c4-descr\" font-size=\"13\" x=\"0\" y=\"10\">Line 1</text>"_s));
+    QVERIFY(normMulti.contains(u"<text class=\"c4-descr\" font-size=\"13\" x=\"0\" y=\"25\">Line 2</text>"_s));
+
+    // Inline tspan without y should NOT be transformed
+    const QString inlineTspan = u"<text x=\"10\" y=\"20\">Total: <tspan class=\"val\">42</tspan></text>"_s;
+    const QString normInline = MermaidCssFlattener::normalizeTspans(inlineTspan);
+    QCOMPARE(normInline, inlineTspan);
 }
 
 QTEST_MAIN(MermaidTest)

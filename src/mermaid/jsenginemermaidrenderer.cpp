@@ -10,6 +10,7 @@
 #include <QJSEngine>
 #include <QLoggingCategory>
 #include <QMutex>
+#include <QRegularExpression>
 
 using namespace Qt::StringLiterals;
 
@@ -82,6 +83,43 @@ public Q_SLOTS:
         m_measurer = new NativeMeasurer(this);
         m_measurerJs = m_engine->newQObject(m_measurer);
 
+        static const QString polyfills = QStringLiteral(R"(
+            if (!Array.prototype.flat) {
+                Array.prototype.flat = function(depth) {
+                    var d = depth === undefined ? 1 : Math.floor(depth);
+                    if (d < 1) return Array.prototype.slice.call(this);
+                    return (function flat(arr, currDepth) {
+                        var res = [];
+                        for (var i = 0; i < arr.length; i++) {
+                            if (Array.isArray(arr[i]) && currDepth < d) {
+                                res.push.apply(res, flat(arr[i], currDepth + 1));
+                            } else if (arr[i] !== undefined) {
+                                res.push(arr[i]);
+                            }
+                        }
+                        return res;
+                    })(this, 0);
+                };
+            }
+            if (!String.prototype.replaceAll) {
+                String.prototype.replaceAll = function(search, replacement) {
+                    if (search instanceof RegExp) {
+                        return this.replace(search, replacement);
+                    }
+                    return this.split(search).join(replacement);
+                };
+            }
+            if (typeof Int32Array !== "undefined" && !Int32Array.prototype.sort) {
+                var _types = [Int8Array, Uint8Array, Uint8ClampedArray, Int16Array, Uint16Array, Int32Array, Uint32Array, Float32Array, Float64Array];
+                for (var i = 0; i < _types.length; i++) {
+                    if (_types[i] && !_types[i].prototype.sort) {
+                        _types[i].prototype.sort = Array.prototype.sort;
+                    }
+                }
+            }
+        )");
+        m_engine->evaluate(polyfills, u"polyfills.js"_s);
+
         QFile file(u":/org/kde/marknote/mermaid/pele_bundle.js"_s);
         if (file.open(QIODevice::ReadOnly)) {
             QString script = QString::fromUtf8(file.readAll());
@@ -135,7 +173,19 @@ public Q_SLOTS:
             options.setProperty(u"fontSize"_s, request.fontSize);
         }
 
-        QJSValue res = m_renderFn.call(QJSValueList() << request.code << options);
+        QString code = request.code;
+        // Work around upstream Pele 1.13.0 radar-beta parser bug where in-body 'title' is omitted from grammar
+        if (code.contains(u"radar-beta"_s) && !code.trimmed().startsWith(u"---"_s)) {
+            static const QRegularExpression radarTitleRegex(u"(?:\\A|\\n)[\\t ]*title[\\t ]+([^\\n\\r]+)"_s);
+            auto match = radarTitleRegex.match(code);
+            if (match.hasMatch()) {
+                const QString titleText = match.captured(1).trimmed();
+                code.remove(match.capturedStart(), match.capturedLength());
+                code = u"---\ntitle: \"%1\"\n---\n%2"_s.arg(titleText, code);
+            }
+        }
+
+        QJSValue res = m_renderFn.call(QJSValueList() << code << options);
         if (res.isError()) {
             result.errorString = res.toString();
             result.success = false;

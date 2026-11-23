@@ -64,7 +64,7 @@ bool MermaidHelper::isMermaid(const QString &language, const QString &code)
     }
 
     static const QRegularExpression diagRegex(
-        u"^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram(?:-v2)?|erDiagram|gantt|pie|journey|gitGraph|mindmap|timeline|quadrantChart|requirementDiagram|C4Context|C4Container|C4Component|sankey-beta|xychart-beta|block-beta)\\b"_s,
+        u"^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram(?:-v2)?|erDiagram|gantt|pie|journey|gitGraph|mindmap|timeline|quadrantChart|requirementDiagram|C4Context|C4Container|C4Component|C4Dynamic|C4Deployment|sankey(?:-beta)?|xychart(?:-beta)?|block(?:-beta)?|radar(?:-beta)?|treeView(?:-beta)?|treemap(?:-beta)?|venn(?:-beta)?|wardley(?:-beta)?|swimlane(?:-beta)?|cynefin(?:-beta)?|architecture(?:-beta)?|agentflow(?:-beta)?|railroad(?:-(?:ebnf|abnf|peg))?(?:-beta)?|eventmodeling|kanban|packet(?:-beta)?|usecase(?:-beta)?)\\b"_s,
         QRegularExpression::CaseInsensitiveOption);
 
     return diagRegex.match(firstMeaningful).hasMatch();
