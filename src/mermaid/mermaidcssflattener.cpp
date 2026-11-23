@@ -27,7 +27,9 @@ QHash<QString, QString> MermaidCssFlattener::defaultVariables(bool isDark)
         KColorScheme buttonScheme(QPalette::Active, KColorScheme::Button);
         KColorScheme selScheme(QPalette::Active, KColorScheme::Selection);
 
-        auto toHex = [](const QColor &c) -> QString { return c.name(QColor::HexRgb); };
+        auto toHex = [](const QColor &c) -> QString {
+            return c.name(QColor::HexRgb);
+        };
 
         vars[u"--pele-bg"_s] = toHex(viewScheme.background(KColorScheme::NormalBackground).color());
         vars[u"--pele-fg"_s] = toHex(viewScheme.foreground(KColorScheme::NormalText).color());

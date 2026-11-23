@@ -21,7 +21,10 @@ class MermaidTest : public QObject
     Q_OBJECT
 
 private Q_SLOTS:
-    void initTestCase() { Q_INIT_RESOURCE(pele); }
+    void initTestCase()
+    {
+        Q_INIT_RESOURCE(pele);
+    }
     void testLanguageDetection();
     void testSmokeDiagrams_data();
     void testSmokeDiagrams();
@@ -116,11 +119,11 @@ void MermaidTest::testSmokeDiagrams()
 
 void MermaidTest::testCssFlattener()
 {
-    const QString sample =
-        QString::fromUtf8("<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"--_bg:var(--pele-bg,#fff);--_fg:var(--pele-fg,#1f1f1f);color:var(--_fg)\">"
-                          "<rect x=\"0\" y=\"0\" width=\"10\" height=\"10\" fill=\"var(--_bg)\" stroke=\"currentColor\" style=\"rx:var(--_r)\"/>"
-                          "<text fill=\"var(--pele-series-1,#4c78a8)\">Hello</text>"
-                          "</svg>");
+    const QString sample = QString::fromUtf8(
+        "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"--_bg:var(--pele-bg,#fff);--_fg:var(--pele-fg,#1f1f1f);color:var(--_fg)\">"
+        "<rect x=\"0\" y=\"0\" width=\"10\" height=\"10\" fill=\"var(--_bg)\" stroke=\"currentColor\" style=\"rx:var(--_r)\"/>"
+        "<text fill=\"var(--pele-series-1,#4c78a8)\">Hello</text>"
+        "</svg>");
 
     QString flattened = MermaidCssFlattener::flattenSvg(sample, {}, false);
 

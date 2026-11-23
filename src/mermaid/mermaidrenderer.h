@@ -9,8 +9,7 @@
 #include <QString>
 #include <functional>
 
-struct MermaidRenderRequest
-{
+struct MermaidRenderRequest {
     QString code;
     QString fontFamily;
     qreal fontSize = 10.0;
@@ -20,8 +19,7 @@ struct MermaidRenderRequest
     QHash<QString, QString> colorOverrides;
 };
 
-struct MermaidRenderResult
-{
+struct MermaidRenderResult {
     QString svg;
     QSize naturalSize;
     QString errorString;

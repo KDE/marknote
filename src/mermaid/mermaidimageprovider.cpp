@@ -15,7 +15,8 @@
 
 using namespace Qt::StringLiterals;
 
-namespace {
+namespace
+{
 QHash<QString, QString> &diagramCodeRegistry()
 {
     static QHash<QString, QString> s_registry;

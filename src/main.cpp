@@ -110,10 +110,7 @@ void setupAboutCredits(KAboutData &about)
 
     about.addCredit(i18n("Laurent Montel"), i18n("Bug fixes"), u"montel@kde.org"_s, u"https://invent.kde.org/mlaurent"_s);
 
-    about.addCredit(i18n("Divyanshu"),
-                    i18n("Mermaid diagram support"),
-                    u"divyanshuchandra9027@gmail.com"_s,
-                    u"https://invent.kde.org/DivyanshuVortex"_s);
+    about.addCredit(i18n("Divyanshu"), i18n("Mermaid diagram support"), u"divyanshuchandra9027@gmail.com"_s, u"https://invent.kde.org/DivyanshuVortex"_s);
 }
 
 int main(int argc, char *argv[])
@@ -149,11 +146,7 @@ int main(int argc, char *argv[])
                        u"https://invent.kde.org/libraries/md4qt"_s,
                        KAboutLicense::MIT);
 
-    about.addComponent(u"Pele"_s,
-                       i18n("Diagram rendering library"),
-                       u"1.13.0"_s,
-                       u"https://github.com/obsidianmd/pele"_s,
-                       KAboutLicense::MIT);
+    about.addComponent(u"Pele"_s, i18n("Diagram rendering library"), u"1.13.0"_s, u"https://github.com/obsidianmd/pele"_s, KAboutLicense::MIT);
 
     KAboutData::setApplicationData(about);
 

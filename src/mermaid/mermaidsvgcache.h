@@ -9,12 +9,14 @@
 #include <QString>
 #include <memory>
 
-struct CachedSvgDiagram
-{
+struct CachedSvgDiagram {
     QString flatSvg;
     QSize naturalSize;
 
-    [[nodiscard]] int cost() const { return static_cast<int>(sizeof(CachedSvgDiagram)) + (flatSvg.size() * static_cast<int>(sizeof(QChar))); }
+    [[nodiscard]] int cost() const
+    {
+        return static_cast<int>(sizeof(CachedSvgDiagram)) + (flatSvg.size() * static_cast<int>(sizeof(QChar)));
+    }
 };
 
 class MermaidSvgCache
