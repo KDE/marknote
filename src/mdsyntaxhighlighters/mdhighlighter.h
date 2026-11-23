@@ -9,6 +9,7 @@
 #include <QColor>
 #include <QQmlEngine>
 #include <QQuickTextDocument>
+#include <QSharedPointer>
 #include <QSyntaxHighlighter>
 
 class MDHighlighter : public QSyntaxHighlighter
@@ -79,18 +80,21 @@ Q_SIGNALS:
     void baseFontSizeChanged();
 
 private:
-    void updateDoc();
+    void parseDoc();
+    void updateBlockFormats();
     void applyFormat(int start, int length, const QTextCharFormat &fmt);
 
     QQuickTextDocument *m_quickDocument = nullptr;
     bool m_active = true;
-    bool m_dirty = true;
+    bool m_textDirty = true;
+    bool m_formatsDirty = true;
     Mode m_mode = Mode::Full;
-    QString m_lastParsedText;
     qreal m_baseFontSize = 10.0;
 
     MarkdownTheme m_theme;
     QList<QList<FormatRange>> m_blockFormats;
+    QSharedPointer<MD::Document> m_doc;
+    QList<int> m_lineOffsets;
 };
 
 #endif // MDHIGHLIGHTER_H

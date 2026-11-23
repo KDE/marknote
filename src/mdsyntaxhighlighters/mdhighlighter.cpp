@@ -32,15 +32,15 @@ void MDHighlighter::setDocument(QQuickTextDocument *document)
     if (m_quickDocument && m_quickDocument->textDocument()) {
         QSyntaxHighlighter::setDocument(m_quickDocument->textDocument());
         connect(m_quickDocument->textDocument(), &QTextDocument::contentsChanged, this, [this]() {
-            m_dirty = true;
+            m_textDirty = true;
+            m_formatsDirty = true;
         });
     } else {
         QSyntaxHighlighter::setDocument(nullptr);
     }
 
-    m_dirty = true;
-    m_lastParsedText.clear();
-    m_blockFormats.clear();
+    m_textDirty = true;
+    m_formatsDirty = true;
 
     if (m_active && m_quickDocument) {
         rehighlight();
@@ -61,7 +61,7 @@ void MDHighlighter::setActive(bool active)
 
     m_active = active;
     if (m_active) {
-        m_dirty = true;
+        m_formatsDirty = true;
         rehighlight();
     }
     Q_EMIT activeChanged();
@@ -79,7 +79,7 @@ void MDHighlighter::setMode(Mode mode)
     }
 
     m_mode = mode;
-    m_dirty = true;
+    m_formatsDirty = true;
     if (m_active) {
         rehighlight();
     }
@@ -98,7 +98,7 @@ void MDHighlighter::setTextColor(const QColor &color)
     }
 
     m_theme.setTextColor(color);
-    m_dirty = true;
+    m_formatsDirty = true;
     if (m_active) {
         rehighlight();
     }
@@ -117,7 +117,7 @@ void MDHighlighter::setDimmedColor(const QColor &color)
     }
 
     m_theme.setDimmedColor(color);
-    m_dirty = true;
+    m_formatsDirty = true;
     if (m_active) {
         rehighlight();
     }
@@ -136,7 +136,7 @@ void MDHighlighter::setCodeColor(const QColor &color)
     }
 
     m_theme.setCodeColor(color);
-    m_dirty = true;
+    m_formatsDirty = true;
     if (m_active) {
         rehighlight();
     }
@@ -155,7 +155,7 @@ void MDHighlighter::setAccentColor(const QColor &color)
     }
 
     m_theme.setAccentColor(color);
-    m_dirty = true;
+    m_formatsDirty = true;
     if (m_active) {
         rehighlight();
     }
@@ -174,7 +174,7 @@ void MDHighlighter::setFixedFontFamily(const QString &family)
     }
 
     m_theme.setFixedFontFamily(family);
-    m_dirty = true;
+    m_formatsDirty = true;
     if (m_active) {
         rehighlight();
     }
@@ -193,39 +193,31 @@ void MDHighlighter::setBaseFontSize(qreal size)
     }
 
     m_baseFontSize = size;
-    m_dirty = true;
+    m_formatsDirty = true;
     if (m_active) {
         rehighlight();
     }
     Q_EMIT baseFontSizeChanged();
 }
 
-void MDHighlighter::updateDoc()
+void MDHighlighter::parseDoc()
 {
+    m_doc.reset();
+    m_lineOffsets.clear();
+
     if (!m_quickDocument || !m_quickDocument->textDocument()) {
-        m_blockFormats.clear();
-        m_lastParsedText.clear();
         return;
     }
 
     const QString text = m_quickDocument->textDocument()->toPlainText();
-    if (text == m_lastParsedText && !m_dirty) {
-        return;
-    }
-
-    m_blockFormats.clear();
-    m_lastParsedText = text;
-    m_dirty = false;
-
     if (text.isEmpty()) {
         return;
     }
 
-    QList<int> lineOffsets;
-    lineOffsets.append(0);
+    m_lineOffsets.append(0);
     for (int i = 0; i < text.length(); ++i) {
         if (text[i] == u'\n' || text[i] == QChar::LineSeparator) {
-            lineOffsets.append(i + 1);
+            m_lineOffsets.append(i + 1);
         }
     }
 
@@ -233,12 +225,20 @@ void MDHighlighter::updateDoc()
     textCopy.replace(QChar::LineSeparator, u'\n');
     QTextStream stream(&textCopy);
     MD::Parser parser;
-    auto doc = parser.parse(stream, QString(), QString());
-    if (doc) {
-        MDHighlighterVisitor visitor(m_quickDocument->textDocument(), m_theme, m_baseFontSize, lineOffsets, static_cast<HighlighterMode>(m_mode));
-        visitor.process(doc);
-        m_blockFormats = visitor.takeBlockFormats();
+    m_doc = parser.parse(stream, QString(), QString());
+}
+
+void MDHighlighter::updateBlockFormats()
+{
+    m_blockFormats.clear();
+
+    if (!m_quickDocument || !m_quickDocument->textDocument() || !m_doc) {
+        return;
     }
+
+    MDHighlighterVisitor visitor(m_quickDocument->textDocument(), m_theme, m_baseFontSize, m_lineOffsets, static_cast<HighlighterMode>(m_mode));
+    visitor.process(m_doc);
+    m_blockFormats = visitor.takeBlockFormats();
 }
 
 void MDHighlighter::highlightBlock(const QString &text)
@@ -248,7 +248,16 @@ void MDHighlighter::highlightBlock(const QString &text)
         return;
     }
 
-    updateDoc();
+    if (m_textDirty) {
+        parseDoc();
+        m_textDirty = false;
+        m_formatsDirty = true;
+    }
+
+    if (m_formatsDirty) {
+        updateBlockFormats();
+        m_formatsDirty = false;
+    }
 
     const int blockNum = currentBlock().blockNumber();
     if (blockNum >= 0 && blockNum < m_blockFormats.size()) {
