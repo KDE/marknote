@@ -80,8 +80,12 @@ void MermaidTest::testSmokeDiagrams_data()
     QTest::newRow("Pie") << u"Pie"_s << u"pie title Pets\n  \"Dogs\" : 386\n  \"Cats\" : 85"_s;
     QTest::newRow("GitGraph") << u"GitGraph"_s << u"gitGraph\n  commit\n  branch develop\n  checkout develop\n  commit\n  checkout main\n  merge develop"_s;
     QTest::newRow("Mindmap") << u"Mindmap"_s << u"mindmap\n  root((Root))\n    Topic 1\n    Topic 2"_s;
-    QTest::newRow("MindmapMarkdown") << u"MindmapMarkdown"_s << u"mindmap\n    id1[\"`**Pele** is the\ngoddess of volcanoes\nUnicode works too: 🌋`\"]\n      id2[\"`She lives in **the** crater of Kīlauea... a *very old story* that is still told today`\"]\n      id3[Lava builds new land]"_s;
-    QTest::newRow("FootnoteDiagram") << u"FootnoteDiagram"_s << u"flowchart TD\n    A[RFQ Issued & Quotes Received] --> B[L1 Quote Comparison Matrix]\n    B -->|Manufacturer Awards Quote| C[Atomic Transaction: PO Created]\n    Z[Manual Direct Procurement] -->|Manufacturer Creates Direct PO| C\n    \n    C -->|Status: Issued / Unpaid| D[Vendor Receives Order]\n    D -->|Vendor Acknowledges Order| E[Status: Confirmed / Acknowledged]"_s;
+    QTest::newRow("MindmapMarkdown")
+        << u"MindmapMarkdown"_s
+        << u"mindmap\n    id1[\"`**Pele** is the\ngoddess of volcanoes\nUnicode works too: 🌋`\"]\n      id2[\"`She lives in **the** crater of Kīlauea... a *very old story* that is still told today`\"]\n      id3[Lava builds new land]"_s;
+    QTest::newRow("FootnoteDiagram")
+        << u"FootnoteDiagram"_s
+        << u"flowchart TD\n    A[RFQ Issued & Quotes Received] --> B[L1 Quote Comparison Matrix]\n    B -->|Manufacturer Awards Quote| C[Atomic Transaction: PO Created]\n    Z[Manual Direct Procurement] -->|Manufacturer Creates Direct PO| C\n    \n    C -->|Status: Issued / Unpaid| D[Vendor Receives Order]\n    D -->|Vendor Acknowledges Order| E[Status: Confirmed / Acknowledged]"_s;
 }
 
 void MermaidTest::testSmokeDiagrams()
@@ -296,9 +300,10 @@ void MermaidTest::testNormalizeTspans()
         u"<text class=\"pele-label\" text-anchor=\"middle\"><tspan x=\"0\" y=\"-16\">She lives in </tspan><tspan font-weight=\"bold\">the</tspan><tspan> "
         u"crater</tspan><tspan x=\"0\" y=\"3\">of Kilauea</tspan></text>"_s;
     const QString normMd = MermaidCssFlattener::normalizeTspans(mdText);
-    QVERIFY(normMd.contains(
-        u"<text class=\"pele-label\" text-anchor=\"middle\" x=\"0\" xml:space=\"preserve\" y=\"-16\"><tspan>She lives in </tspan><tspan font-weight=\"bold\">the</tspan><tspan> "
-        u"crater</tspan></text>"_s));
+    QVERIFY(
+        normMd.contains(u"<text class=\"pele-label\" text-anchor=\"middle\" x=\"0\" xml:space=\"preserve\" y=\"-16\"><tspan>She lives in </tspan><tspan "
+                        u"font-weight=\"bold\">the</tspan><tspan> "
+                        u"crater</tspan></text>"_s));
     QVERIFY(normMd.contains(u"<text class=\"pele-label\" text-anchor=\"middle\" x=\"0\" y=\"3\">of Kilauea</text>"_s));
 
     const QString formattedText =
