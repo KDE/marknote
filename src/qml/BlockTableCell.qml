@@ -30,6 +30,24 @@ Item {
     property bool editing: false
     property int wrapMode: TextEdit.Wrap
 
+    onEditingChanged: {
+        if (editing) {
+            highlighter.rehighlight();
+        }
+    }
+
+    onMdChanged: {
+        if (textEdit) {
+            let cleanText = root.md ? root.md.replace(/<br\s*\/?>/gi, "\n") : "";
+            if (textEdit.text !== cleanText) {
+                textEdit.isProgrammaticUpdate = true;
+                textEdit.text = cleanText;
+                textEdit.isProgrammaticUpdate = false;
+            }
+            lastSavedText = cleanText;
+        }
+    }
+
     property string lastSavedText: ""
     property int lastSavedCursorPos: 0
     property bool lastSavedTextParsed: false
@@ -118,11 +136,26 @@ Item {
         font.pointSize: root.fontSize
         font.family: root.fontFamily
         color: root.color
+
+        MDHighlighter {
+            id: highlighter
+            document: textEdit.textDocument
+            textColor: root.color
+            dimmedColor: Kirigami.Theme.disabledTextColor
+            codeColor: Kirigami.ColorUtils.tintWithAlpha(root.color, Kirigami.Theme.focusColor, 0.7)
+            accentColor: Kirigami.Theme.highlightColor
+            fixedFontFamily: Kirigami.Theme.fixedWidthFont.family
+            baseFontSize: root.fontSize
+            mode: MDHighlighter.Inline
+            active: root.editing
+        }
+
         selectionColor: if (NavigationController.notebookColor) {
                             Kirigami.ColorUtils.tintWithAlpha(NavigationController.notebookColor, Kirigami.Theme.backgroundColor, 0.4)
                         } else {
                             Kirigami.Theme.highlightColor
                         }
+
         MouseArea {
             anchors.fill: parent
             acceptedButtons: Qt.RightButton
@@ -253,6 +286,7 @@ Item {
                 flushTimer();
                 root.editing = false;
             } else {
+                highlighter.rehighlight();
                 lastSavedText = textEdit.text;
                 lastSavedCursorPos = textEdit.cursorPosition;
                 model.setFocusedBlockToTable(root.block, root.rowIndex, root.columnIndex, textEdit.cursorPosition);

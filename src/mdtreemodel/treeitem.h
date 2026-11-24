@@ -80,6 +80,8 @@ public:
     void dataChanged();
 
 private:
+    void replaceItemInParentBlock();
+
     QSharedPointer<MD::Document> m_doc;
     QSharedPointer<MD::Item> m_item;
     QString m_unparsedMd;

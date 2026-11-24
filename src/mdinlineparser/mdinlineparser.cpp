@@ -25,7 +25,7 @@ QList<MDInlineSpan> MDInlineStyleParser::parse(const QString &text)
     QList<int> lineOffsets;
     lineOffsets.append(0);
     for (int i = 0; i < text.length(); ++i) {
-        if (text[i] == u'\n') {
+        if (text[i] == u'\n' || text[i] == QChar::LineSeparator) {
             lineOffsets.append(i + 1);
         }
     }
@@ -43,11 +43,13 @@ QList<MDInlineSpan> MDInlineStyleParser::parse(const QString &text)
     parser.setInlineParsers(inlineParsers);
 
     QString textCopy = text;
+    textCopy.replace(QChar::LineSeparator, u'\n');
     QTextStream stream(&textCopy);
     QSharedPointer<MD::Document> doc = parser.parse(stream, QString(), QString());
 
     struct ActiveStyle {
         int start;
+        int openDelimLen;
         MDOptions::InlineStyle type;
         int origStyle;
     };
@@ -64,6 +66,7 @@ QList<MDInlineSpan> MDInlineStyleParser::parse(const QString &text)
                     for (const auto &openStyle : textItem->openStyles()) {
                         ActiveStyle as;
                         as.start = lineOffsets.value(openStyle.startLine(), 0) + openStyle.startColumn();
+                        as.openDelimLen = openStyle.endColumn() - openStyle.startColumn() + 1;
                         as.origStyle = openStyle.style();
                         switch (openStyle.style()) {
                         case MD::TextOption::ItalicText:
@@ -88,6 +91,8 @@ QList<MDInlineSpan> MDInlineStyleParser::parse(const QString &text)
                                 span.start = activeStyles[i].start;
                                 span.end = lineOffsets.value(closeStyle.endLine(), 0) + closeStyle.endColumn();
                                 span.type = activeStyles[i].type;
+                                span.openDelimLen = activeStyles[i].openDelimLen;
+                                span.closeDelimLen = closeStyle.endColumn() - closeStyle.startColumn() + 1;
                                 spans.append(span);
                                 activeStyles.removeAt(i);
                                 break;
@@ -98,8 +103,24 @@ QList<MDInlineSpan> MDInlineStyleParser::parse(const QString &text)
                     auto *codeItem = static_cast<MD::Code *>(inlineItem.get());
                     if (codeItem->isInline()) {
                         MDInlineSpan span;
-                        span.start = lineOffsets.value(codeItem->startLine(), 0) + codeItem->startColumn();
-                        span.end = lineOffsets.value(codeItem->endLine(), 0) + codeItem->endColumn();
+                        int startLine = codeItem->startLine();
+                        int startCol = codeItem->startColumn();
+                        int endLine = codeItem->endLine();
+                        int endCol = codeItem->endColumn();
+
+                        if (codeItem->startDelim().startColumn() != -1) {
+                            startLine = codeItem->startDelim().startLine();
+                            startCol = codeItem->startDelim().startColumn();
+                            span.openDelimLen = codeItem->startDelim().endColumn() - codeItem->startDelim().startColumn() + 1;
+                        }
+                        if (codeItem->endDelim().endColumn() != -1) {
+                            endLine = codeItem->endDelim().endLine();
+                            endCol = codeItem->endDelim().endColumn();
+                            span.closeDelimLen = codeItem->endDelim().endColumn() - codeItem->endDelim().startColumn() + 1;
+                        }
+
+                        span.start = lineOffsets.value(startLine, 0) + startCol;
+                        span.end = lineOffsets.value(endLine, 0) + endCol;
                         span.type = MDOptions::InlineStyle::CodeSpan;
                         spans.append(span);
                     }

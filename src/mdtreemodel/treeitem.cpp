@@ -439,15 +439,7 @@ void TreeItem::commitUnparsedMarkdown()
         const auto parsed = fromMarkdown(m_unparsedMd, doc());
         if (!parsed.isEmpty() && parsed[0]->m_item) {
             m_item = parsed[0]->m_item;
-
-            if (m_parent && m_parent->m_item) {
-                auto parentBlock = m_parent->m_item.dynamicCast<MD::Block>();
-                int r = row();
-                if (parentBlock && r >= 0 && r < parentBlock->items().size()) {
-                    parentBlock->removeItemAt(r);
-                    parentBlock->insertItem(r, m_item);
-                }
-            }
+            replaceItemInParentBlock();
         }
         qDeleteAll(parsed);
         m_unparsedMd.clear();
@@ -540,7 +532,11 @@ void TreeItem::setTableCellMarkdown(int row, int col, const QString &markdown)
         return;
     }
 
-    QString markdownInTable{QString(u"|%1|\n|-|"_s).arg(markdown)};
+    QString sanitizedMd = markdown;
+    sanitizedMd.replace(u"\r\n"_s, u"<br>"_s);
+    sanitizedMd.replace(u'\n', u"<br>"_s);
+
+    QString markdownInTable{QString(u"|%1|\n|-|"_s).arg(sanitizedMd)};
     const auto output = fromMarkdown(markdownInTable, doc());
 
     if (output.empty()) {
@@ -630,6 +626,7 @@ void TreeItem::insertRowInTable(int rowToInsert, QSharedPointer<MD::TableRow> ro
     }
 
     m_item = newTable;
+    replaceItemInParentBlock();
 
     if (m_unparsedTableMd) {
         if (rowToInsert >= 0 && rowToInsert <= m_unparsedTableMd->size()) {
@@ -707,6 +704,7 @@ void TreeItem::insertColInTable(int colToInsert, const QList<QSharedPointer<MD::
     }
 
     m_item = newTable;
+    replaceItemInParentBlock();
 
     if (m_unparsedTableMd) {
         for (int r = 0; r < m_unparsedTableMd->size(); ++r) {
@@ -757,6 +755,7 @@ void TreeItem::removeRowFromTable(int rowToRemove)
     }
 
     m_item = newTable;
+    replaceItemInParentBlock();
 
     if (m_unparsedTableMd) {
         if (rowToRemove >= 0 && rowToRemove < m_unparsedTableMd->size()) {
@@ -811,6 +810,7 @@ void TreeItem::removeColFromTable(int colToRemove)
     }
 
     m_item = newTable;
+    replaceItemInParentBlock();
 
     if (m_unparsedTableMd) {
         for (auto &mdRow : *m_unparsedTableMd) {
@@ -826,4 +826,16 @@ void TreeItem::removeColFromTable(int colToRemove)
 QSharedPointer<MD::Document> TreeItem::doc() const
 {
     return m_doc;
+}
+
+void TreeItem::replaceItemInParentBlock()
+{
+    if (m_parent && m_parent->m_item) {
+        auto parentBlock = m_parent->m_item.dynamicCast<MD::Block>();
+        int r = row();
+        if (parentBlock && r >= 0 && r < parentBlock->items().size()) {
+            parentBlock->removeItemAt(r);
+            parentBlock->insertItem(r, m_item);
+        }
+    }
 }

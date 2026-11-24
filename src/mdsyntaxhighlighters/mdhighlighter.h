@@ -1,0 +1,100 @@
+// SPDX-FileCopyrightText: 2026 Prayag Jain <prayagjain2@gmail.com>
+// SPDX-License-Identifier: LGPL-3.0-or-later
+
+#ifndef MDHIGHLIGHTER_H
+#define MDHIGHLIGHTER_H
+
+#include "mdhighlightervisitor.h"
+
+#include <QColor>
+#include <QQmlEngine>
+#include <QQuickTextDocument>
+#include <QSharedPointer>
+#include <QSyntaxHighlighter>
+
+class MDHighlighter : public QSyntaxHighlighter
+{
+    Q_OBJECT
+    QML_ELEMENT
+
+public:
+    enum Mode {
+        Full = static_cast<int>(HighlighterMode::Full),
+        Inline = static_cast<int>(HighlighterMode::Inline)
+    };
+    Q_ENUM(Mode)
+
+    Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
+    Q_PROPERTY(bool active READ active WRITE setActive NOTIFY activeChanged)
+    Q_PROPERTY(Mode mode READ mode WRITE setMode NOTIFY modeChanged)
+    Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
+    Q_PROPERTY(QColor dimmedColor READ dimmedColor WRITE setDimmedColor NOTIFY dimmedColorChanged)
+    Q_PROPERTY(QColor codeColor READ codeColor WRITE setCodeColor NOTIFY codeColorChanged)
+    Q_PROPERTY(QColor accentColor READ accentColor WRITE setAccentColor NOTIFY accentColorChanged)
+    Q_PROPERTY(QString fixedFontFamily READ fixedFontFamily WRITE setFixedFontFamily NOTIFY fixedFontFamilyChanged)
+    Q_PROPERTY(qreal baseFontSize READ baseFontSize WRITE setBaseFontSize NOTIFY baseFontSizeChanged)
+
+public:
+    explicit MDHighlighter(QObject *parent = nullptr);
+    ~MDHighlighter() override = default;
+
+    QQuickTextDocument *document() const;
+    void setDocument(QQuickTextDocument *document);
+
+    bool active() const;
+    void setActive(bool active);
+
+    Mode mode() const;
+    void setMode(Mode mode);
+
+    QColor textColor() const;
+    void setTextColor(const QColor &color);
+
+    QColor dimmedColor() const;
+    void setDimmedColor(const QColor &color);
+
+    QColor codeColor() const;
+    void setCodeColor(const QColor &color);
+
+    QColor accentColor() const;
+    void setAccentColor(const QColor &color);
+
+    QString fixedFontFamily() const;
+    void setFixedFontFamily(const QString &family);
+
+    qreal baseFontSize() const;
+    void setBaseFontSize(qreal size);
+
+protected:
+    void highlightBlock(const QString &text) override;
+
+Q_SIGNALS:
+    void documentChanged();
+    void activeChanged();
+    void modeChanged();
+    void textColorChanged();
+    void dimmedColorChanged();
+    void codeColorChanged();
+    void accentColorChanged();
+    void fixedFontFamilyChanged();
+    void baseFontSizeChanged();
+
+private:
+    void parseDoc();
+    void updateBlockFormats();
+    void applyFormat(int start, int length, const QTextCharFormat &fmt);
+
+    QQuickTextDocument *m_quickDocument = nullptr;
+    bool m_active = true;
+    bool m_textDirty = true;
+    bool m_formatsDirty = true;
+    Mode m_mode = Mode::Full;
+    qreal m_baseFontSize = 10.0;
+
+    MarkdownTheme m_theme;
+    QList<QList<FormatRange>> m_blockFormats;
+    QSharedPointer<MD::Document> m_doc;
+    QList<int> m_lineOffsets;
+};
+
+#endif // MDHIGHLIGHTER_H

@@ -22,6 +22,7 @@ target_include_directories(marknote_static PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/commands
     ${CMAKE_CURRENT_SOURCE_DIR}/mdinlineparser
     ${CMAKE_CURRENT_SOURCE_DIR}/mermaid
+    ${CMAKE_CURRENT_SOURCE_DIR}/mdsyntaxhighlighters
 )
 
 set_source_files_properties(qml/EditorActions.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
@@ -80,6 +81,9 @@ ecm_add_qml_module(marknote_static
         qml/BlockText.qml
         qml/BlockTableCell.qml
     SOURCES
+        mdsyntaxhighlighters/markdowntheme.cpp mdsyntaxhighlighters/markdowntheme.h
+        mdsyntaxhighlighters/mdhighlightervisitor.cpp mdsyntaxhighlighters/mdhighlightervisitor.h
+        mdsyntaxhighlighters/mdhighlighter.cpp mdsyntaxhighlighters/mdhighlighter.h
         documenthandler.cpp documenthandler.h
         rich_documenthandler.cpp rich_documenthandler.h
         raw_documenthandler.cpp raw_documenthandler.h

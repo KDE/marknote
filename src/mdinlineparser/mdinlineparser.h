@@ -15,11 +15,15 @@ struct MDInlineSpan {
     Q_PROPERTY(int start MEMBER start CONSTANT)
     Q_PROPERTY(int end MEMBER end CONSTANT)
     Q_PROPERTY(MDOptions::InlineStyle type MEMBER type CONSTANT)
+    Q_PROPERTY(int openDelimLen MEMBER openDelimLen CONSTANT)
+    Q_PROPERTY(int closeDelimLen MEMBER closeDelimLen CONSTANT)
 
 public:
     int start = -1;
     int end = -1;
-    MDOptions::InlineStyle type;
+    MDOptions::InlineStyle type = MDOptions::InlineStyle::None;
+    int openDelimLen = 0;
+    int closeDelimLen = 0;
 };
 Q_DECLARE_METATYPE(MDInlineSpan)
 

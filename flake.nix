@@ -103,6 +103,31 @@
         let
           pkgs = import nixpkgs { inherit system; };
           md4qt = self.packages.${system}.md4qt;
+
+          devInputs = (with pkgs.kdePackages; [
+            qtbase
+            qtdeclarative
+            kconfig
+            ki18n
+            kiconthemes
+            kirigami
+            kirigami-addons
+            kcoreaddons
+            kcolorscheme
+            knotifications
+            syntax-highlighting
+            kmime
+            kitemmodels
+            kwindowsystem
+            kcrash
+            kdeclarative
+            qqc2-desktop-style
+            sonnet
+            breeze-icons
+          ]) ++ [
+            md4qt
+          ];
+          qtSearchInputs = map (p: p.unwrapped or p) devInputs;
           qmlRoots = kdeDepsFor pkgs;
           
           # wrapQtAppsHook appends each Qt dependency's lib/qt-6/qml and
@@ -178,10 +203,14 @@
               kdePackages.wrapQtAppsHook
             ];
 
+
             buildInputs = qmlRoots ++ [ md4qt ];
 
             shellHook = ''
               export CMAKE_PREFIX_PATH="${md4qt}''${CMAKE_PREFIX_PATH:+:$CMAKE_PREFIX_PATH}"
+              export QT_PLUGIN_PATH="${pkgs.lib.makeSearchPath "lib/qt-6/plugins" qtSearchInputs}"
+              export QML2_IMPORT_PATH="${pkgs.lib.makeSearchPath "lib/qt-6/qml" qtSearchInputs}"
+              export NIXPKGS_QT6_QML_IMPORT_PATH="$QML2_IMPORT_PATH"
               source "${qtRuntimePaths}"
               echo "KF6 development environment ready."
             '';

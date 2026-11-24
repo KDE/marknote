@@ -193,8 +193,12 @@ QVariantMap fromTable(const QSharedPointer<MD::Item> &item, QSharedPointer<MD::D
                 p->appendItem(item);
             }
 
-            rowHtmlData.append(toHtml(p, fullDoc));
-            rowMdData.append(toMd(p));
+            QString cellHtml = toHtml(p, fullDoc);
+            QString cellMd = toMd(p);
+            cellMd.replace(QRegularExpression(u"<br\\s*/?>"_s), u"\n"_s);
+
+            rowHtmlData.append(cellHtml);
+            rowMdData.append(cellMd);
         }
 
         htmlData.append(rowHtmlData);
