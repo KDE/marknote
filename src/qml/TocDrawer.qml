@@ -193,6 +193,9 @@ Kirigami.OverlayDrawer {
                     leftPadding: ((level - 1) * 1.5 * Kirigami.Units.largeSpacing) + Kirigami.Units.largeSpacing
                     rightPadding: Kirigami.Units.largeSpacing
 
+                    Kirigami.Theme.highlightColor: NavigationController.notebookColor
+                    Kirigami.Theme.inherit: false
+
                     topPadding: Kirigami.Units.smallSpacing
                     bottomPadding: Kirigami.Units.smallSpacing
 

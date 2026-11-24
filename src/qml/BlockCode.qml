@@ -60,7 +60,11 @@ BlockTemplate {
                     color: Qt.alpha(Kirigami.Theme.textColor, 0.1)
                     radius: Kirigami.Units.smallSpacing
                 }
-
+                selectionColor: if (NavigationController.notebookColor) {
+                                    Kirigami.ColorUtils.tintWithAlpha(NavigationController.notebookColor, Kirigami.Theme.backgroundColor, 0.4)
+                                } else {
+                                    Kirigami.Theme.highlightColor
+                                }
                 MouseArea {
                     anchors.fill: parent
                     acceptedButtons: Qt.RightButton
@@ -251,7 +255,10 @@ BlockTemplate {
             }
 
             SyntaxHighlighter {
-                textEdit: root.language.length > 0 ? codeText : none
+                textEdit: (root.language.length > 0
+                           && (Repository.definitionForName(root.language).isValid ?? (Repository.definitionForName(root.language).section.length > 0)))
+                          ? codeText
+                          : none
                 definition: root.language
             }
 

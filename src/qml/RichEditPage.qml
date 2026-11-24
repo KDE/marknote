@@ -19,7 +19,7 @@ import org.kde.kirigamiaddons.components as Components
 
 EditPage {
     id: root
-
+    Kirigami.Theme.highlightColor: NavigationController.notebookColor
     canFitToolbar: width >= toolBar.width + Kirigami.Units.largeSpacing * 2
 
     mobileToolBarHidden: mobileToolBarContainer.hidden

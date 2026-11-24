@@ -150,6 +150,12 @@ Item {
             active: root.editing
         }
 
+        selectionColor: if (NavigationController.notebookColor) {
+                            Kirigami.ColorUtils.tintWithAlpha(NavigationController.notebookColor, Kirigami.Theme.backgroundColor, 0.4)
+                        } else {
+                            Kirigami.Theme.highlightColor
+                        }
+
         MouseArea {
             anchors.fill: parent
             acceptedButtons: Qt.RightButton

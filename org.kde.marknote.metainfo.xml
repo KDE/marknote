@@ -561,7 +561,7 @@
           <li xml:lang="sk">Opraviť ukladá sa písmo</li>
           <li xml:lang="sl">Popravi shranjevanje pisave</li>
           <li xml:lang="sv">Rätta spara teckensnitt</li>
-          <li xml:lang="tr">Yazıtipini kaydetme sorununu düzelt</li>
+          <li xml:lang="tr">Yazı tipini kaydetme sorununu düzelt</li>
           <li xml:lang="uk">Виправлено збереження шрифту</li>
           <li xml:lang="zh-CN">修复保存字体</li>
           <li xml:lang="zh-TW">修正儲存字型</li>
@@ -747,7 +747,7 @@
         <p xml:lang="sk">Čo sa týka podpory úprav, podpora podmnožiny markdownu sa opäť rozšírila. Teraz je možné pridávať do poznámok tabuľky a obsah.</p>
         <p xml:lang="sl">Kar zadeva podporo za izdaje, se je podmnožica podprtega markdown-a ponovno povečala. Zdaj je mogoče dodajati in urejati tabele. Poleg tega smo začeli pretvarjati znotrajvrstični markdown neposredno v obogateno besedilo med tipkanjem. Podpora je omejena na nekaj konstruktov markdown-a, vendar se bo sčasoma verjetno še povečala. Zdaj lahko prilagodite pisavo, ki jo uporablja urejevalnik.</p>
         <p xml:lang="sv">När det gäller stöd för utgåvor har delmängden av markdown som stöds ökat igen. Nu är det möjligt att lägga till och redigera tabeller. Dessutom har vi börjat omvandla markdown direkt på plats till Rich text medan du skriver. Stödet är begränsat till ett fåtal markdown-konstruktioner men kommer sannolikt att öka med tiden. Man kan nu anpassa teckensnittet som används av editorn.</p>
-        <p xml:lang="tr">Düzenleme desteği açısından, desteklenen Markdown alt kümesi tekrar genişledi. Artık tablo eklemek ve düzenlemek olanaklı. Ek olarak, satır içi Markdown’ı yazarken doğrudan zengin metne dönüştürmeye başladık. Destek birkaç Markdown yapısıyla sınırlı olsa da zamanla artması muhtemeldir. Artık düzenleyici tarafından kullanılan yazıtipini özelleştirebilirsiniz.</p>
+        <p xml:lang="tr">Düzenleme desteği açısından, desteklenen Markdown alt kümesi tekrar genişledi. Artık tablo eklemek ve düzenlemek olanaklı. Ek olarak, satır içi Markdown’ı yazarken doğrudan zengin metne dönüştürmeye başladık. Destek birkaç Markdown yapısıyla sınırlı olsa da zamanla artması muhtemeldir. Artık düzenleyici tarafından kullanılan yazı tipini özelleştirebilirsiniz.</p>
         <p xml:lang="uk">Що стосується підтримки редакцій, підмножина підтримуваних синтаксичних конструкцій markdown знову збільшилася. Тепер можна додавати та редагувати таблиці. Крім того, ми почали перетворювати вбудований markdown безпосередньо на форматований текст під час введення тексту. Підтримка обмежена кількома синтаксичними конструкціями markdown, але, ймовірно, з часом розширюватиметься. Тепер ви можете налаштувати шрифт, який використовується редактором.</p>
         <p xml:lang="zh-CN">在编辑功能支持方面，支持的 Markdown 语法子集再次得到扩展。现在可以添加和编辑表格了。此外，我们开始在您输入时将内联 Markdown 直接转换为富文本。目前该功能仅支持少数几种 Markdown 语法结构，但未来可能会逐步扩展。现在您可以自定义编辑器使用的字体了。</p>
         <p xml:lang="zh-TW">在 Markdown 變種支援的部分，Marknote 現在支援更多 Markdown 類的功能，像是新增與編輯表格。另外，我們也開始讓行內 Markdown 在您邊打字的時候邊轉換為豐富格式。目前這個轉換只支援少數 Markdown 語法，但未來應該會有更多語法受到支援。您現在也可以自訂編輯器要用什麼字型。</p>
@@ -1012,7 +1012,7 @@
         <p xml:lang="sk">Vďaka Carlovi Marknote teraz podporuje nielen tučné a kurzívne písmo, ale tiež umožňuje podčiarkovať a zvýrazňovať text, meniť písmo, pridávať odkazy a obrázky a dokonca vkladať zaškrtávacie polia.</p>
         <p xml:lang="sl">Zahvaljujoč Carlu Marknote zdaj ne podpira le krepke in poševne pisave, temveč vam omogoča tudi podčrtavanje pomembnih delov, prečrtavanje napačnih delov, organiziranje misli v različne vrste seznamov in organiziranje zapiskov z naslovi, razdelki in še več.</p>
         <p xml:lang="sv">Tack vare Carl stöder Marknote nu inte bara fetstil och kursiv stil, utan gör det också möjligt att stryka under viktiga delar, stryka över felaktiga delar, organisera tankar i olika listtyper och organisera anteckningar med titlar, avsnitt med mera.</p>
-        <p xml:lang="tr">Carl sayesinde Marknote artık sadece kalın ve yatık yazıtiplerini desteklemekle kalmıyor, aynı zamanda önemli kısımların altını çizmenize, yanlış kısımların üzerini çizmenize, düşüncelerinizi çeşitli liste türlerinde düzenlemenize ve notlarınızı başlıklar, bölümler ve daha fazlasıyla organize etmenize olanak tanıyor.</p>
+        <p xml:lang="tr">Carl sayesinde Marknote artık sadece kalın ve yatık yazı tiplerini desteklemekle kalmıyor, aynı zamanda önemli kısımların altını çizmenize, yanlış kısımların üzerini çizmenize, düşüncelerinizi çeşitli liste türlerinde düzenlemenize ve notlarınızı başlıklar, bölümler ve daha fazlasıyla organize etmenize olanak tanıyor.</p>
         <p xml:lang="uk">Завдяки Карлу, у Marknote реалізовано не лише жирний та курсивний шрифти, але й можливість підкреслювати важливі частини, викреслювати неправильні, упорядковувати свої думки в різні типи списків та впорядковувати нотатки за заголовками, розділами тощо.</p>
         <p xml:lang="zh-CN">多亏了卡尔，Marknote 现在不仅支持粗体和斜体字体，还允许您对重要内容加下划线、对错误内容划掉、通过多种列表类型整理思路，并利用标题、章节等功能来管理笔记。</p>
         <p xml:lang="zh-TW">感謝 Carl 的努力，Marknote 現在支援粗體、斜體、底線、刪除線、多種列表格式、標題、區塊等等功能。</p>

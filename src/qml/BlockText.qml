@@ -112,6 +112,12 @@ Item {
         font.weight: root.fontBold ? Font.Bold : Font.Normal
         font.family: root.fontFamily
         color: root.color
+        selectionColor: if (NavigationController.notebookColor) {
+                            Kirigami.ColorUtils.tintWithAlpha(NavigationController.notebookColor, Kirigami.Theme.backgroundColor, 0.4)
+                        } else {
+                            Kirigami.Theme.highlightColor
+                        }
+
 
         MDHighlighter {
             id: highlighter
