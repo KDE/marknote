@@ -73,6 +73,7 @@ QHash<QString, QString> MermaidCssFlattener::defaultVariables(bool isDark)
     }
 
     vars[u"--pele-radius"_s] = u"4px"_s;
+    vars[u"--pele-bold-weight"_s] = u"bold"_s;
     vars[u"--pele-heading-weight"_s] = u"bold"_s;
     vars[u"--pele-title-weight"_s] = u"bold"_s;
 
@@ -113,8 +114,10 @@ QString MermaidCssFlattener::flattenSvg(const QString &rawSvg, const QHash<QStri
     aliases[u"--_b"_s] = vars.value(u"--pele-border"_s);
     aliases[u"--_c"_s] = vars.value(u"--pele-accent"_s);
     aliases[u"--_r"_s] = vars.value(u"--pele-radius"_s, u"4px"_s);
+    aliases[u"--_w"_s] = vars.value(u"--pele-bold-weight"_s, u"bold"_s);
     aliases[u"--_hw"_s] = vars.value(u"--pele-heading-weight"_s, u"bold"_s);
     aliases[u"--_tw"_s] = vars.value(u"--pele-title-weight"_s, u"bold"_s);
+    aliases[u"--_fm"_s] = vars.value(u"--pele-font-mono"_s, u"monospace"_s);
 
     for (auto it = aliases.constBegin(); it != aliases.constEnd(); ++it) {
         svg.replace(u"var(%1)"_s.arg(it.key()), it.value());
@@ -149,19 +152,33 @@ QString MermaidCssFlattener::normalizeTspans(const QString &svg)
         return svg;
     }
 
+    QString cleanSvg;
+    cleanSvg.reserve(svg.size());
+    for (int i = 0; i < svg.size(); ++i) {
+        const QChar c = svg.at(i);
+        if (c.isHighSurrogate()) {
+            if (i + 1 < svg.size() && svg.at(i + 1).isLowSurrogate()) {
+                cleanSvg.append(c);
+                cleanSvg.append(svg.at(++i));
+            }
+        } else if (!c.isLowSurrogate()) {
+            cleanSvg.append(c);
+        }
+    }
+
     static const QRegularExpression textRegex(u"<text\\b([^>]*)>([\\s\\S]*?)</text>"_s);
-    static const QRegularExpression tspanWithYRegex(u"<tspan\\b[^>]*\\by="_s);
+    static const QRegularExpression tspanWithYRegex(u"<tspan\\b[^>]*\\b(?:y|dy)="_s);
     static const QRegularExpression tspanRegex(u"<tspan\\b([^>]*)>([\\s\\S]*?)</tspan>"_s);
     static const QRegularExpression attrRegex(u"([a-zA-Z0-9:_-]+)=\"([^\"]*)\""_s);
 
     QString result;
-    result.reserve(svg.size());
+    result.reserve(cleanSvg.size());
     int lastPos = 0;
-    auto it = textRegex.globalMatch(svg);
+    auto it = textRegex.globalMatch(cleanSvg);
 
     while (it.hasNext()) {
         auto match = it.next();
-        result.append(QStringView(svg).mid(lastPos, match.capturedStart() - lastPos));
+        result.append(QStringView(cleanSvg).mid(lastPos, match.capturedStart() - lastPos));
         lastPos = match.capturedEnd();
 
         const QString textAttrs = match.captured(1);
@@ -179,34 +196,107 @@ QString MermaidCssFlattener::normalizeTspans(const QString &svg)
             baseAttrs.insert(am.captured(1), am.captured(2));
         }
 
-        auto tspanIt = tspanRegex.globalMatch(content);
+        struct SpanInfo {
+            QMap<QString, QString> attrs;
+            QString body;
+        };
+
+        struct LineInfo {
+            QMap<QString, QString> textAttrs;
+            QList<SpanInfo> spans;
+        };
+
+        QList<LineInfo> lines;
+        LineInfo currentLine;
+        currentLine.textAttrs = baseAttrs;
         bool hasTspans = false;
 
+        auto tspanIt = tspanRegex.globalMatch(content);
         while (tspanIt.hasNext()) {
             hasTspans = true;
             auto tm = tspanIt.next();
             const QString tspanAttrs = tm.captured(1);
             const QString tspanBody = tm.captured(2);
 
-            QMap<QString, QString> combinedAttrs = baseAttrs;
-            auto tspanAttrIt = attrRegex.globalMatch(tspanAttrs);
-            while (tspanAttrIt.hasNext()) {
-                auto am = tspanAttrIt.next();
-                combinedAttrs.insert(am.captured(1), am.captured(2));
+            QMap<QString, QString> tattrs;
+            auto amIt = attrRegex.globalMatch(tspanAttrs);
+            while (amIt.hasNext()) {
+                auto am = amIt.next();
+                tattrs.insert(am.captured(1), am.captured(2));
             }
 
-            result.append(u"<text"_s);
-            for (auto ait = combinedAttrs.constBegin(); ait != combinedAttrs.constEnd(); ++ait) {
-                result.append(u" %1=\"%2\""_s.arg(ait.key(), ait.value()));
+            if (tattrs.contains(u"y"_s) || tattrs.contains(u"dy"_s)) {
+                if (!currentLine.spans.isEmpty()) {
+                    lines.append(currentLine);
+                    currentLine.spans.clear();
+                }
+                currentLine.textAttrs = baseAttrs;
+                if (tattrs.contains(u"x"_s)) {
+                    currentLine.textAttrs.insert(u"x"_s, tattrs.value(u"x"_s));
+                }
+                if (tattrs.contains(u"y"_s)) {
+                    currentLine.textAttrs.insert(u"y"_s, tattrs.value(u"y"_s));
+                }
+                if (tattrs.contains(u"dy"_s)) {
+                    currentLine.textAttrs.insert(u"dy"_s, tattrs.value(u"dy"_s));
+                }
             }
-            result.append(u">%1</text>"_s.arg(tspanBody));
+
+            QMap<QString, QString> innerAttrs;
+            for (auto ait = tattrs.constBegin(); ait != tattrs.constEnd(); ++ait) {
+                if (ait.key() != u"x"_s && ait.key() != u"y"_s && ait.key() != u"dy"_s) {
+                    innerAttrs.insert(ait.key(), ait.value());
+                }
+            }
+
+            currentLine.spans.append({innerAttrs, tspanBody});
         }
 
-        if (!hasTspans) {
+        if (!currentLine.spans.isEmpty()) {
+            lines.append(currentLine);
+        }
+
+        if (!hasTspans || lines.isEmpty()) {
             result.append(match.captured(0));
+        } else {
+            for (const auto &line : lines) {
+                QMap<QString, QString> finalAttrs = line.textAttrs;
+                if (line.spans.size() == 1) {
+                    const auto &span = line.spans.first();
+                    for (auto sait = span.attrs.constBegin(); sait != span.attrs.constEnd(); ++sait) {
+                        finalAttrs.insert(sait.key(), sait.value());
+                    }
+                    result.append(u"<text"_s);
+                    for (auto ait = finalAttrs.constBegin(); ait != finalAttrs.constEnd(); ++ait) {
+                        result.append(u" %1=\"%2\""_s.arg(ait.key(), ait.value()));
+                    }
+                    result.append(u">%1</text>"_s.arg(span.body));
+                } else {
+                    if (!finalAttrs.contains(u"xml:space"_s)) {
+                        finalAttrs.insert(u"xml:space"_s, u"preserve"_s);
+                    }
+                    result.append(u"<text"_s);
+                    for (auto ait = finalAttrs.constBegin(); ait != finalAttrs.constEnd(); ++ait) {
+                        result.append(u" %1=\"%2\""_s.arg(ait.key(), ait.value()));
+                    }
+                    result.append(u">"_s);
+                    for (const auto &span : line.spans) {
+                        if (span.attrs.isEmpty()) {
+                            result.append(u"<tspan>%1</tspan>"_s.arg(span.body));
+                        } else {
+                            result.append(u"<tspan"_s);
+                            for (auto sait = span.attrs.constBegin(); sait != span.attrs.constEnd(); ++sait) {
+                                result.append(u" %1=\"%2\""_s.arg(sait.key(), sait.value()));
+                            }
+                            result.append(u">%1</tspan>"_s.arg(span.body));
+                        }
+                    }
+                    result.append(u"</text>"_s);
+                }
+            }
         }
     }
 
-    result.append(QStringView(svg).mid(lastPos));
+    result.append(QStringView(cleanSvg).mid(lastPos));
     return result;
 }

@@ -60,6 +60,9 @@ EOF
 
 npx --yes esbuild package/dist/pele.global.js --target=es2017 >> "${TMP_DIR}/bundle.js"
 
+sed -i 's/\\p{L}\\p{N}/a-zA-Z0-9/g' "${TMP_DIR}/bundle.js"
+sed -i 's/_ \.-/_ .\\-/g' "${TMP_DIR}/bundle.js"
+
 cat << 'EOF' >> "${TMP_DIR}/bundle.js"
 
 if (typeof pele !== "undefined") {
