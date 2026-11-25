@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "mdhighlighter.h"
+#include "documenthandler.h"
 
 #include <QTextDocument>
 #include <QTextStream>
@@ -209,7 +210,7 @@ void MDHighlighter::parseDoc()
         return;
     }
 
-    const QString text = m_quickDocument->textDocument()->toPlainText();
+    const QString text = replaceLineEndings(m_quickDocument->textDocument()->toRawText());
     if (text.isEmpty()) {
         return;
     }
