@@ -25,8 +25,7 @@ npm install "mathjax-full@${MATHJAX_VERSION}" --no-audit --no-fund
 
 cat << 'EOF' > "${TMP_DIR}/bundle.js"
 // SPDX-FileCopyrightText: 2024 Obsidian <https://obsidian.md>
-// SPDX-FileCopyrightText: 2018-2022 The MathJax Consortium
-// SPDX-License-Identifier: MIT AND Apache-2.0
+// SPDX-License-Identifier: MIT
 
 if (typeof globalThis === "undefined") {
     var globalThis = this;
@@ -129,7 +128,19 @@ export function renderTexToSvg(texString, fontSize) {
 globalThis.renderTexToSvg = renderTexToSvg;
 EOF
 
-npx --yes esbuild "${TMP_DIR}/math-resolver.js" --bundle --minify --target=es2017 --define:PACKAGE_VERSION="\"${MATHJAX_VERSION}\"" >> "${TMP_DIR}/bundle.js"
+cat << 'EOF' > "${TMP_DIR}/mathjax-bundle.js"
+// SPDX-FileCopyrightText: 2018-2022 The MathJax Consortium
+// SPDX-License-Identifier: Apache-2.0
+
+EOF
+npx --yes esbuild "${TMP_DIR}/math-resolver.js" --bundle --minify --target=es2017 --define:PACKAGE_VERSION="\"${MATHJAX_VERSION}\"" >> "${TMP_DIR}/mathjax-bundle.js"
+cat << 'EOF' >> "${TMP_DIR}/mathjax-bundle.js"
+
+if (typeof renderTexToSvg !== "undefined") {
+    globalThis.renderTexToSvg = renderTexToSvg;
+}
+EOF
+
 npx --yes esbuild package/dist/pele.global.js --target=es2017 >> "${TMP_DIR}/bundle.js"
 
 sed -i 's/\\p{L}\\p{N}/a-zA-Z0-9/g' "${TMP_DIR}/bundle.js"
@@ -141,11 +152,9 @@ cat << 'EOF' >> "${TMP_DIR}/bundle.js"
 if (typeof pele !== "undefined") {
     globalThis.pele = pele;
 }
-if (typeof renderTexToSvg !== "undefined") {
-    globalThis.renderTexToSvg = renderTexToSvg;
-}
 EOF
 
 mv "${TMP_DIR}/bundle.js" "${SCRIPT_DIR}/pele_bundle.js"
-echo "Successfully updated ${SCRIPT_DIR}/pele_bundle.js to pele@${PELE_VERSION} + mathjax-full@${MATHJAX_VERSION}."
+mv "${TMP_DIR}/mathjax-bundle.js" "${SCRIPT_DIR}/mathjax_bundle.js"
+echo "Successfully updated ${SCRIPT_DIR}/pele_bundle.js (pele@${PELE_VERSION}) and mathjax_bundle.js (mathjax-full@${MATHJAX_VERSION})."
 

@@ -74,6 +74,7 @@ public Q_SLOTS:
         m_measurer = nullptr;
         delete m_engine;
         m_engine = nullptr;
+        m_mathJaxLoaded = false;
         m_initError.clear();
         init();
     }
@@ -184,6 +185,9 @@ public Q_SLOTS:
         }
 
         QString code = request.code;
+        if (code.contains(u"$$"_s)) {
+            ensureMathJaxLoaded();
+        }
         // Work around upstream Pele 1.13.0 radar-beta parser bug where in-body 'title' is omitted from grammar
         if (code.contains(u"radar-beta"_s) && !code.trimmed().startsWith(u"---"_s)) {
             static const QRegularExpression radarTitleRegex(u"(?:\\A|\\n)[\\t ]*title[\\t ]+([^\\n\\r]+)"_s);
@@ -214,9 +218,31 @@ public Q_SLOTS:
     }
 
 private:
+    void ensureMathJaxLoaded()
+    {
+        if (m_mathJaxLoaded || !m_engine) {
+            return;
+        }
+        m_mathJaxLoaded = true;
+
+        static QString s_mathJaxScript;
+        if (s_mathJaxScript.isEmpty()) {
+            QFile file(u":/org/kde/marknote/mermaid/mathjax_bundle.js"_s);
+            if (file.open(QIODevice::ReadOnly)) {
+                s_mathJaxScript = QString::fromUtf8(file.readAll());
+                file.close();
+            }
+        }
+
+        if (!s_mathJaxScript.isEmpty()) {
+            m_engine->evaluate(s_mathJaxScript, u"mathjax_bundle.js"_s);
+        }
+    }
+
     QJSEngine *m_engine = nullptr;
     NativeMeasurer *m_measurer = nullptr;
     QString m_initError;
+    bool m_mathJaxLoaded = false;
 };
 
 JsEngineMermaidRenderer::JsEngineMermaidRenderer(QObject *parent)

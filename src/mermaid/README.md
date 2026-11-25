@@ -14,10 +14,10 @@ Marknote renders Mermaid diagrams offline using [Pele](https://github.com/obsidi
 
 ## Updating
 
-To update the vendored `pele_bundle.js`:
+To update the vendored `pele_bundle.js` and `mathjax_bundle.js`:
 
 ```sh
 ./src/mermaid/update-pele.sh [pele_version] [mathjax_version]
 ```
 
-The script downloads both npm packages, bundles them with `esbuild`, and generates `pele_bundle.js`.
+The script downloads both npm packages, bundles them with `esbuild`, and generates `pele_bundle.js` and `mathjax_bundle.js`.
