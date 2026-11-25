@@ -77,7 +77,7 @@ public Q_SLOTS:
         m_initError.clear();
         init();
     }
-    
+
     void init()
     {
         if (m_engine) {

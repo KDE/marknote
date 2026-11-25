@@ -107,8 +107,8 @@ QString flattenNestedSvgs(const QString &svg)
                     writer.writeStartElement(u"g"_s);
                     for (const auto &attr : attrs) {
                         const auto name = attr.name();
-                        if (name == u"x"_s || name == u"y"_s || name == u"width"_s || name == u"height"_s || name == u"viewBox"_s
-                            || name == u"overflow"_s || name == u"transform"_s) {
+                        if (name == u"x"_s || name == u"y"_s || name == u"width"_s || name == u"height"_s || name == u"viewBox"_s || name == u"overflow"_s
+                            || name == u"transform"_s) {
                             continue;
                         }
                         writer.writeAttribute(attr.qualifiedName().toString(), attr.value().toString());

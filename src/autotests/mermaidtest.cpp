@@ -317,18 +317,19 @@ void MermaidTest::testNormalizeTspans()
 
 void MermaidTest::testNestedSvgFlattening()
 {
-    const QString nestedMath = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">"
-                               "<svg class=\"pele-math\" x=\"10\" y=\"20\" width=\"60\" height=\"70\" overflow=\"visible\">"
-                               "<g transform=\"scale(0.1, -0.1) translate(0, -500)\">"
-                               "<svg width=\"667\" height=\"402\" y=\"49\" x=\"0\" viewBox=\"0 100.5 667 402\">"
-                               "<path d=\"M0 100 L10 200\"/>"
-                               "</svg>"
-                               "</g>"
-                               "</svg>"
-                               "<svg class=\"pele-icon\" x=\"-12\" y=\"12\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">"
-                               "<rect x=\"2\" y=\"2\" width=\"20\" height=\"8\"/>"
-                               "</svg>"
-                               "</svg>"_s;
+    const QString nestedMath =
+        u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">"
+        "<svg class=\"pele-math\" x=\"10\" y=\"20\" width=\"60\" height=\"70\" overflow=\"visible\">"
+        "<g transform=\"scale(0.1, -0.1) translate(0, -500)\">"
+        "<svg width=\"667\" height=\"402\" y=\"49\" x=\"0\" viewBox=\"0 100.5 667 402\">"
+        "<path d=\"M0 100 L10 200\"/>"
+        "</svg>"
+        "</g>"
+        "</svg>"
+        "<svg class=\"pele-icon\" x=\"-12\" y=\"12\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">"
+        "<rect x=\"2\" y=\"2\" width=\"20\" height=\"8\"/>"
+        "</svg>"
+        "</svg>"_s;
 
     const QString flat = MermaidCssFlattener::flattenSvg(nestedMath, {}, false);
     QCOMPARE(flat.count(u"<svg"_s), 1);
@@ -344,16 +345,17 @@ void MermaidTest::testNestedSvgFlattening()
 void MermaidTest::testLatexMath()
 {
     MermaidRenderRequest reqSeq;
-    reqSeq.code = u"sequenceDiagram\n"
-                  "    participant C as Client\n"
-                  "    participant S as Server\n"
-                  "    C->>S: Request public key\n"
-                  "    S-->>C: Public key $$ (n,e) $$\n"
-                  "    C->>S: Encrypted message $$ c = m^e \\mod n $$\n"
-                  "    Note over C,S: RSA encryption: $$ c \\equiv m^e \\pmod{n} $$\n"
-                  "    S->>S: Decrypt $$ m = c^d \\mod n $$\n"
-                  "    Note over S: Private key: $$ d \\cdot e \\equiv 1 \\pmod{\\varphi(n)} $$\n"
-                  "    S-->>C: Plaintext $$ m $$"_s;
+    reqSeq.code =
+        u"sequenceDiagram\n"
+        "    participant C as Client\n"
+        "    participant S as Server\n"
+        "    C->>S: Request public key\n"
+        "    S-->>C: Public key $$ (n,e) $$\n"
+        "    C->>S: Encrypted message $$ c = m^e \\mod n $$\n"
+        "    Note over C,S: RSA encryption: $$ c \\equiv m^e \\pmod{n} $$\n"
+        "    S->>S: Decrypt $$ m = c^d \\mod n $$\n"
+        "    Note over S: Private key: $$ d \\cdot e \\equiv 1 \\pmod{\\varphi(n)} $$\n"
+        "    S-->>C: Plaintext $$ m $$"_s;
     reqSeq.fontFamily = u"C059 [UKWN]"_s;
     reqSeq.fontSize = 19.0;
     reqSeq.isDarkMode = false;
@@ -365,15 +367,16 @@ void MermaidTest::testLatexMath()
     QVERIFY2(rSeq.isValid(), "Sequence math flat SVG invalid");
 
     MermaidRenderRequest reqFlow;
-    reqFlow.code = u"flowchart LR\n"
-                   "    A[\"Fraction: $$\\frac{a}{b}$$\"]\n"
-                   "    B[\"Root: $$\\sqrt{x^2 + y^2}$$\"]\n"
-                   "    C[\"Summation: $$\\sum_{i=1}^{n} i = \\frac{n(n+1)}{2}$$\"]\n"
-                   "    D[\"Integral: $$\\int_{0}^{\\infty} e^{-x^2}\\,dx = \\frac{\\sqrt{\\pi}}{2}$$\"]\n"
-                   "    E[\"Limit: $$\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$$\"]\n"
-                   "    F[\"Matrix: $$\\begin{bmatrix}1 & 2\\\\\\\\3 & 4\\end{bmatrix}$$\"]\n"
-                   "    G[\"Probability: $$P(A \\mid B) = \\frac{P(B \\mid A)P(A)}{P(B)}$$\"]\n\n"
-                   "    A --> B --> C --> D --> E --> F --> G"_s;
+    reqFlow.code =
+        u"flowchart LR\n"
+        "    A[\"Fraction: $$\\frac{a}{b}$$\"]\n"
+        "    B[\"Root: $$\\sqrt{x^2 + y^2}$$\"]\n"
+        "    C[\"Summation: $$\\sum_{i=1}^{n} i = \\frac{n(n+1)}{2}$$\"]\n"
+        "    D[\"Integral: $$\\int_{0}^{\\infty} e^{-x^2}\\,dx = \\frac{\\sqrt{\\pi}}{2}$$\"]\n"
+        "    E[\"Limit: $$\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$$\"]\n"
+        "    F[\"Matrix: $$\\begin{bmatrix}1 & 2\\\\\\\\3 & 4\\end{bmatrix}$$\"]\n"
+        "    G[\"Probability: $$P(A \\mid B) = \\frac{P(B \\mid A)P(A)}{P(B)}$$\"]\n\n"
+        "    A --> B --> C --> D --> E --> F --> G"_s;
     reqFlow.fontFamily = u"C059 [UKWN]"_s;
     reqFlow.fontSize = 19.0;
     reqFlow.isDarkMode = false;
@@ -392,11 +395,18 @@ void MermaidTest::testAllDiagramTypes_data()
 
     QTest::newRow("Journey") << u"Journey"_s << u"journey\n  title My working day\n  section Go to work\n    Make tea: 5: Me\n    Go upstairs: 3: Me"_s;
     QTest::newRow("Timeline") << u"Timeline"_s << u"timeline\n  title History\n  2002 : LinkedIn\n  2004 : Facebook"_s;
-    QTest::newRow("QuadrantChart") << u"QuadrantChart"_s << u"quadrantChart\n  title Reach and engagement\n  x-axis Low Reach --> High Reach\n  y-axis Low Engagement --> High Engagement\n  Campaign A: [0.3, 0.6]"_s;
-    QTest::newRow("RequirementDiagram") << u"RequirementDiagram"_s << u"requirementDiagram\n  requirement test_req {\n    id: 1\n    text: the test text.\n    risk: high\n    verifymethod: test\n  }"_s;
-    QTest::newRow("C4Context") << u"C4Context"_s << u"C4Context\n  title System Context\n  Person(user, \"User\", \"A user\")\n  System(sys, \"System\", \"The system\")\n  Rel(user, sys, \"Uses\")"_s;
+    QTest::newRow("QuadrantChart")
+        << u"QuadrantChart"_s
+        << u"quadrantChart\n  title Reach and engagement\n  x-axis Low Reach --> High Reach\n  y-axis Low Engagement --> High Engagement\n  Campaign A: [0.3, 0.6]"_s;
+    QTest::newRow("RequirementDiagram")
+        << u"RequirementDiagram"_s
+        << u"requirementDiagram\n  requirement test_req {\n    id: 1\n    text: the test text.\n    risk: high\n    verifymethod: test\n  }"_s;
+    QTest::newRow("C4Context")
+        << u"C4Context"_s
+        << u"C4Context\n  title System Context\n  Person(user, \"User\", \"A user\")\n  System(sys, \"System\", \"The system\")\n  Rel(user, sys, \"Uses\")"_s;
     QTest::newRow("Sankey") << u"Sankey"_s << u"sankey-beta\n  Agricultural,Bio-conversion,124.729\n  Bio-conversion,Liquid,0.597"_s;
-    QTest::newRow("XYChart") << u"XYChart"_s << u"xychart-beta\n  title \"Sales\"\n  x-axis [jan, feb, mar]\n  y-axis \"Revenue\" 0 --> 100\n  bar [50, 60, 70]"_s;
+    QTest::newRow("XYChart") << u"XYChart"_s
+                             << u"xychart-beta\n  title \"Sales\"\n  x-axis [jan, feb, mar]\n  y-axis \"Revenue\" 0 --> 100\n  bar [50, 60, 70]"_s;
     QTest::newRow("Block") << u"Block"_s << u"block-beta\n  columns 1\n  db(\"DB\")\n  app(\"App\")"_s;
     QTest::newRow("Radar") << u"Radar"_s << u"radar-beta\n  title Skills\n  axis a[\"JS\"], b[\"C++\"], c[\"Qt\"]\n  curve c1{80, 90, 85}"_s;
     QTest::newRow("Kanban") << u"Kanban"_s << u"kanban\n  Todo\n    id1[Task 1]\n  Done\n    id2[Task 2]"_s;
