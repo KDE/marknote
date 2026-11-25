@@ -7,6 +7,7 @@
 #include "mermaidsvgcache.h"
 #include <marknotesettings.h>
 
+#include <QCache>
 #include <QFontDatabase>
 #include <QMutex>
 #include <QMutexLocker>
@@ -17,9 +18,9 @@ using namespace Qt::StringLiterals;
 
 namespace
 {
-QHash<QString, QString> &diagramCodeRegistry()
+QCache<QString, QString> &diagramCodeRegistry()
 {
-    static QHash<QString, QString> s_registry;
+    static QCache<QString, QString> s_registry(4 * 1024 * 1024);
     return s_registry;
 }
 
@@ -100,7 +101,6 @@ void MermaidImageResponse::startJob()
     const QString hash = parts.at(0);
     const bool isDark = (parts.value(1) == u"1"_s);
 
-    // Fast Path: Check 50 MB SVG Cache
     if (auto cached = MermaidSvgCache::instance()->get(m_id)) {
         QString err;
         QImage img = renderSvgToImage(cached->flatSvg, cached->naturalSize, err);
@@ -155,7 +155,6 @@ void MermaidImageResponse::startJob()
         }
         QString flatSvg = MermaidCssFlattener::flattenSvg(result.svg, customVars, isDark);
 
-        // Store flattened SVG in cache
         MermaidSvgCache::instance()->insert(id, flatSvg, result.naturalSize);
 
         QString err;
@@ -182,11 +181,15 @@ QQuickImageResponse *MermaidImageProvider::requestImageResponse(const QString &i
 void MermaidImageProvider::registerDiagram(const QString &hash, const QString &code)
 {
     QMutexLocker locker(&registryMutex());
-    diagramCodeRegistry().insert(hash, code);
+    const int cost = qMax(1, static_cast<int>(code.size() * sizeof(QChar)));
+    diagramCodeRegistry().insert(hash, new QString(code), cost);
 }
 
 QString MermaidImageProvider::getDiagram(const QString &hash)
 {
     QMutexLocker locker(&registryMutex());
-    return diagramCodeRegistry().value(hash);
+    if (const QString *code = diagramCodeRegistry().object(hash)) {
+        return *code;
+    }
+    return QString();
 }

@@ -5,19 +5,19 @@
 
 # Mermaid
 
-Marknote renders Mermaid diagrams offline using [Pele](https://github.com/obsidianmd/pele), a lightweight engine executed inside a headless `QJSEngine`.
+Marknote renders Mermaid diagrams offline using [Pele](https://github.com/obsidianmd/pele) and [MathJax](https://www.mathjax.org) (`mathjax-full`), executed inside a headless `QJSEngine`.
 
 ## Current Version
 
-- **Pele**: 1.13.0
-- **License**: MIT
+- **Pele**: 1.13.0 (MIT)
+- **MathJax (`mathjax-full`)**: 3.2.2 (Apache-2.0)
 
 ## Updating
 
-To update the vendored `pele_bundle.js` to a newer version:
+To update the vendored `pele_bundle.js`:
 
 ```sh
-./src/mermaid/update-pele.sh <version>
+./src/mermaid/update-pele.sh [pele_version] [mathjax_version]
 ```
 
-The script downloads the npm package, bundles it with esbuild, and generates `pele_bundle.js`.
+The script downloads both npm packages, bundles them with `esbuild`, and generates `pele_bundle.js`.

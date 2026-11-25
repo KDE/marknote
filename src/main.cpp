@@ -147,6 +147,7 @@ int main(int argc, char *argv[])
                        KAboutLicense::MIT);
 
     about.addComponent(u"Pele"_s, i18n("Diagram rendering library"), u"1.13.0"_s, u"https://github.com/obsidianmd/pele"_s, KAboutLicense::MIT);
+    about.addComponent(u"MathJax"_s, i18n("Mathematical notation rendering library"), u"3.2.2"_s, u"https://www.mathjax.org"_s, KAboutLicense::Apache_V2);
 
     KAboutData::setApplicationData(about);
 

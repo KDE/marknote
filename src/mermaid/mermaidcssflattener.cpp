@@ -12,8 +12,153 @@
 #include <QMap>
 #include <QPalette>
 #include <QRegularExpression>
+#include <QXmlStreamReader>
+#include <QXmlStreamWriter>
 
 using namespace Qt::StringLiterals;
+
+namespace
+{
+QString flattenNestedSvgs(const QString &svg)
+{
+    const qsizetype firstSvg = svg.indexOf(u"<svg"_s);
+    if (firstSvg == -1 || svg.indexOf(u"<svg"_s, firstSvg + 4) == -1) {
+        return svg;
+    }
+
+    QString out;
+    out.reserve(svg.size());
+
+    QXmlStreamReader reader(svg);
+    QXmlStreamWriter writer(&out);
+    writer.setAutoFormatting(false);
+
+    int svgDepth = 0;
+
+    while (!reader.atEnd()) {
+        const auto token = reader.readNext();
+        switch (token) {
+        case QXmlStreamReader::StartElement: {
+            if (reader.name() == u"svg"_s) {
+                if (svgDepth == 0) {
+                    for (const auto &ns : reader.namespaceDeclarations()) {
+                        if (ns.prefix().isEmpty()) {
+                            writer.writeDefaultNamespace(ns.namespaceUri().toString());
+                        } else {
+                            writer.writeNamespace(ns.namespaceUri().toString(), ns.prefix().toString());
+                        }
+                    }
+                    writer.writeStartElement(reader.qualifiedName().toString());
+                    writer.writeAttributes(reader.attributes());
+                } else {
+                    const QXmlStreamAttributes attrs = reader.attributes();
+                    qreal x = 0.0;
+                    qreal y = 0.0;
+                    qreal w = 0.0;
+                    qreal h = 0.0;
+                    QString viewBoxStr;
+                    QString existingTransform;
+
+                    for (const auto &attr : attrs) {
+                        const auto name = attr.name();
+                        if (name == u"x"_s) {
+                            x = attr.value().toDouble();
+                        } else if (name == u"y"_s) {
+                            y = attr.value().toDouble();
+                        } else if (name == u"width"_s) {
+                            w = attr.value().toDouble();
+                        } else if (name == u"height"_s) {
+                            h = attr.value().toDouble();
+                        } else if (name == u"viewBox"_s) {
+                            viewBoxStr = attr.value().toString();
+                        } else if (name == u"transform"_s) {
+                            existingTransform = attr.value().toString();
+                        }
+                    }
+
+                    QStringList transforms;
+                    if (!existingTransform.isEmpty()) {
+                        transforms.append(existingTransform);
+                    }
+                    if (!qFuzzyIsNull(x) || !qFuzzyIsNull(y)) {
+                        transforms.append(u"translate(%1, %2)"_s.arg(x).arg(y));
+                    }
+                    if (!viewBoxStr.isEmpty()) {
+                        static const QRegularExpression vbSplitRegex(u"\\s+|,"_s);
+                        const QStringList vbParts = viewBoxStr.trimmed().split(vbSplitRegex, Qt::SkipEmptyParts);
+                        if (vbParts.size() == 4) {
+                            const qreal minX = vbParts[0].toDouble();
+                            const qreal minY = vbParts[1].toDouble();
+                            const qreal vbW = vbParts[2].toDouble();
+                            const qreal vbH = vbParts[3].toDouble();
+                            if (vbW > 0.0 && vbH > 0.0) {
+                                const qreal sx = w > 0.0 ? (w / vbW) : 1.0;
+                                const qreal sy = h > 0.0 ? (h / vbH) : 1.0;
+                                if (!qFuzzyCompare(sx, 1.0) || !qFuzzyCompare(sy, 1.0)) {
+                                    transforms.append(u"scale(%1, %2)"_s.arg(sx).arg(sy));
+                                }
+                                if (!qFuzzyIsNull(minX) || !qFuzzyIsNull(minY)) {
+                                    transforms.append(u"translate(%1, %2)"_s.arg(-minX).arg(-minY));
+                                }
+                            }
+                        }
+                    }
+
+                    writer.writeStartElement(u"g"_s);
+                    for (const auto &attr : attrs) {
+                        const auto name = attr.name();
+                        if (name == u"x"_s || name == u"y"_s || name == u"width"_s || name == u"height"_s || name == u"viewBox"_s
+                            || name == u"overflow"_s || name == u"transform"_s) {
+                            continue;
+                        }
+                        writer.writeAttribute(attr.qualifiedName().toString(), attr.value().toString());
+                    }
+                    if (!transforms.isEmpty()) {
+                        writer.writeAttribute(u"transform"_s, transforms.join(QLatin1Char(' ')));
+                    }
+                }
+                ++svgDepth;
+            } else {
+                for (const auto &ns : reader.namespaceDeclarations()) {
+                    if (ns.prefix().isEmpty()) {
+                        writer.writeDefaultNamespace(ns.namespaceUri().toString());
+                    } else {
+                        writer.writeNamespace(ns.namespaceUri().toString(), ns.prefix().toString());
+                    }
+                }
+                writer.writeStartElement(reader.qualifiedName().toString());
+                writer.writeAttributes(reader.attributes());
+            }
+            break;
+        }
+        case QXmlStreamReader::EndElement:
+            if (reader.name() == u"svg"_s) {
+                --svgDepth;
+            }
+            writer.writeEndElement();
+            break;
+        case QXmlStreamReader::Characters:
+            if (reader.isCDATA()) {
+                writer.writeCDATA(reader.text().toString());
+            } else {
+                writer.writeCharacters(reader.text().toString());
+            }
+            break;
+        case QXmlStreamReader::Comment:
+            writer.writeComment(reader.text().toString());
+            break;
+        default:
+            break;
+        }
+    }
+
+    if (reader.hasError()) {
+        return svg;
+    }
+
+    return out;
+}
+} // namespace
 
 QHash<QString, QString> MermaidCssFlattener::defaultVariables(bool isDark)
 {
@@ -140,7 +285,7 @@ QString MermaidCssFlattener::flattenSvg(const QString &rawSvg, const QHash<QStri
     QString radiusVal = vars.value(u"--pele-radius"_s, u"4px"_s);
     radiusVal.remove(u"px"_s);
     svg.replace(rxStyleRegex, u"rx=\"%1\""_s.arg(radiusVal));
-
+    svg = flattenNestedSvgs(svg);
     svg = normalizeTspans(svg);
 
     return svg;

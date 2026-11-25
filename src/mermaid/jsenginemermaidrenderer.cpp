@@ -68,6 +68,16 @@ public:
     }
 
 public Q_SLOTS:
+    void resetEngine()
+    {
+        delete m_measurer;
+        m_measurer = nullptr;
+        delete m_engine;
+        m_engine = nullptr;
+        m_initError.clear();
+        init();
+    }
+    
     void init()
     {
         if (m_engine) {
@@ -81,7 +91,8 @@ public Q_SLOTS:
         m_engine->globalObject().setProperty(u"window"_s, m_engine->globalObject());
 
         m_measurer = new NativeMeasurer(this);
-        m_measurerJs = m_engine->newQObject(m_measurer);
+        QJSValue measurerJs = m_engine->newQObject(m_measurer);
+        m_engine->globalObject().setProperty(u"__measurer"_s, measurerJs);
 
         static const QString polyfills = QStringLiteral(R"(
             if (!Array.prototype.flat) {
@@ -120,18 +131,19 @@ public Q_SLOTS:
         )");
         m_engine->evaluate(polyfills, u"polyfills.js"_s);
 
-        QFile file(u":/org/kde/marknote/mermaid/pele_bundle.js"_s);
-        if (file.open(QIODevice::ReadOnly)) {
-            QString script = QString::fromUtf8(file.readAll());
-            file.close();
-            QJSValue evalRes = m_engine->evaluate(script, u"pele_bundle.js"_s);
+        static QString s_script;
+        if (s_script.isEmpty()) {
+            QFile file(u":/org/kde/marknote/mermaid/pele_bundle.js"_s);
+            if (file.open(QIODevice::ReadOnly)) {
+                s_script = QString::fromUtf8(file.readAll());
+                file.close();
+            }
+        }
+
+        if (!s_script.isEmpty()) {
+            QJSValue evalRes = m_engine->evaluate(s_script, u"pele_bundle.js"_s);
             if (evalRes.isError()) {
                 m_initError = evalRes.toString();
-            } else {
-                m_pele = m_engine->globalObject().property(u"pele"_s);
-                if (m_pele.isObject()) {
-                    m_renderFn = m_pele.property(u"render"_s);
-                }
             }
         } else {
             m_initError = u"Failed to open pele_bundle.js resource"_s;
@@ -142,9 +154,7 @@ public Q_SLOTS:
     {
         MermaidRenderResult result;
 
-        if (!m_engine) {
-            init();
-        }
+        resetEngine();
 
         if (!m_initError.isEmpty()) {
             result.errorString = m_initError;
@@ -161,7 +171,7 @@ public Q_SLOTS:
         m_measurer->setBaseFont(request.fontFamily, request.fontSize);
 
         QJSValue options = m_engine->newObject();
-        options.setProperty(u"measurer"_s, m_measurerJs);
+        options.setProperty(u"measurer"_s, m_engine->globalObject().property(u"__measurer"_s));
         options.setProperty(u"links"_s, false);
         options.setProperty(u"images"_s, false);
         options.setProperty(u"maxEdges"_s, 500);
@@ -185,7 +195,9 @@ public Q_SLOTS:
             }
         }
 
-        QJSValue res = m_renderFn.call(QJSValueList() << code << options);
+        QJSValue pele = m_engine->globalObject().property(u"pele"_s);
+        QJSValue renderFn = pele.property(u"render"_s);
+        QJSValue res = renderFn.call(QJSValueList() << code << options);
         if (res.isError()) {
             result.errorString = res.toString();
             result.success = false;
@@ -197,15 +209,13 @@ public Q_SLOTS:
             result.success = true;
         }
 
+        m_engine->collectGarbage();
         return result;
     }
 
 private:
     QJSEngine *m_engine = nullptr;
     NativeMeasurer *m_measurer = nullptr;
-    QJSValue m_measurerJs;
-    QJSValue m_pele;
-    QJSValue m_renderFn;
     QString m_initError;
 };
 
@@ -218,7 +228,6 @@ JsEngineMermaidRenderer::JsEngineMermaidRenderer(QObject *parent)
     m_worker = new MermaidWorker();
     m_worker->moveToThread(&m_workerThread);
 
-    connect(&m_workerThread, &QThread::started, m_worker, &MermaidWorker::init);
     connect(&m_workerThread, &QThread::finished, m_worker, &QObject::deleteLater);
 
     m_workerThread.start();

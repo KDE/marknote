@@ -36,6 +36,10 @@ private Q_SLOTS:
     void testSvgCacheHitMiss();
     void testSvgCacheEviction();
     void testNormalizeTspans();
+    void testNestedSvgFlattening();
+    void testLatexMath();
+    void testAllDiagramTypes_data();
+    void testAllDiagramTypes();
 };
 
 void MermaidTest::testLanguageDetection()
@@ -258,10 +262,8 @@ void MermaidTest::testSvgCacheEviction()
     QVERIFY(cache->contains(u"key1"_s));
     QVERIFY(cache->contains(u"key2"_s));
 
-    // Access key1 to make key2 least recently used
     cache->get(u"key1"_s);
 
-    // Inserting key3 exceeds 150 bytes and evicts key2 (LRU)
     cache->insert(u"key3"_s, svgSmall3, QSize(10, 10));
 
     QVERIFY(cache->totalCost() <= 150);
@@ -275,7 +277,6 @@ void MermaidTest::testSvgCacheEviction()
 
 void MermaidTest::testNormalizeTspans()
 {
-    // Single tspan with x and y
     const QString single = u"<text class=\"title\"><tspan x=\"10\" y=\"20\">Title</tspan></text>"_s;
     const QString normSingle = MermaidCssFlattener::normalizeTspans(single);
     QVERIFY(!normSingle.contains(u"<tspan"_s));
@@ -284,14 +285,12 @@ void MermaidTest::testNormalizeTspans()
     QVERIFY(normSingle.contains(u"class=\"title\""_s));
     QVERIFY(normSingle.contains(u">Title</text>"_s));
 
-    // Multi-line tspan
     const QString multi = u"<text class=\"c4-descr\" font-size=\"13\"><tspan x=\"0\" y=\"10\">Line 1</tspan><tspan x=\"0\" y=\"25\">Line 2</tspan></text>"_s;
     const QString normMulti = MermaidCssFlattener::normalizeTspans(multi);
     QVERIFY(!normMulti.contains(u"<tspan"_s));
     QVERIFY(normMulti.contains(u"<text class=\"c4-descr\" font-size=\"13\" x=\"0\" y=\"10\">Line 1</text>"_s));
     QVERIFY(normMulti.contains(u"<text class=\"c4-descr\" font-size=\"13\" x=\"0\" y=\"25\">Line 2</text>"_s));
 
-    // Inline tspan without y should NOT be transformed
     const QString inlineTspan = u"<text x=\"10\" y=\"20\">Total: <tspan class=\"val\">42</tspan></text>"_s;
     const QString normInline = MermaidCssFlattener::normalizeTspans(inlineTspan);
     QCOMPARE(normInline, inlineTspan);
@@ -314,6 +313,115 @@ void MermaidTest::testNormalizeTspans()
     QVERIFY(normFormatted.contains(u"text-decoration=\"underline\""_s));
     QVERIFY(normFormatted.contains(u"y=\"15\""_s));
     QVERIFY(normFormatted.contains(u"xml:space=\"preserve\""_s));
+}
+
+void MermaidTest::testNestedSvgFlattening()
+{
+    const QString nestedMath = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">"
+                               "<svg class=\"pele-math\" x=\"10\" y=\"20\" width=\"60\" height=\"70\" overflow=\"visible\">"
+                               "<g transform=\"scale(0.1, -0.1) translate(0, -500)\">"
+                               "<svg width=\"667\" height=\"402\" y=\"49\" x=\"0\" viewBox=\"0 100.5 667 402\">"
+                               "<path d=\"M0 100 L10 200\"/>"
+                               "</svg>"
+                               "</g>"
+                               "</svg>"
+                               "<svg class=\"pele-icon\" x=\"-12\" y=\"12\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">"
+                               "<rect x=\"2\" y=\"2\" width=\"20\" height=\"8\"/>"
+                               "</svg>"
+                               "</svg>"_s;
+
+    const QString flat = MermaidCssFlattener::flattenSvg(nestedMath, {}, false);
+    QCOMPARE(flat.count(u"<svg"_s), 1);
+    QCOMPARE(flat.count(u"</svg>"_s), 1);
+    QVERIFY(flat.contains(u"class=\"pele-math\""_s));
+    QVERIFY(flat.contains(u"class=\"pele-icon\""_s));
+    QVERIFY(flat.contains(u"translate(-12, 12)"_s));
+
+    QSvgRenderer renderer(flat.toUtf8());
+    QVERIFY(renderer.isValid());
+}
+
+void MermaidTest::testLatexMath()
+{
+    MermaidRenderRequest reqSeq;
+    reqSeq.code = u"sequenceDiagram\n"
+                  "    participant C as Client\n"
+                  "    participant S as Server\n"
+                  "    C->>S: Request public key\n"
+                  "    S-->>C: Public key $$ (n,e) $$\n"
+                  "    C->>S: Encrypted message $$ c = m^e \\mod n $$\n"
+                  "    Note over C,S: RSA encryption: $$ c \\equiv m^e \\pmod{n} $$\n"
+                  "    S->>S: Decrypt $$ m = c^d \\mod n $$\n"
+                  "    Note over S: Private key: $$ d \\cdot e \\equiv 1 \\pmod{\\varphi(n)} $$\n"
+                  "    S-->>C: Plaintext $$ m $$"_s;
+    reqSeq.fontFamily = u"C059 [UKWN]"_s;
+    reqSeq.fontSize = 19.0;
+    reqSeq.isDarkMode = false;
+
+    MermaidRenderResult resSeq = JsEngineMermaidRenderer::instance()->renderSync(reqSeq);
+    QVERIFY2(resSeq.success, qPrintable(u"Sequence math failed: %1"_s.arg(resSeq.errorString)));
+    QString flatSeq = MermaidCssFlattener::flattenSvg(resSeq.svg, {{u"--pele-font"_s, reqSeq.fontFamily}}, false);
+    QSvgRenderer rSeq(flatSeq.toUtf8());
+    QVERIFY2(rSeq.isValid(), "Sequence math flat SVG invalid");
+
+    MermaidRenderRequest reqFlow;
+    reqFlow.code = u"flowchart LR\n"
+                   "    A[\"Fraction: $$\\frac{a}{b}$$\"]\n"
+                   "    B[\"Root: $$\\sqrt{x^2 + y^2}$$\"]\n"
+                   "    C[\"Summation: $$\\sum_{i=1}^{n} i = \\frac{n(n+1)}{2}$$\"]\n"
+                   "    D[\"Integral: $$\\int_{0}^{\\infty} e^{-x^2}\\,dx = \\frac{\\sqrt{\\pi}}{2}$$\"]\n"
+                   "    E[\"Limit: $$\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$$\"]\n"
+                   "    F[\"Matrix: $$\\begin{bmatrix}1 & 2\\\\\\\\3 & 4\\end{bmatrix}$$\"]\n"
+                   "    G[\"Probability: $$P(A \\mid B) = \\frac{P(B \\mid A)P(A)}{P(B)}$$\"]\n\n"
+                   "    A --> B --> C --> D --> E --> F --> G"_s;
+    reqFlow.fontFamily = u"C059 [UKWN]"_s;
+    reqFlow.fontSize = 19.0;
+    reqFlow.isDarkMode = false;
+
+    MermaidRenderResult resFlow = JsEngineMermaidRenderer::instance()->renderSync(reqFlow);
+    QVERIFY2(resFlow.success, qPrintable(u"Flowchart math failed: %1"_s.arg(resFlow.errorString)));
+    QString flatFlow = MermaidCssFlattener::flattenSvg(resFlow.svg, {{u"--pele-font"_s, reqFlow.fontFamily}}, false);
+    QSvgRenderer rFlow(flatFlow.toUtf8());
+    QVERIFY2(rFlow.isValid(), "Flowchart math flat SVG invalid");
+}
+
+void MermaidTest::testAllDiagramTypes_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<QString>("code");
+
+    QTest::newRow("Journey") << u"Journey"_s << u"journey\n  title My working day\n  section Go to work\n    Make tea: 5: Me\n    Go upstairs: 3: Me"_s;
+    QTest::newRow("Timeline") << u"Timeline"_s << u"timeline\n  title History\n  2002 : LinkedIn\n  2004 : Facebook"_s;
+    QTest::newRow("QuadrantChart") << u"QuadrantChart"_s << u"quadrantChart\n  title Reach and engagement\n  x-axis Low Reach --> High Reach\n  y-axis Low Engagement --> High Engagement\n  Campaign A: [0.3, 0.6]"_s;
+    QTest::newRow("RequirementDiagram") << u"RequirementDiagram"_s << u"requirementDiagram\n  requirement test_req {\n    id: 1\n    text: the test text.\n    risk: high\n    verifymethod: test\n  }"_s;
+    QTest::newRow("C4Context") << u"C4Context"_s << u"C4Context\n  title System Context\n  Person(user, \"User\", \"A user\")\n  System(sys, \"System\", \"The system\")\n  Rel(user, sys, \"Uses\")"_s;
+    QTest::newRow("Sankey") << u"Sankey"_s << u"sankey-beta\n  Agricultural,Bio-conversion,124.729\n  Bio-conversion,Liquid,0.597"_s;
+    QTest::newRow("XYChart") << u"XYChart"_s << u"xychart-beta\n  title \"Sales\"\n  x-axis [jan, feb, mar]\n  y-axis \"Revenue\" 0 --> 100\n  bar [50, 60, 70]"_s;
+    QTest::newRow("Block") << u"Block"_s << u"block-beta\n  columns 1\n  db(\"DB\")\n  app(\"App\")"_s;
+    QTest::newRow("Radar") << u"Radar"_s << u"radar-beta\n  title Skills\n  axis a[\"JS\"], b[\"C++\"], c[\"Qt\"]\n  curve c1{80, 90, 85}"_s;
+    QTest::newRow("Kanban") << u"Kanban"_s << u"kanban\n  Todo\n    id1[Task 1]\n  Done\n    id2[Task 2]"_s;
+    QTest::newRow("Packet") << u"Packet"_s << u"packet-beta\n  0-15: \"Source Port\"\n  16-31: \"Destination Port\""_s;
+    QTest::newRow("Architecture") << u"Architecture"_s << u"architecture-beta\n  service api(server)[API]\n  service db(database)[DB]\n  api:R --> L:db"_s;
+    QTest::newRow("Treemap") << u"Treemap"_s << u"treemap-beta\n\"Root\"\n  \"Branch A\": 30\n  \"Branch B\": 70"_s;
+    QTest::newRow("Venn") << u"Venn"_s << u"venn-beta\n  set A[\"Set A\"]: 10\n  set B[\"Set B\"]: 10\n  union A,B: 3"_s;
+}
+
+void MermaidTest::testAllDiagramTypes()
+{
+    QFETCH(QString, name);
+    QFETCH(QString, code);
+
+    MermaidRenderRequest req;
+    req.code = code;
+    req.isDarkMode = false;
+    req.fontFamily = u"sans-serif"_s;
+    req.fontSize = 12.0;
+
+    MermaidRenderResult res = JsEngineMermaidRenderer::instance()->renderSync(req);
+    QVERIFY2(res.success, qPrintable(u"Rendering failed for %1: %2"_s.arg(name, res.errorString)));
+    QString flatSvg = MermaidCssFlattener::flattenSvg(res.svg, {}, false);
+    QSvgRenderer svgRenderer(flatSvg.toUtf8());
+    QVERIFY2(svgRenderer.isValid(), qPrintable(u"QSvgRenderer rejected SVG for %1"_s.arg(name)));
 }
 
 QTEST_MAIN(MermaidTest)
