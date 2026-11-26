@@ -603,7 +603,6 @@ QString MermaidCssFlattener::normalizeTspans(const QString &svg)
                 break;
             }
 
-    
             QMap<QString, QString> baseAttrs;
             QList<QPair<QString, QString>> rawBaseAttrOrder;
             for (const auto &attr : reader.attributes()) {

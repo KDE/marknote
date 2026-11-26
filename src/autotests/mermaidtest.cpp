@@ -429,7 +429,7 @@ void MermaidTest::testNestedSvgFlattening()
 
     QSvgRenderer renderer(flat.toUtf8());
     QVERIFY(renderer.isValid());
-    
+
     const QString edgeSvg = QString::fromUtf8(
         "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"60\">"
         "<rect x=\"0\" y=\"0\" width=\"20\" height=\"20\" fill=\"var(--pele-unknown, rgb(10, 20, 30))\" style=\"fill:red;rx:6px\"/>"

@@ -4,12 +4,12 @@
 #include "mermaidhelper.h"
 #include "mermaidcssflattener.h"
 #include "mermaidimageprovider.h"
-#include <marknotesettings.h>
 #include <QCryptographicHash>
 #include <QFont>
 #include <QFontDatabase>
 #include <QRegularExpression>
 #include <algorithm>
+#include <marknotesettings.h>
 
 using namespace Qt::StringLiterals;
 
