@@ -31,16 +31,24 @@ public:
     std::shared_ptr<CachedSvgDiagram> get(const QString &key);
     void insert(const QString &key, const QString &flatSvg, const QSize &naturalSize);
     void clear();
+    void clearMemory();
 
     int totalCost() const;
     int maxCost() const;
     void setMaxCost(int bytes);
     int count() const;
 
+    void setDiskCacheDir(const QString &dirPath);
+
 private:
     MermaidSvgCache();
     ~MermaidSvgCache() = default;
 
+    QString diskFilePath(const QString &key) const;
+    void trimDiskCache();
+
     mutable QMutex m_mutex;
     QCache<QString, CachedSvgDiagram> m_cache;
+    QString m_diskCacheDir;
+    qint64 m_diskBytes = -1;
 };

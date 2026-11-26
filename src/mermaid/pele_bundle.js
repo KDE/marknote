@@ -799,7 +799,7 @@ ${r}`;
   function nc() {
     fu.clear();
   }
-  var Fw = /[&<>"\x00-\x08\x0b\x0c\x0e-\x1f\x7f\ud800-\udfff\ufffe\uffff]/u, Bw = /[&<>"]|[\x00-\x08\x0b\x0c\x0e-\x1f\x7f\ud800-\udfff\ufffe\uffff]+/gu, Ww = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }, rc = /[\x00-\x08\x0b\x0c\x0e-\x1f\x7f\ud800-\udfff\ufffe\uffff]/u;
+  var Fw = /[&<>"\x00-\x08\x0b\x0c\x0e-\x1f\x7f\ufffe\uffff]/u, Bw = /[&<>"]|[\x00-\x08\x0b\x0c\x0e-\x1f\x7f\ufffe\uffff]+/gu, Ww = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }, rc = /[\x00-\x08\x0b\x0c\x0e-\x1f\x7f\ufffe\uffff]/u;
   function rt(e) {
     return Fw.test(e) ? e.replace(Bw, (t) => {
       var _a2;
@@ -1449,7 +1449,7 @@ ${r}`;
   function O_(e, t, n = {}) {
     return vm({ parse: Gm, render: Ym }, e, t, n);
   }
-  var Io = "about:blank", D_ = /^([^\w]*)(javascript|data|vbscript)/im, Hm = /&#(\w+)(^\w|;)?/g, Km = /&(newline|tab);/gi, _u = /[\u0000-\u001F\u007F-\u009F -‍﻿\uD800-\uDFFF\uFFFE\uFFFF]/gimu, v_ = /^.+(:|&colon;)/gim, zm = /(\\|%5[cC])((%(6[eE]|72|74))|[nrt])/g;
+  var Io = "about:blank", D_ = /^([^\w]*)(javascript|data|vbscript)/im, Hm = /&#(\w+)(^\w|;)?/g, Km = /&(newline|tab);/gi, _u = /[\u0000-\u001F\u007F-\u009F -‍﻿\uFFFE\uFFFF]/gimu, v_ = /^.+(:|&colon;)/gim, zm = /(\\|%5[cC])((%(6[eE]|72|74))|[nrt])/g;
   function Vm(e) {
     try {
       return decodeURIComponent(e);
@@ -15463,7 +15463,7 @@ ${r}`;
     }
     return c(a === 2 ? 7 : 8, t, t), c(0, t, t), { types: n, texts: r, starts: i };
   }
-  var Hx = /[\n\r]+/g, bk = /[\x00-\x08\x0b\x0c\x0e-\x1f\ud800-\udfff\ufffe\uffff]/u;
+  var Hx = /[\n\r]+/g, bk = /[\x00-\x08\x0b\x0c\x0e-\x1f\ufffe\uffff]/u;
   function tp(e) {
     return e === 10 || e === 13 ? false : e < 128 ? e === 32 || e === 9 || e === 11 || e === 12 : e === 160 || e === 5760 || e >= 8192 && e <= 8202 || e === 8232 || e === 8233 || e === 8239 || e === 8287 || e === 12288 || e === 65279;
   }

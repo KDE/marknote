@@ -145,6 +145,7 @@ npx --yes esbuild package/dist/pele.global.js --target=es2017 >> "${TMP_DIR}/bun
 
 sed -i 's/\\p{L}\\p{N}/a-zA-Z0-9/g' "${TMP_DIR}/bundle.js"
 sed -i 's/_ \.-/_ .\\-/g' "${TMP_DIR}/bundle.js"
+sed -i 's/\\ud800-\\udfff//g; s/\\uD800-\\uDFFF//g' "${TMP_DIR}/bundle.js"
 sed -i 's/i\.math ? t\.math : void 0/i\.math ? (t\.math || globalThis\.renderTexToSvg) : void 0/g' "${TMP_DIR}/bundle.js"
 
 cat << 'EOF' >> "${TMP_DIR}/bundle.js"

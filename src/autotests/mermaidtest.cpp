@@ -4,8 +4,11 @@
 #include <QGuiApplication>
 #include <QImage>
 #include <QPainter>
+#include <QStandardPaths>
 #include <QSvgRenderer>
+#include <QTemporaryDir>
 #include <QTest>
+#include <QThread>
 
 #include "mermaid/jsenginemermaidrenderer.h"
 #include "mermaid/mermaidcssflattener.h"
@@ -23,6 +26,7 @@ class MermaidTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
+        QStandardPaths::setTestModeEnabled(true);
         Q_INIT_RESOURCE(pele);
     }
     void testLanguageDetection();
@@ -35,6 +39,7 @@ private Q_SLOTS:
     void testDiagramWithTitle();
     void testSvgCacheHitMiss();
     void testSvgCacheEviction();
+    void testSvgDiskCachePersistence();
     void testNormalizeTspans();
     void testNestedSvgFlattening();
     void testLatexMath();
@@ -87,6 +92,7 @@ void MermaidTest::testSmokeDiagrams_data()
     QTest::newRow("MindmapMarkdown")
         << u"MindmapMarkdown"_s
         << u"mindmap\n    id1[\"`**Pele** is the\ngoddess of volcanoes\nUnicode works too: 🌋`\"]\n      id2[\"`She lives in **the** crater of Kīlauea... a *very old story* that is still told today`\"]\n      id3[Lava builds new land]"_s;
+    QTest::newRow("EmojiFlowchart") << u"EmojiFlowchart"_s << u"flowchart LR\n  A[\"Launch 🚀\"] --> B[\"Done ✅\"]"_s;
     QTest::newRow("FootnoteDiagram")
         << u"FootnoteDiagram"_s
         << u"flowchart TD\n    A[RFQ Issued & Quotes Received] --> B[L1 Quote Comparison Matrix]\n    B -->|Manufacturer Awards Quote| C[Atomic Transaction: PO Created]\n    Z[Manual Direct Procurement] -->|Manufacturer Creates Direct PO| C\n    \n    C -->|Status: Issued / Unpaid| D[Vendor Receives Order]\n    D -->|Vendor Acknowledges Order| E[Status: Confirmed / Acknowledged]"_s;
@@ -121,6 +127,14 @@ void MermaidTest::testSmokeDiagrams()
     QPainter p(&img);
     svgRenderer.render(&p);
     p.end();
+    if (name == u"MindmapMarkdown"_s) {
+        QVERIFY(res.svg.contains(u"🌋"_s));
+        QVERIFY(flatSvg.contains(u"🌋"_s));
+    }
+    if (name == u"EmojiFlowchart"_s) {
+        QVERIFY(res.svg.contains(u"🚀"_s));
+        QVERIFY(flatSvg.contains(u"🚀"_s));
+    }
 
     QVERIFY(!img.isNull());
     QVERIFY(img.width() > 0);
@@ -273,6 +287,61 @@ void MermaidTest::testSvgCacheEviction()
 
     cache->setMaxCost(originalMaxCost);
     cache->clear();
+}
+
+void MermaidTest::testSvgDiskCachePersistence()
+{
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
+    MermaidSvgCache *cache = MermaidSvgCache::instance();
+    cache->setDiskCacheDir(tempDir.path());
+    cache->clear();
+
+    const QString key = u"disk_test_key_0_sans_12"_s;
+    const QString svg = u"<svg viewBox=\"0 0 80 40\"><rect width=\"80\" height=\"40\"/></svg>"_s;
+    const QSize size(80, 40);
+
+    cache->insert(key, svg, size);
+    QVERIFY(cache->contains(key));
+
+    cache->clearMemory();
+    QVERIFY(!cache->contains(key));
+
+    auto reloaded = cache->get(key);
+    QVERIFY(reloaded != nullptr);
+    QCOMPARE(reloaded->flatSvg, svg);
+    QCOMPARE(reloaded->naturalSize, size);
+    QVERIFY(cache->contains(key));
+
+    // Verify strict LRU eviction on disk across restarts (touching k1 keeps k1 and evicts k2)
+    cache->clear();
+    const int originalMaxCost = cache->maxCost();
+    const QString bigSvg1 = u"<svg>"_s + QString(120, QLatin1Char('a')) + u"</svg>"_s;
+    const QString bigSvg2 = u"<svg>"_s + QString(120, QLatin1Char('b')) + u"</svg>"_s;
+    const QString bigSvg3 = u"<svg>"_s + QString(120, QLatin1Char('c')) + u"</svg>"_s;
+
+    cache->setMaxCost(350);
+    cache->insert(u"lru1"_s, bigSvg1, size);
+    QThread::msleep(15);
+    cache->insert(u"lru2"_s, bigSvg2, size);
+    QThread::msleep(15);
+
+    // Clear RAM, then hit lru1 on disk so its mtime becomes newer than lru2
+    cache->clearMemory();
+    QVERIFY(cache->get(u"lru1"_s) != nullptr);
+    QThread::msleep(15);
+
+    // Inserting lru3 exceeds 350 bytes on disk and must evict lru2 (oldest), keeping lru1 and lru3
+    cache->insert(u"lru3"_s, bigSvg3, size);
+    cache->clearMemory();
+    QVERIFY(cache->get(u"lru1"_s) != nullptr);
+    QVERIFY(cache->get(u"lru3"_s) != nullptr);
+    QVERIFY(cache->get(u"lru2"_s) == nullptr);
+
+    cache->setMaxCost(originalMaxCost);
+    cache->clear();
+    cache->setDiskCacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u"/mermaid"_s);
 }
 
 void MermaidTest::testNormalizeTspans()
