@@ -144,17 +144,20 @@ void MermaidTest::testSmokeDiagrams()
 void MermaidTest::testCssFlattener()
 {
     const QString sample = QString::fromUtf8(
-        "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"--_bg:var(--pele-bg,#fff);--_fg:var(--pele-fg,#1f1f1f);color:var(--_fg)\">"
+        "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"--_bg:var(--pele-bg,#fff);--_fg:var(--pele-fg,#1f1f1f);color:var(--_fg);font:18px "
+        "sans-serif;font-family:var(--pele-font,sans-serif)\">"
         "<rect x=\"0\" y=\"0\" width=\"10\" height=\"10\" fill=\"var(--_bg)\" stroke=\"currentColor\" style=\"rx:var(--_r)\"/>"
         "<text fill=\"var(--pele-series-1,#4c78a8)\">Hello</text>"
         "</svg>");
 
-    QString flattened = MermaidCssFlattener::flattenSvg(sample, {}, false);
+    QString flattened = MermaidCssFlattener::flattenSvg(sample, {{u"--pele-font"_s, u"Serif"_s}}, false);
 
     QVERIFY(!flattened.contains(u"var(--_"_s));
     QVERIFY(!flattened.contains(u"var(--pele-"_s));
     QVERIFY(!flattened.contains(u"currentColor"_s));
     QVERIFY(flattened.contains(u"rx=\"4\""_s));
+    QVERIFY(flattened.contains(u"font-size=\"18\""_s));
+    QVERIFY(flattened.contains(u"font-family=\"Serif\""_s));
 
     QSvgRenderer renderer(flattened.toUtf8());
     QVERIFY(renderer.isValid());
@@ -406,6 +409,18 @@ void MermaidTest::testNestedSvgFlattening()
     QVERIFY(flat.contains(u"class=\"pele-math\""_s));
     QVERIFY(flat.contains(u"class=\"pele-icon\""_s));
     QVERIFY(flat.contains(u"translate(-12, 12)"_s));
+
+    // Verify scoped color attribute propagates to currentColor inside pele-math
+    const QString coloredMath =
+        u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"50\">"
+        "<svg class=\"pele-math\" x=\"0\" y=\"0\" color=\"#e74c3c\">"
+        "<g fill=\"currentColor\" stroke=\"currentColor\"><path d=\"M0 0 L10 10\"/></g>"
+        "</svg>"
+        "</svg>"_s;
+    const QString flatColored = MermaidCssFlattener::flattenSvg(coloredMath, {}, false);
+    QVERIFY(flatColored.contains(u"fill=\"#e74c3c\""_s));
+    QVERIFY(flatColored.contains(u"stroke=\"#e74c3c\""_s));
+    QVERIFY(!flatColored.contains(u"currentColor"_s));
 
     QSvgRenderer renderer(flat.toUtf8());
     QVERIFY(renderer.isValid());

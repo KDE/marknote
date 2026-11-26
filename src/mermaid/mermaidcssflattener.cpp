@@ -19,10 +19,17 @@ using namespace Qt::StringLiterals;
 
 namespace
 {
-QString flattenNestedSvgs(const QString &svg)
+QString normalizeSvgStructure(const QString &svg, const QString &defaultFgColor)
 {
     const qsizetype firstSvg = svg.indexOf(u"<svg"_s);
-    if (firstSvg == -1 || svg.indexOf(u"<svg"_s, firstSvg + 4) == -1) {
+    if (firstSvg == -1) {
+        return svg;
+    }
+
+    const bool hasNestedSvg = svg.indexOf(u"<svg"_s, firstSvg + 4) != -1;
+    const bool hasStyleAttr = svg.contains(u"style=\""_s);
+    const bool hasCurrentColor = svg.contains(u"currentColor"_s);
+    if (!hasNestedSvg && !hasStyleAttr && !hasCurrentColor) {
         return svg;
     }
 
@@ -34,6 +41,37 @@ QString flattenNestedSvgs(const QString &svg)
     writer.setAutoFormatting(false);
 
     int svgDepth = 0;
+    QStringList colorStack = {defaultFgColor};
+
+    auto pushScopeColor = [&colorStack](const QXmlStreamAttributes &attrs, const QString &styleOverride) {
+        QString nextColor = colorStack.last();
+        const QString colorAttr = attrs.value(u"color"_s).toString().trimmed();
+        if (!colorAttr.isEmpty() && colorAttr != u"currentColor"_s) {
+            nextColor = colorAttr;
+        }
+        const QString styleStr = styleOverride.isNull() ? attrs.value(u"style"_s).toString() : styleOverride;
+        if (!styleStr.isEmpty()) {
+            const QStringList decls = styleStr.split(QLatin1Char(';'), Qt::SkipEmptyParts);
+            for (const QString &rawDecl : decls) {
+                const QString decl = rawDecl.trimmed();
+                const qsizetype colon = decl.indexOf(QLatin1Char(':'));
+                if (colon > 0 && decl.left(colon).trimmed() == u"color"_s) {
+                    const QString val = decl.mid(colon + 1).trimmed();
+                    if (!val.isEmpty() && val != u"currentColor"_s) {
+                        nextColor = val;
+                    }
+                }
+            }
+        }
+        colorStack.append(nextColor);
+    };
+
+    auto resolveColorVal = [&colorStack](QString val) {
+        if (val.contains(u"currentColor"_s)) {
+            val.replace(u"currentColor"_s, colorStack.last());
+        }
+        return val;
+    };
 
     while (!reader.atEnd()) {
         const auto token = reader.readNext();
@@ -49,9 +87,87 @@ QString flattenNestedSvgs(const QString &svg)
                         }
                     }
                     writer.writeStartElement(reader.qualifiedName().toString());
-                    writer.writeAttributes(reader.attributes());
+
+                    const QXmlStreamAttributes attrs = reader.attributes();
+                    QString fontSizeAttr;
+                    QString fontFamilyAttr;
+                    QString cleanedStyle;
+                    bool hasExplicitFontSize = false;
+                    bool hasExplicitFontFamily = false;
+
+                    for (const auto &attr : attrs) {
+                        if (attr.name() == u"font-size"_s) {
+                            hasExplicitFontSize = true;
+                        } else if (attr.name() == u"font-family"_s) {
+                            hasExplicitFontFamily = true;
+                        }
+                    }
+
+                    // Pre-extract cleaned style so colorStack uses resolved root color
+                    const QString rawStyle = attrs.value(u"style"_s).toString();
+                    if (!rawStyle.isEmpty()) {
+                        const QStringList decls = rawStyle.split(QLatin1Char(';'), Qt::SkipEmptyParts);
+                        QStringList keptDecls;
+                        for (const QString &rawDecl : decls) {
+                            const QString decl = rawDecl.trimmed();
+                            const qsizetype colon = decl.indexOf(QLatin1Char(':'));
+                            if (colon <= 0) {
+                                continue;
+                            }
+                            const QString prop = decl.left(colon).trimmed();
+                            const QString val = decl.mid(colon + 1).trimmed();
+                            if (prop.startsWith(u"--"_s) || prop == u"max-width"_s || prop == u"height"_s || prop == u"letter-spacing"_s
+                                || prop == u"word-spacing"_s || prop == u"text-transform"_s || prop == u"direction"_s) {
+                                continue;
+                            }
+                            if (prop == u"font"_s) {
+                                static const QRegularExpression fontShorthandRegex(u"^([0-9]+(?:\\.[0-9]+)?)px\\b"_s);
+                                const auto fm = fontShorthandRegex.match(val);
+                                if (fm.hasMatch() && !hasExplicitFontSize) {
+                                    fontSizeAttr = fm.captured(1);
+                                }
+                                continue;
+                            }
+                            if (prop == u"font-family"_s) {
+                                if (!hasExplicitFontFamily && !val.isEmpty()) {
+                                    fontFamilyAttr = val;
+                                }
+                                continue;
+                            }
+                            if (prop == u"font-size"_s) {
+                                if (!hasExplicitFontSize && !val.isEmpty()) {
+                                    QString sz = val;
+                                    sz.remove(u"px"_s);
+                                    fontSizeAttr = sz;
+                                }
+                                continue;
+                            }
+                            keptDecls.append(prop + u":"_s + val);
+                        }
+                        cleanedStyle = keptDecls.join(QLatin1Char(';'));
+                    }
+
+                    pushScopeColor(attrs, cleanedStyle);
+
+                    for (const auto &attr : attrs) {
+                        if (attr.name() == u"style"_s) {
+                            if (!cleanedStyle.isEmpty()) {
+                                writer.writeAttribute(u"style"_s, resolveColorVal(cleanedStyle));
+                            }
+                        } else {
+                            writer.writeAttribute(attr.qualifiedName().toString(), resolveColorVal(attr.value().toString()));
+                        }
+                    }
+
+                    if (!fontSizeAttr.isEmpty()) {
+                        writer.writeAttribute(u"font-size"_s, fontSizeAttr);
+                    }
+                    if (!fontFamilyAttr.isEmpty()) {
+                        writer.writeAttribute(u"font-family"_s, fontFamilyAttr);
+                    }
                 } else {
                     const QXmlStreamAttributes attrs = reader.attributes();
+                    pushScopeColor(attrs, QString());
                     qreal x = 0.0;
                     qreal y = 0.0;
                     qreal w = 0.0;
@@ -111,7 +227,7 @@ QString flattenNestedSvgs(const QString &svg)
                             || name == u"transform"_s) {
                             continue;
                         }
-                        writer.writeAttribute(attr.qualifiedName().toString(), attr.value().toString());
+                        writer.writeAttribute(attr.qualifiedName().toString(), resolveColorVal(attr.value().toString()));
                     }
                     if (!transforms.isEmpty()) {
                         writer.writeAttribute(u"transform"_s, transforms.join(QLatin1Char(' ')));
@@ -119,6 +235,8 @@ QString flattenNestedSvgs(const QString &svg)
                 }
                 ++svgDepth;
             } else {
+                const QXmlStreamAttributes attrs = reader.attributes();
+                pushScopeColor(attrs, QString());
                 for (const auto &ns : reader.namespaceDeclarations()) {
                     if (ns.prefix().isEmpty()) {
                         writer.writeDefaultNamespace(ns.namespaceUri().toString());
@@ -127,13 +245,18 @@ QString flattenNestedSvgs(const QString &svg)
                     }
                 }
                 writer.writeStartElement(reader.qualifiedName().toString());
-                writer.writeAttributes(reader.attributes());
+                for (const auto &attr : attrs) {
+                    writer.writeAttribute(attr.qualifiedName().toString(), resolveColorVal(attr.value().toString()));
+                }
             }
             break;
         }
         case QXmlStreamReader::EndElement:
             if (reader.name() == u"svg"_s) {
                 --svgDepth;
+            }
+            if (colorStack.size() > 1) {
+                colorStack.removeLast();
             }
             writer.writeEndElement();
             break;
@@ -279,13 +402,11 @@ QString MermaidCssFlattener::flattenSvg(const QString &rawSvg, const QHash<QStri
         offset = match.capturedStart() + replacement.length();
     }
 
-    svg.replace(u"currentColor"_s, vars.value(u"--pele-fg"_s));
-
     static const QRegularExpression rxStyleRegex(u"style=\"rx:([^;\"]+)(?:;rx:[^;\"]+)*\""_s);
     QString radiusVal = vars.value(u"--pele-radius"_s, u"4px"_s);
     radiusVal.remove(u"px"_s);
     svg.replace(rxStyleRegex, u"rx=\"%1\""_s.arg(radiusVal));
-    svg = flattenNestedSvgs(svg);
+    svg = normalizeSvgStructure(svg, vars.value(u"--pele-fg"_s));
     svg = normalizeTspans(svg);
 
     return svg;

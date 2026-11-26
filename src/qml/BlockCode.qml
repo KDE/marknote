@@ -29,7 +29,11 @@ BlockTemplate {
     readonly property bool hasCode: String(root.text || "").trim().length > 0
     property bool sourceVisible: false
     readonly property bool showDiagram: root.isMermaid && !root.sourceVisible && root.hasCode
-    property string diagramId: root.showDiagram ? MermaidHelper.diagramId(String(root.text || ""), Kirigami.Theme.backgroundColor.hslLightness < 0.5) : ""
+    property string diagramId: {
+        // Bind to Config.editorFont so font family/size changes re-request the SVG
+        const _font = Config.editorFont;
+        return root.showDiagram ? MermaidHelper.diagramId(String(root.text || ""), Kirigami.Theme.backgroundColor.hslLightness < 0.5) : "";
+    }
 
     onIsMermaidChanged: {
         if (root.isMermaid && !root.hasCode) {
@@ -76,12 +80,6 @@ BlockTemplate {
                     fillMode: Image.PreserveAspectFit
                     asynchronous: true
                     source: root.showDiagram && root.diagramId.length > 0 ? ("image://mermaid/" + root.diagramId) : ""
-
-                    BusyIndicator {
-                        anchors.centerIn: parent
-                        running: diagramImage.status === Image.Loading
-                        visible: running
-                    }
                 }
 
                 Kirigami.InlineMessage {
@@ -91,6 +89,12 @@ BlockTemplate {
                     visible: diagramImage.status === Image.Error
                     text: i18n("Diagram rendering failed. Check Mermaid syntax.")
                 }
+            }
+
+            BusyIndicator {
+                anchors.centerIn: parent
+                running: diagramImage.status === Image.Loading
+                visible: running
             }
 
             MouseArea {
