@@ -361,7 +361,6 @@ StatetfulApp.StatefulWindow {
                         icon.name: "application-menu-symbolic"
                         anchors.verticalCenter: parent.verticalCenter
                         down: pressed || menuItem.visible
-
                         function openMenu(): void {
                             if (!menuItem.visible) {
                                 menuItem.open();
@@ -463,11 +462,12 @@ StatetfulApp.StatefulWindow {
                     }
 
                     Kirigami.Heading {
+                        id: heading
                         text: i18nc("Application name", "Marknote")
                         horizontalAlignment: Qt.AlignHCenter
                         opacity: Config.expandedSidebar ? 1 : 0
-                        width: parent.width
-                        anchors.verticalCenter: parent.verticalCenter
+                        width: parent.width - menuButton.width - sidebarButton.width - Kirigami.Units.smallSpacing * 2
+                        anchors.centerIn: parent
                         Behavior on opacity {
                             NumberAnimation {
                                 duration: Kirigami.Units.longDuration * 2
@@ -477,6 +477,7 @@ StatetfulApp.StatefulWindow {
                     }
 
                     Controls.ToolButton {
+                        id: sidebarButton
                         icon.name: "sidebar-collapse-left"
                         onClicked: expandSidebar.clicked()
                         x: drawer.width - width - Kirigami.Units.smallSpacing
