@@ -356,6 +356,7 @@ StatetfulApp.StatefulWindow {
                     Controls.ToolButton {
                         id: menuButton
                         x: Config.expandedSidebar ? Kirigami.Units.smallSpacing : (drawer.normalWidth / 2) - (width / 2)
+                        z: heading.z + 20
                         display: Controls.AbstractButton.IconOnly
                         text: i18nc("@action:button", "Show Menu")
                         icon.name: "application-menu-symbolic"
@@ -467,6 +468,7 @@ StatetfulApp.StatefulWindow {
                         horizontalAlignment: Qt.AlignHCenter
                         opacity: Config.expandedSidebar ? 1 : 0
                         width: parent.width - menuButton.width - sidebarButton.width - Kirigami.Units.smallSpacing * 2
+
                         anchors.centerIn: parent
                         Behavior on opacity {
                             NumberAnimation {
