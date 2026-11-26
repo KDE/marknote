@@ -4,6 +4,7 @@
 #include "commandmanager.h"
 #include "changelisttypecommand.h"
 #include "deindentlistitem.h"
+#include "documenthandler.h"
 #include "editcelltext.h"
 #include "editcode.h"
 #include "edittext.h"
@@ -28,6 +29,7 @@
 #include "transformtochecklist.h"
 #include "transformtolist.h"
 #include <QDesktopServices>
+#include <QQuickTextDocument>
 #include <QRegularExpression>
 #include <QUrl>
 
@@ -713,4 +715,13 @@ void CommandManager::handleLink(const QString &linkString)
         }
     }
     QDesktopServices::openUrl(url);
+}
+
+QString CommandManager::getRawText(QQuickTextDocument *qmlDoc)
+{
+    if (!qmlDoc && !qmlDoc->textDocument()) {
+        return {};
+    }
+
+    return replaceLineEndings(qmlDoc->textDocument()->toRawText());
 }

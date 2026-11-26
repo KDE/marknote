@@ -13,6 +13,8 @@
 
 class QTextDocument;
 
+QString replaceLineEndings(const QString &str);
+
 class DocumentHandler : public QObject
 {
     Q_OBJECT

@@ -81,7 +81,7 @@ void RawDocumentHandler::saveAs(const QUrl &fileUrl)
         return;
     }
 
-    const QString content = doc->toPlainText();
+    const QString content = replaceLineEndings(doc->toRawText());
 
     file.write(content.toUtf8());
     file.close();

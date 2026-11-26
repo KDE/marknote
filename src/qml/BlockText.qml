@@ -24,7 +24,7 @@ Item {
 
     onMdChanged: {
         if (textEdit) {
-            if (textEdit.text !== root.md) {
+            if (rawText() !== root.md) {
                 textEdit.text = root.md;
             }
             textEdit.lastSavedText = root.md;
@@ -47,6 +47,10 @@ Item {
         if (editing) {
             highlighter.rehighlight();
         }
+    }
+
+    function rawText(): string {
+        return CommandManager.getRawText(textEdit.textDocument);
     }
 
     TextEdit {
@@ -175,9 +179,9 @@ Item {
             interval: 500
             repeat: false
             onTriggered: {
-                if (textEdit.lastSavedText !== textEdit.text) {
-                    CommandManager.editText(root.block, textEdit.lastSavedText, textEdit.text, textEdit.lastSavedCursorPos, textEdit.cursorPosition);
-                    textEdit.lastSavedText = textEdit.text;
+                if (textEdit.lastSavedText !== rawText()) {
+                    CommandManager.editText(root.block, textEdit.lastSavedText, rawText(), textEdit.lastSavedCursorPos, textEdit.cursorPosition);
+                    textEdit.lastSavedText = rawText();
                     textEdit.lastSavedCursorPos = textEdit.cursorPosition;
                     textEdit.lastSavedTextParsed = false
                 }
@@ -192,7 +196,7 @@ Item {
         }
 
         onTextChanged: {
-            if (root.editing && textEdit.text !== textEdit.lastSavedText) {
+            if (root.editing && rawText() !== textEdit.lastSavedText) {
                 editTimer.restart();
             }
         }
@@ -217,22 +221,22 @@ Item {
             const cursorPos = textEdit.cursorPosition;
 
             if (root.block.parent.data.type === MDOptions.ElementType.ListItem) {
-                if (textEdit.text == "") {
+                if (rawText() === "") {
                     if (!CommandManager.deIndentListItem(root.block, cursorPos)) {
                         CommandManager.convertToParagraph(root.block, cursorPos);
                     }
                 } else {
                     textEdit.lastSavedTextParsed = true;
-                    CommandManager.splitListItem(root.block, textEdit.text, cursorPos);
+                    CommandManager.splitListItem(root.block, rawText(), cursorPos);
                 }
             } else if (root.block.parent.data.type === MDOptions.ElementType.Blockquote) {
-                if (!textEdit.text == "" || !CommandManager.moveOutsideBlockquote(root.block, cursorPos)) {
+                if (rawText() !== "" || !CommandManager.moveOutsideBlockquote(root.block, cursorPos)) {
                     textEdit.lastSavedTextParsed = true;
-                    CommandManager.splitBlock(root.block, textEdit.text, cursorPos);
+                    CommandManager.splitBlock(root.block, rawText(), cursorPos);
                 }
             } else {
                 textEdit.lastSavedTextParsed = true;
-                CommandManager.splitBlock(root.block, textEdit.text, textEdit.cursorPosition);
+                CommandManager.splitBlock(root.block, rawText(), textEdit.cursorPosition);
             }
 
             root.editing = false;
@@ -253,7 +257,7 @@ Item {
             }
 
             if (event.matches(StandardKey.SelectAll)) {
-                if (textEdit.text.length === 0 || textEdit.selectedText.length === textEdit.text.length) {
+                if (rawText().length === 0 || textEdit.selectedText.length === rawText().length) {
                     model.clearFocus();
                     model.selectAll();
                     textEdit.focus = false;
@@ -263,7 +267,7 @@ Item {
             }
 
             if (event.key === Qt.Key_Space) {
-                if (CommandManager.autoTransform(root.block, textEdit.text, textEdit.cursorPosition, index)) {
+                if (CommandManager.autoTransform(root.block, rawText(), textEdit.cursorPosition, index)) {
                     textEdit.text = root.md;
                     event.accepted = true;
                     flushTimer();
@@ -289,7 +293,7 @@ Item {
                     return;
                 }
 
-                CommandManager.mergeWithPreviousBlock(root.block, textEdit.text);
+                CommandManager.mergeWithPreviousBlock(root.block, rawText());
             }
 
             if (event.key === Qt.Key_Backtab) {
@@ -309,18 +313,18 @@ Item {
             }
 
             if (event.key === Qt.Key_Up) {
-                let textBeforeCursor = textEdit.text.substring(0, textEdit.cursorPosition);
+                let textBeforeCursor = rawText().substring(0, textEdit.cursorPosition);
                 if (textBeforeCursor.indexOf('\n') === -1) {
-                    CommandManager.moveToPreviousBlock(root.block, textEdit.text, textEdit.cursorPosition);
+                    CommandManager.moveToPreviousBlock(root.block, rawText(), textEdit.cursorPosition);
                     flushTimer();
                     event.accepted = true;
                 }
             }
 
             if (event.key === Qt.Key_Down) {
-                let textAfterCursor = textEdit.text.substring(textEdit.cursorPosition);
+                let textAfterCursor = rawText().substring(textEdit.cursorPosition);
                 if (textAfterCursor.indexOf('\n') === -1) {
-                    CommandManager.moveToNextBlock(root.block, textEdit.text, textEdit.cursorPosition);
+                    CommandManager.moveToNextBlock(root.block, rawText(), textEdit.cursorPosition);
                     flushTimer();
                     event.accepted = true;
                 }
@@ -355,7 +359,7 @@ Item {
                 flushTimer();
                 
                 if (!lastSavedTextParsed) {
-                    CommandManager.parseBlock(root.block, textEdit.text);
+                    CommandManager.parseBlock(root.block, rawText());
                     lastSavedTextParsed = true;
                 }
             } else {

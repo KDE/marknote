@@ -52,13 +52,17 @@ Item {
     property int lastSavedCursorPos: 0
     property bool lastSavedTextParsed: false
 
+    function rawText(): string {
+        return CommandManager.getRawText(textEdit.textDocument);
+    }
+
     function flushTimer() {
         if (editTimer.running) {
             editTimer.stop();
-            if (lastSavedText !== textEdit.text) {
-                CommandManager.editTableCellText(root.block, root.rowIndex, root.columnIndex, lastSavedText, textEdit.text, lastSavedCursorPos, textEdit.cursorPosition);
+            if (lastSavedText !== rawText()) {
+                CommandManager.editTableCellText(root.block, root.rowIndex, root.columnIndex, lastSavedText, rawText(), lastSavedCursorPos, textEdit.cursorPosition);
             }
-            lastSavedText = textEdit.text;
+            lastSavedText = rawText();
             lastSavedCursorPos = textEdit.cursorPosition;
         }
     }
@@ -68,11 +72,11 @@ Item {
 
         interval: 500
         onTriggered: {
-            if (lastSavedText !== textEdit.text) {
-                CommandManager.editTableCellText(root.block, root.rowIndex, root.columnIndex, lastSavedText, textEdit.text, lastSavedCursorPos, textEdit.cursorPosition);
+            if (lastSavedText !== rawText()) {
+                CommandManager.editTableCellText(root.block, root.rowIndex, root.columnIndex, lastSavedText, rawText(), lastSavedCursorPos, textEdit.cursorPosition);
             }
 
-            lastSavedText = textEdit.text;
+            lastSavedText = rawText();
             lastSavedCursorPos = textEdit.cursorPosition;
         }
     }
@@ -180,7 +184,7 @@ Item {
 
         onTextChanged: {
             if (isProgrammaticUpdate) return;
-            if (textEdit.activeFocus && textEdit.text !== lastSavedText && !lastSavedTextParsed) {
+            if (textEdit.activeFocus && rawText() !== lastSavedText && !lastSavedTextParsed) {
                 editTimer.restart();
             }
             lastSavedTextParsed = false;
@@ -206,7 +210,7 @@ Item {
             }
 
             if (event.matches(StandardKey.SelectAll)) {
-                if (textEdit.text.length === 0 || textEdit.selectedText.length === textEdit.text.length) {
+                if (rawText().length === 0 || textEdit.selectedText.length === rawText().length) {
                     model.clearFocus();
                     model.selectAll();
                     textEdit.focus = false;
@@ -244,17 +248,17 @@ Item {
             if (event.key === Qt.Key_Left && textEdit.cursorPosition === 0) {
                 CommandManager.moveToLeftTableCell(root.block, root.rowIndex, root.columnIndex);
                 event.accepted = true;
-            } else if (event.key === Qt.Key_Right && textEdit.cursorPosition === textEdit.text.length) {
+            } else if (event.key === Qt.Key_Right && textEdit.cursorPosition === rawText().length) {
                 CommandManager.moveToRightTableCell(root.block, root.rowIndex, root.columnIndex);
                 event.accepted = true;
             } else if (event.key === Qt.Key_Up) {
-                let textBeforeCursor = textEdit.text.substring(0, textEdit.cursorPosition);
+                let textBeforeCursor = rawText().substring(0, textEdit.cursorPosition);
                 if (textBeforeCursor.indexOf('\n') === -1) {
                     CommandManager.moveToTopTableCell(root.block, root.rowIndex, root.columnIndex, textEdit.cursorPosition);
                     event.accepted = true;
                 }
             } else if (event.key === Qt.Key_Down) {
-                let textAfterCursor = textEdit.text.substring(textEdit.cursorPosition);
+                let textAfterCursor = rawText().substring(textEdit.cursorPosition);
                 if (textAfterCursor.indexOf('\n') === -1) {
                     CommandManager.moveToBottomTableCell(root.block, root.rowIndex, root.columnIndex, textEdit.cursorPosition);
                     event.accepted = true;
@@ -287,7 +291,7 @@ Item {
                 root.editing = false;
             } else {
                 highlighter.rehighlight();
-                lastSavedText = textEdit.text;
+                lastSavedText = rawText();
                 lastSavedCursorPos = textEdit.cursorPosition;
                 model.setFocusedBlockToTable(root.block, root.rowIndex, root.columnIndex, textEdit.cursorPosition);
             }
@@ -325,7 +329,7 @@ Item {
 
         function onMdChanged() {
             root.lastSavedText = root.md;
-            if (textEdit.text !== root.md) {
+            if (rawText() !== root.md) {
                 textEdit.isProgrammaticUpdate = true;
                 textEdit.text = root.md;
                 textEdit.isProgrammaticUpdate = false;

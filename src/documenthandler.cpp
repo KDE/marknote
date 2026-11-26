@@ -31,6 +31,20 @@
 
 using namespace Qt::StringLiterals;
 
+QString replaceLineEndings(const QString &str)
+{
+    static const QChar s_lineEnd = QLatin1Char('\n');
+    static const QChar s_newParagraph = QChar(8233);
+    static const QChar s_newLine = QChar(8232);
+
+    auto tmp = str;
+
+    tmp.replace(s_newParagraph, s_lineEnd);
+    tmp.replace(s_newLine, s_lineEnd);
+
+    return tmp;
+}
+
 DocumentHandler::DocumentHandler(QObject *parent)
     : QObject(parent)
 {

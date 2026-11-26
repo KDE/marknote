@@ -10,6 +10,10 @@
 #include <QUndoStack>
 #include <QtQmlIntegration/qqmlintegration.h>
 
+QT_BEGIN_NAMESPACE
+class QQuickTextDocument;
+QT_END_NAMESPACE
+
 class CommandManager : public QObject
 {
     Q_OBJECT
@@ -84,6 +88,8 @@ public:
     Q_INVOKABLE int getCursorInMdString(const QString &rawString, const QString &mdString, int index);
 
     Q_INVOKABLE void handleLink(const QString &linkString);
+
+    Q_INVOKABLE QString getRawText(QQuickTextDocument *qmlDoc);
 
 Q_SIGNALS:
     void modelChanged();
