@@ -30,9 +30,12 @@ BlockTemplate {
     property bool sourceVisible: false
     readonly property bool showDiagram: root.isMermaid && !root.sourceVisible && root.hasCode
     property string diagramId: {
-        // Bind to Config.editorFont so font family/size changes re-request the SVG
+        // Bind to editor font and theme colors so font or palette changes re-request the SVG
         const _font = Config.editorFont;
-        return root.showDiagram ? MermaidHelper.diagramId(String(root.text || ""), Kirigami.Theme.backgroundColor.hslLightness < 0.5) : "";
+        const _bg = Kirigami.Theme.backgroundColor;
+        const _fg = Kirigami.Theme.textColor;
+        const _accent = Kirigami.Theme.highlightColor;
+        return root.showDiagram ? MermaidHelper.diagramId(String(root.text || ""), _bg.hslLightness < 0.5) : "";
     }
 
     onIsMermaidChanged: {
@@ -359,12 +362,13 @@ BlockTemplate {
                 }
             }
 
-            SyntaxHighlighter {
-                textEdit: (root.language.length > 0
-                           && (Repository.definitionForName(root.language).isValid ?? (Repository.definitionForName(root.language).section.length > 0)))
-                          ? codeText
-                          : null
-                definition: root.language
+            Loader {
+                active: root.language.length > 0
+                        && (Repository.definitionForName(root.language).isValid ?? (Repository.definitionForName(root.language).section.length > 0))
+                sourceComponent: SyntaxHighlighter {
+                    textEdit: codeText
+                    definition: root.language
+                }
             }
 
 

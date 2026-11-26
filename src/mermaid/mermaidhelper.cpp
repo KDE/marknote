@@ -2,12 +2,14 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "mermaidhelper.h"
+#include "mermaidcssflattener.h"
 #include "mermaidimageprovider.h"
 #include <marknotesettings.h>
-
 #include <QCryptographicHash>
 #include <QFont>
+#include <QFontDatabase>
 #include <QRegularExpression>
+#include <algorithm>
 
 using namespace Qt::StringLiterals;
 
@@ -27,8 +29,29 @@ QString MermaidHelper::diagramId(const QString &code, bool isDark)
     MermaidImageProvider::registerDiagram(hash, trimmedCode);
 
     const QFont font = Config::editorFont();
+    QString fontFamily = font.family().isEmpty() ? QFontDatabase::systemFont(QFontDatabase::GeneralFont).family() : font.family();
+    if (fontFamily.isEmpty()) {
+        fontFamily = u"sans-serif"_s;
+    }
     const qreal fontSize = font.pointSizeF() > 0 ? font.pointSizeF() : (font.pixelSize() > 0 ? font.pixelSize() : 10.0);
-    return u"%1_%2_%3_%4"_s.arg(hash).arg(isDark ? 1 : 0).arg(font.family()).arg(fontSize);
+
+    QHash<QString, QString> vars = MermaidCssFlattener::defaultVariables(isDark);
+    vars[u"--pele-font"_s] = fontFamily;
+
+    QStringList keys = vars.keys();
+    std::sort(keys.begin(), keys.end());
+    QCryptographicHash themeHasher(QCryptographicHash::Sha256);
+    for (const QString &k : keys) {
+        themeHasher.addData(k.toUtf8());
+        themeHasher.addData("=");
+        themeHasher.addData(vars.value(k).toUtf8());
+        themeHasher.addData("\n");
+    }
+    const QString themeTag = QString::fromLatin1(themeHasher.result().toHex().left(8));
+
+    const QString id = u"%1_%2_%3_%4_%5"_s.arg(hash).arg(isDark ? 1 : 0).arg(themeTag, fontFamily).arg(fontSize);
+    MermaidImageProvider::registerRenderContext(id, {fontFamily, fontSize, std::move(vars)});
+    return id;
 }
 
 QString MermaidHelper::getCacheKey(const QString &code, bool isDark, int widthBucket, qreal dpr)

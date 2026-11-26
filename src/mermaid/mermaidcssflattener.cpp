@@ -19,6 +19,94 @@ using namespace Qt::StringLiterals;
 
 namespace
 {
+qreal parseSvgLength(QStringView raw)
+{
+    QStringView trimmed = raw.trimmed();
+    qreal scale = 1.0;
+    if (trimmed.endsWith(u"px"_s, Qt::CaseInsensitive)) {
+        trimmed = trimmed.left(trimmed.size() - 2).trimmed();
+    } else if (trimmed.endsWith(u"pt"_s, Qt::CaseInsensitive)) {
+        trimmed = trimmed.left(trimmed.size() - 2).trimmed();
+        scale = 96.0 / 72.0;
+    }
+
+    bool ok = false;
+    const qreal val = trimmed.toDouble(&ok);
+    return ok ? (val * scale) : 0.0;
+}
+
+void resolveCssVariables(QString &svg, const QHash<QString, QString> &vars)
+{
+    QHash<QString, QString> aliases;
+    aliases[u"--_bg"_s] = vars.value(u"--pele-bg"_s);
+    aliases[u"--_fg"_s] = vars.value(u"--pele-fg"_s);
+    aliases[u"--_m"_s] = vars.value(u"--pele-muted"_s);
+    aliases[u"--_l"_s] = vars.value(u"--pele-line"_s);
+    aliases[u"--_s"_s] = vars.value(u"--pele-surface"_s);
+    aliases[u"--_a"_s] = vars.value(u"--pele-surface-alt"_s);
+    aliases[u"--_b"_s] = vars.value(u"--pele-border"_s);
+    aliases[u"--_c"_s] = vars.value(u"--pele-accent"_s);
+    aliases[u"--_r"_s] = vars.value(u"--pele-radius"_s, u"4px"_s);
+    aliases[u"--_w"_s] = vars.value(u"--pele-bold-weight"_s, u"bold"_s);
+    aliases[u"--_hw"_s] = vars.value(u"--pele-heading-weight"_s, u"bold"_s);
+    aliases[u"--_tw"_s] = vars.value(u"--pele-title-weight"_s, u"bold"_s);
+    aliases[u"--_fm"_s] = vars.value(u"--pele-font-mono"_s, u"monospace"_s);
+
+    for (auto it = aliases.constBegin(); it != aliases.constEnd(); ++it) {
+        svg.replace(u"var(%1)"_s.arg(it.key()), it.value());
+    }
+
+    constexpr QLatin1StringView prefix("var(--pele-");
+    qsizetype pos = 0;
+    while ((pos = svg.indexOf(prefix, pos)) != -1) {
+        const qsizetype nameStart = pos + 4; // starts at "--pele-"
+        qsizetype cursor = pos + prefix.size();
+        while (cursor < svg.size()) {
+            const QChar ch = svg.at(cursor);
+            if (!ch.isLetterOrNumber() && ch != QLatin1Char('_') && ch != QLatin1Char('-')) {
+                break;
+            }
+            ++cursor;
+        }
+        const QString varName = svg.mid(nameStart, cursor - nameStart);
+
+        QString fallback;
+        bool validCall = false;
+        qsizetype endPos = cursor;
+        if (cursor < svg.size() && svg.at(cursor) == QLatin1Char(')')) {
+            validCall = true;
+            endPos = cursor + 1;
+        } else if (cursor < svg.size() && svg.at(cursor) == QLatin1Char(',')) {
+            int depth = 1;
+            const qsizetype fbStart = cursor + 1;
+            ++cursor;
+            while (cursor < svg.size() && depth > 0) {
+                const QChar ch = svg.at(cursor);
+                if (ch == QLatin1Char('(')) {
+                    ++depth;
+                } else if (ch == QLatin1Char(')')) {
+                    --depth;
+                }
+                ++cursor;
+            }
+            if (depth == 0) {
+                validCall = true;
+                endPos = cursor;
+                fallback = svg.mid(fbStart, (cursor - 1) - fbStart).trimmed();
+            }
+        }
+
+        if (!validCall) {
+            pos += prefix.size();
+            continue;
+        }
+
+        const QString replacement = vars.value(varName, fallback.isEmpty() ? u"none"_s : fallback);
+        svg.replace(pos, endPos - pos, replacement);
+        pos += replacement.size();
+    }
+}
+
 QString normalizeSvgStructure(const QString &svg, const QString &defaultFgColor)
 {
     const qsizetype firstSvg = svg.indexOf(u"<svg"_s);
@@ -27,7 +115,7 @@ QString normalizeSvgStructure(const QString &svg, const QString &defaultFgColor)
     }
 
     const bool hasNestedSvg = svg.indexOf(u"<svg"_s, firstSvg + 4) != -1;
-    const bool hasStyleAttr = svg.contains(u"style=\""_s);
+    const bool hasStyleAttr = svg.contains(u"style="_s);
     const bool hasCurrentColor = svg.contains(u"currentColor"_s);
     if (!hasNestedSvg && !hasStyleAttr && !hasCurrentColor) {
         return svg;
@@ -178,13 +266,13 @@ QString normalizeSvgStructure(const QString &svg, const QString &defaultFgColor)
                     for (const auto &attr : attrs) {
                         const auto name = attr.name();
                         if (name == u"x"_s) {
-                            x = attr.value().toDouble();
+                            x = parseSvgLength(attr.value());
                         } else if (name == u"y"_s) {
-                            y = attr.value().toDouble();
+                            y = parseSvgLength(attr.value());
                         } else if (name == u"width"_s) {
-                            w = attr.value().toDouble();
+                            w = parseSvgLength(attr.value());
                         } else if (name == u"height"_s) {
-                            h = attr.value().toDouble();
+                            h = parseSvgLength(attr.value());
                         } else if (name == u"viewBox"_s) {
                             viewBoxStr = attr.value().toString();
                         } else if (name == u"transform"_s) {
@@ -245,8 +333,40 @@ QString normalizeSvgStructure(const QString &svg, const QString &defaultFgColor)
                     }
                 }
                 writer.writeStartElement(reader.qualifiedName().toString());
+
+                QString promotedRx;
+                QString cleanedStyle;
+                const QString rawStyle = attrs.value(u"style"_s).toString();
+                const bool hasExplicitRx = attrs.hasAttribute(u"rx"_s);
+                if (!rawStyle.isEmpty() && rawStyle.contains(u"rx:"_s)) {
+                    const QStringList decls = rawStyle.split(QLatin1Char(';'), Qt::SkipEmptyParts);
+                    QStringList keptDecls;
+                    for (const QString &rawDecl : decls) {
+                        const QString decl = rawDecl.trimmed();
+                        const qsizetype colon = decl.indexOf(QLatin1Char(':'));
+                        if (colon > 0 && decl.left(colon).trimmed() == u"rx"_s) {
+                            if (!hasExplicitRx) {
+                                promotedRx = decl.mid(colon + 1).trimmed();
+                                promotedRx.remove(u"px"_s);
+                            }
+                            continue;
+                        }
+                        keptDecls.append(decl);
+                    }
+                    cleanedStyle = keptDecls.join(QLatin1Char(';'));
+                }
+
                 for (const auto &attr : attrs) {
-                    writer.writeAttribute(attr.qualifiedName().toString(), resolveColorVal(attr.value().toString()));
+                    if (attr.name() == u"style"_s && !rawStyle.isEmpty() && rawStyle.contains(u"rx:"_s)) {
+                        if (!cleanedStyle.isEmpty()) {
+                            writer.writeAttribute(u"style"_s, resolveColorVal(cleanedStyle));
+                        }
+                    } else {
+                        writer.writeAttribute(attr.qualifiedName().toString(), resolveColorVal(attr.value().toString()));
+                    }
+                }
+                if (!promotedRx.isEmpty()) {
+                    writer.writeAttribute(u"rx"_s, promotedRx);
                 }
             }
             break;
@@ -280,6 +400,47 @@ QString normalizeSvgStructure(const QString &svg, const QString &defaultFgColor)
     }
 
     return out;
+}
+
+struct XmlNodeToken {
+    enum Kind {
+        Start,
+        End,
+        Chars,
+        Comment,
+    };
+    Kind kind = Chars;
+    QString name;
+    QList<QPair<QString, QString>> attrs;
+    QString text;
+    bool isCdata = false;
+};
+
+void writeTokens(QXmlStreamWriter &writer, const QList<XmlNodeToken> &tokens)
+{
+    for (const XmlNodeToken &tok : tokens) {
+        switch (tok.kind) {
+        case XmlNodeToken::Start:
+            writer.writeStartElement(tok.name);
+            for (const auto &attr : tok.attrs) {
+                writer.writeAttribute(attr.first, attr.second);
+            }
+            break;
+        case XmlNodeToken::End:
+            writer.writeEndElement();
+            break;
+        case XmlNodeToken::Chars:
+            if (tok.isCdata) {
+                writer.writeCDATA(tok.text);
+            } else {
+                writer.writeCharacters(tok.text);
+            }
+            break;
+        case XmlNodeToken::Comment:
+            writer.writeComment(tok.text);
+            break;
+        }
+    }
 }
 } // namespace
 
@@ -363,53 +524,22 @@ QHash<QString, QString> MermaidCssFlattener::defaultVariables(bool isDark)
     return vars;
 }
 
-QString MermaidCssFlattener::flattenSvg(const QString &rawSvg, const QHash<QString, QString> &customVariables, bool isDark)
+QString MermaidCssFlattener::flattenSvgResolved(const QString &rawSvg, const QHash<QString, QString> &resolvedVariables)
 {
     QString svg = rawSvg;
+    resolveCssVariables(svg, resolvedVariables);
+    svg = normalizeSvgStructure(svg, resolvedVariables.value(u"--pele-fg"_s));
+    svg = normalizeTspans(svg);
+    return svg;
+}
 
+QString MermaidCssFlattener::flattenSvg(const QString &rawSvg, const QHash<QString, QString> &customVariables, bool isDark)
+{
     QHash<QString, QString> vars = defaultVariables(isDark);
     for (auto it = customVariables.constBegin(); it != customVariables.constEnd(); ++it) {
         vars[it.key()] = it.value();
     }
-
-    QHash<QString, QString> aliases;
-    aliases[u"--_bg"_s] = vars.value(u"--pele-bg"_s);
-    aliases[u"--_fg"_s] = vars.value(u"--pele-fg"_s);
-    aliases[u"--_m"_s] = vars.value(u"--pele-muted"_s);
-    aliases[u"--_l"_s] = vars.value(u"--pele-line"_s);
-    aliases[u"--_s"_s] = vars.value(u"--pele-surface"_s);
-    aliases[u"--_a"_s] = vars.value(u"--pele-surface-alt"_s);
-    aliases[u"--_b"_s] = vars.value(u"--pele-border"_s);
-    aliases[u"--_c"_s] = vars.value(u"--pele-accent"_s);
-    aliases[u"--_r"_s] = vars.value(u"--pele-radius"_s, u"4px"_s);
-    aliases[u"--_w"_s] = vars.value(u"--pele-bold-weight"_s, u"bold"_s);
-    aliases[u"--_hw"_s] = vars.value(u"--pele-heading-weight"_s, u"bold"_s);
-    aliases[u"--_tw"_s] = vars.value(u"--pele-title-weight"_s, u"bold"_s);
-    aliases[u"--_fm"_s] = vars.value(u"--pele-font-mono"_s, u"monospace"_s);
-
-    for (auto it = aliases.constBegin(); it != aliases.constEnd(); ++it) {
-        svg.replace(u"var(%1)"_s.arg(it.key()), it.value());
-    }
-
-    static const QRegularExpression peleVarRegex(u"var\\((--pele-[a-zA-Z0-9_-]+)(?:,([^)]+))?\\)"_s);
-    int offset = 0;
-    QRegularExpressionMatch match;
-    while ((match = peleVarRegex.match(svg, offset)).hasMatch()) {
-        QString varName = match.captured(1);
-        QString fallback = match.captured(2);
-        QString replacement = vars.value(varName, fallback.isEmpty() ? u"none"_s : fallback);
-        svg.replace(match.capturedStart(), match.capturedLength(), replacement);
-        offset = match.capturedStart() + replacement.length();
-    }
-
-    static const QRegularExpression rxStyleRegex(u"style=\"rx:([^;\"]+)(?:;rx:[^;\"]+)*\""_s);
-    QString radiusVal = vars.value(u"--pele-radius"_s, u"4px"_s);
-    radiusVal.remove(u"px"_s);
-    svg.replace(rxStyleRegex, u"rx=\"%1\""_s.arg(radiusVal));
-    svg = normalizeSvgStructure(svg, vars.value(u"--pele-fg"_s));
-    svg = normalizeTspans(svg);
-
-    return svg;
+    return flattenSvgResolved(rawSvg, vars);
 }
 
 QString MermaidCssFlattener::normalizeTspans(const QString &svg)
@@ -432,137 +562,238 @@ QString MermaidCssFlattener::normalizeTspans(const QString &svg)
         }
     }
 
-    static const QRegularExpression textRegex(u"<text\\b([^>]*)>([\\s\\S]*?)</text>"_s);
-    static const QRegularExpression tspanWithYRegex(u"<tspan\\b[^>]*\\b(?:y|dy)="_s);
-    static const QRegularExpression tspanRegex(u"<tspan\\b([^>]*)>([\\s\\S]*?)</tspan>"_s);
-    static const QRegularExpression attrRegex(u"([a-zA-Z0-9:_-]+)=\"([^\"]*)\""_s);
+    const bool hasXmlDecl = cleanSvg.trimmed().startsWith(u"<?"_s);
+    const QString parseInput = hasXmlDecl ? cleanSvg : (u"<_root>"_s + cleanSvg + u"</_root>"_s);
 
-    QString result;
-    result.reserve(cleanSvg.size());
-    int lastPos = 0;
-    auto it = textRegex.globalMatch(cleanSvg);
+    QString out;
+    out.reserve(cleanSvg.size());
 
-    while (it.hasNext()) {
-        auto match = it.next();
-        result.append(QStringView(cleanSvg).mid(lastPos, match.capturedStart() - lastPos));
-        lastPos = match.capturedEnd();
+    QXmlStreamReader reader(parseInput);
+    QXmlStreamWriter writer(&out);
+    writer.setAutoFormatting(false);
 
-        const QString textAttrs = match.captured(1);
-        const QString content = match.captured(2);
-
-        if (!tspanWithYRegex.match(content).hasMatch()) {
-            result.append(match.captured(0));
-            continue;
+    auto copyAttributes = [](const QXmlStreamAttributes &attrs) {
+        QList<QPair<QString, QString>> list;
+        list.reserve(attrs.size());
+        for (const auto &attr : attrs) {
+            list.append({attr.qualifiedName().toString(), attr.value().toString()});
         }
+        return list;
+    };
 
-        QMap<QString, QString> baseAttrs;
-        auto attrIt = attrRegex.globalMatch(textAttrs);
-        while (attrIt.hasNext()) {
-            auto am = attrIt.next();
-            baseAttrs.insert(am.captured(1), am.captured(2));
-        }
-
-        struct SpanInfo {
-            QMap<QString, QString> attrs;
-            QString body;
-        };
-
-        struct LineInfo {
-            QMap<QString, QString> textAttrs;
-            QList<SpanInfo> spans;
-        };
-
-        QList<LineInfo> lines;
-        LineInfo currentLine;
-        currentLine.textAttrs = baseAttrs;
-        bool hasTspans = false;
-
-        auto tspanIt = tspanRegex.globalMatch(content);
-        while (tspanIt.hasNext()) {
-            hasTspans = true;
-            auto tm = tspanIt.next();
-            const QString tspanAttrs = tm.captured(1);
-            const QString tspanBody = tm.captured(2);
-
-            QMap<QString, QString> tattrs;
-            auto amIt = attrRegex.globalMatch(tspanAttrs);
-            while (amIt.hasNext()) {
-                auto am = amIt.next();
-                tattrs.insert(am.captured(1), am.captured(2));
+    while (!reader.atEnd()) {
+        const auto token = reader.readNext();
+        switch (token) {
+        case QXmlStreamReader::StartElement: {
+            if (!hasXmlDecl && reader.name() == u"_root"_s) {
+                break;
+            }
+            if (reader.name() != u"text"_s) {
+                for (const auto &ns : reader.namespaceDeclarations()) {
+                    if (ns.prefix().isEmpty()) {
+                        writer.writeDefaultNamespace(ns.namespaceUri().toString());
+                    } else {
+                        writer.writeNamespace(ns.namespaceUri().toString(), ns.prefix().toString());
+                    }
+                }
+                writer.writeStartElement(reader.qualifiedName().toString());
+                for (const auto &attr : reader.attributes()) {
+                    writer.writeAttribute(attr.qualifiedName().toString(), attr.value().toString());
+                }
+                break;
             }
 
-            if (tattrs.contains(u"y"_s) || tattrs.contains(u"dy"_s)) {
-                if (!currentLine.spans.isEmpty()) {
-                    lines.append(currentLine);
-                    currentLine.spans.clear();
-                }
-                currentLine.textAttrs = baseAttrs;
-                if (tattrs.contains(u"x"_s)) {
-                    currentLine.textAttrs.insert(u"x"_s, tattrs.value(u"x"_s));
-                }
-                if (tattrs.contains(u"y"_s)) {
-                    currentLine.textAttrs.insert(u"y"_s, tattrs.value(u"y"_s));
-                }
-                if (tattrs.contains(u"dy"_s)) {
-                    currentLine.textAttrs.insert(u"dy"_s, tattrs.value(u"dy"_s));
-                }
+    
+            QMap<QString, QString> baseAttrs;
+            QList<QPair<QString, QString>> rawBaseAttrOrder;
+            for (const auto &attr : reader.attributes()) {
+                const QString qname = attr.qualifiedName().toString();
+                const QString val = attr.value().toString();
+                baseAttrs.insert(qname, val);
+                rawBaseAttrOrder.append({qname, val});
             }
 
-            QMap<QString, QString> innerAttrs;
-            for (auto ait = tattrs.constBegin(); ait != tattrs.constEnd(); ++ait) {
-                if (ait.key() != u"x"_s && ait.key() != u"y"_s && ait.key() != u"dy"_s) {
-                    innerAttrs.insert(ait.key(), ait.value());
-                }
-            }
+            struct SpanInfo {
+                QMap<QString, QString> attrs;
+                QList<XmlNodeToken> bodyTokens;
+            };
+            struct LineInfo {
+                QMap<QString, QString> textAttrs;
+                QList<SpanInfo> spans;
+            };
 
-            currentLine.spans.append({innerAttrs, tspanBody});
-        }
+            QList<XmlNodeToken> originalChildren;
+            QList<LineInfo> lines;
+            LineInfo currentLine;
+            currentLine.textAttrs = baseAttrs;
+            bool hasPositionedTspan = false;
+            bool hasAnyTspan = false;
 
-        if (!currentLine.spans.isEmpty()) {
-            lines.append(currentLine);
-        }
+            int textDepth = 1;
+            while (!reader.atEnd() && textDepth > 0) {
+                const auto innerTok = reader.readNext();
+                if (innerTok == QXmlStreamReader::StartElement) {
+                    if (reader.name() == u"tspan"_s && textDepth == 1) {
+                        hasAnyTspan = true;
+                        QMap<QString, QString> tattrs;
+                        for (const auto &attr : reader.attributes()) {
+                            tattrs.insert(attr.qualifiedName().toString(), attr.value().toString());
+                        }
+                        originalChildren.append({XmlNodeToken::Start, reader.qualifiedName().toString(), copyAttributes(reader.attributes()), {}, false});
 
-        if (!hasTspans || lines.isEmpty()) {
-            result.append(match.captured(0));
-        } else {
-            for (const auto &line : lines) {
-                QMap<QString, QString> finalAttrs = line.textAttrs;
-                if (line.spans.size() == 1) {
-                    const auto &span = line.spans.first();
-                    for (auto sait = span.attrs.constBegin(); sait != span.attrs.constEnd(); ++sait) {
-                        finalAttrs.insert(sait.key(), sait.value());
-                    }
-                    result.append(u"<text"_s);
-                    for (auto ait = finalAttrs.constBegin(); ait != finalAttrs.constEnd(); ++ait) {
-                        result.append(u" %1=\"%2\""_s.arg(ait.key(), ait.value()));
-                    }
-                    result.append(u">%1</text>"_s.arg(span.body));
-                } else {
-                    if (!finalAttrs.contains(u"xml:space"_s)) {
-                        finalAttrs.insert(u"xml:space"_s, u"preserve"_s);
-                    }
-                    result.append(u"<text"_s);
-                    for (auto ait = finalAttrs.constBegin(); ait != finalAttrs.constEnd(); ++ait) {
-                        result.append(u" %1=\"%2\""_s.arg(ait.key(), ait.value()));
-                    }
-                    result.append(u">"_s);
-                    for (const auto &span : line.spans) {
-                        if (span.attrs.isEmpty()) {
-                            result.append(u"<tspan>%1</tspan>"_s.arg(span.body));
-                        } else {
-                            result.append(u"<tspan"_s);
-                            for (auto sait = span.attrs.constBegin(); sait != span.attrs.constEnd(); ++sait) {
-                                result.append(u" %1=\"%2\""_s.arg(sait.key(), sait.value()));
+                        QList<XmlNodeToken> spanBody;
+                        int tspanDepth = 1;
+                        while (!reader.atEnd() && tspanDepth > 0) {
+                            const auto st = reader.readNext();
+                            if (st == QXmlStreamReader::StartElement) {
+                                ++tspanDepth;
+                                XmlNodeToken node{XmlNodeToken::Start, reader.qualifiedName().toString(), copyAttributes(reader.attributes()), {}, false};
+                                spanBody.append(node);
+                                originalChildren.append(node);
+                            } else if (st == QXmlStreamReader::EndElement) {
+                                --tspanDepth;
+                                if (tspanDepth > 0) {
+                                    XmlNodeToken node{XmlNodeToken::End, reader.qualifiedName().toString(), {}, {}, false};
+                                    spanBody.append(node);
+                                }
+                                originalChildren.append({XmlNodeToken::End, reader.qualifiedName().toString(), {}, {}, false});
+                            } else if (st == QXmlStreamReader::Characters) {
+                                XmlNodeToken node{XmlNodeToken::Chars, {}, {}, reader.text().toString(), reader.isCDATA()};
+                                spanBody.append(node);
+                                originalChildren.append(node);
+                            } else if (st == QXmlStreamReader::Comment) {
+                                XmlNodeToken node{XmlNodeToken::Comment, {}, {}, reader.text().toString(), false};
+                                spanBody.append(node);
+                                originalChildren.append(node);
                             }
-                            result.append(u">%1</tspan>"_s.arg(span.body));
+                        }
+
+                        if (tattrs.contains(u"y"_s) || tattrs.contains(u"dy"_s)) {
+                            hasPositionedTspan = true;
+                            if (!currentLine.spans.isEmpty()) {
+                                lines.append(currentLine);
+                                currentLine.spans.clear();
+                            }
+                            currentLine.textAttrs = baseAttrs;
+                            if (tattrs.contains(u"x"_s)) {
+                                currentLine.textAttrs.insert(u"x"_s, tattrs.value(u"x"_s));
+                            }
+                            if (tattrs.contains(u"y"_s)) {
+                                currentLine.textAttrs.insert(u"y"_s, tattrs.value(u"y"_s));
+                            }
+                            if (tattrs.contains(u"dy"_s)) {
+                                currentLine.textAttrs.insert(u"dy"_s, tattrs.value(u"dy"_s));
+                            }
+                        }
+
+                        QMap<QString, QString> innerAttrs;
+                        for (auto ait = tattrs.constBegin(); ait != tattrs.constEnd(); ++ait) {
+                            if (ait.key() != u"x"_s && ait.key() != u"y"_s && ait.key() != u"dy"_s) {
+                                innerAttrs.insert(ait.key(), ait.value());
+                            }
+                        }
+                        currentLine.spans.append({innerAttrs, spanBody});
+                    } else {
+                        ++textDepth;
+                        XmlNodeToken node{XmlNodeToken::Start, reader.qualifiedName().toString(), copyAttributes(reader.attributes()), {}, false};
+                        originalChildren.append(node);
+                        if (currentLine.spans.isEmpty() || !currentLine.spans.last().attrs.isEmpty()) {
+                            currentLine.spans.append({{}, {node}});
+                        } else {
+                            currentLine.spans.last().bodyTokens.append(node);
                         }
                     }
-                    result.append(u"</text>"_s);
+                } else if (innerTok == QXmlStreamReader::EndElement) {
+                    --textDepth;
+                    if (textDepth > 0) {
+                        XmlNodeToken node{XmlNodeToken::End, reader.qualifiedName().toString(), {}, {}, false};
+                        originalChildren.append(node);
+                        if (!currentLine.spans.isEmpty()) {
+                            currentLine.spans.last().bodyTokens.append(node);
+                        }
+                    }
+                } else if (innerTok == QXmlStreamReader::Characters) {
+                    XmlNodeToken node{XmlNodeToken::Chars, {}, {}, reader.text().toString(), reader.isCDATA()};
+                    originalChildren.append(node);
+                    currentLine.spans.append({{}, {node}});
+                } else if (innerTok == QXmlStreamReader::Comment) {
+                    XmlNodeToken node{XmlNodeToken::Comment, {}, {}, reader.text().toString(), false};
+                    originalChildren.append(node);
+                    currentLine.spans.append({{}, {node}});
                 }
             }
+
+            if (!currentLine.spans.isEmpty()) {
+                lines.append(currentLine);
+            }
+
+            if (!hasAnyTspan || !hasPositionedTspan || lines.isEmpty()) {
+                writer.writeStartElement(u"text"_s);
+                for (const auto &attr : rawBaseAttrOrder) {
+                    writer.writeAttribute(attr.first, attr.second);
+                }
+                writeTokens(writer, originalChildren);
+                writer.writeEndElement();
+            } else {
+                for (const auto &line : lines) {
+                    QMap<QString, QString> finalAttrs = line.textAttrs;
+                    if (line.spans.size() == 1) {
+                        const auto &span = line.spans.first();
+                        for (auto sait = span.attrs.constBegin(); sait != span.attrs.constEnd(); ++sait) {
+                            finalAttrs.insert(sait.key(), sait.value());
+                        }
+                        writer.writeStartElement(u"text"_s);
+                        for (auto ait = finalAttrs.constBegin(); ait != finalAttrs.constEnd(); ++ait) {
+                            writer.writeAttribute(ait.key(), ait.value());
+                        }
+                        writeTokens(writer, span.bodyTokens);
+                        writer.writeEndElement();
+                    } else {
+                        if (!finalAttrs.contains(u"xml:space"_s)) {
+                            finalAttrs.insert(u"xml:space"_s, u"preserve"_s);
+                        }
+                        writer.writeStartElement(u"text"_s);
+                        for (auto ait = finalAttrs.constBegin(); ait != finalAttrs.constEnd(); ++ait) {
+                            writer.writeAttribute(ait.key(), ait.value());
+                        }
+                        for (const auto &span : line.spans) {
+                            writer.writeStartElement(u"tspan"_s);
+                            for (auto sait = span.attrs.constBegin(); sait != span.attrs.constEnd(); ++sait) {
+                                writer.writeAttribute(sait.key(), sait.value());
+                            }
+                            writeTokens(writer, span.bodyTokens);
+                            writer.writeEndElement();
+                        }
+                        writer.writeEndElement();
+                    }
+                }
+            }
+            break;
+        }
+        case QXmlStreamReader::EndElement:
+            if (!hasXmlDecl && reader.name() == u"_root"_s) {
+                break;
+            }
+            writer.writeEndElement();
+            break;
+        case QXmlStreamReader::Characters:
+            if (reader.isCDATA()) {
+                writer.writeCDATA(reader.text().toString());
+            } else {
+                writer.writeCharacters(reader.text().toString());
+            }
+            break;
+        case QXmlStreamReader::Comment:
+            writer.writeComment(reader.text().toString());
+            break;
+        default:
+            break;
         }
     }
 
-    result.append(QStringView(cleanSvg).mid(lastPos));
-    return result;
+    if (reader.hasError()) {
+        return svg;
+    }
+
+    return out;
 }

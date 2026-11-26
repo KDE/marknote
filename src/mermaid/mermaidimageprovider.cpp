@@ -8,11 +8,13 @@
 #include <marknotesettings.h>
 
 #include <QCache>
+#include <QCoreApplication>
 #include <QFontDatabase>
 #include <QMutex>
 #include <QMutexLocker>
 #include <QPainter>
 #include <QSvgRenderer>
+#include <QThread>
 
 using namespace Qt::StringLiterals;
 
@@ -24,10 +26,38 @@ QCache<QString, QString> &diagramCodeRegistry()
     return s_registry;
 }
 
+QCache<QString, MermaidRenderContext> &renderContextRegistry()
+{
+    static QCache<QString, MermaidRenderContext> s_contexts(256);
+    return s_contexts;
+}
+
 QMutex &registryMutex()
 {
     static QMutex s_regMutex;
     return s_regMutex;
+}
+
+MermaidRenderContext resolveContextOnGuiThread(bool isDark)
+{
+    MermaidRenderContext ctx;
+    auto resolve = [&ctx, isDark]() {
+        const QFont font = Config::editorFont();
+        ctx.fontFamily = font.family().isEmpty() ? QFontDatabase::systemFont(QFontDatabase::GeneralFont).family() : font.family();
+        if (ctx.fontFamily.isEmpty()) {
+            ctx.fontFamily = u"sans-serif"_s;
+        }
+        ctx.fontSize = font.pointSizeF() > 0 ? font.pointSizeF() : (font.pixelSize() > 0 ? font.pixelSize() : 10.0);
+        ctx.variables = MermaidCssFlattener::defaultVariables(isDark);
+        ctx.variables[u"--pele-font"_s] = ctx.fontFamily;
+    };
+
+    if (qApp && QThread::currentThread() != qApp->thread()) {
+        QMetaObject::invokeMethod(qApp, resolve, Qt::BlockingQueuedConnection);
+    } else {
+        resolve();
+    }
+    return ctx;
 }
 
 QImage renderSvgToImage(const QString &flatSvg, const QSize &naturalSize, QString &errorString)
@@ -60,39 +90,51 @@ QImage renderSvgToImage(const QString &flatSvg, const QSize &naturalSize, QStrin
 MermaidImageResponse::MermaidImageResponse(const QString &id, const QSize &requestedSize)
     : m_id(id)
     , m_requestedSize(requestedSize)
+    , m_state(std::make_shared<SharedState>())
 {
     startJob();
 }
 
+MermaidImageResponse::~MermaidImageResponse()
+{
+    QMutexLocker locker(&m_state->mutex);
+    m_state->cancelled = true;
+    m_state->destroyed = true;
+}
+
 QQuickTextureFactory *MermaidImageResponse::textureFactory() const
 {
-    QMutexLocker locker(&m_mutex);
-    return QQuickTextureFactory::textureFactoryForImage(m_image);
+    QMutexLocker locker(&m_state->mutex);
+    return QQuickTextureFactory::textureFactoryForImage(m_state->image);
 }
 
 QString MermaidImageResponse::errorString() const
 {
-    QMutexLocker locker(&m_mutex);
-    return m_errorString;
+    QMutexLocker locker(&m_state->mutex);
+    return m_state->errorString;
 }
 
 void MermaidImageResponse::cancel()
 {
-    m_cancelled.store(true, std::memory_order_relaxed);
+    QMutexLocker locker(&m_state->mutex);
+    m_state->cancelled = true;
 }
 
 void MermaidImageResponse::startJob()
 {
-    if (m_cancelled.load(std::memory_order_relaxed)) {
-        QMetaObject::invokeMethod(this, &QQuickImageResponse::finished, Qt::QueuedConnection);
-        return;
+    {
+        QMutexLocker locker(&m_state->mutex);
+        if (m_state->cancelled) {
+            QMetaObject::invokeMethod(this, &QQuickImageResponse::finished, Qt::QueuedConnection);
+            return;
+        }
     }
 
     const QStringList parts = m_id.split(QLatin1Char('_'));
     if (parts.isEmpty()) {
         {
-            QMutexLocker locker(&m_mutex);
-            m_errorString = u"Invalid diagram image ID format"_s;
+            QMutexLocker locker(&m_state->mutex);
+            m_state->errorString = u"Invalid diagram image ID format"_s;
         }
         QMetaObject::invokeMethod(this, &QQuickImageResponse::finished, Qt::QueuedConnection);
         return;
@@ -105,66 +147,71 @@ void MermaidImageResponse::startJob()
         QString err;
         QImage img = renderSvgToImage(cached->flatSvg, cached->naturalSize, err);
         {
-            QMutexLocker locker(&m_mutex);
-            m_image = img;
-            m_errorString = err;
+            QMutexLocker locker(&m_state->mutex);
+            m_state->image = img;
+            m_state->errorString = err;
         }
         QMetaObject::invokeMethod(this, &QQuickImageResponse::finished, Qt::QueuedConnection);
         return;
     }
 
-    QString code = MermaidImageProvider::getDiagram(hash);
+    const QString code = MermaidImageProvider::getDiagram(hash);
     if (code.isEmpty()) {
         {
-            QMutexLocker locker(&m_mutex);
-            m_errorString = u"Diagram source not found for hash"_s;
+            QMutexLocker locker(&m_state->mutex);
+            m_state->errorString = u"Diagram source not found for hash"_s;
         }
         QMetaObject::invokeMethod(this, &QQuickImageResponse::finished, Qt::QueuedConnection);
         return;
+    }
+
+    MermaidRenderContext ctx = MermaidImageProvider::getRenderContext(m_id);
+    if (ctx.variables.isEmpty()) {
+        ctx = resolveContextOnGuiThread(isDark);
     }
 
     MermaidRenderRequest req;
     req.code = code;
     req.isDarkMode = isDark;
+    req.fontFamily = ctx.fontFamily;
+    req.fontSize = ctx.fontSize;
+    req.colorOverrides = ctx.variables;
 
-    const QFont font = Config::editorFont();
-    req.fontFamily = font.family().isEmpty() ? QFontDatabase::systemFont(QFontDatabase::GeneralFont).family() : font.family();
-    if (req.fontFamily.isEmpty()) {
-        req.fontFamily = u"sans-serif"_s;
-    }
-    req.fontSize = font.pointSizeF() > 0 ? font.pointSizeF() : (font.pixelSize() > 0 ? font.pixelSize() : 10.0);
+    const auto state = m_state;
+    MermaidImageResponse *rawThis = this;
 
-    JsEngineMermaidRenderer::instance()->renderAsync(req, [this, isDark, req, id = m_id](const MermaidRenderResult &result) {
-        if (m_cancelled.load(std::memory_order_relaxed)) {
-            Q_EMIT finished();
-            return;
+    JsEngineMermaidRenderer::instance()->renderAsync(req, [rawThis, state, vars = std::move(ctx.variables), id = m_id](const MermaidRenderResult &result) {
+        {
+            QMutexLocker locker(&state->mutex);
+            if (state->cancelled) {
+                if (!state->destroyed) {
+                    QMetaObject::invokeMethod(rawThis, &QQuickImageResponse::finished, Qt::QueuedConnection);
+                }
+                return;
+            }
         }
 
         if (!result.success) {
-            {
-                QMutexLocker locker(&m_mutex);
-                m_errorString = result.errorString;
+            QMutexLocker locker(&state->mutex);
+            state->errorString = result.errorString;
+            if (!state->destroyed) {
+                QMetaObject::invokeMethod(rawThis, &QQuickImageResponse::finished, Qt::QueuedConnection);
             }
-            Q_EMIT finished();
             return;
         }
 
-        QHash<QString, QString> customVars;
-        if (!req.fontFamily.isEmpty()) {
-            customVars[u"--pele-font"_s] = req.fontFamily;
-        }
-        QString flatSvg = MermaidCssFlattener::flattenSvg(result.svg, customVars, isDark);
-
+        const QString flatSvg = MermaidCssFlattener::flattenSvgResolved(result.svg, vars);
         MermaidSvgCache::instance()->insert(id, flatSvg, result.naturalSize);
 
         QString err;
         QImage img = renderSvgToImage(flatSvg, result.naturalSize, err);
-        {
-            QMutexLocker locker(&m_mutex);
-            m_image = img;
-            m_errorString = err;
+
+        QMutexLocker locker(&state->mutex);
+        state->image = img;
+        state->errorString = err;
+        if (!state->destroyed) {
+            QMetaObject::invokeMethod(rawThis, &QQuickImageResponse::finished, Qt::QueuedConnection);
         }
-        Q_EMIT finished();
     });
 }
 
@@ -192,4 +239,19 @@ QString MermaidImageProvider::getDiagram(const QString &hash)
         return *code;
     }
     return QString();
+}
+
+void MermaidImageProvider::registerRenderContext(const QString &diagramId, const MermaidRenderContext &context)
+{
+    QMutexLocker locker(&registryMutex());
+    renderContextRegistry().insert(diagramId, new MermaidRenderContext(context), 1);
+}
+
+MermaidRenderContext MermaidImageProvider::getRenderContext(const QString &diagramId)
+{
+    QMutexLocker locker(&registryMutex());
+    if (const MermaidRenderContext *ctx = renderContextRegistry().object(diagramId)) {
+        return *ctx;
+    }
+    return {};
 }

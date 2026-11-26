@@ -10,9 +10,56 @@
 #include <QJSEngine>
 #include <QLoggingCategory>
 #include <QMutex>
+#include <QMutexLocker>
 #include <QRegularExpression>
 
 using namespace Qt::StringLiterals;
+
+class ScopedUsedBeforeDeclaredFilter
+{
+public:
+    ScopedUsedBeforeDeclaredFilter()
+    {
+        QMutexLocker locker(&mutex());
+        if (s_depth == 0) {
+            s_prevFilter = QLoggingCategory::installFilter(&filter);
+        }
+        ++s_depth;
+    }
+
+    ~ScopedUsedBeforeDeclaredFilter()
+    {
+        QMutexLocker locker(&mutex());
+        if (--s_depth == 0) {
+            QLoggingCategory::installFilter(s_prevFilter);
+            s_prevFilter = nullptr;
+        }
+    }
+
+    ScopedUsedBeforeDeclaredFilter(const ScopedUsedBeforeDeclaredFilter &) = delete;
+    ScopedUsedBeforeDeclaredFilter &operator=(const ScopedUsedBeforeDeclaredFilter &) = delete;
+
+private:
+    static QMutex &mutex()
+    {
+        static QMutex s_mutex;
+        return s_mutex;
+    }
+
+    static void filter(QLoggingCategory *category)
+    {
+        if (s_prevFilter) {
+            s_prevFilter(category);
+        }
+        if (qstrcmp(category->categoryName(), "qt.qml.usedbeforedeclared") == 0) {
+            category->setEnabled(QtWarningMsg, false);
+            category->setEnabled(QtDebugMsg, false);
+        }
+    }
+
+    inline static int s_depth = 0;
+    inline static QLoggingCategory::CategoryFilter s_prevFilter = nullptr;
+};
 
 class NativeMeasurer : public QObject
 {
@@ -68,17 +115,6 @@ public:
     }
 
 public Q_SLOTS:
-    void resetEngine()
-    {
-        delete m_measurer;
-        m_measurer = nullptr;
-        delete m_engine;
-        m_engine = nullptr;
-        m_mathJaxLoaded = false;
-        m_initError.clear();
-        init();
-    }
-
     void init()
     {
         if (m_engine) {
@@ -142,6 +178,7 @@ public Q_SLOTS:
         }
 
         if (!s_script.isEmpty()) {
+            ScopedUsedBeforeDeclaredFilter suppressBundleWarnings;
             QJSValue evalRes = m_engine->evaluate(s_script, u"pele_bundle.js"_s);
             if (evalRes.isError()) {
                 m_initError = evalRes.toString();
@@ -155,16 +192,18 @@ public Q_SLOTS:
     {
         MermaidRenderResult result;
 
-        resetEngine();
-
-        if (!m_initError.isEmpty()) {
-            result.errorString = m_initError;
+        if (request.code.size() > 65536) {
+            result.errorString = u"Diagram input exceeds 64KB limit."_s;
             result.success = false;
             return result;
         }
 
-        if (request.code.size() > 65536) {
-            result.errorString = u"Diagram input exceeds 64KB limit."_s;
+        if (!m_engine) {
+            init();
+        }
+
+        if (!m_initError.isEmpty()) {
+            result.errorString = m_initError;
             result.success = false;
             return result;
         }
@@ -235,6 +274,7 @@ private:
         }
 
         if (!s_mathJaxScript.isEmpty()) {
+            ScopedUsedBeforeDeclaredFilter suppressMathJaxWarnings;
             m_engine->evaluate(s_mathJaxScript, u"mathjax_bundle.js"_s);
         }
     }
@@ -248,7 +288,6 @@ private:
 JsEngineMermaidRenderer::JsEngineMermaidRenderer(QObject *parent)
     : MermaidRenderer(parent)
 {
-    QLoggingCategory::setFilterRules(u"qt.qml.usedbeforedeclared.warning=false\nqt.qml.usedbeforedeclared=false"_s);
     Q_INIT_RESOURCE(pele);
 
     m_worker = new MermaidWorker();

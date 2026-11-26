@@ -398,43 +398,34 @@ EditPage {
         }
     }
 
+    function positionCursorPopup(popup): void {
+        if (!root.activeTextArea || !popup || !popup.parent) return;
+
+        let cursorRect = root.activeTextArea.positionToRectangle(root.activeTextArea.cursorPosition);
+        let mappedPos = root.activeTextArea.mapToItem(popup.parent, cursorRect.x, cursorRect.y);
+
+        let minX = 0;
+        let maxX = Math.max(0, popup.parent.width - popup.width);
+        popup.x = Math.max(minX, Math.min(mappedPos.x + 5, maxX));
+
+        let targetY = mappedPos.y + Config.editorFont.pixelSize * 2;
+        let minY = 0;
+        let maxY = Math.max(0, popup.parent.height - popup.height);
+
+        if (targetY > maxY) {
+            popup.y = Math.max(minY, mappedPos.y - popup.height - Config.editorFont.pixelSize);
+        } else {
+            popup.y = Math.max(minY, Math.min(targetY, maxY));
+        }
+    }
+
     EmojierPopup {
         id: emojierPopup
         parent: root.Overlay.overlay
         filterText: root.document.currentEmojicode
 
-        x: {
-            if (!root.activeTextArea || !parent) return 0;
-
-            let cursorRect = root.activeTextArea.positionToRectangle(root.activeTextArea.cursorPosition);
-            let mappedPos = root.activeTextArea.mapToItem(parent, cursorRect.x, cursorRect.y);
-
-            let targetX = mappedPos.x + 5;
-
-            let minX = 0;
-            let maxX = parent.width - width;
-
-            return Math.max(minX, Math.min(targetX, maxX));
-        }
-
-        y: {
-            if (!root.activeTextArea || !parent) return 0;
-
-            let cursorRect = root.activeTextArea.positionToRectangle(root.activeTextArea.cursorPosition);
-            let mappedPos = root.activeTextArea.mapToItem(parent, cursorRect.x, cursorRect.y);
-
-            let targetY = mappedPos.y + Config.editorFont.pixelSize * 2;
-
-            let minY = 0;
-            let maxY = parent.height - height;
-
-            if (targetY > maxY) {
-                let aboveY = mappedPos.y;
-                return Math.max(minY, aboveY - height - Config.editorFont.pixelSize);
-            }
-
-            return Math.max(minY, Math.min(targetY, maxY));
-        }
+        onWidthChanged: if (opened) root.positionCursorPopup(emojierPopup)
+        onHeightChanged: if (opened) root.positionCursorPopup(emojierPopup)
 
         Connections {
             target: root.document
@@ -445,6 +436,7 @@ EditPage {
                 }
 
                 if (root.document.popupVisible) {
+                    root.positionCursorPopup(emojierPopup);
                     emojierPopup.open();
                 } else {
                     emojierPopup.close();
@@ -453,6 +445,7 @@ EditPage {
         }
 
         onOpened: {
+            root.positionCursorPopup(emojierPopup);
             EditorActions.activePopup = emojierPopup;
         }
 
@@ -481,40 +474,11 @@ EditPage {
         id: slashPopup
         parent: root.Overlay.overlay
 
-        x: {
-            if (!root.activeTextArea || !parent) return 0;
-
-            let cursorRect = root.activeTextArea.positionToRectangle(root.activeTextArea.cursorPosition);
-            let mappedPos = root.activeTextArea.mapToItem(parent, cursorRect.x, cursorRect.y);
-
-            let targetX = mappedPos.x + 5;
-
-            let minX = 0;
-            let maxX = parent.width - width;
-
-            return Math.max(minX, Math.min(targetX, maxX));
-        }
-
-        y: {
-            if (!root.activeTextArea || !parent) return 0;
-
-            let cursorRect = root.activeTextArea.positionToRectangle(root.activeTextArea.cursorPosition);
-            let mappedPos = root.activeTextArea.mapToItem(parent, cursorRect.x, cursorRect.y);
-
-            let targetY = mappedPos.y + Config.editorFont.pixelSize * 2;
-
-            let minY = 0;
-            let maxY = parent.height - height;
-
-            if (targetY > maxY) {
-                let aboveY = mappedPos.y;
-                return Math.max(minY, aboveY - height - Config.editorFont.pixelSize);
-            }
-
-            return Math.max(minY, Math.min(targetY, maxY));
-        }
+        onWidthChanged: if (opened) root.positionCursorPopup(slashPopup)
+        onHeightChanged: if (opened) root.positionCursorPopup(slashPopup)
 
         onOpened: {
+            root.positionCursorPopup(slashPopup);
             EditorActions.activePopup = slashPopup;
         }
 
@@ -562,6 +526,7 @@ EditPage {
         slashPopup.slashPosition = absoluteSlashPos;
         slashPopup.filterText = query;
 
+        root.positionCursorPopup(slashPopup);
         if (!slashPopup.opened) {
             slashPopup.open();
         }
@@ -673,6 +638,9 @@ EditPage {
             if (root.activeTextArea) {
                 root.document.checkForShortcode(root.activeTextArea.text, root.activeTextArea.cursorPosition);
                 root.checkForSlashCommand(root.activeTextArea.text, root.activeTextArea.cursorPosition);
+                if (emojierPopup.opened) {
+                    root.positionCursorPopup(emojierPopup);
+                }
             }
         }
         function onTextChanged(): void {
@@ -681,6 +649,9 @@ EditPage {
             if (root.activeTextArea) {
                 root.document.checkForShortcode(root.activeTextArea.text, root.activeTextArea.cursorPosition);
                 root.checkForSlashCommand(root.activeTextArea.text, root.activeTextArea.cursorPosition);
+                if (emojierPopup.opened) {
+                    root.positionCursorPopup(emojierPopup);
+                }
             }
         }
     }

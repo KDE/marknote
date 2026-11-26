@@ -385,6 +385,11 @@ void MermaidTest::testNormalizeTspans()
     QVERIFY(normFormatted.contains(u"text-decoration=\"underline\""_s));
     QVERIFY(normFormatted.contains(u"y=\"15\""_s));
     QVERIFY(normFormatted.contains(u"xml:space=\"preserve\""_s));
+
+    const QString bareAndEscaped = u"<text class='lbl'>Prefix <tspan x='0' y='12'>A &amp; B</tspan></text>"_s;
+    const QString normBare = MermaidCssFlattener::normalizeTspans(bareAndEscaped);
+    QVERIFY(normBare.contains(u"Prefix "_s));
+    QVERIFY(normBare.contains(u"A &amp; B"_s));
 }
 
 void MermaidTest::testNestedSvgFlattening()
@@ -424,6 +429,20 @@ void MermaidTest::testNestedSvgFlattening()
 
     QSvgRenderer renderer(flat.toUtf8());
     QVERIFY(renderer.isValid());
+    
+    const QString edgeSvg = QString::fromUtf8(
+        "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"60\">"
+        "<rect x=\"0\" y=\"0\" width=\"20\" height=\"20\" fill=\"var(--pele-unknown, rgb(10, 20, 30))\" style=\"fill:red;rx:6px\"/>"
+        "<svg x=\"5px\" y=\"10px\" width=\"24px\" height=\"24px\" viewBox=\"0 0 12 12\"><path d=\"M0 0 L12 12\"/></svg>"
+        "</svg>");
+    const QString flatEdge = MermaidCssFlattener::flattenSvg(edgeSvg, {}, false);
+    QVERIFY(flatEdge.contains(u"rgb(10, 20, 30)"_s));
+    QVERIFY(flatEdge.contains(u"rx=\"6\""_s));
+    QVERIFY(flatEdge.contains(u"style=\"fill:red\""_s));
+    QVERIFY(flatEdge.contains(u"translate(5, 10)"_s));
+    QVERIFY(flatEdge.contains(u"scale(2, 2)"_s));
+    QSvgRenderer edgeRenderer(flatEdge.toUtf8());
+    QVERIFY(edgeRenderer.isValid());
 }
 
 void MermaidTest::testLatexMath()

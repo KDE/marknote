@@ -12,5 +12,6 @@ class MermaidCssFlattener
 public:
     static QHash<QString, QString> defaultVariables(bool isDark);
     static QString flattenSvg(const QString &rawSvg, const QHash<QString, QString> &customVariables, bool isDark);
+    static QString flattenSvgResolved(const QString &rawSvg, const QHash<QString, QString> &resolvedVariables);
     static QString normalizeTspans(const QString &svg);
 };
