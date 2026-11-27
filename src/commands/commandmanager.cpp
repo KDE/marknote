@@ -719,7 +719,7 @@ void CommandManager::handleLink(const QString &linkString)
 
 QString CommandManager::getRawText(QQuickTextDocument *qmlDoc)
 {
-    if (!qmlDoc && !qmlDoc->textDocument()) {
+    if (!qmlDoc || !qmlDoc->textDocument()) {
         return {};
     }
 

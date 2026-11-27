@@ -144,10 +144,6 @@ Item {
         MDHighlighter {
             id: highlighter
             document: textEdit.textDocument
-            textColor: root.color
-            dimmedColor: Kirigami.Theme.disabledTextColor
-            codeColor: Kirigami.ColorUtils.tintWithAlpha(root.color, Kirigami.Theme.focusColor, 0.7)
-            accentColor: Kirigami.Theme.highlightColor
             fixedFontFamily: Kirigami.Theme.fixedWidthFont.family
             baseFontSize: root.fontSize
             mode: MDHighlighter.Inline

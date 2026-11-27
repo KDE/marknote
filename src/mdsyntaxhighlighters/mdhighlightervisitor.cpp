@@ -7,7 +7,7 @@ MDHighlighterVisitor::MDHighlighterVisitor(QTextDocument *doc,
                                            const MarkdownTheme &theme,
                                            qreal baseFontSize,
                                            const QList<int> &lineOffsets,
-                                           HighlighterMode mode)
+                                           MDHighlighter::Mode mode)
     : m_doc(doc)
     , m_theme(theme)
     , m_baseFontSize(baseFontSize)
@@ -62,7 +62,7 @@ void MDHighlighterVisitor::onHeading(MD::Heading *h)
         return;
     }
 
-    if (m_mode == HighlighterMode::Full) {
+    if (m_mode == MDHighlighter::Full) {
         addRange(h, m_theme.formatForHeading(h->level(), m_baseFontSize));
         addDelims(h->delims());
     }
@@ -78,7 +78,7 @@ void MDHighlighterVisitor::onCode(MD::Code *c)
         return;
     }
 
-    if (m_mode != HighlighterMode::Full) {
+    if (m_mode != MDHighlighter::Full) {
         return;
     }
 
@@ -105,7 +105,7 @@ void MDHighlighterVisitor::onBlockquote(MD::Blockquote *b)
         return;
     }
 
-    if (m_mode == HighlighterMode::Full) {
+    if (m_mode == MDHighlighter::Full) {
         addRange(b, m_theme.formatForBlockquote());
         addDelims(b->delims());
     }
@@ -132,7 +132,7 @@ void MDHighlighterVisitor::onTable(MD::Table *t)
         return;
     }
 
-    if (m_mode == HighlighterMode::Full) {
+    if (m_mode == MDHighlighter::Full) {
         addRange(t, m_theme.formatForTable());
     }
 
@@ -162,7 +162,7 @@ void MDHighlighterVisitor::onRawHtml(MD::RawHtml *h)
 
 void MDHighlighterVisitor::onHorizontalLine(MD::HorizontalLine *l)
 {
-    if (!l || m_mode != HighlighterMode::Full) {
+    if (!l || m_mode != MDHighlighter::Full) {
         return;
     }
 
@@ -216,7 +216,7 @@ void MDHighlighterVisitor::onFootnote(MD::Footnote *f)
         return;
     }
 
-    if (m_mode == HighlighterMode::Full) {
+    if (m_mode == MDHighlighter::Full) {
         addDelim(*f);
     }
     MD::Visitor::onFootnote(f);
@@ -228,7 +228,7 @@ void MDHighlighterVisitor::onListItem(MD::ListItem *i, bool first, bool skipOpen
         return;
     }
 
-    if (m_mode == HighlighterMode::Full) {
+    if (m_mode == MDHighlighter::Full) {
         addDelim(i->delim());
         if (i->isTaskList()) {
             addDelim(i->taskDelim());

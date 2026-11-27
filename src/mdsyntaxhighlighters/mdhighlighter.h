@@ -4,13 +4,21 @@
 #ifndef MDHIGHLIGHTER_H
 #define MDHIGHLIGHTER_H
 
-#include "mdhighlightervisitor.h"
+#include "markdowntheme.h"
+
+#include <md4qt/doc.h>
 
 #include <QColor>
 #include <QQmlEngine>
 #include <QQuickTextDocument>
 #include <QSharedPointer>
 #include <QSyntaxHighlighter>
+
+struct FormatRange {
+    int start = 0;
+    int length = 0;
+    QTextCharFormat format;
+};
 
 class MDHighlighter : public QSyntaxHighlighter
 {
@@ -19,18 +27,21 @@ class MDHighlighter : public QSyntaxHighlighter
 
 public:
     enum Mode {
-        Full = static_cast<int>(HighlighterMode::Full),
-        Inline = static_cast<int>(HighlighterMode::Inline)
+        Full = 0,
+        Inline
     };
     Q_ENUM(Mode)
+
+    enum RehighlightMode {
+        FullRehighlight = 0,
+        RehighlightOnlyVisible
+    };
+    Q_ENUM(RehighlightMode)
 
     Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
     Q_PROPERTY(bool active READ active WRITE setActive NOTIFY activeChanged)
     Q_PROPERTY(Mode mode READ mode WRITE setMode NOTIFY modeChanged)
-    Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
-    Q_PROPERTY(QColor dimmedColor READ dimmedColor WRITE setDimmedColor NOTIFY dimmedColorChanged)
-    Q_PROPERTY(QColor codeColor READ codeColor WRITE setCodeColor NOTIFY codeColorChanged)
-    Q_PROPERTY(QColor accentColor READ accentColor WRITE setAccentColor NOTIFY accentColorChanged)
+    Q_PROPERTY(RehighlightMode rehighlightMode READ rehighlightMode WRITE setRehighlightMode NOTIFY rehighlightModeChanged)
     Q_PROPERTY(QString fixedFontFamily READ fixedFontFamily WRITE setFixedFontFamily NOTIFY fixedFontFamilyChanged)
     Q_PROPERTY(qreal baseFontSize READ baseFontSize WRITE setBaseFontSize NOTIFY baseFontSizeChanged)
 
@@ -47,17 +58,8 @@ public:
     Mode mode() const;
     void setMode(Mode mode);
 
-    QColor textColor() const;
-    void setTextColor(const QColor &color);
-
-    QColor dimmedColor() const;
-    void setDimmedColor(const QColor &color);
-
-    QColor codeColor() const;
-    void setCodeColor(const QColor &color);
-
-    QColor accentColor() const;
-    void setAccentColor(const QColor &color);
+    RehighlightMode rehighlightMode() const;
+    void setRehighlightMode(RehighlightMode mode);
 
     QString fixedFontFamily() const;
     void setFixedFontFamily(const QString &family);
@@ -65,17 +67,20 @@ public:
     qreal baseFontSize() const;
     void setBaseFontSize(qreal size);
 
+public Q_SLOTS:
+    void doRehighlight();
+    void updateViewportInfo(int contentY, int height);
+    void rehighlightVisible();
+
 protected:
     void highlightBlock(const QString &text) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 Q_SIGNALS:
     void documentChanged();
     void activeChanged();
     void modeChanged();
-    void textColorChanged();
-    void dimmedColorChanged();
-    void codeColorChanged();
-    void accentColorChanged();
+    void rehighlightModeChanged();
     void fixedFontFamilyChanged();
     void baseFontSizeChanged();
 
@@ -83,13 +88,16 @@ private:
     void parseDoc();
     void updateBlockFormats();
     void applyFormat(int start, int length, const QTextCharFormat &fmt);
+    void initTheme();
+    int firstVisibleBlockNumber() const;
 
     QQuickTextDocument *m_quickDocument = nullptr;
     bool m_active = true;
-    bool m_textDirty = true;
-    bool m_formatsDirty = true;
     Mode m_mode = Mode::Full;
+    RehighlightMode m_rehighlightMode = FullRehighlight;
     qreal m_baseFontSize = 10.0;
+    int m_contentY;
+    int m_contentHeight;
 
     MarkdownTheme m_theme;
     QList<QList<FormatRange>> m_blockFormats;

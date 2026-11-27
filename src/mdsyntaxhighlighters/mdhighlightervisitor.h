@@ -5,6 +5,7 @@
 #define MDHIGHLIGHTERVISITOR_H
 
 #include "markdowntheme.h"
+#include "mdhighlighter.h"
 
 #include <QHash>
 #include <QList>
@@ -15,17 +16,6 @@
 #include <md4qt/doc.h>
 #include <md4qt/visitor.h>
 
-enum class HighlighterMode {
-    Full,
-    Inline
-};
-
-struct FormatRange {
-    int start = 0;
-    int length = 0;
-    QTextCharFormat format;
-};
-
 class MDHighlighterVisitor : public MD::Visitor
 {
 public:
@@ -33,7 +23,7 @@ public:
                          const MarkdownTheme &theme,
                          qreal baseFontSize,
                          const QList<int> &lineOffsets,
-                         HighlighterMode mode = HighlighterMode::Full);
+                         MDHighlighter::Mode mode = MDHighlighter::Full);
     ~MDHighlighterVisitor() override = default;
 
     QList<QList<FormatRange>> takeBlockFormats();
@@ -77,7 +67,7 @@ private:
     const MarkdownTheme &m_theme;
     qreal m_baseFontSize;
     const QList<int> &m_lineOffsets;
-    HighlighterMode m_mode;
+    MDHighlighter::Mode m_mode;
     QList<QList<FormatRange>> m_blockFormats;
 };
 

@@ -176,6 +176,14 @@ EditPage {
                 }
             }
         }
+
+        function updateViewportInfo() {
+            highlighter.updateViewportInfo(contentItem.contentY, availableHeight);
+        }
+
+        ScrollBar.vertical.onPositionChanged: updateViewportInfo()
+        onAvailableHeightChanged: updateViewportInfo()
+        onAvailableWidthChanged: updateViewportInfo()
     }
 
     document: RawDocumentHandler {
@@ -202,12 +210,9 @@ EditPage {
     MDHighlighter {
         id: highlighter
         document: root.textArea ? root.textArea.textDocument : null
-        textColor: Kirigami.Theme.textColor
-        dimmedColor: Kirigami.Theme.disabledTextColor
-        codeColor: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.textColor, Kirigami.Theme.focusColor, 0.7)
-        accentColor: Kirigami.Theme.highlightColor
         fixedFontFamily: Kirigami.Theme.fixedWidthFont.family
         baseFontSize: Config.editorFont.pointSize
+        rehighlightMode: MDHighlighter.RehighlightOnlyVisible
         active: true
     }
 
