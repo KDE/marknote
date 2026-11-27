@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 00:58+0000\n"
+"POT-Creation-Date: 2026-11-27 01:05+0000\n"
 "PO-Revision-Date: 2026-10-02 00:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -59,100 +59,120 @@ msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "“%1”에 쓰는 중 오류 발생"
 
-#: main.cpp:62
+#: main.cpp:64
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:63 main.cpp:68 main.cpp:71
+#: main.cpp:65 main.cpp:70 main.cpp:73
 #, kde-format
 msgid "Maintainer"
 msgstr "관리자"
 
-#: main.cpp:68
+#: main.cpp:70
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:70
+#: main.cpp:72
 #, kde-format
 msgid "Valentyn Bondarenko"
 msgstr "Valentyn Bondarenko"
 
-#: main.cpp:79
+#: main.cpp:81
 #, kde-format
 msgid "Justin Zobel"
 msgstr "Justin Zobel"
 
-#: main.cpp:80
+#: main.cpp:82
 #, kde-format
 msgid "Flatpak support"
 msgstr "Flatpak 지원"
 
-#: main.cpp:85
+#: main.cpp:87
 #, kde-format
 msgid "Shubham Shinde"
 msgstr "Shubham Shinde"
 
-#: main.cpp:86
+#: main.cpp:88
 #, kde-format
 msgid "Table of Contents"
 msgstr "목차"
 
-#: main.cpp:91
+#: main.cpp:93
 #, kde-format
 msgid "Siddharth Chopra"
 msgstr "Siddharth Chopra"
 
-#: main.cpp:92
+#: main.cpp:94
 #, kde-format
 msgid "Source Mode"
 msgstr "소스 모드"
 
-#: main.cpp:97
+#: main.cpp:99
 #, kde-format
 msgid "Prayag Jain"
 msgstr "Prayag Jain"
 
-#: main.cpp:98
+#: main.cpp:100
 #, kde-format
 msgid "Block Editor"
 msgstr "블록 편집기"
 
-#: main.cpp:103
+#: main.cpp:105
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: main.cpp:104 main.cpp:109
+#: main.cpp:106 main.cpp:111
 #, kde-format
 msgid "Bug fixes"
 msgstr "버그 수정"
 
-#: main.cpp:109
+#: main.cpp:111
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: main.cpp:130 qml/Main.qml:466
+#: main.cpp:113
+#, kde-format
+msgid "Divyanshu"
+msgstr ""
+
+#: main.cpp:113
+#, kde-format
+msgid "Mermaid diagram support"
+msgstr ""
+
+#: main.cpp:134 qml/Main.qml:467
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:132
+#: main.cpp:136
 #, kde-format
 msgid "Note taking application"
 msgstr "메모 작성 프로그램"
 
-#: main.cpp:134
+#: main.cpp:138
 #, kde-format
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023–2026 Mathis Brüchert"
 
-#: main.cpp:140
+#: main.cpp:144
 #, kde-format
 msgid "Markdown parsing library"
+msgstr ""
+
+#: main.cpp:149
+#, kde-format
+msgid "Diagram rendering library"
+msgstr ""
+
+#: main.cpp:150
+#, kde-format
+msgid "Mathematical notation rendering library"
 msgstr ""
 
 #: notesmodel.cpp:200
@@ -231,7 +251,12 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "파일을 이동할 수 없습니다."
 
-#: qml/BlockCode.qml:338
+#: qml/BlockCode.qml:90
+#, kde-format
+msgid "Diagram rendering failed. Check Mermaid syntax."
+msgstr ""
+
+#: qml/BlockCode.qml:453
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "클립보드에 복사됨!"
@@ -358,30 +383,40 @@ msgstr "구문 강조가 있는 코드 스니펫"
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
+msgid "Mermaid Diagram"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:32
+#, kde-format
+msgid "Flowchart, sequence, or architecture diagram"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:33
+#, kde-format
 msgid "Divider"
 msgstr "구분자"
 
-#: qml/components/SlashMenuPopup.qml:32
+#: qml/components/SlashMenuPopup.qml:33
 #, kde-format
 msgid "Horizontal dividing line"
 msgstr "수평 구분선"
 
-#: qml/components/SlashMenuPopup.qml:33
+#: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Table"
 msgstr "표"
 
-#: qml/components/SlashMenuPopup.qml:33
+#: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Tabular data grid"
 msgstr "표 형태 데이터 그리드"
 
-#: qml/components/SlashMenuPopup.qml:34
+#: qml/components/SlashMenuPopup.qml:35
 #, kde-format
 msgid "Close menu"
 msgstr "메뉴 닫기"
 
-#: qml/components/SlashMenuPopup.qml:34
+#: qml/components/SlashMenuPopup.qml:35
 #, kde-format
 msgid "Dismiss this menu"
 msgstr "이 메뉴 끄기"
@@ -575,7 +610,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "공책 만들기"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:905
+#: qml/Main.qml:361 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -613,7 +648,7 @@ msgstr "사이드바 접기"
 msgid "Expand Sidebar"
 msgstr "사이드바 펼치기"
 
-#: qml/Main.qml:589
+#: qml/Main.qml:592
 #, kde-format
 msgid "Your Notebooks"
 msgstr "내 공책"
@@ -1063,137 +1098,137 @@ msgstr "그림 파일 (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "모든 파일 (*)"
 
-#: qml/RichEditPage.qml:877
+#: qml/RichEditPage.qml:880
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "굵게"
 
-#: qml/RichEditPage.qml:899
+#: qml/RichEditPage.qml:902
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "이탤릭"
 
-#: qml/RichEditPage.qml:916
+#: qml/RichEditPage.qml:919
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "취소선"
 
-#: qml/RichEditPage.qml:936
+#: qml/RichEditPage.qml:939
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "목록 단계 증가"
 
-#: qml/RichEditPage.qml:950
+#: qml/RichEditPage.qml:953
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "목록 단계 감소"
 
-#: qml/RichEditPage.qml:993
+#: qml/RichEditPage.qml:996
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "순서 없는 목록"
 
-#: qml/RichEditPage.qml:1012
+#: qml/RichEditPage.qml:1015
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "정렬된 목록"
 
-#: qml/RichEditPage.qml:1031
+#: qml/RichEditPage.qml:1034
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr "체크리스트"
 
-#: qml/RichEditPage.qml:1057
+#: qml/RichEditPage.qml:1060
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "링크 삽입"
 
-#: qml/RichEditPage.qml:1076
+#: qml/RichEditPage.qml:1079
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "노트 링크 삽입"
 
-#: qml/RichEditPage.qml:1095
+#: qml/RichEditPage.qml:1098
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "그림 삽입"
 
-#: qml/RichEditPage.qml:1112
+#: qml/RichEditPage.qml:1115
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "표 삽입"
 
-#: qml/RichEditPage.qml:1129
+#: qml/RichEditPage.qml:1132
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "스케치 삽입"
 
-#: qml/RichEditPage.qml:1194
+#: qml/RichEditPage.qml:1197
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "문단"
 
-#: qml/RichEditPage.qml:1205
+#: qml/RichEditPage.qml:1208
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "머리글 1"
 
-#: qml/RichEditPage.qml:1216
+#: qml/RichEditPage.qml:1219
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "머리글 2"
 
-#: qml/RichEditPage.qml:1227
+#: qml/RichEditPage.qml:1230
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "머리글 3"
 
-#: qml/RichEditPage.qml:1238
+#: qml/RichEditPage.qml:1241
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "머리글 4"
 
-#: qml/RichEditPage.qml:1249
+#: qml/RichEditPage.qml:1252
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "머리글 5"
 
-#: qml/RichEditPage.qml:1260
+#: qml/RichEditPage.qml:1263
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "머리글 6"
 
-#: qml/RichEditPage.qml:1434
+#: qml/RichEditPage.qml:1437
 #, kde-format
 msgid "Format"
 msgstr "형식"
 
-#: qml/RichEditPage.qml:1443
+#: qml/RichEditPage.qml:1446
 #, kde-format
 msgid "Lists"
 msgstr "목록"
 
-#: qml/RichEditPage.qml:1452
+#: qml/RichEditPage.qml:1455
 #, kde-format
 msgid "Insert"
 msgstr "삽입"

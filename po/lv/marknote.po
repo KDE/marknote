@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 00:58+0000\n"
+"POT-Creation-Date: 2026-11-27 01:05+0000\n"
 "PO-Revision-Date: 2025-07-02 17:34+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -62,103 +62,123 @@ msgctxt "@status"
 msgid "An error occurred while writing to “%1”"
 msgstr "Kļūda, rakstot uz „%1“"
 
-#: main.cpp:62
+#: main.cpp:64
 #, kde-format
 msgid "Mathis Brüchert"
 msgstr "Mathis Brüchert"
 
-#: main.cpp:63 main.cpp:68 main.cpp:71
+#: main.cpp:65 main.cpp:70 main.cpp:73
 #, kde-format
 msgid "Maintainer"
 msgstr "Uzturētājs"
 
-#: main.cpp:68
+#: main.cpp:70
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: main.cpp:70
+#: main.cpp:72
 #, kde-format
 msgid "Valentyn Bondarenko"
 msgstr ""
 
-#: main.cpp:79
+#: main.cpp:81
 #, kde-format
 msgid "Justin Zobel"
 msgstr ""
 
-#: main.cpp:80
+#: main.cpp:82
 #, kde-format
 msgid "Flatpak support"
 msgstr ""
 
-#: main.cpp:85
+#: main.cpp:87
 #, kde-format
 msgid "Shubham Shinde"
 msgstr ""
 
-#: main.cpp:86
+#: main.cpp:88
 #, fuzzy, kde-format
 #| msgid "Cell Contents"
 msgid "Table of Contents"
 msgstr "Šūnu saturs"
 
-#: main.cpp:91
+#: main.cpp:93
 #, kde-format
 msgid "Siddharth Chopra"
 msgstr ""
 
-#: main.cpp:92
+#: main.cpp:94
 #, fuzzy, kde-format
 #| msgid "Focus Mode"
 msgid "Source Mode"
 msgstr "Fokusēšanās režīms"
 
-#: main.cpp:97
+#: main.cpp:99
 #, kde-format
 msgid "Prayag Jain"
 msgstr ""
 
-#: main.cpp:98
+#: main.cpp:100
 #, kde-format
 msgid "Block Editor"
 msgstr ""
 
-#: main.cpp:103
+#: main.cpp:105
 #, kde-format
 msgid "Joshua Goins"
 msgstr ""
 
-#: main.cpp:104 main.cpp:109
+#: main.cpp:106 main.cpp:111
 #, kde-format
 msgid "Bug fixes"
 msgstr ""
 
-#: main.cpp:109
+#: main.cpp:111
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:130 qml/Main.qml:466
+#: main.cpp:113
+#, kde-format
+msgid "Divyanshu"
+msgstr ""
+
+#: main.cpp:113
+#, kde-format
+msgid "Mermaid diagram support"
+msgstr ""
+
+#: main.cpp:134 qml/Main.qml:467
 #, kde-format
 msgctxt "Application name"
 msgid "Marknote"
 msgstr "Marknote"
 
-#: main.cpp:132
+#: main.cpp:136
 #, kde-format
 msgid "Note taking application"
 msgstr "Piezīmju programma"
 
-#: main.cpp:134
+#: main.cpp:138
 #, fuzzy, kde-format
 #| msgid "© 2023-2024 Mathis Brüchert"
 msgid "© 2023–2026 Mathis Brüchert"
 msgstr "© 2023—2024 Mathis Brüchert"
 
-#: main.cpp:140
+#: main.cpp:144
 #, kde-format
 msgid "Markdown parsing library"
+msgstr ""
+
+#: main.cpp:149
+#, kde-format
+msgid "Diagram rendering library"
+msgstr ""
+
+#: main.cpp:150
+#, kde-format
+msgid "Mathematical notation rendering library"
 msgstr ""
 
 #: notesmodel.cpp:200
@@ -233,7 +253,12 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr ""
 
-#: qml/BlockCode.qml:338
+#: qml/BlockCode.qml:90
+#, kde-format
+msgid "Diagram rendering failed. Check Mermaid syntax."
+msgstr ""
+
+#: qml/BlockCode.qml:453
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr ""
@@ -377,30 +402,40 @@ msgstr ""
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
-msgid "Divider"
+msgid "Mermaid Diagram"
 msgstr ""
 
 #: qml/components/SlashMenuPopup.qml:32
 #, kde-format
-msgid "Horizontal dividing line"
+msgid "Flowchart, sequence, or architecture diagram"
 msgstr ""
 
 #: qml/components/SlashMenuPopup.qml:33
+#, kde-format
+msgid "Divider"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:33
+#, kde-format
+msgid "Horizontal dividing line"
+msgstr ""
+
+#: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Table"
 msgstr ""
 
-#: qml/components/SlashMenuPopup.qml:33
+#: qml/components/SlashMenuPopup.qml:34
 #, kde-format
 msgid "Tabular data grid"
 msgstr ""
 
-#: qml/components/SlashMenuPopup.qml:34
+#: qml/components/SlashMenuPopup.qml:35
 #, kde-format
 msgid "Close menu"
 msgstr ""
 
-#: qml/components/SlashMenuPopup.qml:34
+#: qml/components/SlashMenuPopup.qml:35
 #, kde-format
 msgid "Dismiss this menu"
 msgstr ""
@@ -607,7 +642,7 @@ msgctxt "@action:button"
 msgid "Create Notebook"
 msgstr "Izveidot piezīmju grāmatu"
 
-#: qml/Main.qml:360 qml/NotesPage.qml:905
+#: qml/Main.qml:361 qml/NotesPage.qml:905
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
@@ -645,7 +680,7 @@ msgstr "Sakļaut sānu joslu"
 msgid "Expand Sidebar"
 msgstr "Izvērst sānu joslu"
 
-#: qml/Main.qml:589
+#: qml/Main.qml:592
 #, kde-format
 msgid "Your Notebooks"
 msgstr "Jūsu piezīmju grāmatiņas"
@@ -1120,37 +1155,37 @@ msgstr "Attēlu datnes (*.jpg *.jpeg *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "Visas datnes (*)"
 
-#: qml/RichEditPage.qml:877
+#: qml/RichEditPage.qml:880
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Treknraksts"
 
-#: qml/RichEditPage.qml:899
+#: qml/RichEditPage.qml:902
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Slīpraksts"
 
-#: qml/RichEditPage.qml:916
+#: qml/RichEditPage.qml:919
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Pārsvītrots"
 
-#: qml/RichEditPage.qml:936
+#: qml/RichEditPage.qml:939
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Pacelt saraksta līmeni"
 
-#: qml/RichEditPage.qml:950
+#: qml/RichEditPage.qml:953
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Nolaist saraksta līmeni"
 
-#: qml/RichEditPage.qml:993
+#: qml/RichEditPage.qml:996
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu unordered style"
 #| msgid "Unordered list"
@@ -1158,7 +1193,7 @@ msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Nekārtots saraksts"
 
-#: qml/RichEditPage.qml:1012
+#: qml/RichEditPage.qml:1015
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu ordered style"
 #| msgid "Ordered list"
@@ -1166,19 +1201,19 @@ msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Kārtots saraksts"
 
-#: qml/RichEditPage.qml:1031
+#: qml/RichEditPage.qml:1034
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr ""
 
-#: qml/RichEditPage.qml:1057
+#: qml/RichEditPage.qml:1060
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Ievietot saiti"
 
-#: qml/RichEditPage.qml:1076
+#: qml/RichEditPage.qml:1079
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -1186,19 +1221,19 @@ msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Ievietot saiti"
 
-#: qml/RichEditPage.qml:1095
+#: qml/RichEditPage.qml:1098
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Ievietot attēlu"
 
-#: qml/RichEditPage.qml:1112
+#: qml/RichEditPage.qml:1115
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Ievietot tabulu"
 
-#: qml/RichEditPage.qml:1129
+#: qml/RichEditPage.qml:1132
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Insert link"
@@ -1206,7 +1241,7 @@ msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Ievietot saiti"
 
-#: qml/RichEditPage.qml:1194
+#: qml/RichEditPage.qml:1197
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu heading level 5"
 #| msgid "Paragraph"
@@ -1214,59 +1249,59 @@ msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Rindkopa"
 
-#: qml/RichEditPage.qml:1205
+#: qml/RichEditPage.qml:1208
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "Galvene „%1“"
 
-#: qml/RichEditPage.qml:1216
+#: qml/RichEditPage.qml:1219
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "Galvene „%1“"
 
-#: qml/RichEditPage.qml:1227
+#: qml/RichEditPage.qml:1230
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "Galvene „%1“"
 
-#: qml/RichEditPage.qml:1238
+#: qml/RichEditPage.qml:1241
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "Galvene „%1“"
 
-#: qml/RichEditPage.qml:1249
+#: qml/RichEditPage.qml:1252
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "Galvene „%1“"
 
-#: qml/RichEditPage.qml:1260
+#: qml/RichEditPage.qml:1263
 #, fuzzy, kde-format
 #| msgid "Heading %1"
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "Galvene „%1“"
 
-#: qml/RichEditPage.qml:1434
+#: qml/RichEditPage.qml:1437
 #, kde-format
 msgid "Format"
 msgstr "Formāts"
 
-#: qml/RichEditPage.qml:1443
+#: qml/RichEditPage.qml:1446
 #, kde-format
 msgid "Lists"
 msgstr "Saraksts"
 
-#: qml/RichEditPage.qml:1452
+#: qml/RichEditPage.qml:1455
 #, kde-format
 msgid "Insert"
 msgstr "Ievietot"
