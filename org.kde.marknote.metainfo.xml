@@ -145,7 +145,7 @@
         <p>The new editor offers full Markdown nesting, meaning you can have lists in quotes, code in quotes, code in lists and every possible combination of elements you can think of.</p>
         <p>Code blocks now offer syntax highlighting for most languages and allow you to quickly copy their contents.</p>
       </description>
-    <release>
+    </release>
     <release version="1.6.0" date="2026-05-30">
       <url>https://carlschwan.eu/2026/05/30/marknote-1.6.0/</url>
       <description>
