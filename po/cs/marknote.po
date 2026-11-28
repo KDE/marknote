@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:05+0000\n"
-"PO-Revision-Date: 2026-11-08 23:27+0100\n"
+"POT-Creation-Date: 2026-11-28 01:10+0000\n"
+"PO-Revision-Date: 2026-11-28 01:02+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.3\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -233,7 +233,7 @@ msgstr "Neplatná operace přesouvání."
 #, kde-format
 msgctxt "@info:status"
 msgid "Cannot move a folder into itself."
-msgstr "Nelze přesunout složku samu na sebe"
+msgstr "Nelze přesunout složku samu na sebe."
 
 #: notesmodel.cpp:362
 #, kde-format
@@ -241,12 +241,12 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Nelze přesunout soubor."
 
-#: qml/BlockCode.qml:90
+#: qml/BlockCode.qml:93
 #, kde-format
 msgid "Diagram rendering failed. Check Mermaid syntax."
 msgstr ""
 
-#: qml/BlockCode.qml:453
+#: qml/BlockCode.qml:457
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Zkopírováno do schránky!"
@@ -1083,137 +1083,137 @@ msgstr "Soubory obrázků (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "Všechny soubory (*)"
 
-#: qml/RichEditPage.qml:880
+#: qml/RichEditPage.qml:851
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Tučné"
 
-#: qml/RichEditPage.qml:902
+#: qml/RichEditPage.qml:873
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kurzíva"
 
-#: qml/RichEditPage.qml:919
+#: qml/RichEditPage.qml:890
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Přeškrtnutí"
 
-#: qml/RichEditPage.qml:939
+#: qml/RichEditPage.qml:910
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Zvýšit úroveň seznamu"
 
-#: qml/RichEditPage.qml:953
+#: qml/RichEditPage.qml:924
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Snížit úroveň seznamu"
 
-#: qml/RichEditPage.qml:996
+#: qml/RichEditPage.qml:967
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Neseřazený seznam"
 
-#: qml/RichEditPage.qml:1015
+#: qml/RichEditPage.qml:986
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Seřazený seznam"
 
-#: qml/RichEditPage.qml:1034
+#: qml/RichEditPage.qml:1005
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr "Kontrolní seznam"
 
-#: qml/RichEditPage.qml:1060
+#: qml/RichEditPage.qml:1031
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Vložit odkaz"
 
-#: qml/RichEditPage.qml:1079
+#: qml/RichEditPage.qml:1050
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Vložit odkaz na poznámku"
 
-#: qml/RichEditPage.qml:1098
+#: qml/RichEditPage.qml:1069
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Vložit obrázek"
 
-#: qml/RichEditPage.qml:1115
+#: qml/RichEditPage.qml:1086
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Vložit tabulku"
 
-#: qml/RichEditPage.qml:1132
+#: qml/RichEditPage.qml:1103
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Vložit náčrt"
 
-#: qml/RichEditPage.qml:1197
+#: qml/RichEditPage.qml:1168
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Odstavec"
 
-#: qml/RichEditPage.qml:1208
+#: qml/RichEditPage.qml:1179
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "Nadpis 1"
 
-#: qml/RichEditPage.qml:1219
+#: qml/RichEditPage.qml:1190
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "Nadpis 2"
 
-#: qml/RichEditPage.qml:1230
+#: qml/RichEditPage.qml:1201
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "Nadpis 3"
 
-#: qml/RichEditPage.qml:1241
+#: qml/RichEditPage.qml:1212
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "Nadpis 4"
 
-#: qml/RichEditPage.qml:1252
+#: qml/RichEditPage.qml:1223
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "Nadpis 5"
 
-#: qml/RichEditPage.qml:1263
+#: qml/RichEditPage.qml:1234
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "Nadpis 6"
 
-#: qml/RichEditPage.qml:1437
+#: qml/RichEditPage.qml:1408
 #, kde-format
 msgid "Format"
 msgstr "Formát"
 
-#: qml/RichEditPage.qml:1446
+#: qml/RichEditPage.qml:1417
 #, kde-format
 msgid "Lists"
 msgstr "Seznamy"
 
-#: qml/RichEditPage.qml:1455
+#: qml/RichEditPage.qml:1426
 #, kde-format
 msgid "Insert"
 msgstr "Vložit"

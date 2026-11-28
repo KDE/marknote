@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: marknote\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:05+0000\n"
+"POT-Creation-Date: 2026-11-28 01:10+0000\n"
 "PO-Revision-Date: 2026-11-08 06:55-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@kde.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -245,12 +245,12 @@ msgctxt "@info:status"
 msgid "Failed to move file."
 msgstr "Falha ao mover o arquivo."
 
-#: qml/BlockCode.qml:90
+#: qml/BlockCode.qml:93
 #, kde-format
 msgid "Diagram rendering failed. Check Mermaid syntax."
 msgstr ""
 
-#: qml/BlockCode.qml:453
+#: qml/BlockCode.qml:457
 #, kde-format
 msgid "Copied to clipboard!"
 msgstr "Copiado para a área de transferência!"
@@ -1085,137 +1085,137 @@ msgstr "Arquivos de imagens (*.jpg *.jpeg *.jxl *.png *.svg *.webp)"
 msgid "All files (*)"
 msgstr "Todo tipo de arquivos (*)"
 
-#: qml/RichEditPage.qml:880
+#: qml/RichEditPage.qml:851
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Negrito"
 
-#: qml/RichEditPage.qml:902
+#: qml/RichEditPage.qml:873
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Itálico"
 
-#: qml/RichEditPage.qml:919
+#: qml/RichEditPage.qml:890
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Tachado"
 
-#: qml/RichEditPage.qml:939
+#: qml/RichEditPage.qml:910
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Aumentar nível da lista"
 
-#: qml/RichEditPage.qml:953
+#: qml/RichEditPage.qml:924
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Diminuir nível da lista"
 
-#: qml/RichEditPage.qml:996
+#: qml/RichEditPage.qml:967
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered list"
 msgstr "Lista não ordenada"
 
-#: qml/RichEditPage.qml:1015
+#: qml/RichEditPage.qml:986
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered list"
 msgstr "Lista ordenada"
 
-#: qml/RichEditPage.qml:1034
+#: qml/RichEditPage.qml:1005
 #, kde-format
 msgctxt "@action:button"
 msgid "Checklist"
 msgstr "Lista de verificação"
 
-#: qml/RichEditPage.qml:1060
+#: qml/RichEditPage.qml:1031
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Inserir link"
 
-#: qml/RichEditPage.qml:1079
+#: qml/RichEditPage.qml:1050
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert note link"
 msgstr "Inserir link de nota"
 
-#: qml/RichEditPage.qml:1098
+#: qml/RichEditPage.qml:1069
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert image"
 msgstr "Inserir imagem"
 
-#: qml/RichEditPage.qml:1115
+#: qml/RichEditPage.qml:1086
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert table"
 msgstr "Inserir tabela"
 
-#: qml/RichEditPage.qml:1132
+#: qml/RichEditPage.qml:1103
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert sketch"
 msgstr "Inserir esboço"
 
-#: qml/RichEditPage.qml:1197
+#: qml/RichEditPage.qml:1168
 #, kde-format
 msgctxt "@item:inmenu no heading"
 msgid "Paragraph"
 msgstr "Parágrafo"
 
-#: qml/RichEditPage.qml:1208
+#: qml/RichEditPage.qml:1179
 #, kde-format
 msgctxt "@item:inmenu heading level 1 (largest)"
 msgid "Heading 1"
 msgstr "Cabeçalho 1"
 
-#: qml/RichEditPage.qml:1219
+#: qml/RichEditPage.qml:1190
 #, kde-format
 msgctxt "@item:inmenu heading level 2"
 msgid "Heading 2"
 msgstr "Cabeçalho 2"
 
-#: qml/RichEditPage.qml:1230
+#: qml/RichEditPage.qml:1201
 #, kde-format
 msgctxt "@item:inmenu heading level 3"
 msgid "Heading 3"
 msgstr "Cabeçalho 3"
 
-#: qml/RichEditPage.qml:1241
+#: qml/RichEditPage.qml:1212
 #, kde-format
 msgctxt "@item:inmenu heading level 4"
 msgid "Heading 4"
 msgstr "Cabeçalho 4"
 
-#: qml/RichEditPage.qml:1252
+#: qml/RichEditPage.qml:1223
 #, kde-format
 msgctxt "@item:inmenu heading level 5"
 msgid "Heading 5"
 msgstr "Cabeçalho 5"
 
-#: qml/RichEditPage.qml:1263
+#: qml/RichEditPage.qml:1234
 #, kde-format
 msgctxt "@item:inmenu heading level 6 (smallest)"
 msgid "Heading 6"
 msgstr "Cabeçalho 6"
 
-#: qml/RichEditPage.qml:1437
+#: qml/RichEditPage.qml:1408
 #, kde-format
 msgid "Format"
 msgstr "Formatar"
 
-#: qml/RichEditPage.qml:1446
+#: qml/RichEditPage.qml:1417
 #, kde-format
 msgid "Lists"
 msgstr "Listas"
 
-#: qml/RichEditPage.qml:1455
+#: qml/RichEditPage.qml:1426
 #, kde-format
 msgid "Insert"
 msgstr "Inserir"
