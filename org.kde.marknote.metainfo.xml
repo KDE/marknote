@@ -138,6 +138,14 @@
     <binary>marknote</binary>
   </provides>
   <releases>
+    <release version="1.6.0" date="2026-11-29">
+      <url>https://blogs.kde.org/2026/11/29/marknote-1.7-the-editor-update/</url>
+      <description>
+        <p>We now have a fully fletched block editor like you might know from applications like Notion. Each element is now its own block, allowing quick re-aranging of your notes, and more importantly gives us full control over the note rendering.</p>
+        <p>The new editor offers full Markdown nesting, meaning you can have lists in quotes, code in quotes, code in lists and every possible combination of elements you can think of.</p>
+        <p>Code blocks now offer syntax highlighting for most languages and allow you to quickly copy their contents.</p>
+      </description>
+    <release>
     <release version="1.6.0" date="2026-05-30">
       <url>https://carlschwan.eu/2026/05/30/marknote-1.6.0/</url>
       <description>
